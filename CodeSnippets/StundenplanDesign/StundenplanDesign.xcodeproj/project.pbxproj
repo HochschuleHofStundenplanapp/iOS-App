@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE39C6CE1DAE2D28002BBC87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39C6CD1DAE2D28002BBC87 /* AppDelegate.swift */; };
+		CE39C6D01DAE2D28002BBC87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39C6CF1DAE2D28002BBC87 /* ViewController.swift */; };
+		CE39C6D31DAE2D28002BBC87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39C6D11DAE2D28002BBC87 /* Main.storyboard */; };
+		CE39C6D51DAE2D28002BBC87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE39C6D41DAE2D28002BBC87 /* Assets.xcassets */; };
+		CE39C6D81DAE2D28002BBC87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39C6D61DAE2D28002BBC87 /* LaunchScreen.storyboard */; };
+		CE39C6E31DAE2D29002BBC87 /* StundenplanDesignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39C6E21DAE2D29002BBC87 /* StundenplanDesignTests.swift */; };
+		CE39C6EE1DAE2D29002BBC87 /* StundenplanDesignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39C6ED1DAE2D29002BBC87 /* StundenplanDesignUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE39C6DF1DAE2D29002BBC87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE39C6C21DAE2D28002BBC87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE39C6C91DAE2D28002BBC87;
+			remoteInfo = StundenplanDesign;
+		};
+		CE39C6EA1DAE2D29002BBC87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE39C6C21DAE2D28002BBC87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE39C6C91DAE2D28002BBC87;
+			remoteInfo = StundenplanDesign;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE39C6CA1DAE2D28002BBC87 /* StundenplanDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE39C6CD1DAE2D28002BBC87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE39C6CF1DAE2D28002BBC87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE39C6D21DAE2D28002BBC87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE39C6D41DAE2D28002BBC87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE39C6D71DAE2D28002BBC87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE39C6D91DAE2D28002BBC87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE39C6DE1DAE2D29002BBC87 /* StundenplanDesignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StundenplanDesignTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE39C6E21DAE2D29002BBC87 /* StundenplanDesignTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanDesignTests.swift; sourceTree = "<group>"; };
+		CE39C6E41DAE2D29002BBC87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE39C6E91DAE2D29002BBC87 /* StundenplanDesignUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StundenplanDesignUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE39C6ED1DAE2D29002BBC87 /* StundenplanDesignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanDesignUITests.swift; sourceTree = "<group>"; };
+		CE39C6EF1DAE2D29002BBC87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE39C6C71DAE2D28002BBC87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE39C6DB1DAE2D29002BBC87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE39C6E61DAE2D29002BBC87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE39C6C11DAE2D28002BBC87 = {
+			isa = PBXGroup;
+			children = (
+				CE39C6CC1DAE2D28002BBC87 /* StundenplanDesign */,
+				CE39C6E11DAE2D29002BBC87 /* StundenplanDesignTests */,
+				CE39C6EC1DAE2D29002BBC87 /* StundenplanDesignUITests */,
+				CE39C6CB1DAE2D28002BBC87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE39C6CB1DAE2D28002BBC87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE39C6CA1DAE2D28002BBC87 /* StundenplanDesign.app */,
+				CE39C6DE1DAE2D29002BBC87 /* StundenplanDesignTests.xctest */,
+				CE39C6E91DAE2D29002BBC87 /* StundenplanDesignUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE39C6CC1DAE2D28002BBC87 /* StundenplanDesign */ = {
+			isa = PBXGroup;
+			children = (
+				CE39C6CD1DAE2D28002BBC87 /* AppDelegate.swift */,
+				CE39C6CF1DAE2D28002BBC87 /* ViewController.swift */,
+				CE39C6D11DAE2D28002BBC87 /* Main.storyboard */,
+				CE39C6D41DAE2D28002BBC87 /* Assets.xcassets */,
+				CE39C6D61DAE2D28002BBC87 /* LaunchScreen.storyboard */,
+				CE39C6D91DAE2D28002BBC87 /* Info.plist */,
+			);
+			path = StundenplanDesign;
+			sourceTree = "<group>";
+		};
+		CE39C6E11DAE2D29002BBC87 /* StundenplanDesignTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE39C6E21DAE2D29002BBC87 /* StundenplanDesignTests.swift */,
+				CE39C6E41DAE2D29002BBC87 /* Info.plist */,
+			);
+			path = StundenplanDesignTests;
+			sourceTree = "<group>";
+		};
+		CE39C6EC1DAE2D29002BBC87 /* StundenplanDesignUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CE39C6ED1DAE2D29002BBC87 /* StundenplanDesignUITests.swift */,
+				CE39C6EF1DAE2D29002BBC87 /* Info.plist */,
+			);
+			path = StundenplanDesignUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE39C6C91DAE2D28002BBC87 /* StundenplanDesign */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE39C6F21DAE2D29002BBC87 /* Build configuration list for PBXNativeTarget "StundenplanDesign" */;
+			buildPhases = (
+				CE39C6C61DAE2D28002BBC87 /* Sources */,
+				CE39C6C71DAE2D28002BBC87 /* Frameworks */,
+				CE39C6C81DAE2D28002BBC87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StundenplanDesign;
+			productName = StundenplanDesign;
+			productReference = CE39C6CA1DAE2D28002BBC87 /* StundenplanDesign.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE39C6DD1DAE2D29002BBC87 /* StundenplanDesignTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE39C6F51DAE2D29002BBC87 /* Build configuration list for PBXNativeTarget "StundenplanDesignTests" */;
+			buildPhases = (
+				CE39C6DA1DAE2D29002BBC87 /* Sources */,
+				CE39C6DB1DAE2D29002BBC87 /* Frameworks */,
+				CE39C6DC1DAE2D29002BBC87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE39C6E01DAE2D29002BBC87 /* PBXTargetDependency */,
+			);
+			name = StundenplanDesignTests;
+			productName = StundenplanDesignTests;
+			productReference = CE39C6DE1DAE2D29002BBC87 /* StundenplanDesignTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CE39C6E81DAE2D29002BBC87 /* StundenplanDesignUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE39C6F81DAE2D29002BBC87 /* Build configuration list for PBXNativeTarget "StundenplanDesignUITests" */;
+			buildPhases = (
+				CE39C6E51DAE2D29002BBC87 /* Sources */,
+				CE39C6E61DAE2D29002BBC87 /* Frameworks */,
+				CE39C6E71DAE2D29002BBC87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE39C6EB1DAE2D29002BBC87 /* PBXTargetDependency */,
+			);
+			name = StundenplanDesignUITests;
+			productName = StundenplanDesignUITests;
+			productReference = CE39C6E91DAE2D29002BBC87 /* StundenplanDesignUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE39C6C21DAE2D28002BBC87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jonas Beetz";
+				TargetAttributes = {
+					CE39C6C91DAE2D28002BBC87 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = RGM92AGMEP;
+						ProvisioningStyle = Automatic;
+					};
+					CE39C6DD1DAE2D29002BBC87 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CE39C6C91DAE2D28002BBC87;
+					};
+					CE39C6E81DAE2D29002BBC87 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CE39C6C91DAE2D28002BBC87;
+					};
+				};
+			};
+			buildConfigurationList = CE39C6C51DAE2D28002BBC87 /* Build configuration list for PBXProject "StundenplanDesign" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE39C6C11DAE2D28002BBC87;
+			productRefGroup = CE39C6CB1DAE2D28002BBC87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE39C6C91DAE2D28002BBC87 /* StundenplanDesign */,
+				CE39C6DD1DAE2D29002BBC87 /* StundenplanDesignTests */,
+				CE39C6E81DAE2D29002BBC87 /* StundenplanDesignUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE39C6C81DAE2D28002BBC87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE39C6D81DAE2D28002BBC87 /* LaunchScreen.storyboard in Resources */,
+				CE39C6D51DAE2D28002BBC87 /* Assets.xcassets in Resources */,
+				CE39C6D31DAE2D28002BBC87 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE39C6DC1DAE2D29002BBC87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE39C6E71DAE2D29002BBC87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE39C6C61DAE2D28002BBC87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE39C6D01DAE2D28002BBC87 /* ViewController.swift in Sources */,
+				CE39C6CE1DAE2D28002BBC87 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE39C6DA1DAE2D29002BBC87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE39C6E31DAE2D29002BBC87 /* StundenplanDesignTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE39C6E51DAE2D29002BBC87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE39C6EE1DAE2D29002BBC87 /* StundenplanDesignUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE39C6E01DAE2D29002BBC87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE39C6C91DAE2D28002BBC87 /* StundenplanDesign */;
+			targetProxy = CE39C6DF1DAE2D29002BBC87 /* PBXContainerItemProxy */;
+		};
+		CE39C6EB1DAE2D29002BBC87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE39C6C91DAE2D28002BBC87 /* StundenplanDesign */;
+			targetProxy = CE39C6EA1DAE2D29002BBC87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE39C6D11DAE2D28002BBC87 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE39C6D21DAE2D28002BBC87 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE39C6D61DAE2D28002BBC87 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE39C6D71DAE2D28002BBC87 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE39C6F01DAE2D29002BBC87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE39C6F11DAE2D29002BBC87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE39C6F31DAE2D29002BBC87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RGM92AGMEP;
+				INFOPLIST_FILE = StundenplanDesign/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanDesign;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CE39C6F41DAE2D29002BBC87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RGM92AGMEP;
+				INFOPLIST_FILE = StundenplanDesign/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanDesign;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CE39C6F61DAE2D29002BBC87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = StundenplanDesignTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanDesignTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanDesign.app/StundenplanDesign";
+			};
+			name = Debug;
+		};
+		CE39C6F71DAE2D29002BBC87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = StundenplanDesignTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanDesignTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanDesign.app/StundenplanDesign";
+			};
+			name = Release;
+		};
+		CE39C6F91DAE2D29002BBC87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = StundenplanDesignUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanDesignUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = StundenplanDesign;
+			};
+			name = Debug;
+		};
+		CE39C6FA1DAE2D29002BBC87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = StundenplanDesignUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanDesignUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = StundenplanDesign;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE39C6C51DAE2D28002BBC87 /* Build configuration list for PBXProject "StundenplanDesign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE39C6F01DAE2D29002BBC87 /* Debug */,
+				CE39C6F11DAE2D29002BBC87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE39C6F21DAE2D29002BBC87 /* Build configuration list for PBXNativeTarget "StundenplanDesign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE39C6F31DAE2D29002BBC87 /* Debug */,
+				CE39C6F41DAE2D29002BBC87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE39C6F51DAE2D29002BBC87 /* Build configuration list for PBXNativeTarget "StundenplanDesignTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE39C6F61DAE2D29002BBC87 /* Debug */,
+				CE39C6F71DAE2D29002BBC87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE39C6F81DAE2D29002BBC87 /* Build configuration list for PBXNativeTarget "StundenplanDesignUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE39C6F91DAE2D29002BBC87 /* Debug */,
+				CE39C6FA1DAE2D29002BBC87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE39C6C21DAE2D28002BBC87 /* Project object */;
+}
