@@ -13,24 +13,35 @@ class Schnittstelle_Kalender: NSObject {
     
     //var calendar : EKCalendar
     //
+    let eventStore = EKEventStore()
     
     
     //Erzeugt Event und schreibt es in Kalender
-    func create(title: String, startDate: Date, endDate: Date, location: String, description: String) -> String{
+    func create(event: Event) {
+        let calEvent = EKEvent(eventStore: eventStore)
         
-        //liefert EventId zurück
-        return ""
+        calEvent.title = event.title
+        calEvent.startDate = event.startDate
+        calEvent.endDate = event.endDate
+        calEvent.calendar = eventStore.defaultCalendarForNewEvents
+        
+        do {
+            try eventStore.save(calEvent, span: .thisEvent)
+        } catch {
+            print("TODO Fehlermeldung \n KalenderAPI create")
+        }
+        
+        event.eventID = calEvent.eventIdentifier
     }
     
     //Aktualisiert Werte des übergebenem Events
-    func update(eventId: String, title: String, startDate: Date, endDate: Date, location: String, description: String) -> String{
-        
-        //liefert EventId zurück
-        return ""
+    func update(eventId: String, event: Event) {
+        //TODO
     }
 
     //Entfernt übergebenes Event
     func delete(eventId: String)-> Bool{
+        //TODO
         
         //Erfolgreich? Ja? Nein?
         return false
@@ -38,6 +49,8 @@ class Schnittstelle_Kalender: NSObject {
     
     //Fügt vorhandenem Eintrag Alarm hinzu
     func setAlarm(eventId: String, alarm: [EKAlarm]){
-        
+        //TODO
+        //let ekAlarm = EKAlarm(relativeOffset:-60)
+        //event.addAlarm(ekAlarm)
     }
 }

@@ -72,13 +72,39 @@ class ViewController: UIViewController {
         let startDate = Date().addingTimeInterval(120)
         let endDate = startDate.addingTimeInterval(60 * 60) // One hour
         
+        let schnittstelle = Schnittstelle_Kalender()
+        
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                self.createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
+                //self.createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
+                
+                print("start\n")
+                
+                let event = Event(title: "Test Event", startDate: startDate, endDate: endDate, location: "Hof", description: "bla", eventID: nil)
+                
+                schnittstelle.create(event: event)
+                
+                //TODO Events speichern
+                
+                print("EventIdentifier " + event.eventID!)
+                
+                print("end\n")
             })
         } else {
-            createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
+            //createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
+            print("start\n")
+            
+            let event = Event(title: "Test Event", startDate: startDate, endDate: endDate, location: "Hof", description: "bla", eventID: nil)
+            
+            schnittstelle.create(event: event)
+            
+            //TODO Events speichern
+            
+            print("EventIdentifier " + event.eventID!)
+            
+            print("end\n")
+        
         }
     }
     
