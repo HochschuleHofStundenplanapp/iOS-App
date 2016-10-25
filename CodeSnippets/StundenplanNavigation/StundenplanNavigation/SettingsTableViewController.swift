@@ -10,6 +10,10 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBAction func fertigButton(_ sender: AnyObject) {
+        tabBarController?.selectedIndex = 0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +22,11 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
     }
 
     override func didReceiveMemoryWarning() {
