@@ -11,6 +11,7 @@ import UIKit
 class SemesterTableViewController: UITableViewController {
 
     override func viewDidLoad() {
+        navigationController?.navigationBar.tintColor = UIColor.white
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations

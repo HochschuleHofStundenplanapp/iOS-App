@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */; };
+		CE4121591DD0C98C008FED2C /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4121571DD0C98C008FED2C /* ScheduleTableViewCell.xib */; };
 		CEAC97041DB5FD350042FF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC97031DB5FD350042FF3D /* AppDelegate.swift */; };
 		CEAC970B1DB5FD350042FF3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC97091DB5FD350042FF3D /* Main.storyboard */; };
 		CEAC970D1DB5FD350042FF3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAC970C1DB5FD350042FF3D /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		CE4121571DD0C98C008FED2C /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		CEAC97001DB5FD350042FF3D /* StundenplanNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC97031DB5FD350042FF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEAC970A1DB5FD350042FF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE41215A1DD0C99D008FED2C /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */,
+				CE4121571DD0C98C008FED2C /* ScheduleTableViewCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
 		CEAC96F71DB5FD350042FF3D = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +120,7 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				CE41215A1DD0C99D008FED2C /* TableViewCells */,
 				CEAC97331DB619B80042FF3D /* ViewController */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
@@ -258,6 +272,7 @@
 			files = (
 				CEAC97101DB5FD350042FF3D /* LaunchScreen.storyboard in Resources */,
 				CEAC970D1DB5FD350042FF3D /* Assets.xcassets in Resources */,
+				CE4121591DD0C98C008FED2C /* ScheduleTableViewCell.xib in Resources */,
 				CEAC970B1DB5FD350042FF3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +304,7 @@
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
+				CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */,
 				CEAC97041DB5FD350042FF3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
