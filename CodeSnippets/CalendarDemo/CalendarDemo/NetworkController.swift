@@ -13,7 +13,7 @@ class NetworkController: NSObject {
     private let username = "soapuser"
     private let password = "F%98z&12"
 
-    func loadCourses(ssws : String){
+    func loadCourses(courses: Courses, tableView: UITableView, ssws : String){
     
         let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(ssws)"
 
@@ -33,9 +33,13 @@ class NetworkController: NSObject {
             DispatchQueue.main.async(execute: { () -> Void in
 
                 dump(JsonCourses(data: data!)?.courses)
+
+                courses.list = (JsonCourses(data: data!)?.courses)!.list
+                tableView.reloadData()
             })
         })
         task.resume()
+        
     }
     
     func loadSchedule(ssws : String, semester : String, stg : String){

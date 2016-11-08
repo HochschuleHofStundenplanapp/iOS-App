@@ -9,6 +9,6 @@
 import Foundation
 
 class Courses{
-    var courses : [Course] = []
+    var list : [Course] = []
     
 }

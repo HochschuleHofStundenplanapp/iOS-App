@@ -10,10 +10,23 @@ import UIKit
 
 class SemesterTableViewController: UITableViewController {
 
+    @IBOutlet var semesterTableView: UITableView!
+    var datasource : SemesterTableViewDataSource!
+    var delegate: SemesterTableViewDelegate!
+
+    
     override func viewDidLoad() {
         navigationController?.navigationBar.tintColor = UIColor.white
         super.viewDidLoad()
 
+        datasource = SemesterTableViewDataSource()
+        delegate = SemesterTableViewDelegate()
+        
+        tableView.dataSource = datasource
+        tableView.delegate = delegate
+
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

@@ -8,6 +8,6 @@
 
 import UIKit
 
-class CourseTableViewDelegate: NSObject {
+class CourseTableViewDelegate: NSObject, UITableViewDelegate {
 
 }

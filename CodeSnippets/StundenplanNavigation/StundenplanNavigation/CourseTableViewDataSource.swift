@@ -9,13 +9,24 @@
 import UIKit
 
 class CourseTableViewDataSource: NSObject, UITableViewDataSource {
+    
+    var networkController : NetworkController
+    var courses : Courses
+    
+    init(tableView: UITableView) {
+        networkController = NetworkController()
+        courses = Courses()
+        networkController.loadCourses(courses: courses, tableView: tableView, ssws: "WS")
+        print("XXXXXXXX")
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = "\(courses.list[indexPath.row].nameDe)"
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return courses.list.count
     }
 }
 

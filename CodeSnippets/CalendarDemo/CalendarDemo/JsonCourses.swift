@@ -52,7 +52,7 @@ class JsonCourses {
             }
 
             let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semester: newSem)
-            pCourses?.courses.append(newCourse)
+            pCourses?.list.append(newCourse)
         }
     }
 }
