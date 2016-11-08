@@ -10,5 +10,4 @@ import Foundation
 
 class Courses{
     var list : [Course] = []
-    
 }

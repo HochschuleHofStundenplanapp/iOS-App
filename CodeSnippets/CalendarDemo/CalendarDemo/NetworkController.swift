@@ -12,12 +12,10 @@ class NetworkController: NSObject {
     
     private let username = "soapuser"
     private let password = "F%98z&12"
-
-    func loadCourses(courses: Courses, tableView: UITableView, ssws : String){
     
+    func loadCourses(courses: Courses, tableView: UITableView, ssws : String){
+            
         let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(ssws)"
-
-
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
         let passCredential = passData?.base64EncodedString()
@@ -46,7 +44,6 @@ class NetworkController: NSObject {
     
         let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(stg)&sem=\(semester)&tt=\(ssws)"
 
-        
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
         let passCredential = passData?.base64EncodedString()
@@ -70,7 +67,6 @@ class NetworkController: NSObject {
     
         let urlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(stg)&sem=\(semester)&tt=\(ssws)"
 
-        
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
         let passCredential = passData?.base64EncodedString()

@@ -11,13 +11,12 @@ import UIKit
 class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     
     var networkController : NetworkController
-    var courses : Courses
+    var courses : Courses!
     
-    init(tableView: UITableView) {
+    init(tableView : UITableView, ssws: String) {
         networkController = NetworkController()
         courses = Courses()
-        networkController.loadCourses(courses: courses, tableView: tableView, ssws: "WS")
-        print("XXXXXXXX")
+        networkController.loadCourses(courses: courses, tableView: tableView, ssws: ssws)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,6 +24,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
         cell.textLabel?.text = "\(courses.list[indexPath.row].nameDe)"
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courses.list.count
     }

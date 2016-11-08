@@ -126,16 +126,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8169536E1DD1EEF9004ED800 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				816953581DD1EA59004ED800 /* ChangedLecture.swift */,
-				816953591DD1EA59004ED800 /* Changes.swift */,
-				816953621DD1EA59004ED800 /* Schedule.swift */,
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		8169536F1DD1F6BD004ED800 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +136,15 @@
 				816953611DD1EA59004ED800 /* NetworkController.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		BE1AF23F1DD2209D00CEFE54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8169535A1DD1EA59004ED800 /* Course.swift */,
+				8169535B1DD1EA59004ED800 /* Courses.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		CEAC96F71DB5FD350042FF3D = {
@@ -171,9 +170,8 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				8169536E1DD1EEF9004ED800 /* New Group */,
-				8169536F1DD1F6BD004ED800 /* Network */,
 				CED25BB21DD1C5F400FE7D1C /* Schedule */,
+				8169536F1DD1F6BD004ED800 /* Network */,
 				CED25BB31DD1C60200FE7D1C /* Schedulechanges */,
 				CED25BB41DD1C60B00FE7D1C /* Settings */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
@@ -217,6 +215,8 @@
 		CED25BB31DD1C60200FE7D1C /* Schedulechanges */ = {
 			isa = PBXGroup;
 			children = (
+				816953581DD1EA59004ED800 /* ChangedLecture.swift */,
+				816953591DD1EA59004ED800 /* Changes.swift */,
 				CEAC97361DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift */,
 				CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */,
 				CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */,
@@ -239,9 +239,8 @@
 		CED25BB51DD1C62000FE7D1C /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				BE1AF23F1DD2209D00CEFE54 /* Model */,
 				CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */,
-				8169535A1DD1EA59004ED800 /* Course.swift */,
-				8169535B1DD1EA59004ED800 /* Courses.swift */,
 				CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */,
 				CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */,
 			);
@@ -261,6 +260,7 @@
 		CED25BB71DD1C64700FE7D1C /* Lecture */ = {
 			isa = PBXGroup;
 			children = (
+				816953621DD1EA59004ED800 /* Schedule.swift */,
 				816953601DD1EA59004ED800 /* Lecture.swift */,
 				CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */,
 			);

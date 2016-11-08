@@ -14,7 +14,7 @@ class Course {
     var nameDe: String = ""
     var nameEn: String = ""
     var semester: [String] = []
-    
+    var selected: Bool = false
     
     init(contraction : String, nameDe: String, nameEn: String, semester: [String]) {
         self.contraction = contraction
