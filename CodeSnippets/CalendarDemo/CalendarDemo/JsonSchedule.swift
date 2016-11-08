@@ -9,9 +9,9 @@
 import UIKit
 
 class JsonSchedule: NSObject {
-    fileprivate var pSchedule : Schedule?
+    fileprivate var pSchedule : [Lecture]?
     
-    var schedule : Schedule? {
+    var schedule : [Lecture]? {
         get {
             return pSchedule
         }
@@ -39,7 +39,7 @@ class JsonSchedule: NSObject {
             return
         }
         
-        pSchedule = Schedule()
+        pSchedule = []
         
         for i in allResults
         {
@@ -70,7 +70,7 @@ class JsonSchedule: NSObject {
             
             
             let newLecture = Lecture(id: newId!, name: name, docent: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room)
-            pSchedule?.schedule.append(newLecture)
+            pSchedule?.append(newLecture)
         }
     }
 }

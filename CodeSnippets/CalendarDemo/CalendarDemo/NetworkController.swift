@@ -13,7 +13,7 @@ class NetworkController: NSObject {
     private let username = "soapuser"
     private let password = "F%98z&12"
     
-    func loadCourses(courses: Courses, tableView: UITableView, ssws : String){
+    func loadCourses(tableView: UITableView, ssws : String){
             
         let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(ssws)"
         let passInfo = String(format: "%@:%@", username, password)
@@ -32,7 +32,7 @@ class NetworkController: NSObject {
 
                 dump(JsonCourses(data: data!)?.courses)
 
-                courses.list = (JsonCourses(data: data!)?.courses)!.list
+                Courses.sharedInstance.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
                 tableView.reloadData()
             })
         })

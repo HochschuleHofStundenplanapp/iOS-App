@@ -9,5 +9,11 @@
 import UIKit
 
 class CourseTableViewDelegate: NSObject, UITableViewDelegate {
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        
+        Courses.sharedInstance.toggleCourseAt(index: indexPath.row)
+        tableView.reloadData()
+    }
 }

@@ -9,9 +9,9 @@
 import Foundation
 
 class JsonChanges {
-    fileprivate var pCL : Changes?
+    fileprivate var pCL : [ChangedLecture]?
     
-    var changes : Changes? {
+    var changes : [ChangedLecture]? {
         get {
             return pCL
         }
@@ -38,7 +38,7 @@ class JsonChanges {
             return
         }
         
-        pCL = Changes()
+        pCL = []
         
         for i in allResults
         {
@@ -70,7 +70,7 @@ class JsonChanges {
             
             
             let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime!, newDate: newNewDate!, newDay: newDay, newRoom: newRoom)
-            pCL?.changes.append(newCL)
+            pCL?.append(newCL)
         }
     }
 

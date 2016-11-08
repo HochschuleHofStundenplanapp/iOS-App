@@ -8,9 +8,9 @@
 import Foundation
 
 class JsonCourses {
-    fileprivate var pCourses : Courses?
+    fileprivate var pCourses : [Course]?
     
-    var courses : Courses? {
+    var courses : [Course]? {
         get {
             return pCourses
         }
@@ -36,7 +36,7 @@ class JsonCourses {
             return
         }
         
-        pCourses = Courses()
+        pCourses = []
         
         for i in allResults
         {
@@ -52,7 +52,7 @@ class JsonCourses {
             }
 
             let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semester: newSem)
-            pCourses?.list.append(newCourse)
+            pCourses?.append(newCourse)
         }
     }
 }

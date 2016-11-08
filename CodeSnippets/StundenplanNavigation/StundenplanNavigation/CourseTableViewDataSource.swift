@@ -11,22 +11,27 @@ import UIKit
 class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     
     var networkController : NetworkController
-    var courses : Courses!
     
     init(tableView : UITableView, ssws: String) {
         networkController = NetworkController()
-        courses = Courses()
-        networkController.loadCourses(courses: courses, tableView: tableView, ssws: ssws)
+        networkController.loadCourses(tableView: tableView, ssws: ssws)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
-        cell.textLabel?.text = "\(courses.list[indexPath.row].nameDe)"
+        cell.textLabel?.text = "\(Courses.sharedInstance.getCourseAt(index:indexPath.row).nameDe)"
+        
+        if(Courses.sharedInstance.isSelected(index: indexPath.row)){
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.list.count
+        return Courses.sharedInstance.size()
     }
 }
 
