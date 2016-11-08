@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */; };
-		CE4121591DD0C98C008FED2C /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4121571DD0C98C008FED2C /* ScheduleTableViewCell.xib */; };
+		CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */; };
+		CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */; };
+		CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */; };
+		CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */; };
+		CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */; };
 		CEAC97041DB5FD350042FF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC97031DB5FD350042FF3D /* AppDelegate.swift */; };
 		CEAC970B1DB5FD350042FF3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC97091DB5FD350042FF3D /* Main.storyboard */; };
 		CEAC970D1DB5FD350042FF3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAC970C1DB5FD350042FF3D /* Assets.xcassets */; };
@@ -21,6 +25,8 @@
 		CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */; };
 		CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */; };
 		CEAC973F1DB61AB20042FF3D /* LecturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */; };
+		CED25BB91DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */; };
+		CED25BBB1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +48,11 @@
 
 /* Begin PBXFileReference section */
 		CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
-		CE4121571DD0C98C008FED2C /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewDelegate.swift; sourceTree = "<group>"; };
+		CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewDataSource.swift; sourceTree = "<group>"; };
+		CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewCell.swift; sourceTree = "<group>"; };
+		CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewDataSource.swift; sourceTree = "<group>"; };
+		CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewDelegate.swift; sourceTree = "<group>"; };
 		CEAC97001DB5FD350042FF3D /* StundenplanNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC97031DB5FD350042FF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEAC970A1DB5FD350042FF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +71,8 @@
 		CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewController.swift; sourceTree = "<group>"; };
 		CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewController.swift; sourceTree = "<group>"; };
 		CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewController.swift; sourceTree = "<group>"; };
+		CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDataSource.swift; sourceTree = "<group>"; };
+		CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,15 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE41215A1DD0C99D008FED2C /* TableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */,
-				CE4121571DD0C98C008FED2C /* ScheduleTableViewCell.xib */,
-			);
-			name = TableViewCells;
-			sourceTree = "<group>";
-		};
 		CEAC96F71DB5FD350042FF3D = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +123,9 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				CE41215A1DD0C99D008FED2C /* TableViewCells */,
+				CED25BB21DD1C5F400FE7D1C /* Schedule */,
+				CED25BB31DD1C60200FE7D1C /* Schedulechanges */,
+				CED25BB41DD1C60B00FE7D1C /* Settings */,
 				CEAC97331DB619B80042FF3D /* ViewController */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
@@ -152,14 +157,67 @@
 		CEAC97331DB619B80042FF3D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CEAC97341DB619D40042FF3D /* ScheduleTableViewController.swift */,
-				CEAC97361DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift */,
-				CEAC97381DB61A330042FF3D /* SettingsTableViewController.swift */,
-				CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */,
-				CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */,
-				CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		CED25BB21DD1C5F400FE7D1C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC97341DB619D40042FF3D /* ScheduleTableViewController.swift */,
+				CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */,
+				CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */,
+				CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		CED25BB31DD1C60200FE7D1C /* Schedulechanges */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC97361DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift */,
+				CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */,
+				CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */,
+				CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */,
+			);
+			name = Schedulechanges;
+			sourceTree = "<group>";
+		};
+		CED25BB41DD1C60B00FE7D1C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC97381DB61A330042FF3D /* SettingsTableViewController.swift */,
+				CED25BB51DD1C62000FE7D1C /* Course */,
+				CED25BB61DD1C63600FE7D1C /* Semester */,
+				CED25BB71DD1C64700FE7D1C /* Lecture */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		CED25BB51DD1C62000FE7D1C /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */,
+				CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */,
+				CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */,
+			);
+			name = Course;
+			sourceTree = "<group>";
+		};
+		CED25BB61DD1C63600FE7D1C /* Semester */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */,
+			);
+			name = Semester;
+			sourceTree = "<group>";
+		};
+		CED25BB71DD1C64700FE7D1C /* Lecture */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */,
+			);
+			name = Lecture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +283,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Jonas Beetz";
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
@@ -272,7 +330,6 @@
 			files = (
 				CEAC97101DB5FD350042FF3D /* LaunchScreen.storyboard in Resources */,
 				CEAC970D1DB5FD350042FF3D /* Assets.xcassets in Resources */,
-				CE4121591DD0C98C008FED2C /* ScheduleTableViewCell.xib in Resources */,
 				CEAC970B1DB5FD350042FF3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,11 +356,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAC97351DB619D40042FF3D /* ScheduleTableViewController.swift in Sources */,
+				CED25BBB1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift in Sources */,
 				CEAC973F1DB61AB20042FF3D /* LecturesTableViewController.swift in Sources */,
+				CED25BB91DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift in Sources */,
 				CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */,
+				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
+				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
+				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
+				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
+				CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */,
 				CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */,
 				CEAC97041DB5FD350042FF3D /* AppDelegate.swift in Sources */,
 			);
@@ -378,6 +442,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -428,6 +493,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

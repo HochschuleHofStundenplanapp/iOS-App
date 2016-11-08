@@ -1,14 +1,14 @@
 //
-//  ScheduleTableViewCell.swift
+//  ScheduleChangesTableViewCell.swift
 //  StundenplanNavigation
 //
-//  Created by Jonas Beetz on 07.11.16.
+//  Created by Jonas Beetz on 08.11.16.
 //  Copyright © 2016 Jonas Beetz. All rights reserved.
 //
 
 import UIKit
 
-class ScheduleTableViewCell: UITableViewCell {
+class ScheduleChangesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
