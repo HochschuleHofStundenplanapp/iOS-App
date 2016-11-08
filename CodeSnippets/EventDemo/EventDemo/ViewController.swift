@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     // Creates an event in the EKEventStore. The method assumes the eventStore is created and
     // accessible
     func createEvent(_ eventStore: EKEventStore, title: String, startDate: Date, endDate: Date) {
@@ -37,9 +36,6 @@ class ViewController: UIViewController {
         let ekAlarm = EKAlarm(relativeOffset:-60)
         event.addAlarm(ekAlarm)
         //   event.alarms = [ekAlarm]
-        
-        
-        
         
         do {
             try eventStore.save(event, span: .thisEvent)
@@ -67,45 +63,55 @@ class ViewController: UIViewController {
     // Responds to button to add event. This checks that we have permission first, before adding the
     // event
     @IBAction func addEvent(_ sender: UIButton) {
-        let eventStore = EKEventStore()
-        
         let startDate = Date().addingTimeInterval(120)
         let endDate = startDate.addingTimeInterval(60 * 60) // One hour
         
         let schnittstelle = Schnittstelle_Kalender()
         
-        if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
-            eventStore.requestAccess(to: .event, completion: {
-                granted, error in
-                //self.createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
-                
-                print("start\n")
-                
-                let event = Event(title: "Test Event", startDate: startDate, endDate: endDate, location: "Hof", description: "bla", eventID: nil)
-                
-                schnittstelle.create(event: event)
-                
-                //TODO Events speichern
-                
-                print("EventIdentifier " + event.eventID!)
-                
-                print("end\n")
-            })
-        } else {
-            //createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
-            print("start\n")
-            
-            let event = Event(title: "Test Event", startDate: startDate, endDate: endDate, location: "Hof", description: "bla", eventID: nil)
-            
-            schnittstelle.create(event: event)
-            
-            //TODO Events speichern
-            
-            print("EventIdentifier " + event.eventID!)
-            
-            print("end\n")
+        //createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
+        print("start\n")
         
-        }
+        let eventStore = schnittstelle.eventStore
+        
+        let event = EKEvent(eventStore: eventStore)
+        
+        event.title     = "Test Event"
+        event.startDate = startDate
+        event.endDate   = endDate
+        event.location  = "Hof"
+        event.calendar  = eventStore.defaultCalendarForNewEvents
+        
+        self.savedEventId = schnittstelle.create(p_event: event)
+        
+        //TODO Events speichern
+        
+        print("EventIdentifier " + self.savedEventId)
+        
+        print("create end\n")
+        
+        let editEvent = EKEvent(eventStore: eventStore)
+        
+        editEvent.title     = "Edited Test Event"
+        editEvent.notes     = "Test Beschreibung"
+        editEvent.startDate = startDate
+        editEvent.endDate   = endDate
+        editEvent.location  = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
+        editEvent.calendar  = eventStore.defaultCalendarForNewEvents
+        
+        var ekAlarms = [EKAlarm]()
+        
+        ekAlarms.append(EKAlarm(relativeOffset:-60))
+        
+        editEvent.alarms = ekAlarms
+        
+        print ("update event and add alarm")
+        
+        schnittstelle.update(p_eventId: savedEventId, p_event: editEvent)
+        
+        
+        //print ("deleted:")
+        //print (schnittstelle.delete(p_eventId: savedEventId))
+        
     }
     
     
