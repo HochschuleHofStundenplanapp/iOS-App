@@ -10,27 +10,24 @@ import UIKit
 
 class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
 
+    let weekdaysSections = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell2") as! ScheduleTableViewCell
         cell.clipsToBounds = true
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if(indexPath.row % 2 != 0){
-            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
-        }
-        else{
-            cell.backgroundColor = UIColor.white
-        }
+        func numberOfSections(in tableView: UITableView) -> Int {
+            // #warning Incomplete implementation, return the number of sections
+            return 6
     }
-    //    override func numberOfSections(in tableView: UITableView) -> Int {
-    //        // #warning Incomplete implementation, return the number of sections
-    //        return 0
-    //    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.weekdaysSections[section]
+    }
 }
