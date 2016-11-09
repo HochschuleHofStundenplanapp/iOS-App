@@ -22,9 +22,9 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         cell.clipsToBounds = true
         return cell
     }
-        func numberOfSections(in tableView: UITableView) -> Int {
-            // #warning Incomplete implementation, return the number of sections
-            return 6
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 6
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

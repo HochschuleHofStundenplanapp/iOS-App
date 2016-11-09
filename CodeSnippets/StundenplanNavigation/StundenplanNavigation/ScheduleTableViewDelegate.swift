@@ -12,6 +12,7 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     
     var selectedIndexPath : IndexPath? = nil
     
+    //Hintergrundfarbe einer Row
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        if(indexPath.row % 2 != 0){
 //            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)

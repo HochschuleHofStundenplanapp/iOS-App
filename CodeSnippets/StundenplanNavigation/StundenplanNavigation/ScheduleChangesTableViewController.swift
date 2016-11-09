@@ -11,6 +11,7 @@ import UIKit
 class ScheduleChangesTableViewController: UITableViewController {
 
     @IBOutlet var scheduleChangesTableView: UITableView!
+    
     var datasource : ScheduleChangesTableViewDataSource!
     var delegate: ScheduleChangesTableViewDelegate!
     

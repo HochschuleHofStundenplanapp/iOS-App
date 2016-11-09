@@ -10,6 +10,11 @@ import UIKit
 
 class ScheduleChangesTableViewCell: UITableViewCell {
 
+    @IBOutlet var oldNewDateLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var roomLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
