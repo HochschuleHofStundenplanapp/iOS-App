@@ -10,18 +10,18 @@ import Foundation
 
 class ChangedLecture {
     
-    var id: Int = 0
-    var name: String = ""
-    var docent: String = ""
-    var comment: String = ""
+    var id: Int
+    var name: String
+    var docent: String
+    var comment: String
     var oldTime: Date
     var oldDate: Date
-    var oldDay: String = ""
-    var oldRoom: String = ""
+    var oldDay: String
+    var oldRoom: String
     var newTime: Date
     var newDate: Date
-    var newDay: String = ""
-    var newRoom: String = ""
+    var newDay: String
+    var newRoom: String 
 
     
     init(id: Int, name: String, docent: String, comment: String, oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String, newTime: Date, newDate: Date, newDay: String, newRoom: String) {

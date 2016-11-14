@@ -23,13 +23,37 @@ class Courses{
     }
     
     //Kürzel zu allen selektierten Studeingängen anzeigen
-    func selectedCourses(){
+    func selectedCourses() -> [String]{
+        var selectedCourses : [String] = []
         
+        for course in list{
+            if (course.selected){
+                selectedCourses.append(course.contraction)
+            }
+        }
+        
+        return selectedCourses
     }
     
-    //Zu allen Sekektierten Studiengängen die Semester anzeigen
+    //Zu allen Sekektierten Studiengängen die vorhanden Semester anzeigen
+    func showSemesters(){
+        
+//        for course in list{
+//             if (course.selected){
+//
+//            }
+//        }
+    }
+    
+    //Zu selektierten Studiengängen Selektierte Semseter anzeigen
     func selectedSemesters(){
         
+//        for course in list{
+//            if (course.selected){
+//           
+//            }
+//        }
+
     }
     
     func isSelected(index: Int) -> Bool{

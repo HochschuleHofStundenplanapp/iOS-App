@@ -10,17 +10,19 @@ import Foundation
 
 class Lecture{
 
-    var id: Int = 0
-    var name: String = ""
-    var docent: String = ""
-    var type: String = ""
-    var group: String = ""
+    var id: Int
+    var name: String
+    var docent: String
+    var type: String
+    var group: String
     var starttime: Date
     var endTime: Date
     var startdate: Date
     var enddate: Date
-    var day: String = ""
-    var room: String = ""
+    var day: String
+    var room: String 
+    //boolean ob der Vorlesung vom User gewählt worden ist
+    var selected: Bool
 
     init(id: Int, name: String, docent: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String) {
         self.id = id
@@ -34,6 +36,7 @@ class Lecture{
         self.enddate = enddate
         self.day = day
         self.room = room
+        self.selected = false
     }
 
 }
