@@ -23,8 +23,10 @@ class Lecture{
     var room: String 
     //boolean ob der Vorlesung vom User gewählt worden ist
     var selected: Bool
+    //Studiengang
+    var course: String
 
-    init(id: Int, name: String, docent: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String) {
+    init(id: Int, name: String, docent: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String) {
         self.id = id
         self.name = name
         self.docent = docent
@@ -37,6 +39,7 @@ class Lecture{
         self.day = day
         self.room = room
         self.selected = false
+        self.course = course
     }
 
 }

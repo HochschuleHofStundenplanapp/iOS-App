@@ -9,5 +9,9 @@
 import Foundation
 
 class Schedule {
+    
+    //gewählte Semester (Tupel Semesterkürzel + Selektiertes Semester)
+    //Winter oder Sommersemester 
+    //Studiengänge
     var schedule : [Lecture] = []
 }
