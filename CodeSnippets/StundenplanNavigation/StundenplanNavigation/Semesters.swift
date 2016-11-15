@@ -12,5 +12,15 @@ class Semesters: NSObject {
 
     var list : [Semester] = []
     
+    func toggleSemesterAt(index: Int){
+        if(list[index].selected){
+            list[index].selected = false
+        }else{
+            list[index].selected = true
+        }
+    }
     
+    func isSelected(index: Int) -> Bool{
+        return list[index].selected
+    }
 }

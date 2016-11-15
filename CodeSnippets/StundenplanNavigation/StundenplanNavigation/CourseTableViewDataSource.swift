@@ -19,9 +19,9 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
-        cell.textLabel?.text = "\(Courses.sharedInstance.getCourseAt(index:indexPath.row).nameDe)"
+        cell.textLabel?.text = "\(Schedule.sharedInstance.courses.getCourseAt(index:indexPath.row).nameDe)"
         
-        if(Courses.sharedInstance.isSelected(index: indexPath.row)){
+        if(Schedule.sharedInstance.courses.isSelected(index: indexPath.row)){
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none
@@ -31,7 +31,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Courses.sharedInstance.size()
+        return Schedule.sharedInstance.courses.size()
     }
 }
 

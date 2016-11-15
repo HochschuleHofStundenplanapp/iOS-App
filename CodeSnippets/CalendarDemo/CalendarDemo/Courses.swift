@@ -12,8 +12,7 @@ import Foundation
 class Courses{
     private var list : [Course] = []
     
-    static let sharedInstance = Courses()
-    private init() {}
+    init() {}
     
     func toggleCourseAt(index: Int){
         if(list[index].selected){
@@ -24,12 +23,24 @@ class Courses{
     }
     
     //Kürzel zu allen selektierten Studeingängen anzeigen
-    func selectedCourses() -> [String]{
+    func selectedCourses() -> [Course]{
+        var selectedCourses : [Course] = []
+        
+        for course in list{
+            if (course.selected){
+                selectedCourses.append(course)
+            }
+        }
+        
+        return selectedCourses
+    }
+    
+    func selectedCoursesName() -> [String]{
         var selectedCourses : [String] = []
         
         for course in list{
             if (course.selected){
-                selectedCourses.append(course.contraction)
+                selectedCourses.append(course.nameDe)
             }
         }
         
@@ -37,13 +48,16 @@ class Courses{
     }
     
     //Zu allen Sekektierten Studiengängen die vorhanden Semester anzeigen
-    func showSemesters(){
+    func selectedSemesters() -> [Semesters]{
         
-//        for course in list{
-//             if (course.selected){
-//
-//            }
-//        }
+        var semestersArray = [Semesters]()
+        
+        for course in list{
+            if course.selected{
+                semestersArray.append(course.semesters)
+            }
+        }
+        return semestersArray
     }
     
     func isSelected(index: Int) -> Bool{

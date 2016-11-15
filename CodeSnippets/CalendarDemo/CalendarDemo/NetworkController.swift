@@ -32,7 +32,7 @@ class NetworkController: NSObject {
 
                 dump(JsonCourses(data: data!)?.courses)
 
-                Courses.sharedInstance.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
+                Schedule.sharedInstance.courses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
                 tableView.reloadData()
             })
         })
