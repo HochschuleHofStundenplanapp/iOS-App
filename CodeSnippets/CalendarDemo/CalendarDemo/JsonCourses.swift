@@ -54,6 +54,8 @@ class JsonCourses {
 
             let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semesters: newSem)
             pCourses?.append(newCourse)
+            
+            ////
         }
     }
 }

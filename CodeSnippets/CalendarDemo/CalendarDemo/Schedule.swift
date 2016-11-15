@@ -11,12 +11,17 @@ import Foundation
 //Studenplan
 class Schedule {
     
+<<<<<<< Updated upstream
     static let sharedInstance = Schedule()
     
     private init(){}
     
     //Winter oder Sommersemester
     var courses : Courses = Courses()//Studiengänge
+=======
+    //Winter oder Sommersemester
+    //Studiengänge
+>>>>>>> Stashed changes
     var schedule : [Lecture] = []
     
 }
