@@ -13,7 +13,9 @@ class Schnittstelle_Kalender: NSObject {
     
     var ScheduleCalendarID : String = "Stundenplan"
     let eventStore = EKEventStore()
-    let alarmOffset = 60.0
+    // Für Zukunft: Alarm setzen
+    // Wenn alarmOffset größer 0 wird Alarm gesetzt
+    let alarmOffset = 0.0
     let locationHochschule = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
     
     //Erzeugt Event und schreibt es in Kalender
@@ -39,9 +41,11 @@ class Schnittstelle_Kalender: NSObject {
         event.endDate   = p_event.endDate
         event.location  = locationHochschule + ", " + p_event.location!
         
-        var ekAlarms = [EKAlarm]()
-        ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
-        event.alarms    = ekAlarms
+        if (alarmOffset > 0) {
+            var ekAlarms = [EKAlarm]()
+            ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
+            event.alarms    = ekAlarms
+        }
         
         event.calendar  = eventStore.defaultCalendarForNewEvents
         
