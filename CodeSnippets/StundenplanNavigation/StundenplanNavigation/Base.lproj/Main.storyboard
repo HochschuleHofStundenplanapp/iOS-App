@@ -443,15 +443,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoy-ia-Tob">
-                                                    <rect key="frame" x="19" y="0.0" width="337" height="63.5"/>
-                                                    <color key="backgroundColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoy-ia-Tob">
+                                                    <rect key="frame" x="19" y="10" width="337" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="o8P-0F-cLu"/>
                                                     </constraints>
-                                                    <state key="normal" title="34 Änderungen übernehmen">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="34 Änderungen übernehmen" backgroundImage="Button Background"/>
+                                                    <state key="highlighted" backgroundImage="Button Background Selected"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="10"/>
@@ -654,6 +652,8 @@
     </scenes>
     <resources>
         <image name="Änderungen" width="31" height="26"/>
+        <image name="Button Background" width="400" height="64"/>
+        <image name="Button Background Selected" width="400" height="64"/>
         <image name="Einstelllungen" width="30" height="30"/>
         <image name="Stundenplan" width="30" height="24"/>
     </resources>
