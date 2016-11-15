@@ -63,8 +63,8 @@ class ViewController: UIViewController {
     // Responds to button to add event. This checks that we have permission first, before adding the
     // event
     @IBAction func addEvent(_ sender: UIButton) {
-        let startDate = Date().addingTimeInterval(120)
-        let endDate = startDate.addingTimeInterval(60 * 60) // One hour
+        var startDate = Date().addingTimeInterval(120)
+        var endDate = startDate.addingTimeInterval(60 * 60) // One hour
         
         let schnittstelle = Schnittstelle_Kalender()
         
@@ -81,6 +81,10 @@ class ViewController: UIViewController {
         event.location  = "Hof"
         event.calendar  = eventStore.defaultCalendarForNewEvents
         
+        var ekAlarms = [EKAlarm]()
+        ekAlarms.append(EKAlarm(relativeOffset:-60))
+        event.alarms = ekAlarms
+        
         self.savedEventId = schnittstelle.create(p_event: event)
         
         //TODO Events speichern
@@ -88,6 +92,10 @@ class ViewController: UIViewController {
         print("EventIdentifier " + self.savedEventId)
         
         print("create end\n")
+        
+        
+        startDate = Date().addingTimeInterval(3720)
+        endDate = startDate.addingTimeInterval(60 * 60) // One hour
         
         let editEvent = EKEvent(eventStore: eventStore)
         
@@ -98,15 +106,9 @@ class ViewController: UIViewController {
         editEvent.location  = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
         editEvent.calendar  = eventStore.defaultCalendarForNewEvents
         
-        var ekAlarms = [EKAlarm]()
-        
-        ekAlarms.append(EKAlarm(relativeOffset:-60))
-        
-        editEvent.alarms = ekAlarms
-        
         print ("update event and add alarm")
         
-        schnittstelle.update(p_eventId: savedEventId, p_event: editEvent)
+        schnittstelle.update(p_eventId: savedEventId, p_event: editEvent, p_wasDeleted: true)
         
         
         //print ("deleted:")
