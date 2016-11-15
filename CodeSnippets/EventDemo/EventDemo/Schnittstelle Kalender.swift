@@ -14,6 +14,7 @@ class Schnittstelle_Kalender: NSObject {
     var ScheduleCalendarID : String = "Stundenplan"
     let eventStore = EKEventStore()
     let alarmOffset = 60.0
+    let locationHochschule = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
     
     //Erzeugt Event und schreibt es in Kalender
     func create(p_event: EKEvent)-> String {
@@ -36,7 +37,7 @@ class Schnittstelle_Kalender: NSObject {
         event.notes     = p_event.notes
         event.startDate = p_event.startDate
         event.endDate   = p_event.endDate
-        event.location  = p_event.location
+        event.location  = locationHochschule + ", " + p_event.location!
         
         var ekAlarms = [EKAlarm]()
         ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
@@ -93,15 +94,30 @@ class Schnittstelle_Kalender: NSObject {
         let event = eventStore.event(withIdentifier: p_eventId)
         
         if((event) != nil) {
-            
             if (p_wasDeleted == false) {
-                event?.title     = "[Änderung] " + p_event.title
-                event?.startDate = p_event.startDate
-                event?.endDate   = p_event.endDate
-                event?.location  = p_event.location
+                if (event?.startDate != p_event.startDate) {
+                    let newEvent = EKEvent(eventStore: eventStore)
+                    
+                    newEvent.title     = "[NEU] " + p_event.title
+                    newEvent.notes     = event?.notes
+                    newEvent.startDate = p_event.startDate
+                    newEvent.endDate   = p_event.endDate
+                    newEvent.location  = p_event.location
+                    newEvent.calendar  = eventStore.defaultCalendarForNewEvents
+                    
+                    internCreate(p_event: newEvent)
+                    
+                    event?.title    = "[Verschoben] " + p_event.title
+                    event?.location = nil
+                    event?.alarms   = []
+                } else {
+                    event?.title     = "[Raumänderung] " + p_event.title
+                    event?.location  = locationHochschule + ", " + p_event.location!
+                }
             } else {
                 event?.title     = "[Entfällt] " + p_event.title
-                event?.alarms = nil
+                event?.location = nil
+                event?.alarms   = []
             }
             
             event?.calendar  = eventStore.defaultCalendarForNewEvents;

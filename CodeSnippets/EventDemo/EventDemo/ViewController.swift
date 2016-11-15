@@ -12,6 +12,7 @@ import EventKit
 class ViewController: UIViewController {
     
     var savedEventId : String = ""
+    let schnittstelle = Schnittstelle_Kalender()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +67,6 @@ class ViewController: UIViewController {
         var startDate = Date().addingTimeInterval(120)
         var endDate = startDate.addingTimeInterval(60 * 60) // One hour
         
-        let schnittstelle = Schnittstelle_Kalender()
-        
         //createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
         print("start\n")
         
@@ -75,10 +74,10 @@ class ViewController: UIViewController {
         
         let event = EKEvent(eventStore: eventStore)
         
-        event.title     = "Test Event"
+        event.title     = "Vorlesung"
         event.startDate = startDate
         event.endDate   = endDate
-        event.location  = "Hof"
+        event.location  = "FB004b"
         event.calendar  = eventStore.defaultCalendarForNewEvents
         
         var ekAlarms = [EKAlarm]()
@@ -94,21 +93,20 @@ class ViewController: UIViewController {
         print("create end\n")
         
         
-        startDate = Date().addingTimeInterval(3720)
-        endDate = startDate.addingTimeInterval(60 * 60) // One hour
+        //startDate = Date().addingTimeInterval(3720)
+        //endDate = startDate.addingTimeInterval(60 * 60) // One hour
         
         let editEvent = EKEvent(eventStore: eventStore)
         
-        editEvent.title     = "Edited Test Event"
-        editEvent.notes     = "Test Beschreibung"
+        editEvent.title     = "Vorlesung"
         editEvent.startDate = startDate
         editEvent.endDate   = endDate
-        editEvent.location  = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
+        editEvent.location  = "FA104"
         editEvent.calendar  = eventStore.defaultCalendarForNewEvents
         
         print ("update event and add alarm")
         
-        schnittstelle.update(p_eventId: savedEventId, p_event: editEvent, p_wasDeleted: true)
+        schnittstelle.update(p_eventId: savedEventId, p_event: editEvent, p_wasDeleted: false)
         
         
         //print ("deleted:")
@@ -120,16 +118,13 @@ class ViewController: UIViewController {
     // Responds to button to remove event. This checks that we have permission first, before removing the
     // event
     @IBAction func removeEvent(_ sender: UIButton) {
-        let eventStore = EKEventStore()
+        //let schnittstelle = Schnittstelle_Kalender()
         
-        if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
-            eventStore.requestAccess(to: .event, completion: { (granted, error) -> Void in
-                self.deleteEvent(eventStore, eventIdentifier: self.savedEventId)
-            })
-        } else {
-            deleteEvent(eventStore, eventIdentifier: savedEventId)
-        }
+        //print (schnittstelle.delete(p_eventId: savedEventId))
         
+        let eventStore = schnittstelle.eventStore
+        
+        eventStore.defaultCalendarForNewEvents.rollback()
     }
 }
 
