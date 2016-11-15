@@ -10,6 +10,7 @@ import UIKit
 
 class JsonSchedule: NSObject {
     fileprivate var pSchedule : [Lecture]?
+    private var course : String!
     
     var schedule : [Lecture]? {
         get {
@@ -17,9 +18,10 @@ class JsonSchedule: NSObject {
         }
     }
     
-    init? (data : Data)
+    init? (data : Data, course: String)
     {
         super.init()
+        self.course = course
         let jsonT = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject
         guard let json = jsonT else {
             return nil
@@ -69,7 +71,7 @@ class JsonSchedule: NSObject {
 
             
             
-            let newLecture = Lecture(id: newId!, name: name, docent: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room)
+            let newLecture = Lecture(id: newId!, name: name, docent: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course)
             pSchedule?.append(newLecture)
         }
     }

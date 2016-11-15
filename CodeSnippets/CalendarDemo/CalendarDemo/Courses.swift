@@ -45,17 +45,6 @@ class Courses{
 //        }
     }
     
-    //Zu selektierten Studiengängen Selektierte Semseter anzeigen
-    func selectedSemesters(){
-        
-//        for course in list{
-//            if (course.selected){
-//           
-//            }
-//        }
-
-    }
-    
     func isSelected(index: Int) -> Bool{
         return list[index].selected
     }

@@ -21,9 +21,7 @@ class Lecture{
     var enddate: Date
     var day: String
     var room: String 
-    //boolean ob der Vorlesung vom User gewählt worden ist
     var selected: Bool
-    //Studiengang
     var course: String
 
     init(id: Int, name: String, docent: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String) {

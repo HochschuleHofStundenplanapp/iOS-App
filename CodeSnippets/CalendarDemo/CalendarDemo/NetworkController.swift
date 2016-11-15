@@ -40,9 +40,9 @@ class NetworkController: NSObject {
         
     }
     
-    func loadSchedule(ssws : String, semester : String, stg : String){
+    func loadSchedule(ssws : String, semester : String, course : String){
     
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(stg)&sem=\(semester)&tt=\(ssws)"
+        let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(ssws)"
 
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
@@ -57,7 +57,7 @@ class NetworkController: NSObject {
             data, response, error in
             DispatchQueue.main.async(execute: { () -> Void in
                 
-                dump(JsonSchedule(data: data!)?.schedule)
+                dump(JsonSchedule(data: data!, course: course)?.schedule)
             })
         })
         task.resume()
