@@ -8,24 +8,21 @@
 
 import Foundation
 
+// Studiengang
 class Course {
     
     var contraction : String
     var nameDe: String
     var nameEn: String
-    var semester: [String]
-    //boolean ob der Studienganb vom User gewählt worden ist
+    var semesters: Semesters
     var selected: Bool
-    //Speichert welche Semseter zum Studeingang gewählt wurden
-    var selectedSemesters : [String] 
     
-    init(contraction : String, nameDe: String, nameEn: String, semester: [String]) {
+    init(contraction : String, nameDe: String, nameEn: String, semesters: Semesters) {
         self.contraction = contraction
-        self.semester = semester
+        self.semesters = semesters
         self.nameDe = nameDe
         self.nameEn = nameEn
         self.selected = false
-        self.selectedSemesters = []
     }
     
 }

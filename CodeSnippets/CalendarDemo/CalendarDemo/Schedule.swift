@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Studenplan
 class Schedule {
     
     //gewählte Semester (Tupel Semesterkürzel + Selektiertes Semester)

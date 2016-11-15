@@ -9,5 +9,11 @@
 import UIKit
 
 class Semester: NSObject {
-
+    var name: String
+    var selected: Bool
+    
+    init(name: String) {
+        self.name = name
+        self.selected = false
+    }
 }

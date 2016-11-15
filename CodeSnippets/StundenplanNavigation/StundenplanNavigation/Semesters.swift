@@ -10,4 +10,7 @@ import UIKit
 
 class Semesters: NSObject {
 
+    var list : [Semester] = []
+    
+    
 }

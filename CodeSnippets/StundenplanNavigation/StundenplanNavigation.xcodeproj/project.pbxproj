@@ -196,6 +196,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		BE7205571DDB04B10080C2F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				816953621DD1EA59004ED800 /* Schedule.swift */,
+				816953601DD1EA59004ED800 /* Lecture.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		CEAC96F71DB5FD350042FF3D = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +230,7 @@
 			children = (
 				CED25BB21DD1C5F400FE7D1C /* Schedule */,
 				8169536F1DD1F6BD004ED800 /* Network */,
-				CED25BB31DD1C60200FE7D1C /* Schedulechanges */,
+				CED25BB31DD1C60200FE7D1C /* ScheduleChanges */,
 				CED25BB41DD1C60B00FE7D1C /* Settings */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
@@ -261,13 +270,13 @@
 			name = Schedule;
 			sourceTree = "<group>";
 		};
-		CED25BB31DD1C60200FE7D1C /* Schedulechanges */ = {
+		CED25BB31DD1C60200FE7D1C /* ScheduleChanges */ = {
 			isa = PBXGroup;
 			children = (
 				BE7205561DDB02BB0080C2F8 /* View */,
 				BE7205531DDB024E0080C2F8 /* Model */,
 			);
-			name = Schedulechanges;
+			name = ScheduleChanges;
 			sourceTree = "<group>";
 		};
 		CED25BB41DD1C60B00FE7D1C /* Settings */ = {
@@ -306,8 +315,7 @@
 		CED25BB71DD1C64700FE7D1C /* Lecture */ = {
 			isa = PBXGroup;
 			children = (
-				816953621DD1EA59004ED800 /* Schedule.swift */,
-				816953601DD1EA59004ED800 /* Lecture.swift */,
+				BE7205571DDB04B10080C2F8 /* Model */,
 				CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */,
 			);
 			name = Lecture;

@@ -45,13 +45,14 @@ class JsonCourses {
             let nameE = (i["labels"]?["en"]?.string)!
             let sem = (i["semester"]?.array)!
             
-            var newSem : [String] = []
+            let newSem = Semesters()
             
             for s in sem{
-                newSem.append(s.string!)
+                let tmp = Semester(name:s .string! )
+                newSem.list.append(tmp)
             }
 
-            let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semester: newSem)
+            let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semesters: newSem)
             pCourses?.append(newCourse)
         }
     }

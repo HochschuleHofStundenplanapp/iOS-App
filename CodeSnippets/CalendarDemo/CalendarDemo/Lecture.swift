@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Vorlesung
 class Lecture{
 
     var id: Int

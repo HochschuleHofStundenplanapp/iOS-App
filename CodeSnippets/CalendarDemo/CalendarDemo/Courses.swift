@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Liste aller Studeingänge
 class Courses{
     private var list : [Course] = []
     
