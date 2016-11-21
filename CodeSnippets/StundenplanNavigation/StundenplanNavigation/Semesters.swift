@@ -23,4 +23,18 @@ class Semesters: NSObject {
     func isSelected(index: Int) -> Bool{
         return list[index].selected
     }
+    
+    //Kürzel zu allen selektierten Semestern anzeigen
+    func selectedSemesters() -> [Semester]{
+        var selectedSemesters : [Semester] = []
+        
+        for sem in list{
+            if (sem.selected){
+                selectedSemesters.append(sem)
+            }
+        }
+        
+        return selectedSemesters
+    }
+
 }

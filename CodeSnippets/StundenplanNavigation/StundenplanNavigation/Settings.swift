@@ -20,6 +20,7 @@ class Settings: NSObject {
     
     var season: Season = .summer
     var courses: Courses = Courses()
+//    var semesters: Semesters = Semesters()    Steht in Course
     var schedule: Schedule = Schedule()
 }
 

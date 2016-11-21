@@ -25,7 +25,13 @@ class Schedule {
     }
     
     func addSchedule(lectures: [Lecture]){
-        list = lectures
+        list.append(contentsOf: lectures)
+        
+        //Ausgabe der Liste
+        print("APPENDED")
+        for i in list{
+        print(i.name)
+        }
     }
     
     func getLectureAt(index: Int) -> Lecture{

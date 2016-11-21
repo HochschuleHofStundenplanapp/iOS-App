@@ -13,8 +13,10 @@ class NetworkController: NSObject {
     private let username = "soapuser"
     private let password = "F%98z&12"
     
-    func loadCourses(tableView: UITableView, season : String){
-            
+    func loadCourses(tableView: UITableView){
+        
+        let season = Settings.sharedInstance.season.rawValue
+        
         let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(season)"
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
@@ -40,10 +42,32 @@ class NetworkController: NSObject {
         
     }
     
-    func loadSchedule(tableView: UITableView, season : String, semester : String, course : String){
+    func loadSchedule(tableView: UITableView){
     
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(season)"
-
+        let season = Settings.sharedInstance.season.rawValue
+        let selectedCourses = Settings.sharedInstance.courses.selectedCourses()
+        
+        
+        
+        for course in selectedCourses{
+        
+            let selectedSemesters = course.semesters.selectedSemesters()
+            let courseName = course.contraction
+            
+            for semester in selectedSemesters{
+            
+                let semesterName = semester.name
+            
+                // Hier Server abfrage
+                let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(courseName)&sem=\(semesterName)&tt=\(season)"
+                
+                loadScheduleFromServer(urlString: urlString, course: courseName, tableView: tableView)
+            }
+        }
+    }
+    
+    private func loadScheduleFromServer(urlString: String, course: String, tableView: UITableView){
+    
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
         let passCredential = passData?.base64EncodedString()

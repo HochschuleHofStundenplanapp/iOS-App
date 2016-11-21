@@ -20,7 +20,7 @@ class CourseTableViewController: UITableViewController {
         
         let season = Settings.sharedInstance.season.rawValue
         
-        datasource = CourseTableViewDataSource(tableView: courseTableView, ssws: season)
+        datasource = CourseTableViewDataSource(tableView: self.tableView, ssws: season)
         delegate = CourseTableViewDelegate()
         
         tableView.dataSource = datasource

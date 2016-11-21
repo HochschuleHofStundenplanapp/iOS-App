@@ -14,7 +14,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     
     init(tableView : UITableView, ssws: String) {
         networkController = NetworkController()
-        networkController.loadCourses(tableView: tableView, season: ssws)
+        networkController.loadCourses(tableView: tableView)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
