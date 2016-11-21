@@ -10,14 +10,18 @@ import UIKit
 
 class LecturesTableViewController: UITableViewController {
 
-    var datasource : LecturesTableViewDataSource!
-
+    @IBOutlet var lectureTableView: UITableView!
+    var dataSource : LecturesTableViewDataSource!
+    var delegate: LecturesTableViewDelegate!
     
     override func viewDidLoad() {
         navigationController?.navigationBar.tintColor = UIColor.white
         super.viewDidLoad()
 
-        datasource = LecturesTableViewDataSource(tableView: self.tableView)
+        dataSource = LecturesTableViewDataSource(tableView: self.tableView)
+        lectureTableView.dataSource = dataSource
+        delegate = LecturesTableViewDelegate()
+        lectureTableView.delegate = LecturesTableViewDelegate()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

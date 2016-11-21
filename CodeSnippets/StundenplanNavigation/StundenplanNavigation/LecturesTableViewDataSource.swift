@@ -14,11 +14,10 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     
     init(tableView : UITableView) {
         networkController = NetworkController()
-        
-        networkController.loadSchedule(tableView: tableView)
+                networkController.loadSchedule(tableView: tableView)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")!
         
         cell.textLabel?.text = Settings.sharedInstance.schedule.list[indexPath.row].name
