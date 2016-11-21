@@ -13,7 +13,7 @@ class CourseTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
-        Schedule.sharedInstance.courses.toggleCourseAt(index: indexPath.row)
+        Settings.sharedInstance.courses.toggleCourseAt(index: indexPath.row)
         tableView.reloadData()
 //        dump(Courses.sharedInstance.selectedCourses())
     }

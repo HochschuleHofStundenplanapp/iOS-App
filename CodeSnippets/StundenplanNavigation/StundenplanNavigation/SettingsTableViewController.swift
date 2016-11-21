@@ -30,12 +30,12 @@ class SettingsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  (segue.identifier == "SettingsToCourses") {
-            let controller = segue.destination as? CourseTableViewController
+//            let controller = segue.destination as? CourseTableViewController
             
             if segmentControl.selectedSegmentIndex == 0 {
-                controller?.selectedSSWS = "SS"
+                Settings.sharedInstance.season = .summer
             }else{
-                controller?.selectedSSWS = "WS"
+                Settings.sharedInstance.season = .winter
             }
             
         }

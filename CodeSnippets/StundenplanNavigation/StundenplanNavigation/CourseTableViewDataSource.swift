@@ -14,14 +14,14 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     
     init(tableView : UITableView, ssws: String) {
         networkController = NetworkController()
-        networkController.loadCourses(tableView: tableView, ssws: ssws)
+        networkController.loadCourses(tableView: tableView, season: ssws)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
-        cell.textLabel?.text = "\(Schedule.sharedInstance.courses.getCourseAt(index:indexPath.row).nameDe)"
+        cell.textLabel?.text = "\(Settings.sharedInstance.courses.getCourseAt(index:indexPath.row).nameDe)"
         
-        if(Schedule.sharedInstance.courses.isSelected(index: indexPath.row)){
+        if(Settings.sharedInstance.courses.isSelected(index: indexPath.row)){
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none
@@ -31,7 +31,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Schedule.sharedInstance.courses.size()
+        return Settings.sharedInstance.courses.size()
     }
 }
 

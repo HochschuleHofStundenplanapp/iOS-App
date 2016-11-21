@@ -13,13 +13,14 @@ class CourseTableViewController: UITableViewController {
     @IBOutlet var courseTableView: UITableView!
     var datasource : CourseTableViewDataSource!
     var delegate: CourseTableViewDelegate!
-    var selectedSSWS : String!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        datasource = CourseTableViewDataSource(tableView: courseTableView, ssws: selectedSSWS)
+        let season = Settings.sharedInstance.season.rawValue
+        
+        datasource = CourseTableViewDataSource(tableView: courseTableView, ssws: season)
         delegate = CourseTableViewDelegate()
         
         tableView.dataSource = datasource

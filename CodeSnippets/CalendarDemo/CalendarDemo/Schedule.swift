@@ -10,18 +10,33 @@ import Foundation
 
 //Studenplan
 class Schedule {
+    var list : [Lecture] = []
     
-<<<<<<< Updated upstream
-    static let sharedInstance = Schedule()
+    func toggleLctureAt(index: Int){
+        if(list[index].selected){
+            list[index].selected = false
+        }else{
+            list[index].selected = true
+        }
+    }
+
+    func isSelected(index: Int) -> Bool{
+        return list[index].selected
+    }
     
-    private init(){}
+    func addSchedule(lectures: [Lecture]){
+        list = lectures
+    }
     
-    //Winter oder Sommersemester
-    var courses : Courses = Courses()//Studiengänge
-=======
-    //Winter oder Sommersemester
-    //Studiengänge
->>>>>>> Stashed changes
-    var schedule : [Lecture] = []
+    func getLectureAt(index: Int) -> Lecture{
+        return list[index]
+    }
     
+    func clearLectures(){
+        list.removeAll()
+    }
+    
+    func size() -> Int{
+        return list.count
+    }
 }

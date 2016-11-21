@@ -13,9 +13,9 @@ class NetworkController: NSObject {
     private let username = "soapuser"
     private let password = "F%98z&12"
     
-    func loadCourses(tableView: UITableView, ssws : String){
+    func loadCourses(tableView: UITableView, season : String){
             
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(ssws)"
+        let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(season)"
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
         let passCredential = passData?.base64EncodedString()
@@ -32,7 +32,7 @@ class NetworkController: NSObject {
 
                 dump(JsonCourses(data: data!)?.courses)
 
-                Schedule.sharedInstance.courses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
+                Settings.sharedInstance.courses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
                 tableView.reloadData()
             })
         })
@@ -40,9 +40,9 @@ class NetworkController: NSObject {
         
     }
     
-    func loadSchedule(ssws : String, semester : String, course : String){
+    func loadSchedule(tableView: UITableView, season : String, semester : String, course : String){
     
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(ssws)"
+        let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(season)"
 
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
@@ -58,6 +58,9 @@ class NetworkController: NSObject {
             DispatchQueue.main.async(execute: { () -> Void in
                 
                 dump(JsonSchedule(data: data!, course: course)?.schedule)
+                
+                Settings.sharedInstance.schedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
+                tableView.reloadData()
             })
         })
         task.resume()

@@ -20,6 +20,8 @@
 		8169536B1DD1EA59004ED800 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816953601DD1EA59004ED800 /* Lecture.swift */; };
 		8169536C1DD1EA59004ED800 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816953611DD1EA59004ED800 /* NetworkController.swift */; };
 		8169536D1DD1EA59004ED800 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816953621DD1EA59004ED800 /* Schedule.swift */; };
+		BE18E7411DE3190700EDD1A6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7401DE3190700EDD1A6 /* Settings.swift */; };
+		BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */; };
 		BE72054F1DDB02160080C2F8 /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72054E1DDB02160080C2F8 /* Semester.swift */; };
 		BE7205511DDB022E0080C2F8 /* Semesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7205501DDB022E0080C2F8 /* Semesters.swift */; };
 		CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */; };
@@ -75,6 +77,8 @@
 		816953601DD1EA59004ED800 /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lecture.swift; path = ../../CalendarDemo/CalendarDemo/Lecture.swift; sourceTree = "<group>"; };
 		816953611DD1EA59004ED800 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = ../../CalendarDemo/CalendarDemo/NetworkController.swift; sourceTree = "<group>"; };
 		816953621DD1EA59004ED800 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = ../../CalendarDemo/CalendarDemo/Schedule.swift; sourceTree = "<group>"; };
+		BE18E7401DE3190700EDD1A6 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDataSource.swift; sourceTree = "<group>"; };
 		BE72054E1DDB02160080C2F8 /* Semester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		BE7205501DDB022E0080C2F8 /* Semesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semesters.swift; sourceTree = "<group>"; };
 		CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +143,16 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		BE18E73F1DE3185700EDD1A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				816953601DD1EA59004ED800 /* Lecture.swift */,
+				816953621DD1EA59004ED800 /* Schedule.swift */,
+				BE18E7401DE3190700EDD1A6 /* Settings.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		BE1AF23F1DD2209D00CEFE54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,15 +210,6 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		BE7205571DDB04B10080C2F8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				816953621DD1EA59004ED800 /* Schedule.swift */,
-				816953601DD1EA59004ED800 /* Lecture.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		CEAC96F71DB5FD350042FF3D = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +233,7 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				BE18E73F1DE3185700EDD1A6 /* Model */,
 				CED25BB21DD1C5F400FE7D1C /* Schedule */,
 				8169536F1DD1F6BD004ED800 /* Network */,
 				CED25BB31DD1C60200FE7D1C /* ScheduleChanges */,
@@ -315,8 +321,8 @@
 		CED25BB71DD1C64700FE7D1C /* Lecture */ = {
 			isa = PBXGroup;
 			children = (
-				BE7205571DDB04B10080C2F8 /* Model */,
 				CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */,
+				BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */,
 			);
 			name = Lecture;
 			sourceTree = "<group>";
@@ -475,8 +481,10 @@
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
 				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
+				BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */,
 				816953651DD1EA59004ED800 /* Course.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
+				BE18E7411DE3190700EDD1A6 /* Settings.swift in Sources */,
 				BE7205511DDB022E0080C2F8 /* Semesters.swift in Sources */,
 				816953641DD1EA59004ED800 /* Changes.swift in Sources */,
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
