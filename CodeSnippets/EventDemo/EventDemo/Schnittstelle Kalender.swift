@@ -11,12 +11,68 @@ import EventKit
 
 class Schnittstelle_Kalender: NSObject {
     
-    var ScheduleCalendarID : String = "Stundenplan"
+    
+    
+    var ScheduleCalendarID : String = ""
+    var CalendarTitle : String = "Hochschule Hof Stundenplan App"
     let eventStore = EKEventStore()
     // Für Zukunft: Alarm setzen
     // Wenn alarmOffset größer 0 wird Alarm gesetzt
     let alarmOffset = 0.0
     let locationHochschule = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
+    
+    override init() {
+        super.init()
+        var calendars = [EKCalendar]()
+        calendars = eventStore.calendars(for: .event)
+        for calendar in calendars {
+            if(calendar.title == "Hochschule Hof Stundenplan App"){
+                self.ScheduleCalendarID = calendar.calendarIdentifier
+                break
+            }
+        }
+        if(ScheduleCalendarID == "") {
+            self.createCalender()
+        }
+    }
+    
+    func removeCalendar() -> Bool {
+        do {
+            try eventStore.removeCalendar(eventStore.calendar(withIdentifier: ScheduleCalendarID)!, commit: true)
+        } catch {
+            print("can´t remove Calendar")
+            return false
+        }
+        return true
+    }
+    
+    func createCalender(){
+        let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
+        
+        newCalendar.title = CalendarTitle
+        
+        let sourcesInEventStore = eventStore.sources
+        
+        newCalendar.source = sourcesInEventStore.filter{
+            (source: EKSource) -> Bool in
+            source.sourceType.rawValue == EKSourceType.local.rawValue
+            }.first!
+        
+        // Save the calendar using the Event Store instance
+        do {
+            try eventStore.saveCalendar(newCalendar, commit: true)
+            ScheduleCalendarID = newCalendar.calendarIdentifier
+            print(ScheduleCalendarID)
+            // UserDefaults.standardUserDefaults.set(newCalendar.calendarIdentifier, forKey: ScheduleCalendarID)
+        } catch {
+            let alert = UIAlertController(title: "Calendar could not save", message: (error as NSError).localizedDescription, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(OKAction)
+        }
+        
+        
+        
+    }
     
     //Erzeugt Event und schreibt es in Kalender
     func create(p_event: EKEvent)-> String {
@@ -41,13 +97,14 @@ class Schnittstelle_Kalender: NSObject {
         event.endDate   = p_event.endDate
         event.location  = locationHochschule + ", " + p_event.location!
         
+        
         if (alarmOffset > 0) {
             var ekAlarms = [EKAlarm]()
             ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
             event.alarms    = ekAlarms
         }
         
-        event.calendar  = eventStore.defaultCalendarForNewEvents
+        event.calendar  = eventStore.calendar(withIdentifier: ScheduleCalendarID)!
         
         do {
             try eventStore.save(event, span: .thisEvent)
@@ -124,7 +181,7 @@ class Schnittstelle_Kalender: NSObject {
                 event?.alarms   = []
             }
             
-            event?.calendar  = eventStore.defaultCalendarForNewEvents;
+            event?.calendar  = eventStore.calendar(withIdentifier: ScheduleCalendarID)!;
             
             // andere Speichern Möglichkeit
             // [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
@@ -138,7 +195,7 @@ class Schnittstelle_Kalender: NSObject {
             }
         }
     }
-
+    
     //Entfernt übergebenes Event
     func delete(p_eventId: String, p_withNotes: Bool?=false)-> Bool{
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
