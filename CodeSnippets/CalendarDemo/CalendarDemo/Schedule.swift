@@ -19,6 +19,19 @@ class Schedule {
             list[index].selected = true
         }
     }
+    
+    //Kürzel zu allen selektierten Studeingängen anzeigen
+    func selectedLectures() -> [Lecture]{
+        var selectedLectures : [Lecture] = []
+        
+        for lec in list{
+            if (lec.selected){
+                selectedLectures.append(lec)
+            }
+        }
+        
+        return selectedLectures
+    }
 
     func isSelected(index: Int) -> Bool{
         return list[index].selected

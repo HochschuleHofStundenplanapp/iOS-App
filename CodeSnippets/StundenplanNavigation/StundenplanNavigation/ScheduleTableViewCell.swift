@@ -10,6 +10,13 @@ import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var startDate: UILabel!
+    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var course: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var room: UILabel!
+    @IBOutlet weak var docent: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
