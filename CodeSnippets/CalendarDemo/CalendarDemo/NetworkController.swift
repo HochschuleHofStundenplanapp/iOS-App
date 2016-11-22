@@ -46,9 +46,7 @@ class NetworkController: NSObject {
     
         let season = Settings.sharedInstance.season.rawValue
         let selectedCourses = Settings.sharedInstance.courses.selectedCourses()
-        
-        
-        
+    
         for course in selectedCourses{
         
             let selectedSemesters = course.semesters.selectedSemesters()
@@ -57,17 +55,16 @@ class NetworkController: NSObject {
             for semester in selectedSemesters{
             
                 let semesterName = semester.name
-            
-                // Hier Server abfrage
-                let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(courseName)&sem=\(semesterName)&tt=\(season)"
                 
-                loadScheduleFromServer(urlString: urlString, course: courseName, tableView: tableView)
+                loadScheduleFromServer(tableView: tableView, semester: semesterName ,course: courseName, season: season)
             }
         }
     }
     
-    private func loadScheduleFromServer(urlString: String, course: String, tableView: UITableView){
+    private func loadScheduleFromServer(tableView: UITableView, semester: String, course: String, season: String){
     
+        let urlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(season)"
+        
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
         let passCredential = passData?.base64EncodedString()
@@ -90,9 +87,28 @@ class NetworkController: NSObject {
         task.resume()
     }
     
-    func loadChanges(ssws : String, semester : String, stg : String){
+    func loadChanges(tableView: UITableView){
+        
+        let season = Settings.sharedInstance.season.rawValue
+        let selectedCourses = Settings.sharedInstance.courses.selectedCourses()
+        
+        for course in selectedCourses{
+            
+            let selectedSemesters = course.semesters.selectedSemesters()
+            let courseName = course.contraction
+            
+            for semester in selectedSemesters{
+                
+                let semesterName = semester.name
+                
+                loadChangesFromServer(season: season, semester: semesterName, course: courseName)
+            }
+        }
+    }
     
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(stg)&sem=\(semester)&tt=\(ssws)"
+    private func loadChangesFromServer(season : String, semester : String, course : String){
+    
+        let urlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(kSecAttrSerialNumber)"
 
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)

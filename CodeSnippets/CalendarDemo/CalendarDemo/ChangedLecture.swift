@@ -21,7 +21,8 @@ class ChangedLecture {
     var newTime: Date
     var newDate: Date
     var newDay: String
-    var newRoom: String 
+    var newRoom: String
+    //Studiengang und Semester
 
     
     init(id: Int, name: String, docent: String, comment: String, oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String, newTime: Date, newDate: Date, newDay: String, newRoom: String) {

@@ -134,12 +134,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../CalendarDemo/CalendarDemo/NetworkController.swift"
-            timestampString = "501425392.0378"
+            timestampString = "501493379.956536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "loadSchedule(tableView:season:semester:course:)"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "loadSchedule(tableView:)"
             landmarkType = "7">
             <Locations>
                <Location
