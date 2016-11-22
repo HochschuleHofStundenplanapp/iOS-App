@@ -32,7 +32,7 @@ class ScheduleTableViewController: UITableViewController {
 
         print("HIER")
 //        print(Settings.sharedInstance.schedule.list.description)
-//        self.tableView.reloadData()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
