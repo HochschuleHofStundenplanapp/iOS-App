@@ -16,4 +16,8 @@ class Semester: NSObject {
         self.name = name
         self.selected = false
     }
+    
+    func equal(compareTo: Semester) -> Bool {
+        return self.name == compareTo.name
+    }
 }
