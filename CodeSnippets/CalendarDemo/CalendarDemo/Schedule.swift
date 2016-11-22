@@ -23,13 +23,15 @@ class Schedule {
         }
     }
     
-    //Kürzel zu allen selektierten Studeingängen anzeigen
-//    func selectedLectures() -> [Lecture]{
-//        var selectedLectures : [Lecture] = []
+    //liefert alle selektierten Studeingängen
+//    func selectedLectures() -> [[Lecture]]{
+//        var lectures : [[Lecture]] = []
 //        
-//        for lec in list{
-//            if (lec.selected){
-//                selectedLectures.append(lec)
+//        for day in list{
+//            for lecture in day{
+//                if (lecture.selected){
+//                    selectedLectures.append(lec)
+//                }
 //            }
 //        }
 //        

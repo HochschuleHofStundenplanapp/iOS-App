@@ -51,6 +51,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         
         return cell
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return weekdays.count
     }

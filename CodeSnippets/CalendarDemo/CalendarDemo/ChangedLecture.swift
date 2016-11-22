@@ -24,7 +24,6 @@ class ChangedLecture {
     var newRoom: String
     //Studiengang einfügen
 
-    
     init(id: Int, name: String, docent: String, comment: String, oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String, newTime: Date, newDate: Date, newDay: String, newRoom: String) {
         self.id = id
         self.name = name

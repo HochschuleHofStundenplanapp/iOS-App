@@ -15,6 +15,5 @@ class CourseTableViewDelegate: NSObject, UITableViewDelegate {
         
         Settings.sharedInstance.courses.toggleCourseAt(index: indexPath.row)
         tableView.reloadData()
-//        dump(Courses.sharedInstance.selectedCourses())
     }
 }
