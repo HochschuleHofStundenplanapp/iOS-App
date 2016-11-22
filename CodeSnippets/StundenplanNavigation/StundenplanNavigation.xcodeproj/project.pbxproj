@@ -151,10 +151,31 @@
 				816953601DD1EA59004ED800 /* Lecture.swift */,
 				816953621DD1EA59004ED800 /* Schedule.swift */,
 				BE18E7401DE3190700EDD1A6 /* Settings.swift */,
-				BE72054E1DDB02160080C2F8 /* Semester.swift */,
-				BE7205501DDB022E0080C2F8 /* Semesters.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BE1AF23F1DD2209D00CEFE54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				8169535A1DD1EA59004ED800 /* Course.swift */,
 				8169535B1DD1EA59004ED800 /* Courses.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BE7205521DDB02360080C2F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE72054E1DDB02160080C2F8 /* Semester.swift */,
+				BE7205501DDB022E0080C2F8 /* Semesters.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BE7205531DDB024E0080C2F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				816953581DD1EA59004ED800 /* ChangedLecture.swift */,
 				816953591DD1EA59004ED800 /* Changes.swift */,
 			);
@@ -261,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				BE7205561DDB02BB0080C2F8 /* View */,
+				BE7205531DDB024E0080C2F8 /* Model */,
 			);
 			name = ScheduleChanges;
 			sourceTree = "<group>";
@@ -279,6 +301,7 @@
 		CED25BB51DD1C62000FE7D1C /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				BE1AF23F1DD2209D00CEFE54 /* Model */,
 				CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */,
 				CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */,
 				CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */,
@@ -289,6 +312,7 @@
 		CED25BB61DD1C63600FE7D1C /* Semester */ = {
 			isa = PBXGroup;
 			children = (
+				BE7205521DDB02360080C2F8 /* Model */,
 				8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */,
 				CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */,
 				8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */,

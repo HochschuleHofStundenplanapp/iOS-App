@@ -60,14 +60,12 @@ class Courses{
         return semestersArray
     }
     
-    //daten aus dem Internet laden und auf lokale übertragen
     private func mergeCourses(courses: [Course]){
         
         for localCourse in list{
             for loadedCourse in courses{
                 if(localCourse.equal(compareTo: loadedCourse)){
                     loadedCourse.selected = localCourse.selected
-                    localCourse.semesters.mergeSemesters(semesters: loadedCourse.semesters.list)
                 }
             }
         }
