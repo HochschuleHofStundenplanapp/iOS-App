@@ -17,18 +17,14 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleChangesCell") as! ScheduleChangesTableViewCell
         
         //Inhalt der Rows // Beispieldaten!
-        switch indexPath.row {
-        case 0:
-            cell.oldNewDateLabel.text   = "Entfallener Termin"
-            cell.dateLabel.text         = "09.11.2016"
-            cell.timeLabel.text         = "14:00 Uhr"
-            cell.roomLabel.text         = "FB001/002"
-        default:
-            cell.oldNewDateLabel.text   = "Ersatztermin"
-            cell.dateLabel.text         = "09.11.2016"
-            cell.timeLabel.text         = "14:00 Uhr"
-            cell.roomLabel.text         = "TH001/002"
-        }
+
+        cell.oldDateLabel.text         = "09.11.2016"
+        cell.oldTimeLabel.text         = "14:00 Uhr"
+        cell.oldRoomLabel.text         = "FB001/002"
+
+        cell.newDateLabel.text         = "09.11.2016"
+        cell.newTimeLabel.text         = "14:00 Uhr"
+        cell.newRoomLabel.text         = "TH001/002"
         
         return cell
     }

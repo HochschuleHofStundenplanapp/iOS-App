@@ -60,5 +60,4 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
             return 58
         }
     }
-
 }

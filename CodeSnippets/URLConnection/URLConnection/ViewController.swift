@@ -10,7 +10,7 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBAction func doPressed(_ sender: AnyObject) {
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=SS"
+        let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=WS"
         let username = "soapuser"
         let password = "F%98z&12"
         
