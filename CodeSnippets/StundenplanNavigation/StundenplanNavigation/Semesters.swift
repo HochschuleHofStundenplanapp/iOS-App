@@ -20,6 +20,17 @@ class Semesters: NSObject {
         }
     }
     
+    func mergeSemesters(semesters : [Semester]){
+        for localSemester in list{
+            for loadedSemester in semesters{
+                if(localSemester.equal(compareTo: loadedSemester)){
+                    loadedSemester.selected = localSemester.selected
+                }
+            }
+        }
+        list = semesters
+    }
+    
     func isSelected(index: Int) -> Bool{
         return list[index].selected
     }

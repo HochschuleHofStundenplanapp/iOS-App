@@ -66,6 +66,7 @@ class Courses{
             for loadedCourse in courses{
                 if(localCourse.equal(compareTo: loadedCourse)){
                     loadedCourse.selected = localCourse.selected
+                    loadedCourse.semesters.mergeSemesters(semesters: loadedCourse.semesters.list)
                 }
             }
         }
