@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StundenplanNavigation/Settings.swift"
-            timestampString = "501424217.032734"
+            timestampString = "501498214.693936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "Settings"
             landmarkType = "3">
          </BreakpointContent>
