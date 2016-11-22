@@ -24,6 +24,8 @@ class Lecture{
     var room: String 
     var selected: Bool
     var course: String
+    
+    //Comment ergänzen
 
     init(id: Int, name: String, docent: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String) {
         self.id = id

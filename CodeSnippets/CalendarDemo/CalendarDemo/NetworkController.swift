@@ -32,6 +32,10 @@ class NetworkController: NSObject {
             
             DispatchQueue.main.async(execute: { () -> Void in
 
+                
+                //Hier Fehlerbehandlung, data ist evtl nil!
+                
+                print(error.debugDescription)
                 dump(JsonCourses(data: data!)?.courses)
 
                 Settings.sharedInstance.courses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)

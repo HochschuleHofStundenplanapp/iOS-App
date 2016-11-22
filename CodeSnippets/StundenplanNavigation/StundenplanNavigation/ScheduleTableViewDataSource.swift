@@ -16,8 +16,9 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         // #warning Incomplete implementation, return the number of rows
         
         var weekdaysSections = [("Montag", 0), ("Dienstag",0), ("Mittwoch",0), ("Donnerstag",0), ("Freitag",0), ("Samstag",0)]
+        var rowsInSections : [[Lecture]]
         let schedule = Settings.sharedInstance.schedule.list    //Hier noch selectedLectures() verwenden!!
-
+        
         
         for lec in schedule{
         var i = 0
@@ -26,7 +27,12 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
                 if lec.day == day.0{
                     
                     weekdaysSections[i].1 = weekdaysSections[i].1 + 1
+<<<<<<< Updated upstream
 //                    print("BIN DRIN")
+=======
+                    print("BIN DRIN")
+                    rowsInSections[i].append(lec)
+>>>>>>> Stashed changes
                 }
                 i = i+1
             }
