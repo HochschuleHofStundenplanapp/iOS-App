@@ -20,21 +20,22 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")!
         
-        cell.textLabel?.text = Settings.sharedInstance.schedule.list[indexPath.row].name
+        cell.textLabel?.text = Settings.sharedInstance.schedule.getLectureAt(section: indexPath.section, row: indexPath.row).name
         
 //        if(Settings.sharedInstance.courses.selectedSemesters()[indexPath.section].isSelected(index: indexPath.row)){
 //            cell.accessoryType = .checkmark
 //        }else{
 //            cell.accessoryType = .none
 //        }
-        
-            print("Cell for Row At Index Path called")
+//
+//            print("Cell for Row At Index Path called")
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Settings.sharedInstance.schedule.size()
+//        return Settings.sharedInstance.schedule.size()
+        return 0
     }
     
 }

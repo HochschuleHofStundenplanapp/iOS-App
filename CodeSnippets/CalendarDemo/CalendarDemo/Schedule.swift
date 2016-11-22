@@ -10,52 +10,68 @@ import Foundation
 
 //Studenplan
 class Schedule {
-    var list : [Lecture] = []
+    var list : [[Lecture]] = [[],[],[],[],[],[]]
     
-    func toggleLctureAt(index: Int){
-        if(list[index].selected){
-            list[index].selected = false
+    init() {
+    }
+    
+    func toggleLectureAt(section: Int, row: Int){
+        if(list[section][row].selected){
+            list[section][row].selected = false
         }else{
-            list[index].selected = true
+            list[section][row].selected = true
         }
     }
     
     //Kürzel zu allen selektierten Studeingängen anzeigen
-    func selectedLectures() -> [Lecture]{
-        var selectedLectures : [Lecture] = []
-        
-        for lec in list{
-            if (lec.selected){
-                selectedLectures.append(lec)
-            }
-        }
-        
-        return selectedLectures
-    }
+//    func selectedLectures() -> [Lecture]{
+//        var selectedLectures : [Lecture] = []
+//        
+//        for lec in list{
+//            if (lec.selected){
+//                selectedLectures.append(lec)
+//            }
+//        }
+//        
+//        return selectedLectures
+//    }
 
-    func isSelected(index: Int) -> Bool{
-        return list[index].selected
+    func isSelected(section: Int, row: Int) -> Bool{
+        return list[section][row].selected
     }
     
     func addSchedule(lectures: [Lecture]){
-        list.append(contentsOf: lectures)
         
-        //Ausgabe der Liste
-        print("APPENDED")
-        for i in list{
-        print(i.name)
+        for lec in lectures{
+            switch lec.day {
+            case "Montag":
+                list[0].append(lec)
+            case "Dienstag":
+                list[1].append(lec)
+            case "Mittwoch":
+                list[2].append(lec)
+            case "Donnerstag":
+                list[3].append(lec)
+            case "Freitag":
+                list[4].append(lec)
+            case "Samstag":
+                list[5].append(lec)
+            default:
+                return
+            }
         }
+        dump(list)
     }
     
-    func getLectureAt(index: Int) -> Lecture{
-        return list[index]
+    func getLectureAt(section: Int, row: Int) -> Lecture{
+        return list[section][row]
     }
     
-    func clearLectures(){
+    func clearSchedule(){
         list.removeAll()
     }
     
-    func size() -> Int{
-        return list.count
+    func sizeAt(section: Int) -> Int{
+        return list[section].count
     }
 }

@@ -77,9 +77,7 @@ class NetworkController: NSObject {
         let task = session.dataTask(with: request, completionHandler: {
             data, response, error in
             DispatchQueue.main.async(execute: { () -> Void in
-                
-                dump(JsonSchedule(data: data!, course: course)?.schedule)
-                
+                                
                 Settings.sharedInstance.schedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
                 tableView.reloadData()
             })
@@ -87,46 +85,46 @@ class NetworkController: NSObject {
         task.resume()
     }
     
-    func loadChanges(tableView: UITableView){
-        
-        let season = Settings.sharedInstance.season.rawValue
-        let selectedCourses = Settings.sharedInstance.courses.selectedCourses()
-        
-        for course in selectedCourses{
-            
-            let selectedSemesters = course.semesters.selectedSemesters()
-            let courseName = course.contraction
-            
-            for semester in selectedSemesters{
-                
-                let semesterName = semester.name
-                
-                loadChangesFromServer(season: season, semester: semesterName, course: courseName)
-            }
-        }
-    }
-    
-    private func loadChangesFromServer(season : String, semester : String, course : String){
-    
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(kSecAttrSerialNumber)"
-
-        let passInfo = String(format: "%@:%@", username, password)
-        let passData = passInfo.data(using: .utf8)
-        let passCredential = passData?.base64EncodedString()
-        let url = URL(string: urlString)
-        var request = URLRequest(url: url!)
-        request.setValue("Basic \(passCredential!)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "POST"
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: request, completionHandler: {
-            data, response, error in
-            
-            DispatchQueue.main.async(execute: { () -> Void in
-                
-                dump(JsonChanges(data: data!)?.changes)
-            })
-        })
-        task.resume()
-    }
+//    func loadChanges(tableView: UITableView){
+//        
+//        let season = Settings.sharedInstance.season.rawValue
+//        let selectedCourses = Settings.sharedInstance.courses.selectedCourses()
+//        
+//        for course in selectedCourses{
+//            
+//            let selectedSemesters = course.semesters.selectedSemesters()
+//            let courseName = course.contraction
+//            
+//            for semester in selectedSemesters{
+//                
+//                let semesterName = semester.name
+//                
+//                loadChangesFromServer(season: season, semester: semesterName, course: courseName)
+//            }
+//        }
+//    }
+//    
+//    private func loadChangesFromServer(season : String, semester : String, course : String){
+//    
+//        let urlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(kSecAttrSerialNumber)"
+//
+//        let passInfo = String(format: "%@:%@", username, password)
+//        let passData = passInfo.data(using: .utf8)
+//        let passCredential = passData?.base64EncodedString()
+//        let url = URL(string: urlString)
+//        var request = URLRequest(url: url!)
+//        request.setValue("Basic \(passCredential!)", forHTTPHeaderField: "Authorization")
+//        request.httpMethod = "POST"
+//        
+//        let session = URLSession.shared
+//        let task = session.dataTask(with: request, completionHandler: {
+//            data, response, error in
+//            
+//            DispatchQueue.main.async(execute: { () -> Void in
+//                
+//                dump(JsonChanges(data: data!)?.changes)
+//            })
+//        })
+//        task.resume()
+//    }
 }

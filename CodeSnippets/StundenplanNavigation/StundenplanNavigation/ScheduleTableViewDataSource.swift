@@ -13,28 +13,8 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
     let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
-        var weekdaysSections = [("Montag", 0), ("Dienstag",0), ("Mittwoch",0), ("Donnerstag",0), ("Freitag",0), ("Samstag",0)]
-        let schedule = Settings.sharedInstance.schedule.list    //Hier noch selectedLectures() verwenden!!
 
-        
-        for lec in schedule{
-        var i = 0
-            for day in weekdaysSections{
-                
-                if lec.day == day.0{
-                    
-                    weekdaysSections[i].1 = weekdaysSections[i].1 + 1
-//                    print("BIN DRIN")
-                }
-                i = i+1
-            }
-        }
-        
-//        print(weekdaysSections.description)
-        
-        return weekdaysSections[section].1
+        return Settings.sharedInstance.schedule.sizeAt(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,9 +23,9 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         
         let schedule = Settings.sharedInstance.schedule.list    //Hier noch selectedLectures() verwenden!!
 
-        let startDate = schedule[indexPath.row].startdate
-        let startTime = schedule[indexPath.row].starttime
-        let endTime = schedule[indexPath.row].endTime
+        let startDate = schedule[indexPath.section][indexPath.row].startdate
+        let startTime = schedule[indexPath.section][indexPath.row].starttime
+        let endTime = schedule[indexPath.section][indexPath.row].endTime
         
         var startDateString = ""
         var startTimeString = ""
@@ -63,22 +43,19 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         startDateString = dateFormatter.string(from: startDate)
         
         cell.startDate.text = startDateString
-        cell.type.text = schedule[indexPath.row].type
-        cell.course.text = schedule[indexPath.row].name
+        cell.type.text = schedule[indexPath.section][indexPath.row].type
+        cell.course.text = schedule[indexPath.section][indexPath.row].name
         cell.time.text = startTimeString + " - " + endTimeString
-        cell.docent.text = schedule[indexPath.row].docent
-        cell.room.text = schedule[indexPath.row].room
-        
+        cell.docent.text = schedule[indexPath.section][indexPath.row].docent
+        cell.room.text = schedule[indexPath.section][indexPath.row].room
         
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 6
+        return weekdays.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return self.weekdays[section]
+        return weekdays[section]
     }
 }

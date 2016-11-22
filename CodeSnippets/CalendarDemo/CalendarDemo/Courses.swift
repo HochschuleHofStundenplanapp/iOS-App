@@ -11,9 +11,7 @@ import Foundation
 //Liste aller Studeingänge
 class Courses{
     private var list : [Course] = []
-    
-    init() {}
-    
+        
     func toggleCourseAt(index: Int){
         if(list[index].selected){
             list[index].selected = false
