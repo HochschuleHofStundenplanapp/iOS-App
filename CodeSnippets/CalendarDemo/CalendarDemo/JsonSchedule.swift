@@ -71,7 +71,7 @@ class JsonSchedule: NSObject {
 
             
             
-            let newLecture = Lecture(id: newId!, name: name, docent: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course)
+            let newLecture = Lecture(id: newId!, name: name, lecturer: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course)
             pSchedule?.append(newLecture)
         }
     }

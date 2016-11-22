@@ -9,11 +9,11 @@
 import Foundation
 
 //Vorlesung
-class Lecture{
+class Lecture : Hashable {
 
     var id: Int
     var name: String
-    var docent: String
+    var lecturer: String
     var type: String
     var group: String
     var starttime: Date
@@ -25,10 +25,10 @@ class Lecture{
     var selected: Bool
     var course: String
 
-    init(id: Int, name: String, docent: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String) {
         self.id = id
         self.name = name
-        self.docent = docent
+        self.lecturer = lecturer
         self.type = type
         self.group = group
         self.starttime = starttime
@@ -41,4 +41,11 @@ class Lecture{
         self.course = course
     }
 
+     static func == (lhs: Lecture, rhs: Lecture) -> Bool {
+        return (lhs.name == rhs.name) && (lhs.lecturer == rhs.lecturer) && (lhs.day == rhs.day)
+    }
+    
+    var hashValue: Int {
+        return "\(name)\(lecturer)\(day)".hashValue
+    }
 }
