@@ -26,13 +26,13 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
                 if lec.day == day.0{
                     
                     weekdaysSections[i].1 = weekdaysSections[i].1 + 1
-                    print("BIN DRIN")
+//                    print("BIN DRIN")
                 }
                 i = i+1
             }
         }
         
-        print(weekdaysSections.description)
+//        print(weekdaysSections.description)
         
         return weekdaysSections[section].1
     }

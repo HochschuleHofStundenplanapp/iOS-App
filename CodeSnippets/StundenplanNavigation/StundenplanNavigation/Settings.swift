@@ -18,9 +18,21 @@ class Settings: NSObject {
     static let sharedInstance = Settings()
     private override init(){}
     
-    var season: Season = .summer
+    var ssws: Season = .summer
     var courses: Courses = Courses()
-//    var semesters: Semesters = Semesters()    Steht in Course
     var schedule: Schedule = Schedule()
+    
+    var season: Season {
+        get {
+            return ssws
+        }
+        set {
+            if(newValue != ssws){
+                ssws = newValue
+                courses = Courses()
+                schedule = Schedule()
+            }
+        }
+    }
 }
 

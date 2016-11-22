@@ -375,6 +375,9 @@
                                                         <segment title="Wintersemester"/>
                                                     </segments>
                                                     <color key="tintColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="sectionChanged:" destination="Xc7-6B-j2V" eventType="valueChanged" id="bdc-eR-hSw"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>

@@ -26,18 +26,22 @@ class SettingsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  (segue.identifier == "SettingsToCourses") {
-//            let controller = segue.destination as? CourseTableViewController
-            
-            if segmentControl.selectedSegmentIndex == 0 {
-                Settings.sharedInstance.season = .summer
-            }else{
-                Settings.sharedInstance.season = .winter
-            }
-            
+    
+    @IBAction func sectionChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            Settings.sharedInstance.season = .summer
+        }else{
+            Settings.sharedInstance.season = .winter
         }
     }
+
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if  (segue.identifier == "SettingsToCourses") {
+////            let controller = segue.destination as? CourseTableViewController
+//            
+//            
+//            
+//        }
+//    }
 }

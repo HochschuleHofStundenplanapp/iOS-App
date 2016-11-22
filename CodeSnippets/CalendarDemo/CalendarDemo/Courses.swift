@@ -60,12 +60,28 @@ class Courses{
         return semestersArray
     }
     
-    func isSelected(index: Int) -> Bool{
-        return list[index].selected
+    private func mergeCourses(courses: [Course]){
+        
+        for localCourse in list{
+            for loadedCourse in courses{
+                if(localCourse.equal(compareTo: loadedCourse)){
+                    loadedCourse.selected = localCourse.selected
+                }
+            }
+        }
+        list = courses
     }
     
     func addCourses(courses: [Course]){
-        list = courses
+        if(list.isEmpty){
+            list = courses
+        }else{
+            mergeCourses(courses: courses)
+        }
+    }
+    
+    func isSelected(index: Int) -> Bool{
+        return list[index].selected
     }
     
     func getCourseAt(index: Int) -> Course{

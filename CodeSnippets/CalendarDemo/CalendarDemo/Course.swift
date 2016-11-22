@@ -25,4 +25,8 @@ class Course {
         self.selected = false
     }
     
+    func equal(compareTo: Course) -> Bool {
+        return self.contraction == compareTo.contraction
+    }
+    
 }
