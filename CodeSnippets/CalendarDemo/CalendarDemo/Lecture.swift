@@ -24,8 +24,9 @@ class Lecture : Hashable {
     var room: String 
     var selected: Bool
     var course: String
+    var comment : String
 
-    init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String) {
         self.id = id
         self.name = name
         self.lecturer = lecturer
@@ -39,6 +40,7 @@ class Lecture : Hashable {
         self.room = room
         self.selected = false
         self.course = course
+        self.comment = comment
     }
 
      static func == (lhs: Lecture, rhs: Lecture) -> Bool {

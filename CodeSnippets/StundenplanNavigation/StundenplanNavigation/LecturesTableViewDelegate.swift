@@ -10,4 +10,8 @@ import UIKit
 
 class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        print("Cell selected")
+    }
 }

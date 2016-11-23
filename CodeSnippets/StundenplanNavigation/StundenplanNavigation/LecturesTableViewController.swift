@@ -15,9 +15,10 @@ class LecturesTableViewController: UITableViewController {
     var delegate: LecturesTableViewDelegate!
     
     override func viewDidLoad() {
-        navigationController?.navigationBar.tintColor = UIColor.white
         super.viewDidLoad()
 
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
         dataSource = LecturesTableViewDataSource(tableView: self.tableView)
         lectureTableView.dataSource = dataSource
         
