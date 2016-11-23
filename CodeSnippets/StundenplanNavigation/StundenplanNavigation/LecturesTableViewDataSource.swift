@@ -11,7 +11,6 @@ import UIKit
 class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
 
     var networkController : NetworkController
-    let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
     
     init(tableView : UITableView) {
         networkController = NetworkController()
@@ -38,10 +37,10 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return weekdays.count
+        return Constants.weekDays.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return weekdays[section]
+        return Constants.weekDays[section]
     }
 }

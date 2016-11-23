@@ -12,16 +12,17 @@ import Foundation
 class Schedule {
     var list : [[Lecture]] = [[],[],[],[],[],[]]
     
+    
     init() {
     }
     
-    func toggleLectureAt(section: Int, row: Int){
-        if(list[section][row].selected){
-            list[section][row].selected = false
-        }else{
-            list[section][row].selected = true
-        }
-    }
+//    func toggleLectureAt(section: Int, row: Int){
+//        if(list[section][row].selected){
+//            list[section][row].selected = false
+//        }else{
+//            list[section][row].selected = true
+//        }
+//    }
     
     //liefert alle selektierten Studeingängen
 //    func selectedLectures() -> [[Lecture]]{
@@ -45,21 +46,10 @@ class Schedule {
     func addSchedule(lectures: [Lecture]){
         
         for lec in lectures{
-            switch lec.day {
-            case "Montag":
-                list[0].append(lec)
-            case "Dienstag":
-                list[1].append(lec)
-            case "Mittwoch":
-                list[2].append(lec)
-            case "Donnerstag":
-                list[3].append(lec)
-            case "Freitag":
-                list[4].append(lec)
-            case "Samstag":
-                list[5].append(lec)
-            default:
-                return
+            let dayIndex = Constants.weekDays.index(of: lec.day)!
+            
+            if !list[dayIndex].contains(lec) {
+                    list[dayIndex].append(lec)
             }
         }
         dump(list)

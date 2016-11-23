@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C42E35C1DE59C9200DD999B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42E35B1DE59C9200DD999B /* Constants.swift */; };
 		8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */; };
 		8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */; };
 		816953631DD1EA59004ED800 /* ChangedLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816953581DD1EA59004ED800 /* ChangedLecture.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C42E35B1DE59C9200DD999B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
 		816953581DD1EA59004ED800 /* ChangedLecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangedLecture.swift; path = ../../CalendarDemo/CalendarDemo/ChangedLecture.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				BE7205501DDB022E0080C2F8 /* Semesters.swift */,
 				816953581DD1EA59004ED800 /* ChangedLecture.swift */,
 				816953591DD1EA59004ED800 /* Changes.swift */,
+				0C42E35B1DE59C9200DD999B /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAC97351DB619D40042FF3D /* ScheduleTableViewController.swift in Sources */,
+				0C42E35C1DE59C9200DD999B /* Constants.swift in Sources */,
 				BE72054F1DDB02160080C2F8 /* Semester.swift in Sources */,
 				816953631DD1EA59004ED800 /* ChangedLecture.swift in Sources */,
 				816953691DD1EA59004ED800 /* JsonParser.swift in Sources */,

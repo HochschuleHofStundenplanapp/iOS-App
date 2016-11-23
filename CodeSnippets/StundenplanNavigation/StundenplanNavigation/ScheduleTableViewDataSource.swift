@@ -10,8 +10,6 @@ import UIKit
 
 class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
 
-    let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return Settings.sharedInstance.schedule.sizeAt(section: section)
@@ -53,10 +51,10 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return weekdays.count
+        return Constants.weekDays.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return weekdays[section]
+        return Constants.weekDays[section]
     }
 }
