@@ -23,7 +23,7 @@ class LecturesTableViewController: UITableViewController {
         lectureTableView.dataSource = dataSource
         
         delegate = LecturesTableViewDelegate()
-        lectureTableView.delegate = LecturesTableViewDelegate()
+        lectureTableView.delegate = delegate
     }
 
     override func didReceiveMemoryWarning() {

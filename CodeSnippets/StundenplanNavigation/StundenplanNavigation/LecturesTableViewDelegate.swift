@@ -12,6 +12,8 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        print("Cell selected")
+        Settings.sharedInstance.schedule.toggleLectureAt(section: indexPath.section, row: indexPath.row)
+        
+        tableView.reloadData()
     }
 }

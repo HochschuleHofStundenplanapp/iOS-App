@@ -20,7 +20,7 @@ class Courses{
         }
     }
     
-    //Kürzel zu allen selektierten Studeingängen anzeigen
+    //Liefert alle selektierten Studeingängen
     func selectedCourses() -> [Course]{
         var selectedCourses : [Course] = []
         
@@ -33,6 +33,7 @@ class Courses{
         return selectedCourses
     }
     
+    //Liefert alle Name aller selektierten Studeingängen
     func selectedCoursesName() -> [String]{
         var selectedCourses : [String] = []
         
@@ -45,7 +46,7 @@ class Courses{
         return selectedCourses
     }
     
-    //Zu allen Sekektierten Studiengängen die vorhanden Semester anzeigen
+    //Liefert zu allen selektierten Studiengängen vorhande Semester
     func selectedSemesters() -> [Semesters]{
         
         var semestersArray = [Semesters]()
@@ -87,9 +88,9 @@ class Courses{
         return list[index]
     }
     
-    func clearCourses(){
-        list.removeAll()
-    }
+//    func clearCourses(){
+//        list.removeAll()
+//    }
     
     func size() -> Int{
         return list.count

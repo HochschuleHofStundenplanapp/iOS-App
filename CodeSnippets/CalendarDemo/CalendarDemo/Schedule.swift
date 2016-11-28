@@ -16,13 +16,13 @@ class Schedule {
     init() {
     }
     
-//    func toggleLectureAt(section: Int, row: Int){
-//        if(list[section][row].selected){
-//            list[section][row].selected = false
-//        }else{
-//            list[section][row].selected = true
-//        }
-//    }
+    func toggleLectureAt(section: Int, row: Int){
+        if(list[section][row].selected){
+            list[section][row].selected = false
+        }else{
+            list[section][row].selected = true
+        }
+    }
     
     //liefert alle selektierten Studeingängen
 //    func selectedLectures() -> [[Lecture]]{
@@ -59,9 +59,9 @@ class Schedule {
         return list[section][row]
     }
     
-    func clearSchedule(){
-        list.removeAll()
-    }
+//    func clearSchedule(){
+//        list.removeAll()
+//    }
     
     func sizeAt(section: Int) -> Int{
         return list[section].count

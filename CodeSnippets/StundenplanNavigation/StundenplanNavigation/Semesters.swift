@@ -35,7 +35,7 @@ class Semesters: NSObject {
         return list[index].selected
     }
     
-    //Kürzel zu allen selektierten Semestern anzeigen
+    //Liefert alle selektierten Semester
     func selectedSemesters() -> [Semester]{
         var selectedSemesters : [Semester] = []
         
