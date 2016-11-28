@@ -44,11 +44,12 @@ class Settings: NSObject {
     }
     
     func countChanges() -> Int{
+        //Anzahl der Änderungen berechnen
         return 1
     }
     
     func commitChanges() {
-        print()
+        //Änderungen im Settings Screen übernehmen
     }
 }
 
