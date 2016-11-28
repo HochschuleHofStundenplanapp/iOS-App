@@ -54,6 +54,9 @@ class Schedule {
                     list[dayIndex].append(lec)
             }
         }
+        
+        //Merge mit Lokalen und Server Daten
+        
         dump(list)
     }
     
@@ -61,9 +64,9 @@ class Schedule {
         return list[section][row]
     }
     
-//    func clearSchedule(){
-//        list.removeAll()
-//    }
+    func clearSchedule(){
+        list = [[],[],[],[],[],[]]
+    }
     
     func sizeAt(section: Int) -> Int{
         return list[section].count

@@ -44,6 +44,8 @@ class NetworkController: NSObject {
     
     func loadSchedule(tableView: UITableView){
     
+        Settings.sharedInstance.schedule.clearSchedule()
+        
         let season = Settings.sharedInstance.season.rawValue
         let selectedCourses = Settings.sharedInstance.courses.selectedCourses()
     
