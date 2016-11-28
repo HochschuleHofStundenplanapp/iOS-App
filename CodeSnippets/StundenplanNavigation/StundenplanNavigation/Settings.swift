@@ -18,9 +18,17 @@ class Settings: NSObject {
     static let sharedInstance = Settings()
     private override init(){}
     
+    //Temporäre Daten
+    //Alle Veränderunge der Stundenpläne finden hier statt
+    //Werden erst übernommen durch Funktion commmitChanges()
     var ssws: Season = .summer
     var courses: Courses = Courses()
     var schedule: Schedule = Schedule()
+    
+    //Gespeicherte Daten
+    var savedSsws: Season = .summer
+    var savedCourses: Courses = Courses()
+    var savedSchedule: Schedule = Schedule()
     
     var season: Season {
         get {
@@ -33,6 +41,14 @@ class Settings: NSObject {
                 schedule = Schedule()
             }
         }
+    }
+    
+    func countChanges() -> Int{
+        return 1
+    }
+    
+    func commitChanges() {
+        print()
     }
 }
 

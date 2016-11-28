@@ -20,6 +20,13 @@ class SettingsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
+        
+        if Settings.sharedInstance.season == .summer {
+            segmentControl.selectedSegmentIndex = 0
+        }else{
+            segmentControl.selectedSegmentIndex = 1
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

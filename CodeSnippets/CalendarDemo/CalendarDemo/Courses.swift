@@ -20,7 +20,7 @@ class Courses{
         }
     }
     
-    //Liefert alle selektierten Studeingängen
+    //Liefert alle selektierten Studeingänge
     func selectedCourses() -> [Course]{
         var selectedCourses : [Course] = []
         
@@ -33,7 +33,7 @@ class Courses{
         return selectedCourses
     }
     
-    //Liefert alle Name aller selektierten Studeingängen
+    //Liefert alle Namen aller selektierten Studeingängen
     func selectedCoursesName() -> [String]{
         var selectedCourses : [String] = []
         
@@ -87,10 +87,6 @@ class Courses{
     func getCourseAt(index: Int) -> Course{
         return list[index]
     }
-    
-//    func clearCourses(){
-//        list.removeAll()
-//    }
     
     func size() -> Int{
         return list.count

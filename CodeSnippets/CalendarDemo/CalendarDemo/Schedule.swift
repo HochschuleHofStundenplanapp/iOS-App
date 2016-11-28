@@ -24,20 +24,22 @@ class Schedule {
         }
     }
     
-    //liefert alle selektierten Studeingängen
-//    func selectedLectures() -> [[Lecture]]{
-//        var lectures : [[Lecture]] = []
-//        
-//        for day in list{
-//            for lecture in day{
-//                if (lecture.selected){
-//                    selectedLectures.append(lec)
-//                }
-//            }
-//        }
-//        
-//        return selectedLectures
-//    }
+    //Liefert alle selektierten Vorlesungen
+    func selectedLectures() -> [[Lecture]]{
+        var lectures : [[Lecture]] = [[],[],[],[],[],[]]
+        
+        for (index, day) in list.enumerated() {
+            
+            for lecture in day{
+                if (lecture.selected){
+                    lectures[index].append(lecture)
+                }
+            }
+            
+        }
+        
+        return lectures
+    }
 
     func isSelected(section: Int, row: Int) -> Bool{
         return list[section][row].selected

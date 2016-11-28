@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Semesters: NSObject {
+class Semesters{
 
     var list : [Semester] = []
     
