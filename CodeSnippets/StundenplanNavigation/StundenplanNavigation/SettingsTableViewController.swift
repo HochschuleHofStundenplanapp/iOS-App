@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
+    @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var syncSwitch: UISwitch!
    
@@ -40,5 +40,9 @@ class SettingsTableViewController: UITableViewController {
         }else{
             Settings.sharedInstance.tmpSeason = .winter
         }
+    }
+    
+    @IBAction func saveChangesButton(_ sender: UIButton) {
+        
     }
 }

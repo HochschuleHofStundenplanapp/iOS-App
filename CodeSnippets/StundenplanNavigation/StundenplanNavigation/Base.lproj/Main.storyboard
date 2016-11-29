@@ -514,6 +514,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="saveChangesButton:" destination="Xc7-6B-j2V" eventType="touchUpInside" id="DDD-32-GTk"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -616,6 +619,7 @@
                     <navigationItem key="navigationItem" title="Einstellungen" id="76d-pg-Bh2"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="saveChangesButton" destination="hoy-ia-Tob" id="2yJ-Xx-nyp"/>
                         <outlet property="segmentControl" destination="h3a-Mh-G6e" id="jvw-HD-RHB"/>
                         <outlet property="syncSwitch" destination="Tsb-TD-9Lr" id="e9D-6h-bV1"/>
                     </connections>
