@@ -21,9 +21,9 @@ class Settings: NSObject {
     //Temporäre Daten
     //Alle Veränderunge der Stundenpläne finden hier statt
     //Werden erst übernommen durch Funktion commmitChanges()
-    var ssws: Season = .summer
-    var courses: Courses = Courses()
-    var schedule: Schedule = Schedule()
+    var tmpSsws: Season = .summer
+    var tmpCourses: Courses = Courses()
+    var tmpSchedule: Schedule = Schedule()
     
     //Gespeicherte Daten
     var savedSsws: Season = .summer
@@ -32,14 +32,29 @@ class Settings: NSObject {
     
     var season: Season {
         get {
-            return ssws
+            let tmp = Season(rawValue: savedSsws.rawValue)
+            return tmp!
         }
         set {
-            if(newValue != ssws){
-                ssws = newValue
-                courses = Courses()
-                schedule = Schedule()
+            if(newValue != tmpSsws){
+                tmpSsws = newValue
+                tmpCourses = Courses()
+                tmpSchedule = Schedule()
             }
+        }
+    }
+    
+    var courses: Courses{
+        get{
+            tmpCourses = savedCourses.copy() as! Courses
+            return tmpCourses
+        }
+    }
+    
+    var schedule: Schedule{
+        get{
+            tmpSchedule = savedSchedule.copy() as! Schedule
+            return tmpSchedule
         }
     }
     
