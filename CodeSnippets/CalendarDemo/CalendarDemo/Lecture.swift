@@ -44,10 +44,10 @@ class Lecture : Hashable {
     }
 
      static func == (lhs: Lecture, rhs: Lecture) -> Bool {
-        return (lhs.room == rhs.room) && (lhs.day == rhs.day) && (lhs.starttime == rhs.starttime)
+        return (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.day == rhs.day) && (lhs.starttime == rhs.starttime)
     }
     
     var hashValue: Int {
-        return "\(room)\(day)\(starttime)".hashValue
+        return "\(name)\(room)\(day)\(starttime)".hashValue
     }
 }
