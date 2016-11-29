@@ -43,7 +43,6 @@ class CourseTableViewController: UITableViewController {
         courseTableView.reloadData()
     }
     
-<<<<<<< Updated upstream
     func showNoInternetAlert(){
     
         //Hide Activity Indicator
@@ -58,12 +57,10 @@ class CourseTableViewController: UITableViewController {
     }
 
 
-=======
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
     }
     
->>>>>>> Stashed changes
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
