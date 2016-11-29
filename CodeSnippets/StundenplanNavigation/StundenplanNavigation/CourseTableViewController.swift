@@ -14,19 +14,48 @@ class CourseTableViewController: UITableViewController {
     var datasource : CourseTableViewDataSource!
     var delegate: CourseTableViewDelegate!
     
+    let shared = Observer.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
         
         let season = Settings.sharedInstance.season.rawValue
         
-        datasource = CourseTableViewDataSource(tableView: self.tableView, ssws: season)
+        datasource = CourseTableViewDataSource(tableView: self, ssws: season)
         delegate = CourseTableViewDelegate()
         
         tableView.dataSource = datasource
         tableView.delegate = delegate
         
+        
     }
+    
+    func beginDownload(){
+        print("begin download")
+        //Show Activity Indicator
+    }
+    
+    func endDownload(){
+        print("end download")
+        //Hide Activity Indicator
+        
+        courseTableView.reloadData()
+    }
+    
+    func showNoInternetAlert(){
+    
+        //Hide Activity Indicator
+        
+        let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
+            "Stell mal Internet an", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
+            //Daten erneut laden
+        } ))
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -27,7 +27,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         let startTime = schedule[indexPath.section][indexPath.row].starttime
         let endTime = schedule[indexPath.section][indexPath.row].endTime
         
-        var startDateString = ""
+        var startDateString = "" 
         var startTimeString = ""
         var endTimeString = ""
         

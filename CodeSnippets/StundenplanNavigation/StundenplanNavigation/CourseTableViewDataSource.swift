@@ -12,7 +12,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     
     var networkController : NetworkController
     
-    init(tableView : UITableView, ssws: String) {
+    init(tableView : CourseTableViewController, ssws: String) {
         networkController = NetworkController()
         networkController.loadCourses(tableView: tableView)
     }

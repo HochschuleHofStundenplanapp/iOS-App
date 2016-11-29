@@ -12,9 +12,11 @@ class NetworkController: NSObject {
     
     private let username = "soapuser"
     private let password = "F%98z&12"
+
     
-    func loadCourses(tableView: UITableView){
+    func loadCourses(tableView: CourseTableViewController){
         
+        tableView.beginDownload()
         let season = Settings.sharedInstance.season.rawValue
         
         let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(season)"
@@ -30,12 +32,22 @@ class NetworkController: NSObject {
         let task = session.dataTask(with: request, completionHandler: {
             data, response, error in
             
+            
+            
             DispatchQueue.main.async(execute: { () -> Void in
 
+                if error != nil {
+                    print("error=\(error)")
+                    print("Connection failed")
+                    tableView.showNoInternetAlert()
+                    
+                } else{
+                
                 dump(JsonCourses(data: data!)?.courses)
-
                 Settings.sharedInstance.courses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
-                tableView.reloadData()
+                
+                    tableView.endDownload()
+                }
             })
         })
         task.resume()
