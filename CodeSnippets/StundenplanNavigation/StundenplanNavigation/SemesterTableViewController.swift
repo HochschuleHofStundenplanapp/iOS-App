@@ -25,7 +25,9 @@ class SemesterTableViewController: UITableViewController {
         
         tableView.dataSource = datasource
         tableView.delegate = delegate
-    
+        
+        //Entfernt Seperators von leeren Cells am Ende der Tabelle
+        tableView.tableFooterView = UIView(frame: .zero)
     }
 
     override func didReceiveMemoryWarning() {

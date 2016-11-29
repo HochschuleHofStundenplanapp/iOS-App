@@ -18,11 +18,26 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         
         let lecture = Settings.sharedInstance.schedule.getLectureAt(section: indexPath.section, row: indexPath.row)
         
-        cell.textLabel?.text = lecture.name
+        
+        cell.courseLabel.text = lecture.name
+        cell.docentLabel.text = lecture.lecturer
+        cell.commentLabel.text = lecture.comment
+        
+        //NSDate Formatiert zu String
+        var startTimeString = ""
+        var endTimeString = ""
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+        timeFormatter.dateFormat = "HH:mm"
+        startTimeString = timeFormatter.string(from: lecture.starttime)
+        endTimeString = timeFormatter.string(from: lecture.endTime)
+        
+        cell.timeLabel.text = startTimeString + " - " + endTimeString
         
         if(Settings.sharedInstance.schedule.isSelected(section: indexPath.section, row: indexPath.row)){
             cell.accessoryType = .checkmark

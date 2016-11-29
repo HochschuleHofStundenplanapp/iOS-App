@@ -22,6 +22,9 @@ class ScheduleTableViewController: UITableViewController {
         
         scheduleTableView.dataSource = datasource
         scheduleTableView.delegate = delegate
+        
+        //Entfernt Seperators von leeren Cells am Ende der Tabelle
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,5 +40,4 @@ class ScheduleTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
