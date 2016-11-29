@@ -28,6 +28,8 @@
 		BE72054F1DDB02160080C2F8 /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72054E1DDB02160080C2F8 /* Semester.swift */; };
 		BE7205511DDB022E0080C2F8 /* Semesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7205501DDB022E0080C2F8 /* Semesters.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
+		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
+		CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */; };
 		CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */; };
 		CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */; };
 		CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */; };
@@ -89,6 +91,8 @@
 		BE72054E1DDB02160080C2F8 /* Semester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		BE7205501DDB022E0080C2F8 /* Semesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semesters.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
+		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
+		CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlinePrivacyPoliceViewController.swift; sourceTree = "<group>"; };
 		CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewDelegate.swift; sourceTree = "<group>"; };
 		CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				CED25BB51DD1C62000FE7D1C /* Course */,
 				CED25BB61DD1C63600FE7D1C /* Semester */,
 				CED25BB71DD1C64700FE7D1C /* Lecture */,
+				CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */,
+				CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */,
 				CEAC97351DB619D40042FF3D /* ScheduleTableViewController.swift in Sources */,
 				0C42E35C1DE59C9200DD999B /* Constants.swift in Sources */,
 				BE72054F1DDB02160080C2F8 /* Semester.swift in Sources */,
@@ -467,6 +474,7 @@
 				CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */,
 				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
 				8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */,
+				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
 				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,

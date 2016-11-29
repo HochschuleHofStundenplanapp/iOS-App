@@ -13,7 +13,7 @@ class Lecture : Hashable, NSCopying {
 
     var id: Int
     var name: String
-    var lecture: String
+    var lecturer: String
     var type: String
     var group: String
     var starttime: Date
@@ -26,10 +26,10 @@ class Lecture : Hashable, NSCopying {
     var course: String
     var comment : String
 
-    init(id: Int, name: String, lecture: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String, selected: Bool) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String, selected: Bool) {
         self.id = id
         self.name = name
-        self.lecture = lecture
+        self.lecturer = lecturer
         self.type = type
         self.group = group
         self.starttime = starttime
@@ -45,11 +45,11 @@ class Lecture : Hashable, NSCopying {
     
     convenience init(id: Int, name: String, lecture: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String) {
         
-        self.init(id: id, name: name, lecture: lecture, type:type, group: group, starttime: starttime, endTime: endTime, startdate: startdate, enddate: enddate, day: day, room: room, course: course, comment: comment, selected: false)
+        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, starttime: starttime, endTime: endTime, startdate: startdate, enddate: enddate, day: day, room: room, course: course, comment: comment, selected: false)
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Lecture(id: self.id, name: self.name, lecture: self.lecture, type: self.type, group: self.group, starttime: self.starttime, endTime: self.endTime, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, comment: self.comment, selected: self.selected)
+        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, starttime: self.starttime, endTime: self.endTime, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, comment: self.comment, selected: self.selected)
         return copy
     }
 

@@ -46,7 +46,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         cell.type.text = schedule[indexPath.section][indexPath.row].type
         cell.course.text = schedule[indexPath.section][indexPath.row].name
         cell.time.text = startTimeString + " - " + endTimeString
-        cell.docent.text = schedule[indexPath.section][indexPath.row].lecture
+        cell.docent.text = schedule[indexPath.section][indexPath.row].lecturer
         cell.room.text = schedule[indexPath.section][indexPath.row].room
         
         return cell
