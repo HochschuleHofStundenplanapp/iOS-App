@@ -48,9 +48,18 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         
         let index = indexPath
         
+        let lecture = Settings.sharedInstance.savedSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
+        
+        
+        
         if(selectedIndexPath != nil){
             if index == selectedIndexPath{
-                return 114
+                if(lecture.comment == ""){
+                    return 92
+                }
+                else{
+                    return 107
+                }
             }
             else{
                 return 58

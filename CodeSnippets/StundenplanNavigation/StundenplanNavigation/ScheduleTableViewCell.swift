@@ -10,7 +10,7 @@ import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var startDate: UILabel!
+    @IBOutlet weak var comment: UILabel!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var course: UILabel!
     @IBOutlet weak var time: UILabel!

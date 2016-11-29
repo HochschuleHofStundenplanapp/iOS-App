@@ -94,26 +94,15 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell2" rowHeight="114" id="efX-2f-MDt" customClass="ScheduleTableViewCell" customModule="StundenplanNavigation" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="375" height="114"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell2" rowHeight="108" id="efX-2f-MDt" customClass="ScheduleTableViewCell" customModule="StundenplanNavigation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="375" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efX-2f-MDt" id="r5s-Mp-H4M">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="113"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FWPM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWZ-mG-Ivw">
-                                            <rect key="frame" x="8" y="92" width="359" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="N23-ff-KRt"/>
-                                                <constraint firstAttribute="height" constant="16" id="NbT-mw-iMb"/>
-                                                <constraint firstAttribute="width" constant="359" id="bin-XU-xQi"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beginn KW 41" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mk-07-hm2">
-                                            <rect key="frame" x="8" y="75" width="359" height="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mk-07-hm2">
+                                            <rect key="frame" x="8" y="89" width="359" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="naK-DK-QYq"/>
                                             </constraints>
@@ -159,6 +148,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorlesung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWZ-mG-Ivw">
+                                            <rect key="frame" x="8" y="74" width="359" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="N23-ff-KRt"/>
+                                                <constraint firstAttribute="height" constant="16" id="NbT-mw-iMb"/>
+                                                <constraint firstAttribute="width" constant="359" id="bin-XU-xQi"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="giU-Bx-ci0" firstAttribute="top" secondItem="VVO-1g-vBH" secondAttribute="bottom" id="0Zq-Bu-Z9v"/>
@@ -166,9 +166,9 @@
                                         <constraint firstItem="5Mk-07-hm2" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="6hm-sU-uhd"/>
                                         <constraint firstItem="VVO-1g-vBH" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="FZA-ml-dKp"/>
                                         <constraint firstItem="rWZ-mG-Ivw" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leading" constant="8" id="Kk5-yq-h0g"/>
-                                        <constraint firstItem="rWZ-mG-Ivw" firstAttribute="top" secondItem="5Mk-07-hm2" secondAttribute="bottom" constant="1" id="TpV-HC-vsp"/>
+                                        <constraint firstItem="rWZ-mG-Ivw" firstAttribute="top" secondItem="5Mk-07-hm2" secondAttribute="bottom" constant="-31" id="TpV-HC-vsp"/>
                                         <constraint firstItem="5Mk-07-hm2" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" id="V3i-lg-L0w"/>
-                                        <constraint firstItem="5Mk-07-hm2" firstAttribute="top" secondItem="4lO-Xw-ylv" secondAttribute="bottom" id="VgO-V8-9Vy"/>
+                                        <constraint firstItem="5Mk-07-hm2" firstAttribute="top" secondItem="4lO-Xw-ylv" secondAttribute="bottom" constant="14" id="VgO-V8-9Vy"/>
                                         <constraint firstItem="giU-Bx-ci0" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="Xlf-rT-bZc"/>
                                         <constraint firstItem="4lO-Xw-ylv" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" id="ZHd-RG-D8n"/>
                                         <constraint firstItem="FlL-Jd-eci" firstAttribute="top" secondItem="r5s-Mp-H4M" secondAttribute="top" constant="4" id="fcD-L7-mKQ"/>
@@ -183,10 +183,10 @@
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="comment" destination="5Mk-07-hm2" id="NhB-Nx-2uz"/>
                                     <outlet property="course" destination="FlL-Jd-eci" id="1FC-vv-bDA"/>
                                     <outlet property="docent" destination="4lO-Xw-ylv" id="8jN-5e-6ei"/>
                                     <outlet property="room" destination="giU-Bx-ci0" id="EN6-eT-733"/>
-                                    <outlet property="startDate" destination="5Mk-07-hm2" id="e0V-gq-M6u"/>
                                     <outlet property="time" destination="VVO-1g-vBH" id="2f4-qD-Smj"/>
                                     <outlet property="type" destination="rWZ-mG-Ivw" id="8ey-YM-nbh"/>
                                 </connections>

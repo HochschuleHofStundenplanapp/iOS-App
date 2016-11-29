@@ -42,7 +42,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         dateFormatter.dateFormat = "dd.MM.yy"
         startDateString = dateFormatter.string(from: startDate)
         
-        cell.startDate.text = startDateString
+        cell.comment.text = schedule[indexPath.section][indexPath.row].comment
         cell.type.text = schedule[indexPath.section][indexPath.row].type
         cell.course.text = schedule[indexPath.section][indexPath.row].name
         cell.time.text = startTimeString + " - " + endTimeString
