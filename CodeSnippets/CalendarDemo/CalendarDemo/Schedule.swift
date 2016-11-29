@@ -79,5 +79,35 @@ class Schedule : NSCopying{
         return list[section].count
     }
     
+    // Liefert alles Lectures zurück die hinzugefügt wurden
+    func addedLectures(schedule : Schedule) -> [Lecture] {
+        var addedArray = [Lecture]()
+        
+        for i in 0..<6{
+            for lecutre in schedule.list[i]{
+                if(!list[i].contains(lecutre)){
+                    addedArray.append(lecutre)
+                }
+            }
+        }
+
+        return addedArray
+    }
+    
+    // Liefert alles Lecutrues zurück die gelöscht wurden
+    func removedLectures(schedule : Schedule) -> [Lecture] {
+        var removedArray = [Lecture]()
+        
+        for i in 0..<6{
+            for lecutre in list[i]{
+                if(!schedule.list[i].contains(lecutre)){
+                    removedArray.append(lecutre)
+                }
+            }
+        }
+        
+        return removedArray
+    }
+
     
 }
