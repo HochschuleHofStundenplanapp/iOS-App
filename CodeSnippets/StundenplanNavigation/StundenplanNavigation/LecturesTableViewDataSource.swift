@@ -20,7 +20,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         
-        let lecture = Settings.sharedInstance.schedule.getLectureAt(section: indexPath.section, row: indexPath.row)
+        let lecture = Settings.sharedInstance.tmpSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
         
         
         cell.courseLabel.text = lecture.name
@@ -39,7 +39,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         
         cell.timeLabel.text = startTimeString + " - " + endTimeString
         
-        if(Settings.sharedInstance.schedule.isSelected(section: indexPath.section, row: indexPath.row)){
+        if(Settings.sharedInstance.tmpSchedule.isSelected(section: indexPath.section, row: indexPath.row)){
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none
@@ -48,7 +48,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Settings.sharedInstance.schedule.sizeAt(section: section)
+        return Settings.sharedInstance.tmpSchedule.sizeAt(section: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

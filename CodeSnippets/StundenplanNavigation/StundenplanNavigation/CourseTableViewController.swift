@@ -20,7 +20,7 @@ class CourseTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        let season = Settings.sharedInstance.season.rawValue
+        let season = Settings.sharedInstance.tmpSeason.rawValue
         
         datasource = CourseTableViewDataSource(tableView: self, ssws: season)
         delegate = CourseTableViewDelegate()

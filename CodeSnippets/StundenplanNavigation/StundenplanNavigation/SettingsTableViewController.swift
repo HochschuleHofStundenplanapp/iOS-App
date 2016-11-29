@@ -21,7 +21,7 @@ class SettingsTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
         
-        if Settings.sharedInstance.season == .summer {
+        if Settings.sharedInstance.tmpSeason == .summer {
             segmentControl.selectedSegmentIndex = 0
         }else{
             segmentControl.selectedSegmentIndex = 1
@@ -36,9 +36,9 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            Settings.sharedInstance.season = .summer
+            Settings.sharedInstance.tmpSeason = .summer
         }else{
-            Settings.sharedInstance.season = .winter
+            Settings.sharedInstance.tmpSeason = .winter
         }
     }
 }

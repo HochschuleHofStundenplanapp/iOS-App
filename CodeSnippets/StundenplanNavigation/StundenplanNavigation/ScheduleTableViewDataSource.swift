@@ -12,7 +12,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        let lectures = Settings.sharedInstance.schedule.selectedLectures()
+        let lectures = Settings.sharedInstance.savedSchedule.selectedLectures()
         
         return lectures[section].count
     }
@@ -21,7 +21,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell2") as! ScheduleTableViewCell
         cell.clipsToBounds = true
         
-        let schedule = Settings.sharedInstance.schedule.selectedLectures()    
+        let schedule = Settings.sharedInstance.savedSchedule.selectedLectures()
 
         let startDate = schedule[indexPath.section][indexPath.row].startdate
         let startTime = schedule[indexPath.section][indexPath.row].starttime

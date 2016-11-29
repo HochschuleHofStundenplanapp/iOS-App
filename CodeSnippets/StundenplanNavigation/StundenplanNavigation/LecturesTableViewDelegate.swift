@@ -19,14 +19,14 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        Settings.sharedInstance.schedule.toggleLectureAt(section: indexPath.section, row: indexPath.row)
+        Settings.sharedInstance.tmpSchedule.toggleLectureAt(section: indexPath.section, row: indexPath.row)
         
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
-        let lecture = Settings.sharedInstance.schedule.getLectureAt(section: indexPath.section, row: indexPath.row)
+        let lecture = Settings.sharedInstance.tmpSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
         
         if(lecture.comment != ""){
             return 73

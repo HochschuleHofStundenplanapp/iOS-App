@@ -17,7 +17,7 @@ class NetworkController: NSObject {
     func loadCourses(tableView: CourseTableViewController){
         
         tableView.beginDownload()
-        let season = Settings.sharedInstance.season.rawValue
+        let season = Settings.sharedInstance.tmpSeason.rawValue
         
         let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(season)"
         let passInfo = String(format: "%@:%@", username, password)
@@ -44,7 +44,7 @@ class NetworkController: NSObject {
                 } else{
                 
                 dump(JsonCourses(data: data!)?.courses)
-                Settings.sharedInstance.courses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
+                Settings.sharedInstance.tmpCourses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
                 
                     tableView.endDownload()
                 }
@@ -56,10 +56,10 @@ class NetworkController: NSObject {
     
     func loadSchedule(tableView: UITableView){
     
-        Settings.sharedInstance.schedule.clearSchedule()
+        Settings.sharedInstance.tmpSchedule.clearSchedule()
         
-        let season = Settings.sharedInstance.season.rawValue
-        let selectedCourses = Settings.sharedInstance.courses.selectedCourses()
+        let season = Settings.sharedInstance.tmpSeason.rawValue
+        let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
     
         for course in selectedCourses{
         
@@ -93,7 +93,7 @@ class NetworkController: NSObject {
             data, response, error in
             DispatchQueue.main.async(execute: { () -> Void in
                                 
-                Settings.sharedInstance.schedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
+                Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
                 tableView.reloadData()
             })
         })

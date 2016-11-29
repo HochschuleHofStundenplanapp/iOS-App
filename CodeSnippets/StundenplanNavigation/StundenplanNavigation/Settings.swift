@@ -21,41 +21,67 @@ class Settings: NSObject {
     //Temporäre Daten
     //Alle Veränderunge der Stundenpläne finden hier statt
     //Werden erst übernommen durch Funktion commmitChanges()
-    var tmpSsws: Season = .summer
-    var tmpCourses: Courses = Courses()
-    var tmpSchedule: Schedule = Schedule()
+    var _tmpSsws: Season = .summer
+    var _tmpCourses: Courses = Courses()
+    var _tmpSchedule: Schedule = Schedule()
     
     //Gespeicherte Daten
-    var savedSsws: Season = .summer
-    var savedCourses: Courses = Courses()
-    var savedSchedule: Schedule = Schedule()
+    var _savedSsws: Season = .summer
+    var _savedCourses: Courses = Courses()
+    var _savedSchedule: Schedule = Schedule()
     
-    var season: Season {
+    var savedSeason: Season {
         get {
-            let tmp = Season(rawValue: savedSsws.rawValue)
-            return tmp!
+            return _savedSsws
         }
         set {
-            if(newValue != tmpSsws){
-                tmpSsws = newValue
-                tmpCourses = Courses()
-                tmpSchedule = Schedule()
+            if(newValue != _savedSsws){
+                _savedSsws = newValue
+                _savedCourses = Courses()
+                _savedSchedule = Schedule()
             }
         }
     }
     
-    var courses: Courses{
+    var savedCourses: Courses{
         get{
-            tmpCourses = savedCourses.copy() as! Courses
-            return tmpCourses
+            return _savedCourses
         }
     }
     
-    var schedule: Schedule{
+    var savedSchedule: Schedule{
         get{
-            tmpSchedule = savedSchedule.copy() as! Schedule
-            return tmpSchedule
+            return _savedSchedule
         }
+    }
+    
+    var tmpSeason: Season {
+        get {
+            return _tmpSsws
+        }
+        set {
+            if(newValue != _tmpSsws){
+                _tmpSsws = newValue
+                _tmpCourses = Courses()
+                _tmpSchedule = Schedule()
+            }
+        }
+    }
+    
+    var tmpCourses: Courses{
+        get{
+            return _tmpCourses
+        }
+    }
+    
+    var tmpSchedule: Schedule{
+        get{
+            return _tmpSchedule
+        }
+    }
+    
+    func copyData(){
+        
     }
     
     func countChanges() -> Int{
