@@ -78,4 +78,6 @@ class Schedule : NSCopying{
     func sizeAt(section: Int) -> Int{
         return list[section].count
     }
+    
+    
 }
