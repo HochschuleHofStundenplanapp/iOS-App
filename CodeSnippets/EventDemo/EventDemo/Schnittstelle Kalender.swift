@@ -11,8 +11,7 @@ import EventKit
 
 class Schnittstelle_Kalender: NSObject {
     
-    
-    
+    var lecturesIds : [Lecture : String] = [:]
     var ScheduleCalendarID : String = ""
     var CalendarTitle : String = "Hochschule Hof Stundenplan App"
     let eventStore = EKEventStore()
@@ -50,7 +49,7 @@ class Schnittstelle_Kalender: NSObject {
         return true
     }
     
-    func createCalender(){
+    private func createCalender(){
         if (authentificate()) {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         
@@ -77,7 +76,7 @@ class Schnittstelle_Kalender: NSObject {
         }
     }
     
-    func authentificate () -> Bool{
+    private func authentificate () -> Bool{
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             eventStore.requestAccess(to: .event, completion: {
                 granted, error in
@@ -91,7 +90,7 @@ class Schnittstelle_Kalender: NSObject {
     }
     
     //Erzeugt Event und schreibt es in Kalender
-    func create(p_event: EKEvent)-> String {
+    private func createEvent(p_event: EKEvent)-> String {
         if (authentificate()) {
             let event = EKEvent(eventStore: eventStore)
             
@@ -127,7 +126,7 @@ class Schnittstelle_Kalender: NSObject {
     }
     
     //Aktualisiert Werte des übergebenem Events
-    func update(p_eventId: String, p_event: EKEvent, p_wasDeleted: Bool) {
+    private func updateEvent(p_eventId: String, p_event: EKEvent, p_wasDeleted: Bool) {
         if (authentificate()) {
             let event = eventStore.event(withIdentifier: p_eventId)
             
@@ -143,7 +142,7 @@ class Schnittstelle_Kalender: NSObject {
                         newEvent.location  = p_event.location
                         newEvent.calendar  = eventStore.defaultCalendarForNewEvents
                         
-                        create(p_event: newEvent)
+                        createEvent(p_event: newEvent)
                         
                         event?.title    = "[Verschoben] " + p_event.title
                         event?.location = nil
@@ -175,7 +174,7 @@ class Schnittstelle_Kalender: NSObject {
     }
     
     //Entfernt übergebenes Event
-    func delete(p_eventId: String, p_withNotes: Bool?=false)-> Bool{
+    private func removeEvent(p_eventId: String, p_withNotes: Bool?=false)-> Bool{
         if (authentificate()) {
             let eventToRemove = eventStore.event(withIdentifier: p_eventId)
             if (eventToRemove != nil) {
@@ -191,5 +190,26 @@ class Schnittstelle_Kalender: NSObject {
             return false
         }
         return false
+    }
+    
+    //
+    func removeAllEvents( ids : [String]){
+        for id in ids {
+            removeEvent(p_eventId: id)
+        }
+    }
+    
+    //
+    func createAllEvents( events : [EKEvent]){
+        for event in events{
+            createEvent(p_event: event)
+        }
+    }
+    
+    //
+    func updateAllEvents( events : [EKEvent]){
+        for event in events {
+            // updateEvent(p_eventId: <#T##String#>, p_event: <#T##EKEvent#>, p_wasDeleted: <#T##Bool#>)
+        }
     }
 }
