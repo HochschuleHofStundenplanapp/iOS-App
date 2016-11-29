@@ -30,28 +30,39 @@ class Settings: NSObject {
     var _savedCourses: Courses = Courses()
     var _savedSchedule: Schedule = Schedule()
     
+    
+    //Daten von tmp zu saved umändern
+    
     var savedSeason: Season {
         get {
-            return _savedSsws
+            //return _savedSsws
+            return _tmpSsws
         }
         set {
-            if(newValue != _savedSsws){
-                _savedSsws = newValue
-                _savedCourses = Courses()
-                _savedSchedule = Schedule()
+//            if(newValue != _savedSsws){
+//                _savedSsws = newValue
+//                _savedCourses = Courses()
+//                _savedSchedule = Schedule()
+//            }
+            if(newValue != _tmpSsws){
+                _tmpSsws = newValue
+                _tmpCourses = Courses()
+                _tmpSchedule = Schedule()
             }
         }
     }
     
     var savedCourses: Courses{
         get{
-            return _savedCourses
+            //return _savedCourses
+            return _tmpCourses
         }
     }
     
     var savedSchedule: Schedule{
         get{
-            return _savedSchedule
+            //return _savedSchedule
+            return _tmpSchedule
         }
     }
     
