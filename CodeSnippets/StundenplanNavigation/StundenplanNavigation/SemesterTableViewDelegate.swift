@@ -20,6 +20,8 @@ class SemesterTableViewDelegate: NSObject, UITableViewDelegate {
         
         Settings.sharedInstance.tmpCourses.selectedCourses()[indexPath.section].semesters.toggleSemesterAt(index: indexPath.row)
         
+        Settings.sharedInstance.tmpSchedule.clearSchedule()
+        
         tableView.reloadData()
         
     }
