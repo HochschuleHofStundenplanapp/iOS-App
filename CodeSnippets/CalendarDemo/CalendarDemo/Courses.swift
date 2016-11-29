@@ -9,9 +9,15 @@
 import Foundation
 
 //Liste aller Studeingänge
-class Courses{
+class Courses : NSCopying{
     private var list : [Course] = []
-        
+    
+    init(){ }
+    
+    init(courses: [Course]) {
+        list = courses
+    }
+    
     func toggleCourseAt(index: Int){
         if(list[index].selected){
             list[index].selected = false
@@ -90,5 +96,10 @@ class Courses{
     
     func size() -> Int{
         return list.count
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Courses(courses: self.list)
+        return copy
     }
 }

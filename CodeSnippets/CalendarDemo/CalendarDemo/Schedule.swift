@@ -9,11 +9,18 @@
 import Foundation
 
 //Studenplan
-class Schedule {
+class Schedule : NSCopying{
     var list : [[Lecture]] = [[],[],[],[],[],[]]
     
+    init() {}
     
-    init() {
+    init(lectures: [[Lecture]]) {
+        self.list = lectures
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Schedule(lectures: list)
+        return copy
     }
     
     func toggleLectureAt(section: Int, row: Int){

@@ -8,9 +8,15 @@
 
 import UIKit
 
-class Semesters{
+class Semesters : NSCopying{
 
     var list : [Semester] = []
+    
+    init() {}
+    
+    init(semesters: [Semester]) {
+        list = semesters
+    }
     
     func toggleSemesterAt(index: Int){
         if(list[index].selected){
@@ -18,6 +24,11 @@ class Semesters{
         }else{
             list[index].selected = true
         }
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Semesters(semesters: self.list)
+        return copy
     }
     
     func mergeSemesters(semesters : [Semester]){

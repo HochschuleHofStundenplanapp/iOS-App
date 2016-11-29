@@ -8,13 +8,22 @@
 
 import UIKit
 
-class Semester: NSObject {
+class Semester: NSCopying {
     var name: String
     var selected: Bool
     
-    init(name: String) {
+    init(name: String, selected: Bool) {
         self.name = name
-        self.selected = false
+        self.selected = selected
+    }
+    
+    convenience init(name: String){
+        self.init(name: name, selected: false)
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Semester(name: self.name, selected: self.selected)
+        return copy
     }
     
     func equal(compareTo: Semester) -> Bool {
