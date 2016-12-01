@@ -12,7 +12,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
 
     var networkController : NetworkController
     
-    init(tableView : UITableView) {
+    init(tableView : LecturesTableViewController) {
         networkController = NetworkController()
         networkController.loadSchedule(tableView: tableView)
     }

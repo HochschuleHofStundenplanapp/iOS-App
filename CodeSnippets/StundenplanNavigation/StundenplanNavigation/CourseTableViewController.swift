@@ -48,7 +48,7 @@ class CourseTableViewController: UITableViewController {
         //Hide Activity Indicator
         
         let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
-            "Stell mal Internet an", preferredStyle: UIAlertControllerStyle.alert)
+            "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
             //Daten erneut laden
         } ))

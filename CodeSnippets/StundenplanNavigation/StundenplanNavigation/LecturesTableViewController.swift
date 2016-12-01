@@ -19,12 +19,38 @@ class LecturesTableViewController: UITableViewController {
 
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        dataSource = LecturesTableViewDataSource(tableView: self.tableView)
+        dataSource = LecturesTableViewDataSource(tableView: self)
         lectureTableView.dataSource = dataSource
         
         delegate = LecturesTableViewDelegate()
         lectureTableView.delegate = delegate
     }
+    
+    func beginDownload(){
+        print("begin download")
+        //Show Activity Indicator
+    }
+    
+    func endDownload(){
+        print("end download")
+        //Hide Activity Indicator
+        
+        lectureTableView.reloadData()
+    }
+    
+    func showNoInternetAlert(){
+        
+        //Hide Activity Indicator
+        
+        let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
+            "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
+            //Daten erneut laden
+        } ))
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)

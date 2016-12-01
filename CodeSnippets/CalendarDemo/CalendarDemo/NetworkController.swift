@@ -54,7 +54,7 @@ class NetworkController: NSObject {
         
     }
     
-    func loadSchedule(tableView: UITableView){
+    func loadSchedule(tableView: LecturesTableViewController){
     
         //Settings.sharedInstance.tmpSchedule.clearSchedule()
         
@@ -75,7 +75,7 @@ class NetworkController: NSObject {
         }
     }
     
-    private func loadScheduleFromServer(tableView: UITableView, semester: String, course: String, season: String){
+    private func loadScheduleFromServer(tableView: LecturesTableViewController, semester: String, course: String, season: String){
     
         let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(season)"
         
@@ -92,9 +92,16 @@ class NetworkController: NSObject {
         let task = session.dataTask(with: request, completionHandler: {
             data, response, error in
             DispatchQueue.main.async(execute: { () -> Void in
-                                
+                
+                if error != nil {
+                    print("error=\(error)")
+                    print("Connection failed")
+                    tableView.showNoInternetAlert()
+                    
+                } else{
                 Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
-                tableView.reloadData()
+                tableView.endDownload()
+                }
             })
         })
         task.resume()
