@@ -11,7 +11,7 @@ import Foundation
 //Studenplan
 class Schedule : NSCopying{
     var list : [[Lecture]] = [[],[],[],[],[],[]]
-    var selLectures : [Lecture] = []
+//    var selLectures : [Lecture] = []
     
     init() {}
     
@@ -27,25 +27,22 @@ class Schedule : NSCopying{
     func toggleLectureAt(section: Int, row: Int){
         if(list[section][row].selected){
             list[section][row].selected = false
-//            let index = selLectures.index(of: list[section][row])
-//            selLectures.remove(at: index!)
         }else{
             list[section][row].selected = true
-//            selLectures.append(list[section][row])
         }
     }
     
-    func mergeLectures(){
-        for day in list {
-            for newLecture in day{
-                for oldLecture in selLectures{
-                    if(oldLecture == newLecture){
-                        newLecture.selected = oldLecture.selected
-                    }
-                }
-            }
-        }
-    }
+//    func mergeLectures(){
+//        for day in list {
+//            for newLecture in day{
+//                for oldLecture in selLectures{
+//                    if(oldLecture == newLecture){
+//                        newLecture.selected = oldLecture.selected
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     //Liefert alle selektierten Vorlesungen
     func selectedLectures() -> [[Lecture]]{
@@ -78,9 +75,9 @@ class Schedule : NSCopying{
             }
         }
         
-        mergeLectures()
+        //Merge Lectures
+//        mergeLectures()
         
-//        dump(list)
     }
     
     func getLectureAt(section: Int, row: Int) -> Lecture{
@@ -89,7 +86,7 @@ class Schedule : NSCopying{
     
     func clearSchedule(){
         list = [[],[],[],[],[],[]]
-        selLectures = []
+//        selLectures = []
     }
     
     func sizeAt(section: Int) -> Int{

@@ -21,12 +21,13 @@ class SettingsTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
         
+//        Settings.sharedInstance.copyData()
+        
         if Settings.sharedInstance.tmpSeason == .summer {
             segmentControl.selectedSegmentIndex = 0
         }else{
             segmentControl.selectedSegmentIndex = 1
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +44,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-        
+        Settings.sharedInstance.commitChanges()
     }
 }

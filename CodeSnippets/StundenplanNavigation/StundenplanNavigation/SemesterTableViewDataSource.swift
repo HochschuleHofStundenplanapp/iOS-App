@@ -25,12 +25,13 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("\(Settings.sharedInstance.tmpCourses.selectedSemesters()[section].list.count)")
         return Settings.sharedInstance.tmpCourses.selectedSemesters()[section].list.count
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        
+    
+    func numberOfSections(in tableView: UITableView) -> Int {        
         return Settings.sharedInstance.tmpCourses.selectedSemesters().count
     }
     

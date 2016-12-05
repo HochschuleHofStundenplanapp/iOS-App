@@ -17,7 +17,6 @@ class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var room: UILabel!
     @IBOutlet weak var docent: UILabel!
     
-
     override func layoutSubviews()
     {
         super.layoutSubviews()

@@ -19,8 +19,6 @@ class Settings: NSObject {
     private override init(){}
     
     //Temporäre Daten
-    //Alle Veränderunge der Stundenpläne finden hier statt
-    //Werden erst übernommen durch Funktion commmitChanges()
     var _tmpSsws: Season = .summer
     var _tmpCourses: Courses = Courses()
     var _tmpSchedule: Schedule = Schedule()
@@ -29,41 +27,10 @@ class Settings: NSObject {
     var _savedSsws: Season = .summer
     var _savedCourses: Courses = Courses()
     var _savedSchedule: Schedule = Schedule()
-    
-    
-    //Daten von tmp zu saved umändern
-    
-    var savedSeason: Season {
-        get {
-            //return _savedSsws
-            return _tmpSsws
-        }
-        set {
-//            if(newValue != _savedSsws){
-//                _savedSsws = newValue
-//                _savedCourses = Courses()
-//                _savedSchedule = Schedule()
-//            }
-            if(newValue != _tmpSsws){
-                _tmpSsws = newValue
-                _tmpCourses = Courses()
-                _tmpSchedule = Schedule()
-            }
-        }
-    }
-    
-    var savedCourses: Courses{
-        get{
-            //return _savedCourses
-            return _tmpCourses
-        }
-    }
-    
+        
     var savedSchedule: Schedule{
-        get{
-            //return _savedSchedule
-            return _tmpSchedule
-        }
+            return _savedSchedule
+//            return _tmpSchedule
     }
     
     var tmpSeason: Season {
@@ -92,16 +59,22 @@ class Settings: NSObject {
     }
     
     func copyData(){
-        
-    }
-    
-    func countChanges() -> Int{
-        //Anzahl der Änderungen berechnen
-        return 1
+        print("copy")
+        _tmpSsws = _savedSsws
+        _tmpCourses = _savedCourses.copy() as! Courses
+        _tmpSchedule = _savedSchedule.copy() as! Schedule
     }
     
     func commitChanges() {
-        //Änderungen im Settings Screen übernehmen
+        print("commit")
+        _savedSsws = _tmpSsws
+        _savedCourses = _tmpCourses.copy() as! Courses
+        _savedSchedule = _tmpSchedule.copy() as! Schedule
+    }
+    
+    func countChanges() -> Int{
+
+        return 1
     }
 }
 
