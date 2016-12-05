@@ -12,7 +12,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var syncSwitch: UISwitch!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
