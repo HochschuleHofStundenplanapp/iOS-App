@@ -36,6 +36,7 @@
 		CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */; };
 		CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */; };
 		CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */; };
+		CE7430BC1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7430BB1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift */; };
 		CEAC97041DB5FD350042FF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC97031DB5FD350042FF3D /* AppDelegate.swift */; };
 		CEAC970B1DB5FD350042FF3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAC97091DB5FD350042FF3D /* Main.storyboard */; };
 		CEAC970D1DB5FD350042FF3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAC970C1DB5FD350042FF3D /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewCell.swift; sourceTree = "<group>"; };
 		CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewDataSource.swift; sourceTree = "<group>"; };
 		CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewDelegate.swift; sourceTree = "<group>"; };
+		CE7430BB1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		CEAC97001DB5FD350042FF3D /* StundenplanNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC97031DB5FD350042FF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEAC970A1DB5FD350042FF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */,
 				CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */,
 				CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */,
+				CE7430BB1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				BE4F4E271DE3747E00B4CC7F /* LecturesTableViewDelegate.swift in Sources */,
 				8169536D1DD1EA59004ED800 /* Schedule.swift in Sources */,
 				8169536C1DD1EA59004ED800 /* NetworkController.swift in Sources */,
+				CE7430BC1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

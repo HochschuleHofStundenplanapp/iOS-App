@@ -11,6 +11,7 @@ import UIKit
 class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     
     var selectedIndexPath : IndexPath? = nil
+    var scheduleIsEmpty = true
     
     //Hintergrundfarbe einer Row
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -45,28 +46,51 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         let index = indexPath
         
-        let lecture = Settings.sharedInstance.savedSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
-        
-        
-        
-        if(selectedIndexPath != nil){
-            if index == selectedIndexPath{
-                if(lecture.comment == ""){
-                    return 92
+        if(scheduleIsEmpty == true){
+            return 107
+        }
+        else{
+            let lecture = Settings.sharedInstance.savedSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
+            
+            if(selectedIndexPath != nil){
+                if index == selectedIndexPath{
+                    if(lecture.comment == ""){
+                        return 92
+                    }
+                    else{
+                        return 107
+                    }
                 }
                 else{
-                    return 107
+                    return 58
                 }
             }
             else{
                 return 58
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        //Überprüfe ob Schedule leer ist
+        let countLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
+        scheduleIsEmpty = true
+        for i in countLectures{
+            if(i.count != 0){
+                scheduleIsEmpty = false
+            }
+        }
+        
+        //Zeig nur Sections (Wochentag) an, an dem Vorlesungen stattfinden
+        let countOfLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
+        
+        if(countOfLectures[section].count==0){
+            return 0
+        }
         else{
-            return 58
+            return UITableViewAutomaticDimension
         }
     }
 }
