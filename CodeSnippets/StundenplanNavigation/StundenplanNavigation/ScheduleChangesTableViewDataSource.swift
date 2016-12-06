@@ -20,6 +20,11 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         networkController.loadChanges(tableView: tableView)
     }
     
+    func reloadData(tableView : ScheduleChangesTableViewController){
+        networkController = NetworkController()
+        networkController.loadChanges(tableView: tableView)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleChangesCell") as! ScheduleChangesTableViewCell
         
