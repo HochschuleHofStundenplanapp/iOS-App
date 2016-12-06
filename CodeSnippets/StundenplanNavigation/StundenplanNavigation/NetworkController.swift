@@ -43,7 +43,7 @@ class NetworkController: NSObject {
                     
                 } else{
                     
-                    dump(JsonCourses(data: data!)?.courses)
+//                    dump(JsonCourses(data: data!)?.courses)
                     Settings.sharedInstance.tmpCourses.addCourses(courses: (JsonCourses(data: data!)?.courses)!)
                     
                     tableView.endDownload()

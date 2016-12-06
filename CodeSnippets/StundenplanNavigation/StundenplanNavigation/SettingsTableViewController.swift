@@ -130,8 +130,8 @@ class SettingsTableViewController: UITableViewController {
             semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
         }
         
-        print("selektierte Semester: ")
-        print(selectedSemesterString)
+//        print("selektierte Semester: ")
+//        print(selectedSemesterString)
         
     }
 }

@@ -11,13 +11,17 @@ import UIKit
 class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SemesterCell")!
         
         let selectedSem = Settings.sharedInstance.tmpCourses.selectedSemesters()
         
+        dump(selectedSem)
+        
         cell.textLabel?.text = selectedSem[indexPath.section].list[indexPath.row].name
         
-        if(Settings.sharedInstance.tmpCourses.selectedSemesters()[indexPath.section].isSelected(index: indexPath.row)){
+        if(selectedSem[indexPath.section].isSelected(index: indexPath.row)){
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none
@@ -27,7 +31,6 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("\(Settings.sharedInstance.tmpCourses.selectedSemesters()[section].list.count)")
         return Settings.sharedInstance.tmpCourses.selectedSemesters()[section].list.count
     }
     

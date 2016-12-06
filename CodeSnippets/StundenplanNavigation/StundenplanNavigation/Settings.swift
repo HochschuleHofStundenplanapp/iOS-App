@@ -18,34 +18,28 @@ class Settings: NSObject {
     static let sharedInstance = Settings()
     private override init(){}
     
-    //Temporäre Daten
-    var _tmpSsws: Season = .summer
-    var _tmpCourses: Courses = Courses()
-    var _tmpSchedule: Schedule = Schedule()
-    
-    //Gespeicherte Daten
-    var _savedSsws: Season = .summer
-    var _savedCourses: Courses = Courses()
-    var _savedSchedule: Schedule = Schedule()
-    var savedChanges: Changes = Changes()
-        
-    var savedSchedule: Schedule{
-        return _savedSchedule
-    }
-    
     required init?(coder aDecoder: NSCoder) {
-        _savedSsws = aDecoder.decodeObject(forKey: "settings_SavedSsws") as! Season
-        _savedCourses = aDecoder.decodeObject(forKey: "settings_SavedCourses") as! Courses
-        _savedSchedule = aDecoder.decodeObject(forKey: "settings_SavedSchedule") as! Schedule
+        savedSsws = aDecoder.decodeObject(forKey: "settings_SavedSsws") as! Season
+        savedCourses = aDecoder.decodeObject(forKey: "settings_SavedCourses") as! Courses
+        savedSchedule = aDecoder.decodeObject(forKey: "settings_SavedSchedule") as! Schedule
     }
     
     func encodeWithCoder(aCoder: NSCoder){
-
-        aCoder.encode(_savedSsws, forKey:"settings_SavedSsws")
-        aCoder.encode(_savedCourses, forKey:"settings_SavedCourses")
-        aCoder.encode(_savedSchedule, forKey:"settings_SavedSchedule")
-        
+        aCoder.encode(savedSsws, forKey:"settings_SavedSsws")
+        aCoder.encode(savedCourses, forKey:"settings_SavedCourses")
+        aCoder.encode(savedSchedule, forKey:"settings_SavedSchedule")
     }
+    
+    //Temporäre Daten
+    private var _tmpSsws: Season = .summer
+    var tmpCourses: Courses = Courses()
+    var tmpSchedule: Schedule = Schedule()
+    
+    //Gespeicherte Daten
+    private var savedSsws: Season = .summer
+    private var savedCourses: Courses = Courses()
+    var savedSchedule: Schedule = Schedule()
+    var savedChanges: Changes = Changes()
     
     var tmpSeason: Season {
         get {
@@ -54,46 +48,36 @@ class Settings: NSObject {
         set {
             if(newValue != _tmpSsws){
                 _tmpSsws = newValue
-                _tmpCourses = Courses()
-                _tmpSchedule = Schedule()
+                tmpCourses = Courses()
+                tmpSchedule = Schedule()
             }
-        }
-    }
-    
-    var tmpCourses: Courses{
-        get{
-            return _tmpCourses
-        }
-    }
-    
-    var tmpSchedule: Schedule{
-        get{
-            return _tmpSchedule
         }
     }
     
     //Daten aus saved in tmp laden
     func copyData(){
-        _tmpSsws = _savedSsws
-        _tmpCourses = _savedCourses.copy() as! Courses
-        _tmpSchedule = _savedSchedule.copy() as! Schedule
+        print("copy_____________________")
+        _tmpSsws = savedSsws
+        tmpCourses = savedCourses.copy() as! Courses
+        tmpSchedule = savedSchedule.copy() as! Schedule
     }
     
     //Daten von tmp in saved übernehmen
     func commitChanges() {
-        _savedSsws = _tmpSsws
-        _savedCourses = _tmpCourses.copy() as! Courses
-        _savedSchedule = _tmpSchedule.copy() as! Schedule
+        print("commit_____________________")
+        savedSsws = _tmpSsws
+        savedCourses = tmpCourses.copy() as! Courses
+        savedSchedule = tmpSchedule.copy() as! Schedule
     }
     
     func countChanges() -> Int{
         
-        dump(_savedSchedule.removedLectures(schedule: _tmpSchedule))
-        let deleted = _savedSchedule.removedLectures(schedule: _tmpSchedule).count
-        print("--------------------------")
-        dump(_savedSchedule.addedLectures(schedule: _tmpSchedule))
-        let added = _savedSchedule.addedLectures(schedule: _tmpSchedule).count
-        print ("\(deleted)\(added)")
+//        dump(_savedSchedule.removedLectures(schedule: tmpSchedule))
+        let deleted = savedSchedule.removedLectures(schedule: tmpSchedule).count
+//        print("--------------------------")
+//        dump(_savedSchedule.addedLectures(schedule: tmpSchedule))
+        let added = savedSchedule.addedLectures(schedule: tmpSchedule).count
+//        print ("\(deleted)\(added)")
         return deleted + added
     }
 }
