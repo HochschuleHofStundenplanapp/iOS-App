@@ -61,5 +61,6 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
         Settings.sharedInstance.commitChanges()
+        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
     }
 }

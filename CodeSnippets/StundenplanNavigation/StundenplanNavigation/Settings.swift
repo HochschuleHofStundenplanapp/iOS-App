@@ -29,7 +29,7 @@ class Settings: NSObject {
     var _savedSchedule: Schedule = Schedule()
         
     var savedSchedule: Schedule{
-            return _savedSchedule
+        return _savedSchedule
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,8 +86,13 @@ class Settings: NSObject {
     }
     
     func countChanges() -> Int{
+        
+        dump(_savedSchedule.removedLectures(schedule: _tmpSchedule))
         let deleted = _savedSchedule.removedLectures(schedule: _tmpSchedule).count
+        print("--------------------------")
+        dump(_savedSchedule.addedLectures(schedule: _tmpSchedule))
         let added = _savedSchedule.addedLectures(schedule: _tmpSchedule).count
+        print ("\(deleted)\(added)")
         return deleted + added
     }
 }

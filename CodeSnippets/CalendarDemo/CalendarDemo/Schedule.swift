@@ -15,7 +15,7 @@ class Schedule : NSCopying{
     
     init() {}
     
-    init(lectures: [[Lecture]]) {
+    init(lectures: [[Lecture]], selLectures : [Lecture]) {
         self.list = lectures
     }
     
@@ -40,7 +40,7 @@ class Schedule : NSCopying{
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Schedule(lectures: list)
+        let copy = Schedule(lectures: list, selLectures : selLectures)
         return copy
     }
     
@@ -114,15 +114,11 @@ class Schedule : NSCopying{
     func addedLectures(schedule : Schedule) -> [Lecture] {
         var addedArray = [Lecture]()
         
-        for i in 0..<6{
-            dump(schedule.list[i])
-            dump(list[i])
-            for lecutre in schedule.list[i]{
-                if(!list[i].contains(lecutre)){
+            for lecutre in schedule.selLectures{
+                if(!selLectures.contains(lecutre)){
                     addedArray.append(lecutre)
                 }
             }
-        }
         
         return addedArray
         
@@ -132,14 +128,13 @@ class Schedule : NSCopying{
     func removedLectures(schedule : Schedule) -> [Lecture] {
         var removedArray = [Lecture]()
         
-        for i in 0..<6{
-            for lecutre in list[i]{
-                if(!schedule.list[i].contains(lecutre)){
+            for lecutre in selLectures{
+                if(!schedule.selLectures.contains(lecutre)){
                     removedArray.append(lecutre)
                 }
             }
-        }
-        
+        dump(selLectures)
+        dump(schedule.selLectures)
         return removedArray
     }
 
