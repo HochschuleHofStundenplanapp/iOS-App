@@ -27,6 +27,7 @@ class Settings: NSObject {
     var _savedSsws: Season = .summer
     var _savedCourses: Courses = Courses()
     var _savedSchedule: Schedule = Schedule()
+    var savedChanges: Changes = Changes()
         
     var savedSchedule: Schedule{
         return _savedSchedule

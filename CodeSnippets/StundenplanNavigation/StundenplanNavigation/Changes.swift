@@ -11,4 +11,8 @@ import Foundation
 class Changes {
     
     var changes : [ChangedLecture] = []
+    
+    func addChanges(cl : [ChangedLecture]){
+        changes.append(contentsOf: cl)
+    }
 }
