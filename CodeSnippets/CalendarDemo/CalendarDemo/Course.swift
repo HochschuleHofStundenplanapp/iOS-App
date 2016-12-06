@@ -29,6 +29,22 @@ class Course: NSCopying {
         self.init(contraction : contraction, nameDe: nameDe, nameEn: nameEn, semesters: semesters, selected: false)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        contraction = aDecoder.decodeObject(forKey: "courseContraction") as! String
+        nameDe = aDecoder.decodeObject(forKey: "courseNameDe") as! String
+        nameEn = aDecoder.decodeObject(forKey: "courseNameEn") as! String
+        semesters = aDecoder.decodeObject(forKey: "courseSemesters") as! Semesters
+        selected = aDecoder.decodeObject(forKey: "courseSelected") as! Bool
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder){
+        aCoder.encode(contraction, forKey:"courseContraction")
+        aCoder.encode(nameDe, forKey:"courseNameDe")
+        aCoder.encode(nameEn, forKey:"courseNameEn")
+        aCoder.encode(semesters, forKey:"courseSemesters")
+        aCoder.encode(selected, forKey:"courseSelected")
+    }
+    
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = Course(contraction: self.contraction, nameDe: self.nameDe, nameEn: self.nameEn, semesters: self.semesters, selected: self.selected)
         return copy

@@ -33,6 +33,20 @@ class Settings: NSObject {
 //            return _tmpSchedule
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        _savedSsws = aDecoder.decodeObject(forKey: "settings_SavedSsws") as! Season
+        _savedCourses = aDecoder.decodeObject(forKey: "settings_SavedCourses") as! Courses
+        _savedSchedule = aDecoder.decodeObject(forKey: "settings_SavedSchedule") as! Schedule
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder){
+
+        aCoder.encode(_savedSsws, forKey:"settings_SavedSsws")
+        aCoder.encode(_savedCourses, forKey:"settings_SavedCourses")
+        aCoder.encode(_savedSchedule, forKey:"settings_SavedSchedule")
+        
+    }
+    
     var tmpSeason: Season {
         get {
             return _tmpSsws

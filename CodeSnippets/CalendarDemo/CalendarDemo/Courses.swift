@@ -18,6 +18,14 @@ class Courses : NSCopying{
         list = courses
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        list = aDecoder.decodeObject(forKey: "coursesList") as! [Course]
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder){
+        aCoder.encode(list, forKey:"coursesList")
+    }
+    
     func toggleCourseAt(index: Int){
         if(list[index].selected){
             list[index].selected = false

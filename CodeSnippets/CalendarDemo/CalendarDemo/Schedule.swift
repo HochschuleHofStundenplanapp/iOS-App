@@ -19,6 +19,14 @@ class Schedule : NSCopying{
         self.list = lectures
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        list = aDecoder.decodeObject(forKey: "scheduleList") as! [[Lecture]]
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder){
+        aCoder.encode(list, forKey:"scheduleList")
+    }
+    
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = Schedule(lectures: list)
         return copy

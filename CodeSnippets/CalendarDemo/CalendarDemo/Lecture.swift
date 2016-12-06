@@ -60,4 +60,39 @@ class Lecture : Hashable, NSCopying {
     var hashValue: Int {
         return "\(name)\(room)\(day)\(starttime)".hashValue
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        id = aDecoder.decodeObject(forKey: "lectureId") as! Int
+        name = aDecoder.decodeObject(forKey: "lectureName") as! String
+        lecturer = aDecoder.decodeObject(forKey: "lectureLecturer") as! String
+        type = aDecoder.decodeObject(forKey: "lectureType") as! String
+        group = aDecoder.decodeObject(forKey: "lectureGroup") as! String
+        starttime = aDecoder.decodeObject(forKey: "lectureStarttime") as! Date
+        endTime = aDecoder.decodeObject(forKey: "lectureEndTime") as! Date
+        startdate = aDecoder.decodeObject(forKey: "lectureStartdate") as! Date
+        enddate = aDecoder.decodeObject(forKey: "lectureEnddate") as! Date
+        day = aDecoder.decodeObject(forKey: "lectureDay") as! String
+        room = aDecoder.decodeObject(forKey: "lectureRoom") as! String
+        selected = aDecoder.decodeObject(forKey: "lectureSelected") as! Bool
+        course = aDecoder.decodeObject(forKey: "lectureCourse") as! String
+        comment = aDecoder.decodeObject(forKey: "lectureComment") as! String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder){
+        aCoder.encode(id, forKey:"lectureId")
+        aCoder.encode(name, forKey:"lectureName")
+        aCoder.encode(lecturer, forKey:"lectureLecturer")
+        aCoder.encode(type, forKey:"lectureType")
+        aCoder.encode(group, forKey:"lectureGroup")
+        aCoder.encode(starttime, forKey:"lectureStarttime")
+        aCoder.encode(endTime, forKey:"lectureEndTime")
+        aCoder.encode(startdate, forKey:"lectureStartdate")
+        aCoder.encode(enddate, forKey:"lectureEnddate")
+        aCoder.encode(day, forKey:"lectureDay")
+        aCoder.encode(room, forKey:"lectureRoom")
+        aCoder.encode(selected, forKey:"lectureSelected")
+        aCoder.encode(course, forKey:"lectureCourse")
+        aCoder.encode(comment, forKey:"lectureComment")
+    }
+
 }
