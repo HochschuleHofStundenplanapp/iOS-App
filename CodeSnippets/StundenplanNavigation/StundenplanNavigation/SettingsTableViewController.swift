@@ -12,10 +12,16 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var syncSwitch: UISwitch!
-    
+
+    @IBOutlet var courseTableViewCell: UITableViewCell!
+    @IBOutlet var semesterTableViewCell: UITableViewCell!
+    @IBOutlet var lecturesTableViewCell: UITableViewCell!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         Settings.sharedInstance.copyData()
+        //courseTableViewCell.isUserInteractionEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

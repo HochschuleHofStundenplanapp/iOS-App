@@ -13,6 +13,10 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     var selectedIndexPath : IndexPath? = nil
     var scheduleIsEmpty = true
     
+    override init(){
+        
+    }
+    
     //Hintergrundfarbe einer Row
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        if(indexPath.row % 2 != 0){
