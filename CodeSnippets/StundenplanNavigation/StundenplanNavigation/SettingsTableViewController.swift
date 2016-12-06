@@ -21,13 +21,15 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var selectedSemesterLabel: UILabel!
     @IBOutlet var selectedLecturesLabel: UILabel!
     
+    var selectedCoursesString = "..."
+    var selectedSemesterString = "..."
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //courseTableViewCell.isUserInteractionEnabled = false
         
-        //selectedCoursesLabel.text = Setting.sharedInstance.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +46,8 @@ class SettingsTableViewController: UITableViewController {
         }else{
             segmentControl.selectedSegmentIndex = 1
         }
+        
+        setDetailLabels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,5 +66,72 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func saveChangesButton(_ sender: UIButton) {
         Settings.sharedInstance.commitChanges()
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+    }
+    
+    func setDetailLabels(){
+        
+        //Alle selektierten Courses
+        let selectedCourses : [String] = Settings.sharedInstance.tmpCourses.selectedCoursesName()
+        
+        if (selectedCourses.count == 0){
+            selectedCoursesString = "..."
+        }
+        else{
+            selectedCoursesString = selectedCourses[0]
+        }
+        if(selectedCourses.count > 1){
+            for i in 1..<selectedCourses.count{
+                selectedCoursesString.append(", " + selectedCourses[i])
+            }
+        }
+        courseTableViewCell.detailTextLabel?.text = selectedCoursesString
+        
+        //Alle selektierten Semester
+        let allSelectedSemesters : [Semesters] = Settings.sharedInstance.tmpCourses.selectedSemesters()
+        var allSelectedSemester : [Semester] = []
+        var selectedSemester : [String] = []
+        
+        for i in allSelectedSemesters {
+            selectedSemester.append("|")
+            for j in i.list{
+                if (j.selected == true){
+                    selectedSemester.append(j.name)
+                }
+            }
+        }
+        
+        var isEmpty = true
+        for i in selectedSemester{
+            if (i != "|"){
+                isEmpty = false
+            }
+        }
+        
+        if(isEmpty){
+            selectedSemesterString = "..."
+        }
+        else
+        {
+            selectedSemesterString = selectedSemester[1]
+        }
+        
+        if(selectedSemester.count > 2){
+            for i in 2..<selectedSemester.count{
+                if selectedSemester[i] == "|"{
+                    selectedSemesterString.append(" | ")
+                }
+                else if (selectedSemester[i-1] == "|" && selectedSemester[i] != "|"){
+                    selectedSemesterString.append(selectedSemester[i])
+                }
+                else{
+                    selectedSemesterString.append("," + selectedSemester[i])
+                }
+            }
+            semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
+        }
+        
+        print("selektierte Semester: ")
+        print(selectedSemesterString)
+        
     }
 }
