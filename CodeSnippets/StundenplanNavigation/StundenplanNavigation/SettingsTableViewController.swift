@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Settings.sharedInstance.copyData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

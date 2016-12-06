@@ -60,6 +60,7 @@ class Settings: NSObject {
     
     //Daten aus saved in tmp laden
     func copyData(){
+        print("copy")
         _tmpSsws = _savedSsws
         _tmpCourses = _savedCourses.copy() as! Courses
         _tmpSchedule = _savedSchedule.copy() as! Schedule
