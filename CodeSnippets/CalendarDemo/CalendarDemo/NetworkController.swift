@@ -71,6 +71,7 @@ class NetworkController: NSObject {
                 let semesterName = semester.name
                 
                 loadScheduleFromServer(tableView: tableView, semester: semesterName ,course: courseName, season: season)
+                
             }
         }
     }

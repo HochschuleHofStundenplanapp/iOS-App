@@ -9,10 +9,13 @@
 import UIKit
 
 class UITabBarDelegate: UITabBarController, UITabBarControllerDelegate {
-
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
-        print(index)
+        if(index == 2){
+            Settings.sharedInstance.copyData()
+            Settings.sharedInstance.tmpSchedule.extractSelectedLectures()
+        }
     }
     
 }

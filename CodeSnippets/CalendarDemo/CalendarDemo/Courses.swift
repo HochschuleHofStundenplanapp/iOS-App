@@ -79,7 +79,7 @@ class Courses : NSCopying{
             for loadedCourse in courses{
                 if(localCourse.equal(compareTo: loadedCourse)){
                     loadedCourse.selected = localCourse.selected
-                    loadedCourse.semesters.mergeSemesters(semesters: loadedCourse.semesters.list)
+                    localCourse.semesters.mergeSemesters(semesters: loadedCourse.semesters.list)
                 }
             }
         }

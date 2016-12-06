@@ -30,7 +30,6 @@ class Settings: NSObject {
         
     var savedSchedule: Schedule{
             return _savedSchedule
-//            return _tmpSchedule
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -74,7 +73,6 @@ class Settings: NSObject {
     
     //Daten aus saved in tmp laden
     func copyData(){
-        print("copy")
         _tmpSsws = _savedSsws
         _tmpCourses = _savedCourses.copy() as! Courses
         _tmpSchedule = _savedSchedule.copy() as! Schedule
@@ -82,15 +80,15 @@ class Settings: NSObject {
     
     //Daten von tmp in saved übernehmen
     func commitChanges() {
-        print("commit")
         _savedSsws = _tmpSsws
         _savedCourses = _tmpCourses.copy() as! Courses
         _savedSchedule = _tmpSchedule.copy() as! Schedule
     }
     
     func countChanges() -> Int{
-
-        return 1
+        let deleted = _savedSchedule.removedLectures(schedule: _tmpSchedule).count
+        let added = _savedSchedule.addedLectures(schedule: _tmpSchedule).count
+        return deleted + added
     }
 }
 

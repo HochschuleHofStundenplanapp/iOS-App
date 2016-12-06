@@ -24,17 +24,20 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Settings.sharedInstance.copyData()
+
         //courseTableViewCell.isUserInteractionEnabled = false
         
         //selectedCoursesLabel.text = Setting.sharedInstance.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
         
-//        Settings.sharedInstance.copyData()
+        Settings.sharedInstance.tmpSchedule.extractSelectedLectures()
+        let counter = Settings.sharedInstance.countChanges()
+        saveChangesButton.setTitle("\(counter) Änderungen übernehmen", for: .normal)
         
         if Settings.sharedInstance.tmpSeason == .summer {
             segmentControl.selectedSegmentIndex = 0

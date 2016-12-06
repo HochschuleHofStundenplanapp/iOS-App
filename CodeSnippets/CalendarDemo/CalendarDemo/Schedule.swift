@@ -11,12 +11,24 @@ import Foundation
 //Studenplan
 class Schedule : NSCopying{
     var list : [[Lecture]] = [[],[],[],[],[],[]]
-//    var selLectures : [Lecture] = []
+    var selLectures : [Lecture] = []
     
     init() {}
     
     init(lectures: [[Lecture]]) {
         self.list = lectures
+    }
+    
+    //Alle selektierten Volrlesungen werden in eine Liste gespeichert
+    func extractSelectedLectures(){
+        selLectures = []
+        for day in list {
+            for lecture in day{
+                if (lecture.selected){
+                    selLectures.append(lecture)
+                }
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,17 +52,17 @@ class Schedule : NSCopying{
         }
     }
     
-//    func mergeLectures(){
-//        for day in list {
-//            for newLecture in day{
-//                for oldLecture in selLectures{
-//                    if(oldLecture == newLecture){
-//                        newLecture.selected = oldLecture.selected
-//                    }
-//                }
-//            }
-//        }
-//    }
+    func mergeLectures(){
+        for day in list {
+            for newLecture in day{
+                for oldLecture in selLectures{
+                    if(oldLecture == newLecture){
+                        newLecture.selected = oldLecture.selected
+                    }
+                }
+            }
+        }
+    }
     
     //Liefert alle selektierten Vorlesungen
     func selectedLectures() -> [[Lecture]]{
@@ -74,7 +86,7 @@ class Schedule : NSCopying{
     }
     
     func addSchedule(lectures: [Lecture]){
-        
+                
         for lec in lectures{
             let dayIndex = Constants.weekDays.index(of: lec.day)!
             
@@ -83,9 +95,7 @@ class Schedule : NSCopying{
             }
         }
         
-        //Merge Lectures
-//        mergeLectures()
-        
+        mergeLectures()
     }
     
     func getLectureAt(section: Int, row: Int) -> Lecture{
@@ -94,7 +104,6 @@ class Schedule : NSCopying{
     
     func clearSchedule(){
         list = [[],[],[],[],[],[]]
-//        selLectures = []
     }
     
     func sizeAt(section: Int) -> Int{
@@ -106,14 +115,17 @@ class Schedule : NSCopying{
         var addedArray = [Lecture]()
         
         for i in 0..<6{
+            dump(schedule.list[i])
+            dump(list[i])
             for lecutre in schedule.list[i]{
                 if(!list[i].contains(lecutre)){
                     addedArray.append(lecutre)
                 }
             }
         }
-
+        
         return addedArray
+        
     }
     
     // Liefert alles Lecutrues zurück die gelöscht wurden
