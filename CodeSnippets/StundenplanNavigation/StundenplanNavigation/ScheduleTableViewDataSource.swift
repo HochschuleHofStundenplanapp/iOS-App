@@ -12,17 +12,12 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
     
     var scheduleIsEmpty = true
     
+    func isScheduleEmpty() -> Bool{
+        return scheduleIsEmpty
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        //Überprüfe, ob Schedule leer ist. Falls ja, wird nur eine Section angezeigt.
-        let countLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
-        scheduleIsEmpty = true
-        for i in countLectures{
-            if(i.count != 0){
-                scheduleIsEmpty = false
-            }
-        }
-        
-        if(scheduleIsEmpty == true){
+        if(isScheduleEmpty() == true){
             return 1
         }
         
@@ -30,7 +25,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(scheduleIsEmpty == true){
+        if(isScheduleEmpty() == true){
             return 1
         }
         
@@ -39,7 +34,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(scheduleIsEmpty == true){
+        if(isScheduleEmpty() == true){
             let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCellEmpty") as! EmptyScheduleTableViewCell
             return cell
         }

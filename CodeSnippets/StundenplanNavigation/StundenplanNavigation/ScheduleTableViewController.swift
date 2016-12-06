@@ -33,7 +33,20 @@ class ScheduleTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.9255, green: 0.3686, blue: 0.2902, alpha: 1.0)]
 
+        //Überprüfe, ob Schedule leer ist. Falls ja, wird nur eine Section angezeigt.
+        let countLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
+        datasource.scheduleIsEmpty = true
+        for i in countLectures{
+            if(i.count != 0){
+                datasource.scheduleIsEmpty = false
+            }
+        }
+        
         self.tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate.selectedIndexPath = nil
     }
 
     override func didReceiveMemoryWarning() {

@@ -17,11 +17,17 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var semesterTableViewCell: UITableViewCell!
     @IBOutlet var lecturesTableViewCell: UITableViewCell!
 
+    @IBOutlet var selectedCoursesLabel: UILabel!
+    @IBOutlet var selectedSemesterLabel: UILabel!
+    @IBOutlet var selectedLecturesLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Settings.sharedInstance.copyData()
         //courseTableViewCell.isUserInteractionEnabled = false
+        
+        //selectedCoursesLabel.text = Setting.sharedInstance.
     }
     
     override func viewWillAppear(_ animated: Bool) {

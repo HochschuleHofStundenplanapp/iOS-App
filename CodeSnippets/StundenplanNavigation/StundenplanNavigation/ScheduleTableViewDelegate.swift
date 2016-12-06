@@ -11,13 +11,8 @@ import UIKit
 class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     
     var selectedIndexPath : IndexPath? = nil
-    var scheduleIsEmpty = true
     
-    override init(){
-        
-    }
-    
-    //Hintergrundfarbe einer Row
+    //Hintergrundfarbe jeder 2. Row wird grau
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        if(indexPath.row % 2 != 0){
 //            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
@@ -52,7 +47,9 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let index = indexPath
         
-        if(scheduleIsEmpty == true){
+        let datasource = tableView.dataSource as! ScheduleTableViewDataSource
+        
+        if(datasource.isScheduleEmpty() == true){
             return 107
         }
         else{
@@ -78,15 +75,6 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        //Überprüfe ob Schedule leer ist
-        let countLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
-        scheduleIsEmpty = true
-        for i in countLectures{
-            if(i.count != 0){
-                scheduleIsEmpty = false
-            }
-        }
-        
         //Zeig nur Sections (Wochentag) an, an dem Vorlesungen stattfinden
         let countOfLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
         
