@@ -37,7 +37,7 @@ class Settings: NSObject {
     
     //Gespeicherte Daten
     private var savedSsws: Season = .summer
-    private var savedCourses: Courses = Courses()
+    var savedCourses: Courses = Courses()
     var savedSchedule: Schedule = Schedule()
     var savedChanges: Changes = Changes()
     
@@ -56,7 +56,6 @@ class Settings: NSObject {
     
     //Daten aus saved in tmp laden
     func copyData(){
-        print("copy_____________________")
         _tmpSsws = savedSsws
         tmpCourses = savedCourses.copy() as! Courses
         tmpSchedule = savedSchedule.copy() as! Schedule
@@ -64,11 +63,16 @@ class Settings: NSObject {
     
     //Daten von tmp in saved übernehmen
     func commitChanges() {
-        print("commit_____________________")
         savedSsws = _tmpSsws
         savedCourses = tmpCourses.copy() as! Courses
         savedSchedule = tmpSchedule.copy() as! Schedule
     }
+    
+//    func discardChanges(){
+//        _tmpSsws = .summer
+//        tmpCourses = Courses()
+//        tmpSchedule = Schedule()
+//    }
     
     func countChanges() -> Int{
         

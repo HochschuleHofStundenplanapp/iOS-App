@@ -10,7 +10,7 @@ import Foundation
 
 //Liste aller Studeingänge
 class Courses : NSCopying{
-    private var list : [Course] = []
+    var list : [Course] = []
     
     init(){ }
     
@@ -32,6 +32,16 @@ class Courses : NSCopying{
         }else{
             list[index].selected = true
         }
+    }
+    
+    //Prüft ob ein oder mehrere Studiengänge selektiert wurden
+    func hasSelectedCourses() -> Bool{        
+        for course in list{
+            if (course.selected){
+                return true
+            }
+        }
+        return false
     }
     
     //Liefert alle selektierten Studeingänge
@@ -73,25 +83,17 @@ class Courses : NSCopying{
         return semestersArray
     }
     
-    private func mergeCourses(courses: [Course]){
+    func addCourses(courses: [Course]){
         
         for localCourse in list{
             for loadedCourse in courses{
                 if(localCourse.equal(compareTo: loadedCourse)){
                     loadedCourse.selected = localCourse.selected
-                    localCourse.semesters.mergeSemesters(semesters: loadedCourse.semesters.list)
+                    localCourse.semesters.mergeSemesters(semesters: loadedCourse.semesters)
                 }
             }
         }
         list = courses
-    }
-    
-    func addCourses(courses: [Course]){
-        if(list.isEmpty){
-            list = courses
-        }else{
-            mergeCourses(courses: courses)
-        }
     }
     
     func isSelected(index: Int) -> Bool{

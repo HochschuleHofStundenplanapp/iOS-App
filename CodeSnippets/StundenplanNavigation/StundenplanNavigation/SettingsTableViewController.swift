@@ -26,14 +26,33 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //courseTableViewCell.isUserInteractionEnabled = false
-        
-        
+    }
+    
+    private func disableCells(){
+        if(Settings.sharedInstance.tmpCourses.hasSelectedCourses()){
+            semesterTableViewCell.isUserInteractionEnabled = true
+            semesterTableViewCell.textLabel?.isEnabled = true
+            semesterTableViewCell.detailTextLabel?.isEnabled = true
+        }else{
+            semesterTableViewCell.isUserInteractionEnabled = false
+            semesterTableViewCell.textLabel?.isEnabled = false
+            semesterTableViewCell.detailTextLabel?.isEnabled = false
+        }
+//        if(Settings.sharedInstance.tmpCourses.){
+//            lecturesTableViewCell.isUserInteractionEnabled = true
+//            lecturesTableViewCell.textLabel?.isEnabled = true
+//            lecturesTableViewCell.detailTextLabel?.isEnabled = true
+//        }else{
+//            lecturesTableViewCell.isUserInteractionEnabled = false
+//            lecturesTableViewCell.textLabel?.isEnabled = false
+//            lecturesTableViewCell.detailTextLabel?.isEnabled = false
+//        }
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
         
@@ -47,7 +66,8 @@ class SettingsTableViewController: UITableViewController {
             segmentControl.selectedSegmentIndex = 1
         }
         
-        setDetailLabels()
+//        disableCells()
+//        setDetailLabels()
     }
 
     override func didReceiveMemoryWarning() {

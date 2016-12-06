@@ -39,15 +39,15 @@ class Semesters : NSCopying{
         return copy
     }
     
-    func mergeSemesters(semesters : [Semester]){
+    func mergeSemesters(semesters : Semesters){
         for localSemester in list{
-            for loadedSemester in semesters{
+            for loadedSemester in semesters.list{
                 if(localSemester.equal(compareTo: loadedSemester)){
                     loadedSemester.selected = localSemester.selected
                 }
             }
         }
-        list = semesters
+        list = semesters.list
     }
     
     func isSelected(index: Int) -> Bool{

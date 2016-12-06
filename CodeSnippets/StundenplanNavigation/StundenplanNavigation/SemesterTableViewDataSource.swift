@@ -12,12 +12,9 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SemesterCell")!
         
         let selectedSem = Settings.sharedInstance.tmpCourses.selectedSemesters()
-        
-        dump(selectedSem)
         
         cell.textLabel?.text = selectedSem[indexPath.section].list[indexPath.row].name
         
