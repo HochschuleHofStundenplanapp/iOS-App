@@ -15,6 +15,7 @@
 		CEEAB4041DACD45600EB3DD0 /* EventDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAB4031DACD45600EB3DD0 /* EventDemoTests.swift */; };
 		CEEAB40F1DACD45600EB3DD0 /* EventDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAB40E1DACD45600EB3DD0 /* EventDemoUITests.swift */; };
 		CEEAB41D1DACDBAF00EB3DD0 /* Schnittstelle Kalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAB41C1DACDBAF00EB3DD0 /* Schnittstelle Kalender.swift */; };
+		F4276F151DF6C003007D9FAF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4276F141DF6C003007D9FAF /* Constants.swift */; };
 		F4AB07EA1DED86E300B0CC84 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB07E91DED86E300B0CC84 /* Schedule.swift */; };
 		F4AB07EC1DED86F100B0CC84 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB07EB1DED86F100B0CC84 /* Lecture.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		CEEAB40E1DACD45600EB3DD0 /* EventDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDemoUITests.swift; sourceTree = "<group>"; };
 		CEEAB4101DACD45600EB3DD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEEAB41C1DACDBAF00EB3DD0 /* Schnittstelle Kalender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Schnittstelle Kalender.swift"; sourceTree = "<group>"; };
+		F4276F141DF6C003007D9FAF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4AB07E91DED86E300B0CC84 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = ../../CalendarDemo/CalendarDemo/Schedule.swift; sourceTree = "<group>"; };
 		F4AB07EB1DED86F100B0CC84 /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lecture.swift; path = ../../CalendarDemo/CalendarDemo/Lecture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				F4AB07E91DED86E300B0CC84 /* Schedule.swift */,
 				F4AB07EB1DED86F100B0CC84 /* Lecture.swift */,
 				CEEAB41C1DACDBAF00EB3DD0 /* Schnittstelle Kalender.swift */,
+				F4276F141DF6C003007D9FAF /* Constants.swift */,
 				CEEAB3F21DACD45600EB3DD0 /* Main.storyboard */,
 				CEEAB3F51DACD45600EB3DD0 /* Assets.xcassets */,
 				CEEAB3F71DACD45600EB3DD0 /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 				F4AB07EA1DED86E300B0CC84 /* Schedule.swift in Sources */,
 				CEEAB3EF1DACD45600EB3DD0 /* AppDelegate.swift in Sources */,
 				F4AB07EC1DED86F100B0CC84 /* Lecture.swift in Sources */,
+				F4276F151DF6C003007D9FAF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

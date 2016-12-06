@@ -11,7 +11,8 @@ import EventKit
 
 class Schnittstelle_Kalender: NSObject {
     
-    var lecturesIds : [Lecture : String] = [:]
+    var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
+    var weekdays : [String] = ["","Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"]
     var ScheduleCalendarID : String = ""
     var CalendarTitle : String = "Hochschule Hof Stundenplan App"
     let eventStore = EKEventStore()
@@ -89,24 +90,37 @@ class Schnittstelle_Kalender: NSObject {
         return false
     }
     
+    // Lecture to EKEvent
+    func lectureToEKEvent( lecture:Lecture) -> EKEvent {
+        
+        let event = EKEvent(eventStore: eventStore)
+        event.title     = lecture.name
+        //var weekday = weekdays[getDayOfWeek(todayDate: lecture.startdate as NSDate)!]
+        //var tempDate = NSDate(lecture.startdate)
+        
+        
+
+        
+        event.startDate =
+        event.location  = locationHochschule + ", " + lecture.room
+        
+        if (alarmOffset > 0) {
+            var ekAlarms = [EKAlarm]()
+            ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
+            event.alarms    = ekAlarms
+        }
+
+        
+    }
+    
+    //---
+
+    
     //Erzeugt Event und schreibt es in Kalender
-    private func createEvent(p_event: EKEvent)-> String {
+    private func createEvent(p_event: Lecture)-> String {
         if (authentificate()) {
-            let event = EKEvent(eventStore: eventStore)
-            
-            event.title     = p_event.title
-            // TODO Notes auch oder nicht?
-            event.notes     = p_event.notes
-            event.startDate = p_event.startDate
-            event.endDate   = p_event.endDate
-            event.location  = locationHochschule + ", " + p_event.location!
-            
-            
-            if (alarmOffset > 0) {
-                var ekAlarms = [EKAlarm]()
-                ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
-                event.alarms    = ekAlarms
-            }
+            // lecture to EKEvenet
+            lectureToEKEvent(lecture: p_event)
             
             print ("ID")
             print (ScheduleCalendarID)
@@ -119,6 +133,13 @@ class Schnittstelle_Kalender: NSObject {
             }
             
             //p_event.eventIdentifier = event.eventIdentifier
+            
+            if(lectureEKEventIdDictionary[p_event] == nil){
+            lectureEKEventIdDictionary[p_event] = []
+            }
+            
+            lectureEKEventIdDictionary[p_event]?.append(event.eventIdentifier)
+            
             
             return event.eventIdentifier
         }
@@ -200,7 +221,7 @@ class Schnittstelle_Kalender: NSObject {
     }
     
     //
-    func createAllEvents( events : [EKEvent]){
+    func createAllEvents( events : [Lecture]){
         for event in events{
             createEvent(p_event: event)
         }
@@ -209,7 +230,17 @@ class Schnittstelle_Kalender: NSObject {
     //
     func updateAllEvents( events : [EKEvent]){
         for event in events {
-            // updateEvent(p_eventId: <#T##String#>, p_event: <#T##EKEvent#>, p_wasDeleted: <#T##Bool#>)
+            updateEvent(p_eventId: <#T##String#>, p_event: <#T##EKEvent#>, p_wasDeleted: <#T##Bool#>)
         }
     }
+    
+    //
+    func getDayOfWeek(todayDate: NSDate)->Int? {
+            let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+            let myComponents = myCalendar.components(.weekday, from: todayDate as Date)
+            let weekDay = myComponents.weekday
+            return weekDay
+    }
 }
+
+
