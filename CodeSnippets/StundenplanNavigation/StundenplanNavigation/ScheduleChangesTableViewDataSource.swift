@@ -11,7 +11,7 @@ import UIKit
 class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     
     var networkController : NetworkController!
-    var lectureSections : [String]!
+    var lectureSections = [String]()
     
     
     init(tableView: ScheduleChangesTableViewController) {
