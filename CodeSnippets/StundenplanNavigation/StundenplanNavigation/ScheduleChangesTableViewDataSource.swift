@@ -12,10 +12,19 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     
     var networkController : NetworkController!
     var lectureSections = [String]()
+    var dateFormatter : DateFormatter
+    var timeFormatter : DateFormatter
     
     
     init(tableView: ScheduleChangesTableViewController) {
         print("ScheduleChangesTableViewDataSource init called")
+        
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        
+        timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        
         networkController = NetworkController()
         networkController.loadChanges(tableView: tableView)
     }
@@ -32,12 +41,12 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         
         let changedLectures = Settings.sharedInstance.savedChanges.changes
         
-        cell.oldDateLabel.text         = changedLectures[indexPath.section].oldDate.description
-        cell.oldTimeLabel.text         = changedLectures[indexPath.section].oldTime.description
+        cell.oldDateLabel.text         = dateFormatter.string(from: changedLectures[indexPath.section].oldDate)
+        cell.oldTimeLabel.text         = timeFormatter.string(from: changedLectures[indexPath.section].oldTime)
         cell.oldRoomLabel.text         = changedLectures[indexPath.section].oldRoom
         
-        cell.newDateLabel.text         = changedLectures[indexPath.section].newDate.description
-        cell.newTimeLabel.text         = changedLectures[indexPath.section].newTime.description
+        cell.newDateLabel.text         = dateFormatter.string(from: changedLectures[indexPath.section].newDate)
+        cell.newTimeLabel.text         = timeFormatter.string(from: changedLectures[indexPath.section].newTime)
         cell.newRoomLabel.text         = changedLectures[indexPath.section].newRoom
         
         return cell
