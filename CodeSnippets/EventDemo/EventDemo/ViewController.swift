@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         //createEvent(eventStore, title: "Test Event", startDate: startDate, endDate: endDate)
         print("start\n")
         
-        let eventStore = schnittstelle.eventStore
+        /*let eventStore = schnittstelle.eventStore
         
         let event = EKEvent(eventStore: eventStore)
         
@@ -83,19 +83,26 @@ class ViewController: UIViewController {
         var ekAlarms = [EKAlarm]()
         ekAlarms.append(EKAlarm(relativeOffset:-60))
         event.alarms = ekAlarms
+        */
         
-        self.savedEventId = schnittstelle.create(p_event: event)
+        var lectrues = [Lecture]()
+        
+        let lectrue = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: Date(), endTime: Date(), startdate: Date(), enddate: Date(), day: "Montag", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
+        
+        lectrues.append(lectrue)
+        
+        schnittstelle.createAllEvents(lectures: lectrues)
         
         //TODO Events speichern
         
-        print("EventIdentifier " + self.savedEventId)
+        //print("EventIdentifier " + self.savedEventId)
         
         print("create end\n")
         
         
         //startDate = Date().addingTimeInterval(3720)
         //endDate = startDate.addingTimeInterval(60 * 60) // One hour
-        
+        /*
         let editEvent = EKEvent(eventStore: eventStore)
         
         editEvent.title     = "Vorlesung"
@@ -105,8 +112,8 @@ class ViewController: UIViewController {
         editEvent.calendar  = eventStore.defaultCalendarForNewEvents
         
         print ("update event and add alarm")
-        
-        schnittstelle.update(p_eventId: savedEventId, p_event: editEvent, p_wasDeleted: false)
+        */
+        //schnittstelle.update(p_eventId: savedEventId, p_event: editEvent, p_wasDeleted: false)
         
         
         //print ("deleted:")

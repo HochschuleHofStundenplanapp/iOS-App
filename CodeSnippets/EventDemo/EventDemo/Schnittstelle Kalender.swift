@@ -91,43 +91,52 @@ class Schnittstelle_Kalender: NSObject {
         return false
     }
     
-    // Lecture to EKEvent
-    func lectureToEKEvent(lecture: Lecture) -> EKEvent {
-        
-        let event = EKEvent(eventStore: eventStore)
-        event.title     = lecture.name
-        //var weekday = weekdays[getDayOfWeek(todayDate: lecture.startdate as NSDate)!]
-        //var tempDate = NSDate(lecture.startdate)
-        
-        event.startDate = lecture.startdate
-        event.location  = locationHochschule + ", " + lecture.room
-        
-        if (alarmOffset > 0) {
-            var ekAlarms = [EKAlarm]()
-            ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
-            event.alarms    = ekAlarms
-        }
-
-        return event
-    }
-    
     //---
 
-
     
-    //
-    func createAllEvents(lectures : [Lecture]){
-        for lecture in lectures{
-            createEvent(lecture: lecture)
-        }
-    }
-    
-    //Erzeugt Event und schreibt es in Kalender
-    private func createEvent(lecture: Lecture)-> String {
-        if (authentificate()) {
-            // lecture to EKEvenet
-            var event = lectureToEKEvent(lecture: lecture)
+    // Lecture to EKEvent
+    func lectureToEKEvent(lecture: Lecture) -> [EKEvent] {
+        var tmpStartdate = lecture.startdate
+        var events = [EKEvent]()
+        
+        repeat {
+            let event       = EKEvent(eventStore: eventStore)
+            event.title     = lecture.name
+            //var weekday   = weekdays[getDayOfWeek(todayDate: lecture.startdate as NSDate)!]
+            //var tempDate  = NSDate(lecture.startdate)
             
+            event.startDate = tmpStartdate
+            event.location  = locationHochschule + ", " + lecture.room
+            
+            if (alarmOffset > 0) {
+                var ekAlarms = [EKAlarm]()
+                ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
+                event.alarms    = ekAlarms
+            }
+            
+            events.append(event)
+            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
+        } while (tmpStartdate.timeIntervalSince(lecture.enddate) > 0)
+
+        return events
+    }
+
+    //Erzeugt Event und schreibt es in Kalender
+    private func createEvent(p_event: EKEvent) {
+        if (authentificate()) {
+            
+            let event       = EKEvent(eventStore: eventStore)
+            event.title     = p_event.title
+            event.notes     = p_event.notes
+            event.startDate = p_event.startDate
+            event.endDate   = p_event.endDate
+            event.location  = p_event.location
+            
+            if (alarmOffset > 0) {
+                var ekAlarms = [EKAlarm]()
+                ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
+                event.alarms    = ekAlarms
+            }
             print ("ID")
             print (ScheduleCalendarID)
             event.calendar  = eventStore.calendar(withIdentifier: ScheduleCalendarID)!
@@ -140,16 +149,49 @@ class Schnittstelle_Kalender: NSObject {
             
             //p_event.eventIdentifier = event.eventIdentifier
             
-            if(lectureEKEventIdDictionary[lecture] == nil){
+            // noch überlegen wie wir die Event ID speichern
+            /*if(lectureEKEventIdDictionary[lecture] == nil){
                 lectureEKEventIdDictionary[lecture] = []
             }
             
             lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
-            
-            
-            return event.eventIdentifier
+            */
         }
-        return ""
+    }
+    
+    //Erzeugt Event und schreibt es in Kalender
+    private func createEventsForLecture(lecture: Lecture) {
+        if (authentificate()) {
+            // lecture to EKEvenet
+            let events = lectureToEKEvent(lecture: lecture)
+            
+            for event in events {
+                print ("ID")
+                print (ScheduleCalendarID)
+                event.calendar  = eventStore.calendar(withIdentifier: ScheduleCalendarID)!
+                
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                } catch {
+                    print("TODO Fehlermeldung \n KalenderAPI create")
+                }
+                
+                //p_event.eventIdentifier = event.eventIdentifier
+                
+                if(lectureEKEventIdDictionary[lecture] == nil){
+                    lectureEKEventIdDictionary[lecture] = []
+                }
+                
+                lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
+            }
+        }
+    }
+    
+    //
+    public func createAllEvents(lectures : [Lecture]){
+        for lecture in lectures{
+            createEventsForLecture(lecture: lecture)
+        }
     }
     
     //Aktualisiert Werte des übergebenem Events
@@ -229,7 +271,8 @@ class Schnittstelle_Kalender: NSObject {
     //
     func updateAllEvents( events : [EKEvent]){
         for event in events {
-            updateEvent(p_eventId: <#T##String#>, p_event: <#T##EKEvent#>, p_wasDeleted: <#T##Bool#>)
+            // TODO richtige Werte
+            updateEvent(p_eventId: event.eventIdentifier, p_event: event, p_wasDeleted: false)
         }
     }
     
