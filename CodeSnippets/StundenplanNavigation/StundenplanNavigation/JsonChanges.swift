@@ -40,6 +40,12 @@ class JsonChanges {
         
         pCL = []
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+
         for i in allResults
         {
             let id = (i["id"]?.string)!
@@ -57,13 +63,9 @@ class JsonChanges {
             
             let newId = Int(id)
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy"
             let newOldDate = dateFormatter.date(from: oldDate)
             let newNewDate = dateFormatter.date(from: newDate)
             
-            let timeFormatter = DateFormatter()
-            timeFormatter.dateFormat = "HH:mm"
             let newOldTime = timeFormatter.date(from: oldTime)
             let newNewTime = timeFormatter.date(from: newTime)
             
