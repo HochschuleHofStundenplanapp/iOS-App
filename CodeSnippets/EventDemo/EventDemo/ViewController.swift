@@ -14,9 +14,18 @@ class ViewController: UIViewController {
     var savedEventId : String = ""
     let schnittstelle = Schnittstelle_Kalender()
     
+    var startDate1 = Date()
+    var endDate2 = Date()
+    var startTime = Date()
+    var endTime = Date()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,11 +94,35 @@ class ViewController: UIViewController {
         event.alarms = ekAlarms
         */
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        let startDateString = "1.12.2016"
+        var endDate2 = "30.1.2017"
+        let start = dateFormatter.date(from: startDateString)
+        let end = dateFormatter.date(from: endDate2)
+        
+        
+        
+        
+        let timeFormatter = dateFormatter
+        timeFormatter.dateFormat = "HH:mm"
+        var startTime1 = "8:00"
+        var endTime1 = "9:30"
+        let startTime = timeFormatter.date(from: startTime1)
+        let endTime = timeFormatter.date(from: endTime1)
+        //let startDate1 = calendar.date(from: startDateComponents)!
+        
+    
+        
         var lectrues = [Lecture]()
         
-        let lectrue = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: Date(), endTime: Date(), startdate: Date(), enddate: Date(), day: "Montag", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
+        let lectrue = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Montag", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
+    
+            lectrues.append(lectrue)
         
-        lectrues.append(lectrue)
+        print(startTime)
+        print(endTime)
+            
         
         schnittstelle.createAllEvents(lectures: lectrues)
         
@@ -133,5 +166,30 @@ class ViewController: UIViewController {
         
         eventStore.defaultCalendarForNewEvents.rollback()
     }
+    
+    public func testFunktion() {
+        
+        var startDate1 = "1.12.2016"
+        var endDate2 = "30.1.2017"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        let timeFormatter = dateFormatter
+        timeFormatter.dateFormat = "HH:mm"
+        var startTime1 = "8:00"
+        var endTime = "9:30"
+        //let startDate1 = calendar.date(from: startDateComponents)!
+        
+
+        let s = dateFormatter.date(from: startDate1)
+        
+        print(s)
+        
+        
+        
+        
+        
+    }
+
 }
 

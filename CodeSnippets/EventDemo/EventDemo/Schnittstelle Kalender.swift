@@ -97,6 +97,7 @@ class Schnittstelle_Kalender: NSObject {
     // Lecture to EKEvent
     func lectureToEKEvent(lecture: Lecture) -> [EKEvent] {
         var tmpStartdate = lecture.startdate
+         // tmpStartdate.addingTimeInterval(lecture.starttime)
         var events = [EKEvent]()
         
         repeat {
@@ -115,7 +116,7 @@ class Schnittstelle_Kalender: NSObject {
             }
             
             events.append(event)
-            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
+            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 60 * 24 * 7)
         } while (tmpStartdate.timeIntervalSince(lecture.enddate) > 0)
 
         return events
@@ -144,7 +145,7 @@ class Schnittstelle_Kalender: NSObject {
             do {
                 try eventStore.save(event, span: .thisEvent)
             } catch {
-                print("TODO Fehlermeldung \n KalenderAPI create")
+                print("TODO Fehlermeldung \n KalenderAPI create CREATE EVENT")
             }
             
             //p_event.eventIdentifier = event.eventIdentifier
@@ -173,7 +174,7 @@ class Schnittstelle_Kalender: NSObject {
                 do {
                     try eventStore.save(event, span: .thisEvent)
                 } catch {
-                    print("TODO Fehlermeldung \n KalenderAPI create")
+                    print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
                 }
                 
                 //p_event.eventIdentifier = event.eventIdentifier
