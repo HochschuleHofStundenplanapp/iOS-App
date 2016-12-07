@@ -12,6 +12,7 @@ import EventKit
 class Schnittstelle_Kalender: NSObject {
     
     var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
+    // 0 ist leer weil beim Kalender Sonntag mit 1 beginnt
     var weekdays : [String] = ["","Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"]
     var ScheduleCalendarID : String = ""
     var CalendarTitle : String = "Hochschule Hof Stundenplan App"
@@ -91,17 +92,14 @@ class Schnittstelle_Kalender: NSObject {
     }
     
     // Lecture to EKEvent
-    func lectureToEKEvent( lecture:Lecture) -> EKEvent {
+    func lectureToEKEvent(lecture: Lecture) -> EKEvent {
         
         let event = EKEvent(eventStore: eventStore)
         event.title     = lecture.name
         //var weekday = weekdays[getDayOfWeek(todayDate: lecture.startdate as NSDate)!]
         //var tempDate = NSDate(lecture.startdate)
         
-        
-
-        
-        event.startDate =
+        event.startDate = lecture.startdate
         event.location  = locationHochschule + ", " + lecture.room
         
         if (alarmOffset > 0) {
@@ -110,17 +108,25 @@ class Schnittstelle_Kalender: NSObject {
             event.alarms    = ekAlarms
         }
 
-        
+        return event
     }
     
     //---
 
+
+    
+    //
+    func createAllEvents(lectures : [Lecture]){
+        for lecture in lectures{
+            createEvent(lecture: lecture)
+        }
+    }
     
     //Erzeugt Event und schreibt es in Kalender
-    private func createEvent(p_event: Lecture)-> String {
+    private func createEvent(lecture: Lecture)-> String {
         if (authentificate()) {
             // lecture to EKEvenet
-            lectureToEKEvent(lecture: p_event)
+            var event = lectureToEKEvent(lecture: lecture)
             
             print ("ID")
             print (ScheduleCalendarID)
@@ -134,11 +140,11 @@ class Schnittstelle_Kalender: NSObject {
             
             //p_event.eventIdentifier = event.eventIdentifier
             
-            if(lectureEKEventIdDictionary[p_event] == nil){
-            lectureEKEventIdDictionary[p_event] = []
+            if(lectureEKEventIdDictionary[lecture] == nil){
+                lectureEKEventIdDictionary[lecture] = []
             }
             
-            lectureEKEventIdDictionary[p_event]?.append(event.eventIdentifier)
+            lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
             
             
             return event.eventIdentifier
@@ -217,13 +223,6 @@ class Schnittstelle_Kalender: NSObject {
     func removeAllEvents( ids : [String]){
         for id in ids {
             removeEvent(p_eventId: id)
-        }
-    }
-    
-    //
-    func createAllEvents( events : [Lecture]){
-        for event in events{
-            createEvent(p_event: event)
         }
     }
     
