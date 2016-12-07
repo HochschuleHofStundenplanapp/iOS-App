@@ -133,12 +133,12 @@ class NetworkController: NSObject {
     
         private func loadChangesFromServer(tableView: ScheduleChangesTableViewController, season : String, semester : String, course : String){
     
-            let urlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(season)"
-            print(urlString)
+            let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(season)"
     
             let passInfo = String(format: "%@:%@", username, password)
             let passData = passInfo.data(using: .utf8)
             let passCredential = passData?.base64EncodedString()
+            let urlString = plainUrlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             let url = URL(string: urlString)
             var request = URLRequest(url: url!)
             request.setValue("Basic \(passCredential!)", forHTTPHeaderField: "Authorization")
