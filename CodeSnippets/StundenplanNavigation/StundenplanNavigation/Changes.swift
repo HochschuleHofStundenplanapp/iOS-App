@@ -15,4 +15,11 @@ class Changes {
     func addChanges(cl : [ChangedLecture]){
         changes.append(contentsOf: cl)
     }
+    
+    func sort()
+    {
+        changes.sort(){
+            ($0.name < $1.name)
+        }
+    }
 }

@@ -116,6 +116,7 @@ class NetworkController: NSObject {
             let season = Settings.sharedInstance.tmpSeason.rawValue
             let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
             
+            Settings.sharedInstance.savedChanges.changes = []
             for course in selectedCourses{
     
                 let selectedSemesters = course.semesters.selectedSemesters()

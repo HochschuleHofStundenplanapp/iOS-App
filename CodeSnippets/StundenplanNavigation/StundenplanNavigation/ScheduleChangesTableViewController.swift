@@ -32,6 +32,9 @@ class ScheduleChangesTableViewController: UITableViewController {
     
     func endDownload(){
         print("end download")
+        
+        print("\(Settings.sharedInstance.savedChanges.changes.count) Stundenplanänderungen geladen")
+        Settings.sharedInstance.savedChanges.sort()
         //Hide Activity Indicator
         
         tableView.reloadData()
