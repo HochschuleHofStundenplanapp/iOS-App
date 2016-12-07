@@ -158,6 +158,7 @@ class NetworkController: NSObject {
                     } else{
                         
                         Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!)!.changes))
+                        Settings.sharedInstance.compareScheduleAndChanges()
                         tableView.endDownload()
                     }
                 })

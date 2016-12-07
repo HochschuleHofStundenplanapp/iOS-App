@@ -54,6 +54,23 @@ class Settings: NSObject {
         }
     }
     
+    //Vergleich der gewählten Vorlesungen mit Änderungen
+    func compareScheduleAndChanges(){
+        print("Compare Schedule and Changes")
+        savedSchedule.extractSelectedLectures()
+        let newSavedChanges = Changes()
+        for changedLecture in savedChanges.changes{
+            for lecture in savedSchedule.selLectures{
+                if(changedLecture.name == lecture.name){
+                    newSavedChanges.addChanges(cl: [changedLecture])
+                    print(newSavedChanges.changes.description)
+                }
+            }
+        }
+        savedChanges.changes.removeAll()
+        savedChanges.addChanges(cl: newSavedChanges.changes)
+    }
+    
     //Daten aus saved in tmp laden
     func copyData(){
         _tmpSsws = savedSsws
