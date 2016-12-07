@@ -134,6 +134,7 @@ class NetworkController: NSObject {
         private func loadChangesFromServer(tableView: ScheduleChangesTableViewController, season : String, semester : String, course : String){
     
             let urlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(season)"
+            print(urlString)
     
             let passInfo = String(format: "%@:%@", username, password)
             let passData = passInfo.data(using: .utf8)
@@ -155,7 +156,8 @@ class NetworkController: NSObject {
                         tableView.showNoInternetAlert()
                         
                     } else{
-                        Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!)?.changes)!)
+                        
+                        Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!)!.changes))
                         tableView.endDownload()
                     }
                 })

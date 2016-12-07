@@ -24,9 +24,6 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         
         timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
-        
-        networkController = NetworkController()
-        networkController.loadChanges(tableView: tableView)
     }
     
     func reloadData(tableView : ScheduleChangesTableViewController){
@@ -61,15 +58,11 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         // #warning Incomplete implementation, return the number of sections
         return Settings.sharedInstance.savedChanges.changes.count
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        let changes = Settings.sharedInstance.savedChanges.changes
-        
-        for change in changes{
-            lectureSections.append(change.name)
-        }
-        
-        return self.lectureSections[section]
+        let changedLectures = Settings.sharedInstance.savedChanges.changes
+        return changedLectures[section].name
     }
 
 }

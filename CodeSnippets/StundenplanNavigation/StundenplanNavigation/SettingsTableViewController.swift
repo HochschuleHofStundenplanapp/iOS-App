@@ -108,7 +108,7 @@ class SettingsTableViewController: UITableViewController {
         
         //Alle selektierten Semester
         let allSelectedSemesters : [Semesters] = Settings.sharedInstance.tmpCourses.selectedSemesters()
-        var allSelectedSemester : [Semester] = []
+        //var allSelectedSemester : [Semester] = []
         var selectedSemester : [String] = []
         
         for i in allSelectedSemesters {
