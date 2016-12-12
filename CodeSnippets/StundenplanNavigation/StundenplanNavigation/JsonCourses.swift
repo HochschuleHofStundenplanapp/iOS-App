@@ -51,7 +51,8 @@ class JsonCourses {
                 let tmp = Semester(name:s .string! )
                 newSem.list.append(tmp)
             }
-            
+            newSem.list.sort(){$0.name < $1.name}
+                
             let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semesters: newSem)
             pCourses?.append(newCourse)
             
