@@ -29,6 +29,9 @@ class Schedule : NSCopying{
                 }
             }
         }
+        
+        print ("----------------")
+        print (selLectures.count)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,6 +53,7 @@ class Schedule : NSCopying{
         }else{
             list[section][row].selected = true
         }
+        extractSelectedLectures()
     }
     
     func mergeLectures(){
