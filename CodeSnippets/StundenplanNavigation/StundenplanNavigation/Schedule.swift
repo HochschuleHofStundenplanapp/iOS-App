@@ -53,7 +53,6 @@ class Schedule : NSCopying{
         }else{
             list[section][row].selected = true
         }
-        extractSelectedLectures()
     }
     
     func mergeLectures(){
