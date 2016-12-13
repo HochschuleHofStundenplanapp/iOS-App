@@ -97,6 +97,12 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func saveChangesButton(_ sender: UIButton) {
         Settings.sharedInstance.commitChanges()
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+        
+        if (syncSwitch.isOn) {
+            CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+        } else {
+            CalendarInterface().removeCalendar()
+        }
     }
     
     func setDetailLabels(){
