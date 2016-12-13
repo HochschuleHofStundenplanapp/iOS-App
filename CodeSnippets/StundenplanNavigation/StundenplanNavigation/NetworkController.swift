@@ -98,7 +98,7 @@ class NetworkController: NSObject {
                     tableView.showNoInternetAlert()
                     
                 } else{
-                    Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
+                    Settings.sharedInstance.tmpSchedule.setSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
                     tableView.endDownload()
                 }
             })

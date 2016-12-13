@@ -123,8 +123,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "Settings"
-            landmarkType = "3">
+            landmarkName = "init(coder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -235,6 +235,178 @@
             endingLineNumber = "138"
             landmarkName = "removedLectures(schedule:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StundenplanNavigation/SemesterTableViewDelegate.swift"
+            timestampString = "503306147.130751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StundenplanNavigation/Settings.swift"
+            timestampString = "503306448.708044"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "Settings"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.init () -&gt; StundenplanNavigation.Settings"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.796064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;StundenplanNavigation.Settings&gt;"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.799156"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.tmpCourses.getter : StundenplanNavigation.Courses"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.801573"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.tmpCourses.setter : StundenplanNavigation.Courses"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.807521"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "63">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StundenplanNavigation/Settings.swift"
+            timestampString = "503306474.805335"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "Settings"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.init () -&gt; StundenplanNavigation.Settings"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.815699"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "102">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;StundenplanNavigation.Settings&gt;"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.817365"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "131">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.savedCourses.getter : StundenplanNavigation.Courses"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.819006"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StundenplanNavigation.Settings.savedCourses.setter : StundenplanNavigation.Courses"
+                  moduleName = "StundenplanNavigation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielzizer/Documents/GitHub/iOS-App/CodeSnippets/StundenplanNavigation/StundenplanNavigation/Settings.swift"
+                  timestampString = "503329992.820658"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "63">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

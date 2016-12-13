@@ -55,7 +55,7 @@ class Schedule : NSCopying{
         }
     }
     
-    func mergeLectures(){
+    func setSelection(){
         for day in list {
             for newLecture in day{
                 for oldLecture in selLectures{
@@ -88,7 +88,7 @@ class Schedule : NSCopying{
         return list[section][row].selected
     }
     
-    func addSchedule(lectures: [Lecture]){
+    func setSchedule(lectures: [Lecture]){
         
         for lec in lectures{
             let dayIndex = Constants.weekDays.index(of: lec.day)!
@@ -98,7 +98,7 @@ class Schedule : NSCopying{
             }
         }
         
-        mergeLectures()
+        setSelection()
     }
     
     func getLectureAt(section: Int, row: Int) -> Lecture{

@@ -186,12 +186,15 @@ class SettingsTableViewController: UITableViewController {
         
         //Anzahl selektierte Vorlesungen
         let countSelectedLectures = Settings.sharedInstance.tmpSchedule.selLectures.count
+        let selection = Settings.sharedInstance.tmpCourses.hasSelectedCourses()
         print("countSelectedLectures: \(countSelectedLectures)")
-        if(countSelectedLectures == 0){
+        if(selection == false){
             lecturesTableViewCell.detailTextLabel?.text = "..."
         }
         else{
-            lecturesTableViewCell.detailTextLabel?.text = "\(countSelectedLectures) Vorlesungen gewählt"
+            if(countSelectedLectures != 0 ){
+                lecturesTableViewCell.detailTextLabel?.text = "Vorlesungen gewählt"
+            }
         }
     }
 }

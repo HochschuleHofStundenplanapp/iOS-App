@@ -93,12 +93,6 @@ class Settings: NSObject {
         savedSchedule = tmpSchedule.copy() as! Schedule
     }
     
-//    func discardChanges(){
-//        _tmpSsws = .summer
-//        tmpCourses = Courses()
-//        tmpSchedule = Schedule()
-//    }
-    
     func countChanges() -> Int{
         
 //        dump(_savedSchedule.removedLectures(schedule: tmpSchedule))
