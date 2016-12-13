@@ -83,17 +83,19 @@ class Courses : NSCopying{
         return semestersArray
     }
     
-    func addCourses(courses: [Course]){
+    func setSelektion(courses: Courses){
         
-        for localCourse in list{
-            for loadedCourse in courses{
-                if(localCourse.equal(compareTo: loadedCourse)){
-                    loadedCourse.selected = localCourse.selected
-                    localCourse.semesters.mergeSemesters(semesters: loadedCourse.semesters)
+        for course in courses.list{
+            if(course.selected){
+                for localCourse in list{
+                    if(localCourse.equal(compareTo: course)){
+                        localCourse.selected = true
+                        localCourse.semesters.setSelektion(semesters: course.semesters)
+                    }
                 }
             }
         }
-        list = courses
+        
     }
     
     func isSelected(index: Int) -> Bool{

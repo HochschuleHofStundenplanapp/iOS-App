@@ -54,6 +54,14 @@ class Settings: NSObject {
         }
     }
     
+    func setTmpCourses(courses : [Course]){
+        var newCourses = Courses(courses: courses)
+        
+        newCourses.setSelektion(courses: tmpCourses)
+        
+        self.tmpCourses = newCourses
+    }
+    
     //Vergleich der gewählten Vorlesungen mit Änderungen
     func compareScheduleAndChanges(){
         print("Compare Schedule and Changes")
