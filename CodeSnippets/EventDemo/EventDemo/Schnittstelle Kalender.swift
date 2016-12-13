@@ -12,30 +12,33 @@ import EventKit
 class Schnittstelle_Kalender: NSObject {
     
     var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
-    // 0 ist leer weil beim Kalender Sonntag mit 1 beginnt
-    var weekdays : [String] = ["","Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"]
-    var ScheduleCalendarID : String = ""
-    var CalendarTitle : String = "Hochschule Hof Stundenplan App"
+    
+    var calendarTitle : String = "Hochschule Hof Stundenplan App"
     let eventStore = EKEventStore()
+    var calendar : EKCalendar? = nil
+    
     // Für Zukunft: Alarm setzen
     // Wenn alarmOffset größer 0 wird Alarm gesetzt
     let alarmOffset = 0.0
+    
     let locationHochschule = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
     
     override init() {
         super.init()
-        if (authentificate()) {
+        
+        if (checkAuthorizationStatus()) {
             var calendars = [EKCalendar]()
-            calendars = eventStore.calendars(for: .event)
+            calendars = self.eventStore.calendars(for: .event)
             for calendar in calendars {
-                if(calendar.title == CalendarTitle){
-                    self.ScheduleCalendarID = calendar.calendarIdentifier
-                    print ("id: ")
-                    print (ScheduleCalendarID)
+                if(calendar.title == self.calendarTitle){
+                    self.calendar = calendar
+                    //!!! wieder raus vor commit
+                    //removeCalendar()
+                    //self.calendar = nil
                     break
                 }
             }
-            if(ScheduleCalendarID == "") {
+            if(self.calendar == nil) {
                 self.createCalender()
             }
         }
@@ -43,7 +46,7 @@ class Schnittstelle_Kalender: NSObject {
     
     func removeCalendar() -> Bool {
         do {
-            try eventStore.removeCalendar(eventStore.calendar(withIdentifier: ScheduleCalendarID)!, commit: true)
+            try self.eventStore.removeCalendar(self.calendar!, commit: true)
         } catch {
             print("can´t remove Calendar")
             return false
@@ -52,40 +55,36 @@ class Schnittstelle_Kalender: NSObject {
     }
     
     private func createCalender(){
-        if (authentificate()) {
-        let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
-        
-        newCalendar.title = CalendarTitle
-        
-        let sourcesInEventStore = eventStore.sources
-        
-        newCalendar.source = sourcesInEventStore.filter{
-            (source: EKSource) -> Bool in
-            source.sourceType.rawValue == EKSourceType.local.rawValue
-            }.first!
-        
-        // Save the calendar using the Event Store instance
-        do {
-            try eventStore.saveCalendar(newCalendar, commit: true)
-            ScheduleCalendarID = newCalendar.calendarIdentifier
-            print(ScheduleCalendarID)
-            // UserDefaults.standardUserDefaults.set(newCalendar.calendarIdentifier, forKey: ScheduleCalendarID)
-        } catch {
-            let alert = UIAlertController(title: "Calendar could not save", message: (error as NSError).localizedDescription, preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(OKAction)
-        }
+        if (checkAuthorizationStatus()) {
+            let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
+            
+            newCalendar.title = self.calendarTitle
+            
+            let sourcesInEventStore = self.eventStore.sources
+            
+            newCalendar.source = sourcesInEventStore.filter{
+                (source: EKSource) -> Bool in
+                source.sourceType.rawValue == EKSourceType.local.rawValue
+                }.first!
+            
+            // Save the calendar using the Event Store instance
+            do {
+                try self.eventStore.saveCalendar(newCalendar, commit: true)
+                self.calendar = newCalendar
+            } catch {
+                let alert = UIAlertController(title: "Calendar could not save", message: (error as NSError).localizedDescription, preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(OKAction)
+            }
         }
     }
     
-    private func authentificate () -> Bool{
+    private func checkAuthorizationStatus () -> Bool{
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
-            eventStore.requestAccess(to: .event, completion: {
+            self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                print ("authentificate dialog")
             })
         } else {
-            print ("authentificate")
             return true
         }
         return false
@@ -93,6 +92,38 @@ class Schnittstelle_Kalender: NSObject {
     
     //---
 
+    //
+    public func createAllEvents(lectures : [Lecture]){
+        for lecture in lectures{
+            createEventsForLecture(lecture: lecture)
+        }
+    }
+    
+    //Erzeugt Event und schreibt es in Kalender
+    private func createEventsForLecture(lecture: Lecture) {
+        if (checkAuthorizationStatus()) {
+            // lecture to EKEvenet
+            let events = lectureToEKEvent(lecture: lecture)
+            
+            for event in events {
+                event.calendar  = self.calendar!
+                
+                do {
+                    try self.eventStore.save(event, span: .thisEvent)
+                } catch {
+                    print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
+                }
+                
+                //p_event.eventIdentifier = event.eventIdentifier
+                
+                if(self.lectureEKEventIdDictionary[lecture] == nil){
+                    self.lectureEKEventIdDictionary[lecture] = []
+                }
+                
+                self.lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
+            }
+        }
+    }
     
     // Lecture to EKEvent
     func lectureToEKEvent(lecture: Lecture) -> [EKEvent] {
@@ -101,18 +132,16 @@ class Schnittstelle_Kalender: NSObject {
         var events = [EKEvent]()
         
         repeat {
-            let event       = EKEvent(eventStore: eventStore)
+            let event       = EKEvent(eventStore: self.eventStore)
             event.title     = lecture.name
-            //var weekday   = weekdays[getDayOfWeek(todayDate: lecture.startdate as NSDate)!]
-            //var tempDate  = NSDate(lecture.startdate)
             
             event.startDate = tmpStartdate.addingTimeInterval(lecture.starttime.timeIntervalSinceReferenceDate)
             event.endDate   = event.startDate.addingTimeInterval(60 * 90)
-            event.location  = locationHochschule + ", " + lecture.room
+            event.location  = self.locationHochschule + ", " + lecture.room
             
-            if (alarmOffset > 0) {
+            if (self.alarmOffset > 0) {
                 var ekAlarms = [EKAlarm]()
-                ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
+                ekAlarms.append(EKAlarm(relativeOffset:-self.alarmOffset))
                 event.alarms    = ekAlarms
             }
             
@@ -125,26 +154,25 @@ class Schnittstelle_Kalender: NSObject {
 
     //Erzeugt Event und schreibt es in Kalender
     private func createEvent(p_event: EKEvent) {
-        if (authentificate()) {
+        if (checkAuthorizationStatus()) {
             
-            let event       = EKEvent(eventStore: eventStore)
+            let event       = EKEvent(eventStore: self.eventStore)
             event.title     = p_event.title
             event.notes     = p_event.notes
             event.startDate = p_event.startDate
             event.endDate   = p_event.endDate
             event.location  = p_event.location
             
-            if (alarmOffset > 0) {
+            if (self.alarmOffset > 0) {
                 var ekAlarms = [EKAlarm]()
-                ekAlarms.append(EKAlarm(relativeOffset:-alarmOffset))
+                ekAlarms.append(EKAlarm(relativeOffset:-self.alarmOffset))
                 event.alarms    = ekAlarms
             }
-            print ("ID")
-            print (ScheduleCalendarID)
-            event.calendar  = eventStore.calendar(withIdentifier: ScheduleCalendarID)!
+            
+            event.calendar  = self.calendar!
             
             do {
-                try eventStore.save(event, span: .thisEvent)
+                try self.eventStore.save(event, span: .thisEvent)
             } catch {
                 print("TODO Fehlermeldung \n KalenderAPI create CREATE EVENT")
             }
@@ -161,57 +189,30 @@ class Schnittstelle_Kalender: NSObject {
         }
     }
     
-    //Erzeugt Event und schreibt es in Kalender
-    private func createEventsForLecture(lecture: Lecture) {
-        if (authentificate()) {
-            // lecture to EKEvenet
-            let events = lectureToEKEvent(lecture: lecture)
-            
-            for event in events {
-                print ("ID")
-                print (ScheduleCalendarID)
-                event.calendar  = eventStore.calendar(withIdentifier: ScheduleCalendarID)!
-                
-                do {
-                    try eventStore.save(event, span: .thisEvent)
-                } catch {
-                    print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
-                }
-                
-                //p_event.eventIdentifier = event.eventIdentifier
-                
-                if(lectureEKEventIdDictionary[lecture] == nil){
-                    lectureEKEventIdDictionary[lecture] = []
-                }
-                
-                lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
-            }
-        }
-    }
-    
-    //
-    public func createAllEvents(lectures : [Lecture]){
-        for lecture in lectures{
-            createEventsForLecture(lecture: lecture)
+    // TODO lectures übergeben
+    func updateAllEvents( events : [EKEvent]){
+        for event in events {
+            // TODO richtige Werte
+            updateEvent(p_eventId: event.eventIdentifier, p_event: event, p_wasDeleted: false)
         }
     }
     
     //Aktualisiert Werte des übergebenem Events
     private func updateEvent(p_eventId: String, p_event: EKEvent, p_wasDeleted: Bool) {
-        if (authentificate()) {
-            let event = eventStore.event(withIdentifier: p_eventId)
+        if (checkAuthorizationStatus()) {
+            let event = self.eventStore.event(withIdentifier: p_eventId)
             
             if((event) != nil) {
                 if (p_wasDeleted == false) {
                     if (event?.startDate != p_event.startDate) {
-                        let newEvent = EKEvent(eventStore: eventStore)
+                        let newEvent = EKEvent(eventStore: self.eventStore)
                         
                         newEvent.title     = "[NEU] " + p_event.title
                         newEvent.notes     = event?.notes
                         newEvent.startDate = p_event.startDate
                         newEvent.endDate   = p_event.endDate
                         newEvent.location  = p_event.location
-                        newEvent.calendar  = eventStore.defaultCalendarForNewEvents
+                        newEvent.calendar  = self.calendar!
                         
                         createEvent(p_event: newEvent)
                         
@@ -220,7 +221,7 @@ class Schnittstelle_Kalender: NSObject {
                         event?.alarms   = []
                     } else {
                         event?.title     = "[Raumänderung] " + p_event.title
-                        event?.location  = locationHochschule + ", " + p_event.location!
+                        event?.location  = self.locationHochschule + ", " + p_event.location!
                     }
                 } else {
                     event?.title     = "[Entfällt] " + p_event.title
@@ -228,7 +229,7 @@ class Schnittstelle_Kalender: NSObject {
                     event?.alarms   = []
                 }
                 
-                event?.calendar  = eventStore.calendar(withIdentifier: ScheduleCalendarID)!;
+                event?.calendar  = self.calendar!;
                 
                 // andere Speichern Möglichkeit
                 // [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
@@ -236,7 +237,7 @@ class Schnittstelle_Kalender: NSObject {
             
             if((event) != nil) {
                 do {
-                    try eventStore.save(event!, span: .thisEvent)
+                    try self.eventStore.save(event!, span: .thisEvent)
                 } catch {
                     print("TODO Fehlermeldung \n KalenderAPI update")
                 }
@@ -244,38 +245,34 @@ class Schnittstelle_Kalender: NSObject {
         }
     }
     
+    //
+    func removeAllEvents(lecture : Lecture){
+        let ids = self.lectureEKEventIdDictionary[lecture]
+        if (ids != nil) {
+            for id in ids! {
+                removeEvent(p_eventId: id)
+            }
+        }
+        //remove in dick
+    }
+    
     //Entfernt übergebenes Event
     private func removeEvent(p_eventId: String, p_withNotes: Bool?=false)-> Bool{
-        if (authentificate()) {
-            let eventToRemove = eventStore.event(withIdentifier: p_eventId)
+        if (checkAuthorizationStatus()) {
+            let eventToRemove = self.eventStore.event(withIdentifier: p_eventId)
             if (eventToRemove != nil) {
                 if (p_withNotes == false && eventToRemove?.notes != nil){ return false }
                 
                 do {
-                    try eventStore.remove(eventToRemove!, span: .thisEvent)
+                    try self.eventStore.remove(eventToRemove!, span: .thisEvent)
                     return true
                 } catch {
-                    print("Bad things happened")
+                    print("TODO removeEvent failed")
                 }
             }
             return false
         }
         return false
-    }
-    
-    //
-    func removeAllEvents( ids : [String]){
-        for id in ids {
-            removeEvent(p_eventId: id)
-        }
-    }
-    
-    //
-    func updateAllEvents( events : [EKEvent]){
-        for event in events {
-            // TODO richtige Werte
-            updateEvent(p_eventId: event.eventIdentifier, p_event: event, p_wasDeleted: false)
-        }
     }
     
     //
