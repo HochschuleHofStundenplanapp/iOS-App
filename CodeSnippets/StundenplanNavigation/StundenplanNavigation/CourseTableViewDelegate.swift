@@ -14,6 +14,7 @@ class CourseTableViewDelegate: NSObject, UITableViewDelegate {
         print(indexPath.row)
         
         Settings.sharedInstance.tmpCourses.toggleCourseAt(index: indexPath.row)
+        Settings.sharedInstance.tmpSchedule.extractSelectedLectures()
         tableView.reloadData()
     }
 }
