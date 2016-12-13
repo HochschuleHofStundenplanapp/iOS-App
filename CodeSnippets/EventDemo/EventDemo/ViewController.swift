@@ -49,17 +49,37 @@ class ViewController: UIViewController {
         
         let timeFormatter = dateFormatter
         timeFormatter.dateFormat = "yyyy-mm-dd HH:mm"
-        let startTime1 = "2001-01-01 8:00"
-      //  let endTime1 = startTime1.add
-        let startTime = timeFormatter.date(from: startTime1)?.addingTimeInterval(3600)
-      //  startTime = startTime?.addingTimeInterval(60 * 60 * 24 * 366)
-        let endTime = startTime?.addingTimeInterval(60*90)
-        //let startDate1 = calendar.date(from: startDateComponents)!
+        var startTime1 = "2001-01-01 8:00"
+        var startTime = timeFormatter.date(from: startTime1)?.addingTimeInterval(3600)
+        var endTime = startTime?.addingTimeInterval(60*90)
         
         
         let lecture = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Mittwoch", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
-    
+        
+        startTime1 = "2001-01-01 9:45"
+        startTime = timeFormatter.date(from: startTime1)?.addingTimeInterval(3600)
+        endTime = startTime?.addingTimeInterval(60*90)
+        let lecture1 = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Mittwoch", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
+        
+        startTime1 = "2001-01-01 11:30"
+        startTime = timeFormatter.date(from: startTime1)?.addingTimeInterval(3600)
+        endTime = startTime?.addingTimeInterval(60*90)
+        let lecture2 = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Mittwoch", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
+        
+        startTime1 = "2001-01-02 9:45"
+        startTime = timeFormatter.date(from: startTime1)?.addingTimeInterval(3600)
+        endTime = startTime?.addingTimeInterval(60*90)
+        let lecture3 = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Mittwoch", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
+        
+        startTime1 = "2001-01-02 11:30"
+        startTime = timeFormatter.date(from: startTime1)?.addingTimeInterval(3600)
+        endTime = startTime?.addingTimeInterval(60*90)
+        let lecture4 = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Mittwoch", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
         lectrues.append(lecture)
+        lectrues.append(lecture1)
+        lectrues.append(lecture2)
+        lectrues.append(lecture3)
+        lectrues.append(lecture4)
         
         schnittstelle.createAllEvents(lectures: lectrues)
         
@@ -71,7 +91,7 @@ class ViewController: UIViewController {
     // Responds to button to remove event. This checks that we have permission first, before removing the
     // event
     @IBAction func removeEvent(_ sender: UIButton) {
-        schnittstelle.removeAllEvents(lecture: lectrues[0])
+        schnittstelle.removeAllEvents(lectures: lectrues)
     }
 
 }

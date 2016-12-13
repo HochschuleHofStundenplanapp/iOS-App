@@ -246,14 +246,16 @@ class Schnittstelle_Kalender: NSObject {
     }
     
     //
-    func removeAllEvents(lecture : Lecture){
-        let ids = self.lectureEKEventIdDictionary[lecture]
-        if (ids != nil) {
-            for id in ids! {
-                removeEvent(p_eventId: id)
+    func removeAllEvents(lectures : [Lecture]){
+        for lecture in lectures {
+            let ids = self.lectureEKEventIdDictionary[lecture]
+            if (ids != nil) {
+                for id in ids! {
+                    removeEvent(p_eventId: id)
+                }
             }
+            //remove in dick
         }
-        //remove in dick
     }
     
     //Entfernt übergebenes Event
