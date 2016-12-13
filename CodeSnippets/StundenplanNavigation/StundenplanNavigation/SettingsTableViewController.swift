@@ -103,6 +103,8 @@ class SettingsTableViewController: UITableViewController {
         } else {
             CalendarInterface().removeCalendar()
         }
+        DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
+
     }
     
     func setDetailLabels(){

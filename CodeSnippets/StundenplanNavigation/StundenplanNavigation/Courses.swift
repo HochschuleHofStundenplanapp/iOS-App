@@ -9,21 +9,23 @@
 import Foundation
 
 //Liste aller Studeingänge
-class Courses : NSCopying{
+class Courses : NSObject, NSCopying, NSCoding{
     var list : [Course] = []
+    let listKey = "coursesList"
     
-    init(){ }
+    override init(){ }
     
     init(courses: [Course]) {
         list = courses
     }
     
     required init?(coder aDecoder: NSCoder) {
-        list = aDecoder.decodeObject(forKey: "coursesList") as! [Course]
+        super.init()
+        list = aDecoder.decodeObject(forKey: listKey) as! [Course]
     }
     
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encode(list, forKey:"coursesList")
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(list, forKey: listKey)
     }
     
     func toggleCourseAt(index: Int){

@@ -9,13 +9,18 @@
 import Foundation
 
 // Studiengang
-class Course: NSCopying {
+class Course: NSObject, NSCopying, NSCoding {
     
     var contraction : String
     var nameDe: String
     var nameEn: String
     var semesters: Semesters
     var selected: Bool
+    let contractionKey = "courseContraction"
+    let nameDeKey = "courseNameDe"
+    let nameEnKey = "courseNameEn"
+    let semestersKey = "courseSemesters"
+    let selectedKey = "courseSelected"
     
     init(contraction : String, nameDe: String, nameEn: String, semesters: Semesters, selected: Bool) {
         self.contraction = contraction
@@ -30,19 +35,20 @@ class Course: NSCopying {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        contraction = aDecoder.decodeObject(forKey: "courseContraction") as! String
-        nameDe = aDecoder.decodeObject(forKey: "courseNameDe") as! String
-        nameEn = aDecoder.decodeObject(forKey: "courseNameEn") as! String
-        semesters = aDecoder.decodeObject(forKey: "courseSemesters") as! Semesters
-        selected = aDecoder.decodeObject(forKey: "courseSelected") as! Bool
+        contraction = aDecoder.decodeObject(forKey: contractionKey) as! String
+        nameDe = aDecoder.decodeObject(forKey: nameDeKey) as! String
+        nameEn = aDecoder.decodeObject(forKey: nameEnKey) as! String
+        semesters = aDecoder.decodeObject(forKey: semestersKey) as! Semesters
+        selected = Bool(aDecoder.decodeBool(forKey: selectedKey))
+        super.init()
     }
     
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encode(contraction, forKey:"courseContraction")
-        aCoder.encode(nameDe, forKey:"courseNameDe")
-        aCoder.encode(nameEn, forKey:"courseNameEn")
-        aCoder.encode(semesters, forKey:"courseSemesters")
-        aCoder.encode(selected, forKey:"courseSelected")
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(contraction, forKey: contractionKey)
+        aCoder.encode(nameDe, forKey: nameDeKey)
+        aCoder.encode(nameEn, forKey: nameEnKey)
+        aCoder.encode(semesters, forKey: semestersKey)
+        aCoder.encode(selected, forKey: selectedKey)
     }
     
     func copy(with zone: NSZone? = nil) -> Any {

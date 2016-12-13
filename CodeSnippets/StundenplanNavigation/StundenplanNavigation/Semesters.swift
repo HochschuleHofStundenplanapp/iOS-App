@@ -8,22 +8,24 @@
 
 import UIKit
 
-class Semesters : NSCopying{
+class Semesters : NSObject, NSCopying, NSCoding{
 
     var list : [Semester] = []
+    let listKey = "SemestersList"
     
-    init() {}
+    override init() {}
     
     init(semesters: [Semester]) {
         list = semesters
     }
     
     required init?(coder aDecoder: NSCoder) {
-        list = aDecoder.decodeObject(forKey: "SemestersList") as! [Semester]
+        super.init()
+        list = aDecoder.decodeObject(forKey: listKey) as! [Semester]
     }
     
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encode(list, forKey:"SemestersList")
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(list, forKey: listKey)
     }
     
     func toggleSemesterAt(index: Int){

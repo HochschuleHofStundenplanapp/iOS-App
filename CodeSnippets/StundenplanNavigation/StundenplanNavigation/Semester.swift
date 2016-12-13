@@ -8,9 +8,11 @@
 
 import UIKit
 
-class Semester: NSCopying {
+class Semester: NSObject, NSCopying, NSCoding {
     var name: String
     var selected: Bool
+    let nameKey = "semesterName"
+    let selectedKey = "semesterSelected"
     
     init(name: String, selected: Bool) {
         self.name = name
@@ -22,13 +24,15 @@ class Semester: NSCopying {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObject(forKey: "semesterName") as! String
-        selected = aDecoder.decodeObject(forKey: "semesterSelected") as! Bool
+        name = aDecoder.decodeObject(forKey: nameKey) as! String
+        selected = Bool(aDecoder.decodeBool(forKey: selectedKey))
+        super.init()
+
     }
     
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encode(name, forKey:"semesterName")
-        aCoder.encode(selected, forKey:"semesterSelected")
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(name, forKey: nameKey)
+        aCoder.encode(selected, forKey: selectedKey)
     }
 
     func copy(with zone: NSZone? = nil) -> Any {

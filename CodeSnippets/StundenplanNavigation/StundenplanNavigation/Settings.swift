@@ -11,23 +11,34 @@ import UIKit
 enum Season : String {
     case summer = "SS"
     case winter = "WS"
+    
 }
 
-class Settings: NSObject {
+class Settings: NSObject, NSCoding {
 
-    static let sharedInstance = Settings()
+    let ssWsKey = "settings_SavedSsws"
+    let savedCoursesKey = "settings_SavedCourses"
+    let savedScheduleKey = "settings_SavedSchedule"
+    
+    static var sharedInstance = Settings()
     private override init(){}
     
     required init?(coder aDecoder: NSCoder) {
-        savedSsws = aDecoder.decodeObject(forKey: "settings_SavedSsws") as! Season
-        savedCourses = aDecoder.decodeObject(forKey: "settings_SavedCourses") as! Courses
-        savedSchedule = aDecoder.decodeObject(forKey: "settings_SavedSchedule") as! Schedule
+       // savedSsws = aDecoder.decodeObject(forKey: ssWsKey) as! Season
+        
+        savedSsws = Season.init(rawValue: aDecoder.decodeObject(forKey: ssWsKey) as! String)!
+        
+        savedCourses = aDecoder.decodeObject(forKey: savedCoursesKey) as! Courses
+        savedSchedule = aDecoder.decodeObject(forKey: savedScheduleKey) as! Schedule
     }
     
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encode(savedSsws, forKey:"settings_SavedSsws")
-        aCoder.encode(savedCourses, forKey:"settings_SavedCourses")
-        aCoder.encode(savedSchedule, forKey:"settings_SavedSchedule")
+    func encode(with aCoder: NSCoder){
+   //     aCoder.encode(savedSsws, forKey: ssWsKey)
+        
+        aCoder.encode(savedSsws.rawValue, forKey: ssWsKey)
+        
+        aCoder.encode(savedCourses, forKey: savedCoursesKey)
+        aCoder.encode(savedSchedule, forKey:savedScheduleKey)
     }
     
     //Temporäre Daten

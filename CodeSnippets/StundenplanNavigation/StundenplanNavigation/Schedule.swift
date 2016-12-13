@@ -9,11 +9,13 @@
 import Foundation
 
 //Studenplan
-class Schedule : NSCopying{
+class Schedule : NSObject, NSCopying, NSCoding{
     var list : [[Lecture]] = [[],[],[],[],[],[]]
     var selLectures : [Lecture] = []
+    let listKey = "scheduleList"
+
     
-    init() {}
+    override init() {}
     
     init(lectures: [[Lecture]], selLectures : [Lecture]) {
         self.list = lectures
@@ -35,11 +37,11 @@ class Schedule : NSCopying{
     }
     
     required init?(coder aDecoder: NSCoder) {
-        list = aDecoder.decodeObject(forKey: "scheduleList") as! [[Lecture]]
+        list = aDecoder.decodeObject(forKey: listKey) as! [[Lecture]]
     }
     
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encode(list, forKey:"scheduleList")
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(list, forKey: listKey)
     }
     
     func copy(with zone: NSZone? = nil) -> Any {

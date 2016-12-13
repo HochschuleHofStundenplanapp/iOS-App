@@ -9,7 +9,7 @@
 import Foundation
 
 //Vorlesung
-class Lecture : Hashable, NSCopying {
+class Lecture : NSObject, NSCopying, NSCoding {
     
     var id: Int
     var name: String
@@ -25,6 +25,20 @@ class Lecture : Hashable, NSCopying {
     var selected: Bool
     var course: String
     var comment : String
+    let idKey = "lectureId"
+    let nameKey = "lectureName"
+    let lecturerKey = "lectureLecturer"
+    let typeKey = "lectureType"
+    let groupKey = "lectureGroup"
+    let starttimeKey = "lectureStarttime"
+    let endTimeKey = "lectureEndTime"
+    let startdateKey = "lectureStartdate"
+    let enddateKey = "lectureEnddate"
+    let dayKey = "lectureDay"
+    let roomKey = "lectureRoom"
+    let selectedKey = "lectureSelected"
+    let courseKey = "lectureCourse"
+    let commentKey = "lectureComment"
     
     init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String, selected: Bool) {
         self.id = id
@@ -57,42 +71,43 @@ class Lecture : Hashable, NSCopying {
         return (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.day == rhs.day) && (lhs.starttime == rhs.starttime)
     }
     
-    var hashValue: Int {
+    override var hashValue: Int {
         return "\(name)\(room)\(day)\(starttime)".hashValue
     }
     
     required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeObject(forKey: "lectureId") as! Int
-        name = aDecoder.decodeObject(forKey: "lectureName") as! String
-        lecturer = aDecoder.decodeObject(forKey: "lectureLecturer") as! String
-        type = aDecoder.decodeObject(forKey: "lectureType") as! String
-        group = aDecoder.decodeObject(forKey: "lectureGroup") as! String
-        starttime = aDecoder.decodeObject(forKey: "lectureStarttime") as! Date
-        endTime = aDecoder.decodeObject(forKey: "lectureEndTime") as! Date
-        startdate = aDecoder.decodeObject(forKey: "lectureStartdate") as! Date
-        enddate = aDecoder.decodeObject(forKey: "lectureEnddate") as! Date
-        day = aDecoder.decodeObject(forKey: "lectureDay") as! String
-        room = aDecoder.decodeObject(forKey: "lectureRoom") as! String
-        selected = aDecoder.decodeObject(forKey: "lectureSelected") as! Bool
-        course = aDecoder.decodeObject(forKey: "lectureCourse") as! String
-        comment = aDecoder.decodeObject(forKey: "lectureComment") as! String
+        id = Int(aDecoder.decodeInteger(forKey: idKey))
+        name = aDecoder.decodeObject(forKey: nameKey) as! String
+        lecturer = aDecoder.decodeObject(forKey: lecturerKey) as! String
+        type = aDecoder.decodeObject(forKey: typeKey) as! String
+        group = aDecoder.decodeObject(forKey: groupKey) as! String
+        starttime = aDecoder.decodeObject(forKey: starttimeKey) as! Date
+        endTime = aDecoder.decodeObject(forKey: endTimeKey) as! Date
+        startdate = aDecoder.decodeObject(forKey: startdateKey) as! Date
+        enddate = aDecoder.decodeObject(forKey: enddateKey) as! Date
+        day = aDecoder.decodeObject(forKey: dayKey) as! String
+        room = aDecoder.decodeObject(forKey: roomKey) as! String
+        selected = Bool(aDecoder.decodeBool(forKey: selectedKey))
+        course = aDecoder.decodeObject(forKey: courseKey) as! String
+        comment = aDecoder.decodeObject(forKey: commentKey) as! String
+        super.init()
     }
     
-    func encodeWithCoder(aCoder: NSCoder){
-        aCoder.encode(id, forKey:"lectureId")
-        aCoder.encode(name, forKey:"lectureName")
-        aCoder.encode(lecturer, forKey:"lectureLecturer")
-        aCoder.encode(type, forKey:"lectureType")
-        aCoder.encode(group, forKey:"lectureGroup")
-        aCoder.encode(starttime, forKey:"lectureStarttime")
-        aCoder.encode(endTime, forKey:"lectureEndTime")
-        aCoder.encode(startdate, forKey:"lectureStartdate")
-        aCoder.encode(enddate, forKey:"lectureEnddate")
-        aCoder.encode(day, forKey:"lectureDay")
-        aCoder.encode(room, forKey:"lectureRoom")
-        aCoder.encode(selected, forKey:"lectureSelected")
-        aCoder.encode(course, forKey:"lectureCourse")
-        aCoder.encode(comment, forKey:"lectureComment")
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(id, forKey: idKey)
+        aCoder.encode(name, forKey: nameKey)
+        aCoder.encode(lecturer, forKey: lecturerKey)
+        aCoder.encode(type, forKey: typeKey)
+        aCoder.encode(group, forKey: groupKey)
+        aCoder.encode(starttime, forKey: starttimeKey)
+        aCoder.encode(endTime, forKey: endTimeKey)
+        aCoder.encode(startdate, forKey: startdateKey)
+        aCoder.encode(enddate, forKey: enddateKey)
+        aCoder.encode(day, forKey: dayKey)
+        aCoder.encode(room, forKey: roomKey)
+        aCoder.encode(selected, forKey: selectedKey)
+        aCoder.encode(course, forKey: courseKey)
+        aCoder.encode(comment, forKey: commentKey)
     }
     
 }
