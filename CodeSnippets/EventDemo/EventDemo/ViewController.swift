@@ -96,8 +96,8 @@ class ViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
-        let startDateString = "1.12.2016"
-        var endDate2 = "30.1.2017"
+        let startDateString = "14.12.2016"
+        let endDate2 = "30.1.2017"
         let start = dateFormatter.date(from: startDateString)
         let end = dateFormatter.date(from: endDate2)
         
@@ -105,22 +105,24 @@ class ViewController: UIViewController {
         
         
         let timeFormatter = dateFormatter
-        timeFormatter.dateFormat = "HH:mm"
-        var startTime1 = "8:00"
-        var endTime1 = "9:30"
-        let startTime = timeFormatter.date(from: startTime1)
-        let endTime = timeFormatter.date(from: endTime1)
+        timeFormatter.dateFormat = "yyyy-mm-dd HH:mm"
+        let startTime1 = "2001-01-01 8:00"
+      //  let endTime1 = startTime1.add
+        let startTime = timeFormatter.date(from: startTime1)?.addingTimeInterval(3600)
+      //  startTime = startTime?.addingTimeInterval(60 * 60 * 24 * 366)
+        let endTime = startTime?.addingTimeInterval(60*90)
         //let startDate1 = calendar.date(from: startDateComponents)!
         
     
         
         var lectrues = [Lecture]()
         
-        let lectrue = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Montag", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
+        let lectrue = Lecture(id: 12345, name: "Testvorlesung", lecturer: "Herr Dozent", type: "Vorlesung", group: "Gruppe", starttime: startTime!, endTime: endTime!, startdate: start! , enddate: end!, day: "Mittwoch", room: "FA001", course: "MC", comment: "Ab WK 40", selected: true)
     
-            lectrues.append(lectrue)
+        lectrues.append(lectrue)
         
         print(startTime)
+        print(startTime?.timeIntervalSinceReferenceDate)
         print(endTime)
             
         

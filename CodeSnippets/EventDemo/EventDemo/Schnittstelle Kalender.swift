@@ -106,7 +106,8 @@ class Schnittstelle_Kalender: NSObject {
             //var weekday   = weekdays[getDayOfWeek(todayDate: lecture.startdate as NSDate)!]
             //var tempDate  = NSDate(lecture.startdate)
             
-            event.startDate = tmpStartdate
+            event.startDate = tmpStartdate.addingTimeInterval(lecture.starttime.timeIntervalSinceReferenceDate)
+            event.endDate   = event.startDate.addingTimeInterval(60 * 90)
             event.location  = locationHochschule + ", " + lecture.room
             
             if (alarmOffset > 0) {
@@ -116,7 +117,7 @@ class Schnittstelle_Kalender: NSObject {
             }
             
             events.append(event)
-            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 60 * 24 * 7)
+            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
         } while (tmpStartdate.timeIntervalSince(lecture.enddate) > 0)
 
         return events
