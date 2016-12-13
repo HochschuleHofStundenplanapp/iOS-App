@@ -118,7 +118,7 @@ class Schnittstelle_Kalender: NSObject {
             
             events.append(event)
             tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
-        } while (tmpStartdate.timeIntervalSince(lecture.enddate) > 0)
+        } while (tmpStartdate.timeIntervalSince(lecture.enddate) < 0)
 
         return events
     }
