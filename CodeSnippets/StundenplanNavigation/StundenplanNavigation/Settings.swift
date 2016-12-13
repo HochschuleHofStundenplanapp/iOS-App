@@ -80,7 +80,7 @@ class Settings: NSObject, NSCoding {
         let newSavedChanges = Changes()
         for changedLecture in savedChanges.changes{
             for lecture in savedSchedule.selLectures{
-                if(changedLecture.name == lecture.name){
+                if compareChangesAndLectures(lecture: lecture, chLecture: changedLecture){
                     newSavedChanges.addChanges(cl: [changedLecture])
                     print(newSavedChanges.changes.description)
                 }
@@ -88,6 +88,10 @@ class Settings: NSObject, NSCoding {
         }
         savedChanges.changes.removeAll()
         savedChanges.addChanges(cl: newSavedChanges.changes)
+    }
+    
+    private func compareChangesAndLectures(lecture : Lecture, chLecture : ChangedLecture) -> Bool {
+        return (lecture.name == chLecture.name) && (lecture.room == chLecture.oldRoom) && (lecture.day == chLecture.oldDay) && (lecture.starttime == chLecture.oldTime)
     }
     
     //Daten aus saved in tmp laden

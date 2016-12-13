@@ -23,6 +23,8 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         scheduleChangesTableView.dataSource = datasource
         scheduleChangesTableView.delegate = delegate
+        
+        datasource.reloadData(tableView: self)
     }
     
     func beginDownload(){
