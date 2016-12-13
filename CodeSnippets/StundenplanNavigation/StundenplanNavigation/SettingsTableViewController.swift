@@ -28,15 +28,36 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Settings.sharedInstance.tmpSchedule.extractSelectedLectures()
+        let counter = Settings.sharedInstance.countChanges()
+        saveChangesButton.setTitle("\(counter) Änderungen übernehmen", for: .normal)
+        
+        if Settings.sharedInstance.tmpSeason == .summer {
+            segmentControl.selectedSegmentIndex = 0
+        }else{
+            segmentControl.selectedSegmentIndex = 1
+        }
+        //disableCells()
+        setDetailLabels()
+    }
+    
     private func disableCells(){
         if(Settings.sharedInstance.tmpCourses.hasSelectedCourses()){
             semesterTableViewCell.isUserInteractionEnabled = true
             semesterTableViewCell.textLabel?.isEnabled = true
             semesterTableViewCell.detailTextLabel?.isEnabled = true
+            
+//            if(hasSelectedSemester)
         }else{
             semesterTableViewCell.isUserInteractionEnabled = false
             semesterTableViewCell.textLabel?.isEnabled = false
             semesterTableViewCell.detailTextLabel?.isEnabled = false
+            
+            lecturesTableViewCell.isUserInteractionEnabled = false
+            lecturesTableViewCell.textLabel?.isEnabled = false
+            lecturesTableViewCell.detailTextLabel?.isEnabled = false
         }
 //        if(Settings.sharedInstance.tmpCourses.){
 //            lecturesTableViewCell.isUserInteractionEnabled = true
@@ -56,19 +77,7 @@ class SettingsTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
         
-        Settings.sharedInstance.tmpSchedule.extractSelectedLectures()
-        let counter = Settings.sharedInstance.countChanges()
-        saveChangesButton.setTitle("\(counter) Änderungen übernehmen", for: .normal)
-        
-        if Settings.sharedInstance.tmpSeason == .summer {
-            segmentControl.selectedSegmentIndex = 0
-        }else{
-            segmentControl.selectedSegmentIndex = 1
         }
-        
-//        disableCells()
-//        setDetailLabels()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -78,8 +87,10 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             Settings.sharedInstance.tmpSeason = .summer
+            setDetailLabels()
         }else{
             Settings.sharedInstance.tmpSeason = .winter
+            setDetailLabels()
         }
     }
     
@@ -105,6 +116,8 @@ class SettingsTableViewController: UITableViewController {
             }
         }
         courseTableViewCell.detailTextLabel?.text = selectedCoursesString
+        semesterTableViewCell.detailTextLabel?.text = "..."
+        lecturesTableViewCell.detailTextLabel?.text = "..."
         
         //Alle selektierten Semester
         let allSelectedSemesters : [Semesters] = Settings.sharedInstance.tmpCourses.selectedSemesters()
@@ -120,6 +133,10 @@ class SettingsTableViewController: UITableViewController {
             }
         }
         
+        for i in selectedSemester{
+            print("Selektierte Semester \(i)")
+        }
+        
         var isEmpty = true
         for i in selectedSemester{
             if (i != "|"){
@@ -127,12 +144,21 @@ class SettingsTableViewController: UITableViewController {
             }
         }
         
+        print("isEmpty: \(isEmpty)")
+        
         if(isEmpty){
             selectedSemesterString = "..."
+            semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
+            lecturesTableViewCell.detailTextLabel?.text = "..."
+
         }
         else
         {
             selectedSemesterString = selectedSemester[1]
+            print("selectedSemesterString : \(selectedSemesterString)")
+            semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
+            lecturesTableViewCell.detailTextLabel?.text = "..."
+
         }
         
         if(selectedSemester.count > 2){
@@ -148,10 +174,18 @@ class SettingsTableViewController: UITableViewController {
                 }
             }
             semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
+            lecturesTableViewCell.detailTextLabel?.text = "..."
+
         }
         
-//        print("selektierte Semester: ")
-//        print(selectedSemesterString)
-        
+        //Anzahl selektierte Vorlesungen
+        let countSelectedLectures = Settings.sharedInstance.tmpSchedule.selLectures.count
+        print("countSelectedLectures: \(countSelectedLectures)")
+        if(countSelectedLectures == 0){
+            lecturesTableViewCell.detailTextLabel?.text = "..."
+        }
+        else{
+            lecturesTableViewCell.detailTextLabel?.text = "\(countSelectedLectures) Vorlesungen gewählt"
+        }
     }
 }
