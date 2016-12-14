@@ -101,9 +101,9 @@ class Settings: NSObject, NSCoding {
     }
     
     func countChanges() -> Int{
-        let deleted = savedSchedule.removedLectures(oldSchedule: tmpSchedule).count
-        let added = savedSchedule.addedLectures(oldSchedule: tmpSchedule).count
-        return added
+ //       let deleted = savedSchedule.removedLectures(oldSchedule: tmpSchedule).count
+ //       let added = savedSchedule.addedLectures(oldSchedule: tmpSchedule).count
+        return 42
     }
 }
 
