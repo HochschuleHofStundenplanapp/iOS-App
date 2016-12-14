@@ -95,6 +95,16 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
+        // neu hinzugefügte und gelöschte Vorlesungen bekommen
+        //var added = Settings.sharedInstance.tmpSchedule.addedLectures(schedule : Settings.sharedInstance.tmpSchedule)
+        //var removed  = Settings.sharedInstance.tmpSchedule.removedLectures(schedule : Settings.sharedInstance.tmpSchedule)
+        
+        //print(added)
+        //print(removed)
+        
+        //dump(added)
+        //dump(removed)
+        
         Settings.sharedInstance.commitChanges()
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
@@ -102,7 +112,7 @@ class SettingsTableViewController: UITableViewController {
             //print("\(Settings.sharedInstance.savedSchedule.selLectures)" + "savedCangesButton")
             //dump(Settings.sharedInstance.tmpSchedule.selLectures)
             
-            // TODO - tmpSchedule muss zur savedSchedule werden 
+            // TODO - tmpSchedule muss zur savedSchedule werden
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.tmpSchedule.selLectures)
             
         } else {

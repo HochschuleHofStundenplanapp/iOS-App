@@ -94,7 +94,7 @@ class CalendarInterface: NSObject {
     
     //
     public func createAllEvents(lectures : [Lecture]){
-        print("\(lectures)" +  "Unser Zeugs " )
+        //print("\(lectures)" +  "Unser Zeugs " )
         for lecture in lectures{
             createEventsForLecture(lecture: lecture)
             // print("\(lecture)" +  "Unser Zeugs " )
@@ -105,7 +105,7 @@ class CalendarInterface: NSObject {
     private func createEventsForLecture(lecture: Lecture) {
         if (checkAuthorizationStatus()) {
             // lecture to EKEvenet
-            let events = lectureToEKEvent(lecture: lecture)
+            let events = lectureToEKEventCreate(lecture: lecture)
             
             for event in events {
                 event.calendar  = self.calendar!
@@ -128,7 +128,7 @@ class CalendarInterface: NSObject {
     }
     
     // Lecture to EKEvent
-    func lectureToEKEvent(lecture: Lecture) -> [EKEvent] {
+    func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
         var tmpStartdate = lecture.startdate
         // tmpStartdate.addingTimeInterval(lecture.starttime)
         var events = [EKEvent]()
@@ -192,12 +192,39 @@ class CalendarInterface: NSObject {
     }
     
     // TODO lectures übergeben
-    func updateAllEvents( events : [EKEvent]){
-        for event in events {
+    func updateAllEvents( lectures : [Lecture]){
+        for lecture in lectures {
             // TODO richtige Werte
-            updateEvent(p_eventId: event.eventIdentifier, p_event: event, p_wasDeleted: false)
+            //updateEvent(p_eventId: event.eventIdentifier, p_event: event, p_wasDeleted: false)
         }
     }
+    
+    // Lecture to EKEvent
+//    func lectureToEKEventUpdate(lecture: Lecture) -> EKEvent {
+//        var tmpStartdate = lecture.startdate
+//        // tmpStartdate.addingTimeInterval(lecture.starttime)
+//        var events = [EKEvent]()
+//        
+//        repeat {
+//            let event       = EKEvent(eventStore: self.eventStore)
+//            event.title     = lecture.name
+//            
+//            event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate) + (60 * 60))
+//            event.endDate   = event.startDate.addingTimeInterval(60 * 90)
+//            event.location  = self.locationHochschule + ", " + lecture.room
+//            
+//            if (self.alarmOffset > 0) {
+//                var ekAlarms = [EKAlarm]()
+//                ekAlarms.append(EKAlarm(relativeOffset:-self.alarmOffset))
+//                event.alarms    = ekAlarms
+//            }
+//            
+//            events.append(event)
+//            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
+//        } while (tmpStartdate.timeIntervalSince(lecture.enddate) < 0)
+//        
+//        return events
+//    }
     
     //Aktualisiert Werte des übergebenem Events
     private func updateEvent(p_eventId: String, p_event: EKEvent, p_wasDeleted: Bool) {
