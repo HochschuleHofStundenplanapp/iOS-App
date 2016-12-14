@@ -12,14 +12,19 @@ import Foundation
 class Schedule : NSObject, NSCopying, NSCoding{
     var list : [[Lecture]] = [[],[],[],[],[],[]]
     var selLectures : [Lecture] = []
+    
     let listKey = "scheduleList"
-
+    let selLecturesKey = "selLectures"
     
     override init() {}
     
     init(lectures: [[Lecture]], selLectures : [Lecture]) {
         self.list = lectures
+        self.selLectures = selLectures
     }
+    
+    
+    
     
     //Alle selektierten Volrlesungen werden in eine Liste gespeichert
     func extractSelectedLectures(){
@@ -31,17 +36,16 @@ class Schedule : NSObject, NSCopying, NSCoding{
                 }
             }
         }
-        
-        print ("----------------")
-        print (selLectures.count)
     }
     
     required init?(coder aDecoder: NSCoder) {
         list = aDecoder.decodeObject(forKey: listKey) as! [[Lecture]]
+        selLectures = aDecoder.decodeObject(forKey: selLecturesKey) as! [Lecture]
     }
     
     func encode(with aCoder: NSCoder){
         aCoder.encode(list, forKey: listKey)
+        aCoder.encode(selLectures, forKey: selLecturesKey)
     }
     
     func copy(with zone: NSZone? = nil) -> Any {

@@ -113,7 +113,7 @@ class SettingsTableViewController: UITableViewController {
             //dump(Settings.sharedInstance.tmpSchedule.selLectures)
             
             // TODO - tmpSchedule muss zur savedSchedule werden
-            CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.tmpSchedule.selLectures)
+            CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
             
         } else {
             CalendarInterface().removeCalendar()

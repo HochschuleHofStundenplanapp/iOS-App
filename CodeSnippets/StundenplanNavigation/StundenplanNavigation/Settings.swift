@@ -67,9 +67,7 @@ class Settings: NSObject, NSCoding {
     
     func setTmpCourses(courses : [Course]){
         var newCourses = Courses(courses: courses)
-        
         newCourses.setSelektion(courses: tmpCourses)
-        
         self.tmpCourses = newCourses
     }
     
