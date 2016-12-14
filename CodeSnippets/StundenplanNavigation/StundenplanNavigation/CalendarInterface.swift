@@ -94,8 +94,10 @@ class CalendarInterface: NSObject {
     
     //
     public func createAllEvents(lectures : [Lecture]){
+        print("\(lectures)" +  "Unser Zeugs " )
         for lecture in lectures{
             createEventsForLecture(lecture: lecture)
+            // print("\(lecture)" +  "Unser Zeugs " )
         }
     }
     
@@ -135,7 +137,7 @@ class CalendarInterface: NSObject {
             let event       = EKEvent(eventStore: self.eventStore)
             event.title     = lecture.name
             
-            event.startDate = tmpStartdate.addingTimeInterval(lecture.starttime.timeIntervalSinceReferenceDate)
+            event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate) + (60 * 60))
             event.endDate   = event.startDate.addingTimeInterval(60 * 90)
             event.location  = self.locationHochschule + ", " + lecture.room
             
