@@ -83,7 +83,13 @@ class Settings: NSObject, NSCoding {
     }
     
     private func compareChangesAndLectures(lecture : Lecture, chLecture : ChangedLecture) -> Bool {
-        return (lecture.name == chLecture.name) && (lecture.room == chLecture.oldRoom) && (lecture.day == chLecture.oldDay) && (lecture.starttime == chLecture.oldTime)
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        
+        let oldTime = timeFormatter.string(from: lecture.starttime)
+        let newChangedTime = timeFormatter.string(from: chLecture.oldTime)
+        
+        return (lecture.name == chLecture.name) && (lecture.room == chLecture.oldRoom) && (lecture.day == chLecture.oldDay) && (oldTime == newChangedTime)
     }
     
     //Daten aus saved in tmp laden
