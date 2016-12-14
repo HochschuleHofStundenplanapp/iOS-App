@@ -24,19 +24,13 @@ class Settings: NSObject, NSCoding {
     private override init(){}
     
     required init?(coder aDecoder: NSCoder) {
-       // savedSsws = aDecoder.decodeObject(forKey: ssWsKey) as! Season
-        
         savedSsws = Season.init(rawValue: aDecoder.decodeObject(forKey: ssWsKey) as! String)!
-        
         savedCourses = aDecoder.decodeObject(forKey: savedCoursesKey) as! Courses
         savedSchedule = aDecoder.decodeObject(forKey: savedScheduleKey) as! Schedule
     }
     
     func encode(with aCoder: NSCoder){
-   //     aCoder.encode(savedSsws, forKey: ssWsKey)
-        
         aCoder.encode(savedSsws.rawValue, forKey: ssWsKey)
-        
         aCoder.encode(savedCourses, forKey: savedCoursesKey)
         aCoder.encode(savedSchedule, forKey:savedScheduleKey)
     }
@@ -47,7 +41,7 @@ class Settings: NSObject, NSCoding {
     var tmpSchedule: Schedule = Schedule()
     
     //Gespeicherte Daten
-    private var savedSsws: Season = .summer
+    var savedSsws: Season = .summer
     var savedCourses: Courses = Courses()
     var savedSchedule: Schedule = Schedule()
     var savedChanges: Changes = Changes()
@@ -107,14 +101,9 @@ class Settings: NSObject, NSCoding {
     }
     
     func countChanges() -> Int{
-        
-//        dump(_savedSchedule.removedLectures(schedule: tmpSchedule))
-        let deleted = savedSchedule.removedLectures(schedule: tmpSchedule).count
-//        print("--------------------------")
-//        dump(_savedSchedule.addedLectures(schedule: tmpSchedule))
-        let added = savedSchedule.addedLectures(schedule: tmpSchedule).count
-//        print ("\(deleted)\(added)")
-        return deleted + added
+        let deleted = savedSchedule.removedLectures(oldSchedule: tmpSchedule).count
+        let added = savedSchedule.addedLectures(oldSchedule: tmpSchedule).count
+        return added
     }
 }
 

@@ -109,10 +109,6 @@ class SettingsTableViewController: UITableViewController {
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
         if (syncSwitch.isOn) {
-            //print("\(Settings.sharedInstance.savedSchedule.selLectures)" + "savedCangesButton")
-            //dump(Settings.sharedInstance.tmpSchedule.selLectures)
-            
-            // TODO - tmpSchedule muss zur savedSchedule werden
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
             
         } else {

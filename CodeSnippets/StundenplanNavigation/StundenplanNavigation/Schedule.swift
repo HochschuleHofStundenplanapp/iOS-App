@@ -120,32 +120,29 @@ class Schedule : NSObject, NSCopying, NSCoding{
     }
     
     // Liefert alles Lectures zurück die hinzugefügt wurden
-    func addedLectures(schedule : Schedule) -> [Lecture] {
-        var addedArray = [Lecture]()
-        
-        for lecutre in schedule.selLectures{
-            if(!selLectures.contains(lecutre)){
-                addedArray.append(lecutre)
-            }
-        }
-        
-        return addedArray
-        
-    }
-    
-    // Liefert alles Lecutrues zurück die gelöscht wurden
-    func removedLectures(schedule : Schedule) -> [Lecture] {
+    func removedLectures(oldSchedule : Schedule) -> [Lecture] {
         var removedArray = [Lecture]()
         
-        for lecutre in selLectures{
-            if(!schedule.selLectures.contains(lecutre)){
-                removedArray.append(lecutre)
+        for lecture in selLectures{
+            if(!oldSchedule.selLectures.contains(lecture)){
+                removedArray.append(lecture)
             }
         }
-        dump(selLectures)
-        dump(schedule.selLectures)
         return removedArray
     }
     
+    // Liefert alles Lecutrues zurück die gelöscht wurden
+//    func removedLectures(oldSchedule : Schedule) -> [Lecture] {
+//        var removedArray = [Lecture]()
+//        
+//        for lecutre in selLectures{
+//            if(!oldSchedule.selLectures.contains(lecutre)){
+//                removedArray.append(lecutre)
+//            }
+//        }
+//        dump(selLectures)
+//        dump(oldSchedule.selLectures)
+//        return removedArray
+//    }
     
 }

@@ -40,9 +40,8 @@ class NetworkController: NSObject {
                     print("error=\(error)")
                     print("Connection failed")
                     tableView.showNoInternetAlert()
-                    
+                    tableView.endDownload()
                 } else{
-                    
                     Settings.sharedInstance.setTmpCourses(courses: (JsonCourses(data: data!)?.courses)!)
                     tableView.endDownload()
                 }
@@ -53,8 +52,6 @@ class NetworkController: NSObject {
     }
     
     func loadSchedule(tableView: LecturesTableViewController){
-        
-        Settings.sharedInstance.tmpSchedule.clearSchedule()
         
         let season = Settings.sharedInstance.tmpSeason.rawValue
         let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
@@ -96,8 +93,9 @@ class NetworkController: NSObject {
                     print("error=\(error)")
                     print("Connection failed")
                     tableView.showNoInternetAlert()
-                    
+                    tableView.endDownload()
                 } else{
+                    Settings.sharedInstance.tmpSchedule.clearSchedule()
                     Settings.sharedInstance.tmpSchedule.setSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
                     tableView.endDownload()
                 }
@@ -152,9 +150,8 @@ class NetworkController: NSObject {
                         print("error=\(error)")
                         print("Connection failed")
                         tableView.showNoInternetAlert()
-                        
+                        tableView.endDownload()
                     } else{
-                        
                         Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!)!.changes))
                         Settings.sharedInstance.compareScheduleAndChanges()
                         tableView.endDownload()
