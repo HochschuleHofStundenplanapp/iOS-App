@@ -39,6 +39,7 @@ class NetworkController: NSObject {
                 if error != nil {
                     print("error=\(error)")
                     print("Connection failed")
+                    Settings.sharedInstance.tmpCourses.list.removeAll()
                     tableView.showNoInternetAlert()
                     tableView.endDownload()
                 } else{

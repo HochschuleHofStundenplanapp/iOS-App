@@ -119,7 +119,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
         return list[section].count
     }
     
-    // Liefert alles Lectures zurück die hinzugefügt wurden
+    // Liefert alles Lectures zurück die entfernt wurde
     func removedLectures(oldSchedule : Schedule) -> [Lecture] {
         var removedArray = [Lecture]()
         
