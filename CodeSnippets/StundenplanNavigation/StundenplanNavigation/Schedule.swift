@@ -94,7 +94,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
         return list[section][row].selected
     }
     
-    func setSchedule(lectures: [Lecture]){
+    func addSchedule(lectures: [Lecture]){
         
         for lec in lectures{
             let dayIndex = Constants.weekDays.index(of: lec.day)!

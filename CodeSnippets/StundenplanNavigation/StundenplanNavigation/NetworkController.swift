@@ -96,7 +96,7 @@ class NetworkController: NSObject {
                     tableView.endDownload()
                 } else{
                     Settings.sharedInstance.tmpSchedule.clearSchedule()
-                    Settings.sharedInstance.tmpSchedule.setSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
+                    Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
                     tableView.endDownload()
                 }
             })
