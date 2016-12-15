@@ -18,11 +18,23 @@ class ScheduleChangesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
+        
         datasource = ScheduleChangesTableViewDataSource(tableView: self)
         delegate = ScheduleChangesTableViewDelegate()
         
         scheduleChangesTableView.dataSource = datasource
         scheduleChangesTableView.delegate = delegate
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        // Simply adding an object to the data source for this example
+        datasource.reloadData(tableView: self)
+        
+        self.tableView.reloadData()
     }
     
     func beginDownload(){
@@ -37,6 +49,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         Settings.sharedInstance.savedChanges.sort()
         //Hide Activity Indicator
         
+        refreshControl?.endRefreshing()
         tableView.reloadData()
     }
     
