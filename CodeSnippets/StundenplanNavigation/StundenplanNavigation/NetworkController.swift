@@ -32,13 +32,12 @@ class NetworkController: NSObject {
         let task = session.dataTask(with: request, completionHandler: {
             data, response, error in
             
-            
-            
             DispatchQueue.main.async(execute: { () -> Void in
                 
                 if error != nil {
                     print("error=\(error)")
                     print("Connection failed")
+                    Settings.sharedInstance.tmpCourses.list.removeAll()
                     tableView.showNoInternetAlert()
                     tableView.endDownload()
                 } else{
@@ -60,6 +59,7 @@ class NetworkController: NSObject {
             
             let selectedSemesters = course.semesters.selectedSemesters()
             let courseName = course.contraction
+            Settings.sharedInstance.tmpSchedule.clearSchedule()
             
             for semester in selectedSemesters{
                 
@@ -92,10 +92,10 @@ class NetworkController: NSObject {
                 if error != nil {
                     print("error=\(error)")
                     print("Connection failed")
+                    Settings.sharedInstance.copyData()
                     tableView.showNoInternetAlert()
                     tableView.endDownload()
                 } else{
-                    Settings.sharedInstance.tmpSchedule.clearSchedule()
                     Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
                     tableView.endDownload()
                 }
