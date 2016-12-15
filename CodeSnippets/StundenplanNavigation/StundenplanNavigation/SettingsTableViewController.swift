@@ -105,7 +105,11 @@ class SettingsTableViewController: UITableViewController {
         //dump(added)
         //dump(removed)
         
+        Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        
         Settings.sharedInstance.commitChanges()
+        
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
         if (syncSwitch.isOn) {

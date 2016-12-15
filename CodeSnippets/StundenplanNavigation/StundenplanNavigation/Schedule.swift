@@ -123,8 +123,15 @@ class Schedule : NSObject, NSCopying, NSCoding{
     func removedLectures(oldSchedule : Schedule) -> [Lecture] {
         var removedArray = [Lecture]()
         
-        for lecture in selLectures{
-            if(!oldSchedule.selLectures.contains(lecture)){
+        for lecture in oldSchedule.selLectures{
+            var contains = false
+            
+            for newLecture in selLectures {
+                if newLecture.id == lecture.id {
+                    contains = true
+                }
+            }
+            if(!contains){
                 removedArray.append(lecture)
             }
         }
@@ -132,17 +139,42 @@ class Schedule : NSObject, NSCopying, NSCoding{
     }
     
     // Liefert alles Lecutrues zurück die gelöscht wurden
-//    func removedLectures(oldSchedule : Schedule) -> [Lecture] {
-//        var removedArray = [Lecture]()
-//        
-//        for lecutre in selLectures{
-//            if(!oldSchedule.selLectures.contains(lecutre)){
-//                removedArray.append(lecutre)
-//            }
-//        }
-//        dump(selLectures)
-//        dump(oldSchedule.selLectures)
-//        return removedArray
-//    }
+    func addedLectures(oldSchedule : Schedule) -> [Lecture] {
+        
+        var removedArray = [Lecture]()
+        
+        for newLecture in selLectures{
+            var contains = false
+            
+            for oldLecture in oldSchedule.selLectures {
+                if oldLecture.id == newLecture.id {
+                    contains = true
+                }
+            }
+            if(!contains){
+                removedArray.append(newLecture)
+            }
+        }
+        
+        dump(removedArray)
+        return removedArray
+
+        
+        
+        
+       // var removedArray = [Lecture]()
+       // for lecutre in selLectures{
+       //     if(oldSchedule.selLectures.contains(lecutre)){
+       //         removedArray.append(lecutre)
+       //     }
+       // }
+       //
+       // print("addedLectures")
+       // print("/n/n/n/n/n/n/n/n____________________________________________/n/n/n/n/n/n/n")
+       // dump(removedArray)
+       // return removedArray
+        
+        
+   }
     
 }
