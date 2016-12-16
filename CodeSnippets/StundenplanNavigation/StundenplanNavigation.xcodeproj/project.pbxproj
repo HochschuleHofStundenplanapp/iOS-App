@@ -245,6 +245,7 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				DAA250781E017C4A007CCEFB /* Extensions */,
 				655CCDBF1E002D32004B8AF3 /* Interfaces */,
 				BE18E73F1DE3185700EDD1A6 /* Model */,
 				CED25BB21DD1C5F400FE7D1C /* Schedule */,
@@ -257,7 +258,6 @@
 				CEAC970E1DB5FD350042FF3D /* LaunchScreen.storyboard */,
 				CEAC97111DB5FD350042FF3D /* Info.plist */,
 				BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */,
-				DAA250761E015D51007CCEFB /* DateExtension.swift */,
 			);
 			path = StundenplanNavigation;
 			sourceTree = "<group>";
@@ -342,6 +342,14 @@
 				CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */,
 			);
 			name = Lecture;
+			sourceTree = "<group>";
+		};
+		DAA250781E017C4A007CCEFB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DAA250761E015D51007CCEFB /* DateExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

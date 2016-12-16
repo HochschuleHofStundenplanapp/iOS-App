@@ -11,7 +11,7 @@ import Foundation
 
 extension Date {
     
-    //gibt ss oder ws zurück
+    //gibt SS oder WS zurück
     private func checkSemester() -> String{
         let currentDate = Date()
         let calendar = Calendar.current
@@ -31,18 +31,18 @@ extension Date {
         let endWinter : Date = dateFormatter.date(from: endWinterString)!
         
         if currentDate >= startSummer && currentDate <= endSummer{
-            return "ss"
+            return "SS"
         }
         
         if currentDate >= startWinter && currentDate <= endWinter{
-            return "ws"
+            return "WS"
         }
         
-        return "ss"
+        return "SS"
     }
     
     //gibt Vorlesungsbeginn zurück
-    private func startSemester() -> Date{
+    private func startSemester(semester : String) -> Date{
         
         let currentDate = Date()
         let calendar = Calendar.current
@@ -56,70 +56,78 @@ extension Date {
         let startSummer : Date = calendar.date(from: startSummerComponents)!
         let startWinter : Date = calendar.date(from: startWinterComponents)!
         
-        if checkSemester() == "ss" {
-            if currentDate < startSummer {
+        if semester == "SS" {
                 
-                let difMonths = startSummerComponents.month! - currentMonth
-                let difDays = startSummerComponents.day! - currentDay
-                
-                var newStartDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
-                newStartDate = calendar.date(byAdding: .day, value: difDays, to: newStartDate)!
-                let startSemesterWeekday = calendar.component(.weekday, from: newStartDate)
-                
-                // Wenn der 15.3 ein Freitag/Samstag/Sonntag ist beginnt die Vorlesung am nächstfolgenden Montag
-                
-                if startSemesterWeekday == 6 {
-                    newStartDate = calendar.date(byAdding: .day, value: 3, to: newStartDate)!
-                }
-                
-                if startSemesterWeekday == 7 {
-                    newStartDate = calendar.date(byAdding: .day, value: 2, to: newStartDate)!
-                }
-                
-                if startSemesterWeekday == 1 {
-                    newStartDate = calendar.date(byAdding: .day, value: 1, to: newStartDate)!
-                }
-                
-                return newStartDate
-            } else {
+            if checkSemester() == "SS" && currentDate > startSummer {
                 return currentDate
             }
+                
+            let difMonths = startSummerComponents.month! - currentMonth
+            let difDays = startSummerComponents.day! - currentDay
+                
+            var newStartDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
+            newStartDate = calendar.date(byAdding: .day, value: difDays, to: newStartDate)!
+            let startSemesterWeekday = calendar.component(.weekday, from: newStartDate)
+            
+            if checkSemester() != "SS" {
+                newStartDate = calendar.date(byAdding: .year, value: -1, to: newStartDate)!
+            }
+            
+            // Wenn der 15.3 ein Freitag/Samstag/Sonntag ist beginnt die Vorlesung am nächstfolgenden Montag
+                
+            if startSemesterWeekday == 6 {
+                newStartDate = calendar.date(byAdding: .day, value: 3, to: newStartDate)!
+            }
+                
+            if startSemesterWeekday == 7 {
+                newStartDate = calendar.date(byAdding: .day, value: 2, to: newStartDate)!
+            }
+                
+            if startSemesterWeekday == 1 {
+                newStartDate = calendar.date(byAdding: .day, value: 1, to: newStartDate)!
+            }
+                
+            return newStartDate
         }
         
-        if checkSemester() == "ws"{
-            if currentDate < startWinter{
+        if semester == "WS"{
                 
-                let difMonths = startWinterComponents.month! - currentMonth
-                let difDays = startWinterComponents.day! - currentDay
-                
-                var newStartDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
-                newStartDate = calendar.date(byAdding: .day, value: difDays, to: newStartDate)!
-                let startSemesterWeekday = calendar.component(.weekday, from: newStartDate)
-                
-                // Wenn der 1.10 ein Freitag/Samstag/Sonntag ist beginnt die Vorlesung am nächstfolgenden Montag
-                
-                if startSemesterWeekday == 6 {
-                    newStartDate = calendar.date(byAdding: .day, value: 3, to: newStartDate)!
-                }
-                
-                if startSemesterWeekday == 7 {
-                    newStartDate = calendar.date(byAdding: .day, value: 2, to: newStartDate)!
-                }
-                
-                if startSemesterWeekday == 1 {
-                    newStartDate = calendar.date(byAdding: .day, value: 1, to: newStartDate)!
-                }
-                
-                return newStartDate
-            } else {
+            if checkSemester() == "WS" && currentDate > startWinter {
                 return currentDate
             }
+        
+            let difMonths = startWinterComponents.month! - currentMonth
+            let difDays = startWinterComponents.day! - currentDay
+                
+            var newStartDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
+            newStartDate = calendar.date(byAdding: .day, value: difDays, to: newStartDate)!
+            let startSemesterWeekday = calendar.component(.weekday, from: newStartDate)
+                
+            if checkSemester() != "WS" {
+                newStartDate = calendar.date(byAdding: .year, value: -1, to: newStartDate)!
+            }
+                
+            // Wenn der 1.10 ein Freitag/Samstag/Sonntag ist beginnt die Vorlesung am nächstfolgenden Montag
+                
+            if startSemesterWeekday == 6 {
+                newStartDate = calendar.date(byAdding: .day, value: 3, to: newStartDate)!
+            }
+            
+            if startSemesterWeekday == 7 {
+                newStartDate = calendar.date(byAdding: .day, value: 2, to: newStartDate)!
+            }
+            
+            if startSemesterWeekday == 1 {
+                newStartDate = calendar.date(byAdding: .day, value: 1, to: newStartDate)!
+            }
+            
+            return newStartDate
         }
         return currentDate
     }
     
     //gibt Vorlesungsende zurück
-    public func endSemester() -> Date{
+    public func endSemester(semester : String) -> Date{
         let currentDate = Date()
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: currentDate)
@@ -129,77 +137,73 @@ extension Date {
         let endSummerComponents = DateComponents(year: currentYear, month: 7, day: 10)
         let endWinterComponents = DateComponents(year: currentYear+1, month: 1, day: 25)
         
-        let endSummer : Date = calendar.date(from: endSummerComponents)!
-        let endWinter : Date = calendar.date(from: endWinterComponents)!
-        
-        if checkSemester() == "ss" {
-            if currentDate < endSummer {
+        if semester == "SS" {
+ 
+            let difMonths = endSummerComponents.month! - currentMonth
+            let difDays = endSummerComponents.day! - currentDay
                 
-                let difMonths = endSummerComponents.month! - currentMonth
-                let difDays = endSummerComponents.day! - currentDay
-                
-                var newEndDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
-                newEndDate = calendar.date(byAdding: .day, value: difDays, to: newEndDate)!
-                let endSemesterWeekday = calendar.component(.weekday, from: newEndDate)
-                
-                // Wenn der 10.7 ein Samstag/Sonntag/Montag ist endet die Vorlesung am vorausgehenden Freitag
-                
-                if endSemesterWeekday == 7 {
-                    newEndDate = calendar.date(byAdding: .day, value: -1, to: newEndDate)!
-                }
-                
-                if endSemesterWeekday == 1 {
-                    newEndDate = calendar.date(byAdding: .day, value: -2, to: newEndDate)!
-                }
-                
-                if endSemesterWeekday == 2 {
-                    newEndDate = calendar.date(byAdding: .day, value: -3, to: newEndDate)!
-                }
-                
-                return newEndDate
-            } else {
-                return currentDate
+            var newEndDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
+            newEndDate = calendar.date(byAdding: .day, value: difDays, to: newEndDate)!
+            
+            if checkSemester() != "SS" {
+                newEndDate = calendar.date(byAdding: .year, value: -1, to: newEndDate)!
             }
+            
+            let endSemesterWeekday = calendar.component(.weekday, from: newEndDate)
+                
+            // Wenn der 10.7 ein Samstag/Sonntag/Montag ist endet die Vorlesung am vorausgehenden Freitag
+                
+            if endSemesterWeekday == 7 {
+                newEndDate = calendar.date(byAdding: .day, value: -1, to: newEndDate)!
+            }
+            
+            if endSemesterWeekday == 1 {
+                newEndDate = calendar.date(byAdding: .day, value: -2, to: newEndDate)!
+            }
+            
+            if endSemesterWeekday == 2 {
+                newEndDate = calendar.date(byAdding: .day, value: -3, to: newEndDate)!
+            }
+            return newEndDate
         }
         
-        if checkSemester() == "ws"{
-            if currentDate < endWinter{
+        if checkSemester() == "WS"{
                 
-                let difMonths = endWinterComponents.month! - currentMonth
-                let difDays = endWinterComponents.day! - currentDay
-                
-                var newEndDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
-                newEndDate = calendar.date(byAdding: .day, value: difDays, to: newEndDate)!
-                newEndDate = calendar.date(byAdding: .year, value: 1, to: newEndDate)!
-                let endSemesterWeekday = calendar.component(.weekday, from: newEndDate)
-                
-                // Wenn der 25.1 ein Samstag/Sonntag/Montag ist endet die Vorlesung am vorausgehenden Freitag
-                
-                if endSemesterWeekday == 7 {
-                    newEndDate = calendar.date(byAdding: .day, value: -1, to: newEndDate)!
-                }
-                
-                if endSemesterWeekday == 1 {
-                    newEndDate = calendar.date(byAdding: .day, value: -2, to: newEndDate)!
-                }
-                
-                if endSemesterWeekday == 2 {
-                    newEndDate = calendar.date(byAdding: .day, value: -3, to: newEndDate)!
-                }
-                
-                
-                return newEndDate
-            } else {
-                return currentDate
+            let difMonths = endWinterComponents.month! - currentMonth
+            let difDays = endWinterComponents.day! - currentDay
+            
+            var newEndDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
+            newEndDate = calendar.date(byAdding: .day, value: difDays, to: newEndDate)!
+            newEndDate = calendar.date(byAdding: .year, value: 1, to: newEndDate)!
+            let endSemesterWeekday = calendar.component(.weekday, from: newEndDate)
+            
+            if checkSemester() != "WS" {
+                newEndDate = calendar.date(byAdding: .year, value: -1, to: newEndDate)!
             }
+            
+            // Wenn der 25.1 ein Samstag/Sonntag/Montag ist endet die Vorlesung am vorausgehenden Freitag
+                
+            if endSemesterWeekday == 7 {
+                newEndDate = calendar.date(byAdding: .day, value: -1, to: newEndDate)!
+            }
+            
+            if endSemesterWeekday == 1 {
+                newEndDate = calendar.date(byAdding: .day, value: -2, to: newEndDate)!
+            }
+            
+            if endSemesterWeekday == 2 {
+                newEndDate = calendar.date(byAdding: .day, value: -3, to: newEndDate)!
+            }
+            
+            return newEndDate
         }
         return currentDate
     }
     
     //gibt start einer einzelnen Vorlesung zurück
-    public func startLecture(weekdayString : String) -> Date{
+    public func startLecture(weekdayString : String, semester : String) -> Date{
         let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
-        let startSemesterDate = startSemester()
+        let startSemesterDate = startSemester(semester: semester)
         let calendar = Calendar.current
         let startSemesterWeekday = calendar.component(.weekday, from: startSemesterDate)
         var lectureWeekday = 2
@@ -230,9 +234,9 @@ extension Date {
     }
     
     //gibt ende einer einzelnen Vorlesung zurück
-    public func endLecture (weekdayString : String) -> Date{
+    public func endLecture (weekdayString : String, semester : String) -> Date{
         let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
-        let endSemesterDate = endSemester()
+        let endSemesterDate = endSemester(semester: semester)
         let calendar = Calendar.current
         let endSemesterWeekday = calendar.component(.weekday, from: endSemesterDate)
         var lectureWeekday = 6
@@ -256,6 +260,7 @@ extension Date {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
+      
         let finalEndString : String = dateFormatter.string(from: newLectureEndDate)
         let finalEndDate : Date = dateFormatter.date(from: finalEndString)!
         
@@ -263,7 +268,7 @@ extension Date {
     }
     
     public func changeTimeDate(date : Date) -> Date {
-        var calendar = Calendar.current
+        let calendar = Calendar.current
         let newDate = calendar.date(byAdding: .year, value: 1, to: date)
         return newDate!
     }

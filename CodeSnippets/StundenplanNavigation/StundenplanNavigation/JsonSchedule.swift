@@ -70,18 +70,18 @@ class JsonSchedule: NSObject {
             var newStartTime = timeFormatter.date(from: startt)
             var newEndTime = timeFormatter.date(from: endt)
             
-           // Settings.sharedInstance.
+            let semester = Settings.sharedInstance.tmpSeason.rawValue
             
-            newStartDate = newStartDate?.startLecture(weekdayString: day)
-            newEndDate = newEndDate?.endLecture(weekdayString: day)
+            newStartDate = newStartDate?.startLecture(weekdayString: day, semester: semester)
+            newEndDate = newEndDate?.endLecture(weekdayString: day, semester: semester)
             newStartTime = newStartTime?.changeTimeDate(date: newStartTime!)
             newEndTime = newEndTime?.changeTimeDate(date: newEndTime!)
             
+            
+            print("#########")
+            print(name)
             print(newStartDate)
-            print(newStartTime)
             print(newEndDate)
-            print(newEndTime)
-            print("####")
             
             let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course, comment: comment)
             pSchedule?.append(newLecture)
