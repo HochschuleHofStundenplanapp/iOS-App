@@ -94,17 +94,16 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    
+    @IBAction func syncSwitchChanged(_ sender: UISwitch) {
+        if(!syncSwitch.isOn){
+        CalendarInterface.sharedInstance.removeCalendar()
+        }
+    }
+    
     @IBAction func saveChangesButton(_ sender: UIButton) {
         // neu hinzugefügte und gelöschte Vorlesungen bekommen
-        //var added = Settings.sharedInstance.tmpSchedule.addedLectures(schedule : Settings.sharedInstance.tmpSchedule)
-        //var removed  = Settings.sharedInstance.tmpSchedule.removedLectures(schedule : Settings.sharedInstance.tmpSchedule)
-        
-        //print(added)
-        //print(removed)
-        
-        //dump(added)
-        //dump(removed)
-        
+        // IDS werden noch nicht gespeichert !
         var addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
         var removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
         
@@ -122,10 +121,8 @@ class SettingsTableViewController: UITableViewController {
             CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
             }
             
-            // CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
-        } else {
-            CalendarInterface.sharedInstance.removeCalendar()
         }
+        
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
 
     }
