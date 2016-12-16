@@ -77,12 +77,6 @@ class JsonSchedule: NSObject {
             newStartTime = newStartTime?.changeTimeDate(date: newStartTime!)
             newEndTime = newEndTime?.changeTimeDate(date: newEndTime!)
             
-            
-            print("#########")
-            print(name)
-            print(newStartDate)
-            print(newEndDate)
-            
             let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course, comment: comment)
             pSchedule?.append(newLecture)
             
