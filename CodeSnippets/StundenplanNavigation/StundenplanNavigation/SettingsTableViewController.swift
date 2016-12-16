@@ -105,18 +105,26 @@ class SettingsTableViewController: UITableViewController {
         //dump(added)
         //dump(removed)
         
-        Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-        Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        var addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        var removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
         
         Settings.sharedInstance.commitChanges()
         
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
         if (syncSwitch.isOn) {
-            CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+            if(!addedLectures.isEmpty)
+            {
+            CalendarInterface().createAllEvents(lectures: addedLectures)
+            }
+            if(!removedLectures.isEmpty)
+            {
+            CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
+            }
             
+            // CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
         } else {
-            CalendarInterface().removeCalendar()
+            CalendarInterface.sharedInstance.removeCalendar()
         }
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
 

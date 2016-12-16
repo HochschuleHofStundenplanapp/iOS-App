@@ -11,6 +11,9 @@ import EventKit
 
 class CalendarInterface: NSObject {
     
+    static var sharedInstance = CalendarInterface()
+    
+    
     var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
     
     var calendarTitle : String = "Hochschule Hof Stundenplan App"
@@ -116,13 +119,13 @@ class CalendarInterface: NSObject {
                     print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
                 }
                 
-                //p_event.eventIdentifier = event.eventIdentifier
-                
-                if(self.lectureEKEventIdDictionary[lecture] == nil){
-                    self.lectureEKEventIdDictionary[lecture] = []
+                if(CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] == nil){
+                    CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] = []
                 }
                 
-                self.lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
+                CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
+                print("createEventsForLectures")
+                dump(CalendarInterface.sharedInstance.lectureEKEventIdDictionary)
             }
         }
     }
@@ -274,16 +277,18 @@ class CalendarInterface: NSObject {
         }
     }
     
-    //
+    // Entfernt mehrere übergebene Events
     func removeAllEvents(lectures : [Lecture]){
         for lecture in lectures {
-            let ids = self.lectureEKEventIdDictionary[lecture]
+            
+            let ids = lectureEKEventIdDictionary[lecture]
+            dump(lectureEKEventIdDictionary)
+            
             if (ids != nil) {
                 for id in ids! {
                     removeEvent(p_eventId: id)
                 }
             }
-            //remove in dick
         }
     }
     
