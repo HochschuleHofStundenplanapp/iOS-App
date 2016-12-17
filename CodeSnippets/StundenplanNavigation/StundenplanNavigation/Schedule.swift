@@ -127,7 +127,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
             var contains = false
             
             for newLecture in selLectures {
-                if newLecture.id == lecture.id {
+                if newLecture.hashValue == lecture.hashValue {
                     contains = true
                 }
             }
@@ -141,23 +141,23 @@ class Schedule : NSObject, NSCopying, NSCoding{
     // Liefert alles Lecutrues zurück die gelöscht wurden
     func addedLectures(oldSchedule : Schedule) -> [Lecture] {
         
-        var removedArray = [Lecture]()
+        var addedArray = [Lecture]()
         
         for newLecture in selLectures{
             var contains = false
             
             for oldLecture in oldSchedule.selLectures {
-                if oldLecture.id == newLecture.id {
+                if oldLecture.hashValue == newLecture.hashValue {
                     contains = true
                 }
             }
             if(!contains){
-                removedArray.append(newLecture)
+                addedArray.append(newLecture)
             }
         }
         
-        dump(removedArray)
-        return removedArray
+        dump(addedArray)
+        return addedArray
 
         
         
