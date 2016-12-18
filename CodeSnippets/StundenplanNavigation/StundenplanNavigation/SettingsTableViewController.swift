@@ -104,25 +104,23 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func saveChangesButton(_ sender: UIButton) {
         // neu hinzugefügte und gelöschte Vorlesungen bekommen
         // IDS werden noch nicht gespeichert !
-        var addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-        var removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
         
         Settings.sharedInstance.commitChanges()
         
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
         if (syncSwitch.isOn) {
-            if(!addedLectures.isEmpty)
-            {
+            if(!addedLectures.isEmpty) {
             CalendarInterface().createAllEvents(lectures: addedLectures)
+            print("added in Calendar : \(addedLectures.count)")
             }
-            if(!removedLectures.isEmpty)
-            {
+            if(!removedLectures.isEmpty) {
             CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
+            print("removed in Calendar : \(removedLectures.count)")
             }
-            
         }
-        
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
 
     }

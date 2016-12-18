@@ -14,7 +14,7 @@ class CalendarInterface: NSObject {
     static var sharedInstance = CalendarInterface()
     
     
-    var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
+    // var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
     
     var calendarTitle : String = "Hochschule Hof Stundenplan App"
     let eventStore = EKEventStore()
@@ -119,13 +119,12 @@ class CalendarInterface: NSObject {
                     print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
                 }
                 
-                if(CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] == nil){
-                    CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] = []
-                }
+                //if(CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] == nil){
+                 //   CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] = []
+                //}
                 
-                CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
-                print("createEventsForLectures")
-                dump(CalendarInterface.sharedInstance.lectureEKEventIdDictionary)
+                //CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
+                lecture.eventIDs.append(event.eventIdentifier)
             }
         }
     }
@@ -281,11 +280,13 @@ class CalendarInterface: NSObject {
     func removeAllEvents(lectures : [Lecture]){
         for lecture in lectures {
             
-            let ids = lectureEKEventIdDictionary[lecture]
-            dump(lectureEKEventIdDictionary)
+            //let ids = lectureEKEventIdDictionary[lecture]
+            //dump(lectureEKEventIdDictionary)
             
-            if (ids != nil) {
-                for id in ids! {
+            let ids = lecture.eventIDs
+            
+            if (!ids.isEmpty) {
+                for id in ids {
                     removeEvent(p_eventId: id)
                 }
             }

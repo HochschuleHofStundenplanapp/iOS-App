@@ -25,6 +25,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
     var selected: Bool
     var course: String
     var comment : String
+    var eventIDs : [String]
     let idKey = "lectureId"
     let nameKey = "lectureName"
     let lecturerKey = "lectureLecturer"
@@ -39,8 +40,9 @@ class Lecture : NSObject, NSCopying, NSCoding {
     let selectedKey = "lectureSelected"
     let courseKey = "lectureCourse"
     let commentKey = "lectureComment"
+    let eventIDsKey = "lectureEventIDs"
     
-    init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String, selected: Bool) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String, selected: Bool, eventIDs: [String]) {
         self.id = id
         self.name = name
         self.lecturer = lecturer
@@ -55,15 +57,16 @@ class Lecture : NSObject, NSCopying, NSCoding {
         self.selected = selected
         self.course = course
         self.comment = comment
+        self.eventIDs = eventIDs
     }
     
-    convenience init(id: Int, name: String, lecture: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String) {
+    convenience init(id: Int, name: String, lecture: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String, eventIDs: [String]) {
         
-        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, starttime: starttime, endTime: endTime, startdate: startdate, enddate: enddate, day: day, room: room, course: course, comment: comment, selected: false)
+        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, starttime: starttime, endTime: endTime, startdate: startdate, enddate: enddate, day: day, room: room, course: course, comment: comment, selected: false, eventIDs: eventIDs)
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, starttime: self.starttime, endTime: self.endTime, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, comment: self.comment, selected: self.selected)
+        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, starttime: self.starttime, endTime: self.endTime, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, comment: self.comment, selected: self.selected, eventIDs: self.eventIDs)
         return copy
     }
     
@@ -90,6 +93,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         selected = Bool(aDecoder.decodeBool(forKey: selectedKey))
         course = aDecoder.decodeObject(forKey: courseKey) as! String
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
+        eventIDs = aDecoder.decodeObject(forKey: eventIDsKey) as! [String]
         super.init()
     }
     
@@ -108,6 +112,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         aCoder.encode(selected, forKey: selectedKey)
         aCoder.encode(course, forKey: courseKey)
         aCoder.encode(comment, forKey: commentKey)
+        aCoder.encode(eventIDs, forKey: eventIDsKey)
     }
     
 }
