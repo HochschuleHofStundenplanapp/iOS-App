@@ -32,12 +32,10 @@ class CalendarInterface: NSObject {
         if (checkAuthorizationStatus()) {
             var calendars = [EKCalendar]()
             calendars = self.eventStore.calendars(for: .event)
+            print("____________INIT____________")
             for calendar in calendars {
                 if(calendar.title == self.calendarTitle){
                     self.calendar = calendar
-                    //!!! wieder raus vor commit
-                    //removeCalendar()
-                    //self.calendar = nil
                     break
                 }
             }

@@ -99,7 +99,7 @@ class SettingsTableViewController: UITableViewController {
         if(syncSwitch.isOn){
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
         } else {
-        CalendarInterface.sharedInstance.removeCalendar()
+        CalendarInterface().removeCalendar()
         }
     }
     
