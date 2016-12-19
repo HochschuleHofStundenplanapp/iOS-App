@@ -52,6 +52,7 @@ class CalendarInterface: NSObject {
             try self.eventStore.removeCalendar(self.calendar!, commit: true)
         } catch {
             print("can´t remove Calendar")
+            print(self.calendar!)
             return false
         }
         return true
@@ -86,6 +87,7 @@ class CalendarInterface: NSObject {
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
+                // TODO return true wenn granted
             })
         } else {
             return true
