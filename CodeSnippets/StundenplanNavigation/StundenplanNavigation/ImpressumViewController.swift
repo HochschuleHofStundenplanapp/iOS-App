@@ -10,6 +10,8 @@ import UIKit
 
 class ImpressumViewController: UIViewController {
 
+    @IBOutlet weak var textContent: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -21,6 +23,10 @@ class ImpressumViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textContent.scrollRangeToVisible(NSMakeRange(0,0))
+    }
 
     /*
     // MARK: - Navigation

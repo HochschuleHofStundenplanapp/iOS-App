@@ -420,7 +420,7 @@
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = FZ89B397B6;
+						DevelopmentTeam = C75C8K6ET9;
 						ProvisioningStyle = Automatic;
 					};
 					CEAC97151DB5FD350042FF3D = {
@@ -684,10 +684,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZ89B397B6;
+				DEVELOPMENT_TEAM = C75C8K6ET9;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DanielZizer.StundenplanNavigation;
+				PRODUCT_BUNDLE_IDENTIFIER = de.iosapp.hochschuleHof;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -698,10 +698,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZ89B397B6;
+				DEVELOPMENT_TEAM = C75C8K6ET9;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DanielZizer.StundenplanNavigation;
+				PRODUCT_BUNDLE_IDENTIFIER = de.iosapp.hochschuleHof;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
