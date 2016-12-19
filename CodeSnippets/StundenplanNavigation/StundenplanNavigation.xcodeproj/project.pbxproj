@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */ = {isa = PBXBuildFile; fileRef = 0C18F6B41E081D210037E28F /* rechtlicheTexte */; };
 		0C42E35C1DE59C9200DD999B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42E35B1DE59C9200DD999B /* Constants.swift */; };
 		655CCDC11E002D4A004B8AF3 /* CalendarInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CCDC01E002D4A004B8AF3 /* CalendarInterface.swift */; };
 		812843101DED715600B0715E /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8128430F1DED715600B0715E /* Observer.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
 		0C42E35B1DE59C9200DD999B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		655CCDC01E002D4A004B8AF3 /* CalendarInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInterface.swift; sourceTree = "<group>"; };
 		8128430F1DED715600B0715E /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C18F6B31E081CF90037E28F /* Texte */ = {
+			isa = PBXGroup;
+			children = (
+				0C18F6B41E081D210037E28F /* rechtlicheTexte */,
+			);
+			name = Texte;
+			sourceTree = "<group>";
+		};
 		655CCDBF1E002D32004B8AF3 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				0C18F6B31E081CF90037E28F /* Texte */,
 				DAA250781E017C4A007CCEFB /* Extensions */,
 				655CCDBF1E002D32004B8AF3 /* Interfaces */,
 				BE18E73F1DE3185700EDD1A6 /* Model */,
@@ -460,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */,
 				CEAC97101DB5FD350042FF3D /* LaunchScreen.storyboard in Resources */,
 				CEAC970D1DB5FD350042FF3D /* Assets.xcassets in Resources */,
 				CEAC970B1DB5FD350042FF3D /* Main.storyboard in Resources */,
