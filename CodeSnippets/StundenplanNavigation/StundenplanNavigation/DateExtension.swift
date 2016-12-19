@@ -264,7 +264,8 @@ extension Date {
         let finalEndString : String = dateFormatter.string(from: newLectureEndDate)
         let finalEndDate : Date = dateFormatter.date(from: finalEndString)!
         
-        return finalEndDate
+        // Paul da müste noch ein tag hinzug :D ist sicherlich grad nicht die schönste lösung
+        return finalEndDate + 60 * 60 
     }
     
     public func changeTimeDate(date : Date) -> Date {

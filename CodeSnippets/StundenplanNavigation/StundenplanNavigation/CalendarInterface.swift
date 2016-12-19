@@ -32,7 +32,7 @@ class CalendarInterface: NSObject {
         if (checkAuthorizationStatus()) {
             var calendars = [EKCalendar]()
             calendars = self.eventStore.calendars(for: .event)
-            print("____________INIT____________")
+            // print("____________INIT____________")
             for calendar in calendars {
                 if(calendar.title == self.calendarTitle){
                     self.calendar = calendar
@@ -196,6 +196,7 @@ class CalendarInterface: NSObject {
     // TODO lectures übergeben
     func updateAllEvents( lectures : [Lecture]){
         for lecture in lectures {
+            
             // TODO richtige Werte
             //updateEvent(p_eventId: event.eventIdentifier, p_event: event, p_wasDeleted: false)
         }
