@@ -48,10 +48,10 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efX-2f-MDt" id="r5s-Mp-H4M">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mk-07-hm2">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Mk-07-hm2">
                                             <rect key="frame" x="8" y="89" width="359" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="naK-DK-QYq"/>
@@ -145,7 +145,7 @@
                                 <rect key="frame" x="0.0" y="136" width="375" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cAd-Pl-CIw" id="UDR-qy-dyN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keine Vorlesungen gewählt!" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmp-6L-bUB">
@@ -233,7 +233,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="McL-ow-jEr" id="xk2-1F-oUf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entfallener Termin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UV-Dy-Ko2">
@@ -396,7 +396,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="5uG-1n-jEY">
-                            <rect key="frame" x="0.0" y="557.5" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="560" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -548,7 +548,7 @@
                             <tableViewSection headerTitle="Einstellungen" id="M30-gA-LVA">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="T9H-5o-Dzi">
-                                        <rect key="frame" x="0.0" y="352" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="353" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T9H-5o-Dzi" id="Dsx-Kc-1cU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -582,7 +582,7 @@
                             <tableViewSection headerTitle="Rechtliches" id="2n1-8z-R95">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0zE-tw-iZa">
-                                        <rect key="frame" x="0.0" y="452" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="454" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0zE-tw-iZa" id="BcW-c0-cHF">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -605,7 +605,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="whr-K9-vcb">
-                                        <rect key="frame" x="0.0" y="496" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="498" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="whr-K9-vcb" id="EKB-uX-gyb">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -752,7 +752,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYL-Cx-EGg">
                                 <rect key="frame" x="5" y="0.0" width="365" height="657"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Diese Anbieterkennzeichnung gilt für die Bereitstellung von Stundenplandaten mittels dieser App. 
+                                <string key="text">Diese Anbieterkennzeichnung gilt für die Bereitstellung von Stundenplandaten mittels dieser App. 
 
 Anbieterin dieses Dienstes ist die Hochschule für Angewandte Wissenschaften Hof, Körperschaft des öffentlichen Rechts (nachfolgend kurz "Hochschule Hof").
 
@@ -772,7 +772,7 @@ Salvatorstraße 2
 80333 München
 Fon: +49 (0) 89 / 21860
 Fax: +49 (0) 89 / 2186 2800
-E-Mail: poststelle@stmwfk.bayern.de</mutableString>
+E-Mail: poststelle@stmwfk.bayern.de</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -842,7 +842,7 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LBX-Gc-w1k" id="1oJ-4X-KwT">
-                                    <rect key="frame" x="0.0" y="0.0" width="336" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorlesung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-z5-Z6M">
