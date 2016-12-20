@@ -225,8 +225,10 @@ extension Date {
         
         let newLectureStartDate : Date = calendar.date(byAdding: .day, value: difDays, to: startSemesterDate)!
         
+        let myTimezone = TimeZone(secondsFromGMT: 0)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
+        dateFormatter.timeZone = myTimezone
         let finalStartString : String = dateFormatter.string(from: newLectureStartDate)
         let finalStartDate : Date = dateFormatter.date(from: finalStartString)!
         
@@ -258,14 +260,15 @@ extension Date {
         
         let newLectureEndDate : Date = calendar.date(byAdding: .day, value: difDays, to: endSemesterDate)!
         
+        let myTimezone = TimeZone(secondsFromGMT: 0)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
+        dateFormatter.timeZone = myTimezone
       
         let finalEndString : String = dateFormatter.string(from: newLectureEndDate)
         let finalEndDate : Date = dateFormatter.date(from: finalEndString)!
         
-        // Paul da müste noch ein tag hinzug :D ist sicherlich grad nicht die schönste lösung
-        return finalEndDate + 60 * 60 
+        return finalEndDate
     }
     
     public func changeTimeDate(date : Date) -> Date {
