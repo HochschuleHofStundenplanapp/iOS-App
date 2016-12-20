@@ -39,18 +39,40 @@ class SettingsTableViewController: UITableViewController {
         }else{
             segmentControl.selectedSegmentIndex = 1
         }
-        //disableCells()
+        disableCells()
         setDetailLabels()
     }
     
     private func disableCells(){
+        
+        //Variable setzten, ob Semester selektiert wurden
+        let allSelectedSemesters : [Semesters] = Settings.sharedInstance.tmpCourses.selectedSemesters()
+        var hasSelectedSemester = false
+        for i in allSelectedSemesters {
+            for j in i.list{
+                if (j.selected == true){
+                    hasSelectedSemester = true
+                }
+            }
+        }
+
         if(Settings.sharedInstance.tmpCourses.hasSelectedCourses()){
             semesterTableViewCell.isUserInteractionEnabled = true
             semesterTableViewCell.textLabel?.isEnabled = true
             semesterTableViewCell.detailTextLabel?.isEnabled = true
             
-//            if(hasSelectedSemester)
-        }else{
+            if(hasSelectedSemester){
+                lecturesTableViewCell.isUserInteractionEnabled = true
+                lecturesTableViewCell.textLabel?.isEnabled = true
+                lecturesTableViewCell.detailTextLabel?.isEnabled = true
+            }
+            else{
+                lecturesTableViewCell.isUserInteractionEnabled = false
+                lecturesTableViewCell.textLabel?.isEnabled = false
+                lecturesTableViewCell.detailTextLabel?.isEnabled = false
+            }
+        }
+        else{
             semesterTableViewCell.isUserInteractionEnabled = false
             semesterTableViewCell.textLabel?.isEnabled = false
             semesterTableViewCell.detailTextLabel?.isEnabled = false
