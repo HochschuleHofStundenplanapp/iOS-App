@@ -16,7 +16,9 @@ class Semesters : NSObject, NSCopying, NSCoding{
     override init() {}
     
     init(semesters: [Semester]) {
-        list = semesters
+        for semester in semesters{
+            self.list.append(semester.copy() as! Semester)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

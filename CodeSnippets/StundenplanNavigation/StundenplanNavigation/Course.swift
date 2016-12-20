@@ -24,10 +24,10 @@ class Course: NSObject, NSCopying, NSCoding {
     
     init(contraction : String, nameDe: String, nameEn: String, semesters: Semesters, selected: Bool) {
         self.contraction = contraction
-        self.semesters = semesters
+        self.semesters = semesters.copy() as! Semesters
         self.nameDe = nameDe
         self.nameEn = nameEn
-        self.selected = false
+        self.selected = selected
     }
     
     convenience init(contraction : String, nameDe: String, nameEn: String, semesters: Semesters) {

@@ -10,8 +10,7 @@ import UIKit
 
 enum Season : String {
     case summer = "SS"
-    case winter = "WS"
-    
+    case winter = "WS"    
 }
 
 class Settings: NSObject, NSCoding {

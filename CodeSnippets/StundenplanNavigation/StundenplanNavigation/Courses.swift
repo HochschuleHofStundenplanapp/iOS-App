@@ -16,7 +16,10 @@ class Courses : NSObject, NSCopying, NSCoding{
     override init(){ }
     
     init(courses: [Course]) {
-        list = courses
+        super.init()
+        for course in courses{
+            self.list.append(course.copy() as! Course)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

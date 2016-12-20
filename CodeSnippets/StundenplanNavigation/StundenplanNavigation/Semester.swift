@@ -27,7 +27,6 @@ class Semester: NSObject, NSCopying, NSCoding {
         name = aDecoder.decodeObject(forKey: nameKey) as! String
         selected = Bool(aDecoder.decodeBool(forKey: selectedKey))
         super.init()
-
     }
     
     func encode(with aCoder: NSCoder){
