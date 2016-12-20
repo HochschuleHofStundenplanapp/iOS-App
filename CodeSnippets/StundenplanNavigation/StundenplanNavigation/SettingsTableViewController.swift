@@ -120,6 +120,8 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         if(syncSwitch.isOn){
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+            print("changes")
+            dump(Changes().changes)
         } else {
         CalendarInterface().removeCalendar()
         }

@@ -32,7 +32,6 @@ class CalendarInterface: NSObject {
         if (checkAuthorizationStatus()) {
             var calendars = [EKCalendar]()
             calendars = self.eventStore.calendars(for: .event)
-            // print("____________INIT____________")
             for calendar in calendars {
                 if(calendar.title == self.calendarTitle){
                     self.calendar = calendar
@@ -156,8 +155,12 @@ class CalendarInterface: NSObject {
         return events
     }
     
+    private func combineDayAndTime(date : Date, time : Date) -> Date {
+        return date.addingTimeInterval((time.timeIntervalSinceReferenceDate) + (60 * 60))
+    }
+    
     //Erzeugt Event und schreibt es in Kalender
-    private func createEvent(p_event: EKEvent) {
+    private func createEvent(p_event: EKEvent, lecture : Lecture){
         if (checkAuthorizationStatus()) {
             
             let event       = EKEvent(eventStore: self.eventStore)
@@ -181,31 +184,21 @@ class CalendarInterface: NSObject {
                 print("TODO Fehlermeldung \n KalenderAPI create CREATE EVENT")
             }
             
-            //p_event.eventIdentifier = event.eventIdentifier
-            
-            // noch überlegen wie wir die Event ID speichern
-            /*if(lectureEKEventIdDictionary[lecture] == nil){
-             lectureEKEventIdDictionary[lecture] = []
-             }
-             
-             lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
-             */
+            lecture.eventIDs.append(event.eventIdentifier)
         }
     }
     
     // TODO lectures übergeben
-    func updateAllEvents( lectures : [Lecture]){
-        for lecture in lectures {
-            
-            // TODO richtige Werte
-            //updateEvent(p_eventId: event.eventIdentifier, p_event: event, p_wasDeleted: false)
+    func updateAllEvents( changes : Changes){
+        for change in changes.changes {
+        updateEvent(change: change)
         }
     }
     
-    // Lecture to EKEvent
-//    func lectureToEKEventUpdate(lecture: Lecture) -> EKEvent {
+//    // Lecture to EKEvent
+//    func changedToEKEvent(lecture: Lecture) -> EKEvent {
 //        var tmpStartdate = lecture.startdate
-//        // tmpStartdate.addingTimeInterval(lecture.starttime)
+//        //tmpStartdate.addingTimeInterval(lecture.starttime)
 //        var events = [EKEvent]()
 //        
 //        repeat {
@@ -229,42 +222,73 @@ class CalendarInterface: NSObject {
 //        return events
 //    }
     
-    //Aktualisiert Werte des übergebenem Events
-    private func updateEvent(p_eventId: String, p_event: EKEvent, p_wasDeleted: Bool) {
+    private func findLecture(change : ChangedLecture) -> Lecture {
+        var result : Lecture? = nil
+        let changeHashValue = "\(change.name)\(change.oldRoom)\(change.oldDay)\(change.oldTime)".hashValue
+        
+        for lecture in Settings.sharedInstance.savedSchedule.selLectures {
+            if(lecture.hashValue == changeHashValue){
+                result = lecture
+            }
+        }
+        return result!
+    }
+    
+    // ID eines Events wird gesucht und zurückgegeben
+    private func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
+        
+        var result = ""
+
+        for id in lecture.eventIDs {
+             let event = self.eventStore.event(withIdentifier: id)
+            if(event?.title == change.name && event?.startDate == combineDayAndTime(date: change.oldDate, time: change.oldTime)){
+                result = id
+            }
+        }
+        return result
+    }
+    
+
+   // Aktualisiert Werte des übergebenem Events
+    private func updateEvent(change : ChangedLecture) {
         if (checkAuthorizationStatus()) {
-            let event = self.eventStore.event(withIdentifier: p_eventId)
+            var lecture = findLecture(change: change)
+            
+            let eventID = findEventId(lecture: lecture, change: change)
+            
+            let event = self.eventStore.event(withIdentifier: eventID)
             
             if((event) != nil) {
-                if (p_wasDeleted == false) {
-                    if (event?.startDate != p_event.startDate) {
+                if (change.newDay != "") {
+                    if (event?.startDate != combineDayAndTime(date: change.newDate, time: change.newTime)) {
                         let newEvent = EKEvent(eventStore: self.eventStore)
                         
-                        newEvent.title     = "[NEU] " + p_event.title
+                        newEvent.title     = "[NEU] " + change.name
                         newEvent.notes     = event?.notes
-                        newEvent.startDate = p_event.startDate
-                        newEvent.endDate   = p_event.endDate
-                        newEvent.location  = p_event.location
+                        newEvent.startDate = combineDayAndTime(date: change.newDate, time: change.newTime)
+                        newEvent.endDate   = (newEvent.startDate + 60 * 90)
+                        newEvent.location  = self.locationHochschule.appending(", \(change.newRoom)")
                         newEvent.calendar  = self.calendar!
                         
-                        createEvent(p_event: newEvent)
+                        createEvent(p_event: newEvent , lecture: lecture)
                         
-                        event?.title    = "[Verschoben] " + p_event.title
+                        event?.title    = "[Verschoben] " + change.name
                         event?.location = nil
                         event?.alarms   = []
                     } else {
-                        event?.title     = "[Raumänderung] " + p_event.title
-                        event?.location  = self.locationHochschule + ", " + p_event.location!
+                        event?.title     = "[Raumänderung] " + change.name
+                        event?.location  = self.locationHochschule.appending(", \(change.newRoom)")
                     }
                 } else {
-                    event?.title     = "[Entfällt] " + p_event.title
+                    event?.title     = "[Entfällt] " + change.name
                     event?.location = nil
                     event?.alarms   = []
                 }
                 
                 event?.calendar  = self.calendar!;
-                
-                // andere Speichern Möglichkeit
-                // [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
+    
+                 //andere Speichern Möglichkeit
+                 //[eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
             }
             
             if((event) != nil) {

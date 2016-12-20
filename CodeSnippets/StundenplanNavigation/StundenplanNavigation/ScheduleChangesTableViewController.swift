@@ -47,6 +47,10 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         print("\(Settings.sharedInstance.savedChanges.changes.count) Stundenplanänderungen geladen")
         Settings.sharedInstance.savedChanges.sort()
+        //dump(Settings.sharedInstance.savedChanges.sort())
+        
+        // Noch nicht getestet - Berechtigungen nicht berücksichtigt 
+        CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
         //Hide Activity Indicator
         
         refreshControl?.endRefreshing()

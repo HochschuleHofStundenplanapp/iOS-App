@@ -38,7 +38,5 @@ class ChangedLecture {
         self.newDay = newDay
         self.newRoom = newRoom
     }
-    
-    
 }
 
