@@ -138,7 +138,7 @@ class CalendarInterface: NSObject {
             let event       = EKEvent(eventStore: self.eventStore)
             event.title     = lecture.name
             
-            event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate) + (60 * 60))
+            event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate))
             event.endDate   = event.startDate.addingTimeInterval(60 * 90)
             event.location  = self.locationHochschule + ", " + lecture.room
             
