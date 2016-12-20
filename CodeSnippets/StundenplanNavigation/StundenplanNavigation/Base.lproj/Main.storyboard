@@ -895,9 +895,16 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Vorlesungen" id="zqQ-nk-LeV"/>
+                    <navigationItem key="navigationItem" title="Vorlesungen" id="zqQ-nk-LeV">
+                        <barButtonItem key="rightBarButtonItem" image="Haken" id="8XA-Rf-o5Y">
+                            <connections>
+                                <action selector="selectAllCells:" destination="UCo-oZ-bAg" id="FVx-NS-yUr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lectureTableView" destination="qou-8g-4Ep" id="5Sa-ps-hCR"/>
+                        <outlet property="selectAllButton" destination="8XA-Rf-o5Y" id="ZMm-fz-hMw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAL-Np-Rw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -931,6 +938,7 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
         <image name="Button Background" width="400" height="64"/>
         <image name="Button Background Selected" width="400" height="64"/>
         <image name="Einstelllungen" width="30" height="30"/>
+        <image name="Haken" width="23" height="19"/>
         <image name="Stundenplan" width="30" height="24"/>
     </resources>
 </document>

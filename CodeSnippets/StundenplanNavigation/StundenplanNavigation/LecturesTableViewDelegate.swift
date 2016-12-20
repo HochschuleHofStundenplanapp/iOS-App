@@ -9,6 +9,11 @@
 import UIKit
 
 class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
+    var mainViewController : LecturesTableViewController!
+    
+    init(ctrl : LecturesTableViewController) {
+        mainViewController = ctrl
+    }
     
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -20,6 +25,20 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         Settings.sharedInstance.tmpSchedule.toggleLectureAt(section: indexPath.section, row: indexPath.row)
+        
+        if(Settings.sharedInstance.tmpSchedule.isAllSelected()){
+            mainViewController.switchSelectAllButtonIcon(iconName: "Kreuz")
+        }
+        else{
+            mainViewController.switchSelectAllButtonIcon(iconName: "Haken")
+        }
+        
+//        if(Settings.sharedInstance.tmpSchedule.isToggled(section: indexPath.section, row: indexPath.row)){
+//            mainViewController.switchSelectAllButtonIcon(iconName: "Kreuz")
+//        }
+//        else{
+//            
+//        }
         
         tableView.reloadData()
     }
@@ -34,5 +53,37 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
         else{
             return 58
         }
+    }
+    
+    func selectAllCells(tableView: UITableView){
+        let list = Settings.sharedInstance.tmpSchedule.list
+        var everythingSelected = true
+        
+        for i in list{
+            for j in i{
+                if(j.selected == false){
+                    everythingSelected = false
+                }
+            }
+        }
+        
+        if(!everythingSelected){
+            for i in list{
+                for j in i{
+                    j.selected = true
+                }
+            }
+            mainViewController.switchSelectAllButtonIcon(iconName: "Kreuz")
+            everythingSelected = true
+        }
+        else{
+            for i in list{
+                for j in i{
+                    j.selected = false
+                }
+            }
+            mainViewController.switchSelectAllButtonIcon(iconName: "Haken")
+        }
+        tableView.reloadData()
     }
 }

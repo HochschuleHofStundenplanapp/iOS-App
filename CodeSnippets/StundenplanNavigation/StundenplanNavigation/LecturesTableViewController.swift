@@ -10,9 +10,14 @@ import UIKit
 
 class LecturesTableViewController: UITableViewController {
 
+    @IBOutlet var selectAllButton: UIBarButtonItem!
     @IBOutlet var lectureTableView: UITableView!
     var dataSource : LecturesTableViewDataSource!
     var delegate: LecturesTableViewDelegate!
+    
+    @IBAction func selectAllCells(_ sender: UIBarButtonItem) {
+        delegate.selectAllCells(tableView: self.tableView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +27,7 @@ class LecturesTableViewController: UITableViewController {
         dataSource = LecturesTableViewDataSource(tableView: self)
         lectureTableView.dataSource = dataSource
         
-        delegate = LecturesTableViewDelegate()
+        delegate = LecturesTableViewDelegate(ctrl: self)
         lectureTableView.delegate = delegate
     }
     
@@ -49,6 +54,12 @@ class LecturesTableViewController: UITableViewController {
         } ))
         self.present(alertController, animated: true, completion: nil)
         
+    }
+    
+    //Wird vom Delegate aus aufgerufen
+    func switchSelectAllButtonIcon(iconName: String){
+        let buttonImage = UIImage(named: "\(iconName)")?.withRenderingMode(.alwaysOriginal)
+        selectAllButton.image = buttonImage
     }
 
     

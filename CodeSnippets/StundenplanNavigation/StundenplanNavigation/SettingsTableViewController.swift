@@ -230,17 +230,20 @@ class SettingsTableViewController: UITableViewController {
 
         }
         
-        //Anzahl selektierte Vorlesungen
-        let countSelectedLectures = Settings.sharedInstance.tmpSchedule.selLectures.count
-        let selection = Settings.sharedInstance.tmpCourses.hasSelectedCourses()
-        print("countSelectedLectures: \(countSelectedLectures)")
-        if(selection == false){
-            lecturesTableViewCell.detailTextLabel?.text = "..."
-        }
-        else{
-            if(countSelectedLectures != 0 ){
-                lecturesTableViewCell.detailTextLabel?.text = "Vorlesungen gewählt"
-            }
-        }
+        lecturesTableViewCell.detailTextLabel?.text = " "
+//        Anzahl selektierte Vorlesungen
+//        FUNKTIONIERT NICHT!!! Grund: Die Information über selektierte Vorlesungen stimmt zu diesem Zeitpunkt im tmpSchedule nicht.
+        
+//        let countSelectedLectures = Settings.sharedInstance.tmpSchedule.selLectures.count
+//        let selection = Settings.sharedInstance.tmpCourses.hasSelectedCourses()
+//        print("countSelectedLectures: \(countSelectedLectures)")
+//        if(selection == false){
+//            lecturesTableViewCell.detailTextLabel?.text = "..."
+//        }
+//        else{
+//            if(countSelectedLectures != 0 ){
+//                lecturesTableViewCell.detailTextLabel?.text = "Vorlesungen gewählt"
+//            }
+//        }
     }
 }

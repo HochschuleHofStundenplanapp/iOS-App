@@ -74,6 +74,17 @@ class Schedule : NSObject, NSCopying, NSCoding{
         }
     }
     
+    func isAllSelected()->Bool{
+        for i in list{
+            for j in i{
+                if(!j.selected){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
     func setSelection(){
         for day in list {
             for newLecture in day{
