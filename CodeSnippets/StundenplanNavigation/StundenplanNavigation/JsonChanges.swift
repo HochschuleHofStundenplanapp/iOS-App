@@ -49,6 +49,11 @@ class JsonChanges {
 
         for i in allResults
         {
+            let newDay : String
+            let newDate : String
+            let newTime  : String
+            let newRoom : String
+            
             let id = (i["id"]?.string)!
             let name = (i["label"]?.string)!
             let docent = (i["docent"]?.string)!
@@ -57,10 +62,19 @@ class JsonChanges {
             let oldDate = (i["original"]?["date"]?.string)!
             let oldTime = (i["original"]?["time"]?.string)!
             let oldRoom = (i["original"]?["room"]?.string)!
-            let newDay = (i["alternative"]?["day"]?.string)!
-            let newDate = (i["alternative"]?["date"]?.string)!
-            let newTime = (i["alternative"]?["time"]?.string)!
-            let newRoom = (i["alternative"]?["room"]?.string)!
+            if (i["alternative"] != nil) {
+                
+                newDay = (i["alternative"]?["day"]?.string)!
+	            newDate = (i["alternative"]?["date"]?.string)!
+                newTime = (i["alternative"]?["time"]?.string)!
+                newRoom = (i["alternative"]?["room"]?.string)!
+            }
+            else {
+                newDay = ""
+                newDate = ""
+                newTime = ""
+                newRoom = ""
+            }
             
             let newId = Int(id)
             
@@ -72,7 +86,7 @@ class JsonChanges {
             
             
             
-            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime!, newDate: newNewDate!, newDay: newDay, newRoom: newRoom)
+            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom)
             pCL.append(newCL)
         }
     }

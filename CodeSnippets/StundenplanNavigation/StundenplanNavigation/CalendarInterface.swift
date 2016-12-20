@@ -260,12 +260,18 @@ class CalendarInterface: NSObject {
             
             if((event) != nil) {
                 if (change.newDay != "") {
-                    if (event?.startDate != combineDayAndTime(date: change.newDate, time: change.newTime)) {
+                    //
+                    //  ##############################
+                    // Hier fehlt jetzt das Handling für Verlegungen wegen einer Erkrankung
+                    // newTime und newDate der ChangedLecture sind jetzt Optionals
+                    // Das unwrappung unten ist nur um den Compiler happy zu machen!!!!!!
+                    //
+                    if (event?.startDate != combineDayAndTime(date: change.newDate!, time: change.newTime!)) {
                         let newEvent = EKEvent(eventStore: self.eventStore)
                         
                         newEvent.title     = "[NEU] " + change.name
                         newEvent.notes     = event?.notes
-                        newEvent.startDate = combineDayAndTime(date: change.newDate, time: change.newTime)
+                        newEvent.startDate = combineDayAndTime(date: change.newDate!, time: change.newTime!)
                         newEvent.endDate   = (newEvent.startDate + 60 * 90)
                         newEvent.location  = self.locationHochschule.appending(", \(change.newRoom)")
                         newEvent.calendar  = self.calendar!

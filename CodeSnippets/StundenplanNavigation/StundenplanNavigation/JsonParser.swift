@@ -92,11 +92,13 @@ enum JSONData {
             var jsonObject: [String:JSONData] = [:]
             for (key, value) : (Any, Any) in value {
                 if let key = key as? String {
-                    if let value = JSONData.fromObject(value as AnyObject) {
-                        jsonObject[key] = value
-                    } else {
-                        return nil
-                    }
+//                    if let value = JSONData.fromObject(value as AnyObject) {
+//                        jsonObject[key] = value
+//                    } else {
+//                        return nil
+//                    }
+                    jsonObject[key]  = JSONData.fromObject(value as AnyObject)
+
                 }
             }
             return JSONData.jsonObject(jsonObject)

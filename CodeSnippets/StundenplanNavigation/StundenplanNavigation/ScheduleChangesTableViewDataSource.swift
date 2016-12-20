@@ -44,10 +44,17 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         cell.oldTimeLabel.text         = timeFormatter.string(from: changedLectures[indexPath.section].oldTime)
         cell.oldRoomLabel.text         = changedLectures[indexPath.section].oldRoom
         
-        cell.newDateLabel.text         = dateFormatter.string(from: changedLectures[indexPath.section].newDate)
-        cell.newTimeLabel.text         = timeFormatter.string(from: changedLectures[indexPath.section].newTime)
-        cell.newRoomLabel.text         = changedLectures[indexPath.section].newRoom
-        
+        if (changedLectures[indexPath.section].newDate != nil)
+        {
+            cell.newDateLabel.text = dateFormatter.string(from: changedLectures[indexPath.section].newDate!)
+            cell.newTimeLabel.text = timeFormatter.string(from: changedLectures[indexPath.section].newTime!)
+            cell.newRoomLabel.text = changedLectures[indexPath.section].newRoom
+        }
+        else {
+            cell.newDateLabel.text = "Entfällt"
+            cell.newTimeLabel.text = "wegen"
+            cell.newRoomLabel.text = "Erkrankung"
+        }
         return cell
     }
     

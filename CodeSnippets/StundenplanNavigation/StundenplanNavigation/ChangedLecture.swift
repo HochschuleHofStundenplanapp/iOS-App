@@ -18,13 +18,15 @@ class ChangedLecture {
     var oldDate: Date
     var oldDay: String
     var oldRoom: String
-    var newTime: Date
-    var newDate: Date
+    var newTime: Date?
+    var newDate: Date?
     var newDay: String
     var newRoom: String
     //Studiengang einfügen
     
-    init(id: Int, name: String, docent: String, comment: String, oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String, newTime: Date, newDate: Date, newDay: String, newRoom: String) {
+    init(id: Int, name: String, docent: String, comment: String,
+         oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String,
+         newTime: Date?, newDate: Date?, newDay: String, newRoom: String) {
         self.id = id
         self.name = name
         self.docent = docent
