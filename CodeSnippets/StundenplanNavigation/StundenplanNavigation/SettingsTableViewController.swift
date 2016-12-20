@@ -139,7 +139,7 @@ class SettingsTableViewController: UITableViewController {
         
         if (syncSwitch.isOn) {
             if(!addedLectures.isEmpty) {
-            CalendarInterface().createAllEvents(lectures: addedLectures)
+            CalendarInterface.sharedInstance.createAllEvents(lectures: addedLectures)
             print("added in Calendar : \(addedLectures.count)")
             }
             if(!removedLectures.isEmpty) {

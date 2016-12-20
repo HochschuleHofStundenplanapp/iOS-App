@@ -19,21 +19,25 @@ class Schedule : NSObject, NSCopying, NSCoding{
     override init() {}
     
     init(lectures: [[Lecture]], selLectures : [Lecture]) {
-    
-        self.list = []
-        self.selLectures = []
+       
+        self.list = lectures
+        self.selLectures = selLectures
         
-        for day in lectures{
-            var tmp = [Lecture]()
-            for lecture in day{
-                tmp.append(lecture.copy() as! Lecture)
-            }
-            self.list.append(tmp)
-        }
-        
-        for lecture in selLectures{
-            self.selLectures.append(lecture.copy() as! Lecture)
-        }
+//        self.list = []
+//        self.selLectures = []
+//        
+//        for day in lectures{
+//            var tmp = [Lecture]()
+//            for lecture in day{
+//                tmp.append(lecture.copy() as! Lecture)
+//            }
+//            self.list.append(tmp)
+//        }
+//        
+//        for lecture in selLectures{
+//            self.selLectures.append(lecture.copy() as! Lecture)
+//        
+//        }
     }
     
     
