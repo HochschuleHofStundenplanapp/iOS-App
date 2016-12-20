@@ -107,10 +107,9 @@ class NetworkController: NSObject {
         func loadChanges(tableView: ScheduleChangesTableViewController){
     
             //Clear Changes
-            Settings.sharedInstance.tmpSchedule.clearSchedule()
             
-            let season = Settings.sharedInstance.tmpSeason.rawValue
-            let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
+            let season = Settings.sharedInstance.savedSsws.rawValue
+            let selectedCourses = Settings.sharedInstance.savedCourses.selectedCourses()
             
             Settings.sharedInstance.savedChanges.changes = []
             for course in selectedCourses{

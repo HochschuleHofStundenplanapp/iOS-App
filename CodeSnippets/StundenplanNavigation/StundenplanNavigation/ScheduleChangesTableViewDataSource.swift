@@ -19,12 +19,12 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     init(tableView: ScheduleChangesTableViewController) {
         print("ScheduleChangesTableViewDataSource init called")
         
-        
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
         timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
+        
         
     }
     
