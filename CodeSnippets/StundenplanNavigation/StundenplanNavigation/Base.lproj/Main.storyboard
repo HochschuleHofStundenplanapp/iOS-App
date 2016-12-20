@@ -749,10 +749,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYL-Cx-EGg">
-                                <rect key="frame" x="5" y="0.0" width="365" height="657"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTa-cO-wuf">
+                                <rect key="frame" x="5" y="5" width="365" height="652"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Diese Anbieterkennzeichnung gilt für die Bereitstellung von Stundenplandaten mittels dieser App. 
+                                <mutableString key="text">Diese Anbieterkennzeichnung gilt für die Bereitstellung von Stundenplandaten mittels dieser App. 
 
 Anbieterin dieses Dienstes ist die Hochschule für Angewandte Wissenschaften Hof, Körperschaft des öffentlichen Rechts (nachfolgend kurz "Hochschule Hof").
 
@@ -772,21 +772,21 @@ Salvatorstraße 2
 80333 München
 Fon: +49 (0) 89 / 21860
 Fax: +49 (0) 89 / 2186 2800
-E-Mail: poststelle@stmwfk.bayern.de</string>
+E-Mail: poststelle@stmwfk.bayern.de</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VYL-Cx-EGg" firstAttribute="leading" secondItem="uWm-Gr-AyE" secondAttribute="leading" constant="5" id="D0N-1m-9hR"/>
-                            <constraint firstItem="VYL-Cx-EGg" firstAttribute="top" secondItem="uWm-Gr-AyE" secondAttribute="top" id="U9z-6c-FZ4"/>
-                            <constraint firstAttribute="trailing" secondItem="VYL-Cx-EGg" secondAttribute="trailing" constant="5" id="xFz-ZQ-Z2J"/>
-                            <constraint firstAttribute="bottom" secondItem="VYL-Cx-EGg" secondAttribute="bottom" constant="10" id="yIh-bq-mVD"/>
+                            <constraint firstAttribute="bottom" secondItem="XTa-cO-wuf" secondAttribute="bottom" constant="10" id="FmD-nP-q3A"/>
+                            <constraint firstItem="XTa-cO-wuf" firstAttribute="top" secondItem="uWm-Gr-AyE" secondAttribute="top" constant="5" id="Gwa-ln-OMt"/>
+                            <constraint firstAttribute="trailing" secondItem="XTa-cO-wuf" secondAttribute="trailing" constant="5" id="ec6-XQ-aKr"/>
+                            <constraint firstItem="XTa-cO-wuf" firstAttribute="leading" secondItem="uWm-Gr-AyE" secondAttribute="leading" constant="5" id="iF1-x8-QDu"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textContent" destination="VYL-Cx-EGg" id="d1i-j8-iar"/>
+                        <outlet property="textContent" destination="XTa-cO-wuf" id="RoW-7g-TdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl9-0L-yfN" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -25,7 +25,9 @@ class ImpressumViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        textContent.scrollRangeToVisible(NSMakeRange(0,0))
+        //textContent.scrollRangeToVisible(NSMakeRange(0,0))
+        
+        //textContent.scrollRangeToVisible(NSMakeRange(0, autoContentAccessingProxy as! Int))
     }
 
     /*
