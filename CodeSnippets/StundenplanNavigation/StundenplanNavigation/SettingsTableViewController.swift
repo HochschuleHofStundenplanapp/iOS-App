@@ -12,11 +12,11 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var syncSwitch: UISwitch!
-
+    
     @IBOutlet var courseTableViewCell: UITableViewCell!
     @IBOutlet var semesterTableViewCell: UITableViewCell!
     @IBOutlet var lecturesTableViewCell: UITableViewCell!
-
+    
     @IBOutlet var selectedCoursesLabel: UILabel!
     @IBOutlet var selectedSemesterLabel: UILabel!
     @IBOutlet var selectedLecturesLabel: UILabel!
@@ -41,6 +41,11 @@ class SettingsTableViewController: UITableViewController {
         }
         disableCells()
         setDetailLabels()
+        
+        // Speichern des SyncSwitch
+        if(syncSwitch.isOn){
+            CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+        }
     }
     
     private func disableCells(){
@@ -55,7 +60,7 @@ class SettingsTableViewController: UITableViewController {
                 }
             }
         }
-
+        
         if(Settings.sharedInstance.tmpCourses.hasSelectedCourses()){
             semesterTableViewCell.isUserInteractionEnabled = true
             semesterTableViewCell.textLabel?.isEnabled = true
@@ -81,16 +86,16 @@ class SettingsTableViewController: UITableViewController {
             lecturesTableViewCell.textLabel?.isEnabled = false
             lecturesTableViewCell.detailTextLabel?.isEnabled = false
         }
-//        if(Settings.sharedInstance.tmpCourses.){
-//            lecturesTableViewCell.isUserInteractionEnabled = true
-//            lecturesTableViewCell.textLabel?.isEnabled = true
-//            lecturesTableViewCell.detailTextLabel?.isEnabled = true
-//        }else{
-//            lecturesTableViewCell.isUserInteractionEnabled = false
-//            lecturesTableViewCell.textLabel?.isEnabled = false
-//            lecturesTableViewCell.detailTextLabel?.isEnabled = false
-//        }
-    
+        //        if(Settings.sharedInstance.tmpCourses.){
+        //            lecturesTableViewCell.isUserInteractionEnabled = true
+        //            lecturesTableViewCell.textLabel?.isEnabled = true
+        //            lecturesTableViewCell.detailTextLabel?.isEnabled = true
+        //        }else{
+        //            lecturesTableViewCell.isUserInteractionEnabled = false
+        //            lecturesTableViewCell.textLabel?.isEnabled = false
+        //            lecturesTableViewCell.detailTextLabel?.isEnabled = false
+        //        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,8 +104,8 @@ class SettingsTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.0039, green: 0.4078, blue: 0.6824, alpha: 1.0)]
         
-        }
-
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -120,10 +125,8 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         if(syncSwitch.isOn){
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
-            print("changes")
-            dump(Changes().changes)
         } else {
-        CalendarInterface().removeCalendar()
+            CalendarInterface().removeCalendar()
         }
     }
     
@@ -139,16 +142,16 @@ class SettingsTableViewController: UITableViewController {
         
         if (syncSwitch.isOn) {
             if(!addedLectures.isEmpty) {
-            CalendarInterface.sharedInstance.createAllEvents(lectures: addedLectures)
-            print("added in Calendar : \(addedLectures.count)")
+                CalendarInterface().createAllEvents(lectures: addedLectures)
+                print("added in Calendar : \(addedLectures.count)")
             }
             if(!removedLectures.isEmpty) {
-            CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
-            print("removed in Calendar : \(removedLectures.count)")
+                CalendarInterface().removeAllEvents(lectures: removedLectures)
+                print("removed in Calendar : \(removedLectures.count)")
             }
         }
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
-
+        
     }
     
     func setDetailLabels(){
@@ -202,7 +205,7 @@ class SettingsTableViewController: UITableViewController {
             selectedSemesterString = "..."
             semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
             lecturesTableViewCell.detailTextLabel?.text = "..."
-
+            
         }
         else
         {
@@ -210,7 +213,7 @@ class SettingsTableViewController: UITableViewController {
             print("selectedSemesterString : \(selectedSemesterString)")
             semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
             lecturesTableViewCell.detailTextLabel?.text = "..."
-
+            
         }
         
         if(selectedSemester.count > 2){
@@ -227,23 +230,23 @@ class SettingsTableViewController: UITableViewController {
             }
             semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
             lecturesTableViewCell.detailTextLabel?.text = "..."
-
+            
         }
         
         lecturesTableViewCell.detailTextLabel?.text = " "
-//        Anzahl selektierte Vorlesungen
-//        FUNKTIONIERT NICHT!!! Grund: Die Information über selektierte Vorlesungen stimmt zu diesem Zeitpunkt im tmpSchedule nicht.
+        //        Anzahl selektierte Vorlesungen
+        //        FUNKTIONIERT NICHT!!! Grund: Die Information über selektierte Vorlesungen stimmt zu diesem Zeitpunkt im tmpSchedule nicht.
         
-//        let countSelectedLectures = Settings.sharedInstance.tmpSchedule.selLectures.count
-//        let selection = Settings.sharedInstance.tmpCourses.hasSelectedCourses()
-//        print("countSelectedLectures: \(countSelectedLectures)")
-//        if(selection == false){
-//            lecturesTableViewCell.detailTextLabel?.text = "..."
-//        }
-//        else{
-//            if(countSelectedLectures != 0 ){
-//                lecturesTableViewCell.detailTextLabel?.text = "Vorlesungen gewählt"
-//            }
-//        }
+        //        let countSelectedLectures = Settings.sharedInstance.tmpSchedule.selLectures.count
+        //        let selection = Settings.sharedInstance.tmpCourses.hasSelectedCourses()
+        //        print("countSelectedLectures: \(countSelectedLectures)")
+        //        if(selection == false){
+        //            lecturesTableViewCell.detailTextLabel?.text = "..."
+        //        }
+        //        else{
+        //            if(countSelectedLectures != 0 ){
+        //                lecturesTableViewCell.detailTextLabel?.text = "Vorlesungen gewählt"
+        //            }
+        //        }
     }
 }
