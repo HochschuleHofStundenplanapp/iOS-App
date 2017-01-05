@@ -22,13 +22,28 @@ extension Date {
         let startWinterString = "29.7.\(currentYear)"
         let endWinterString = "14.02.\(currentYear+1)"
         
+        let beginningOfTheYearString = "01.01.\(currentYear)"
+        let newEndWinterString = "14.02.\(currentYear)"
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
         
-        let startSummer : Date = dateFormatter.date(from: startSummerString)!
-        let endSummer : Date = dateFormatter.date(from: endSummerString)!
-        let startWinter : Date = dateFormatter.date(from: startWinterString)!
-        let endWinter : Date = dateFormatter.date(from: endWinterString)!
+        var startSummer : Date = dateFormatter.date(from: startSummerString)!
+        var endSummer : Date = dateFormatter.date(from: endSummerString)!
+        var startWinter : Date = dateFormatter.date(from: startWinterString)!
+        var endWinter : Date = dateFormatter.date(from: endWinterString)!
+        
+        //Daten für Anfang des Jahres, da dann die Jahreszahl geändert werden muss
+        let beginningOfTheYear : Date = dateFormatter.date(from: beginningOfTheYearString)!
+        let newEndWinter : Date = dateFormatter.date(from: newEndWinterString)!
+        
+        //Wenn das akutelle Datum dem Anfang des Jahres bis zum Ende des Wintersemester entspricht, wird von jedem Datum das Jahr um 1 verringert
+        if currentDate >= beginningOfTheYear && currentDate <= newEndWinter{
+            startSummer = calendar.date(byAdding: .year, value: -1, to: startSummer)!
+            endSummer = calendar.date(byAdding: .year, value: -1, to: endSummer)!
+            startWinter = calendar.date(byAdding: .year, value: -1, to: startWinter)!
+            endWinter = calendar.date(byAdding: .year, value: -1, to: endWinter)!
+        }
         
         if currentDate >= startSummer && currentDate <= endSummer{
             return "SS"
@@ -52,9 +67,20 @@ extension Date {
         
         let startSummerComponents = DateComponents(year: currentYear, month: 3, day: 15)
         let startWinterComponents = DateComponents(year: currentYear, month: 10, day: 1)
+    
+        var startSummer : Date = calendar.date(from: startSummerComponents)!
+        var startWinter : Date = calendar.date(from: startWinterComponents)!
         
-        let startSummer : Date = calendar.date(from: startSummerComponents)!
-        let startWinter : Date = calendar.date(from: startWinterComponents)!
+        //Daten für Anfang des Jahres, da dann die Jahreszahl geändert werden muss
+        let beginningOfTheYearComponents = DateComponents(year: currentYear, month: 1, day: 1)
+        let endWinterSemesterComponents = DateComponents(year: currentYear, month: 2, day: 14)
+        let beginningOfTheYear : Date = calendar.date(from: beginningOfTheYearComponents)!
+        let endWinterSemester : Date = calendar.date(from: endWinterSemesterComponents)!
+    
+        if currentDate >= beginningOfTheYear && currentDate <= endWinterSemester {
+            startSummer = calendar.date(byAdding: .year, value: -1, to: startSummer)!
+            startWinter = calendar.date(byAdding: .year, value: -1, to: startWinter)!
+        }
         
         if semester == "SS" {
                 
@@ -69,6 +95,7 @@ extension Date {
             newStartDate = calendar.date(byAdding: .day, value: difDays, to: newStartDate)!
             let startSemesterWeekday = calendar.component(.weekday, from: newStartDate)
             
+            //wenn das ausgewählte Semester nicht dem aktuellen Semester entspricht, wird ein Jahr abgezogen
             if checkSemester() != "SS" {
                 newStartDate = calendar.date(byAdding: .year, value: -1, to: newStartDate)!
             }
@@ -91,7 +118,7 @@ extension Date {
         }
         
         if semester == "WS"{
-                
+        
             if checkSemester() == "WS" && currentDate > startWinter {
                 return currentDate
             }
@@ -102,11 +129,12 @@ extension Date {
             var newStartDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
             newStartDate = calendar.date(byAdding: .day, value: difDays, to: newStartDate)!
             let startSemesterWeekday = calendar.component(.weekday, from: newStartDate)
-                
+            
+            //wenn das ausgewählte Semester nicht dem aktuellen Semester entspricht, wird ein Jahr abgezogen
             if checkSemester() != "WS" {
                 newStartDate = calendar.date(byAdding: .year, value: -1, to: newStartDate)!
             }
-                
+            
             // Wenn der 1.10 ein Freitag/Samstag/Sonntag ist beginnt die Vorlesung am nächstfolgenden Montag
                 
             if startSemesterWeekday == 6 {
@@ -137,6 +165,12 @@ extension Date {
         let endSummerComponents = DateComponents(year: currentYear, month: 7, day: 10)
         let endWinterComponents = DateComponents(year: currentYear+1, month: 1, day: 25)
         
+        //Daten für Anfang des Jahres, da dann die Jahreszahl geändert werden muss
+        let beginningOfTheYearComponents = DateComponents(year: currentYear, month: 1, day: 1)
+        let endWinterSemesterComponents = DateComponents(year: currentYear, month: 2, day: 14)
+        let beginningOfTheYear : Date = calendar.date(from: beginningOfTheYearComponents)!
+        let endWinterSemester : Date = calendar.date(from: endWinterSemesterComponents)!
+        
         if semester == "SS" {
  
             let difMonths = endSummerComponents.month! - currentMonth
@@ -145,7 +179,12 @@ extension Date {
             var newEndDate : Date = calendar.date(byAdding: .month, value: difMonths, to: currentDate)!
             newEndDate = calendar.date(byAdding: .day, value: difDays, to: newEndDate)!
             
+            //wenn das ausgewählte Semester nicht dem aktuellen Semester entspricht, wird ein Jahr abgezogen
             if checkSemester() != "SS" {
+                newEndDate = calendar.date(byAdding: .year, value: -1, to: newEndDate)!
+            }
+            
+            if currentDate >= beginningOfTheYear && currentDate <= endWinterSemester {
                 newEndDate = calendar.date(byAdding: .year, value: -1, to: newEndDate)!
             }
             
@@ -177,7 +216,12 @@ extension Date {
             newEndDate = calendar.date(byAdding: .year, value: 1, to: newEndDate)!
             let endSemesterWeekday = calendar.component(.weekday, from: newEndDate)
             
+            //wenn das ausgewählte Semester nicht dem aktuellen Semester entspricht, wird ein Jahr abgezogen
             if checkSemester() != "WS" {
+                newEndDate = calendar.date(byAdding: .year, value: -1, to: newEndDate)!
+            }
+            
+            if currentDate >= beginningOfTheYear && currentDate <= endWinterSemester {
                 newEndDate = calendar.date(byAdding: .year, value: -1, to: newEndDate)!
             }
             
