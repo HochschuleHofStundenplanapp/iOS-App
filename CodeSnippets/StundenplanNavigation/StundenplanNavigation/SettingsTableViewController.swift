@@ -128,8 +128,15 @@ class SettingsTableViewController: UITableViewController {
         if(syncSwitch.isOn){
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
             Settings.sharedInstance.savedCalSync = true
+            if(CalendarInterface().checkCalendarAuthorizationStatus() == false){
+                getAccessAlert()
+                Settings.sharedInstance.savedCalSync = false
+                syncSwitch.isOn = false
+            }
         } else {
-            _ = CalendarInterface().removeCalendar()
+            if(CalendarInterface().checkCalendarAuthorizationStatus() == true){
+                _ = CalendarInterface().removeCalendar()
+            }
             Settings.sharedInstance.savedCalSync = false
 
         }
@@ -139,35 +146,38 @@ class SettingsTableViewController: UITableViewController {
         // neu hinzugefügte und gelöschte Vorlesungen bekommen
         // IDS werden noch nicht gespeichert !
         
-        // Ist jetzt eig removed
-        let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-        // Ist jetzt eig addded
-        let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-        
- 
+//        if(syncSwitch.isOn && !CalendarInterface().checkCalendarAuthorizationStatus()) {
+//            getAccessAlert()
+//        }
+//
+//        // Ist jetzt eig removed
+//        let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+//        // Ist jetzt eig addded
+//        let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
         
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
-        if (syncSwitch.isOn) {
-            if(!addedLectures.isEmpty) {
-                print("______________ADDED_____________")
-                dump(addedLectures)
-                CalendarInterface().createAllEvents(lectures: addedLectures)
-                print("added in Calendar : \(addedLectures.count)")
-            }
-            if(!removedLectures.isEmpty) {
-                print("______________REMOVED___________")
-                dump(removedLectures)
-                CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
-                print("removed in Calendar : \(removedLectures.count)")
-            }
-        }
+        CalendarRoutine()
+        
+//        if (syncSwitch.isOn) {
+//            if(!addedLectures.isEmpty) {
+//                print("______________ADDED_____________")
+//                dump(addedLectures)
+//                CalendarInterface().createAllEvents(lectures: addedLectures)
+//                print("added in Calendar : \(addedLectures.count)")
+//            }
+//            if(!removedLectures.isEmpty) {
+//                print("______________REMOVED___________")
+//                dump(removedLectures)
+//                CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
+//                print("removed in Calendar : \(removedLectures.count)")
+//            }
+//        }
         
         Settings.sharedInstance.commitChanges()
         
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
 
-        
     }
     
     func setDetailLabels(){
@@ -265,4 +275,38 @@ class SettingsTableViewController: UITableViewController {
         //            }
         //        }
     }
+    
+    func CalendarRoutine() {
+        
+        if(syncSwitch.isOn && !CalendarInterface().checkCalendarAuthorizationStatus()) {
+            getAccessAlert()
+            Settings.sharedInstance.savedCalSync = false
+        }
+        
+        if(syncSwitch.isOn && CalendarInterface().checkCalendarAuthorizationStatus()) {
+            // Liste der zu entferndenen Lectures
+            let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+            // Liste der zu hinzugefügten Lectures
+            let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+            
+            if(!addedLectures.isEmpty) {
+                CalendarInterface().createAllEvents(lectures: addedLectures)
+                print("added in Calendar : \(addedLectures.count)")
+            }
+            if(!removedLectures.isEmpty) {
+                CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
+                print("removed in Calendar : \(removedLectures.count)")
+            }
+        }
+    }
+    
+    func getAccessAlert() {
+        let alert = UIAlertController(title: "Berechtigungen", message: "Es werden Berechtigungen benötigt um Einträge in den Kalender zu tätigen.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in
+             let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+             UIApplication.shared.openURL(openSettingsUrl!)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        }
 }

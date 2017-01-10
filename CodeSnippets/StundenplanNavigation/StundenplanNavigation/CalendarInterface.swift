@@ -98,7 +98,7 @@ class CalendarInterface: NSObject {
         }
     }
     
-    func checkCalendarAuthorizationStatus() -> Bool{
+    public func checkCalendarAuthorizationStatus() -> Bool{
         var result = false
         var status = EKEventStore.authorizationStatus(for: EKEntityType.event)
         repeat {
@@ -143,8 +143,8 @@ class CalendarInterface: NSObject {
     //    }
     
     func changeCalendarAccess(){
-        let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
-        UIApplication.shared.openURL(openSettingsUrl!)
+        // let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+        // UIApplication.shared.openURL(openSettingsUrl!)
     }
     
     //---
