@@ -47,7 +47,7 @@ class CourseTableViewController: UITableViewController {
     
         //Hide Activity Indicator
         
-        self.navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
         
         let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
             "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)

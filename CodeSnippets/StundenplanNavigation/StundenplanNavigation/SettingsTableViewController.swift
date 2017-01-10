@@ -129,7 +129,7 @@ class SettingsTableViewController: UITableViewController {
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
             Settings.sharedInstance.savedCalSync = true
         } else {
-            CalendarInterface().removeCalendar()
+            _ = CalendarInterface().removeCalendar()
             Settings.sharedInstance.savedCalSync = false
 
         }

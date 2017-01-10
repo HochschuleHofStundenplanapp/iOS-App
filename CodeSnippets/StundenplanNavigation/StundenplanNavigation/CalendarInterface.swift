@@ -293,7 +293,7 @@ class CalendarInterface: NSObject {
     
     // Aktualisiert Werte des übergebenem Events
     private func updateEvent(change : ChangedLecture) {
-        var lecture = findLecture(change: change)
+        let lecture = findLecture(change: change)
         
         let eventID = findEventId(lecture: lecture, change: change)
         
@@ -358,7 +358,7 @@ class CalendarInterface: NSObject {
                 
                 if (!ids.isEmpty) {
                     for id in ids {
-                        removeEvent(p_eventId: id)
+                        _ = removeEvent(p_eventId: id)
                     }
                 }
             }

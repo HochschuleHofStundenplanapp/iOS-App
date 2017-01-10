@@ -44,11 +44,11 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             
             let schedule = Settings.sharedInstance.savedSchedule.selectedLectures()
             
-            let startDate = schedule[indexPath.section][indexPath.row].startdate
+//            let startDate = schedule[indexPath.section][indexPath.row].startdate
             let startTime = schedule[indexPath.section][indexPath.row].starttime
             let endTime = schedule[indexPath.section][indexPath.row].endTime
             
-            var startDateString = ""
+//            var startDateString = ""
             var startTimeString = ""
             var endTimeString = ""
             
@@ -58,10 +58,10 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             startTimeString = timeFormatter.string(from: startTime)
             endTimeString = timeFormatter.string(from: endTime)
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
-            dateFormatter.dateFormat = "dd.MM.yy"
-            startDateString = dateFormatter.string(from: startDate)
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+//            dateFormatter.dateFormat = "dd.MM.yy"
+//            startDateString = dateFormatter.string(from: startDate)
             
             cell.comment.text = schedule[indexPath.section][indexPath.row].comment
             cell.type.text = schedule[indexPath.section][indexPath.row].type
