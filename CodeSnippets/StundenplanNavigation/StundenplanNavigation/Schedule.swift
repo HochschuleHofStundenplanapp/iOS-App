@@ -99,10 +99,6 @@ class Schedule : NSObject, NSCopying, NSCoding{
         }
     }
     
-    func sortByTime(_ l1 : Lecture, _ l2 : Lecture) -> Bool
-    {
-        return l1.starttime < l2.starttime
-    }
     
     //Liefert alle selektierten Vorlesungen
     func selectedLectures() -> [[Lecture]]{
@@ -115,7 +111,10 @@ class Schedule : NSObject, NSCopying, NSCoding{
                     lectures[index].append(lecture)
                 }
             }
-            lectures[index].sort{$0.starttime < $1.starttime}
+            if lectures[index].count > 1
+            {
+                lectures[index].sort{$0.starttime < $1.starttime}
+            }
         }
 
         return lectures
