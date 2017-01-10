@@ -16,8 +16,9 @@ class CalendarInterface: NSObject {
     // var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
     
     var calendarTitle : String = "Hochschule Hof Stundenplan App"
-    let eventStore = EKEventStore()
     var calendar : EKCalendar? = nil
+    var eventStore : EKEventStore!
+
     
     // Für Zukunft: Alarm setzen
     // Wenn alarmOffset größer 0 wird Alarm gesetzt
@@ -28,6 +29,8 @@ class CalendarInterface: NSObject {
     override init() {
         
         super.init()
+        
+        eventStore = EKEventStore()
         if (checkCalendarAuthorizationStatus()) {
             var calendars = [EKCalendar]()
             calendars = self.eventStore.calendars(for: .event)
@@ -61,10 +64,17 @@ class CalendarInterface: NSObject {
         
         let sourcesInEventStore = self.eventStore.sources
         
-        newCalendar.source = sourcesInEventStore.filter{
-            (source: EKSource) -> Bool in
-            source.sourceType.rawValue == EKSourceType.local.rawValue
-            }.first!
+        print ("\(EKSourceType.local.rawValue)")
+        for s in sourcesInEventStore
+        {
+            print ("\(s.sourceType.rawValue)")
+        }
+        
+        newCalendar.source = eventStore.defaultCalendarForNewEvents.source
+//        newCalendar.source = sourcesInEventStore.filter{
+//            (source: EKSource) -> Bool in
+//            source.sourceType.rawValue == EKSourceType.local.rawValue
+//            }.first!
         
         // Save the calendar using the Event Store instance
         do {
