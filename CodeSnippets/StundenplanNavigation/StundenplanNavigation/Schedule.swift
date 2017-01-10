@@ -20,28 +20,25 @@ class Schedule : NSObject, NSCopying, NSCoding{
     
     init(lectures: [[Lecture]], selLectures : [Lecture]) {
        
-        self.list = lectures
-        self.selLectures = selLectures
+//        self.list = lectures
+//        self.selLectures = selLectures
         
-//        self.list = []
-//        self.selLectures = []
-//        
-//        for day in lectures{
-//            var tmp = [Lecture]()
-//            for lecture in day{
-//                tmp.append(lecture.copy() as! Lecture)
-//            }
-//            self.list.append(tmp)
-//        }
-//        
-//        for lecture in selLectures{
-//            self.selLectures.append(lecture.copy() as! Lecture)
-//        
-//        }
+        self.list = []
+        self.selLectures = []
+        
+        for day in lectures{
+            var tmp = [Lecture]()
+            for lecture in day{
+                tmp.append(lecture.copy() as! Lecture)
+            }
+            self.list.append(tmp)
+        }
+        
+        for lecture in selLectures{
+            self.selLectures.append(lecture.copy() as! Lecture)
+        
+        }
     }
-    
-    
-    
     
     //Alle selektierten Volrlesungen werden in eine Liste gespeichert
     func extractSelectedLectures(){
@@ -187,20 +184,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
         dump(addedArray)
         return addedArray
 
-        
-        
-        
-       // var removedArray = [Lecture]()
-       // for lecutre in selLectures{
-       //     if(oldSchedule.selLectures.contains(lecutre)){
-       //         removedArray.append(lecutre)
-       //     }
-       // }
-       //
-       // print("addedLectures")
-       // print("/n/n/n/n/n/n/n/n____________________________________________/n/n/n/n/n/n/n")
-       // dump(removedArray)
-       // return removedArray
+
         
         
    }

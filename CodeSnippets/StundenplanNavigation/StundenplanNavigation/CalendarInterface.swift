@@ -11,6 +11,8 @@ import EventKit
 
 class CalendarInterface: NSObject {
     
+    static var sharedInstance = CalendarInterface()
+    
     // var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
     
     var calendarTitle : String = "Hochschule Hof Stundenplan App"

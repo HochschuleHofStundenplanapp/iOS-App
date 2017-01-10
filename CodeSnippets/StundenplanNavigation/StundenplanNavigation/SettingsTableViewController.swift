@@ -46,7 +46,7 @@ class SettingsTableViewController: UITableViewController {
         
         // Speichern des SyncSwitch
         if(syncSwitch.isOn){
-            CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+            // CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
         }
     }
     
@@ -126,7 +126,7 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         if(syncSwitch.isOn){
-            CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+            // CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
             Settings.sharedInstance.savedCalSync = true
         } else {
             _ = CalendarInterface().removeCalendar()
@@ -138,24 +138,35 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func saveChangesButton(_ sender: UIButton) {
         // neu hinzugefügte und gelöschte Vorlesungen bekommen
         // IDS werden noch nicht gespeichert !
-        let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-        let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
         
-        Settings.sharedInstance.commitChanges()
+        // Ist jetzt eig removed
+        let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        // Ist jetzt eig addded
+        let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+        
+ 
         
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
         if (syncSwitch.isOn) {
             if(!addedLectures.isEmpty) {
+                print("______________ADDED_____________")
+                dump(addedLectures)
                 CalendarInterface().createAllEvents(lectures: addedLectures)
                 print("added in Calendar : \(addedLectures.count)")
             }
             if(!removedLectures.isEmpty) {
-                CalendarInterface().removeAllEvents(lectures: removedLectures)
+                print("______________REMOVED___________")
+                dump(removedLectures)
+                CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
                 print("removed in Calendar : \(removedLectures.count)")
             }
         }
+        
+        Settings.sharedInstance.commitChanges()
+        
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
+
         
     }
     

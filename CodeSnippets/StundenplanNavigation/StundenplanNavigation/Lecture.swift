@@ -11,6 +11,8 @@ import Foundation
 //Vorlesung
 class Lecture : NSObject, NSCopying, NSCoding {
     
+    // var newEventIDs : [String]
+    
     var id: Int
     var name: String
     var lecturer: String
@@ -62,11 +64,18 @@ class Lecture : NSObject, NSCopying, NSCoding {
     
     convenience init(id: Int, name: String, lecture: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: String, comment : String, eventIDs: [String]) {
         
-        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, starttime: starttime, endTime: endTime, startdate: startdate, enddate: enddate, day: day, room: room, course: course, comment: comment, selected: false, eventIDs: eventIDs)
+        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, starttime: starttime, endTime: endTime, startdate: startdate, enddate: enddate, day: day, room: room, course: course, comment: comment, selected: false, eventIDs: eventIDs )
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, starttime: self.starttime, endTime: self.endTime, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, comment: self.comment, selected: self.selected, eventIDs: self.eventIDs)
+        
+        var newEventIDs = [String]()
+        
+        for id in eventIDs {
+            newEventIDs.append(id.copy() as! String)
+        }
+        
+        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, starttime: self.starttime, endTime: self.endTime, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, comment: self.comment, selected: self.selected, eventIDs: newEventIDs)
         return copy
     }
     
