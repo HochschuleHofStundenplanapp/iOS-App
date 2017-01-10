@@ -42,6 +42,8 @@ class SettingsTableViewController: UITableViewController {
         disableCells()
         setDetailLabels()
         
+        syncSwitch.isOn = Settings.sharedInstance.savedCalSync
+        
         // Speichern des SyncSwitch
         if(syncSwitch.isOn){
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
@@ -125,8 +127,11 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         if(syncSwitch.isOn){
             CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+            Settings.sharedInstance.savedCalSync = true
         } else {
             CalendarInterface().removeCalendar()
+            Settings.sharedInstance.savedCalSync = false
+
         }
     }
     

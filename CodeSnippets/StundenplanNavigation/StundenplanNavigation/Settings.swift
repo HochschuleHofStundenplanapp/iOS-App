@@ -18,6 +18,7 @@ class Settings: NSObject, NSCoding {
     let ssWsKey = "settings_SavedSsws"
     let savedCoursesKey = "settings_SavedCourses"
     let savedScheduleKey = "settings_SavedSchedule"
+    let savedCalSyncKey = "settings_SavedCalSync"
     
     static var sharedInstance = Settings()
     private override init(){}
@@ -26,12 +27,14 @@ class Settings: NSObject, NSCoding {
         savedSsws = Season.init(rawValue: aDecoder.decodeObject(forKey: ssWsKey) as! String)!
         savedCourses = aDecoder.decodeObject(forKey: savedCoursesKey) as! Courses
         savedSchedule = aDecoder.decodeObject(forKey: savedScheduleKey) as! Schedule
+        savedCalSync = aDecoder.decodeBool(forKey: savedCalSyncKey)
     }
     
     func encode(with aCoder: NSCoder){
         aCoder.encode(savedSsws.rawValue, forKey: ssWsKey)
         aCoder.encode(savedCourses, forKey: savedCoursesKey)
         aCoder.encode(savedSchedule, forKey:savedScheduleKey)
+        aCoder.encode(savedCalSync, forKey: savedCalSyncKey)
     }
     
     //Temporäre Daten
@@ -44,6 +47,7 @@ class Settings: NSObject, NSCoding {
     var savedCourses: Courses = Courses()
     var savedSchedule: Schedule = Schedule()
     var savedChanges: Changes = Changes()
+    var savedCalSync: Bool = false
     
     var tmpSeason: Season {
         get {
@@ -59,7 +63,7 @@ class Settings: NSObject, NSCoding {
     }
     
     func setTmpCourses(courses : [Course]){
-        var newCourses = Courses(courses: courses)
+        let newCourses = Courses(courses: courses)
         newCourses.setSelektion(courses: tmpCourses)
         self.tmpCourses = newCourses
     }

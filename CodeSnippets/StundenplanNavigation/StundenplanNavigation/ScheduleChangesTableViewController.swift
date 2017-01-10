@@ -49,8 +49,10 @@ class ScheduleChangesTableViewController: UITableViewController {
         Settings.sharedInstance.savedChanges.sort()
         //dump(Settings.sharedInstance.savedChanges.sort())
         
+        if Settings.sharedInstance.savedCalSync {
         // Noch nicht getestet - Berechtigungen nicht berücksichtigt 
         CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
+        }
         //Hide Activity Indicator
         
         refreshControl?.endRefreshing()
