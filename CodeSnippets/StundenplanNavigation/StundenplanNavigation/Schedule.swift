@@ -92,6 +92,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
                 for oldLecture in selLectures{
                     if(oldLecture == newLecture){
                         newLecture.selected = oldLecture.selected
+                        newLecture.eventIDs = oldLecture.eventIDs
                     }
                 }
             }
