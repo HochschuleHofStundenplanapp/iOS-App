@@ -73,10 +73,10 @@ class ScheduleChangesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.tintColor = UIColor(red: 0.9843, green: 0.7294, blue: 0, alpha: 1.0)
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.9843, green: 0.7294, blue: 0, alpha: 1.0)]
+        tabBarController?.tabBar.tintColor = Constants.HAWYellow
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.HAWYellow]
         self.datasource.reloadData(tableView: self)
 
     }

@@ -29,10 +29,11 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor(red: 0.9255, green: 0.3686, blue: 0.2902, alpha: 1.0)
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0.9255, green: 0.3686, blue: 0.2902, alpha: 1.0)]
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.tintColor = Constants.HAWRed
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.HAWRed]
 
         //Überprüfe, ob Schedule leer ist. Falls ja, wird nur eine Section angezeigt.
         let countLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
