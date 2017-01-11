@@ -38,14 +38,10 @@ class ScheduleChangesTableViewController: UITableViewController {
     }
     
     func beginDownload(){
-        print("begin download")
         //Show Activity Indicator
     }
     
     func endDownload(){
-        print("end download")
-        
-        print("\(Settings.sharedInstance.savedChanges.changes.count) Stundenplanänderungen geladen")
         Settings.sharedInstance.savedChanges.sort()
         //dump(Settings.sharedInstance.savedChanges.sort())
         

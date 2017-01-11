@@ -32,12 +32,10 @@ class CourseTableViewController: UITableViewController {
     }
     
     func beginDownload(){
-        print("begin download")
         //Show Activity Indicator
     }
     
     func endDownload(){
-        print("end download")
         //Hide Activity Indicator
         
         courseTableView.reloadData()

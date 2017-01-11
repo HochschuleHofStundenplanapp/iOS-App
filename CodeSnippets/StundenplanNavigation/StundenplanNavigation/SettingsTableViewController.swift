@@ -215,18 +215,12 @@ class SettingsTableViewController: UITableViewController {
             }
         }
         
-        for i in selectedSemester{
-            print("Selektierte Semester \(i)")
-        }
-        
         var isEmpty = true
         for i in selectedSemester{
             if (i != "|"){
                 isEmpty = false
             }
         }
-        
-        print("isEmpty: \(isEmpty)")
         
         if(isEmpty){
             selectedSemesterString = "..."
@@ -237,7 +231,6 @@ class SettingsTableViewController: UITableViewController {
         else
         {
             selectedSemesterString = selectedSemester[1]
-            print("selectedSemesterString : \(selectedSemesterString)")
             semesterTableViewCell.detailTextLabel?.text = selectedSemesterString
             lecturesTableViewCell.detailTextLabel?.text = "..."
             
@@ -292,11 +285,9 @@ class SettingsTableViewController: UITableViewController {
             
             if(!addedLectures.isEmpty) {
                 CalendarInterface().createAllEvents(lectures: addedLectures)
-                print("added in Calendar : \(addedLectures.count)")
             }
             if(!removedLectures.isEmpty) {
                 CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
-                print("removed in Calendar : \(removedLectures.count)")
             }
         }
     }

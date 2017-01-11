@@ -70,14 +70,12 @@ class Settings: NSObject, NSCoding {
     
     //Vergleich der gewählten Vorlesungen mit Änderungen
     func compareScheduleAndChanges(){
-        print("Compare Schedule and Changes")
         savedSchedule.extractSelectedLectures()
         let newSavedChanges = Changes()
         for changedLecture in savedChanges.changes{
             for lecture in savedSchedule.selLectures{
                 if compareChangesAndLectures(lecture: lecture, chLecture: changedLecture){
                     newSavedChanges.addChanges(cl: [changedLecture])
-                    print(newSavedChanges.changes.description)
                 }
             }
         }

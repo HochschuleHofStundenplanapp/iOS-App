@@ -50,8 +50,8 @@ class CalendarInterface: NSObject {
         do {
             try self.eventStore.removeCalendar(self.calendar!, commit: true)
         } catch {
-            print("can´t remove Calendar")
-            print(self.calendar!)
+            //print("can´t remove Calendar")
+            //print(self.calendar!)
             return false
         }
         return true
@@ -62,13 +62,6 @@ class CalendarInterface: NSObject {
         
         newCalendar.title = self.calendarTitle
         
-        let sourcesInEventStore = self.eventStore.sources
-        
-        print ("\(EKSourceType.local.rawValue)")
-        for s in sourcesInEventStore
-        {
-            print ("\(s.sourceType.rawValue)")
-        }
         
         newCalendar.source = eventStore.defaultCalendarForNewEvents.source
 //        newCalendar.source = sourcesInEventStore.filter{
@@ -152,10 +145,8 @@ class CalendarInterface: NSObject {
     //
     public func createAllEvents(lectures : [Lecture]){
         if (checkCalendarAuthorizationStatus()) {
-            //print("\(lectures)" +  "Unser Zeugs " )
             for lecture in lectures{
                 createEventsForLecture(lecture: lecture)
-                // print("\(lecture)" +  "Unser Zeugs " )
             }
         }
     }

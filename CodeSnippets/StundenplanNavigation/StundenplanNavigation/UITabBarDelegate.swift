@@ -14,7 +14,6 @@ class UITabBarDelegate: UITabBarController, UITabBarControllerDelegate {
         let index = tabBarController.selectedIndex
         if(index == 2){
             Settings.sharedInstance.copyData()
-            print("Tmp Schedule wurde gesetzt!")
             Settings.sharedInstance.tmpSchedule.extractSelectedLectures()
         }
     }

@@ -35,7 +35,6 @@ class NetworkController: NSObject {
             DispatchQueue.main.async(execute: { () -> Void in
                 
                 if error != nil {
-                    print("error=\(error)")
                     print("Connection failed")
                     Settings.sharedInstance.tmpCourses.list.removeAll()
                     tableView.showNoInternetAlert()
@@ -90,7 +89,6 @@ class NetworkController: NSObject {
             DispatchQueue.main.async(execute: { () -> Void in
                 
                 if error != nil {
-                    print("error=\(error)")
                     print("Connection failed")
                     Settings.sharedInstance.copyData()
                     tableView.showNoInternetAlert()
@@ -147,7 +145,6 @@ class NetworkController: NSObject {
                     
                     if error != nil {
                         print("error=\(error)")
-                        print("Connection failed")
                         tableView.showNoInternetAlert()
                         tableView.endDownload()
                     } else{

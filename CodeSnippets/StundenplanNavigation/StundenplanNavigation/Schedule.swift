@@ -186,7 +186,6 @@ class Schedule : NSObject, NSCopying, NSCoding{
             }
         }
         
-        dump(addedArray)
         return addedArray
 
 
