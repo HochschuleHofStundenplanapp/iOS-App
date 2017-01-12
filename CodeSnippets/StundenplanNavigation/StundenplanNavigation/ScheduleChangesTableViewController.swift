@@ -33,7 +33,6 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         // Simply adding an object to the data source for this example
         datasource.reloadData(tableView: self)
-        
         self.tableView.reloadData()
     }
     
@@ -49,8 +48,16 @@ class ScheduleChangesTableViewController: UITableViewController {
         // Noch nicht getestet - Berechtigungen nicht berücksichtigt 
         CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
         }
-        //Hide Activity Indicator
         
+        //Überprüfe, ob Changes vorhanden sind. Falls nein, wird nur eine Section angezeigt.
+        if(Settings.sharedInstance.savedChanges.changes.count == 0){
+            datasource.changesAreEmpty = true
+        }
+        else{
+            datasource.changesAreEmpty = false
+        }
+        
+        //Hide Activity Indicator
         refreshControl?.endRefreshing()
         tableView.reloadData()
     }
@@ -74,7 +81,6 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.HAWYellow]
         self.datasource.reloadData(tableView: self)
-
     }
 
     override func didReceiveMemoryWarning() {

@@ -34,6 +34,7 @@
 		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
 		CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */; };
 		CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */; };
+		CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE570FB91E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift */; };
 		CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */; };
 		CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */; };
 		CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */; };
@@ -103,6 +104,7 @@
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
 		CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlinePrivacyPoliceViewController.swift; sourceTree = "<group>"; };
 		CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		CE570FB91E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyScheduleChangesTableViewCell.swift; sourceTree = "<group>"; };
 		CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewDelegate.swift; sourceTree = "<group>"; };
 		CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewDataSource.swift; sourceTree = "<group>"; };
 		CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesTableViewCell.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				CE698D571DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift */,
 				CE698D591DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift */,
 				CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */,
+				CE570FB91E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -295,8 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				CEAC97341DB619D40042FF3D /* ScheduleTableViewController.swift */,
-				CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */,
 				CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */,
+				CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */,
 				CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */,
 				CE7430BB1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift */,
 			);
@@ -513,6 +516,7 @@
 				CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */,
 				CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */,
 				BECB66EB1DF6DA6700567455 /* Schedule.swift in Sources */,
+				CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */,
 				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
 				BECB66E51DF6D96900567455 /* JsonSchedule.swift in Sources */,
 				BECB66E31DF6D95500567455 /* JsonChanges.swift in Sources */,
