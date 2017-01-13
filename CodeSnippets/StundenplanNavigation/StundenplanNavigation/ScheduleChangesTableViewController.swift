@@ -25,6 +25,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         scheduleChangesTableView.dataSource = datasource
         scheduleChangesTableView.delegate = delegate
+    
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
@@ -46,7 +47,9 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         if Settings.sharedInstance.savedCalSync {
         // Noch nicht getestet - Berechtigungen nicht berücksichtigt 
-        CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
+            if(CalendarInterface().checkCalendarAuthorizationStatus()) {
+            CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
+            }
         }
         
         //Überprüfe, ob Changes vorhanden sind. Falls nein, wird nur eine Section angezeigt.
