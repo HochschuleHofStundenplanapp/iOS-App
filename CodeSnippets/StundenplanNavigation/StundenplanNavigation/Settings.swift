@@ -90,7 +90,7 @@ class Settings: NSObject, NSCoding {
         let oldTime = timeFormatter.string(from: lecture.starttime)
         let newChangedTime = timeFormatter.string(from: chLecture.oldTime)
         
-        return (lecture.name == chLecture.name) && (lecture.room == chLecture.oldRoom) && (lecture.day == chLecture.oldDay) && (oldTime == newChangedTime)
+        return (lecture.name == chLecture.name) && (lecture.room == chLecture.oldRoom) && (lecture.day == chLecture.oldDay) && (oldTime == newChangedTime) && (lecture.course.contraction == chLecture.course.contraction) && (lecture.group == chLecture.group)
     }
     
     //Daten aus saved in tmp laden

@@ -83,7 +83,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
     }
     
     static func == (lhs: Lecture, rhs: Lecture) -> Bool {
-        return (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.day == rhs.day) && (lhs.starttime == rhs.starttime)
+        return (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.course.contraction == rhs.course.contraction) && (lhs.day == rhs.day) && (lhs.starttime == rhs.starttime) && (lhs.group == rhs.group)
     }
     
     override var hashValue: Int {

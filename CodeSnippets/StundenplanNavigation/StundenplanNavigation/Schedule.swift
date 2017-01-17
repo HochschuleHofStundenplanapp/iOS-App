@@ -35,32 +35,50 @@ class Schedule : NSObject, NSCopying, NSCoding{
         }
     }
     
-    func deleteUnusedLectures(){
+    func deselectUnusedLectures(){
+        for item in list{
+            setSelectionLectures(lecturesArray: item)
+        }
+    }
+    
+    private func setSelectionLectures(lecturesArray: [Lecture]) {
         
-        let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
+        var tupels : [(Course, Semester)] = []
         
+        var selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses();
         
-//        for item in selectedCourses{
+        for item in selectedCourses{
+            
+            var selectedSem = item.semesters.selectedSemesters()
+            
+            for semItem in selectedSem{
+                tupels.append((item, semItem))
+            }
+        }
         
-            for lecture in selLectures{
-                
-                if Settings.sharedInstance.savedSchedule.hasCourse(course: lecture.course){
-                    
-                }else{
-                    //Settings.sharedInstance.savedSchedule.selLectures.remove(at: <#T##Int#>)
-                }
+
+        for lec in lecturesArray{
+            var tmpTupel = (lec.course, lec.semester)
+            
+            if (lec.selected){
+                lec.selected = hasTupel(arr: tupels, tupel: tmpTupel)
+
+
+            
             }
             
-//            if(Settings.sharedInstance.savedSchedule.hasCourse(course: item)){
-//                
-//                print(item.contraction + " selected")
-//                
-//            }else{
-//                print(item.contraction + " not selected")
-////                let index = selLectures.index(of: item)
-////                selLectures.remove(at: index!)
-//            }
-//        }
+        }
+                
+    }
+    
+    func hasTupel(arr: [(Course, Semester)], tupel: (Course, Semester)) -> Bool{
+        
+        for item in arr{
+            if(item.0.contraction == tupel.0.contraction && item.1.name == tupel.1.name){
+                return true
+            }
+        }
+        return false
     }
     
     func hasCourse(course: Course) -> Bool{
@@ -75,6 +93,17 @@ class Schedule : NSObject, NSCopying, NSCoding{
         
         return foundItem
     }
+    
+//    func fundCourse(course: Course) -> Lecture{
+//        
+//        for item in selLectures{
+//            if (item.course.contraction == course.contraction){
+//                return item
+//            }
+//        }
+//        
+//        return
+//    }
     
     //Alle selektierten Volrlesungen werden in eine Liste gespeichert
     func extractSelectedLectures(){

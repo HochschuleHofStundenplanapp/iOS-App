@@ -113,7 +113,7 @@ class NetworkController: NSObject {
             for course in selectedCourses{
     
                 let selectedSemesters = course.semesters.selectedSemesters()
-                let courseName = course.contraction
+                let courseName = course
     
                 for semester in selectedSemesters{
     
@@ -124,9 +124,9 @@ class NetworkController: NSObject {
             }
         }
     
-        private func loadChangesFromServer(tableView: ScheduleChangesTableViewController, season : String, semester : String, course : String){
+        private func loadChangesFromServer(tableView: ScheduleChangesTableViewController, season : String, semester : String, course : Course){
     
-            let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(season)"
+            let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course.contraction)&sem=\(semester)&tt=\(season)"
     
             let passInfo = String(format: "%@:%@", username, password)
             let passData = passInfo.data(using: .utf8)
@@ -148,7 +148,7 @@ class NetworkController: NSObject {
                         tableView.showNoInternetAlert()
                         tableView.endDownload()
                     } else{
-                        Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!)!.changes))
+                        Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!, course: course)!.changes))
                         Settings.sharedInstance.compareScheduleAndChanges()
                         tableView.endDownload()
                     }

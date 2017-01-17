@@ -11,14 +11,18 @@ import Foundation
 class JsonChanges {
     fileprivate var pCL : [ChangedLecture]
     
+    var Mycourse : Course
+    
     var changes : [ChangedLecture] {
         get {
             return pCL
         }
     }
     
-    init? (data : Data)
+    init? (data : Data, course: Course)
     {
+        Mycourse = course
+        
         pCL = [ChangedLecture]()
         let jsonT = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject
         guard let json = jsonT else {
@@ -58,6 +62,9 @@ class JsonChanges {
             let name = (i["label"]?.string)!
             let docent = (i["docent"]?.string)!
             let comment = (i["comment"]?.string)!
+            
+            let group = (i["group"]?.string)!
+
             let oldDay = (i["original"]?["day"]?.string)!
             let oldDate = (i["original"]?["date"]?.string)!
             let oldTime = (i["original"]?["time"]?.string)!
@@ -89,7 +96,7 @@ class JsonChanges {
             
             
             
-            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom)
+            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom, course: Mycourse, group: group)
             pCL.append(newCL)
         }
     }
