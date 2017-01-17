@@ -15,8 +15,25 @@ class LecturesTableViewController: UITableViewController {
     var dataSource : LecturesTableViewDataSource!
     var delegate: LecturesTableViewDelegate!
     
+    var popUpMenueVC : PopUpMenueViewController!
+    var popUpMenueDelegate : PopUpMenueDelegate = PopUpMenueDelegate()
+
+    
     @IBAction func selectAllCells(_ sender: UIBarButtonItem) {
-        delegate.selectAllCells(tableView: self.tableView)
+        let popUpVC = storyboard?.instantiateViewController(withIdentifier: "popUpMenue") as! PopUpMenueViewController
+        
+        popUpVC.modalPresentationStyle = .popover
+        popUpVC.preferredContentSize = CGSize(width: 160, height: 100)
+        popUpVC.mainViewController = self
+        popUpVC.setBorder()
+        
+        if let popoverController = popUpVC.popoverPresentationController {
+            popoverController.barButtonItem = self.selectAllButton
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection.any
+            popoverController.delegate = popUpMenueDelegate
+        }
+        present(popUpVC, animated: true, completion: nil)
+        popUpMenueVC = popUpVC
     }
     
     override func viewDidLoad() {
