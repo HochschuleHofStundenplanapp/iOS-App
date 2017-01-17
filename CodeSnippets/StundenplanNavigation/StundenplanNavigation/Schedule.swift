@@ -56,12 +56,15 @@ class Schedule : NSObject, NSCopying, NSCoding{
             }
         }
         
+
         for lec in lecturesArray{
             var tmpTupel = (lec.course, lec.semester)
             
             if (lec.selected){
                 lec.selected = hasTupel(arr: tupels, tupel: tmpTupel)
 
+
+            
             }
             
         }
