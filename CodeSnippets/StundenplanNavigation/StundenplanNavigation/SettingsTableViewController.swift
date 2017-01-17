@@ -51,8 +51,6 @@ class SettingsTableViewController: UITableViewController {
         
         syncSwitch.isOn = Settings.sharedInstance.savedCalSync
         
-        Settings.sharedInstance.savedSchedule.deleteUnusedLectures()
-
     }
     
     private func disableCells(){
