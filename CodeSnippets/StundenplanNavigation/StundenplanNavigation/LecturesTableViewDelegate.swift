@@ -25,21 +25,6 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         Settings.sharedInstance.tmpSchedule.toggleLectureAt(section: indexPath.section, row: indexPath.row)
-        
-        if(Settings.sharedInstance.tmpSchedule.isAllSelected()){
-            mainViewController.switchSelectAllButtonIcon(iconName: "Kreuz")
-        }
-        else{
-            mainViewController.switchSelectAllButtonIcon(iconName: "Haken")
-        }
-        
-//        if(Settings.sharedInstance.tmpSchedule.isToggled(section: indexPath.section, row: indexPath.row)){
-//            mainViewController.switchSelectAllButtonIcon(iconName: "Kreuz")
-//        }
-//        else{
-//            
-//        }
-        
         tableView.reloadData()
     }
     
@@ -57,32 +42,22 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     
     func selectAllCells(tableView: UITableView){
         let list = Settings.sharedInstance.tmpSchedule.list
-        var everythingSelected = true
         
         for i in list{
             for j in i{
-                if(j.selected == false){
-                    everythingSelected = false
-                }
+                j.selected = true
             }
         }
+        tableView.reloadData()
+    }
+    
+    func deSelectAllCells(tableView: UITableView){
+        let list = Settings.sharedInstance.tmpSchedule.list
         
-        if(!everythingSelected){
-            for i in list{
-                for j in i{
-                    j.selected = true
-                }
+        for i in list{
+            for j in i{
+                j.selected = false
             }
-            mainViewController.switchSelectAllButtonIcon(iconName: "Kreuz")
-            everythingSelected = true
-        }
-        else{
-            for i in list{
-                for j in i{
-                    j.selected = false
-                }
-            }
-            mainViewController.switchSelectAllButtonIcon(iconName: "Haken")
         }
         tableView.reloadData()
     }

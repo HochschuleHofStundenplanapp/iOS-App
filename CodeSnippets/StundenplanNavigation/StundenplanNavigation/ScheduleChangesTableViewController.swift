@@ -25,6 +25,9 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         scheduleChangesTableView.dataSource = datasource
         scheduleChangesTableView.delegate = delegate
+        
+        //Entfernt Seperators von leeren Cells am Ende der Tabelle
+        tableView.tableFooterView = UIView(frame: .zero)
     
     }
     
@@ -48,7 +51,9 @@ class ScheduleChangesTableViewController: UITableViewController {
         if Settings.sharedInstance.savedCalSync {
         // Noch nicht getestet - Berechtigungen nicht berücksichtigt 
             if(CalendarInterface().checkCalendarAuthorizationStatus()) {
-            CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
+                dump(Settings.sharedInstance.savedChanges)
+                CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
+                
             }
         }
         

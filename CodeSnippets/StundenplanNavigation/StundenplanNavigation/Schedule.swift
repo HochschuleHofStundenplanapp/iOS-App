@@ -61,6 +61,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
             
             if (lec.selected){
                 lec.selected = hasTupel(arr: tupels, tupel: tmpTupel)
+
             }
             
         }
