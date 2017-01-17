@@ -32,7 +32,14 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         Settings.sharedInstance.tmpSchedule.extractSelectedLectures()
         let counter = Settings.sharedInstance.countChanges()
-        saveChangesButton.setTitle("\(counter) Änderungen übernehmen", for: .normal)
+        
+        var title = "\(counter) Änderungen übernehmen"
+        
+        if (counter == 0){
+            title = "Änderungen übernehmen"
+        }
+        
+        saveChangesButton.setTitle(title, for: .normal)
         
         if Settings.sharedInstance.tmpSeason == .summer {
             segmentControl.selectedSegmentIndex = 0
@@ -48,8 +55,6 @@ class SettingsTableViewController: UITableViewController {
         if(syncSwitch.isOn){
             // CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
         }
-        
-        Settings.sharedInstance.savedSchedule.deleteUnusedLectures()
     }
     
     private func disableCells(){
@@ -177,9 +182,16 @@ class SettingsTableViewController: UITableViewController {
 //            }
 //        }
         
+        
+        Settings.sharedInstance.tmpSchedule.deselectUnusedLectures()
+        
         Settings.sharedInstance.commitChanges()
         
+        
+        
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
+        
+        
 
     }
     
