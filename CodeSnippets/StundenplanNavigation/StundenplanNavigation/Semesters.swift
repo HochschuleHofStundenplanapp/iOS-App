@@ -44,8 +44,6 @@ class Semesters : NSObject, NSCopying, NSCoding{
     }
     
     func setSelektion(semesters : Semesters){
-        
-        
         for semester in semesters.list{
             if (semester.selected){
                 for localsem in list{

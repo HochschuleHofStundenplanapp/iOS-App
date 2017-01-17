@@ -10,7 +10,8 @@ import UIKit
 
 class JsonSchedule: NSObject {
     fileprivate var pSchedule : [Lecture]?
-    private var course : String!
+    private var course : Course!
+    private var semester : Semester!
     
     var schedule : [Lecture]? {
         get {
@@ -18,10 +19,11 @@ class JsonSchedule: NSObject {
         }
     }
     
-    init? (data : Data, course: String)
+    init? (data : Data, course: Course, semester: Semester)
     {
         super.init()
         self.course = course
+        self.semester = semester
         let jsonT = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject
         guard let json = jsonT else {
             return nil
@@ -71,15 +73,15 @@ class JsonSchedule: NSObject {
             var newStartTime = timeFormatter.date(from: startt)
             var newEndTime = timeFormatter.date(from: endt)
             
-            let semester = Settings.sharedInstance.tmpSeason.rawValue
+            let ssws = Settings.sharedInstance.tmpSeason.rawValue
             
-            newStartDate = newStartDate?.startLecture(weekdayString: day, semester: semester)
-            newEndDate = newEndDate?.endLecture(weekdayString: day, semester: semester)
+            newStartDate = newStartDate?.startLecture(weekdayString: day, semester: ssws)
+            newEndDate = newEndDate?.endLecture(weekdayString: day, semester: ssws)
             newStartTime = newStartTime?.changeTimeDate(date: newStartTime!)
             newEndTime = newEndTime?.changeTimeDate(date: newEndTime!)
             
 
-            let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course, comment: comment, eventIDs: eventIDs)
+            let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course,semester:semester, comment: comment, eventIDs: eventIDs)
             pSchedule?.append(newLecture)
         }
     }

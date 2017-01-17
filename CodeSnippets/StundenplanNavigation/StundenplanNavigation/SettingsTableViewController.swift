@@ -48,6 +48,8 @@ class SettingsTableViewController: UITableViewController {
         if(syncSwitch.isOn){
             // CalendarInterface().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
         }
+        
+        Settings.sharedInstance.savedSchedule.deleteUnusedLectures()
     }
     
     private func disableCells(){

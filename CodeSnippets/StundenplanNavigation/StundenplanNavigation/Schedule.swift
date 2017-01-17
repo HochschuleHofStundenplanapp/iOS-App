@@ -19,10 +19,6 @@ class Schedule : NSObject, NSCopying, NSCoding{
     override init() {}
     
     init(lectures: [[Lecture]], selLectures : [Lecture]) {
-       
-//        self.list = lectures
-//        self.selLectures = selLectures
-        
         self.list = []
         self.selLectures = []
         
@@ -36,8 +32,48 @@ class Schedule : NSObject, NSCopying, NSCoding{
         
         for lecture in selLectures{
             self.selLectures.append(lecture.copy() as! Lecture)
-        
         }
+    }
+    
+    func deleteUnusedLectures(){
+        
+        let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
+        
+        
+//        for item in selectedCourses{
+        
+            for lecture in selLectures{
+                
+                if Settings.sharedInstance.savedSchedule.hasCourse(course: lecture.course){
+                    
+                }else{
+                    Settings.sharedInstance.savedSchedule.selLectures.remove(at: <#T##Int#>)
+                }
+            }
+            
+//            if(Settings.sharedInstance.savedSchedule.hasCourse(course: item)){
+//                
+//                print(item.contraction + " selected")
+//                
+//            }else{
+//                print(item.contraction + " not selected")
+////                let index = selLectures.index(of: item)
+////                selLectures.remove(at: index!)
+//            }
+//        }
+    }
+    
+    func hasCourse(course: Course) -> Bool{
+        
+        var foundItem = false;
+        
+        for item in selLectures{
+            if(item.course.contraction == course.contraction){
+                foundItem = true
+            }
+        }
+        
+        return foundItem
     }
     
     //Alle selektierten Volrlesungen werden in eine Liste gespeichert
@@ -187,10 +223,6 @@ class Schedule : NSObject, NSCopying, NSCoding{
         }
         
         return addedArray
-
-
-        
-        
    }
     
 }

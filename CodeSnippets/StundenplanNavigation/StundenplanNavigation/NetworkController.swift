@@ -62,17 +62,17 @@ class NetworkController: NSObject {
             
             for semester in selectedSemesters{
                 
-                let semesterName = semester.name
+                //let semesterName = semester.name
                 
-                loadScheduleFromServer(tableView: tableView, semester: semesterName ,course: courseName, season: season)
+                loadScheduleFromServer(tableView: tableView, semester: semester ,course: course, season: season)
                 
             }
         }
     }
     
-    private func loadScheduleFromServer(tableView: LecturesTableViewController, semester: String, course: String, season: String){
+    private func loadScheduleFromServer(tableView: LecturesTableViewController, semester: Semester, course: Course, season: String){
         
-        let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(season)"
+        let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course.contraction)&sem=\(semester.name)&tt=\(season)"
         
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
@@ -94,7 +94,7 @@ class NetworkController: NSObject {
                     tableView.showNoInternetAlert()
                     tableView.endDownload()
                 } else{
-                    Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course)?.schedule!)!)
+                    Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course, semester: semester)?.schedule!)!)
                     tableView.endDownload()
                 }
             })
