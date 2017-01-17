@@ -364,7 +364,7 @@ class CalendarInterface: NSObject {
                 
                 if (!ids.isEmpty) {
                     for id in ids {
-                        _ = removeEvent(p_eventId: id)
+                        _ = removeEvent(p_eventId: id, p_withNotes: true)
                     }
                 }
             }
@@ -376,7 +376,6 @@ class CalendarInterface: NSObject {
         let eventToRemove = self.eventStore.event(withIdentifier: p_eventId)
         if (eventToRemove != nil) {
             if (p_withNotes == false && eventToRemove?.notes != nil){ return false }
-            
             do {
                 try self.eventStore.remove(eventToRemove!, span: .thisEvent)
                 return true

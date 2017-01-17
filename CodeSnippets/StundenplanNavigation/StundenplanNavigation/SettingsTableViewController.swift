@@ -272,7 +272,12 @@ class SettingsTableViewController: UITableViewController {
                 CalendarInterface().createAllEvents(lectures: addedLectures)
             }
             if(!removedLectures.isEmpty) {
+                
+                //dump(removedLectures)
+                
                 CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)
+                // dump(CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures))
+                
             }
         }
     }
