@@ -42,6 +42,7 @@ class CalendarInterface: NSObject {
             }
             if(self.calendar == nil) {
                 self.createCalender()
+               // createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
             }
         }
     }
@@ -74,10 +75,9 @@ class CalendarInterface: NSObject {
             try self.eventStore.saveCalendar(newCalendar, commit: true)
             self.calendar = newCalendar
         } catch {
-            let alert = UIAlertController(title: "Calendar could not save", message: (error as NSError).localizedDescription, preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(OKAction)
         }
+        createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+
     }
     
     private func requestAccessToCalendar (){
@@ -187,6 +187,7 @@ class CalendarInterface: NSObject {
             event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate))
             event.endDate   = event.startDate.addingTimeInterval(60 * 90)
             event.location  = self.locationHochschule + ", " + lecture.room
+            event.notes = lecture.comment + "  " + lecture.group
             
             if (self.alarmOffset > 0) {
                 var ekAlarms = [EKAlarm]()
@@ -286,6 +287,7 @@ class CalendarInterface: NSObject {
         
         for id in lecture.eventIDs {
             let event = self.eventStore.event(withIdentifier: id)
+            dump(event)
             if(event?.title == change.name && event?.startDate == combineDayAndTime(date: change.oldDate, time: change.oldTime)){
                 result = id
             }
@@ -319,6 +321,7 @@ class CalendarInterface: NSObject {
                     newEvent.endDate   = (newEvent.startDate + 60 * 90)
                     newEvent.location  = self.locationHochschule.appending(", \(change.newRoom)")
                     newEvent.calendar  = self.calendar!
+                    newEvent.notes = lecture.comment + "  " + lecture.group
                     
                     createEvent(p_event: newEvent , lecture: lecture)
                     
