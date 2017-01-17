@@ -47,7 +47,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
                 if Settings.sharedInstance.savedSchedule.hasCourse(course: lecture.course){
                     
                 }else{
-                    Settings.sharedInstance.savedSchedule.selLectures.remove(at: <#T##Int#>)
+                    //Settings.sharedInstance.savedSchedule.selLectures.remove(at: <#T##Int#>)
                 }
             }
             

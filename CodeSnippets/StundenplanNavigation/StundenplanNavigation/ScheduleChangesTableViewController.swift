@@ -25,6 +25,9 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         scheduleChangesTableView.dataSource = datasource
         scheduleChangesTableView.delegate = delegate
+        
+        //Entfernt Seperators von leeren Cells am Ende der Tabelle
+        tableView.tableFooterView = UIView(frame: .zero)
     
     }
     
