@@ -13,23 +13,20 @@ class CalendarInterface: NSObject {
     
     static var sharedInstance = CalendarInterface()
     
-    // var lectureEKEventIdDictionary : [Lecture : [String]] = [:]
-    
     var calendarTitle : String = "Hochschule Hof Stundenplan App"
     var calendar : EKCalendar? = nil
     var eventStore : EKEventStore!
-
     
     // Für Zukunft: Alarm setzen
     // Wenn alarmOffset größer 0 wird Alarm gesetzt
     let alarmOffset = 0.0
     
-    let locationHochschule = "Hochschule Hof, Alfons-Goppel-Platz 1, 95028 Hof"
+    let locationHochschuleHof = "Campus Hof, Alfons-Goppel-Platz 1, 95028 Hof"
+    let locationHuchschuleMuenchberg = "Campus Münchberg, Kulmbacherstraße 76, 95213 Münchberg "
+    
     
     override init() {
-        
         super.init()
-        
         eventStore = EKEventStore()
         if (checkCalendarAuthorizationStatus()) {
             var calendars = [EKCalendar]()
@@ -42,55 +39,45 @@ class CalendarInterface: NSObject {
             }
             if(self.calendar == nil) {
                 self.createCalender()
-               // createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
             }
         }
     }
     
+    // Löschen eines Kalenders
     func removeCalendar() -> Bool {
         do {
             try self.eventStore.removeCalendar(self.calendar!, commit: true)
         } catch {
-            //print("can´t remove Calendar")
-            //print(self.calendar!)
             return false
         }
         return true
     }
     
+    // Erstellen eines Kalenders
     private func createCalender(){
         let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
         
         newCalendar.title = self.calendarTitle
         
-        
         newCalendar.source = eventStore.defaultCalendarForNewEvents.source
-//        newCalendar.source = sourcesInEventStore.filter{
-//            (source: EKSource) -> Bool in
-//            source.sourceType.rawValue == EKSourceType.local.rawValue
-//            }.first!
-        
-        // Save the calendar using the Event Store instance
         do {
             try self.eventStore.saveCalendar(newCalendar, commit: true)
             self.calendar = newCalendar
         } catch {
         }
         createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
-
     }
     
+    //
     private func requestAccessToCalendar (){
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                // TODO return true wenn granted
             })
-        } else {
-            changeCalendarAccess()
         }
     }
     
+    // Abfrage der Kalenderberechtigungen
     public func checkCalendarAuthorizationStatus() -> Bool{
         var result = false
         var status = EKEventStore.authorizationStatus(for: EKEntityType.event)
@@ -106,43 +93,13 @@ class CalendarInterface: NSObject {
             // Things are in line with being able to show the calendars in the table view
             case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
                 // We need to help them give us permission
-                changeCalendarAccess()
                 result = false
             }} while (status == EKAuthorizationStatus.notDetermined)
         return result
         
     }
     
-    
-    //    func requestAccessToCalendar() -> Bool{
-    //        var result = false
-    //        eventStore.requestAccess(to: EKEntityType.event, completion: {
-    //            (accessGranted: Bool, error: Error?) in
-    //            if accessGranted == true {
-    //                DispatchQueue.main.async(execute: {
-    //                })
-    //                result = true
-    //
-    //            } else {
-    //                DispatchQueue.main.async(execute: {
-    //                    self.changeCalendarAccess()
-    //                })
-    //                result = true
-    //            }
-    //        }
-    //
-    //        )
-    //        return result
-    //    }
-    
-    func changeCalendarAccess(){
-        // let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
-        // UIApplication.shared.openURL(openSettingsUrl!)
-    }
-    
-    //---
-    
-    //
+    // Übergebene Events werden erstellt
     public func createAllEvents(lectures : [Lecture]){
         if (checkCalendarAuthorizationStatus()) {
             for lecture in lectures{
@@ -153,7 +110,6 @@ class CalendarInterface: NSObject {
     
     //Erzeugt Event und schreibt es in Kalender
     private func createEventsForLecture(lecture: Lecture) {
-        // lecture to EKEvenet
         let events = lectureToEKEventCreate(lecture: lecture)
         
         for event in events {
@@ -165,19 +121,13 @@ class CalendarInterface: NSObject {
                 print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
             }
             
-            //if(CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] == nil){
-            //   CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture] = []
-            //}
-            
-            //CalendarInterface.sharedInstance.lectureEKEventIdDictionary[lecture]?.append(event.eventIdentifier)
             lecture.eventIDs.append(event.eventIdentifier)
         }
     }
     
-    // Lecture to EKEvent
+    // Umwandlung einer Lecture zu EKEvent
     func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
         var tmpStartdate = lecture.startdate
-        // tmpStartdate.addingTimeInterval(lecture.starttime)
         var events = [EKEvent]()
         
         repeat {
@@ -186,7 +136,18 @@ class CalendarInterface: NSObject {
             
             event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate))
             event.endDate   = event.startDate.addingTimeInterval(60 * 90)
-            event.location  = self.locationHochschule + ", " + lecture.room
+            
+            
+            let str = lecture.room
+            let index = str.index(str.startIndex, offsetBy : 4)
+            let sub = str.substring(to: index)
+            
+            if(sub == "Mueb"){
+                event.location = self.locationHuchschuleMuenchberg + " ," + lecture.room
+                
+            } else {
+                event.location = self.locationHochschuleHof + " ," + lecture.room
+            }
             event.notes = lecture.comment + "  " + lecture.group
             
             if (self.alarmOffset > 0) {
@@ -202,6 +163,7 @@ class CalendarInterface: NSObject {
         return events
     }
     
+    // 
     private func combineDayAndTime(date : Date, time : Date) -> Date {
         return date.addingTimeInterval((time.timeIntervalSinceReferenceDate) + (60 * 60))
     }
@@ -226,13 +188,13 @@ class CalendarInterface: NSObject {
         do {
             try self.eventStore.save(event, span: .thisEvent)
         } catch {
-            print("TODO Fehlermeldung \n KalenderAPI create CREATE EVENT")
+            print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
         }
         
         lecture.eventIDs.append(event.eventIdentifier)
     }
     
-    // TODO lectures übergeben
+    // Übergebene Events updated/anpasst
     func updateAllEvents( changes : Changes){
         if (checkCalendarAuthorizationStatus()) {
             for change in changes.changes {
@@ -241,33 +203,7 @@ class CalendarInterface: NSObject {
         }
     }
     
-    //    // Lecture to EKEvent
-    //    func changedToEKEvent(lecture: Lecture) -> EKEvent {
-    //        var tmpStartdate = lecture.startdate
-    //        //tmpStartdate.addingTimeInterval(lecture.starttime)
-    //        var events = [EKEvent]()
-    //
-    //        repeat {
-    //            let event       = EKEvent(eventStore: self.eventStore)
-    //            event.title     = lecture.name
-    //
-    //            event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate) + (60 * 60))
-    //            event.endDate   = event.startDate.addingTimeInterval(60 * 90)
-    //            event.location  = self.locationHochschule + ", " + lecture.room
-    //
-    //            if (self.alarmOffset > 0) {
-    //                var ekAlarms = [EKAlarm]()
-    //                ekAlarms.append(EKAlarm(relativeOffset:-self.alarmOffset))
-    //                event.alarms    = ekAlarms
-    //            }
-    //
-    //            events.append(event)
-    //            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
-    //        } while (tmpStartdate.timeIntervalSince(lecture.enddate) < 0)
-    //
-    //        return events
-    //    }
-    
+    // Findet eine Lecutre anhand des Hashes
     private func findLecture(change : ChangedLecture) -> Lecture {
         var result : Lecture? = nil
         let changeHashValue = "\(change.name)\(change.oldRoom)\(change.oldDay)\(change.oldTime)".hashValue
@@ -284,7 +220,6 @@ class CalendarInterface: NSObject {
     private func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
         
         var result = ""
-        
         for id in lecture.eventIDs {
             let event = self.eventStore.event(withIdentifier: id)
             dump(event)
@@ -306,12 +241,6 @@ class CalendarInterface: NSObject {
         
         if((event) != nil) {
             if (change.newDay != "") {
-                //
-                //  ##############################
-                // Hier fehlt jetzt das Handling für Verlegungen wegen einer Erkrankung
-                // newTime und newDate der ChangedLecture sind jetzt Optionals
-                // Das unwrappung unten ist nur um den Compiler happy zu machen!!!!!!
-                //
                 if (event?.startDate != combineDayAndTime(date: change.newDate!, time: change.newTime!)) {
                     let newEvent = EKEvent(eventStore: self.eventStore)
                     
@@ -319,7 +248,18 @@ class CalendarInterface: NSObject {
                     newEvent.notes     = event?.notes
                     newEvent.startDate = combineDayAndTime(date: change.newDate!, time: change.newTime!)
                     newEvent.endDate   = (newEvent.startDate + 60 * 90)
-                    newEvent.location  = self.locationHochschule.appending(", \(change.newRoom)")
+                    
+                    let str = lecture.room
+                    let index = str.index(str.startIndex, offsetBy : 4)
+                    let sub = str.substring(to: index)
+                    
+                    if(sub == "Mueb"){
+                        newEvent.location = self.locationHuchschuleMuenchberg + " ," + lecture.room.appending(", \(change.newRoom)")
+                        
+                    } else {
+                        newEvent.location = self.locationHochschuleHof + " ," + lecture.room.appending(", \(change.newRoom)")
+                    }
+                    
                     newEvent.calendar  = self.calendar!
                     newEvent.notes = lecture.comment + "  " + lecture.group
                     
@@ -330,7 +270,17 @@ class CalendarInterface: NSObject {
                     event?.alarms   = []
                 } else {
                     event?.title     = "[Raumänderung] " + change.name
-                    event?.location  = self.locationHochschule.appending(", \(change.newRoom)")
+                    
+                    let str = lecture.room
+                    let index = str.index(str.startIndex, offsetBy : 4)
+                    let sub = str.substring(to: index)
+                    
+                    if(sub == "Mueb"){
+                        event?.location = self.locationHuchschuleMuenchberg.appending(", \(change.newRoom)")
+                        
+                    } else {
+                        event?.location = self.locationHochschuleHof.appending(", \(change.newRoom)")
+                    }
                 }
             } else {
                 event?.title     = "[Entfällt] " + change.name
@@ -339,16 +289,12 @@ class CalendarInterface: NSObject {
             }
             
             event?.calendar  = self.calendar!;
-            
-            //andere Speichern Möglichkeit
-            //[eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
         }
-        
         if((event) != nil) {
             do {
                 try self.eventStore.save(event!, span: .thisEvent)
             } catch {
-                print("TODO Fehlermeldung \n KalenderAPI update")
+                print("Fehler beim Updaten eines Events")
             }
         }
     }
@@ -380,7 +326,7 @@ class CalendarInterface: NSObject {
                 try self.eventStore.remove(eventToRemove!, span: .thisEvent)
                 return true
             } catch {
-                print("TODO removeEvent failed")
+                print("Events konnte nicht gelöscht werden")
             }
         }
         return false
