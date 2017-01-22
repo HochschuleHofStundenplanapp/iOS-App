@@ -13,6 +13,7 @@
 		812843101DED715600B0715E /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8128430F1DED715600B0715E /* Observer.swift */; };
 		8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */; };
 		8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */; };
+		816F64591E34FA4C008B551A /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816F64581E34FA4C008B551A /* DataObject.swift */; };
 		BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */; };
 		BE18E7411DE3190700EDD1A6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7401DE3190700EDD1A6 /* Settings.swift */; };
 		BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */; };
@@ -85,6 +86,7 @@
 		8128430F1DED715600B0715E /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
+		816F64581E34FA4C008B551A /* DataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObject.swift; sourceTree = "<group>"; };
 		BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarDelegate.swift; sourceTree = "<group>"; };
 		BE18E7401DE3190700EDD1A6 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				BECB66EE1DF6DAC600567455 /* Courses.swift */,
 				BECB66F01DF6DAED00567455 /* ChangedLecture.swift */,
 				BECB66F21DF6DAFC00567455 /* Changes.swift */,
+				816F64581E34FA4C008B551A /* DataObject.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECB66E11DF6D94500567455 /* JsonCourses.swift in Sources */,
+				816F64591E34FA4C008B551A /* DataObject.swift in Sources */,
 				655CCDC11E002D4A004B8AF3 /* CalendarInterface.swift in Sources */,
 				CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */,
 				BECB66EF1DF6DAC600567455 /* Courses.swift in Sources */,

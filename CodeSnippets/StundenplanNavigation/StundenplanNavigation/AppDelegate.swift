@@ -12,9 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var vData : DataObject!
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Save Version
+        vData = VersionDataObjectPersistency().loadDataObject()
+        vData.Version = 1
+        VersionDataObjectPersistency().saveDataObject(vData)
+        
+        print("Version: \(VersionDataObjectPersistency().loadDataObject().Version)\n")
         
         Settings.sharedInstance = DataObjectPersistency().loadDataObject()
                 
