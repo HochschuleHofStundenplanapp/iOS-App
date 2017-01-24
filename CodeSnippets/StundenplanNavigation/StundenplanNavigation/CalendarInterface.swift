@@ -222,7 +222,7 @@ class CalendarInterface: NSObject {
         var result = ""
         for id in lecture.eventIDs {
             let event = self.eventStore.event(withIdentifier: id)
-            dump(event)
+            //dump(event)
             if(event?.title == change.name && event?.startDate == combineDayAndTime(date: change.oldDate, time: change.oldTime)){
                 result = id
             }

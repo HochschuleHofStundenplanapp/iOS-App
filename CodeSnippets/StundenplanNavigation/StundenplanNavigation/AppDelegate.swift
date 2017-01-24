@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vData.Version = 1
         VersionDataObjectPersistency().saveDataObject(vData)
         
-        print("Version: \(VersionDataObjectPersistency().loadDataObject().Version)\n")
+        //print("Version: \(VersionDataObjectPersistency().loadDataObject().Version)\n")
         
         Settings.sharedInstance = DataObjectPersistency().loadDataObject()
                 

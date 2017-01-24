@@ -45,11 +45,11 @@ class Schedule : NSObject, NSCopying, NSCoding{
         
         var tupels : [(Course, Semester)] = []
         
-        var selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses();
+        let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses();
         
         for item in selectedCourses{
             
-            var selectedSem = item.semesters.selectedSemesters()
+            let selectedSem = item.semesters.selectedSemesters()
             
             for semItem in selectedSem{
                 tupels.append((item, semItem))
@@ -58,7 +58,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
         
 
         for lec in lecturesArray{
-            var tmpTupel = (lec.course, lec.semester)
+            let tmpTupel = (lec.course, lec.semester)
             
             if (lec.selected){
                 lec.selected = hasTupel(arr: tupels, tupel: tmpTupel)

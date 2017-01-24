@@ -51,7 +51,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         if Settings.sharedInstance.savedCalSync {
         // Noch nicht getestet - Berechtigungen nicht berücksichtigt 
             if(CalendarInterface().checkCalendarAuthorizationStatus()) {
-                dump(Settings.sharedInstance.savedChanges)
+                //dump(Settings.sharedInstance.savedChanges)
                 CalendarInterface().updateAllEvents(changes: Settings.sharedInstance.savedChanges)
                 
             }
