@@ -68,7 +68,7 @@ class CalendarInterface: NSObject {
         createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
     }
     
-    //
+    // Berechtigungen für den Kalenderzugriff anfragen
     private func requestAccessToCalendar (){
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
@@ -85,21 +85,17 @@ class CalendarInterface: NSObject {
             status = EKEventStore.authorizationStatus(for: EKEntityType.event)
             switch (status) {
             case EKAuthorizationStatus.notDetermined:
-                // This happens on first-run
                 requestAccessToCalendar()
-            // createCalender()
             case EKAuthorizationStatus.authorized:
                 result = true
-            // Things are in line with being able to show the calendars in the table view
             case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
-                // We need to help them give us permission
                 result = false
             }} while (status == EKAuthorizationStatus.notDetermined)
         return result
         
     }
     
-    // Übergebene Events werden erstellt
+    // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
     public func createAllEvents(lectures : [Lecture]){
         if (checkCalendarAuthorizationStatus()) {
             for lecture in lectures{
@@ -108,7 +104,7 @@ class CalendarInterface: NSObject {
         }
     }
     
-    //Erzeugt Event und schreibt es in Kalender
+    // Erzeugt ein Event und schreibt es in den Kalender
     private func createEventsForLecture(lecture: Lecture) {
         let events = lectureToEKEventCreate(lecture: lecture)
         
@@ -125,7 +121,7 @@ class CalendarInterface: NSObject {
         }
     }
     
-    // Umwandlung einer Lecture zu EKEvent
+    // Erzeugt ein EKEvent aus einer Lecture
     func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
         var tmpStartdate = lecture.startdate
         var events = [EKEvent]()
@@ -163,12 +159,12 @@ class CalendarInterface: NSObject {
         return events
     }
     
-    // 
+    // Zeit und Datum in einer Variable kombinieren
     private func combineDayAndTime(date : Date, time : Date) -> Date {
         return date.addingTimeInterval((time.timeIntervalSinceReferenceDate) + (60 * 60))
     }
     
-    //Erzeugt Event und schreibt es in Kalender
+    // Schreibt übergebene Events in den Kalender
     private func createEvent(p_event: EKEvent, lecture : Lecture){
         let event       = EKEvent(eventStore: self.eventStore)
         event.title     = p_event.title
@@ -194,7 +190,7 @@ class CalendarInterface: NSObject {
         lecture.eventIDs.append(event.eventIdentifier)
     }
     
-    // Übergebene Events updated/anpasst
+    // Aktualisiert Werte aller Events
     func updateAllEvents( changes : Changes){
         if (checkCalendarAuthorizationStatus()) {
             for change in changes.changes {
@@ -216,7 +212,7 @@ class CalendarInterface: NSObject {
         return result!
     }
     
-    // ID eines Events wird gesucht und zurückgegeben
+    // ID eines Events im Kalender wird gesucht und zurückgegeben
     private func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
         
         var result = ""
