@@ -280,7 +280,7 @@ class SettingsTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in
              let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
-             UIApplication.shared.openURL(openSettingsUrl!)
+            UIApplication.shared.open(openSettingsUrl!, options: [:], completionHandler: nil)
         }))
         self.present(alert, animated: true, completion: nil)
         }
