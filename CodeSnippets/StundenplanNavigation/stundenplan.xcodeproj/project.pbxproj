@@ -117,16 +117,16 @@
 		CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewDataSource.swift; sourceTree = "<group>"; };
 		CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewDelegate.swift; sourceTree = "<group>"; };
 		CE7430BB1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyScheduleTableViewCell.swift; sourceTree = "<group>"; };
-		CEAC97001DB5FD350042FF3D /* StundenplanNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEAC97001DB5FD350042FF3D /* stundenplan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stundenplan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC97031DB5FD350042FF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEAC970A1DB5FD350042FF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEAC970C1DB5FD350042FF3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEAC970F1DB5FD350042FF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEAC97111DB5FD350042FF3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEAC97161DB5FD350042FF3D /* StundenplanNavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StundenplanNavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEAC97161DB5FD350042FF3D /* stundenplanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stundenplanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC971A1DB5FD350042FF3D /* StundenplanNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanNavigationTests.swift; sourceTree = "<group>"; };
 		CEAC971C1DB5FD350042FF3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEAC97211DB5FD350042FF3D /* StundenplanNavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StundenplanNavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEAC97211DB5FD350042FF3D /* stundenplanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stundenplanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC97251DB5FD350042FF3D /* StundenplanNavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanNavigationUITests.swift; sourceTree = "<group>"; };
 		CEAC97271DB5FD350042FF3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEAC97341DB619D40042FF3D /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
@@ -255,9 +255,9 @@
 		CEAC97011DB5FD350042FF3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEAC97001DB5FD350042FF3D /* StundenplanNavigation.app */,
-				CEAC97161DB5FD350042FF3D /* StundenplanNavigationTests.xctest */,
-				CEAC97211DB5FD350042FF3D /* StundenplanNavigationUITests.xctest */,
+				CEAC97001DB5FD350042FF3D /* stundenplan.app */,
+				CEAC97161DB5FD350042FF3D /* stundenplanTests.xctest */,
+				CEAC97211DB5FD350042FF3D /* stundenplanUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -378,9 +378,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEAC96FF1DB5FD350042FF3D /* StundenplanNavigation */ = {
+		CEAC96FF1DB5FD350042FF3D /* stundenplan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEAC972A1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigation" */;
+			buildConfigurationList = CEAC972A1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "stundenplan" */;
 			buildPhases = (
 				CEAC96FC1DB5FD350042FF3D /* Sources */,
 				CEAC96FD1DB5FD350042FF3D /* Frameworks */,
@@ -390,14 +390,14 @@
 			);
 			dependencies = (
 			);
-			name = StundenplanNavigation;
+			name = stundenplan;
 			productName = StundenplanNavigation;
-			productReference = CEAC97001DB5FD350042FF3D /* StundenplanNavigation.app */;
+			productReference = CEAC97001DB5FD350042FF3D /* stundenplan.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CEAC97151DB5FD350042FF3D /* StundenplanNavigationTests */ = {
+		CEAC97151DB5FD350042FF3D /* stundenplanTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEAC972D1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigationTests" */;
+			buildConfigurationList = CEAC972D1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "stundenplanTests" */;
 			buildPhases = (
 				CEAC97121DB5FD350042FF3D /* Sources */,
 				CEAC97131DB5FD350042FF3D /* Frameworks */,
@@ -408,14 +408,14 @@
 			dependencies = (
 				CEAC97181DB5FD350042FF3D /* PBXTargetDependency */,
 			);
-			name = StundenplanNavigationTests;
+			name = stundenplanTests;
 			productName = StundenplanNavigationTests;
-			productReference = CEAC97161DB5FD350042FF3D /* StundenplanNavigationTests.xctest */;
+			productReference = CEAC97161DB5FD350042FF3D /* stundenplanTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CEAC97201DB5FD350042FF3D /* StundenplanNavigationUITests */ = {
+		CEAC97201DB5FD350042FF3D /* stundenplanUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEAC97301DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigationUITests" */;
+			buildConfigurationList = CEAC97301DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "stundenplanUITests" */;
 			buildPhases = (
 				CEAC971D1DB5FD350042FF3D /* Sources */,
 				CEAC971E1DB5FD350042FF3D /* Frameworks */,
@@ -426,9 +426,9 @@
 			dependencies = (
 				CEAC97231DB5FD350042FF3D /* PBXTargetDependency */,
 			);
-			name = StundenplanNavigationUITests;
+			name = stundenplanUITests;
 			productName = StundenplanNavigationUITests;
-			productReference = CEAC97211DB5FD350042FF3D /* StundenplanNavigationUITests.xctest */;
+			productReference = CEAC97211DB5FD350042FF3D /* stundenplanUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -443,7 +443,7 @@
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = RGM92AGMEP;
+						DevelopmentTeam = FM446M8BR4;
 						ProvisioningStyle = Automatic;
 					};
 					CEAC97151DB5FD350042FF3D = {
@@ -458,7 +458,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CEAC96FB1DB5FD350042FF3D /* Build configuration list for PBXProject "StundenplanNavigation" */;
+			buildConfigurationList = CEAC96FB1DB5FD350042FF3D /* Build configuration list for PBXProject "stundenplan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -471,9 +471,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEAC96FF1DB5FD350042FF3D /* StundenplanNavigation */,
-				CEAC97151DB5FD350042FF3D /* StundenplanNavigationTests */,
-				CEAC97201DB5FD350042FF3D /* StundenplanNavigationUITests */,
+				CEAC96FF1DB5FD350042FF3D /* stundenplan */,
+				CEAC97151DB5FD350042FF3D /* stundenplanTests */,
+				CEAC97201DB5FD350042FF3D /* stundenplanUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -582,12 +582,12 @@
 /* Begin PBXTargetDependency section */
 		CEAC97181DB5FD350042FF3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CEAC96FF1DB5FD350042FF3D /* StundenplanNavigation */;
+			target = CEAC96FF1DB5FD350042FF3D /* stundenplan */;
 			targetProxy = CEAC97171DB5FD350042FF3D /* PBXContainerItemProxy */;
 		};
 		CEAC97231DB5FD350042FF3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CEAC96FF1DB5FD350042FF3D /* StundenplanNavigation */;
+			target = CEAC96FF1DB5FD350042FF3D /* stundenplan */;
 			targetProxy = CEAC97221DB5FD350042FF3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -712,10 +712,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = RGM92AGMEP;
+				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.hochschuleHof;
+				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -726,10 +727,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = RGM92AGMEP;
+				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.hochschuleHof;
+				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -745,7 +747,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanNavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanNavigation.app/StundenplanNavigation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stundenplan.app/stundenplan";
 			};
 			name = Debug;
 		};
@@ -759,7 +761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanNavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanNavigation.app/StundenplanNavigation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stundenplan.app/stundenplan";
 			};
 			name = Release;
 		};
@@ -792,7 +794,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEAC96FB1DB5FD350042FF3D /* Build configuration list for PBXProject "StundenplanNavigation" */ = {
+		CEAC96FB1DB5FD350042FF3D /* Build configuration list for PBXProject "stundenplan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEAC97281DB5FD350042FF3D /* Debug */,
@@ -801,7 +803,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEAC972A1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigation" */ = {
+		CEAC972A1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "stundenplan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEAC972B1DB5FD350042FF3D /* Debug */,
@@ -810,7 +812,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEAC972D1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigationTests" */ = {
+		CEAC972D1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "stundenplanTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEAC972E1DB5FD350042FF3D /* Debug */,
@@ -819,7 +821,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEAC97301DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigationUITests" */ = {
+		CEAC97301DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "stundenplanUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEAC97311DB5FD350042FF3D /* Debug */,

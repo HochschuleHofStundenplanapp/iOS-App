@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:StundenplanNavigation.xcodeproj">
+      location = "self:/Users/App/iOS-App/CodeSnippets/StundenplanNavigation/stundenplan.xcodeproj">
    </FileRef>
 </Workspace>
