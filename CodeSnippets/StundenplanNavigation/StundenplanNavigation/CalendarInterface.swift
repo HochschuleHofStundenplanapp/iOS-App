@@ -28,19 +28,8 @@ class CalendarInterface: NSObject {
     private override init() {
         super.init()
         eventStore = EKEventStore()
-        //if (checkCalendarAuthorizationStatus()) {
-        if true {
-            var calendars = [EKCalendar]()
-            calendars = self.eventStore.calendars(for: .event)
-            for calendar in calendars {
-                if(calendar.title == self.calendarTitle){
-                    self.calendar = calendar
-                    break
-                }
-            }
-            if(self.calendar == nil) {
-                self.createCalender()
-            }
+        if (checkCalendarAuthorizationStatus()) {
+            createCalenderIfNeeded()
         }
     }
     
@@ -54,6 +43,27 @@ class CalendarInterface: NSObject {
         return true
     }
     
+    // Check ob App-Calender schon vorhanden ist
+    private func isAppCalenderAvailable() -> Bool
+    {
+        var calendars = [EKCalendar]()
+        calendars = self.eventStore.calendars(for: .event)
+        for calendar in calendars {
+            if(calendar.title == self.calendarTitle){
+                self.calendar = calendar
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func createCalenderIfNeeded()
+    {
+        if (!isAppCalenderAvailable()) {
+            createCalender()
+        }
+
+    }
     // Erstellen eines Kalenders
     private func createCalender(){
         let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
@@ -103,6 +113,7 @@ class CalendarInterface: NSObject {
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
     public func createAllEvents(lectures : [Lecture]){
         if (checkCalendarAuthorizationStatus()) {
+            createCalenderIfNeeded()
             for lecture in lectures{
                 createEventsForLecture(lecture: lecture)
             }
