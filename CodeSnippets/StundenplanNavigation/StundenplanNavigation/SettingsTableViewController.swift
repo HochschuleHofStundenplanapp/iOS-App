@@ -131,14 +131,14 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         if(syncSwitch.isOn){
             Settings.sharedInstance.savedCalSync = true
-            if(CalendarInterface().checkCalendarAuthorizationStatus() == false){
+            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == false){
                 getAccessAlert()
                 Settings.sharedInstance.savedCalSync = false
                 syncSwitch.isOn = false
             }
         } else {
-            if(CalendarInterface().checkCalendarAuthorizationStatus() == true){
-                _ = CalendarInterface().removeCalendar()
+            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == true){
+                _ = CalendarInterface.sharedInstance.removeCalendar()
             }
             Settings.sharedInstance.savedCalSync = false
         }
@@ -253,12 +253,12 @@ class SettingsTableViewController: UITableViewController {
     
     func CalendarRoutine() {
         
-        if(syncSwitch.isOn && !CalendarInterface().checkCalendarAuthorizationStatus()) {
+        if(syncSwitch.isOn && !CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
             getAccessAlert()
             Settings.sharedInstance.savedCalSync = false
         }
 
-        if(syncSwitch.isOn && CalendarInterface().checkCalendarAuthorizationStatus()) {
+        if(syncSwitch.isOn && CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
             
             // Liste der zu entferndenen Lectures
             let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
@@ -267,7 +267,7 @@ class SettingsTableViewController: UITableViewController {
             let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
             
             if(!addedLectures.isEmpty) {
-                CalendarInterface().createAllEvents(lectures: addedLectures)
+                CalendarInterface.sharedInstance.createAllEvents(lectures: addedLectures)
             }
             if(!removedLectures.isEmpty) {
                 CalendarInterface.sharedInstance.removeAllEvents(lectures: removedLectures)

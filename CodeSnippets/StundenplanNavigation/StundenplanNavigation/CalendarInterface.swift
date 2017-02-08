@@ -25,10 +25,11 @@ class CalendarInterface: NSObject {
     let locationHuchschuleMuenchberg = "Campus Münchberg, Kulmbacherstraße 76, 95213 Münchberg "
     
     
-    override init() {
+    private override init() {
         super.init()
         eventStore = EKEventStore()
-        if (checkCalendarAuthorizationStatus()) {
+        //if (checkCalendarAuthorizationStatus()) {
+        if true {
             var calendars = [EKCalendar]()
             calendars = self.eventStore.calendars(for: .event)
             for calendar in calendars {
@@ -73,6 +74,10 @@ class CalendarInterface: NSObject {
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
+                DispatchQueue.main.async(execute: {
+                    let topLevelWindowCtrl = (UIApplication.shared.keyWindow?.rootViewController!)! as UIViewController
+                    topLevelWindowCtrl.updateFocusIfNeeded()
+                })
             })
         }
     }

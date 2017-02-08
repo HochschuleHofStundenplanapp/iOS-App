@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //print("Version: \(VersionDataObjectPersistency().loadDataObject().Version)\n")
         
         Settings.sharedInstance = DataObjectPersistency().loadDataObject()
-                
+        
+        
+        if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
+            EKEventStore().requestAccess(to: .event, completion: {
+                granted, error in
+                DispatchQueue.main.async(execute: {
+                    let topLevelWindowCtrl = (UIApplication.shared.keyWindow?.rootViewController!)! as UIViewController
+                    topLevelWindowCtrl.updateFocusIfNeeded()
+                })
+            })
+        }
+
         return true
     }
 
