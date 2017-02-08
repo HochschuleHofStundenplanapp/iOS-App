@@ -29,7 +29,7 @@ class CalendarInterface: NSObject {
         super.init()
         eventStore = EKEventStore()
         if (checkCalendarAuthorizationStatus()) {
-            createCalenderIfNeeded()
+            createCalenderIfNeeded() 
         }
     }
     
