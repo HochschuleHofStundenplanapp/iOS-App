@@ -64,6 +64,11 @@ class CalendarInterface: NSObject {
         }
 
     }
+    
+    public func createNewCalender() {
+        createCalenderIfNeeded()
+    }
+    
     // Erstellen eines Kalenders
     private func createCalender(){
         let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)

@@ -135,6 +135,8 @@ class SettingsTableViewController: UITableViewController {
                 getAccessAlert()
                 Settings.sharedInstance.savedCalSync = false
                 syncSwitch.isOn = false
+            } else {
+                CalendarInterface.sharedInstance.createNewCalender()
             }
         } else {
             if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == true){
