@@ -129,21 +129,27 @@ class SettingsTableViewController: UITableViewController {
     
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
-        if(syncSwitch.isOn){
-            Settings.sharedInstance.savedCalSync = true
-            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == false){
-                getAccessAlert()
-                Settings.sharedInstance.savedCalSync = false
-                syncSwitch.isOn = false
-            } else {
-                CalendarInterface.sharedInstance.createNewCalender()
-            }
-        } else {
-            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == true){
-                _ = CalendarInterface.sharedInstance.removeCalendar()
-            }
-            Settings.sharedInstance.savedCalSync = false
-        }
+        let alertController = UIAlertController(title: "Synchroisation mit Kalender", message: "Stay tuned for the next release", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+//        
+//        if(syncSwitch.isOn){
+//            Settings.sharedInstance.savedCalSync = true
+//            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == false){
+//                getAccessAlert()
+//                Settings.sharedInstance.savedCalSync = false
+//                syncSwitch.isOn = false
+//            } else {
+//                CalendarInterface.sharedInstance.createNewCalender()
+//            }
+//        } else {
+//            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == true){
+//                _ = CalendarInterface.sharedInstance.removeCalendar()
+//            }
+//            Settings.sharedInstance.savedCalSync = false
+//        }
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {

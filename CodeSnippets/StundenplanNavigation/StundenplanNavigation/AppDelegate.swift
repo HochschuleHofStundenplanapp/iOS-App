@@ -29,15 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Settings.sharedInstance = DataObjectPersistency().loadDataObject()
         
         
-        if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
-            EKEventStore().requestAccess(to: .event, completion: {
-                granted, error in
-                DispatchQueue.main.async(execute: {
-                    let topLevelWindowCtrl = (UIApplication.shared.keyWindow?.rootViewController!)! as UIViewController
-                    topLevelWindowCtrl.updateFocusIfNeeded()
-                })
-            })
-        }
+//        if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
+//            EKEventStore().requestAccess(to: .event, completion: {
+//                granted, error in
+//                DispatchQueue.main.async(execute: {
+//                    let topLevelWindowCtrl = (UIApplication.shared.keyWindow?.rootViewController!)! as UIViewController
+//                    topLevelWindowCtrl.updateFocusIfNeeded()
+//                })
+//            })
+//        }
 
         return true
     }
