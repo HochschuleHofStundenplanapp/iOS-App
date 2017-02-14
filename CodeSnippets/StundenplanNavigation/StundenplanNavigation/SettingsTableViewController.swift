@@ -148,6 +148,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
+        let vData = DataObject()
         
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
@@ -158,7 +159,8 @@ class SettingsTableViewController: UITableViewController {
         Settings.sharedInstance.commitChanges()
         
         
-        
+        vData.Version = 1
+        VersionDataObjectPersistency().saveDataObject(vData)
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
         
         

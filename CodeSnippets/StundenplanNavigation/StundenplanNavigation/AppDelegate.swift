@@ -19,24 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //Save Version
+        // Load Version
         vData = VersionDataObjectPersistency().loadDataObject()
-        vData.Version = 1
-        VersionDataObjectPersistency().saveDataObject(vData)
-        
-        //print("Version: \(VersionDataObjectPersistency().loadDataObject().Version)\n")
-        
-        Settings.sharedInstance = DataObjectPersistency().loadDataObject()
-        
-        
-        if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
-            EKEventStore().requestAccess(to: .event, completion: {
-                granted, error in
-                DispatchQueue.main.async(execute: {
-                    let topLevelWindowCtrl = (UIApplication.shared.keyWindow?.rootViewController!)! as UIViewController
-                    topLevelWindowCtrl.updateFocusIfNeeded()
-                })
-            })
+        if (vData.Version == 1)
+        {
+            Settings.sharedInstance = DataObjectPersistency().loadDataObject()
         }
 
         return true
@@ -50,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
+        vData.Version = 1
+        VersionDataObjectPersistency().saveDataObject(vData)
+
         DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
     }
 

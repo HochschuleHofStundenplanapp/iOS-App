@@ -16,6 +16,7 @@ class CalendarInterface: NSObject {
     var calendarTitle : String = "Hochschule Hof Stundenplan App"
     var calendar : EKCalendar? = nil
     var eventStore : EKEventStore!
+    var pending : DispatchSemaphore!
     
     // Für Zukunft: Alarm setzen
     // Wenn alarmOffset größer 0 wird Alarm gesetzt
@@ -27,6 +28,7 @@ class CalendarInterface: NSObject {
     
     private override init() {
         super.init()
+        pending = DispatchSemaphore(value: 1)
         eventStore = EKEventStore()
         if (checkCalendarAuthorizationStatus()) {
             createCalenderIfNeeded() 
@@ -93,6 +95,7 @@ class CalendarInterface: NSObject {
                     let topLevelWindowCtrl = (UIApplication.shared.keyWindow?.rootViewController!)! as UIViewController
                     topLevelWindowCtrl.updateFocusIfNeeded()
                 })
+                self.pending.signal()
             })
         }
     }
@@ -100,11 +103,12 @@ class CalendarInterface: NSObject {
     // Abfrage der Kalenderberechtigungen
     public func checkCalendarAuthorizationStatus() -> Bool{
         var result = false
-        var status = EKEventStore.authorizationStatus(for: EKEntityType.event)
+        var status :  EKAuthorizationStatus
         repeat {
             status = EKEventStore.authorizationStatus(for: EKEntityType.event)
             switch (status) {
             case EKAuthorizationStatus.notDetermined:
+                pending.wait()
                 requestAccessToCalendar()
             case EKAuthorizationStatus.authorized:
                 result = true
