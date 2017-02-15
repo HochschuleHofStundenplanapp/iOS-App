@@ -17,13 +17,14 @@ extension Date {
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: currentDate)
         
-        let startSummerString = "15.02.\(currentYear)"
-        let endSummerString = "28.07.\(currentYear)"
-        let startWinterString = "29.7.\(currentYear)"
-        let endWinterString = "14.02.\(currentYear+1)"
+        //Semesterbeginn und Ende
+        let startSummerString = "26.01.\(currentYear)"
+        let endSummerString = "07.07.\(currentYear)"
+        let startWinterString = "08.07.\(currentYear)"
+        let endWinterString = "25.01.\(currentYear+1)"
         
         let beginningOfTheYearString = "01.01.\(currentYear)"
-        let newEndWinterString = "14.02.\(currentYear)"
+        let newEndWinterString = "25.01.\(currentYear)"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
