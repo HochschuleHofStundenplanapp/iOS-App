@@ -22,31 +22,56 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         hightLightLine = false
     }
     
-    private func computeBackgroundColor (currentCourse : String, currentSemester : String) -> UIColor
+    private func computeIndexedBackgroundColor (currentPosition : IndexPath) -> UIColor
     {
-        if currentCourse != lastLectureGroup.courseInfo || currentSemester != lastLectureGroup.semInfo
+        var lastCourse = Settings.sharedInstance.tmpSchedule.getLectureAt(section: 0, row: 0).course.nameDe
+        var lastSemester = Settings.sharedInstance.tmpSchedule.getLectureAt(section: 0, row: 0).semester.name
+        var hightLighted = false
+        
+        for i in 0..<currentPosition.section
         {
-            hightLightLine = !hightLightLine
-            lastLectureGroup.courseInfo = currentCourse
-            lastLectureGroup.semInfo = currentSemester
+            for  j in 0..<Settings.sharedInstance.tmpSchedule.sizeAt(section: i)
+            {
+                let lecture = Settings.sharedInstance.tmpSchedule.getLectureAt(section: i, row: j)
+                let course = lecture.course.nameDe
+                let semester = lecture.semester.name
+        
+                if course != lastCourse || semester != lastSemester
+                {
+                    hightLighted = !hightLighted
+                    lastCourse = course
+                    lastSemester = semester
+                }
+            }
+        }
+
+        let section = currentPosition.section
+        for j in 0...currentPosition.row
+        {
+            let lecture = Settings.sharedInstance.tmpSchedule.getLectureAt(section: section, row: j)
+            let course = lecture.course.nameDe
+            let semester = lecture.semester.name
+            
+            if course != lastCourse || semester != lastSemester
+            {
+                hightLighted = !hightLighted
+                lastCourse = course
+                lastSemester = semester
+            }
         }
         
-        if hightLightLine
+        if hightLighted
         {
-            return UIColor.white
+            return UIColor(red: 0.925, green: 0.925, blue: 0.925, alpha: 1.0)
         }
-        
-        return UIColor(red: 0.925, green: 0.925, blue: 0.925, alpha: 1.0)
+        return UIColor.white   
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         
         let lecture = Settings.sharedInstance.tmpSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
-        
-        let course = lecture.course.nameDe
-        let semester = lecture.semester.name
-        let cellColor = computeBackgroundColor(currentCourse: course, currentSemester: semester)
+        let cellColor = computeIndexedBackgroundColor(currentPosition : indexPath)
         
         cell.backgroundColor = cellColor
         cell.courseLabel.text = lecture.name

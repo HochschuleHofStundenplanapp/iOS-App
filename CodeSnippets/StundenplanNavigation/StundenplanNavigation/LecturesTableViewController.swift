@@ -54,7 +54,6 @@ class LecturesTableViewController: UITableViewController {
     
     func endDownload(){
         //Hide Activity Indicator
-        
         lectureTableView.reloadData()
     }
     

@@ -198,7 +198,6 @@ class Schedule : NSObject, NSCopying, NSCoding{
                 list[dayIndex].append(lec)
             }
         }
-        
         setSelection()
     }
     
@@ -253,5 +252,14 @@ class Schedule : NSObject, NSCopying, NSCoding{
         
         return addedArray
    }
+    
+    func sort()
+    {
+        for i in 0..<list.count
+        {
+            var oneDay : [Lecture] = list[i]
+            oneDay.sort{(l1, l2)->Bool in return l1.semester.name < l2.semester.name}
+        }
+    }
     
 }
