@@ -78,9 +78,11 @@ class VersionDataObjectPersistency {
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
             item = unarchiver.decodeObject(forKey: dataKey) as! DataObject
             unarchiver.finishDecoding()
+            
+            return item
         }
         
-        return item
+        return DataObject()
     }
     
     func saveDataObject(_ items : DataObject) {

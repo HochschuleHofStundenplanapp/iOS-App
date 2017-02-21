@@ -91,10 +91,6 @@ class CalendarInterface: NSObject {
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                DispatchQueue.main.async(execute: {
-                    let topLevelWindowCtrl = (UIApplication.shared.keyWindow?.rootViewController!)! as UIViewController
-                    topLevelWindowCtrl.updateFocusIfNeeded()
-                })
                 self.pending.signal()
             })
         }
@@ -105,6 +101,7 @@ class CalendarInterface: NSObject {
         var result = false
         var status :  EKAuthorizationStatus
         repeat {
+            print("Bad")
             status = EKEventStore.authorizationStatus(for: EKEntityType.event)
             switch (status) {
             case EKAuthorizationStatus.notDetermined:

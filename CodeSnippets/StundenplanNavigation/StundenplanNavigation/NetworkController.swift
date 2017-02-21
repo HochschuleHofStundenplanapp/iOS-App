@@ -12,6 +12,7 @@ class NetworkController: NSObject {
     
     private let username = "soapuser"
     private let password = "F%98z&12"
+    private let baseURI = "https://www.hof-university.de/soap/"
     
     var cntSemesters = 0
     
@@ -20,7 +21,7 @@ class NetworkController: NSObject {
         tableView.beginDownload()
         let season = Settings.sharedInstance.tmpSeason.rawValue
         
-        let urlString = "https://www.hof-university.de/soap/client.php?f=Courses&tt=\(season)"
+        let urlString = "\(baseURI)client.php?f=Courses&tt=\(season)"
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
         let passCredential = passData?.base64EncodedString()
@@ -72,7 +73,7 @@ class NetworkController: NSObject {
     
     private func loadScheduleFromServer(tableView: LecturesTableViewController, semester: Semester, course: Course, season: String){
         
-        let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Schedule&stg=\(course.contraction)&sem=\(semester.name)&tt=\(season)"
+        let plainUrlString = "\(baseURI)client.php?f=Schedule&stg=\(course.contraction)&sem=\(semester.name)&tt=\(season)"
         
         let passInfo = String(format: "%@:%@", username, password)
         let passData = passInfo.data(using: .utf8)
@@ -130,7 +131,7 @@ class NetworkController: NSObject {
     
         private func loadChangesFromServer(tableView: ScheduleChangesTableViewController, season : String, semester : String, course : Course){
     
-            let plainUrlString = "https://www.hof-university.de/soap/client.php?f=Changes&stg=\(course.contraction)&sem=\(semester)&tt=\(season)"
+            let plainUrlString = "\(baseURI)client.php?f=Changes&stg=\(course.contraction)&sem=\(semester)&tt=\(season)"
     
             let passInfo = String(format: "%@:%@", username, password)
             let passData = passInfo.data(using: .utf8)
