@@ -15,6 +15,7 @@ class NetworkController: NSObject {
     private let baseURI = "https://www.hof-university.de/soap/"
     
     var cntSemesters = 0
+    var cntChanges = 0
     
     func loadCourses(tableView: CourseTableViewController){
         
@@ -55,15 +56,15 @@ class NetworkController: NSObject {
         let season = Settings.sharedInstance.tmpSeason.rawValue
         let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
         
+        cntSemesters = 0
         for course in selectedCourses{
             
             let selectedSemesters = course.semesters.selectedSemesters()
             //let courseName = course.contraction
             Settings.sharedInstance.tmpSchedule.clearSchedule()
-            cntSemesters = selectedSemesters.count
             
             for semester in selectedSemesters{
-                
+                cntSemesters += 1
                 //let semesterName = semester.name
                 loadScheduleFromServer(tableView: tableView, semester: semester ,course: course, season: season)
                 
@@ -115,13 +116,14 @@ class NetworkController: NSObject {
             let selectedCourses = Settings.sharedInstance.savedCourses.selectedCourses()
             
             Settings.sharedInstance.savedChanges.changes = []
+            cntChanges = 0
             for course in selectedCourses{
     
                 let selectedSemesters = course.semesters.selectedSemesters()
                 let courseName = course
     
                 for semester in selectedSemesters{
-    
+                    cntChanges += 1
                     let semesterName = semester.name
     
                     loadChangesFromServer(tableView: tableView, season: season, semester: semesterName, course: courseName)
@@ -147,14 +149,17 @@ class NetworkController: NSObject {
                 data, response, error in
     
                 DispatchQueue.main.async(execute: { () -> Void in
-                    
+                    self.cntChanges -= 1
                     if error != nil {
                         tableView.showNoInternetAlert()
                         tableView.endDownload()
                     } else{
                         Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!, course: course)!.changes))
                         Settings.sharedInstance.compareScheduleAndChanges()
-                        tableView.endDownload()
+                        if (self.cntChanges == 0)
+                        {
+                            tableView.endDownload()
+                        }
                     }
                 })
             })

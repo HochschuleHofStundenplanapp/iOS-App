@@ -37,7 +37,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         // Simply adding an object to the data source for this example
         datasource.reloadData(tableView: self)
-        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
     
     func beginDownload(){
