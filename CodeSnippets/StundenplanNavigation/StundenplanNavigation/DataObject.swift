@@ -68,6 +68,7 @@ class VersionDataObjectPersistency {
     
     func loadDataObject() -> DataObject {
         var item : DataObject!
+        var itemAny : Any?
         let file = dataFileForName(fileName)
         
         if (!FileManager.default.fileExists(atPath: file)) {
@@ -76,7 +77,15 @@ class VersionDataObjectPersistency {
         
         if let data = try? Data(contentsOf: URL(fileURLWithPath: file)) {
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            item = unarchiver.decodeObject(forKey: dataKey) as! DataObject
+            itemAny = unarchiver.decodeObject(forKey: dataKey)
+            // Code wegen Fehler bei der Versionierung in Version 1.0g
+            if itemAny == nil
+            {
+                item = DataObject()
+            }
+            else {
+                item = itemAny as! DataObject
+            }
             unarchiver.finishDecoding()
             
             return item
