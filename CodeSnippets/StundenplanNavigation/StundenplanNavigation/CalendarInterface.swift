@@ -101,7 +101,6 @@ class CalendarInterface: NSObject {
         var result = false
         var status :  EKAuthorizationStatus
         repeat {
-            print("Bad")
             status = EKEventStore.authorizationStatus(for: EKEntityType.event)
             switch (status) {
             case EKAuthorizationStatus.notDetermined:
