@@ -20,12 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Load Version
-        vData = VersionDataObjectPersistency().loadDataObject()
-        if (vData.Version == 1)
-        {
-            Settings.sharedInstance = DataObjectPersistency().loadDataObject()
-        }
+//        vData = VersionDataObjectPersistency().loadDataObject()
+//        if (vData.Version == 1)
+//        {
+//            Settings.sharedInstance = DataObjectPersistency().loadDataObject()
+//        }
 
+        // "Bugfix" für verkrüpeltes Version-Object
+        Settings.sharedInstance = DataObjectPersistency().loadDataObject()
         return true
     }
 
