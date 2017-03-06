@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            Settings.sharedInstance = DataObjectPersistency().loadDataObject()
 //        }
 
-        // "Bugfix" für verkrüpeltes Version-Object
+        // ##### "Bugfix" für verkrüpeltes Version-Object #####
+        vData = DataObject()
         Settings.sharedInstance = DataObjectPersistency().loadDataObject()
         return true
     }
@@ -39,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        // ##### Anpassung für echte Versions-Info nicht vergessen #####
         vData.Version = 1
         VersionDataObjectPersistency().saveDataObject(vData)
 
