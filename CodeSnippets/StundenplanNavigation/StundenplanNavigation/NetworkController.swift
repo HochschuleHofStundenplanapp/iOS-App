@@ -55,8 +55,8 @@ class NetworkController: NSObject {
         
         let season = Settings.sharedInstance.tmpSeason.rawValue
         let selectedCourses = Settings.sharedInstance.tmpCourses.selectedCourses()
-        
         cntSemesters = 0
+        
         for course in selectedCourses{
             
             let selectedSemesters = course.semesters.selectedSemesters()
