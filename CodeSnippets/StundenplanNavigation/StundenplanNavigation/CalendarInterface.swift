@@ -150,10 +150,24 @@ class CalendarInterface: NSObject {
         repeat {
             let event       = EKEvent(eventStore: self.eventStore)
             event.title     = lecture.name
+
+            var tmpDate = tmpStartdate
+            let hour = Calendar.current.component(.hour, from: lecture.starttime)
+            let minutes = Calendar.current.component(.minute, from: lecture.starttime)
+            // eine Stunde abziehen da beim Datum eine Stunde addiert wurde damit es nicht 23 Uhr am Tag zuvor ist.
+            tmpDate = Calendar.current.date(byAdding: .hour, value: hour-1, to: tmpDate)!
+            tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
+            event.startDate = tmpDate
             
-            event.startDate = tmpStartdate.addingTimeInterval((lecture.starttime.timeIntervalSinceReferenceDate))
-            event.endDate   = event.startDate.addingTimeInterval(60 * 90)
-            
+            let endHour = Calendar.current.component(.hour, from: lecture.endTime)
+            var duration = endHour - hour
+            // Stunde in Minuten umrechnen
+            duration = duration * 60
+            // Minuten ausrechnen
+            let endMinutes = Calendar.current.component(.minute, from: lecture.endTime)
+            // Minuten hinzufügen oder abziehen
+            duration = duration + (endMinutes - minutes)
+            event.endDate   = Calendar.current.date(byAdding: .minute, value: duration, to: event.startDate)!
             
             let str = lecture.room
             let index = str.index(str.startIndex, offsetBy : 4)
@@ -174,7 +188,8 @@ class CalendarInterface: NSObject {
             }
             
             events.append(event)
-            //tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
+            
+            // startdate für die nächste Vorlesung in einer Woche setzen
             tmpStartdate = Calendar.current.date(byAdding: .day, value: 7, to: tmpStartdate)!
         } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0)
         
@@ -183,6 +198,19 @@ class CalendarInterface: NSObject {
     
     // Zeit und Datum in einer Variable kombinieren
     private func combineDayAndTime(date : Date, time : Date) -> Date {
+        /*
+         TODO dafür bräuchte man Änderungen zum testen:
+        var tmpDate = date
+        let hour = Calendar.current.component(.hour, from: time)
+        let minutes = Calendar.current.component(.minute, from: time)
+        tmpDate = Calendar.current.date(byAdding: .hour, value: hour, to: tmpDate)!
+        tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
+        // TODO vielleicht nicht mehr nötig
+        tmpDate = Calendar.current.date(byAdding: .hour, value: 1, to: tmpDate)!
+        return tmpDate
+         
+         deswegen hier liebr noch das alte stehen lassen:
+         */
         return date.addingTimeInterval((time.timeIntervalSinceReferenceDate) + (60 * 60))
     }
     
