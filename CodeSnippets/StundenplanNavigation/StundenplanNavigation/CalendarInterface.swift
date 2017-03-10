@@ -198,20 +198,14 @@ class CalendarInterface: NSObject {
     
     // Zeit und Datum in einer Variable kombinieren
     private func combineDayAndTime(date : Date, time : Date) -> Date {
-        /*
-         TODO dafür bräuchte man Änderungen zum testen:
+        
         var tmpDate = date
         let hour = Calendar.current.component(.hour, from: time)
         let minutes = Calendar.current.component(.minute, from: time)
         tmpDate = Calendar.current.date(byAdding: .hour, value: hour, to: tmpDate)!
         tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
-        // TODO vielleicht nicht mehr nötig
-        tmpDate = Calendar.current.date(byAdding: .hour, value: 1, to: tmpDate)!
+        
         return tmpDate
-         
-         deswegen hier liebr noch das alte stehen lassen:
-         */
-        return date.addingTimeInterval((time.timeIntervalSinceReferenceDate) + (60 * 60))
     }
     
     // Schreibt übergebene Events in den Kalender
