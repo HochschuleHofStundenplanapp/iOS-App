@@ -174,7 +174,8 @@ class CalendarInterface: NSObject {
             }
             
             events.append(event)
-            tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
+            //tmpStartdate = tmpStartdate.addingTimeInterval(60.0 * 60.0 * 24 * 7)
+            tmpStartdate = Calendar.current.date(byAdding: .day, value: 7, to: tmpStartdate)!
         } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0)
         
         return events
