@@ -19,7 +19,7 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     
     
     init(tableView: ScheduleChangesTableViewController) {
-
+        
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
@@ -47,20 +47,24 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
             
             let changedLectures = Settings.sharedInstance.savedChanges.changes
             
-            cell.oldDateLabel.text         = dateFormatter.string(from: changedLectures[indexPath.section].oldDate)
-            cell.oldTimeLabel.text         = timeFormatter.string(from: changedLectures[indexPath.section].oldTime)
-            cell.oldRoomLabel.text         = changedLectures[indexPath.section].oldRoom
             
-            if (changedLectures[indexPath.section].newDate != nil)
-            {
-                cell.newDateLabel.text = dateFormatter.string(from: changedLectures[indexPath.section].newDate!)
-                cell.newTimeLabel.text = timeFormatter.string(from: changedLectures[indexPath.section].newTime!)
-                cell.newRoomLabel.text = changedLectures[indexPath.section].newRoom
-            }
-            else {
-                cell.newDateLabel.text = "Entfällt"
-                cell.newTimeLabel.text = "wegen"
-                cell.newRoomLabel.text = "Erkrankung"
+            if(changedLectures.count != 0){
+                
+                cell.oldDateLabel.text         = dateFormatter.string(from: changedLectures[indexPath.section].oldDate)
+                cell.oldTimeLabel.text         = timeFormatter.string(from: changedLectures[indexPath.section].oldTime)
+                cell.oldRoomLabel.text         = changedLectures[indexPath.section].oldRoom
+                
+                if (changedLectures[indexPath.section].newDate != nil)
+                {
+                    cell.newDateLabel.text = dateFormatter.string(from: changedLectures[indexPath.section].newDate!)
+                    cell.newTimeLabel.text = timeFormatter.string(from: changedLectures[indexPath.section].newTime!)
+                    cell.newRoomLabel.text = changedLectures[indexPath.section].newRoom
+                }
+                else {
+                    cell.newDateLabel.text = "Entfällt"
+                    cell.newTimeLabel.text = "wegen"
+                    cell.newRoomLabel.text = "Erkrankung"
+                }
             }
             return cell
         }
@@ -87,7 +91,12 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
             return ""
         }
         let changedLectures = Settings.sharedInstance.savedChanges.changes
-        return changedLectures[section].name
+        if(changedLectures.count != 0){
+            return changedLectures[section].name
+        } else {
+            
+            return ""
+        }
     }
-
+    
 }
