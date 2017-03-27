@@ -65,11 +65,13 @@ class JsonSchedule: NSObject {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy"
+            dateFormatter.locale = Locale(identifier: "de_DE")
             var newStartDate = dateFormatter.date(from: startd)
             var newEndDate = dateFormatter.date(from: endd)
             
             let timeFormatter = DateFormatter()
             timeFormatter.dateFormat = "HH:mm"
+            timeFormatter.locale = Locale(identifier: "de_DE")
             var newStartTime = timeFormatter.date(from: startt)
             var newEndTime = timeFormatter.date(from: endt)
             

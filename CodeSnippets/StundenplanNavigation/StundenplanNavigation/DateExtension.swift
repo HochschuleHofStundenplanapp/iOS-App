@@ -85,10 +85,10 @@ extension Date {
         
         if semester == "SS" {
                 
-            if checkSemester() == "SS" && currentDate > startSummer {
-                return currentDate
-            }
-                
+//            if checkSemester() == "SS" && currentDate > startSummer {
+//                return currentDate
+//            }
+            
             let difMonths = startSummerComponents.month! - currentMonth
             let difDays = startSummerComponents.day! - currentDay
                 
@@ -120,9 +120,9 @@ extension Date {
         
         if semester == "WS"{
         
-            if checkSemester() == "WS" && currentDate > startWinter {
-                return currentDate
-            }
+//            if checkSemester() == "WS" && currentDate > startWinter {
+//                return currentDate
+//            }
         
             let difMonths = startWinterComponents.month! - currentMonth
             let difDays = startWinterComponents.day! - currentDay

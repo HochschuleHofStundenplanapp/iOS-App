@@ -17,8 +17,12 @@ class NetworkController: NSObject {
     var cntSemesters = 0
     var cntChanges = 0
     
+    /**
+     - parameters:
+       - tableView: ViewControler des aufrufenden Views
+     */
     func loadCourses(tableView: CourseTableViewController){
-        
+            
         tableView.beginDownload()
         let season = Settings.sharedInstance.tmpSeason.rawValue
         
