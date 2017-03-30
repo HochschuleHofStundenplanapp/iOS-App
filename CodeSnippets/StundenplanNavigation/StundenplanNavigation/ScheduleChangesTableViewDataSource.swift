@@ -18,7 +18,7 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     var changesAreEmpty = true
     
     
-    init(tableView: ScheduleChangesTableViewController) {
+    override init() {
         
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -26,12 +26,11 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
         
-        
     }
     
-    func reloadData(tableView : ScheduleChangesTableViewController){
+    func reloadData(){
         networkController = NetworkController()
-        networkController.loadChanges(tableView: tableView)
+        networkController.loadChanges()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -41,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
         
         saveChangesButton.setTitle(title, for: .normal)
         
-        if Settings.sharedInstance.tmpSeason == .summer {
+        if Settings.sharedInstance.tmpSeason == .Summer {
             segmentControl.selectedSegmentIndex = 0
         }else{
             segmentControl.selectedSegmentIndex = 1
@@ -119,10 +119,10 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            Settings.sharedInstance.tmpSeason = .summer
+            Settings.sharedInstance.tmpSeason = .Summer
             setDetailLabels()
         }else{
-            Settings.sharedInstance.tmpSeason = .winter
+            Settings.sharedInstance.tmpSeason = .Winter
             setDetailLabels()
         }
     }

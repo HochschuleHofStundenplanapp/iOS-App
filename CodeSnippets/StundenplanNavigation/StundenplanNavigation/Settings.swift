@@ -8,13 +8,12 @@
 
 import UIKit
 
-enum Season : String {
-    case summer = "SS"
-    case winter = "WS"    
-}
+
 
 class Settings: NSObject, NSCoding {
 
+    dynamic var status: Status = .DataLoaded
+    
     let ssWsKey = "settings_SavedSsws"
     let savedCoursesKey = "settings_SavedCourses"
     let savedScheduleKey = "settings_SavedSchedule"
@@ -24,7 +23,7 @@ class Settings: NSObject, NSCoding {
     private override init(){}
     
     required init?(coder aDecoder: NSCoder) {
-        savedSsws = Season.init(rawValue: aDecoder.decodeObject(forKey: ssWsKey) as! String)!
+        savedSsws = Season.init(term: aDecoder.decodeObject(forKey: ssWsKey) as! String)!
         savedCourses = aDecoder.decodeObject(forKey: savedCoursesKey) as! Courses
         savedSchedule = aDecoder.decodeObject(forKey: savedScheduleKey) as! Schedule
         savedCalSync = aDecoder.decodeBool(forKey: savedCalSyncKey)
@@ -38,12 +37,12 @@ class Settings: NSObject, NSCoding {
     }
     
     //Temporäre Daten
-    private var _tmpSsws: Season = .summer
+    private var _tmpSsws: Season = .Summer
     var tmpCourses: Courses = Courses()
     var tmpSchedule: Schedule = Schedule()
     
     //Gespeicherte Daten
-    var savedSsws: Season = .summer
+    var savedSsws: Season = .Summer
     var savedCourses: Courses = Courses()
     var savedSchedule: Schedule = Schedule()
     var savedChanges: Changes = Changes()

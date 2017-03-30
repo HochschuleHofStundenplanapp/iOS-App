@@ -20,7 +20,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
         
-        datasource = ScheduleChangesTableViewDataSource(tableView: self)
+        datasource = ScheduleChangesTableViewDataSource()
         delegate = ScheduleChangesTableViewDelegate()
         
         scheduleChangesTableView.dataSource = datasource
@@ -29,14 +29,30 @@ class ScheduleChangesTableViewController: UITableViewController {
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
     
+        
+        //Register Observer
+        Settings.sharedInstance.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(), context: nil)
+        
     }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "status"{
+            if Settings.sharedInstance.status == .NoInternet {
+                showNoInternetAlert()
+            }
+            else if Settings.sharedInstance.status == .DataLoaded{
+                endDownload()
+            }
+        } 
+    }
+    
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
         
         // Simply adding an object to the data source for this example
-        datasource.reloadData(tableView: self)
+        datasource.reloadData()
         self.refreshControl?.endRefreshing()
     }
     
@@ -88,7 +104,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = Constants.HAWYellow
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.HAWYellow]
-        self.datasource.reloadData(tableView: self)
+        self.datasource.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

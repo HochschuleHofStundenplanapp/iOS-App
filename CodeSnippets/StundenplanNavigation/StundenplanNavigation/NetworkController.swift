@@ -129,7 +129,7 @@ class NetworkController: NSObject {
         task.resume()
     }
     
-        func loadChanges(tableView: ScheduleChangesTableViewController){
+        func loadChanges(){
     
             //Clear Changes
             
@@ -147,12 +147,12 @@ class NetworkController: NSObject {
                     cntChanges += 1
                     let semesterName = semester.name
     
-                    loadChangesFromServer(tableView: tableView, season: season, semester: semesterName, course: courseName)
+                    loadChangesFromServer(season: season, semester: semesterName, course: courseName)
                 }
             }
         }
     
-        private func loadChangesFromServer(tableView: ScheduleChangesTableViewController, season : String, semester : String, course : Course){
+        private func loadChangesFromServer(season : String, semester : String, course : Course){
     
             let plainUrlString = "\(baseURI)client.php?f=Changes&stg=\(course.contraction)&sem=\(semester)&tt=\(season)"
     
@@ -172,14 +172,21 @@ class NetworkController: NSObject {
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.cntChanges -= 1
                     if error != nil {
-                        tableView.showNoInternetAlert()
-                        tableView.endDownload()
+                        
+                        
+                        Settings.sharedInstance.status = .NoInternet
+                        
+//                        tableView.showNoInternetAlert()
+//                        tableView.endDownload()
                     } else{
                         Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!, course: course)!.changes))
                         Settings.sharedInstance.compareScheduleAndChanges()
                         if (self.cntChanges == 0)
                         {
-                            tableView.endDownload()
+                            
+                            Settings.sharedInstance.status = .DataLoaded
+                            
+//                            tableView.endDownload()
                         }
                     }
                 })
