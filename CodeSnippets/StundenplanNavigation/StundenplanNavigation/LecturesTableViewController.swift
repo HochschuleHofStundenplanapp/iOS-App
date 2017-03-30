@@ -17,6 +17,10 @@ class LecturesTableViewController: UITableViewController {
     
     var popUpMenueVC : PopUpMenueViewController!
     var popUpMenueDelegate : PopUpMenueDelegate = PopUpMenueDelegate()
+    
+    let myEndDownload =  Notification.Name("endDownload")
+    let myNoInternet = Notification.Name("noInternet")
+
 
     
     @IBAction func selectAllCells(_ sender: UIBarButtonItem) {
@@ -46,6 +50,10 @@ class LecturesTableViewController: UITableViewController {
         
         delegate = LecturesTableViewDelegate(ctrl: self)
         lectureTableView.delegate = delegate
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LecturesTableViewController.endDownload), name: myEndDownload, object: nil )
+        NotificationCenter.default.addObserver(self, selector: #selector(LecturesTableViewController.showNoInternetAlert), name: myNoInternet, object: nil )
+
     }
     
     func beginDownload(){
