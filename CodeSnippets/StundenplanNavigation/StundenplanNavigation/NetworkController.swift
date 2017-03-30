@@ -14,9 +14,6 @@ class NetworkController: NSObject {
     private let password = "F%98z&12"
     private let baseURI = "https://www.hof-university.de/soap/"
     
-    let myEndDownload =  Notification.Name("endDownload")
-    let myNoInternet = Notification.Name("noInternet")
-    
     var cntSemesters = 0
     var cntChanges = 0
     
@@ -80,16 +77,16 @@ class NetworkController: NSObject {
     }
     
     func notifyEndDownlaod(){
-        NotificationCenter.default.post(name: myEndDownload, object: nil)
+        NotificationCenter.default.post(name: Constants.myEndDownload, object: nil)
     }
     
     func notifyNoInternet(){
-        NotificationCenter.default.post(name: myNoInternet, object: nil)
+        NotificationCenter.default.post(name: Constants.myNoInternet , object: nil)
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self.myNoInternet)
-        NotificationCenter.default.removeObserver(self.myEndDownload)
+        NotificationCenter.default.removeObserver(Constants.myNoInternet)
+        NotificationCenter.default.removeObserver(Constants.myEndDownload)
     }
     
     
