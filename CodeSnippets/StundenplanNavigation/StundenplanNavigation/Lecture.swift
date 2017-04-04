@@ -18,8 +18,6 @@ class Lecture : NSObject, NSCopying, NSCoding {
     var lecturer: String
     var type: String
     var group: String
-    var starttime: Date
-    var endTime: Date
     var startdate: Date
     var enddate: Date
     var day: String
@@ -34,8 +32,6 @@ class Lecture : NSObject, NSCopying, NSCoding {
     let lecturerKey = "lectureLecturer"
     let typeKey = "lectureType"
     let groupKey = "lectureGroup"
-    let starttimeKey = "lectureStarttime"
-    let endTimeKey = "lectureEndTime"
     let startdateKey = "lectureStartdate"
     let enddateKey = "lectureEnddate"
     let dayKey = "lectureDay"
@@ -46,14 +42,12 @@ class Lecture : NSObject, NSCopying, NSCoding {
     let commentKey = "lectureComment"
     let eventIDsKey = "lectureEventIDs"
     
-    init(id: Int, name: String, lecturer: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: Course, semester: Semester, comment : String, selected: Bool, eventIDs: [String]) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, semester: Semester, comment : String, selected: Bool, eventIDs: [String]) {
         self.id = id
         self.name = name
         self.lecturer = lecturer
         self.type = type
         self.group = group
-        self.starttime = starttime
-        self.endTime = endTime
         self.startdate = startdate
         self.enddate = enddate
         self.day = day
@@ -65,9 +59,41 @@ class Lecture : NSObject, NSCopying, NSCoding {
         self.eventIDs = eventIDs
     }
     
-    convenience init(id: Int, name: String, lecture: String, type: String, group: String, starttime: Date, endTime: Date, startdate: Date, enddate: Date, day: String, room: String, course: Course,semester: Semester, comment : String, eventIDs: [String]) {
+    convenience init(id: Int, name: String, lecture: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course,semester: Semester, comment : String, eventIDs: [String]) {
         
-        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, starttime: starttime, endTime: endTime, startdate: startdate, enddate: enddate, day: day, room: room, course: course, semester: semester, comment: comment, selected: false, eventIDs: eventIDs )
+        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, startdate: startdate, enddate: enddate, day: day, room: room, course: course, semester: semester, comment: comment, selected: false, eventIDs: eventIDs )
+    }
+    
+    var startTime: Date {
+        get {
+            let calendar = Calendar.current
+            
+            let hour = calendar.component(.hour, from: startdate)
+            let minutes = calendar.component(.minute, from: startdate)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            dateFormatter.locale = Locale(identifier: "de_DE")
+            let start = dateFormatter.date(from:"\(hour) \(minutes)")
+            
+            return start!
+        }
+    }
+    
+    var endTime: Date {
+        get {
+            let calendar = Calendar.current
+            
+            let hour = calendar.component(.hour, from: enddate)
+            let minutes = calendar.component(.minute, from: enddate)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            dateFormatter.locale = Locale(identifier: "de_DE")
+            let end = dateFormatter.date(from:"\(hour) \(minutes)")
+            
+            return end!
+        }
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
@@ -78,16 +104,16 @@ class Lecture : NSObject, NSCopying, NSCoding {
             newEventIDs.append(id.copy() as! String)
         }
         
-        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, starttime: self.starttime, endTime: self.endTime, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, semester: self.semester, comment: self.comment, selected: self.selected, eventIDs: newEventIDs)
+        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, semester: self.semester, comment: self.comment, selected: self.selected, eventIDs: newEventIDs)
         return copy
     }
     
     static func == (lhs: Lecture, rhs: Lecture) -> Bool {
-        return (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.course.contraction == rhs.course.contraction) && (lhs.day == rhs.day) && (lhs.starttime == rhs.starttime) && (lhs.group == rhs.group)
+        return (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.course.contraction == rhs.course.contraction) && (lhs.day == rhs.day) && (lhs.startdate == rhs.enddate) && (lhs.group == rhs.group)
     }
     
     override var hashValue: Int {
-        return "\(name)\(room)\(day)\(starttime)".hashValue
+        return "\(name)\(room)\(day)\(startdate)".hashValue
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,8 +122,6 @@ class Lecture : NSObject, NSCopying, NSCoding {
         lecturer = aDecoder.decodeObject(forKey: lecturerKey) as! String
         type = aDecoder.decodeObject(forKey: typeKey) as! String
         group = aDecoder.decodeObject(forKey: groupKey) as! String
-        starttime = aDecoder.decodeObject(forKey: starttimeKey) as! Date
-        endTime = aDecoder.decodeObject(forKey: endTimeKey) as! Date
         startdate = aDecoder.decodeObject(forKey: startdateKey) as! Date
         enddate = aDecoder.decodeObject(forKey: enddateKey) as! Date
         day = aDecoder.decodeObject(forKey: dayKey) as! String
@@ -116,8 +140,6 @@ class Lecture : NSObject, NSCopying, NSCoding {
         aCoder.encode(lecturer, forKey: lecturerKey)
         aCoder.encode(type, forKey: typeKey)
         aCoder.encode(group, forKey: groupKey)
-        aCoder.encode(starttime, forKey: starttimeKey)
-        aCoder.encode(endTime, forKey: endTimeKey)
         aCoder.encode(startdate, forKey: startdateKey)
         aCoder.encode(enddate, forKey: enddateKey)
         aCoder.encode(day, forKey: dayKey)

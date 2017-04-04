@@ -178,7 +178,7 @@ class Schedule : NSObject, NSCopying, NSCoding{
             }
             if lectures[index].count > 1
             {
-                lectures[index].sort{$0.starttime < $1.starttime}
+                lectures[index].sort{$0.startdate < $1.startdate}
             }
         }
 

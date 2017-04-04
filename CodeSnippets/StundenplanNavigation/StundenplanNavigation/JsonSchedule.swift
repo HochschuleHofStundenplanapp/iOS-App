@@ -64,26 +64,20 @@ class JsonSchedule: NSObject {
             let newId = Int(id)
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy"
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
             dateFormatter.locale = Locale(identifier: "de_DE")
-            var newStartDate = dateFormatter.date(from: startd)
-            var newEndDate = dateFormatter.date(from: endd)
-            
-            let timeFormatter = DateFormatter()
-            timeFormatter.dateFormat = "HH:mm"
-            timeFormatter.locale = Locale(identifier: "de_DE")
-            var newStartTime = timeFormatter.date(from: startt)
-            var newEndTime = timeFormatter.date(from: endt)
-            
+            print("xxxxxxxxxxxxxxxx")
+            print(startd + " " + startt)
+            print("xxxxxxxxxxxxxxxx")
+            var newStartDate = dateFormatter.date(from: startd + " " + startt)
+            var newEndDate = dateFormatter.date(from: endd  + " " + endt)
+                    
             let ssws = Settings.sharedInstance.tmpSeason.rawValue
             
             newStartDate = newStartDate?.startLecture(weekdayString: day, semester: ssws)
             newEndDate = newEndDate?.endLecture(weekdayString: day, semester: ssws)
-            newStartTime = newStartTime?.changeTimeDate(date: newStartTime!)
-            newEndTime = newEndTime?.changeTimeDate(date: newEndTime!)
             
-
-            let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, starttime:newStartTime!, endTime: newEndTime!, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course,semester:semester, comment: comment, eventIDs: eventIDs)
+            let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course,semester:semester, comment: comment, eventIDs: eventIDs)
             pSchedule?.append(newLecture)
         }
     }

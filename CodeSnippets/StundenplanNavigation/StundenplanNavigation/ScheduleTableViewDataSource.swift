@@ -45,7 +45,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             let schedule = Settings.sharedInstance.savedSchedule.selectedLectures()
             
 //            let startDate = schedule[indexPath.section][indexPath.row].startdate
-            let startTime = schedule[indexPath.section][indexPath.row].starttime
+            let startTime = schedule[indexPath.section][indexPath.row].startTime
             let endTime = schedule[indexPath.section][indexPath.row].endTime
             
 //            var startDateString = ""

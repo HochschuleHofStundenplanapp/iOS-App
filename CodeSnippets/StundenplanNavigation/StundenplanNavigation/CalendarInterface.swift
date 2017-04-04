@@ -152,8 +152,8 @@ class CalendarInterface: NSObject {
             event.title     = lecture.name
 
             var tmpDate = tmpStartdate
-            let hour = Calendar.current.component(.hour, from: lecture.starttime)
-            let minutes = Calendar.current.component(.minute, from: lecture.starttime)
+            let hour = Calendar.current.component(.hour, from: lecture.startTime)
+            let minutes = Calendar.current.component(.minute, from: lecture.startTime)
             // eine Stunde abziehen da beim Datum eine Stunde addiert wurde damit es nicht 23 Uhr am Tag zuvor ist.
             tmpDate = Calendar.current.date(byAdding: .hour, value: hour-1, to: tmpDate)!
             tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
@@ -196,17 +196,17 @@ class CalendarInterface: NSObject {
         return events
     }
     
-    // Zeit und Datum in einer Variable kombinieren
-    private func combineDayAndTime(date : Date, time : Date) -> Date {
-        
-        var tmpDate = date
-        let hour = Calendar.current.component(.hour, from: time)
-        let minutes = Calendar.current.component(.minute, from: time)
-        tmpDate = Calendar.current.date(byAdding: .hour, value: hour, to: tmpDate)!
-        tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
-        
-        return tmpDate
-    }
+//    // Zeit und Datum in einer Variable kombinieren
+//    private func combineDayAndTime(date : Date, time : Date) -> Date {
+//        
+//        var tmpDate = date
+//        let hour = Calendar.current.component(.hour, from: time)
+//        let minutes = Calendar.current.component(.minute, from: time)
+//        tmpDate = Calendar.current.date(byAdding: .hour, value: hour, to: tmpDate)!
+//        tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
+//        
+//        return tmpDate
+//    }
     
     // Schreibt übergebene Events in den Kalender
     private func createEvent(p_event: EKEvent, lecture : Lecture){
@@ -263,7 +263,7 @@ class CalendarInterface: NSObject {
         for id in lecture.eventIDs {
             let event = self.eventStore.event(withIdentifier: id)
             //dump(event)
-            if(event?.title == change.name && event?.startDate == combineDayAndTime(date: change.oldDate, time: change.oldTime)){
+            if(event?.title == change.name && event?.startDate == change.oldDate ){
                 result = id
             }
         }
@@ -281,12 +281,12 @@ class CalendarInterface: NSObject {
         
         if((event) != nil) {
             if (change.newDay != "") {
-                if (event?.startDate != combineDayAndTime(date: change.newDate!, time: change.newTime!)) {
+                if (event?.startDate != change.newDate) {
                     let newEvent = EKEvent(eventStore: self.eventStore)
                     
                     newEvent.title     = "[NEU] " + change.name
                     newEvent.notes     = event?.notes
-                    newEvent.startDate = combineDayAndTime(date: change.newDate!, time: change.newTime!)
+                    newEvent.startDate = change.newDate!
                     newEvent.endDate   = (newEvent.startDate + 60 * 90)
                     
                     let str = lecture.room

@@ -85,7 +85,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         let timeFormatter = DateFormatter()
         timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
         timeFormatter.dateFormat = "HH:mm"
-        startTimeString = timeFormatter.string(from: lecture.starttime)
+        startTimeString = timeFormatter.string(from: lecture.startTime)
         endTimeString = timeFormatter.string(from: lecture.endTime)
         
         cell.timeLabel.text = startTimeString + " - " + endTimeString

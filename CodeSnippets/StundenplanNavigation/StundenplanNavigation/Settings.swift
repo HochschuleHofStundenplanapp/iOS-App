@@ -86,7 +86,7 @@ class Settings: NSObject, NSCoding {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
         
-        let oldTime = timeFormatter.string(from: lecture.starttime)
+        let oldTime = timeFormatter.string(from: lecture.startTime)
         let newChangedTime = timeFormatter.string(from: chLecture.oldTime)
         
         return (lecture.name == chLecture.name) && (lecture.room == chLecture.oldRoom) && (lecture.day == chLecture.oldDay) && (oldTime == newChangedTime) && (lecture.course.contraction == chLecture.course.contraction) && (lecture.group == chLecture.group)
