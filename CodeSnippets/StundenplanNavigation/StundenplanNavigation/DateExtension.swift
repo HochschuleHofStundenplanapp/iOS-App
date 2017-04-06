@@ -270,16 +270,21 @@ extension Date {
             difDays = lectureWeekday - startSemesterWeekday + 7
         }
         
-        var newLectureStartDate : Date = calendar.date(byAdding: .day, value: difDays, to: startSemesterDate)!
-        newLectureStartDate = calendar.date(bySetting: .hour, value: hour, of: newLectureStartDate)!
-        newLectureStartDate = calendar.date(bySetting: .minute, value: minute, of: newLectureStartDate)!
-        
+        let newLectureStartDate : Date = calendar.date(byAdding: .day, value: difDays, to: startSemesterDate)!
+
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy HH:mm "
+        dateFormatter.dateFormat = "dd.MM.yy"
         dateFormatter.locale = Locale(identifier: "de_DE")
-        let finalStartString : String = dateFormatter.string(from: newLectureStartDate)
-        let finalStartDate : Date = dateFormatter.date(from: finalStartString)!
+        var finalStartString : String = dateFormatter.string(from: newLectureStartDate)
         
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateFormat = "dd.MM.yy HH:mm"
+        newDateFormatter.locale = Locale(identifier: "de_DE")
+        
+        finalStartString = finalStartString + " \(hour):\(minute)"
+        
+        let finalStartDate : Date = newDateFormatter.date(from: finalStartString)!
+       
         return finalStartDate
     }
     
@@ -308,16 +313,21 @@ extension Date {
             difDays = lectureWeekday - endSemesterWeekday
         }
         
-        var newLectureEndDate : Date = calendar.date(byAdding: .day, value: difDays, to: endSemesterDate)!
-        newLectureEndDate = calendar.date(bySetting: .hour, value: hour, of: newLectureEndDate)!
-        newLectureEndDate = calendar.date(bySetting: .minute, value: minute, of: newLectureEndDate)!
-        
+        let newLectureEndDate : Date = calendar.date(byAdding: .day, value: difDays, to: endSemesterDate)!
+
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy HH:mm "
+        dateFormatter.dateFormat = "dd.MM.yy"
         dateFormatter.locale = Locale(identifier: "de_DE")
-        let finalEndString : String = dateFormatter.string(from: newLectureEndDate)
-        let finalEndDate : Date = dateFormatter.date(from: finalEndString)!
+        var finalEndString : String = dateFormatter.string(from: newLectureEndDate)
+
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateFormat = "dd.MM.yy HH:mm"
+        newDateFormatter.locale = Locale(identifier: "de_DE")
         
+        finalEndString = finalEndString + " \(hour):\(minute)"
+
+        let finalEndDate : Date = newDateFormatter.date(from: finalEndString)!
+
         return finalEndDate
     }
     

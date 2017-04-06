@@ -66,16 +66,15 @@ class JsonSchedule: NSObject {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
             dateFormatter.locale = Locale(identifier: "de_DE")
-            print("xxxxxxxxxxxxxxxx")
-            print(startd + " " + startt)
-            print("xxxxxxxxxxxxxxxx")
+
             var newStartDate = dateFormatter.date(from: startd + " " + startt)
             var newEndDate = dateFormatter.date(from: endd  + " " + endt)
-                    
+            
             let ssws = Settings.sharedInstance.tmpSeason.rawValue
             
             newStartDate = newStartDate?.startLecture(startDate: newStartDate!,weekdayString: day, semester: ssws)
             newEndDate = newEndDate?.endLecture(endDate: newEndDate!, weekdayString: day, semester: ssws)
+
             
             let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course,semester:semester, comment: comment, eventIDs: eventIDs)
             pSchedule?.append(newLecture)
