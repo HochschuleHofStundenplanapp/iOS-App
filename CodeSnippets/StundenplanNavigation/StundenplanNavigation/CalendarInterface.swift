@@ -111,152 +111,16 @@ class CalendarInterface: NSObject {
         if (checkCalendarAuthorizationStatus()) {
             createCalenderIfNeeded()
             for lecture in lectures{
-                createEventsForLecture(lecture: lecture)
+                CalendarController().createEventsForLecture(lecture: lecture, calendar: calendar! , eventStore: eventStore)
             }
         }
     }
-    
-    // Erzeugt ein Event und schreibt es in den Kalender
-    private func createEventsForLecture(lecture: Lecture) {
-        let events = lectureToEKEventCreate(lecture: lecture)
-        
-        for event in events {
-            event.calendar  = self.calendar!
-            
-            do {
-                try self.eventStore.save(event, span: .thisEvent)
-            } catch {
-                print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
-            }
-            
-            lecture.eventIDs.append(event.eventIdentifier)
-        }
-    }
-    
-    // Erzeugt ein EKEvent aus einer Lecture
-    func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
-        var tmpStartdate = lecture.startdate
-        var events = [EKEvent]()
-        
-        repeat {
-            let event       = EKEvent(eventStore: self.eventStore)
-            event.title     = lecture.name
-            
-            var tmpDate = tmpStartdate
-            let hour = Calendar.current.component(.hour, from: lecture.startTime)
-            let minutes = Calendar.current.component(.minute, from: lecture.startTime)
-
-            event.startDate = tmpDate
-            
-            let endHour = Calendar.current.component(.hour, from: lecture.endTime)
-            var duration = endHour - hour
-            // Stunde in Minuten umrechnen
-            duration = duration * 60
-            // Minuten ausrechnen
-            let endMinutes = Calendar.current.component(.minute, from: lecture.endTime)
-            // Minuten hinzufügen oder abziehen
-            duration = duration + (endMinutes - minutes)
-            event.endDate   = Calendar.current.date(byAdding: .minute, value: duration, to: event.startDate)!
-            
-            event.location = getLocationInfo(room: lecture.room) + " ," + lecture.room
-
-            event.notes = lecture.comment + "  " + lecture.group
-            
-            if (Constants.calendarAlarmOffset > 0) {
-                var ekAlarms = [EKAlarm]()
-                ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
-                event.alarms    = ekAlarms
-            }
-            
-            events.append(event)
-            
-            // startdate für die nächste Vorlesung in einer Woche setzen
-            tmpStartdate = Calendar.current.date(byAdding: .day, value: 7, to: tmpStartdate)!
-        } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0)
-        
-        return events
-    }
-    
-    //    // Zeit und Datum in einer Variable kombinieren
-    //    private func combineDayAndTime(date : Date, time : Date) -> Date {
-    //
-    //        var tmpDate = date
-    //        let hour = Calendar.current.component(.hour, from: time)
-    //        let minutes = Calendar.current.component(.minute, from: time)
-    //        tmpDate = Calendar.current.date(byAdding: .hour, value: hour, to: tmpDate)!
-    //        tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
-    //
-    //        return tmpDate
-    //    }
-    
-    // Schreibt übergebene Events in den Kalender
-    private func createEvent(p_event: EKEvent, lecture : Lecture){
-        let event       = EKEvent(eventStore: self.eventStore)
-        event.title     = p_event.title
-        event.notes     = p_event.notes
-        event.startDate = p_event.startDate
-        event.endDate   = p_event.endDate
-        event.location  = p_event.location
-        
-        if (Constants.calendarAlarmOffset > 0) {
-            var ekAlarms = [EKAlarm]()
-            ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
-            event.alarms    = ekAlarms
-        }
-        
-        event.calendar  = self.calendar!
-        
-        do {
-            try self.eventStore.save(event, span: .thisEvent)
-        } catch {
-            print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
-        }
-        
-        lecture.eventIDs.append(event.eventIdentifier)
-    }
-    
-    // Aktualisiert Werte aller Events
-    func updateAllEvents( changes : Changes){
-        if (checkCalendarAuthorizationStatus()) {
-            for change in changes.changes {
-                updateEvent(change: change)
-            }
-        }
-    }
-    
-    // Findet eine Lecutre anhand des Hashes
-    private func findLecture(change : ChangedLecture) -> Lecture {
-        var result : Lecture? = nil
-        let changeHashValue = "\(change.name)\(change.oldRoom)\(change.oldDay)\(change.oldTime)".hashValue
-        
-        for lecture in Settings.sharedInstance.savedSchedule.selLectures {
-            if(lecture.hashValue == changeHashValue){
-                result = lecture
-            }
-        }
-        return result!
-    }
-    
-    // ID eines Events im Kalender wird gesucht und zurückgegeben
-    private func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
-        
-        var result = ""
-        for id in lecture.eventIDs {
-            let event = self.eventStore.event(withIdentifier: id)
-            //dump(event)
-            if(event?.title == change.name && event?.startDate == change.oldDate ){
-                result = id
-            }
-        }
-        return result
-    }
-    
-    
+                
     // Aktualisiert Werte des übergebenem Events
-    private func updateEvent(change : ChangedLecture) {
-        let lecture = findLecture(change: change)
+    func updateEvent(change : ChangedLecture) {
+        let lecture = CalendarController().findLecture(change: change)
         
-        let eventID = findEventId(lecture: lecture, change: change)
+        let eventID = CalendarController().findEventId(lecture: lecture, change: change, eventStore: eventStore)
         
         let event = self.eventStore.event(withIdentifier: eventID)
         
@@ -270,12 +134,12 @@ class CalendarInterface: NSObject {
                     newEvent.startDate = change.newDate!
                     newEvent.endDate   = (newEvent.startDate + 60 * 90)
                     
-                    newEvent.location = getLocationInfo(room: lecture.room) + " ," + lecture.room.appending(", \(change.newRoom)")
+                    newEvent.location = CalendarController().getLocationInfo(room: lecture.room) + " ," + lecture.room.appending(", \(change.newRoom)")
                    
                     newEvent.calendar  = self.calendar!
                     newEvent.notes = lecture.comment + "  " + lecture.group
                     
-                    createEvent(p_event: newEvent , lecture: lecture)
+                    CalendarController().createEvent(p_event: newEvent , lecture: lecture, eventStore: eventStore, calendar: calendar!)
                     
                     event?.title    = Constants.changesChanged + change.name
                     event?.location = nil
@@ -283,7 +147,7 @@ class CalendarInterface: NSObject {
                 } else {
                     event?.title     = Constants.changesRoomChanged + change.name
                     
-                    event?.location = getLocationInfo(room: lecture.room).appending(", \(change.newRoom)")
+                    event?.location = CalendarController().getLocationInfo(room: lecture.room).appending(", \(change.newRoom)")
                     
                 }
             } else {
@@ -303,39 +167,8 @@ class CalendarInterface: NSObject {
         }
     }
     
-    // Gibt den Locaitonnamen zurück
-    func getLocationInfo( room : String) -> String {
-        
-        let index = room.index(room.startIndex, offsetBy : 4)
-        let locationString = room.substring(to: index)
-        
-        if(locationString == Constants.locationInfoMueb){
-            return Constants.locationHuchschuleMuenchberg
-        } else {
-            return Constants.locationHochschuleHof
-        }
-    }
-    
-    // Entfernt mehrere übergebene Events
-    func removeAllEvents(lectures : [Lecture]){
-        if (checkCalendarAuthorizationStatus()) {
-            for lecture in lectures {
-                //let ids = lectureEKEventIdDictionary[lecture]
-                //dump(lectureEKEventIdDictionary)
-                
-                let ids = lecture.eventIDs
-                
-                if (!ids.isEmpty) {
-                    for id in ids {
-                        _ = removeEvent(p_eventId: id, p_withNotes: true)
-                    }
-                }
-            }
-        }
-    }
-    
     //Entfernt übergebenes Event
-    private func removeEvent(p_eventId: String, p_withNotes: Bool?=false)-> Bool{
+    func removeEvent(p_eventId: String, p_withNotes: Bool?=false)-> Bool{
         let eventToRemove = self.eventStore.event(withIdentifier: p_eventId)
         if (eventToRemove != nil) {
             if (p_withNotes == false && eventToRemove?.notes != nil){ return false }
