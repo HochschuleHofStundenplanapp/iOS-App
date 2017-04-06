@@ -60,6 +60,8 @@
 		CED25BBB1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */; };
 		DA2B79091DF6A71D004BD2A0 /* DataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B79081DF6A71D004BD2A0 /* DataObjectPersistency.swift */; };
 		DAA250771E015D51007CCEFB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA250761E015D51007CCEFB /* DateExtension.swift */; };
+		F46AAFB11E9646B4008B5914 /* NewCalendarInteface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AAFB01E9646B4008B5914 /* NewCalendarInteface.swift */; };
+		F46AAFB31E9646DB008B5914 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46AAFB21E9646DB008B5914 /* CalendarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,8 @@
 		CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
 		DA2B79081DF6A71D004BD2A0 /* DataObjectPersistency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObjectPersistency.swift; sourceTree = "<group>"; };
 		DAA250761E015D51007CCEFB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		F46AAFB01E9646B4008B5914 /* NewCalendarInteface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCalendarInteface.swift; sourceTree = "<group>"; };
+		F46AAFB21E9646DB008B5914 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				655CCDC01E002D4A004B8AF3 /* CalendarInterface.swift */,
+				F46AAFB01E9646B4008B5914 /* NewCalendarInteface.swift */,
+				F46AAFB21E9646DB008B5914 /* CalendarController.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				BECB66E31DF6D95500567455 /* JsonChanges.swift in Sources */,
 				8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */,
 				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,
+				F46AAFB11E9646B4008B5914 /* NewCalendarInteface.swift in Sources */,
 				BECB66E91DF6D9C900567455 /* Lecture.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
@@ -541,6 +548,7 @@
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
 				BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
+				F46AAFB31E9646DB008B5914 /* CalendarController.swift in Sources */,
 				BECB66F11DF6DAED00567455 /* ChangedLecture.swift in Sources */,
 				BECB66E71DF6D97800567455 /* JsonParser.swift in Sources */,
 				BECB66DF1DF6D8E200567455 /* NetworkController.swift in Sources */,

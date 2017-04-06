@@ -19,6 +19,18 @@ class Constants :NSObject {
     
     static let myEndDownload =  Notification.Name("endDownload")
     static let myNoInternet = Notification.Name("noInternet")
+    
+    // CalendarInterface
+    static let locationHochschuleHof = "Campus Hof, Alfons-Goppel-Platz 1, 95028 Hof"
+    static let locationHuchschuleMuenchberg = "Campus Münchberg, Kulmbacherstraße 76, 95213 Münchberg "
+    static var calendarTitle : String = "Hochschule Hof Stundenplan App"
+    static let locationInfoMueb = "Mueb"
+    static let locationInfoHof = "Hof"
+    static let changesChanged = "[Verschoben] "
+    static let changesRoomChanged = "[Raumänderung] "
+    static let changesFailed = "[Entfällt] "
+    // Falls der AlarmOffset größer 0 ist wird ein Alarm gesetzt (Größeneinheit : Sekunden)
+    static let calendarAlarmOffset = 0.0
 }
 
 enum Season : String {

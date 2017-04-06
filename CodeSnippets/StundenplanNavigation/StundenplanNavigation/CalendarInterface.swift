@@ -13,25 +13,16 @@ class CalendarInterface: NSObject {
     
     static var sharedInstance = CalendarInterface()
     
-    var calendarTitle : String = "Hochschule Hof Stundenplan App"
     var calendar : EKCalendar? = nil
     var eventStore : EKEventStore!
     var pending : DispatchSemaphore!
-    
-    // Für Zukunft: Alarm setzen
-    // Wenn alarmOffset größer 0 wird Alarm gesetzt
-    let alarmOffset = 0.0
-    
-    let locationHochschuleHof = "Campus Hof, Alfons-Goppel-Platz 1, 95028 Hof"
-    let locationHuchschuleMuenchberg = "Campus Münchberg, Kulmbacherstraße 76, 95213 Münchberg "
-    
     
     private override init() {
         super.init()
         pending = DispatchSemaphore(value: 1)
         eventStore = EKEventStore()
         if (checkCalendarAuthorizationStatus()) {
-            createCalenderIfNeeded() 
+            createCalenderIfNeeded()
         }
     }
     
@@ -51,7 +42,7 @@ class CalendarInterface: NSObject {
         var calendars = [EKCalendar]()
         calendars = self.eventStore.calendars(for: .event)
         for calendar in calendars {
-            if(calendar.title == self.calendarTitle){
+            if(calendar.title == Constants.calendarTitle){
                 self.calendar = calendar
                 return true
             }
@@ -64,7 +55,7 @@ class CalendarInterface: NSObject {
         if (!isAppCalenderAvailable()) {
             createCalender()
         }
-
+        
     }
     
     public func createNewCalender() {
@@ -75,7 +66,7 @@ class CalendarInterface: NSObject {
     private func createCalender(){
         let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
         
-        newCalendar.title = self.calendarTitle
+        newCalendar.title = Constants.calendarTitle
         
         newCalendar.source = eventStore.defaultCalendarForNewEvents.source
         do {
@@ -150,13 +141,11 @@ class CalendarInterface: NSObject {
         repeat {
             let event       = EKEvent(eventStore: self.eventStore)
             event.title     = lecture.name
-
+            
             var tmpDate = tmpStartdate
             let hour = Calendar.current.component(.hour, from: lecture.startTime)
             let minutes = Calendar.current.component(.minute, from: lecture.startTime)
-            // eine Stunde abziehen da beim Datum eine Stunde addiert wurde damit es nicht 23 Uhr am Tag zuvor ist.
-            tmpDate = Calendar.current.date(byAdding: .hour, value: hour-1, to: tmpDate)!
-            tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
+
             event.startDate = tmpDate
             
             let endHour = Calendar.current.component(.hour, from: lecture.endTime)
@@ -169,21 +158,13 @@ class CalendarInterface: NSObject {
             duration = duration + (endMinutes - minutes)
             event.endDate   = Calendar.current.date(byAdding: .minute, value: duration, to: event.startDate)!
             
-            let str = lecture.room
-            let index = str.index(str.startIndex, offsetBy : 4)
-            let sub = str.substring(to: index)
-            
-            if(sub == "Mueb"){
-                event.location = self.locationHuchschuleMuenchberg + " ," + lecture.room
-                
-            } else {
-                event.location = self.locationHochschuleHof + " ," + lecture.room
-            }
+            event.location = getLocationInfo(room: lecture.room) + " ," + lecture.room
+
             event.notes = lecture.comment + "  " + lecture.group
             
-            if (self.alarmOffset > 0) {
+            if (Constants.calendarAlarmOffset > 0) {
                 var ekAlarms = [EKAlarm]()
-                ekAlarms.append(EKAlarm(relativeOffset:-self.alarmOffset))
+                ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
                 event.alarms    = ekAlarms
             }
             
@@ -196,17 +177,17 @@ class CalendarInterface: NSObject {
         return events
     }
     
-//    // Zeit und Datum in einer Variable kombinieren
-//    private func combineDayAndTime(date : Date, time : Date) -> Date {
-//        
-//        var tmpDate = date
-//        let hour = Calendar.current.component(.hour, from: time)
-//        let minutes = Calendar.current.component(.minute, from: time)
-//        tmpDate = Calendar.current.date(byAdding: .hour, value: hour, to: tmpDate)!
-//        tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
-//        
-//        return tmpDate
-//    }
+    //    // Zeit und Datum in einer Variable kombinieren
+    //    private func combineDayAndTime(date : Date, time : Date) -> Date {
+    //
+    //        var tmpDate = date
+    //        let hour = Calendar.current.component(.hour, from: time)
+    //        let minutes = Calendar.current.component(.minute, from: time)
+    //        tmpDate = Calendar.current.date(byAdding: .hour, value: hour, to: tmpDate)!
+    //        tmpDate = Calendar.current.date(byAdding: .minute, value: minutes, to: tmpDate)!
+    //
+    //        return tmpDate
+    //    }
     
     // Schreibt übergebene Events in den Kalender
     private func createEvent(p_event: EKEvent, lecture : Lecture){
@@ -217,9 +198,9 @@ class CalendarInterface: NSObject {
         event.endDate   = p_event.endDate
         event.location  = p_event.location
         
-        if (self.alarmOffset > 0) {
+        if (Constants.calendarAlarmOffset > 0) {
             var ekAlarms = [EKAlarm]()
-            ekAlarms.append(EKAlarm(relativeOffset:-self.alarmOffset))
+            ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
             event.alarms    = ekAlarms
         }
         
@@ -289,41 +270,24 @@ class CalendarInterface: NSObject {
                     newEvent.startDate = change.newDate!
                     newEvent.endDate   = (newEvent.startDate + 60 * 90)
                     
-                    let str = lecture.room
-                    let index = str.index(str.startIndex, offsetBy : 4)
-                    let sub = str.substring(to: index)
-                    
-                    if(sub == "Mueb"){
-                        newEvent.location = self.locationHuchschuleMuenchberg + " ," + lecture.room.appending(", \(change.newRoom)")
-                        
-                    } else {
-                        newEvent.location = self.locationHochschuleHof + " ," + lecture.room.appending(", \(change.newRoom)")
-                    }
-                    
+                    newEvent.location = getLocationInfo(room: lecture.room) + " ," + lecture.room.appending(", \(change.newRoom)")
+                   
                     newEvent.calendar  = self.calendar!
                     newEvent.notes = lecture.comment + "  " + lecture.group
                     
                     createEvent(p_event: newEvent , lecture: lecture)
                     
-                    event?.title    = "[Verschoben] " + change.name
+                    event?.title    = Constants.changesChanged + change.name
                     event?.location = nil
                     event?.alarms   = []
                 } else {
-                    event?.title     = "[Raumänderung] " + change.name
+                    event?.title     = Constants.changesRoomChanged + change.name
                     
-                    let str = lecture.room
-                    let index = str.index(str.startIndex, offsetBy : 4)
-                    let sub = str.substring(to: index)
+                    event?.location = getLocationInfo(room: lecture.room).appending(", \(change.newRoom)")
                     
-                    if(sub == "Mueb"){
-                        event?.location = self.locationHuchschuleMuenchberg.appending(", \(change.newRoom)")
-                        
-                    } else {
-                        event?.location = self.locationHochschuleHof.appending(", \(change.newRoom)")
-                    }
                 }
             } else {
-                event?.title     = "[Entfällt] " + change.name
+                event?.title     = Constants.changesFailed + change.name
                 event?.location = nil
                 event?.alarms   = []
             }
@@ -336,6 +300,19 @@ class CalendarInterface: NSObject {
             } catch {
                 print("Fehler beim Updaten eines Events")
             }
+        }
+    }
+    
+    // Gibt den Locaitonnamen zurück
+    func getLocationInfo( room : String) -> String {
+        
+        let index = room.index(room.startIndex, offsetBy : 4)
+        let locationString = room.substring(to: index)
+        
+        if(locationString == Constants.locationInfoMueb){
+            return Constants.locationHuchschuleMuenchberg
+        } else {
+            return Constants.locationHochschuleHof
         }
     }
     
