@@ -246,11 +246,13 @@ extension Date {
     }
     
     //gibt start einer einzelnen Vorlesung zurück
-    public func startLecture(weekdayString : String, semester : String) -> Date{
+    public func startLecture(startDate: Date, weekdayString : String, semester : String) -> Date{
         let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
         let startSemesterDate = startSemester(semester: semester)
         let calendar = Calendar.current
         let startSemesterWeekday = calendar.component(.weekday, from: startSemesterDate)
+        let hour = calendar.component(.hour, from: startDate)
+        let minute = calendar.component(.minute, from: startDate)
         var lectureWeekday = 2
         var difDays = 0
         
@@ -268,12 +270,13 @@ extension Date {
             difDays = lectureWeekday - startSemesterWeekday + 7
         }
         
-        let newLectureStartDate : Date = calendar.date(byAdding: .day, value: difDays, to: startSemesterDate)!
+        var newLectureStartDate : Date = calendar.date(byAdding: .day, value: difDays, to: startSemesterDate)!
+        newLectureStartDate = calendar.date(bySetting: .hour, value: hour, of: newLectureStartDate)!
+        newLectureStartDate = calendar.date(bySetting: .minute, value: minute, of: newLectureStartDate)!
         
-        let myTimezone = TimeZone(secondsFromGMT: 0)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
-        dateFormatter.timeZone = myTimezone
+        dateFormatter.dateFormat = "dd.MM.yy HH:mm "
+        dateFormatter.locale = Locale(identifier: "de_DE")
         let finalStartString : String = dateFormatter.string(from: newLectureStartDate)
         let finalStartDate : Date = dateFormatter.date(from: finalStartString)!
         
@@ -281,11 +284,13 @@ extension Date {
     }
     
     //gibt ende einer einzelnen Vorlesung zurück
-    public func endLecture (weekdayString : String, semester : String) -> Date{
+    public func endLecture (endDate: Date, weekdayString : String, semester : String) -> Date{
         let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
         let endSemesterDate = endSemester(semester: semester)
         let calendar = Calendar.current
         let endSemesterWeekday = calendar.component(.weekday, from: endSemesterDate)
+        let hour = calendar.component(.hour, from: endDate)
+        let minute = calendar.component(.minute, from: endDate)
         var lectureWeekday = 6
         var difDays = 0
         
@@ -303,13 +308,13 @@ extension Date {
             difDays = lectureWeekday - endSemesterWeekday
         }
         
-        let newLectureEndDate : Date = calendar.date(byAdding: .day, value: difDays, to: endSemesterDate)!
+        var newLectureEndDate : Date = calendar.date(byAdding: .day, value: difDays, to: endSemesterDate)!
+        newLectureEndDate = calendar.date(bySetting: .hour, value: hour, of: newLectureEndDate)!
+        newLectureEndDate = calendar.date(bySetting: .minute, value: minute, of: newLectureEndDate)!
         
-        let myTimezone = TimeZone(secondsFromGMT: 0)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
-        dateFormatter.timeZone = myTimezone
-      
+        dateFormatter.dateFormat = "dd.MM.yy HH:mm "
+        dateFormatter.locale = Locale(identifier: "de_DE")
         let finalEndString : String = dateFormatter.string(from: newLectureEndDate)
         let finalEndDate : Date = dateFormatter.date(from: finalEndString)!
         
