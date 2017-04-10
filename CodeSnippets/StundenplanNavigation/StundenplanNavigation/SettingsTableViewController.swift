@@ -133,7 +133,7 @@ class SettingsTableViewController: UITableViewController {
         if(syncSwitch.isOn){
             Settings.sharedInstance.savedCalSync = true
             if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == false){
-                getAccessAlert()
+                showAccessAlert()
                 Settings.sharedInstance.savedCalSync = false
                 syncSwitch.isOn = false
             } else {
@@ -152,7 +152,11 @@ class SettingsTableViewController: UITableViewController {
         
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
-        CalendarRoutine()
+        let resultCalendarRoutine = CalendarController().CalendarRoutine()
+        
+        if (!resultCalendarRoutine) {
+            showAccessAlert()
+        }
 
         Settings.sharedInstance.tmpSchedule.deselectUnusedLectures()
         
@@ -256,31 +260,7 @@ class SettingsTableViewController: UITableViewController {
         //        }
     }
     
-    func CalendarRoutine() {
-        
-        if(syncSwitch.isOn && !CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-            getAccessAlert()
-            Settings.sharedInstance.savedCalSync = false
-        }
-
-        if(syncSwitch.isOn && CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-            
-            // Liste der zu entferndenen Lectures
-            let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-            
-            // Liste der zu hinzugefügten Lectures
-            let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-            
-            if(!addedLectures.isEmpty) {
-                CalendarInterface.sharedInstance.createAllEvents(lectures: addedLectures)
-            }
-            if(!removedLectures.isEmpty) {
-                CalendarController().removeAllEvents(lectures: removedLectures)
-            }
-        }
-    }
-    
-    func getAccessAlert() {
+    func showAccessAlert() {
         let alert = UIAlertController(title: "Berechtigungen", message: "Es werden Berechtigungen benötigt um Einträge in den Kalender zu tätigen.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in

@@ -162,4 +162,30 @@ class CalendarController: NSObject {
             }
         }
     }
+    
+    func CalendarRoutine() -> Bool{
+        if(!CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+            Settings.sharedInstance.savedCalSync = false
+            return false
+        }
+        
+        if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+            // Liste der zu entferndenen Lectures
+            let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+            
+            // Liste der zu hinzugefügten Lectures
+            let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+            
+            if(!addedLectures.isEmpty) {
+                CalendarInterface.sharedInstance.createAllEvents(lectures: addedLectures)
+            }
+            if(!removedLectures.isEmpty) {
+                CalendarController().removeAllEvents(lectures: removedLectures)
+            }
+            
+            return true
+        }
+        
+        return false
+    }
 }
