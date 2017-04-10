@@ -14,7 +14,6 @@ class CalendarController: NSObject {
     var eventStore = CalendarInterface.sharedInstance.eventStore
     var calendar = CalendarInterface.sharedInstance.calendar
     
-    
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
     public func createAllEvents(lectures : [Lecture]){
         if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
@@ -29,7 +28,10 @@ class CalendarController: NSObject {
     public func updateAllEvents( changes : Changes){
         if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
             for change in changes.changes {
-                CalendarInterface.sharedInstance.updateEvent(change: change)
+                let lecture = CalendarController().findLecture(change: change)
+                let eventID = CalendarController().findEventId(lecture: lecture, change: change)
+                let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
+                CalendarInterface.sharedInstance.updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
             }
         }
     }
@@ -117,7 +119,7 @@ class CalendarController: NSObject {
         var result = ""
         for id in lecture.eventIDs {
             let event = eventStore?.event(withIdentifier: id)
-            if(event?.title == change.name && event?.startDate == change.oldDate ){
+            if(event?.title == change.name && event?.startDate == change.combinedOldDate ){
                 result = id
             }
         }
@@ -174,4 +176,9 @@ class CalendarController: NSObject {
             return Constants.locationHochschuleHof
         }
     }
+    
+    func callUpdateAllEvents( changes : Changes){
+        updateAllEvents(changes: changes)
+    }
+    
 }
