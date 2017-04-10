@@ -164,7 +164,7 @@ class CalendarController: NSObject {
     }
     
     // Gibt den Locaitonnamen zurück
-    private func getLocationInfo( room : String) -> String {
+    public func getLocationInfo( room : String) -> String {
         let index = room.index(room.startIndex, offsetBy : 4)
         let locationString = room.substring(to: index)
         

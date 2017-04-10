@@ -26,14 +26,21 @@ class CalendarInterface: NSObject {
         }
     }
     
-    // Löschen eines Kalenders
-    func removeCalendar() -> Bool {
+    // ------ Kalendar-Methoden ------
+    
+    // Erstellen eines Kalenders
+    private func createCalender(){
+        let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
+        
+        newCalendar.title = Constants.calendarTitle
+        
+        newCalendar.source = eventStore.defaultCalendarForNewEvents.source
         do {
-            try self.eventStore.removeCalendar(self.calendar!, commit: true)
+            try self.eventStore.saveCalendar(newCalendar, commit: true)
+            self.calendar = newCalendar
         } catch {
-            return false
         }
-        return true
+        CalendarController().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
     }
     
     // Check ob App-Calender schon vorhanden ist
@@ -61,21 +68,19 @@ class CalendarInterface: NSObject {
     public func createNewCalender() {
         createCalenderIfNeeded()
     }
+
     
-    // Erstellen eines Kalenders
-    private func createCalender(){
-        let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
-        
-        newCalendar.title = Constants.calendarTitle
-        
-        newCalendar.source = eventStore.defaultCalendarForNewEvents.source
+    // Löschen eines Kalenders
+    func removeCalendar() -> Bool {
         do {
-            try self.eventStore.saveCalendar(newCalendar, commit: true)
-            self.calendar = newCalendar
+            try self.eventStore.removeCalendar(self.calendar!, commit: true)
         } catch {
+            return false
         }
-        CalendarController().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+        return true
     }
+    
+    // ------ Berechtigungs-Methoden ------
     
     // Berechtigungen für den Kalenderzugriff anfragen
     private func requestAccessToCalendar (){
@@ -104,6 +109,34 @@ class CalendarInterface: NSObject {
             }} while (status == EKAuthorizationStatus.notDetermined)
         return result
         
+    }
+    
+    // ------ Eintrag-Methoden ------
+    
+    // Schreibt übergebene Events in den Kalender
+    func createEvent(p_event: EKEvent, lecture : Lecture){
+        let event       = EKEvent(eventStore: eventStore!)
+        event.title     = p_event.title
+        event.notes     = p_event.notes
+        event.startDate = p_event.startDate
+        event.endDate   = p_event.endDate
+        event.location  = p_event.location
+        
+        if (Constants.calendarAlarmOffset > 0) {
+            var ekAlarms = [EKAlarm]()
+            ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
+            event.alarms    = ekAlarms
+        }
+        
+        event.calendar  = calendar!
+        
+        do {
+            try eventStore?.save(event, span: .thisEvent)
+        } catch {
+            print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
+        }
+        
+        lecture.eventIDs.append(event.eventIdentifier)
     }
                 
     // Aktualisiert Werte des übergebenem Events
@@ -170,32 +203,6 @@ class CalendarInterface: NSObject {
             }
         }
         return false
-    }
-    
-    // Schreibt übergebene Events in den Kalender
-    func createEvent(p_event: EKEvent, lecture : Lecture){
-        let event       = EKEvent(eventStore: eventStore!)
-        event.title     = p_event.title
-        event.notes     = p_event.notes
-        event.startDate = p_event.startDate
-        event.endDate   = p_event.endDate
-        event.location  = p_event.location
-        
-        if (Constants.calendarAlarmOffset > 0) {
-            var ekAlarms = [EKAlarm]()
-            ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
-            event.alarms    = ekAlarms
-        }
-        
-        event.calendar  = calendar!
-        
-        do {
-            try eventStore?.save(event, span: .thisEvent)
-        } catch {
-            print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
-        }
-        
-        lecture.eventIDs.append(event.eventIdentifier)
     }
 }
 
