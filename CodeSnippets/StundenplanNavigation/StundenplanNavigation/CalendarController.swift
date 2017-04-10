@@ -14,21 +14,44 @@ class CalendarController: NSObject {
     var eventStore = CalendarInterface.sharedInstance.eventStore
     var calendar = CalendarInterface.sharedInstance.calendar
     
-    // Gibt den Locaitonnamen zurück
-    func getLocationInfo( room : String) -> String {
-        
-        let index = room.index(room.startIndex, offsetBy : 4)
-        let locationString = room.substring(to: index)
-        
-        if(locationString == Constants.locationInfoMueb){
-            return Constants.locationHuchschuleMuenchberg
-        } else {
-            return Constants.locationHochschuleHof
+    
+    // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
+    public func createAllEvents(lectures : [Lecture]){
+        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+            CalendarInterface.sharedInstance.createNewCalender()
+            for lecture in lectures {
+                createEventsForLecture(lecture: lecture)
+            }
+        }
+    }
+    
+    // Aktualisiert Werte aller Events
+    public func updateAllEvents( changes : Changes){
+        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+            for change in changes.changes {
+                CalendarInterface.sharedInstance.updateEvent(change: change)
+            }
+        }
+    }
+    
+    // Entfernt mehrere übergebene Events
+    public func removeAllEvents(lectures : [Lecture]){
+        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+            for lecture in lectures {
+                
+                let ids = lecture.eventIDs
+                
+                if (!ids.isEmpty) {
+                    for id in ids {
+                        _ = CalendarInterface.sharedInstance.removeEvent(p_eventId: id, p_withNotes: true)
+                    }
+                }
+            }
         }
     }
     
     // Erzeugt ein Event und schreibt es in den Kalender
-    func createEventsForLecture(lecture: Lecture) {
+    private func createEventsForLecture(lecture: Lecture) {
         let events = lectureToEKEventCreate(lecture: lecture)
         
         for event in events {
@@ -45,7 +68,7 @@ class CalendarController: NSObject {
     }
     
     // Erzeugt ein EKEvent aus einer Lecture
-    func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
+    private func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
         var tmpStartdate = lecture.startdate
         var events = [EKEvent]()
         
@@ -89,7 +112,7 @@ class CalendarController: NSObject {
     }
     
     // ID eines Events im Kalender wird gesucht und zurückgegeben
-    func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
+    public func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
         
         var result = ""
         for id in lecture.eventIDs {
@@ -102,7 +125,7 @@ class CalendarController: NSObject {
     }
     
     // Findet eine Lecutre anhand des Hashes
-    func findLecture(change : ChangedLecture) -> Lecture {
+    public func findLecture(change : ChangedLecture) -> Lecture {
         var result : Lecture? = nil
         let changeHashValue = "\(change.name)\(change.oldRoom)\(change.oldDay)\(change.oldTime)".hashValue
         
@@ -114,32 +137,7 @@ class CalendarController: NSObject {
         return result!
     }
     
-    // Entfernt mehrere übergebene Events
-    func removeAllEvents(lectures : [Lecture]){
-        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-            for lecture in lectures {
-                
-                let ids = lecture.eventIDs
-                
-                if (!ids.isEmpty) {
-                    for id in ids {
-                        _ = CalendarInterface.sharedInstance.removeEvent(p_eventId: id, p_withNotes: true)
-                    }
-                }
-            }
-        }
-    }
-    
-    // Aktualisiert Werte aller Events
-    func updateAllEvents( changes : Changes){
-        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-            for change in changes.changes {
-                CalendarInterface.sharedInstance.updateEvent(change: change)
-            }
-        }
-    }
-    
-    func CalendarRoutine() -> Bool{
+    public func CalendarRoutine() -> Bool{
         if(!CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
             Settings.sharedInstance.savedCalSync = false
             return false
@@ -153,7 +151,7 @@ class CalendarController: NSObject {
             let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
             
             if(!addedLectures.isEmpty) {
-                CalendarInterface.sharedInstance.createAllEvents(lectures: addedLectures)
+                createAllEvents(lectures: addedLectures)
             }
             if(!removedLectures.isEmpty) {
                 CalendarController().removeAllEvents(lectures: removedLectures)
@@ -163,5 +161,17 @@ class CalendarController: NSObject {
         }
         
         return false
+    }
+    
+    // Gibt den Locaitonnamen zurück
+    private func getLocationInfo( room : String) -> String {
+        let index = room.index(room.startIndex, offsetBy : 4)
+        let locationString = room.substring(to: index)
+        
+        if(locationString == Constants.locationInfoMueb){
+            return Constants.locationHuchschuleMuenchberg
+        } else {
+            return Constants.locationHochschuleHof
+        }
     }
 }

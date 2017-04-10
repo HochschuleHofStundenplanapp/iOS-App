@@ -74,7 +74,7 @@ class CalendarInterface: NSObject {
             self.calendar = newCalendar
         } catch {
         }
-        createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+        CalendarController().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
     }
     
     // Berechtigungen für den Kalenderzugriff anfragen
@@ -104,16 +104,6 @@ class CalendarInterface: NSObject {
             }} while (status == EKAuthorizationStatus.notDetermined)
         return result
         
-    }
-    
-    // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
-    public func createAllEvents(lectures : [Lecture]){
-        if (checkCalendarAuthorizationStatus()) {
-            createCalenderIfNeeded()
-            for lecture in lectures{
-                CalendarController().createEventsForLecture(lecture: lecture)
-            }
-        }
     }
                 
     // Aktualisiert Werte des übergebenem Events
