@@ -152,14 +152,11 @@ class SettingsTableViewController: UITableViewController {
         
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         
-        if(syncSwitch.isOn){
-            let resultCalendarRoutine = CalendarController().CalendarRoutine()
-            
-            if (!resultCalendarRoutine) {
-                showAccessAlert()
-            }
+        let resultCalendarRoutine = CalendarController().CalendarRoutine()
+        
+        if (!resultCalendarRoutine) {
+            showAccessAlert()
         }
-
 
         Settings.sharedInstance.tmpSchedule.deselectUnusedLectures()
         

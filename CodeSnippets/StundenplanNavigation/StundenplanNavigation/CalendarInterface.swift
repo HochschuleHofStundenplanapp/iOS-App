@@ -87,16 +87,7 @@ class CalendarInterface: NSObject {
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                
-                if granted == true {
-                    DispatchQueue.main.async(execute: {
-                        self.createCalenderIfNeeded()
-                    })
-                } else {
-                print("KEINEN ZUGANG")
-                }
-                //self.pending.signal()
-                //self.createCalenderIfNeeded()
+                self.pending.signal()
             })
         }
     }
@@ -109,7 +100,7 @@ class CalendarInterface: NSObject {
             status = EKEventStore.authorizationStatus(for: EKEntityType.event)
             switch (status) {
             case EKAuthorizationStatus.notDetermined:
-                //pending.wait()
+                pending.wait()
                 requestAccessToCalendar()
             case EKAuthorizationStatus.authorized:
                 result = true
