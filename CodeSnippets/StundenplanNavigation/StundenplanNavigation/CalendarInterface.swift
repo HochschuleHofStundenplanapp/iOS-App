@@ -111,7 +111,7 @@ class CalendarInterface: NSObject {
         if (checkCalendarAuthorizationStatus()) {
             createCalenderIfNeeded()
             for lecture in lectures{
-                CalendarController().createEventsForLecture(lecture: lecture, calendar: calendar! , eventStore: eventStore)
+                CalendarController().createEventsForLecture(lecture: lecture)
             }
         }
     }
@@ -120,7 +120,7 @@ class CalendarInterface: NSObject {
     func updateEvent(change : ChangedLecture) {
         let lecture = CalendarController().findLecture(change: change)
         
-        let eventID = CalendarController().findEventId(lecture: lecture, change: change, eventStore: eventStore)
+        let eventID = CalendarController().findEventId(lecture: lecture, change: change)
         
         let event = self.eventStore.event(withIdentifier: eventID)
         
@@ -139,7 +139,7 @@ class CalendarInterface: NSObject {
                     newEvent.calendar  = self.calendar!
                     newEvent.notes = lecture.comment + "  " + lecture.group
                     
-                    CalendarController().createEvent(p_event: newEvent , lecture: lecture, eventStore: eventStore, calendar: calendar!)
+                    createEvent(p_event: newEvent , lecture: lecture)
                     
                     event?.title    = Constants.changesChanged + change.name
                     event?.location = nil
@@ -180,6 +180,32 @@ class CalendarInterface: NSObject {
             }
         }
         return false
+    }
+    
+    // Schreibt übergebene Events in den Kalender
+    func createEvent(p_event: EKEvent, lecture : Lecture){
+        let event       = EKEvent(eventStore: eventStore!)
+        event.title     = p_event.title
+        event.notes     = p_event.notes
+        event.startDate = p_event.startDate
+        event.endDate   = p_event.endDate
+        event.location  = p_event.location
+        
+        if (Constants.calendarAlarmOffset > 0) {
+            var ekAlarms = [EKAlarm]()
+            ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
+            event.alarms    = ekAlarms
+        }
+        
+        event.calendar  = calendar!
+        
+        do {
+            try eventStore?.save(event, span: .thisEvent)
+        } catch {
+            print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
+        }
+        
+        lecture.eventIDs.append(event.eventIdentifier)
     }
 }
 
