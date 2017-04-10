@@ -11,6 +11,9 @@ import EventKit
 
 class CalendarController: NSObject {
     
+    var eventStore = CalendarInterface.sharedInstance.eventStore
+    var calendar = CalendarInterface.sharedInstance.calendar
+    
     // Gibt den Locaitonnamen zurück
     func getLocationInfo( room : String) -> String {
         
@@ -25,14 +28,14 @@ class CalendarController: NSObject {
     }
     
     // Erzeugt ein Event und schreibt es in den Kalender
-    func createEventsForLecture(lecture: Lecture, calendar : EKCalendar, eventStore : EKEventStore ) {
-        let events = lectureToEKEventCreate(lecture: lecture, eventStore: eventStore)
+    func createEventsForLecture(lecture: Lecture) {
+        let events = lectureToEKEventCreate(lecture: lecture)
         
         for event in events {
-            event.calendar  = calendar
+            event.calendar  = calendar!
             
             do {
-                try eventStore.save(event, span: .thisEvent)
+                try eventStore?.save(event, span: .thisEvent)
             } catch {
                 print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
             }
@@ -42,12 +45,12 @@ class CalendarController: NSObject {
     }
     
     // Erzeugt ein EKEvent aus einer Lecture
-    func lectureToEKEventCreate(lecture: Lecture , eventStore : EKEventStore) -> [EKEvent] {
+    func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
         var tmpStartdate = lecture.startdate
         var events = [EKEvent]()
         
         repeat {
-            let event       = EKEvent(eventStore: eventStore)
+            let event       = EKEvent(eventStore: eventStore!)
             event.title     = lecture.name
             
             let tmpDate = tmpStartdate
@@ -85,39 +88,12 @@ class CalendarController: NSObject {
         return events
     }
     
-    
-    // Schreibt übergebene Events in den Kalender
-    func createEvent(p_event: EKEvent, lecture : Lecture, eventStore : EKEventStore , calendar : EKCalendar){
-        let event       = EKEvent(eventStore: eventStore)
-        event.title     = p_event.title
-        event.notes     = p_event.notes
-        event.startDate = p_event.startDate
-        event.endDate   = p_event.endDate
-        event.location  = p_event.location
-        
-        if (Constants.calendarAlarmOffset > 0) {
-            var ekAlarms = [EKAlarm]()
-            ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
-            event.alarms    = ekAlarms
-        }
-        
-        event.calendar  = calendar
-        
-        do {
-            try eventStore.save(event, span: .thisEvent)
-        } catch {
-            print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
-        }
-        
-        lecture.eventIDs.append(event.eventIdentifier)
-    }
-    
     // ID eines Events im Kalender wird gesucht und zurückgegeben
-    func findEventId(lecture: Lecture, change: ChangedLecture, eventStore : EKEventStore) -> String{
+    func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
         
         var result = ""
         for id in lecture.eventIDs {
-            let event = eventStore.event(withIdentifier: id)
+            let event = eventStore?.event(withIdentifier: id)
             if(event?.title == change.name && event?.startDate == change.oldDate ){
                 result = id
             }
