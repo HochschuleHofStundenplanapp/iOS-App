@@ -21,9 +21,6 @@ class CalendarInterface: NSObject {
         super.init()
         pending = DispatchSemaphore(value: 1)
         eventStore = EKEventStore()
-        if (checkCalendarAuthorizationStatus()) {
-            createCalenderIfNeeded()
-        }
     }
     
     // ------ Kalendar-Methoden ------
@@ -39,9 +36,9 @@ class CalendarInterface: NSObject {
             try self.eventStore.saveCalendar(newCalendar, commit: true)
             self.calendar = newCalendar
         } catch {
+            print("Fehler bei create Calendar")
         }
-        CalendarController().createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
-    }
+}
     
     // Check ob App-Calender schon vorhanden ist
     private func isAppCalenderAvailable() -> Bool

@@ -14,6 +14,14 @@ class CalendarController: NSObject {
     var eventStore = CalendarInterface.sharedInstance.eventStore
     var calendar = CalendarInterface.sharedInstance.calendar
     
+    override init() {
+        super.init()
+        if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()){
+            CalendarInterface.sharedInstance.createNewCalender()
+            createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+        }
+    }
+    
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
     public func createAllEvents(lectures : [Lecture]){
         if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
@@ -70,7 +78,7 @@ class CalendarController: NSObject {
     }
     
     // Erzeugt ein EKEvent aus einer Lecture
-    private func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
+    func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
         var tmpStartdate = lecture.startdate
         var events = [EKEvent]()
         
