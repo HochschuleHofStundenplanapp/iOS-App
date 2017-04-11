@@ -12,20 +12,32 @@ import EventKit
 class CalendarController: NSObject {
     
     var eventStore = CalendarInterface.sharedInstance.eventStore
-    var calendar = CalendarInterface.sharedInstance.calendar
+    var calendar = CalendarInterface.sharedInstance.calendar!
     
     override init() {
         super.init()
-        if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()){
-            CalendarInterface.sharedInstance.createNewCalender()
-            createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+        createCalendar()
+    }
+    
+    public func createCalendar() -> Bool {
+        if(CalendarInterface.sharedInstance.isAuthorized()){
+            if(CalendarInterface.sharedInstance.createCalenderIfNeeded() == true) {
+                createAllEvents(lectures: Settings.sharedInstance.savedSchedule.selLectures)
+            }
+            return true
+        } else {
+            return false
         }
     }
     
+    public func removeCalendar() {
+        CalendarInterface.sharedInstance.removeCalendar()
+}
+    
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
     public func createAllEvents(lectures : [Lecture]){
-        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-            CalendarInterface.sharedInstance.createNewCalender()
+        if (CalendarInterface.sharedInstance.isAuthorized()) {
+            CalendarInterface.sharedInstance.createCalenderIfNeeded()
             for lecture in lectures {
                 createEventsForLecture(lecture: lecture)
             }
@@ -34,7 +46,7 @@ class CalendarController: NSObject {
     
     // Aktualisiert Werte aller Events
     public func updateAllEvents( changes : Changes){
-        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+        if (CalendarInterface.sharedInstance.isAuthorized()) {
             for change in changes.changes {
                 let lecture = CalendarController().findLecture(change: change)
                 let eventID = CalendarController().findEventId(lecture: lecture, change: change)
@@ -46,7 +58,7 @@ class CalendarController: NSObject {
     
     // Entfernt mehrere übergebene Events
     public func removeAllEvents(lectures : [Lecture]){
-        if (CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+        if (CalendarInterface.sharedInstance.isAuthorized()) {
             for lecture in lectures {
                 
                 let ids = lecture.eventIDs
@@ -65,7 +77,7 @@ class CalendarController: NSObject {
         let events = lectureToEKEventCreate(lecture: lecture)
         
         for event in events {
-            event.calendar  = calendar!
+            event.calendar  = calendar
             
             do {
                 try eventStore?.save(event, span: .thisEvent)
@@ -148,12 +160,12 @@ class CalendarController: NSObject {
     }
     
     public func CalendarRoutine() -> Bool{
-        if(!CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+        if(!CalendarInterface.sharedInstance.isAuthorized()) {
             Settings.sharedInstance.savedCalSync = false
             return false
         }
         
-        if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
+        if(CalendarInterface.sharedInstance.isAuthorized()) {
             // Liste der zu entferndenen Lectures
             let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
             

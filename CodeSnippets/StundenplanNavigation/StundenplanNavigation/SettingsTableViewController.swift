@@ -132,17 +132,13 @@ class SettingsTableViewController: UITableViewController {
         
         if(syncSwitch.isOn){
             Settings.sharedInstance.savedCalSync = true
-            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == false){
+            if(CalendarController().createCalendar() == false){
                 showAccessAlert()
                 Settings.sharedInstance.savedCalSync = false
                 syncSwitch.isOn = false
-            } else {
-                CalendarInterface.sharedInstance.createNewCalender()
             }
         } else {
-            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus() == true){
-                _ = CalendarInterface.sharedInstance.removeCalendar()
-            }
+            CalendarController().removeCalendar()
             Settings.sharedInstance.savedCalSync = false
         }
     }

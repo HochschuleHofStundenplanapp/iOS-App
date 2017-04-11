@@ -13,7 +13,7 @@ class CalendarInterface: NSObject {
     
     static var sharedInstance = CalendarInterface()
     
-    var calendar : EKCalendar? = nil
+    var calendar : EKCalendar?
     var eventStore : EKEventStore!
     var pending : DispatchSemaphore!
     
@@ -21,6 +21,10 @@ class CalendarInterface: NSObject {
         super.init()
         pending = DispatchSemaphore(value: 1)
         eventStore = EKEventStore()
+        if(!isAuthorized()){
+            requestAccessToCalendar()
+        }
+        createCalenderIfNeeded()
     }
     
     // ------ Kalendar-Methoden ------
@@ -38,7 +42,15 @@ class CalendarInterface: NSObject {
         } catch {
             print("Fehler bei create Calendar")
         }
-}
+    }
+    
+    public func createCalenderIfNeeded() -> Bool {
+        if (!isAppCalenderAvailable()) {
+            createCalender()
+            return true
+        }
+        return false
+    }
     
     // Check ob App-Calender schon vorhanden ist
     private func isAppCalenderAvailable() -> Bool
@@ -54,27 +66,20 @@ class CalendarInterface: NSObject {
         return false
     }
     
-    private func createCalenderIfNeeded()
-    {
-        if (!isAppCalenderAvailable()) {
-            createCalender()
-        }
-        
-    }
-    
-    public func createNewCalender() {
-        createCalenderIfNeeded()
-    }
-
-    
     // Löschen eines Kalenders
     func removeCalendar() -> Bool {
-        do {
-            try self.eventStore.removeCalendar(self.calendar!, commit: true)
-        } catch {
+        if(!isAuthorized())
+        {return false}
+        if(isAppCalenderAvailable()){
+            do {
+                try self.eventStore.removeCalendar(self.calendar!, commit: true)
+            } catch {
+                return false
+            }
+            return true
+        } else {
             return false
         }
-        return true
     }
     
     // ------ Berechtigungs-Methoden ------
@@ -89,24 +94,32 @@ class CalendarInterface: NSObject {
         }
     }
     
-    // Abfrage der Kalenderberechtigungen
-    public func checkCalendarAuthorizationStatus() -> Bool{
-        var result = false
-        var status :  EKAuthorizationStatus
-        repeat {
-            status = EKEventStore.authorizationStatus(for: EKEntityType.event)
-            switch (status) {
-            case EKAuthorizationStatus.notDetermined:
-                pending.wait()
-                requestAccessToCalendar()
-            case EKAuthorizationStatus.authorized:
-                result = true
-            case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
-                result = false
-            }} while (status == EKAuthorizationStatus.notDetermined)
-        return result
-        
+    public func isAuthorized() -> Bool {
+        if (EKEventStore.authorizationStatus(for: EKEntityType.event) == EKAuthorizationStatus.authorized){
+            return true
+        } else {
+            return false
+        }
     }
+    
+    //    // Abfrage der Kalenderberechtigungen
+    //    public func checkCalendarAuthorizationStatus() -> Bool{
+    //        var result = false
+    //        var status :  EKAuthorizationStatus
+    //        repeat {
+    //            status = EKEventStore.authorizationStatus(for: EKEntityType.event)
+    //            switch (status) {
+    //            case EKAuthorizationStatus.notDetermined:
+    //                pending.wait()
+    //                requestAccessToCalendar()
+    //            case EKAuthorizationStatus.authorized:
+    //                result = true
+    //            case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
+    //                result = false
+    //            }} while (status == EKAuthorizationStatus.notDetermined)
+    //        return result
+    //
+    //    }
     
     // ------ Eintrag-Methoden ------
     
@@ -135,7 +148,7 @@ class CalendarInterface: NSObject {
         
         lecture.eventIDs.append(event.eventIdentifier)
     }
-                
+    
     // Aktualisiert Werte des übergebenem Events
     func updateEvent(change : ChangedLecture, lecture : Lecture, eventID : String, locationInfo : String) {
         
@@ -152,7 +165,7 @@ class CalendarInterface: NSObject {
                     newEvent.endDate   = (newEvent.startDate + 60 * 90)
                     
                     newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
-                   
+                    
                     newEvent.calendar  = self.calendar!
                     newEvent.notes = lecture.comment + "  " + lecture.group
                     
