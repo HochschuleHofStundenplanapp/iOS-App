@@ -26,6 +26,7 @@ class Constants :NSObject {
     static var calendarTitle : String = "Hochschule Hof Stundenplan App"
     static let locationInfoMueb = "Mueb"
     static let locationInfoHof = "Hof"
+    static let changesNew = "[Neu] "
     static let changesChanged = "[Verschoben] "
     static let changesRoomChanged = "[Raumänderung] "
     static let changesFailed = "[Entfällt] "
