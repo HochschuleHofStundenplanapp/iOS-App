@@ -91,8 +91,8 @@ class JsonChanges {
             var newOldTime = timeFormatter.date(from: oldTime)
             var newNewTime = timeFormatter.date(from: newTime)
             
-           // newOldTime = newOldTime?.changeTimeDate(date: newOldTime!)
-           // newNewTime = newNewTime?.changeTimeDate(date: newNewTime!)
+            newOldTime = newOldTime?.changeTimeDate(date: newOldTime!)
+            newNewTime = newNewTime?.changeTimeDate(date: newNewTime!)
             
             
             

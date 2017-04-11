@@ -113,7 +113,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
     }
     
     override var hashValue: Int {
-        return "\(name)\(room)\(day)\(startTime)".hashValue
+        return "\(name)\(room)\(day)\(startdate)".hashValue
     }
     
     required init?(coder aDecoder: NSCoder) {

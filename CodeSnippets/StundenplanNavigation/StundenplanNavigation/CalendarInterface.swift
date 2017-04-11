@@ -140,7 +140,10 @@ class CalendarInterface: NSObject {
     }
                 
     // Aktualisiert Werte des übergebenem Events
-    func updateEvent(change : ChangedLecture, lecture : Lecture, eventID : String, locationInfo : String) {
+    func updateEvent(change : ChangedLecture) {
+        let lecture = CalendarController().findLecture(change: change)
+        
+        let eventID = CalendarController().findEventId(lecture: lecture, change: change)
         
         let event = self.eventStore.event(withIdentifier: eventID)
         
@@ -149,12 +152,12 @@ class CalendarInterface: NSObject {
                 if (event?.startDate != change.newDate) {
                     let newEvent = EKEvent(eventStore: self.eventStore)
                     
-                    newEvent.title     = Constants.changesNew + change.name
+                    newEvent.title     = "[NEU] " + change.name
                     newEvent.notes     = event?.notes
-                    newEvent.startDate = change.combinedNewDate
+                    newEvent.startDate = change.newDate!
                     newEvent.endDate   = (newEvent.startDate + 60 * 90)
                     
-                    newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
+                    newEvent.location = CalendarController().getLocationInfo(room: lecture.room) + " ," + lecture.room.appending(", \(change.newRoom)")
                    
                     newEvent.calendar  = self.calendar!
                     newEvent.notes = lecture.comment + "  " + lecture.group
@@ -167,7 +170,7 @@ class CalendarInterface: NSObject {
                 } else {
                     event?.title     = Constants.changesRoomChanged + change.name
                     
-                    event?.location = locationInfo.appending(", \(change.newRoom)")
+                    event?.location = CalendarController().getLocationInfo(room: lecture.room).appending(", \(change.newRoom)")
                     
                 }
             } else {
