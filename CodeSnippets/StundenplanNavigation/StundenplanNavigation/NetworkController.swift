@@ -177,12 +177,12 @@ class NetworkController: NSObject {
 //                        tableView.endDownload()
                     } else{
                         Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: data!, course: course)!.changes))
-                        Settings.sharedInstance.compareScheduleAndChanges()
                         if (self.cntChanges == 0)
                         {
-                            
+                            //compareScheduleAndChanges() muss nur aufgerufen werden, wenn cntChanges == 0, spart enorm Zeit ;-)
+                            Settings.sharedInstance.compareScheduleAndChanges()
                             Settings.sharedInstance.status = .DataLoaded
-                            
+                                                        
 //                            tableView.endDownload()
                         }
                     }
