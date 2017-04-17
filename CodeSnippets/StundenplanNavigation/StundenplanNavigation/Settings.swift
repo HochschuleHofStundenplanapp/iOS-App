@@ -67,6 +67,44 @@ class Settings: NSObject, NSCoding {
         self.tmpCourses = newCourses
     }
     
+    func filterChangesDuplicates(){
+    
+        var duplicateList : [Bool] = []
+        
+        for _ in savedChanges.changes{
+            duplicateList.append(false)
+        }
+        
+        for i in 0 ..< savedChanges.changes.count{
+            for j in 0 ..< savedChanges.changes.count{
+                
+                if duplicateList[i] == false && i != j && compareChanges(chLecture: savedChanges.changes[i], chLecture2: savedChanges.changes[j]){
+  
+                    duplicateList[j] = true
+                    
+                }
+            }
+        }
+        var index = 0
+        var changesList : [ChangedLecture] = []
+        
+        for isDuplicate in duplicateList{
+        
+            if !isDuplicate{
+                
+                changesList.append(savedChanges.changes[index])
+            }
+            index += 1
+        }
+        
+        savedChanges.changes = changesList
+    }
+    
+    private func compareChanges(chLecture : ChangedLecture, chLecture2 : ChangedLecture) -> Bool {
+
+        return (chLecture2.name == chLecture.name) && (chLecture2.oldRoom == chLecture.oldRoom) && (chLecture2.oldDay == chLecture.oldDay) && (chLecture2.newTime == chLecture.newTime) && (chLecture2.course.contraction == chLecture.course.contraction) && (chLecture2.group == chLecture.group)
+    }
+    
     //Vergleich der gewählten Vorlesungen mit Änderungen
     func compareScheduleAndChanges(){
         savedSchedule.extractSelectedLectures()
@@ -81,6 +119,9 @@ class Settings: NSObject, NSCoding {
         savedChanges.changes.removeAll()
         savedChanges.addChanges(cl: newSavedChanges.changes)
     }
+    
+    
+    
     
     private func compareChangesAndLectures(lecture : Lecture, chLecture : ChangedLecture) -> Bool {
         let timeFormatter = DateFormatter()
