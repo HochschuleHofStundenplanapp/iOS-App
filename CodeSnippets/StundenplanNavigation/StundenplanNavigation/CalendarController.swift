@@ -12,7 +12,6 @@ import EventKit
 class CalendarController: NSObject {
     
     var eventStore = CalendarInterface.sharedInstance.eventStore
-    var calendar = CalendarInterface.sharedInstance.calendar!
     
     override init() {
         super.init()
@@ -26,6 +25,9 @@ class CalendarController: NSObject {
             }
             return true
         } else {
+            if (EKEventStore.authorizationStatus(for: EKEntityType.event) == EKAuthorizationStatus.notDetermined) {
+                return true
+            }
             return false
         }
     }
@@ -77,7 +79,7 @@ class CalendarController: NSObject {
         let events = lectureToEKEventCreate(lecture: lecture)
         
         for event in events {
-            event.calendar  = calendar
+            event.calendar  = CalendarInterface.sharedInstance.calendar!
             
             do {
                 try eventStore?.save(event, span: .thisEvent)

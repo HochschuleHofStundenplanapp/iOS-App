@@ -23,8 +23,9 @@ class CalendarInterface: NSObject {
         eventStore = EKEventStore()
         if(!isAuthorized()){
             requestAccessToCalendar()
+        } else {
+            createCalenderIfNeeded()
         }
-        createCalenderIfNeeded()
     }
     
     // ------ Kalendar-Methoden ------
@@ -89,7 +90,8 @@ class CalendarInterface: NSObject {
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                self.pending.signal()
+                //self.pending.signal()
+                self.createCalenderIfNeeded()
             })
         }
     }
