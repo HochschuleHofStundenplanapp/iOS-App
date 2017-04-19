@@ -24,41 +24,12 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        Settings.sharedInstance.tmpSchedule.toggleLectureAt(section: indexPath.section, row: indexPath.row)
-        tableView.reloadData()
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
-        let lecture = Settings.sharedInstance.tmpSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
-        
-        if(lecture.comment != ""){
-            return 73
-        }
-        else{
-            return 58
-        }
+        return 73
     }
-    
-    func selectAllCells(tableView: UITableView){
-        let list = Settings.sharedInstance.tmpSchedule.list
-        
-        for i in list{
-            for j in i{
-                j.selected = true
-            }
-        }
-        tableView.reloadData()
-    }
-    
-    func deSelectAllCells(tableView: UITableView){
-        let list = Settings.sharedInstance.tmpSchedule.list
-        
-        for i in list{
-            for j in i{
-                j.selected = false
-            }
-        }
-        tableView.reloadData()
-    }
+
 }

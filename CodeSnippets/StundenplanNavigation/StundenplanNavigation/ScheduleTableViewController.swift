@@ -23,7 +23,6 @@ class ScheduleTableViewController: UITableViewController {
         scheduleTableView.dataSource = datasource
         scheduleTableView.delegate = delegate
         
-        
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -35,20 +34,9 @@ class ScheduleTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.HAWRed]
 
-        //Überprüfe, ob Schedule leer ist. Falls ja, wird nur eine Section angezeigt.
-        let countLectures = Settings.sharedInstance.savedSchedule.selectedLectures()
-        datasource.scheduleIsEmpty = true
-        for i in countLectures{
-            if(i.count != 0){
-                datasource.scheduleIsEmpty = false
-            }
-        }
-        
-        self.tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        delegate.selectedIndexPath = nil
     }
 
     override func didReceiveMemoryWarning() {

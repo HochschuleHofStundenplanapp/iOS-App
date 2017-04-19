@@ -14,8 +14,6 @@ class EmptyScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var textLabel2: UILabel!
     
     override func awakeFromNib() {
-//        textLabel1.text = "Keine Vorlesungen gewählt"
-//        textLabel2.text = "Öffne \"Einstellungen\" -> \"Stundenplan bearbeiten\""
         super.awakeFromNib()
         // Initialization code
     }

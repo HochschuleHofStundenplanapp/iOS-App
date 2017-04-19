@@ -13,22 +13,9 @@ import EventKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var vData : DataObject!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // Load Version
-//        vData = VersionDataObjectPersistency().loadDataObject()
-//        if (vData.Version == 1)
-//        {
-//            Settings.sharedInstance = DataObjectPersistency().loadDataObject()
-//        }
-
-        // ##### "Bugfix" für verkrüpeltes Version-Object #####
-        vData = DataObject()
-        Settings.sharedInstance = DataObjectPersistency().loadDataObject()
         return true
     }
 
@@ -41,11 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        // ##### Anpassung für echte Versions-Info nicht vergessen #####
-        vData.Version = 1
-        VersionDataObjectPersistency().saveDataObject(vData)
-
-        DataObjectPersistency().saveDataObject(items: Settings.sharedInstance)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

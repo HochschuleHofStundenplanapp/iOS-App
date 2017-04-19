@@ -18,16 +18,6 @@ class SemesterTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        Settings.sharedInstance.tmpCourses.selectedCourses()[indexPath.section].semesters.toggleSemesterAt(index: indexPath.row)
-        
-        
-//        dump(Settings.sharedInstance.tmpCourses.list[0].semesters)
-//        dump(Settings.sharedInstance.savedCourses.list[0].semesters)
-        
-        tableView.reloadData()
-        
-        
-        
+    
     }
 }

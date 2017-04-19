@@ -16,14 +16,9 @@ class PopUpMenueViewController: UIViewController {
     @IBOutlet var stroke: UIView!
     
     @IBAction func selectAllButton(_ sender: Any) {
-        lecturesDelegate = LecturesTableViewDelegate(ctrl: mainViewController)
-        lecturesDelegate.selectAllCells(tableView: mainViewController.tableView)
-        self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func deSelectAll(_ sender: Any) {
-        lecturesDelegate = LecturesTableViewDelegate(ctrl: mainViewController)
-        lecturesDelegate.deSelectAllCells(tableView: mainViewController.tableView)
-        self.dismiss(animated: true, completion: nil)
     }
     
     func setBorder(){

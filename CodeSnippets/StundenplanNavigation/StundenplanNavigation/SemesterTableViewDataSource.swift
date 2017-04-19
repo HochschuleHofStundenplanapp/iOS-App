@@ -14,29 +14,19 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SemesterCell")!
         
-        let selectedSem = Settings.sharedInstance.tmpCourses.selectedSemesters()
-        
-        cell.textLabel?.text = selectedSem[indexPath.section].list[indexPath.row].name
-        
-        if(selectedSem[indexPath.section].isSelected(index: indexPath.row)){
-            cell.accessoryType = .checkmark
-        }else{
-            cell.accessoryType = .none
-        }
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Settings.sharedInstance.tmpCourses.selectedSemesters()[section].list.count
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {        
-        return Settings.sharedInstance.tmpCourses.selectedSemesters().count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Settings.sharedInstance.tmpCourses.selectedCoursesName()[section]
+        return ""
     }
 }
 
