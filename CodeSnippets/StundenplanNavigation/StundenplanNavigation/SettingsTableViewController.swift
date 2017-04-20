@@ -135,7 +135,7 @@ class SettingsTableViewController: UITableViewController {
             if(CalendarController().createCalendar() == false){
                 showAccessAlert()
                 Settings.sharedInstance.savedCalSync = false
-                syncSwitch.isOn = false
+                syncSwitch.setOn(false, animated: true)
             }
         } else {
             CalendarController().removeCalendar()
@@ -153,6 +153,7 @@ class SettingsTableViewController: UITableViewController {
             
             if (!resultCalendarRoutine) {
                 showAccessAlert()
+                syncSwitch.setOn(false, animated: true)
             }
         }
 
