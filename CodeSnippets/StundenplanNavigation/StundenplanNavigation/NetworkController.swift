@@ -114,6 +114,11 @@ class NetworkController: NSObject {
                     self.notifyEndDownlaod()
                 } else{
                     Settings.sharedInstance.tmpSchedule.addSchedule(lectures: (JsonSchedule(data: data!, course: course, semester: semester)?.schedule!)!)
+                    
+                    
+                    Settings.sharedInstance.filterLectureDuplicates()
+                    
+                    
                     if (self.cntSemesters == 0)
                     {
                         Settings.sharedInstance.tmpSchedule.sort()

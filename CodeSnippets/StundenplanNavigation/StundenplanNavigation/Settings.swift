@@ -11,7 +11,7 @@ import UIKit
 
 
 class Settings: NSObject, NSCoding {
-
+    
     dynamic var status: Status = .DataLoaded
     
     let ssWsKey = "settings_SavedSsws"
@@ -67,8 +67,64 @@ class Settings: NSObject, NSCoding {
         self.tmpCourses = newCourses
     }
     
-    func filterChangesDuplicates(){
+    func filterLectureDuplicates(){
+        
+        var duplicateList : [[Bool]] = [[],[],[],[],[],[]]
+        
+        for i in 0 ..< savedSchedule.list.count{
+            for _ in savedSchedule.list[i]{
+                duplicateList[i].append(false)
+            }
+        }
+        
+        for k in 0 ..< savedSchedule.list.count{
+            for i in 0 ..< savedSchedule.list[k].count{
+                for j in 0 ..< savedSchedule.list[k].count{
+                    
+                    if duplicateList[k][i] == false && i != j && compareLectures(lecture: savedSchedule.list[k][i], lecture2: savedSchedule.list[k][j]){
+                        
+                        duplicateList[k][j] = true
+                        
+                    }
+                }
+            }
+        }
+        
+        var index = 0
+        var newList : [[Lecture]] = [[],[],[],[],[],[]]
+        
+        print(savedSchedule.list.count)
+        
+        for k in 0 ..< savedSchedule.list.count{
+            
+            index = 0
+            
+            for isDuplicate in duplicateList[k]{
+                
+                if !isDuplicate{
+                    
+                    newList[k].append(savedSchedule.list[k][index])
+                } else{
+                    print("duplicate deleted")
+                }
+                index += 1
+            }
+        }
+        
+        savedSchedule.list = newList
+    }
     
+    private func compareLectures(lecture : Lecture, lecture2 : Lecture) -> Bool {
+        
+        return (lecture.name == lecture2.name) && (lecture.room == lecture2.room) && (lecture.startTime == lecture2.startTime)
+        
+        
+        
+        //   Löscht im Moment auch Studiengangübergreifend!
+    }
+    
+    func filterChangesDuplicates(){
+        
         var duplicateList : [Bool] = []
         
         for _ in savedChanges.changes{
@@ -79,7 +135,7 @@ class Settings: NSObject, NSCoding {
             for j in 0 ..< savedChanges.changes.count{
                 
                 if duplicateList[i] == false && i != j && compareChanges(chLecture: savedChanges.changes[i], chLecture2: savedChanges.changes[j]){
-  
+                    
                     duplicateList[j] = true
                     
                 }
@@ -89,7 +145,7 @@ class Settings: NSObject, NSCoding {
         var changesList : [ChangedLecture] = []
         
         for isDuplicate in duplicateList{
-        
+            
             if !isDuplicate{
                 
                 changesList.append(savedChanges.changes[index])
@@ -101,7 +157,7 @@ class Settings: NSObject, NSCoding {
     }
     
     private func compareChanges(chLecture : ChangedLecture, chLecture2 : ChangedLecture) -> Bool {
-
+        
         return (chLecture2.name == chLecture.name) && (chLecture2.oldRoom == chLecture.oldRoom) && (chLecture2.oldDay == chLecture.oldDay) && (chLecture2.newTime == chLecture.newTime) && (chLecture2.course.contraction == chLecture.course.contraction) && (chLecture2.group == chLecture.group)
     }
     
