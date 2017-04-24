@@ -151,48 +151,19 @@ class CalendarInterface: NSObject {
         lecture.eventIDs.append(event.eventIdentifier)
     }
     
-    // Aktualisiert Werte des übergebenem Events
-    func updateEvent(change : ChangedLecture, lecture : Lecture, eventID : String, locationInfo : String) {
+    func updateEvent(eventID : String, updatedEvent : EKEvent) {
+        let event = getEventWithEventID(eventID: eventID)
         
-        let event = self.eventStore.event(withIdentifier: eventID)
+        if (event.title != "") {
+            event.title     = updatedEvent.title
+            event.notes     = updatedEvent.notes
+            event.startDate = updatedEvent.startDate
+            event.endDate   = updatedEvent.endDate
+            event.location  = updatedEvent.location
+            event.calendar  = self.calendar!
         
-        if((event) != nil) {
-            if (change.newDay != "") {
-                if (event?.startDate != change.newDate) {
-                    let newEvent = EKEvent(eventStore: self.eventStore)
-                    
-                    newEvent.title     = Constants.changesNew + change.name
-                    newEvent.notes     = event?.notes
-                    newEvent.startDate = change.combinedNewDate
-                    newEvent.endDate   = (newEvent.startDate + 60 * 90)
-                    
-                    newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
-                    
-                    newEvent.calendar  = self.calendar!
-                    newEvent.notes = lecture.comment + "  " + lecture.group
-                    
-                    createEvent(p_event: newEvent , lecture: lecture)
-                    
-                    event?.title    = Constants.changesChanged + change.name
-                    event?.location = nil
-                    event?.alarms   = []
-                } else {
-                    event?.title     = Constants.changesRoomChanged + change.name
-                    
-                    event?.location = locationInfo.appending(", \(change.newRoom)")
-                    
-                }
-            } else {
-                event?.title     = Constants.changesFailed + change.name
-                event?.location = nil
-                event?.alarms   = []
-            }
-            
-            event?.calendar  = self.calendar!;
-        }
-        if((event) != nil) {
             do {
-                try self.eventStore.save(event!, span: .thisEvent)
+                try self.eventStore.save(event, span: .thisEvent)
             } catch {
                 print("Fehler beim Updaten eines Events")
             }
@@ -212,6 +183,19 @@ class CalendarInterface: NSObject {
             }
         }
         return false
+    }
+    
+    public func getEventWithEventID(eventID : String) -> EKEvent{
+        if (eventID != "") {
+            let event = self.eventStore.event(withIdentifier: eventID)!
+            if (event != nil) {
+                return event
+            } else {
+                return EKEvent(eventStore: self.eventStore!)
+            }
+        } else {
+            return EKEvent(eventStore: self.eventStore!)
+        }
     }
 }
 
