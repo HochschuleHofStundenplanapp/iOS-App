@@ -176,7 +176,7 @@ class CalendarController: NSObject {
             events.append(event)
             
             // startdate für die nächste Vorlesung in einer Woche setzen
-            tmpStartdate = Calendar.current.date(byAdding: .day, value: 7, to: tmpStartdate)!
+            tmpStartdate = Calendar.current.date(byAdding: .day, value: lecture.iteration, to: tmpStartdate)!
         } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0)
         
         return events
