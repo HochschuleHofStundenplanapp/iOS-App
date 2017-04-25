@@ -51,7 +51,7 @@ class CalendarController: NSObject {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             for change in changes.changes {
                 let lecture = CalendarController().findLecture(change: change)
-                let eventID = CalendarController().findEventId(lecture: lecture, change: change)
+                let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedOldDate)
                 let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
                 updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
             }
@@ -81,7 +81,7 @@ class CalendarController: NSObject {
                     newEvent.notes = lecture.comment + "  " + lecture.group
                     
                     // Neues Event erzeugen
-                    CalendarInterface.sharedInstance.createEvent(p_event: newEvent , lecture: lecture)
+                    CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue)
                     
                     // Daten bei altem Event ändern
                     oldEvent.title    = Constants.changesChanged + change.name
@@ -110,7 +110,7 @@ class CalendarController: NSObject {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             for lecture in lectures {
                 
-                let ids = lecture.eventIDs
+                let ids = CalendarInterface.sharedInstance.getIDFromDictonary(key: lecture.hashValue)
                 
                 if (!ids.isEmpty) {
                     for id in ids {
@@ -126,15 +126,7 @@ class CalendarController: NSObject {
         let events = lectureToEKEventCreate(lecture: lecture)
         
         for event in events {
-            event.calendar  = CalendarInterface.sharedInstance.calendar!
-            
-            do {
-                try eventStore?.save(event, span: .thisEvent)
-            } catch {
-                print("TODO Fehlermeldung \n KalenderAPI create CREATEEVENTSFORLECTURE")
-            }
-            
-            lecture.eventIDs.append(event.eventIdentifier)
+            CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.hashValue)
         }
     }
     
@@ -180,19 +172,6 @@ class CalendarController: NSObject {
         } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0)
         
         return events
-    }
-    
-    // ID eines Events im Kalender wird gesucht und zurückgegeben
-    public func findEventId(lecture: Lecture, change: ChangedLecture) -> String{
-        
-        var result = ""
-        for id in lecture.eventIDs {
-            let event = eventStore?.event(withIdentifier: id)
-            if(event?.title == change.name && event?.startDate == change.combinedOldDate ){
-                result = id
-            }
-        }
-        return result
     }
     
     // Findet eine Lecutre anhand des Hashes

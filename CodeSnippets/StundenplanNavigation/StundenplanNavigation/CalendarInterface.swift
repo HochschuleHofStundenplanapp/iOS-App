@@ -15,11 +15,11 @@ class CalendarInterface: NSObject {
     
     var calendar : EKCalendar?
     var eventStore : EKEventStore!
-    var pending : DispatchSemaphore!
+    
+    var eventIdDictonary : [Int:[String]] = [:]
     
     private override init() {
         super.init()
-        pending = DispatchSemaphore(value: 1)
         eventStore = EKEventStore()
         if(!isAuthorized()){
             requestAccessToCalendar()
@@ -90,7 +90,6 @@ class CalendarInterface: NSObject {
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                //self.pending.signal()
                 self.createCalenderIfNeeded()
             })
         }
@@ -104,29 +103,10 @@ class CalendarInterface: NSObject {
         }
     }
     
-    //    // Abfrage der Kalenderberechtigungen
-    //    public func checkCalendarAuthorizationStatus() -> Bool{
-    //        var result = false
-    //        var status :  EKAuthorizationStatus
-    //        repeat {
-    //            status = EKEventStore.authorizationStatus(for: EKEntityType.event)
-    //            switch (status) {
-    //            case EKAuthorizationStatus.notDetermined:
-    //                pending.wait()
-    //                requestAccessToCalendar()
-    //            case EKAuthorizationStatus.authorized:
-    //                result = true
-    //            case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
-    //                result = false
-    //            }} while (status == EKAuthorizationStatus.notDetermined)
-    //        return result
-    //
-    //    }
-    
     // ------ Eintrag-Methoden ------
     
     // Schreibt übergebene Events in den Kalender
-    func createEvent(p_event: EKEvent, lecture : Lecture){
+    func createEvent(p_event : EKEvent, key : Int){
         let event       = EKEvent(eventStore: eventStore!)
         event.title     = p_event.title
         event.notes     = p_event.notes
@@ -148,7 +128,13 @@ class CalendarInterface: NSObject {
             print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
         }
         
-        lecture.eventIDs.append(event.eventIdentifier)
+        // Event ID speichern
+        if var lectureIDs = eventIdDictonary[key] {
+            lectureIDs.append(event.eventIdentifier)
+            eventIdDictonary[key] = lectureIDs
+        } else {
+            eventIdDictonary[key] = [event.eventIdentifier]
+        }
     }
     
     func updateEvent(eventID : String, updatedEvent : EKEvent) {
@@ -195,6 +181,29 @@ class CalendarInterface: NSObject {
             }
         } else {
             return EKEvent(eventStore: self.eventStore!)
+        }
+    }
+    
+    // ID eines Events im Kalender wird gesucht und zurückgegeben
+    public func findEventId(key: Int, title: String, startDate: Date) -> String{
+        
+        var result = ""
+        if let lectureIDs = eventIdDictonary[key] {
+            for id in lectureIDs {
+                let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
+                if (event.title == title && event.startDate == startDate) {
+                    result = id
+                }
+            }
+        }
+        return result
+    }
+    
+    public func getIDFromDictonary(key: Int) -> [String] {
+        if let lectureIDs = eventIdDictonary[key] {
+            return lectureIDs
+        } else {
+            return []
         }
     }
 }
