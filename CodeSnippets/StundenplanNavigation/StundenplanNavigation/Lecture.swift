@@ -27,6 +27,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
     var semester: Semester
     var comment : String
     var eventIDs : [String]
+    var iteration : Int
     let idKey = "lectureId"
     let nameKey = "lectureName"
     let lecturerKey = "lectureLecturer"
@@ -41,8 +42,9 @@ class Lecture : NSObject, NSCopying, NSCoding {
     let semesterKey = "lectureSemester"
     let commentKey = "lectureComment"
     let eventIDsKey = "lectureEventIDs"
+    let iterationKey = "lectureIteration"
     
-    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, semester: Semester, comment : String, selected: Bool, eventIDs: [String]) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, semester: Semester, comment : String, selected: Bool, eventIDs: [String], iteration: Int) {
         self.id = id
         self.name = name
         self.lecturer = lecturer
@@ -57,11 +59,12 @@ class Lecture : NSObject, NSCopying, NSCoding {
         self.semester = semester
         self.comment = comment
         self.eventIDs = eventIDs
+        self.iteration = iteration
     }
     
-    convenience init(id: Int, name: String, lecture: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course,semester: Semester, comment : String, eventIDs: [String]) {
+    convenience init(id: Int, name: String, lecture: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course,semester: Semester, comment : String, eventIDs: [String], iteration: Int) {
         
-        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, startdate: startdate, enddate: enddate, day: day, room: room, course: course, semester: semester, comment: comment, selected: false, eventIDs: eventIDs )
+        self.init(id: id, name: name, lecturer: lecture, type:type, group: group, startdate: startdate, enddate: enddate, day: day, room: room, course: course, semester: semester, comment: comment, selected: false, eventIDs: eventIDs, iteration: iteration )
     }
     
     var startTime: Date {
@@ -104,7 +107,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
             newEventIDs.append(id.copy() as! String)
         }
         
-        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, semester: self.semester, comment: self.comment, selected: self.selected, eventIDs: newEventIDs)
+        let copy = Lecture(id: self.id, name: self.name, lecturer: self.lecturer, type: self.type, group: self.group, startdate: self.startdate, enddate: self.enddate, day: self.day, room: self.room, course: self.course, semester: self.semester, comment: self.comment, selected: self.selected, eventIDs: newEventIDs, iteration: self.iteration)
         return copy
     }
     
@@ -131,6 +134,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         semester = aDecoder.decodeObject(forKey: semesterKey) as! Semester
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
         eventIDs = aDecoder.decodeObject(forKey: eventIDsKey) as! [String]
+        iteration = Int(aDecoder.decodeInteger(forKey: iterationKey))
         super.init()
     }
     
@@ -149,6 +153,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         aCoder.encode(semester, forKey: semesterKey)
         aCoder.encode(comment, forKey: commentKey)
         aCoder.encode(eventIDs, forKey: eventIDsKey)
+        aCoder.encode(iteration, forKey: iterationKey)
     }
     
 }

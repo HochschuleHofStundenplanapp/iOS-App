@@ -75,8 +75,9 @@ class JsonSchedule: NSObject {
             newStartDate = newStartDate?.startLecture(startDate: newStartDate!,weekdayString: day, semester: ssws)
             newEndDate = newEndDate?.endLecture(endDate: newEndDate!, weekdayString: day, semester: ssws)
 
+            let iteration = 7
             
-            let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course,semester:semester, comment: comment, eventIDs: eventIDs)
+            let newLecture = Lecture(id: newId!, name: name, lecture: docent, type: type, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, course: course,semester:semester, comment: comment, eventIDs: eventIDs, iteration: iteration)
             pSchedule?.append(newLecture)
         }
     }
