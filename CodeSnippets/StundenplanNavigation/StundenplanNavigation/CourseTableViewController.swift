@@ -56,7 +56,7 @@ class CourseTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         
-        tabBarController?.tabBar.tintColor = Constants.HAWRed
+        tabBarController?.tabBar.tintColor = UIColor.hawRed
     }
     
     override func didReceiveMemoryWarning() {

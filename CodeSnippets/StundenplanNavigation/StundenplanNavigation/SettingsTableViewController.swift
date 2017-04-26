@@ -39,8 +39,8 @@ class SettingsTableViewController: UITableViewController {
         
         super.viewWillAppear(animated)
         
-        tabBarController?.tabBar.tintColor = Constants.HAWBlue
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.HAWBlue]
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
     }
     

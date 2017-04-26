@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension Date {
     
     //gibt SS oder WS zurück

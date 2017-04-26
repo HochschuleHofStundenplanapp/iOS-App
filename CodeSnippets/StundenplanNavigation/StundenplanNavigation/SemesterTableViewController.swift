@@ -33,7 +33,7 @@ class SemesterTableViewController: UITableViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.tintColor = Constants.HAWBlue
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
     }
     
     override func didReceiveMemoryWarning() {

@@ -23,13 +23,13 @@ class PopUpMenueViewController: UIViewController {
     
     func setBorder(){
         self.view.layer.borderWidth = 1.0
-        self.view.layer.borderColor = Constants.HAWBlue.cgColor
+        self.view.layer.borderColor = UIColor.hawBlue.cgColor
         self.view.layer.cornerRadius = 13.0;
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stroke.backgroundColor = Constants.HAWBlue
+        stroke.backgroundColor = UIColor.hawBlue
         // Do any additional setup after loading the view.
     }
 

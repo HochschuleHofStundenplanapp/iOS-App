@@ -52,9 +52,9 @@ class ScheduleChangesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        tabBarController?.tabBar.tintColor = Constants.HAWYellow
+        tabBarController?.tabBar.tintColor = UIColor.hawYellow
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.HAWYellow]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawYellow]
     }
 
     override func didReceiveMemoryWarning() {
