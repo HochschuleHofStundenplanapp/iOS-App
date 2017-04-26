@@ -67,7 +67,7 @@
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
 		BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarDelegate.swift; sourceTree = "<group>"; };
 		BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDataSource.swift; sourceTree = "<group>"; };
-		BE1922931EA8022800DF119C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../../../../Desktop/Constants.swift; sourceTree = "<group>"; };
+		BE1922931EA8022800DF119C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDelegate.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
