@@ -19,7 +19,7 @@ class CourseTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
         
-//        datasource = CourseTableViewDataSource(tableView: self, ssws: season)
+        datasource = CourseTableViewDataSource()
         delegate = CourseTableViewDelegate()
         
         tableView.dataSource = datasource

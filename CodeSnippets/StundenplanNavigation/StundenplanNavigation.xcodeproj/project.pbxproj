@@ -14,6 +14,10 @@
 		BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */; };
 		BE1922941EA8022800DF119C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1922931EA8022800DF119C /* Constants.swift */; };
 		BE4DF9111EB1051800D6550C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9101EB1051800D6550C /* UIColorExtension.swift */; };
+		BE4DF9141EB109CD00D6550C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9131EB109CD00D6550C /* Course.swift */; };
+		BE4DF9161EB10A9B00D6550C /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9151EB10A9B00D6550C /* Semester.swift */; };
+		BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9171EB10B4500D6550C /* Lecture.swift */; };
+		BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF91A1EB10F5300D6550C /* ServerData.swift */; };
 		BE4F4E271DE3747E00B4CC7F /* LecturesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
 		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
@@ -70,6 +74,10 @@
 		BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDataSource.swift; sourceTree = "<group>"; };
 		BE1922931EA8022800DF119C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE4DF9101EB1051800D6550C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		BE4DF9131EB109CD00D6550C /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		BE4DF9151EB10A9B00D6550C /* Semester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
+		BE4DF9171EB10B4500D6550C /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		BE4DF91A1EB10F5300D6550C /* ServerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDelegate.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +148,24 @@
 			name = Texte;
 			sourceTree = "<group>";
 		};
+		BE4DF9121EB106ED00D6550C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE4DF9131EB109CD00D6550C /* Course.swift */,
+				BE4DF9151EB10A9B00D6550C /* Semester.swift */,
+				BE4DF9171EB10B4500D6550C /* Lecture.swift */,
+				BE4DF91A1EB10F5300D6550C /* ServerData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BE4DF9191EB10F1800D6550C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		BE7205561DDB02BB0080C2F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +201,8 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				BE4DF9191EB10F1800D6550C /* Controller */,
+				BE4DF9121EB106ED00D6550C /* Model */,
 				0C18F6B31E081CF90037E28F /* Texte */,
 				DAA250781E017C4A007CCEFB /* Extensions */,
 				CED25BB21DD1C5F400FE7D1C /* Schedule */,
@@ -432,12 +460,16 @@
 				CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */,
 				CE5728531E2E03C00017DF81 /* PopUpMenueDelegate.swift in Sources */,
 				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
+				BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */,
 				8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */,
 				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
 				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,
+				BE4DF9161EB10A9B00D6550C /* Semester.swift in Sources */,
 				BE4DF9111EB1051800D6550C /* UIColorExtension.swift in Sources */,
+				BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */,
+				BE4DF9141EB109CD00D6550C /* Course.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
 				BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
