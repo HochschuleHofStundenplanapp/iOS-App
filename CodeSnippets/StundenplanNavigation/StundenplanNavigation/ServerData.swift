@@ -43,10 +43,6 @@ class ServerData: NSObject {
         get { return allCourses.count }
     }
     
-//    var semestersSize: Int {
-//        get { return allSemester.count }
-//    }
-    
     var lecturesSize: Int {
         get { return allLectures.count }
     }
@@ -54,10 +50,6 @@ class ServerData: NSObject {
     func course(at index: Int) -> Course{
         return allCourses[index]
     }
-    
-//    func semester(at index: Int) -> Semester{
-//        return allSemester[index]
-//    }
     
     func lecture(at day: Int, at index: Int) -> Lecture{
         return allLectures[day][index]

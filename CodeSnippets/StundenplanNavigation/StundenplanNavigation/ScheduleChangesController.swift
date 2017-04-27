@@ -10,14 +10,11 @@ import UIKit
 
 class ScheduleChangesController: NSObject, DataObserverProtocol{
     
-    private let username = "soapuser"
-    private let password = "F%98z&12"
-    private let baseURI = "https://www.hof-university.de/soap/"
     var myJobManager : JobManager = JobManager()
     
-//    func handleChanges() -> Void
-//    {
-//
+    func handleChanges() -> Void
+    {
+
 //        self.myJobManager.addNewObserver(o: self)
 //        
 //
@@ -57,11 +54,11 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
 //        myJobManager.NetworkJob(url: urlString, username: username, password: password,isLastJob: true)
 //        print("Letzen Job hinzugefügt")
 //
-//    }
-//    
-//    /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
-//    ///
-//    /// - Parameter o: o Zurückgegebenes AnyObject
+    }
+    
+    /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
+    ///
+    /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void
     {
 //        print("Das Dataobject \(o)")
@@ -79,10 +76,9 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
 //        
     }
     /// Bricht im JobManager alle Netzwerkjobs ab
-//    func cancelAllNetworkJobs() -> Void
-//    {
-//        myJobManager.cancelAllNetworkJobs()
-//        
-//    }
+   func cancelAllNetworkJobs() -> Void  {
+        myJobManager.cancelAllNetworkJobs()
+        
+    }
     
 }

@@ -14,7 +14,6 @@ class CourseTableViewController: UITableViewController {
     var datasource : CourseTableViewDataSource!
     var delegate: CourseTableViewDelegate!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -24,8 +23,6 @@ class CourseTableViewController: UITableViewController {
         
         tableView.dataSource = datasource
         tableView.delegate = delegate
-        
-        
     }
     
     func beginDownload(){
@@ -39,24 +36,24 @@ class CourseTableViewController: UITableViewController {
     }
     
     func showNoInternetAlert(){
-    
-        //Hide Activity Indicator
         
         _ = navigationController?.popViewController(animated: true)
-        
+    
         let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
             "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
             //Daten erneut laden
         } ))
         self.present(alertController, animated: true, completion: nil)
-        
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
-        
         tabBarController?.tabBar.tintColor = UIColor.hawRed
+        
+        _ = CourseController().loudAllCourses()
+        
+        //Notification wenn laden fertig 
     }
     
     override func didReceiveMemoryWarning() {

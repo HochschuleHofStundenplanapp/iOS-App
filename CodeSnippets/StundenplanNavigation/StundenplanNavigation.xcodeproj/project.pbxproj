@@ -20,6 +20,10 @@
 		BE3AB3AC1EB1F7BF009A6D20 /* GetDataFromInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AB3AA1EB1F7BF009A6D20 /* GetDataFromInternet.swift */; };
 		BE3AB3AD1EB1F7BF009A6D20 /* JobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AB3AB1EB1F7BF009A6D20 /* JobManager.swift */; };
 		BE3AB3B01EB1F7D6009A6D20 /* ScheduleChangesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AB3AF1EB1F7D6009A6D20 /* ScheduleChangesController.swift */; };
+		BE3AB3B21EB1FA09009A6D20 /* CourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AB3B11EB1FA09009A6D20 /* CourseController.swift */; };
+		BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AB3B31EB1FD32009A6D20 /* UserData.swift */; };
+		BE3AB3B61EB202C7009A6D20 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */; };
+		BE3AB3BA1EB20552009A6D20 /* JsonCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AB3B91EB20552009A6D20 /* JsonCourses.swift */; };
 		BE4DF9111EB1051800D6550C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9101EB1051800D6550C /* UIColorExtension.swift */; };
 		BE4DF9141EB109CD00D6550C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9131EB109CD00D6550C /* Course.swift */; };
 		BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9171EB10B4500D6550C /* Lecture.swift */; };
@@ -86,6 +90,10 @@
 		BE3AB3AA1EB1F7BF009A6D20 /* GetDataFromInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDataFromInternet.swift; sourceTree = "<group>"; };
 		BE3AB3AB1EB1F7BF009A6D20 /* JobManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobManager.swift; sourceTree = "<group>"; };
 		BE3AB3AF1EB1F7D6009A6D20 /* ScheduleChangesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleChangesController.swift; sourceTree = "<group>"; };
+		BE3AB3B11EB1FA09009A6D20 /* CourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseController.swift; sourceTree = "<group>"; };
+		BE3AB3B31EB1FD32009A6D20 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		BE3AB3B91EB20552009A6D20 /* JsonCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonCourses.swift; sourceTree = "<group>"; };
 		BE4DF9101EB1051800D6550C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BE4DF9131EB109CD00D6550C /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		BE4DF9171EB10B4500D6550C /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
@@ -194,6 +202,7 @@
 				BE4DF9131EB109CD00D6550C /* Course.swift */,
 				BE4DF9171EB10B4500D6550C /* Lecture.swift */,
 				BE4DF91A1EB10F5300D6550C /* ServerData.swift */,
+				BE3AB3B31EB1FD32009A6D20 /* UserData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -205,7 +214,7 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		BE7205561DDB02BB0080C2F8 /* View */ = {
+		BE7205561DDB02BB0080C2F8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				CEAC97361DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift */,
@@ -214,7 +223,7 @@
 				CE698D5B1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift */,
 				CE570FB91E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift */,
 			);
-			name = View;
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		CEAC96F71DB5FD350042FF3D = {
@@ -240,6 +249,8 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */,
+				BE3AB3B91EB20552009A6D20 /* JsonCourses.swift */,
 				BE3AB3A11EB1F77A009A6D20 /* Protocols */,
 				BE3AB3A01EB1F761009A6D20 /* GeneralController */,
 				BE4DF9191EB10F1800D6550C /* Controller */,
@@ -294,7 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				BE3AB3AE1EB1F7C9009A6D20 /* Controller */,
-				BE7205561DDB02BB0080C2F8 /* View */,
+				BE7205561DDB02BB0080C2F8 /* ViewController */,
 			);
 			name = ScheduleChanges;
 			sourceTree = "<group>";
@@ -302,6 +313,7 @@
 		CED25BB41DD1C60B00FE7D1C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BE3AB3B11EB1FA09009A6D20 /* CourseController.swift */,
 				CEAC97381DB61A330042FF3D /* SettingsTableViewController.swift */,
 				CED25BB51DD1C62000FE7D1C /* Course */,
 				CED25BB61DD1C63600FE7D1C /* Semester */,
@@ -497,6 +509,7 @@
 				CED25BB91DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift in Sources */,
 				BE1922941EA8022800DF119C /* Constants.swift in Sources */,
 				CE5728511E2DFDEE0017DF81 /* PopUpMenueViewController.swift in Sources */,
+				BE3AB3B61EB202C7009A6D20 /* JsonParser.swift in Sources */,
 				BE3AB3A71EB1F799009A6D20 /* DataObserverProtocol.swift in Sources */,
 				CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */,
 				CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */,
@@ -507,8 +520,10 @@
 				BE3AB3A81EB1F799009A6D20 /* myObservableProtocol.swift in Sources */,
 				8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */,
 				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,
+				BE3AB3BA1EB20552009A6D20 /* JsonCourses.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
+				BE3AB3B21EB1FA09009A6D20 /* CourseController.swift in Sources */,
 				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,
 				BE3AB3B01EB1F7D6009A6D20 /* ScheduleChangesController.swift in Sources */,
 				BE4DF9111EB1051800D6550C /* UIColorExtension.swift in Sources */,
@@ -519,6 +534,7 @@
 				BE3AB3A91EB1F799009A6D20 /* myObserverProtocol.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
 				BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */,
+				BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */,
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
 				BE3AB3AC1EB1F7BF009A6D20 /* GetDataFromInternet.swift in Sources */,
 				BE3AB3A61EB1F799009A6D20 /* DataObservableProtocol.swift in Sources */,

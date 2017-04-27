@@ -12,6 +12,10 @@ import UIKit
 class Constants :NSObject {
     static let weekDays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
     
+    static let username = "soapuser"
+    static let password = "F%98z&12"
+    static let baseURI = "https://app.hof-university.de/soap/"
+    
     static let myEndDownload =  Notification.Name("endDownload")
     static let myNoInternet = Notification.Name("noInternet")
     
