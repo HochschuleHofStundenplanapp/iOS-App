@@ -19,8 +19,7 @@ class Lecture: NSObject {
     var enddate: Date
     var day: String
     var room: String
-//    var course: Course
-    var semester: Semester
+    var course: Course
     var comment : String
 //    var eventIDs : [String]
     var iteration : Int
@@ -34,13 +33,12 @@ class Lecture: NSObject {
     let dayKey = "lectureDay"
     let roomKey = "lectureRoom"
     let selectedKey = "lectureSelected"
-//    let courseKey = "lectureCourse"
-    let semesterKey = "lectureSemester"
+    let courseKey = "lectureCourse"
     let commentKey = "lectureComment"
 //    let eventIDsKey = "lectureEventIDs"
     let iterationKey = "lectureIteration"
     
-    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: Int) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, comment : String, iteration: Int) {
         self.id = id
         self.name = name
         self.lecturer = lecturer
@@ -50,8 +48,7 @@ class Lecture: NSObject {
         self.enddate = enddate
         self.day = day
         self.room = room
-//        self.course = course
-        self.semester = semester
+        self.course = course
         self.comment = comment
 //        self.eventIDs = eventIDs
         self.iteration = iteration
@@ -99,8 +96,7 @@ class Lecture: NSObject {
         enddate = aDecoder.decodeObject(forKey: enddateKey) as! Date
         day = aDecoder.decodeObject(forKey: dayKey) as! String
         room = aDecoder.decodeObject(forKey: roomKey) as! String
-//        course = aDecoder.decodeObject(forKey: courseKey) as! Course
-        semester = aDecoder.decodeObject(forKey: semesterKey) as! Semester
+        course = aDecoder.decodeObject(forKey: courseKey) as! Course
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
 //        eventIDs = aDecoder.decodeObject(forKey: eventIDsKey) as! [String]
         iteration = Int(aDecoder.decodeInteger(forKey: iterationKey))
@@ -117,8 +113,7 @@ class Lecture: NSObject {
         aCoder.encode(enddate, forKey: enddateKey)
         aCoder.encode(day, forKey: dayKey)
         aCoder.encode(room, forKey: roomKey)
-//        aCoder.encode(course, forKey: courseKey)
-        aCoder.encode(semester, forKey: semesterKey)
+        aCoder.encode(course, forKey: courseKey)
         aCoder.encode(comment, forKey: commentKey)
 //        aCoder.encode(eventIDs, forKey: eventIDsKey)
         aCoder.encode(iteration, forKey: iterationKey)

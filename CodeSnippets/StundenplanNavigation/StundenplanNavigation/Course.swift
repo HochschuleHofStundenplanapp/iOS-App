@@ -13,25 +13,28 @@ class Course: NSObject {
     var contraction : String
     var nameDe: String
     var nameEn: String
+    var semester: String
     let contractionKey = "courseContraction"
     let nameDeKey = "courseNameDe"
     let nameEnKey = "courseNameEn"
-    let semestersKey = "courseSemesters"
+    let semesterKey = "courseSemester"
     
-    init(contraction : String, nameDe: String, nameEn: String) {
+    init(contraction : String, nameDe: String, nameEn: String, semester: String) {
         self.contraction = contraction
         self.nameDe = nameDe
         self.nameEn = nameEn
+        self.semester = semester
     }
     
     static func == (lhs: Course, rhs: Course) -> Bool {
-        return (lhs.contraction == rhs.contraction) && (lhs.nameDe == rhs.nameDe) && (lhs.nameEn == rhs.nameEn)
+        return (lhs.contraction == rhs.contraction) && (lhs.nameDe == rhs.nameDe) && (lhs.nameEn == rhs.nameEn) && (lhs.semester == rhs.semester)
     }
     
     required init?(coder aDecoder: NSCoder) {
         contraction = aDecoder.decodeObject(forKey: contractionKey) as! String
         nameDe = aDecoder.decodeObject(forKey: nameDeKey) as! String
         nameEn = aDecoder.decodeObject(forKey: nameEnKey) as! String
+        semester = aDecoder.decodeObject(forKey: semesterKey) as! String
         super.init()
     }
     
@@ -39,5 +42,6 @@ class Course: NSObject {
         aCoder.encode(contraction, forKey: contractionKey)
         aCoder.encode(nameDe, forKey: nameDeKey)
         aCoder.encode(nameEn, forKey: nameEnKey)
+        aCoder.encode(semester, forKey: semesterKey)
     }
 }
