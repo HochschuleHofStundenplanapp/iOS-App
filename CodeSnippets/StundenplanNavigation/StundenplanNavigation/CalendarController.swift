@@ -116,6 +116,7 @@ class CalendarController: NSObject {
                     for id in ids {
                         _ = CalendarInterface.sharedInstance.removeEvent(p_eventId: id, p_withNotes: true)
                     }
+                    CalendarInterface.sharedInstance.removeIdsFromDictonary(key: lecture.hashValue)
                 }
             }
         }

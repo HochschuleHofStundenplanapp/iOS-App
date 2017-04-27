@@ -206,6 +206,12 @@ class CalendarInterface: NSObject {
             return []
         }
     }
+    
+    public func removeIdsFromDictonary(key: Int) {
+        if (eventIdDictonary[key] != nil) {
+            eventIdDictonary[key] = []
+        }
+    }
 }
 
 
