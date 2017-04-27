@@ -10,6 +10,7 @@
 		0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */ = {isa = PBXBuildFile; fileRef = 0C18F6B41E081D210037E28F /* rechtlicheTexte */; };
 		0C42E35C1DE59C9200DD999B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42E35B1DE59C9200DD999B /* Constants.swift */; };
 		655CCDC11E002D4A004B8AF3 /* CalendarInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CCDC01E002D4A004B8AF3 /* CalendarInterface.swift */; };
+		65A196DD1EB1F91900C4D369 /* CalendarEventIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A196DC1EB1F91800C4D369 /* CalendarEventIds.swift */; };
 		812843101DED715600B0715E /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8128430F1DED715600B0715E /* Observer.swift */; };
 		8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */; };
 		8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */; };
@@ -84,6 +85,7 @@
 		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
 		0C42E35B1DE59C9200DD999B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		655CCDC01E002D4A004B8AF3 /* CalendarInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInterface.swift; sourceTree = "<group>"; };
+		65A196DC1EB1F91800C4D369 /* CalendarEventIds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventIds.swift; sourceTree = "<group>"; };
 		8128430F1DED715600B0715E /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				655CCDC01E002D4A004B8AF3 /* CalendarInterface.swift */,
 				F46AAFB21E9646DB008B5914 /* CalendarController.swift */,
+				65A196DC1EB1F91800C4D369 /* CalendarEventIds.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				0C42E35C1DE59C9200DD999B /* Constants.swift in Sources */,
 				BECB66F31DF6DAFC00567455 /* Changes.swift in Sources */,
 				BE72054F1DDB02160080C2F8 /* Semester.swift in Sources */,
+				65A196DD1EB1F91900C4D369 /* CalendarEventIds.swift in Sources */,
 				CED25BBB1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift in Sources */,
 				CEAC973F1DB61AB20042FF3D /* LecturesTableViewController.swift in Sources */,
 				CED25BB91DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift in Sources */,

@@ -43,6 +43,7 @@ class CalendarController: NSObject {
             for lecture in lectures {
                 createEventsForLecture(lecture: lecture)
             }
+            CalendarInterface.sharedInstance.saveIDs()
         }
     }
     
@@ -55,6 +56,7 @@ class CalendarController: NSObject {
                 let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
                 updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
             }
+            CalendarInterface.sharedInstance.saveIDs()
         }
     }
     
@@ -119,6 +121,7 @@ class CalendarController: NSObject {
                     CalendarInterface.sharedInstance.removeIdsFromDictonary(key: lecture.hashValue)
                 }
             }
+            CalendarInterface.sharedInstance.saveIDs()
         }
     }
     

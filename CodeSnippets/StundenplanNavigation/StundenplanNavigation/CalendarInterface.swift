@@ -16,11 +16,13 @@ class CalendarInterface: NSObject {
     var calendar : EKCalendar?
     var eventStore : EKEventStore!
     
-    var eventIdDictonary : [Int:[String]] = [:]
+    var idDictonary : CalendarEventIds!
     
     private override init() {
         super.init()
         eventStore = EKEventStore()
+        idDictonary = DataObjectPersistency().loadIDList()
+        
         if(!isAuthorized()){
             requestAccessToCalendar()
         } else {
@@ -129,11 +131,11 @@ class CalendarInterface: NSObject {
         }
         
         // Event ID speichern
-        if var lectureIDs = eventIdDictonary[key] {
+        if var lectureIDs = idDictonary.eventIdDictonary[key] {
             lectureIDs.append(event.eventIdentifier)
-            eventIdDictonary[key] = lectureIDs
+            idDictonary.eventIdDictonary[key] = lectureIDs
         } else {
-            eventIdDictonary[key] = [event.eventIdentifier]
+            idDictonary.eventIdDictonary[key] = [event.eventIdentifier]
         }
     }
     
@@ -188,7 +190,7 @@ class CalendarInterface: NSObject {
     public func findEventId(key: Int, title: String, startDate: Date) -> String{
         
         var result = ""
-        if let lectureIDs = eventIdDictonary[key] {
+        if let lectureIDs = idDictonary.eventIdDictonary[key] {
             for id in lectureIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
                 if (event.title == title && event.startDate == startDate) {
@@ -200,7 +202,7 @@ class CalendarInterface: NSObject {
     }
     
     public func getIDFromDictonary(key: Int) -> [String] {
-        if let lectureIDs = eventIdDictonary[key] {
+        if let lectureIDs = idDictonary.eventIdDictonary[key] {
             return lectureIDs
         } else {
             return []
@@ -208,9 +210,13 @@ class CalendarInterface: NSObject {
     }
     
     public func removeIdsFromDictonary(key: Int) {
-        if (eventIdDictonary[key] != nil) {
-            eventIdDictonary[key] = []
+        if (idDictonary.eventIdDictonary[key] != nil) {
+            idDictonary.eventIdDictonary[key] = []
         }
+    }
+    
+    public func saveIDs() {
+        DataObjectPersistency().saveIDList(items: idDictonary)
     }
 }
 

@@ -11,6 +11,8 @@ import UIKit
 class DataObjectPersistency {
     private let fileName = "data.plist"
     private let dataKey  = "DataObject"
+    private let fileNameCalendar = "IDList.plist"
+    private let IDListKey = "IDList"
     
     func loadDataObject() -> Settings {
         var item : Settings!
@@ -35,6 +37,33 @@ class DataObjectPersistency {
         
         let archiver = NSKeyedArchiver(forWritingWith: data)
         archiver.encode(items, forKey: dataKey)
+        archiver.finishEncoding()
+        data.write(toFile: file, atomically: true)
+    }
+    
+    func loadIDList() -> CalendarEventIds {
+        var item : CalendarEventIds!
+        let file = dataFileForName(fileName: fileNameCalendar)
+        
+        if (!FileManager.default.fileExists(atPath: file)) {
+            return CalendarEventIds.sharedInstance
+        }
+        
+        if let data = NSData(contentsOfFile: file) {
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data as Data)
+            item = unarchiver.decodeObject(forKey: IDListKey) as! CalendarEventIds
+            unarchiver.finishDecoding()
+        }
+        
+        return item
+    }
+    
+    func saveIDList(items : CalendarEventIds) {
+        let file = dataFileForName(fileName: fileNameCalendar)
+        let data = NSMutableData()
+        
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(items, forKey: IDListKey)
         archiver.finishEncoding()
         data.write(toFile: file, atomically: true)
     }
