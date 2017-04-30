@@ -170,13 +170,13 @@
 			name = Texte;
 			sourceTree = "<group>";
 		};
-		BE3AB3A01EB1F761009A6D20 /* GeneralController */ = {
+		BE3AB3A01EB1F761009A6D20 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				BE3AB3AA1EB1F7BF009A6D20 /* GetDataFromInternet.swift */,
 				BE3AB3AB1EB1F7BF009A6D20 /* JobManager.swift */,
 			);
-			name = GeneralController;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		BE3AB3A11EB1F77A009A6D20 /* Protocols */ = {
@@ -201,6 +201,7 @@
 		BE4DF9121EB106ED00D6550C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BE1922931EA8022800DF119C /* Constants.swift */,
 				BE4DF9131EB109CD00D6550C /* Course.swift */,
 				BE4E89DB1EB676D000D4ACCF /* Semester.swift */,
 				BE4DF9171EB10B4500D6550C /* Lecture.swift */,
@@ -210,11 +211,57 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		BE4DF9191EB10F1800D6550C /* Controller */ = {
+		BE4E89DD1EB6807100D4ACCF /* ViewControllers  */ = {
 			isa = PBXGroup;
 			children = (
+				CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */,
+				CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */,
+				CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */,
 			);
-			name = Controller;
+			name = "ViewControllers ";
+			sourceTree = "<group>";
+		};
+		BE4E89DE1EB6807E00D4ACCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE3AB3B11EB1FA09009A6D20 /* CourseController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BE4E89DF1EB680D600D4ACCF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC97381DB61A330042FF3D /* SettingsTableViewController.swift */,
+				CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */,
+				CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BE4E89E01EB6815F00D4ACCF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC97341DB619D40042FF3D /* ScheduleTableViewController.swift */,
+				CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */,
+				CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */,
+				CE7430BB1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift */,
+				CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BE4E89E11EB681BA00D4ACCF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */,
+				BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */,
+				BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */,
+				CE5728501E2DFDEE0017DF81 /* PopUpMenueViewController.swift */,
+				CE5728521E2E03C00017DF81 /* PopUpMenueDelegate.swift */,
+				CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		BE7205561DDB02BB0080C2F8 /* ViewController */ = {
@@ -252,19 +299,20 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				CED25BB71DD1C64700FE7D1C /* Lecture */,
+				CED25BB61DD1C63600FE7D1C /* Semester */,
 				BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */,
 				BE3AB3B91EB20552009A6D20 /* JsonCourses.swift */,
 				BE3AB3A11EB1F77A009A6D20 /* Protocols */,
-				BE3AB3A01EB1F761009A6D20 /* GeneralController */,
-				BE4DF9191EB10F1800D6550C /* Controller */,
+				BE3AB3A01EB1F761009A6D20 /* Controller */,
 				BE4DF9121EB106ED00D6550C /* Model */,
 				0C18F6B31E081CF90037E28F /* Texte */,
 				DAA250781E017C4A007CCEFB /* Extensions */,
 				CED25BB21DD1C5F400FE7D1C /* Schedule */,
 				CED25BB31DD1C60200FE7D1C /* ScheduleChanges */,
+				CED25BB51DD1C62000FE7D1C /* Course */,
 				CED25BB41DD1C60B00FE7D1C /* Settings */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
-				BE1922931EA8022800DF119C /* Constants.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
 				CEAC970C1DB5FD350042FF3D /* Assets.xcassets */,
 				CEAC970E1DB5FD350042FF3D /* LaunchScreen.storyboard */,
@@ -295,11 +343,7 @@
 		CED25BB21DD1C5F400FE7D1C /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				CEAC97341DB619D40042FF3D /* ScheduleTableViewController.swift */,
-				CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */,
-				CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */,
-				CE4121561DD0C98C008FED2C /* ScheduleTableViewCell.swift */,
-				CE7430BB1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift */,
+				BE4E89E01EB6815F00D4ACCF /* ViewControllers */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -316,13 +360,7 @@
 		CED25BB41DD1C60B00FE7D1C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				BE3AB3B11EB1FA09009A6D20 /* CourseController.swift */,
-				CEAC97381DB61A330042FF3D /* SettingsTableViewController.swift */,
-				CED25BB51DD1C62000FE7D1C /* Course */,
-				CED25BB61DD1C63600FE7D1C /* Semester */,
-				CED25BB71DD1C64700FE7D1C /* Lecture */,
-				CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */,
-				CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */,
+				BE4E89DF1EB680D600D4ACCF /* ViewControllers */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -330,9 +368,8 @@
 		CED25BB51DD1C62000FE7D1C /* Course */ = {
 			isa = PBXGroup;
 			children = (
-				CEAC973A1DB61A5D0042FF3D /* CourseTableViewController.swift */,
-				CE698D5D1DD1DA2A006D1384 /* CourseTableViewDataSource.swift */,
-				CE698D5F1DD1DA3C006D1384 /* CourseTableViewDelegate.swift */,
+				BE4E89DE1EB6807E00D4ACCF /* Controllers */,
+				BE4E89DD1EB6807100D4ACCF /* ViewControllers  */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -350,12 +387,7 @@
 		CED25BB71DD1C64700FE7D1C /* Lecture */ = {
 			isa = PBXGroup;
 			children = (
-				CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */,
-				BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */,
-				BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */,
-				CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */,
-				CE5728501E2DFDEE0017DF81 /* PopUpMenueViewController.swift */,
-				CE5728521E2E03C00017DF81 /* PopUpMenueDelegate.swift */,
+				BE4E89E11EB681BA00D4ACCF /* ViewControllers */,
 			);
 			name = Lecture;
 			sourceTree = "<group>";
