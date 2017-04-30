@@ -28,6 +28,7 @@
 		BE4DF9141EB109CD00D6550C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9131EB109CD00D6550C /* Course.swift */; };
 		BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF9171EB10B4500D6550C /* Lecture.swift */; };
 		BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF91A1EB10F5300D6550C /* ServerData.swift */; };
+		BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E89DB1EB676D000D4ACCF /* Semester.swift */; };
 		BE4F4E271DE3747E00B4CC7F /* LecturesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
 		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
@@ -98,6 +99,7 @@
 		BE4DF9131EB109CD00D6550C /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		BE4DF9171EB10B4500D6550C /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		BE4DF91A1EB10F5300D6550C /* ServerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
+		BE4E89DB1EB676D000D4ACCF /* Semester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDelegate.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				BE4DF9131EB109CD00D6550C /* Course.swift */,
+				BE4E89DB1EB676D000D4ACCF /* Semester.swift */,
 				BE4DF9171EB10B4500D6550C /* Lecture.swift */,
 				BE4DF91A1EB10F5300D6550C /* ServerData.swift */,
 				BE3AB3B31EB1FD32009A6D20 /* UserData.swift */,
@@ -530,6 +533,7 @@
 				BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */,
 				BE4DF9141EB109CD00D6550C /* Course.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
+				BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */,
 				BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */,
 				BE3AB3A91EB1F799009A6D20 /* myObserverProtocol.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,

@@ -23,16 +23,12 @@ class CourseTableViewController: UITableViewController {
         
         tableView.dataSource = datasource
         tableView.delegate = delegate
-    }
-    
-    func beginDownload(){
-        //Show Activity Indicator
-    }
-    
-    func endDownload(){
-        //Hide Activity Indicator
         
-        courseTableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: Notification.Name("DownloadEnded"), object: nil )
+    }
+    
+    func downloadEnded(){
+        self.courseTableView.reloadData()
     }
     
     func showNoInternetAlert(){
@@ -51,7 +47,7 @@ class CourseTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.tintColor = UIColor.hawRed
         
-        _ = CourseController().loudAllCourses()
+        _ = CourseController().loadAllCourses()
         
         //Notification wenn laden fertig 
     }

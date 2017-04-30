@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Lecture: NSObject {
+class Lecture: NSObject, NSCoding {
 
     var id: Int
     var name: String
@@ -21,7 +21,6 @@ class Lecture: NSObject {
     var room: String
     var course: Course
     var comment : String
-//    var eventIDs : [String]
     var iteration : Int
     let idKey = "lectureId"
     let nameKey = "lectureName"
@@ -35,7 +34,6 @@ class Lecture: NSObject {
     let selectedKey = "lectureSelected"
     let courseKey = "lectureCourse"
     let commentKey = "lectureComment"
-//    let eventIDsKey = "lectureEventIDs"
     let iterationKey = "lectureIteration"
     
     init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, comment : String, iteration: Int) {
@@ -50,7 +48,6 @@ class Lecture: NSObject {
         self.room = room
         self.course = course
         self.comment = comment
-//        self.eventIDs = eventIDs
         self.iteration = iteration
     }
     
@@ -98,7 +95,6 @@ class Lecture: NSObject {
         room = aDecoder.decodeObject(forKey: roomKey) as! String
         course = aDecoder.decodeObject(forKey: courseKey) as! Course
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
-//        eventIDs = aDecoder.decodeObject(forKey: eventIDsKey) as! [String]
         iteration = Int(aDecoder.decodeInteger(forKey: iterationKey))
         super.init()
     }
@@ -115,7 +111,6 @@ class Lecture: NSObject {
         aCoder.encode(room, forKey: roomKey)
         aCoder.encode(course, forKey: courseKey)
         aCoder.encode(comment, forKey: commentKey)
-//        aCoder.encode(eventIDs, forKey: eventIDsKey)
         aCoder.encode(iteration, forKey: iterationKey)
     }
 }

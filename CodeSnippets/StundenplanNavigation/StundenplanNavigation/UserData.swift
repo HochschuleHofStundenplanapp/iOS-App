@@ -12,7 +12,7 @@ class UserData: NSObject {
 
     var callenderSync: Bool = false
     var season : String = "SS"
-    var selectedCourses : [Course] = []
+    var selectedCourses : [Semester] = []
     var selectedLectures: [Lecture] = []
     
     static var sharedInstance = UserData()

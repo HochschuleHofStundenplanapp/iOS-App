@@ -48,19 +48,20 @@ class JsonCourses {
             let nameE = (i["labels"]?["en"]?.string)!
             let sem = (i["semester"]?.array)!
             
+            var allSemesters: [Semester] = []
+            
+            let course = Course(contraction : con, nameDe: nameD, nameEn: nameE)
             
             for s in sem{
                 
-                let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semester: s.string!)
-                
-                pCourses?.append(newCourse)
-                
-//                newSem.list.append(tmp)
+                let tmpSem = Semester(name: s.string!, course: course)
+                allSemesters.append(tmpSem)
             }
-//            newSem.list.sort(){$0.name < $1.name}
+    
+            course.semesters = allSemesters
             
-//            let newCourse = Course(contraction : con, nameDe: nameD, nameEn: nameE, semesters: newSem)
-//            pCourses?.append(newCourse)
+            pCourses?.append(course)
+//            newSem.list.sort(){$0.name < $1.name}
             
         }
     }

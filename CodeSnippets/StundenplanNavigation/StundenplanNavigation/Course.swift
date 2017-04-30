@@ -8,33 +8,32 @@
 
 import UIKit
 
-class Course: NSObject {
+class Course: NSObject, NSCoding  {
 
-    var contraction : String
+    var contraction: String
     var nameDe: String
     var nameEn: String
-    var semester: String
+    var semesters: [Semester] = []
     let contractionKey = "courseContraction"
     let nameDeKey = "courseNameDe"
     let nameEnKey = "courseNameEn"
-    let semesterKey = "courseSemester"
+    let semesterKey = "courseSemesters"
     
-    init(contraction : String, nameDe: String, nameEn: String, semester: String) {
+    init(contraction : String, nameDe: String, nameEn: String) {
         self.contraction = contraction
         self.nameDe = nameDe
         self.nameEn = nameEn
-        self.semester = semester
     }
     
     static func == (lhs: Course, rhs: Course) -> Bool {
-        return (lhs.contraction == rhs.contraction) && (lhs.nameDe == rhs.nameDe) && (lhs.nameEn == rhs.nameEn) && (lhs.semester == rhs.semester)
+        return (lhs.contraction == rhs.contraction) && (lhs.nameDe == rhs.nameDe) && (lhs.nameEn == rhs.nameEn)
     }
     
     required init?(coder aDecoder: NSCoder) {
         contraction = aDecoder.decodeObject(forKey: contractionKey) as! String
         nameDe = aDecoder.decodeObject(forKey: nameDeKey) as! String
         nameEn = aDecoder.decodeObject(forKey: nameEnKey) as! String
-        semester = aDecoder.decodeObject(forKey: semesterKey) as! String
+        semesters = aDecoder.decodeObject(forKey: semesterKey) as! [Semester]
         super.init()
     }
     
@@ -42,6 +41,6 @@ class Course: NSObject {
         aCoder.encode(contraction, forKey: contractionKey)
         aCoder.encode(nameDe, forKey: nameDeKey)
         aCoder.encode(nameEn, forKey: nameEnKey)
-        aCoder.encode(semester, forKey: semesterKey)
+        aCoder.encode(semesters, forKey: semesterKey)
     }
 }
