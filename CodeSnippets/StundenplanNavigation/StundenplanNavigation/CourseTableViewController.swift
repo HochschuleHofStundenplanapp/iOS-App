@@ -13,6 +13,7 @@ class CourseTableViewController: UITableViewController {
     @IBOutlet var courseTableView: UITableView!
     var datasource : CourseTableViewDataSource!
     var delegate: CourseTableViewDelegate!
+    var courseController: CourseController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class CourseTableViewController: UITableViewController {
         
         tableView.dataSource = datasource
         tableView.delegate = delegate
+        
+        courseController = CourseController()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: Notification.Name("DownloadEnded"), object: nil )
     }
@@ -43,13 +46,15 @@ class CourseTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
-
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tabBarController?.tabBar.tintColor = UIColor.hawRed
-        
-        _ = CourseController().loadAllCourses()
-        
-        //Notification wenn laden fertig 
+        courseController.loadAllCourses()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        courseController.cancelLoading()
     }
     
     override func didReceiveMemoryWarning() {

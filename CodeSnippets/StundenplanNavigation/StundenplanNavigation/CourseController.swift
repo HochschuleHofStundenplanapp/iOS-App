@@ -36,6 +36,10 @@ class CourseController: NSObject, DataObserverProtocol {
         }        
     }
     
+    func cancelLoading(){
+        self.cancelAllNetworkJobs()
+    }
+    
     func notifyDownlaodEnded(){
         NotificationCenter.default.post(name: Notification.Name("DownloadEnded") , object: nil)
     }
