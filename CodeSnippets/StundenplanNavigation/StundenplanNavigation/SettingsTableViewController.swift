@@ -51,19 +51,18 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            
+            UserData.sharedInstance.season = "SS"
         }else{
-            
+            UserData.sharedInstance.season = "WS"
         }
     }
     
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
-        
         if(syncSwitch.isOn){
-            
+            UserData.sharedInstance.callenderSync = true
         } else {
-          
+            UserData.sharedInstance.callenderSync = false
         }
     }
     

@@ -42,7 +42,7 @@ class CourseController: NSObject, DataObserverProtocol {
         
         for dataObject in b {
             ServerData.sharedInstance.allCourses = (JsonCourses(data: dataObject)?.courses!)!
-            dump(ServerData.sharedInstance.allCourses)
+            dump(UserData.sharedInstance)
             notifyDownlaodEnded()
         }
     }
