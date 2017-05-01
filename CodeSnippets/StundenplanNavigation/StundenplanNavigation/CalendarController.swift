@@ -204,11 +204,11 @@ class CalendarController: NSObject {
             // Liste der zu hinzugefügten Lectures
             let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
             
-            if(!addedLectures.isEmpty) {
-                createAllEvents(lectures: addedLectures)
-            }
             if(!removedLectures.isEmpty) {
                 CalendarController().removeAllEvents(lectures: removedLectures)
+            }
+            if(!addedLectures.isEmpty) {
+                createAllEvents(lectures: addedLectures)
             }
             
             return true
