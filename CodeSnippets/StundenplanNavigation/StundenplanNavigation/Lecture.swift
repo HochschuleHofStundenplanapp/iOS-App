@@ -19,7 +19,7 @@ class Lecture: NSObject, NSCoding {
     var enddate: Date
     var day: String
     var room: String
-    var course: Course
+    var semester: Semester
     var comment : String
     var iteration : Int
     let idKey = "lectureId"
@@ -32,11 +32,11 @@ class Lecture: NSObject, NSCoding {
     let dayKey = "lectureDay"
     let roomKey = "lectureRoom"
     let selectedKey = "lectureSelected"
-    let courseKey = "lectureCourse"
+    let semesterKey = "lectureSemester"
     let commentKey = "lectureComment"
     let iterationKey = "lectureIteration"
     
-    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, comment : String, iteration: Int) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: Int) {
         self.id = id
         self.name = name
         self.lecturer = lecturer
@@ -46,7 +46,7 @@ class Lecture: NSObject, NSCoding {
         self.enddate = enddate
         self.day = day
         self.room = room
-        self.course = course
+        self.semester = semester
         self.comment = comment
         self.iteration = iteration
     }
@@ -93,7 +93,7 @@ class Lecture: NSObject, NSCoding {
         enddate = aDecoder.decodeObject(forKey: enddateKey) as! Date
         day = aDecoder.decodeObject(forKey: dayKey) as! String
         room = aDecoder.decodeObject(forKey: roomKey) as! String
-        course = aDecoder.decodeObject(forKey: courseKey) as! Course
+        semester = aDecoder.decodeObject(forKey: semesterKey) as! Semester
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
         iteration = Int(aDecoder.decodeInteger(forKey: iterationKey))
         super.init()
@@ -109,8 +109,13 @@ class Lecture: NSObject, NSCoding {
         aCoder.encode(enddate, forKey: enddateKey)
         aCoder.encode(day, forKey: dayKey)
         aCoder.encode(room, forKey: roomKey)
-        aCoder.encode(course, forKey: courseKey)
+        aCoder.encode(semester, forKey: semesterKey)
         aCoder.encode(comment, forKey: commentKey)
         aCoder.encode(iteration, forKey: iterationKey)
+    }
+    
+    static func == (lhs: Lecture, rhs: Lecture) -> Bool {
+        //Wann ist die Vorlesung eindeutig?
+        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
     }
 }

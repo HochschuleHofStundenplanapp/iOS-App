@@ -12,7 +12,6 @@ class Semester: NSObject, NSCoding  {
 
     var name: String
     var course: Course
-
     let nameKey = "semesterName"
     let courseKey = "semesterCourse"
 

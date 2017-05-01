@@ -35,8 +35,6 @@ class CourseTableViewController: UITableViewController {
     }
     
     func showNoInternetAlert(){
-        
-        _ = navigationController?.popViewController(animated: true)
     
         let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
             "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
