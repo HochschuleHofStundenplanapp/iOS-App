@@ -11,6 +11,6 @@ import UIKit
 class CourseTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        _ = CourseController().toggleCourse(at: indexPath)
     }
 }

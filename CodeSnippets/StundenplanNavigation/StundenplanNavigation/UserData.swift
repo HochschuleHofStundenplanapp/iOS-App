@@ -11,8 +11,9 @@ import UIKit
 class UserData: NSObject {
 
     var callenderSync: Bool = false
-    var season : String = "SS"
-    var selectedCourses : [Semester] = []
+    var selectedSeason : String = "SS"
+    var selectedCourses : [Course] = []
+    var selectedSemesters : [Semester] = []
     var selectedLectures: [Lecture] = []
     
     static var sharedInstance = UserData()

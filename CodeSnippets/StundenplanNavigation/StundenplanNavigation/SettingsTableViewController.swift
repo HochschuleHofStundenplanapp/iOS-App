@@ -51,9 +51,9 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            UserData.sharedInstance.season = "SS"
+            UserData.sharedInstance.selectedSeason = "SS"
         }else{
-            UserData.sharedInstance.season = "WS"
+            UserData.sharedInstance.selectedSeason = "WS"
         }
     }
     

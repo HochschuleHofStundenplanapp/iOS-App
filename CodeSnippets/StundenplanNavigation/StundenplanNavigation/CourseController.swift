@@ -16,13 +16,24 @@ class CourseController: NSObject, DataObserverProtocol {
         
         self.myJobManager.addNewObserver(o: self)
       
-        let selectedSeason = UserData.sharedInstance.season
+        let selectedSeason = UserData.sharedInstance.selectedSeason
         
         //Markiere letzets Item im Job Manager
         let myUrl = "\(Constants.baseURI)client.php?f=Courses&tt=\(selectedSeason)"
         let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password,isLastJob: true)
+    }
+    
+    func toggleCourse(at indexPath: IndexPath) {
+        
+        let clickedCourse = ServerData.sharedInstance.allCourses[indexPath.row]
+        
+        if let i = UserData.sharedInstance.selectedCourses.index(where: { $0 == clickedCourse }) {
+            UserData.sharedInstance.selectedCourses.remove(at: i)
+        }else{
+            UserData.sharedInstance.selectedCourses.append(clickedCourse)
+        }        
     }
     
     func notifyDownlaodEnded(){
@@ -42,7 +53,6 @@ class CourseController: NSObject, DataObserverProtocol {
         
         for dataObject in b {
             ServerData.sharedInstance.allCourses = (JsonCourses(data: dataObject)?.courses!)!
-            dump(UserData.sharedInstance)
             notifyDownlaodEnded()
         }
     }
