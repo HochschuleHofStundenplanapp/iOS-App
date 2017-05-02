@@ -61,8 +61,7 @@ class JsonCourses {
             course.semesters = allSemesters
             
             pCourses?.append(course)
-//            newSem.list.sort(){$0.name < $1.name}
-            
         }
+        pCourses?.sort(){$0.nameDe < $1.nameDe}
     }
 }

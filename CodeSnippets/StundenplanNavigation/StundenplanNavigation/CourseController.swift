@@ -28,16 +28,13 @@ class CourseController: NSObject, DataObserverProtocol {
     func toggleCourse(at indexPath: IndexPath) {
         
         let clickedCourse = ServerData.sharedInstance.allCourses[indexPath.row]
-        
-        if let i = UserData.sharedInstance.selectedCourses.index(where: { $0 == clickedCourse }) {
-            UserData.sharedInstance.selectedCourses.remove(at: i)
+    
+        if UserData.sharedInstance.selectedCourses.contains(clickedCourse) {
+            let index = UserData.sharedInstance.selectedCourses.index(of: clickedCourse)
+            UserData.sharedInstance.selectedCourses.remove(at: index!)
         }else{
             UserData.sharedInstance.selectedCourses.append(clickedCourse)
-        }        
-    }
-    
-    func cancelLoading(){
-        self.cancelAllNetworkJobs()
+        }
     }
     
     func notifyDownlaodEnded(){
@@ -57,12 +54,11 @@ class CourseController: NSObject, DataObserverProtocol {
         
         for dataObject in b {
             ServerData.sharedInstance.allCourses = (JsonCourses(data: dataObject)?.courses!)!
-            notifyDownlaodEnded()
         }
+        notifyDownlaodEnded()
     }
     
-    /// Bricht im JobManager alle Netzwerkjobs ab
-    func cancelAllNetworkJobs() -> Void {
+    func cancelLoading(){
         myJobManager.cancelAllNetworkJobs()
     }
 }

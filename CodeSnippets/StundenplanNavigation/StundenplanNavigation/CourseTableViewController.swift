@@ -52,6 +52,7 @@ class CourseTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(Notification.Name("DownloadEnded"))
         courseController.cancelLoading()
     }
     

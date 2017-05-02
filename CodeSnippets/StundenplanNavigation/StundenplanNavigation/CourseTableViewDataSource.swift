@@ -13,7 +13,15 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
         
-        cell.textLabel?.text = "\(ServerData.sharedInstance.course(at: indexPath.row).nameDe)"
+        let course = ServerData.sharedInstance.course(at: indexPath.row)
+        
+        cell.textLabel?.text = "\(course.nameDe)"
+        
+        if UserData.sharedInstance.selectedCourses.contains(course) {
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
         
         return cell
     }

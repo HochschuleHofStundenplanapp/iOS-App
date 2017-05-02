@@ -67,9 +67,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-        
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-        
     }
     
     func showAccessAlert() {
