@@ -36,8 +36,9 @@ class GetDataFromInternet: NSObject, DataObservableProtocol {
             DispatchQueue.main.async(execute: { () -> Void in
                 
                     //Benachrichtige Alle Observer mit den Daten
-                var dataWithErrorTuple:[(o: AnyObject, e: Error?)] = []
-                dataWithErrorTuple.append(o: data as AnyObject, e:error)
+                
+                let dataWithErrorTuple = (data,error)
+                
 
                 self.notifiyAllObservers(o: dataWithErrorTuple as AnyObject)
                 
