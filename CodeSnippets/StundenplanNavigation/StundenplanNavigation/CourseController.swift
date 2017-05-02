@@ -50,10 +50,10 @@ class CourseController: NSObject, DataObserverProtocol {
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void
     {
-        let b = o as! Array<Data>
+        let b = o as! [(Data?, Error?)]
         
         for dataObject in b {
-            ServerData.sharedInstance.allCourses = (JsonCourses(data: dataObject)?.courses!)!
+           // ServerData.sharedInstance.allCourses = (JsonCourses(data: dataObject.0)?.courses!)!
         }
         notifyDownlaodEnded()
     }
