@@ -175,9 +175,9 @@ class CalendarInterface: NSObject {
     
     public func getEventWithEventID(eventID : String) -> EKEvent{
         if (eventID != "") {
-            let event = self.eventStore.event(withIdentifier: eventID)!
+            let event = self.eventStore.event(withIdentifier: eventID)
             if (event != nil) {
-                return event
+                return event!
             } else {
                 return EKEvent(eventStore: self.eventStore!)
             }
@@ -193,12 +193,24 @@ class CalendarInterface: NSObject {
         if let lectureIDs = idDictonary.eventIdDictonary[key] {
             for id in lectureIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
-                if (event.title == title && event.startDate == startDate) {
+                if (event.startDate == startDate) { // TODO Test  event.title == title &&
                     result = id
                 }
             }
         }
         return result
+    }
+    
+    public func doEventExist(key: Int, startDate: Date) -> Bool {
+        if let lectureIDs = idDictonary.eventIdDictonary[key] {
+            for id in lectureIDs {
+                let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
+                if (event.startDate == startDate) { // TODO Test  event.title == title &&
+                    return true
+                }
+            }
+        }
+        return false
     }
     
     public func getIDFromDictonary(key: Int) -> [String] {

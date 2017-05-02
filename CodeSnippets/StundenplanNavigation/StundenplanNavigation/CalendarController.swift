@@ -70,20 +70,23 @@ class CalendarController: NSObject {
                 if (oldEvent.startDate != change.combinedNewDate) {
                     // Datum geändert
                     
-                    // Neues Event erstellen
-                    let newEvent = EKEvent(eventStore: self.eventStore!)
-                    
-                    newEvent.title     = Constants.changesNew + change.name
-                    newEvent.notes     = oldEvent.notes
-                    newEvent.startDate = change.combinedNewDate
-                    newEvent.endDate   = (newEvent.startDate + 60 * 90)
-                    
-                    newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
-                    
-                    newEvent.notes = lecture.comment + "  " + lecture.group
-                    
-                    // Neues Event erzeugen
-                    CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue)
+                    // Wenn nicht bereits vorhanden
+                    if (!CalendarInterface.sharedInstance.doEventExist(key: lecture.hashValue, startDate: change.combinedNewDate)) {
+                        // Neues Event erstellen
+                        let newEvent = EKEvent(eventStore: self.eventStore!)
+                        
+                        newEvent.title     = Constants.changesNew + change.name
+                        newEvent.notes     = oldEvent.notes
+                        newEvent.startDate = change.combinedNewDate
+                        newEvent.endDate   = (newEvent.startDate + 60 * 90)
+                        
+                        newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
+                        
+                        newEvent.notes = lecture.comment + "  " + lecture.group
+                        
+                        // Neues Event erzeugen
+                        CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue)
+                    }
                     
                     // Daten bei altem Event ändern
                     oldEvent.title    = Constants.changesChanged + change.name
