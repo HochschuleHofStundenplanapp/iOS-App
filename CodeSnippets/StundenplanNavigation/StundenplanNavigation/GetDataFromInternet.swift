@@ -36,8 +36,11 @@ class GetDataFromInternet: NSObject, DataObservableProtocol {
             DispatchQueue.main.async(execute: { () -> Void in
                 
                     //Benachrichtige Alle Observer mit den Daten
-                        self.notifiyAllObservers(o: data as AnyObject)
-                    
+                var dataWithErrorTuple:[(o: AnyObject, e: Error?)] = []
+                dataWithErrorTuple.append(o: data as AnyObject, e:error)
+
+                self.notifiyAllObservers(o: dataWithErrorTuple as AnyObject)
+                
                 
             })
         })
@@ -71,9 +74,10 @@ class GetDataFromInternet: NSObject, DataObservableProtocol {
     /// - parameter s: Optional: Fehlermeldung
     func notifiyAllObservers(o: AnyObject) -> Void
     {
-        for observer in myObservers
+               for observer in myObservers
         {
-            observer.update(o: o)
+            
+            observer.update(o: o as AnyObject)
         }
         
         

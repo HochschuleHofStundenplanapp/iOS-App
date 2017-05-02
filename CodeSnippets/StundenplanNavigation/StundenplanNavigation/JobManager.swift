@@ -11,7 +11,7 @@ import UIKit
 class JobManager: NSObject, DataObserverProtocol, DataObservableProtocol {
 
     var myObservers: [DataObserverProtocol] = [DataObserverProtocol]()
-    var jobQueueArray : [AnyObject] = [AnyObject]()
+    var jobQueueArray : [AnyObject] = []
     var lastJobSubmitted : Bool = false
     var jobGroup: DispatchGroup = DispatchGroup()
     var workItemArray : [DispatchWorkItem] = [DispatchWorkItem]()
