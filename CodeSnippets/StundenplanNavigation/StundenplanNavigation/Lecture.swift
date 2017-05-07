@@ -114,8 +114,12 @@ class Lecture: NSObject, NSCoding {
         aCoder.encode(iteration, forKey: iterationKey)
     }
     
+    override func isEqual(_ object: Any?) -> Bool {
+        return self == (object as? Lecture)
+    }
+    
     static func == (lhs: Lecture, rhs: Lecture) -> Bool {
         //Wann ist die Vorlesung eindeutig?
-        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
+        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.type == rhs.type) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
     }
 }

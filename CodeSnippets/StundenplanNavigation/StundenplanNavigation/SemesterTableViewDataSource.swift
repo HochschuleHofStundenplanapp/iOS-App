@@ -14,19 +14,21 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SemesterCell")!
         
+        cell.textLabel?.text = UserData.sharedInstance.semester(at: indexPath).name
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return UserData.sharedInstance.semesterSize(at: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {        
-        return 1
+        return UserData.sharedInstance.coursesSize()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
+        return UserData.sharedInstance.courseName(at: section)
     }
 }
 

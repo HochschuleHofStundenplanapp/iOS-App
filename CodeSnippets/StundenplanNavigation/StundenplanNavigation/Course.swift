@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Course: NSObject, NSCoding  {
+class Course: NSObject, NSCoding {
 
     var contraction: String
     var nameDe: String
@@ -23,6 +23,10 @@ class Course: NSObject, NSCoding  {
         self.contraction = contraction
         self.nameDe = nameDe
         self.nameEn = nameEn
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        return self == object as! Course
     }
     
     static func == (lhs: Course, rhs: Course) -> Bool {

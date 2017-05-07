@@ -19,4 +19,23 @@ class UserData: NSObject {
     static var sharedInstance = UserData()
     private override init(){ }
 
+    func coursesSize() -> Int {
+        return selectedCourses.count
+    }
+    
+//    var lecturesSize(at section: Int) -> Int{
+//        return selectedLectures.count
+//    }
+    
+    func semesterSize(at section: Int) -> Int{
+        return selectedCourses[section].semesters.count
+    }
+    
+    func semester(at indexPath: IndexPath) -> Semester{
+        return selectedCourses[indexPath.section].semesters[indexPath.row]
+    }
+    
+    func courseName(at section: Int) -> String {
+        return selectedCourses[section].nameDe
+    }
 }

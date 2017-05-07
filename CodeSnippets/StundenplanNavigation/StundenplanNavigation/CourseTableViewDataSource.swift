@@ -13,7 +13,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
         
-        let course = ServerData.sharedInstance.course(at: indexPath.row)
+        let course = ServerData.sharedInstance.course(at: indexPath)
         
         cell.textLabel?.text = "\(course.nameDe)"
         

@@ -34,10 +34,7 @@ class ServerData: NSObject {
     }
     
     static var sharedInstance = ServerData()
-    private override init(){
-        super.init()
-        testSetup()
-    }
+    private override init(){ }
     
     var coursesSize: Int {
         get { return allCourses.count }
@@ -47,12 +44,12 @@ class ServerData: NSObject {
         get { return allLectures.count }
     }
     
-    func course(at index: Int) -> Course{
-        return allCourses[index]
+    func course(at indexPath: IndexPath) -> Course{
+        return allCourses[indexPath.row]
     }
     
-    func lecture(at day: Int, at index: Int) -> Lecture{
-        return allLectures[day][index]
+    func lecture(at indexPath : IndexPath) -> Lecture{
+        return allLectures[indexPath.section][indexPath.row]
     }
    
 }

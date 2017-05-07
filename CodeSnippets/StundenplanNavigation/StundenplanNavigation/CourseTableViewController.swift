@@ -18,6 +18,7 @@ class CourseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
+        tabBarController?.tabBar.tintColor = UIColor.hawRed
         
         datasource = CourseTableViewDataSource()
         delegate = CourseTableViewDelegate()
@@ -35,7 +36,6 @@ class CourseTableViewController: UITableViewController {
     }
     
     func showNoInternetAlert(){
-    
         let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
             "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
@@ -46,12 +46,13 @@ class CourseTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor.hawRed
+                
         courseController.loadAllCourses()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         NotificationCenter.default.removeObserver(Notification.Name("DownloadEnded"))
         courseController.cancelLoading()
     }

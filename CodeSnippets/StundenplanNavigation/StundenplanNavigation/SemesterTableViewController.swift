@@ -30,8 +30,6 @@ class SemesterTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-
-    
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
     }

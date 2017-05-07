@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Semester: NSObject, NSCoding  {
+class Semester: NSObject, NSCoding {
 
     var name: String
     var course: Course
@@ -18,6 +18,10 @@ class Semester: NSObject, NSCoding  {
     init(name: String, course: Course) {
         self.name = name
         self.course = course
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        return self == (object as? Semester)
     }
     
     static func == (lhs: Semester, rhs: Semester) -> Bool {

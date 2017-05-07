@@ -30,6 +30,7 @@
 		BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF91A1EB10F5300D6550C /* ServerData.swift */; };
 		BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E89DB1EB676D000D4ACCF /* Semester.swift */; };
 		BE4F4E271DE3747E00B4CC7F /* LecturesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */; };
+		BE6DCE3E1EBF22F80039DDF7 /* SemesterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DCE3D1EBF22F80039DDF7 /* SemesterController.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
 		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
 		CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */; };
@@ -101,6 +102,7 @@
 		BE4DF91A1EB10F5300D6550C /* ServerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		BE4E89DB1EB676D000D4ACCF /* Semester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDelegate.swift; sourceTree = "<group>"; };
+		BE6DCE3D1EBF22F80039DDF7 /* SemesterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterController.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
 		CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlinePrivacyPoliceViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,24 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		BE6DCE3B1EBF22D60039DDF7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */,
+				CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */,
+				8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BE6DCE3C1EBF22E40039DDF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE6DCE3D1EBF22F80039DDF7 /* SemesterController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		BE7205561DDB02BB0080C2F8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,9 +397,8 @@
 		CED25BB61DD1C63600FE7D1C /* Semester */ = {
 			isa = PBXGroup;
 			children = (
-				8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */,
-				CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */,
-				8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */,
+				BE6DCE3C1EBF22E40039DDF7 /* Controller */,
+				BE6DCE3B1EBF22D60039DDF7 /* ViewControllers */,
 			);
 			name = Semester;
 			sourceTree = "<group>";
@@ -469,7 +488,7 @@
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = FM446M8BR4;
+						DevelopmentTeam = FZ89B397B6;
 						ProvisioningStyle = Automatic;
 					};
 					CEAC97151DB5FD350042FF3D = {
@@ -562,6 +581,7 @@
 				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,
 				BE3AB3B01EB1F7D6009A6D20 /* ScheduleChangesController.swift in Sources */,
 				BE4DF9111EB1051800D6550C /* UIColorExtension.swift in Sources */,
+				BE6DCE3E1EBF22F80039DDF7 /* SemesterController.swift in Sources */,
 				BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */,
 				BE4DF9141EB109CD00D6550C /* Course.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
@@ -736,7 +756,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FM446M8BR4;
+				DEVELOPMENT_TEAM = FZ89B397B6;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
@@ -750,7 +770,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FM446M8BR4;
+				DEVELOPMENT_TEAM = FZ89B397B6;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
