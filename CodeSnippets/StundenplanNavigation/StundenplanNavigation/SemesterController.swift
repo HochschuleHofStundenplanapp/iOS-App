@@ -12,6 +12,8 @@ class SemesterController: NSObject {
 
     func toggleSemester(at indexPath: IndexPath) {
         
+        //TO DO beim entfernen zugehörige Vorlesungen entfernen
+        
         let clickedSemester = UserData.sharedInstance.semester(at: indexPath)
         
         if UserData.sharedInstance.selectedSemesters.contains(clickedSemester) {
