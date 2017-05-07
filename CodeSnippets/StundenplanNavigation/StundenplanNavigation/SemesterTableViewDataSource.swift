@@ -16,6 +16,14 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         
         cell.textLabel?.text = UserData.sharedInstance.semester(at: indexPath).name
         
+        let semester = UserData.sharedInstance.semester(at: indexPath)
+        
+        if UserData.sharedInstance.selectedSemesters.contains(semester) {
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
     

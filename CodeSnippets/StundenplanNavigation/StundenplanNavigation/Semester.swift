@@ -21,7 +21,7 @@ class Semester: NSObject, NSCoding {
     }
     
     override func isEqual(_ object: Any?) -> Bool {
-        return self == (object as? Semester)
+        return self == object as! Semester
     }
     
     static func == (lhs: Semester, rhs: Semester) -> Bool {

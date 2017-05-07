@@ -12,13 +12,13 @@ class SemesterController: NSObject {
 
     func toggleSemester(at indexPath: IndexPath) {
         
-        let clickedCourse = ServerData.sharedInstance.allCourses[indexPath.row]
+        let clickedSemester = UserData.sharedInstance.semester(at: indexPath)
         
-        if UserData.sharedInstance.selectedCourses.contains(clickedCourse) {
-            let index = UserData.sharedInstance.selectedCourses.index(of: clickedCourse)
-            UserData.sharedInstance.selectedCourses.remove(at: index!)
+        if UserData.sharedInstance.selectedSemesters.contains(clickedSemester) {
+            let index = UserData.sharedInstance.selectedSemesters.index(of: clickedSemester)
+            UserData.sharedInstance.selectedSemesters.remove(at: index!)
         }else{
-            UserData.sharedInstance.selectedCourses.append(clickedCourse)
+            UserData.sharedInstance.selectedSemesters.append(clickedSemester)
         }
     }
 }

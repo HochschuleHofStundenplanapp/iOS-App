@@ -18,6 +18,7 @@ class SemesterTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        _ = SemesterController().toggleSemester(at: indexPath)
+        tableView.reloadData()
     }
 }

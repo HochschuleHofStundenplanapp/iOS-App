@@ -19,6 +19,7 @@ class SemesterTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.tintColor = UIColor.white
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
 
         datasource = SemesterTableViewDataSource()
         delegate = SemesterTableViewDelegate()
@@ -29,11 +30,7 @@ class SemesterTableViewController: UITableViewController {
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.tintColor = UIColor.hawBlue
-    }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
