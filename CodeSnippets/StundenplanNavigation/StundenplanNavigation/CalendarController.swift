@@ -52,11 +52,33 @@ class CalendarController: NSObject {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             for change in changes.changes {
                 let lecture = CalendarController().findLecture(change: change)
-                let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedOldDate)
                 let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
+                
+                handleOldChange(change: change, lecture: lecture)
+                
+                let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedOldDate, onlyChanges: false)
+                
                 updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
             }
             CalendarInterface.sharedInstance.saveIDs()
+        }
+    }
+    
+    func handleOldChange(change : ChangedLecture, lecture : Lecture) {
+        let changeEventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedOldDate, onlyChanges: true)
+        if (changeEventID != "") {
+            let oldEvent = CalendarInterface.sharedInstance.getEventWithEventID(eventID: changeEventID)
+            oldEvent.title = change.name
+            CalendarInterface.sharedInstance.updateEvent(eventID: changeEventID, updatedEvent: oldEvent, key: lecture.hashValue, lectureToChange: false)
+        }
+        
+        if (change.combinedNewDate != nil) {
+            let changeNewEventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedNewDate, onlyChanges: true)
+            if (changeNewEventID != "") {
+                if (CalendarInterface.sharedInstance.removeEvent(p_eventId: changeNewEventID)) {
+                    CalendarInterface.sharedInstance.removeChangesID(eventID: changeNewEventID, key: lecture.hashValue)
+                }
+            }
         }
     }
     
@@ -73,19 +95,10 @@ class CalendarController: NSObject {
                     // Wenn nicht bereits vorhanden
                     if (!CalendarInterface.sharedInstance.doEventExist(key: lecture.hashValue, startDate: change.combinedNewDate)) {
                         // Neues Event erstellen
-                        let newEvent = EKEvent(eventStore: self.eventStore!)
-                        
-                        newEvent.title     = Constants.changesNew + change.name
-                        newEvent.notes     = oldEvent.notes
-                        newEvent.startDate = change.combinedNewDate
-                        newEvent.endDate   = (newEvent.startDate + 60 * 90)
-                        
-                        newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
-                        
-                        newEvent.notes = lecture.comment + "  " + lecture.group
+                        let newEvent = fillNewEvent(oldEvent: oldEvent, lecture: lecture, change: change, locationInfo: locationInfo)
                         
                         // Neues Event erzeugen
-                        CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue)
+                        CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue, isChanges: true)
                     }
                     
                     // Daten bei altem Event ändern
@@ -106,8 +119,23 @@ class CalendarController: NSObject {
                 oldEvent.alarms   = []
             }
         
-            CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent)
+            CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent, key: lecture.hashValue, lectureToChange: true)
         }
+    }
+    
+    func fillNewEvent(oldEvent : EKEvent, lecture : Lecture, change : ChangedLecture, locationInfo : String) -> EKEvent {
+        let newEvent = EKEvent(eventStore: self.eventStore!)
+        
+        newEvent.title     = Constants.changesNew + change.name
+        newEvent.notes     = oldEvent.notes
+        newEvent.startDate = change.combinedNewDate
+        newEvent.endDate   = (newEvent.startDate + 60 * 90)
+        
+        newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
+        
+        newEvent.notes = lecture.comment + "  " + lecture.group
+        
+        return newEvent
     }
     
     // Entfernt mehrere übergebene Events
@@ -133,7 +161,7 @@ class CalendarController: NSObject {
         let events = lectureToEKEventCreate(lecture: lecture)
         
         for event in events {
-            CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.hashValue)
+            CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.hashValue, isChanges: false)
         }
     }
     

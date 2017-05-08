@@ -67,24 +67,27 @@ class ChangedLecture {
         }
     }
     
-    var combinedNewDate: Date {
+    var combinedNewDate: Date! {
         get {
             let calendar = Calendar.current
+            var end : Date? = nil
             
-            let day = calendar.component(.day, from: newDate!)
-            let month = calendar.component(.month, from: newDate!)
-            let year = calendar.component(.year, from: newDate!)
+            if (newDate != nil) {
+                let day = calendar.component(.day, from: newDate!)
+                let month = calendar.component(.month, from: newDate!)
+                let year = calendar.component(.year, from: newDate!)
             
-            let hour = calendar.component(.hour, from: newTime!)
-            let minutes = calendar.component(.minute, from: newTime!)
+                let hour = calendar.component(.hour, from: newTime!)
+                let minutes = calendar.component(.minute, from: newTime!)
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yy HH:mm"
-            dateFormatter.locale = Locale(identifier: "de_DE")
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yy HH:mm"
+                dateFormatter.locale = Locale(identifier: "de_DE")
             
-            let end = dateFormatter.date(from:"\(day).\(month).\(year) \(hour):\(minutes)")
+                end = dateFormatter.date(from:"\(day).\(month).\(year) \(hour):\(minutes)")! as Date?
+            }
             
-            return end!
+            return end
         }
     }
 

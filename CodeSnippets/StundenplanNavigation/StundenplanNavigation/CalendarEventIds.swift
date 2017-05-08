@@ -11,19 +11,23 @@ import Foundation
 class CalendarEventIds: NSObject, NSCoding {
     static var sharedInstance = CalendarEventIds()
     
-    var eventIdDictonary : [Int:[String]] = [:]
-    let eventIdDictonaryKey = "eventIdDictonary"
+    var lecturesEventIdDictonary : [Int:[String]] = [:]
+    var changesEventIdDictonary : [Int:[String]] = [:]
+    let lecturesEventIdDictonaryKey = "lecturesEventIdDictonary"
+    let changesEventIdDictonaryKey = "changesEventIdDictonary"
     
     private override init () {
         
     }
     
     required init?(coder aDecoder: NSCoder) {
-        eventIdDictonary = aDecoder.decodeObject(forKey: eventIdDictonaryKey) as! Dictionary
+        lecturesEventIdDictonary = aDecoder.decodeObject(forKey: lecturesEventIdDictonaryKey) as! Dictionary
+        changesEventIdDictonary = aDecoder.decodeObject(forKey: changesEventIdDictonaryKey) as! Dictionary
         super.init()
     }
     
     func encode(with aCoder: NSCoder){
-        aCoder.encode(eventIdDictonary, forKey: eventIdDictonaryKey)
+        aCoder.encode(lecturesEventIdDictonary, forKey: lecturesEventIdDictonaryKey)
+        aCoder.encode(changesEventIdDictonary, forKey: changesEventIdDictonaryKey)
     }
 }
