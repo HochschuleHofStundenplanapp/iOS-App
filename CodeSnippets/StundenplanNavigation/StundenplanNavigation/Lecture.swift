@@ -11,9 +11,11 @@ import UIKit
 class Lecture: NSObject, NSCoding {
 
     var id: Int
+    var splusname: String
     var name: String
     var lecturer: String
     var type: String
+    var style: String
     var group: String
     var startdate: Date
     var enddate: Date
@@ -23,8 +25,10 @@ class Lecture: NSObject, NSCoding {
     var comment : String
     var iteration : Int
     let idKey = "lectureId"
+    let splusnameKey = "lectureSplusname"
     let nameKey = "lectureName"
     let lecturerKey = "lectureLecturer"
+    let styleKey = "lectureStyle"
     let typeKey = "lectureType"
     let groupKey = "lectureGroup"
     let startdateKey = "lectureStartdate"
@@ -36,11 +40,13 @@ class Lecture: NSObject, NSCoding {
     let commentKey = "lectureComment"
     let iterationKey = "lectureIteration"
     
-    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: Int) {
+    init(id: Int, splusname: String, name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: Int) {
         self.id = id
+        self.splusname = splusname
         self.name = name
         self.lecturer = lecturer
         self.type = type
+        self.style = style
         self.group = group
         self.startdate = startdate
         self.enddate = enddate
@@ -85,9 +91,11 @@ class Lecture: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         id = Int(aDecoder.decodeInteger(forKey: idKey))
+        splusname = aDecoder.decodeObject(forKey: splusnameKey) as! String
         name = aDecoder.decodeObject(forKey: nameKey) as! String
         lecturer = aDecoder.decodeObject(forKey: lecturerKey) as! String
         type = aDecoder.decodeObject(forKey: typeKey) as! String
+        style = aDecoder.decodeObject(forKey: styleKey) as! String
         group = aDecoder.decodeObject(forKey: groupKey) as! String
         startdate = aDecoder.decodeObject(forKey: startdateKey) as! Date
         enddate = aDecoder.decodeObject(forKey: enddateKey) as! Date
@@ -101,9 +109,11 @@ class Lecture: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder){
         aCoder.encode(id, forKey: idKey)
+        aCoder.encode(splusname, forKey: splusnameKey)
         aCoder.encode(name, forKey: nameKey)
         aCoder.encode(lecturer, forKey: lecturerKey)
         aCoder.encode(type, forKey: typeKey)
+        aCoder.encode(style, forKey: styleKey)
         aCoder.encode(group, forKey: groupKey)
         aCoder.encode(startdate, forKey: startdateKey)
         aCoder.encode(enddate, forKey: enddateKey)

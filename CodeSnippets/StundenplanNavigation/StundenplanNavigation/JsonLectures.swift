@@ -44,9 +44,11 @@ class JsonLectures: NSObject {
         for i in allResults
         {
             let id = (i["id"]?.string)!
+            let splusname = (i["splusname"]?.string)!
             let name = (i["label"]?.string)!
             let docent = (i["docent"]?.string)!
             let type = (i["type"]?.string)!
+            let style = (i["style"]?.string)!
             let group = (i["group"]?.string)!
             let startt = (i["starttime"]?.string)!
             let endt = (i["endtime"]?.string)!
@@ -71,7 +73,7 @@ class JsonLectures: NSObject {
             
             let iteration = 7
 
-            let lecture = Lecture(id: newId!, name: name, lecturer: docent, type: type, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration)
+            let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration)
           
             pLectures?.append(lecture)
         }
