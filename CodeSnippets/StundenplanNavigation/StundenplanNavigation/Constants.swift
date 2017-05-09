@@ -15,10 +15,7 @@ class Constants :NSObject {
     static let username = "soapuser"
     static let password = "F%98z&12"
     static let baseURI = "https://app.hof-university.de/soap/"
-    
-    static let myEndDownload =  Notification.Name("endDownload")
-    static let myNoInternet = Notification.Name("noInternet")
-    
+        
     // CalendarInterface
     static let locationHochschuleHof = "Campus Hof, Alfons-Goppel-Platz 1, 95028 Hof"
     static let locationHuchschuleMuenchberg = "Campus Münchberg, Kulmbacherstraße 76, 95213 Münchberg "
@@ -31,21 +28,6 @@ class Constants :NSObject {
     static let changesFailed = "[Entfällt] "
     // Falls der AlarmOffset größer 0 ist wird ein Alarm gesetzt (Größeneinheit : Sekunden)
     static let calendarAlarmOffset = 0.0
-}
-
-enum Season : String {
-    case Summer = "SS"
-    case Winter = "WS"
-    
-    init?(term: String){
-        if term == "SS"{
-            self = .Summer
-        }else if term == "WS"{
-            self = .Winter
-        }else{
-            return nil
-        }
-    }
 }
 
 @objc enum Status : Int {

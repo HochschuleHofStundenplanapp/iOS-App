@@ -6,6 +6,8 @@
 //  Copyright © 2017 Jonas Beetz. All rights reserved.
 //
 
+//!!!!!!!!!!!!!Semestera anpassen!!!!!!!!!!!!!!!!!!
+
 import UIKit
 
 class JsonLectures: NSObject {
@@ -69,7 +71,7 @@ class JsonLectures: NSObject {
             
             let iteration = 7
 
-            let lecture = Lecture(id: newId!, name: name, lecturer: docent, type: type, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: semester, comment: comment, iteration: iteration)
+            let lecture = Lecture(id: newId!, name: name, lecturer: docent, type: type, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration)
           
             pLectures?.append(lecture)
         }

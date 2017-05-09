@@ -14,6 +14,7 @@ class LecturesTableViewController: UITableViewController {
     @IBOutlet var lectureTableView: UITableView!
     var dataSource : LecturesTableViewDataSource!
     var delegate: LecturesTableViewDelegate!
+    var lectureController: LectureController!
     
     var popUpMenueVC : PopUpMenueViewController!
     var popUpMenueDelegate : PopUpMenueDelegate = PopUpMenueDelegate()
@@ -37,18 +38,21 @@ class LecturesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationController?.navigationBar.tintColor = UIColor.white
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+        
+        lectureController = LectureController()
         
         dataSource = LecturesTableViewDataSource(tableView: self)
         lectureTableView.dataSource = dataSource
         
-        delegate = LecturesTableViewDelegate(ctrl: self)
+        delegate = LecturesTableViewDelegate()
         lectureTableView.delegate = delegate
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(LecturesTableViewController.endDownload), name: Constants.myEndDownload, object: nil )
-        NotificationCenter.default.addObserver(self, selector: #selector(LecturesTableViewController.showNoInternetAlert), name: Constants.myNoInternet, object: nil )
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        lectureController.loadAllLectures()
     }
     
     func beginDownload(){
@@ -56,14 +60,10 @@ class LecturesTableViewController: UITableViewController {
     }
     
     func endDownload(){
-        //Hide Activity Indicator
         lectureTableView.reloadData()
     }
     
     func showNoInternetAlert(){
-        
-        //Hide Activity Indicator
-        
         let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
             "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
@@ -77,12 +77,6 @@ class LecturesTableViewController: UITableViewController {
     func switchSelectAllButtonIcon(iconName: String){
         let buttonImage = UIImage(named: "\(iconName)")?.withRenderingMode(.alwaysOriginal)
         selectAllButton.image = buttonImage
-    }
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        tabBarController?.tabBar.tintColor = UIColor.hawBlue
     }
 
     override func didReceiveMemoryWarning() {
