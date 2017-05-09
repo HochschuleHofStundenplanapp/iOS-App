@@ -121,10 +121,12 @@ class JobManager: NSObject, DataObserverProtocol, DataObservableProtocol {
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void
     {
+        
+        //todo: an richtige position des Arrays speichern, id wird mit hochgegeben.
         jobQueueArray.append(o)
         jobGroup.leave()
         
-      //  print("jobmanager update jobqueArray  \(jobQueueArray)")
+        print("jobmanager update jobqueArray  \(jobQueueArray)")
        
     }
     
