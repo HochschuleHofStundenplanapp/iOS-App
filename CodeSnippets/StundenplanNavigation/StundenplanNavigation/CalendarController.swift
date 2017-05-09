@@ -13,6 +13,10 @@ class CalendarController: NSObject {
     
     var eventStore = CalendarInterface.sharedInstance.eventStore
     
+    var events: [EKEvent] = []
+    var title = ""
+    var iteration: iterationState = iterationState.weekly
+    
     override init() {
         super.init()
         createCalendar()
@@ -34,7 +38,7 @@ class CalendarController: NSObject {
     
     public func removeCalendar() {
         CalendarInterface.sharedInstance.removeCalendar()
-}
+    }
     
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
     public func createAllEvents(lectures : [Lecture]){
@@ -118,7 +122,7 @@ class CalendarController: NSObject {
                 oldEvent.location = nil
                 oldEvent.alarms   = []
             }
-        
+            
             CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent, key: lecture.hashValue, lectureToChange: true)
         }
     }
@@ -158,7 +162,7 @@ class CalendarController: NSObject {
     
     // Erzeugt ein Event und schreibt es in den Kalender
     private func createEventsForLecture(lecture: Lecture) {
-        let events = lectureToEKEventCreate(lecture: lecture)
+        lectureToEKEvent(lecture: lecture)
         
         for event in events {
             CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.hashValue, isChanges: false)
@@ -166,13 +170,41 @@ class CalendarController: NSObject {
     }
     
     // Erzeugt ein EKEvent aus einer Lecture
-    func lectureToEKEventCreate(lecture: Lecture) -> [EKEvent] {
-        var tmpStartdate = lecture.startdate
-        var events = [EKEvent]()
+    func lectureToEKEvent(lecture: Lecture) {
+        title = lecture.name
+        iteration = lecture.iteration
         
+        if (lecture.iteration == iterationState.calendarWeeks) {
+            handleCalendarWeeks()
+        } else if (lecture.iteration == iterationState.notParsable) {
+            handleNotParsable()
+        }
+        
+        createEvents(lecture: lecture)
+    }
+    
+    private func handleNotParsable() {
+        // Nicht parsbar, deswegen Standard 7 nehmen
+        title = "[Kommentar lesen] \(title)"
+        iteration = iterationState.weekly
+    }
+    
+    private func handleCalendarWeeks() {
+        // Aufzählung
+        // TODO
+        /*
+         for date in lecture.arrayWithDates {
+         tmpStartdate = date
+         }
+         iteration = iterationState.individualDate
+         */
+    }
+    
+    private func createEvents(lecture: Lecture) {
+        var tmpStartdate = lecture.startdate
         repeat {
             let event       = EKEvent(eventStore: eventStore!)
-            event.title     = lecture.name
+            event.title     = title
             
             let tmpDate = tmpStartdate
             let hour = Calendar.current.component(.hour, from: lecture.startTime)
@@ -203,10 +235,8 @@ class CalendarController: NSObject {
             events.append(event)
             
             // startdate für die nächste Vorlesung in einer Woche setzen
-            tmpStartdate = Calendar.current.date(byAdding: .day, value: lecture.iteration, to: tmpStartdate)!
-        } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0)
-        
-        return events
+            tmpStartdate = Calendar.current.date(byAdding: .day, value: iteration.rawValue, to: tmpStartdate)!
+        } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0 && iteration != iterationState.individualDate)
     }
     
     // Findet eine Lecutre anhand des Hashes

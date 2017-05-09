@@ -27,7 +27,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
     var semester: Semester
     var comment : String
     var eventIDs : [String]
-    var iteration : Int
+    var iteration : iterationState
     let idKey = "lectureId"
     let nameKey = "lectureName"
     let lecturerKey = "lectureLecturer"
@@ -44,7 +44,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
     let eventIDsKey = "lectureEventIDs"
     let iterationKey = "lectureIteration"
     
-    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, semester: Semester, comment : String, selected: Bool, eventIDs: [String], iteration: Int) {
+    init(id: Int, name: String, lecturer: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course, semester: Semester, comment : String, selected: Bool, eventIDs: [String], iteration: iterationState) {
         self.id = id
         self.name = name
         self.lecturer = lecturer
@@ -62,7 +62,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         self.iteration = iteration
     }
     
-    convenience init(id: Int, name: String, lecture: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course,semester: Semester, comment : String, eventIDs: [String], iteration: Int) {
+    convenience init(id: Int, name: String, lecture: String, type: String, group: String, startdate: Date, enddate: Date, day: String, room: String, course: Course,semester: Semester, comment : String, eventIDs: [String], iteration: iterationState) {
         
         self.init(id: id, name: name, lecturer: lecture, type:type, group: group, startdate: startdate, enddate: enddate, day: day, room: room, course: course, semester: semester, comment: comment, selected: false, eventIDs: eventIDs, iteration: iteration )
     }
@@ -134,7 +134,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         semester = aDecoder.decodeObject(forKey: semesterKey) as! Semester
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
         eventIDs = aDecoder.decodeObject(forKey: eventIDsKey) as! [String]
-        iteration = Int(aDecoder.decodeInteger(forKey: iterationKey))
+        iteration = aDecoder.decodeObject(forKey: iterationKey) as! iterationState
         super.init()
     }
     
@@ -155,5 +155,13 @@ class Lecture : NSObject, NSCopying, NSCoding {
         aCoder.encode(eventIDs, forKey: eventIDsKey)
         aCoder.encode(iteration, forKey: iterationKey)
     }
-    
+}
+
+enum iterationState: Int {
+    case individualDate = 0
+    case daily = 1
+    case weekly = 7
+    case twoWeeks = 14
+    case calendarWeeks = -1
+    case notParsable = -2
 }
