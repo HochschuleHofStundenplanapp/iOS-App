@@ -50,6 +50,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
+        //Auslagern in eigenen Controller
         if sender.selectedSegmentIndex == 0 {
             UserData.sharedInstance.selectedSeason = "SS"
         }else{
@@ -59,6 +60,7 @@ class SettingsTableViewController: UITableViewController {
     
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
+        //Auslagern in eigenen Controller
         if(syncSwitch.isOn){
             UserData.sharedInstance.callenderSync = true
         } else {

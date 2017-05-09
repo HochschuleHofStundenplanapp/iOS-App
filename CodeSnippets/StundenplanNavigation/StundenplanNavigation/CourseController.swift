@@ -27,14 +27,19 @@ class CourseController: NSObject, DataObserverProtocol {
     
     func toggleCourse(at indexPath: IndexPath) {
         
-        //TO DO beim entfernen zugehörige Semester und Vorlesungen entfernen
-        
         let clickedCourse = ServerData.sharedInstance.allCourses[indexPath.row]
-    
+        
         if UserData.sharedInstance.selectedCourses.contains(clickedCourse) {
+            //Studiengang abwählen
             let index = UserData.sharedInstance.selectedCourses.index(of: clickedCourse)
             UserData.sharedInstance.selectedCourses.remove(at: index!)
+            
+            //Zugehörige selektierte Semester löschen
+            UserData.sharedInstance.removeSemester(for: clickedCourse)
+            
+            //TO DO: Vorlesungen entfernen
         }else{
+            //Studiengang auswählen
             UserData.sharedInstance.selectedCourses.append(clickedCourse)
         }
     }

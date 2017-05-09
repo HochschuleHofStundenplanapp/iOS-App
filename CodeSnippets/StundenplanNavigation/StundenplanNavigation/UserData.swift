@@ -23,9 +23,14 @@ class UserData: NSObject {
         return selectedCourses.count
     }
     
-//    var lecturesSize(at section: Int) -> Int{
-//        return selectedLectures.count
-//    }
+    func removeSemester(for course: Course){
+        for semester in selectedSemesters{
+            if(semester.course == course){
+                let index = selectedSemesters.index(of: semester)
+                selectedSemesters.remove(at: index!)
+            }
+        }
+    }
     
     func semesterSize(at section: Int) -> Int{
         return selectedCourses[section].semesters.count

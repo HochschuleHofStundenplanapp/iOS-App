@@ -19,7 +19,7 @@ class JsonCourses {
         }
     }
     
-    init? (data : Data)
+    init? (data: Data)
     {
         let jsonT = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject
         guard let json = jsonT else {
@@ -30,11 +30,8 @@ class JsonCourses {
     
     fileprivate func extractCourses(_ json : AnyObject)
     {
-        guard let jsonData = JSONData.fromObject(json) else
-        {
-            return
-        }
-        guard let allResults = jsonData["courses"]?.array as [JSONData]! else
+        //Zusammenfassen
+        guard let jsonData = JSONData.fromObject(json),  let allResults = jsonData["courses"]?.array as [JSONData]!else
         {
             return
         }
@@ -54,7 +51,9 @@ class JsonCourses {
             
             for s in sem{
                 
-                let tmpSem = Semester(name: s.string!, course: course)
+                let season = UserData.sharedInstance.selectedSeason
+                
+                let tmpSem = Semester(name: s.string!, course: course, season: season)
                 allSemesters.append(tmpSem)
             }
     
