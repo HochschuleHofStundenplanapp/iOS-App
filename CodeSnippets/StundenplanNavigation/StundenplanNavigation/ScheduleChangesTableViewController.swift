@@ -15,6 +15,8 @@ class ScheduleChangesTableViewController: UITableViewController {
     var datasource : ScheduleChangesTableViewDataSource!
     var delegate: ScheduleChangesTableViewDelegate!
     
+            var scheduleChangesController : ScheduleChangesController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,9 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        scheduleChangesController = ScheduleChangesController()
+        scheduleChangesController.handleChanges()
     
     }
 

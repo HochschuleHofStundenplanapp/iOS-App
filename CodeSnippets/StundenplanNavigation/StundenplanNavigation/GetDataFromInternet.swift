@@ -11,6 +11,8 @@ import UIKit
 class GetDataFromInternet: NSObject, DataObservableProtocol {
     var myObservers = [DataObserverProtocol]()
 
+    
+    //todo: ID mit Übergeben
     func doItWithUrl(url: String, username: String?, password: String? ) -> Void
     {
         
