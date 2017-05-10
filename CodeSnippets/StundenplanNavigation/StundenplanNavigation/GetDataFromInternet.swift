@@ -8,14 +8,14 @@
 
 import UIKit
 
-class GetDataFromInternet: NSObject, DataObservableProtocol {
-    var myObservers = [DataObserverProtocol]()
-
+class GetDataFromInternet: NSObject, JobDataObservableProtocol {
+    var myObservers = [JobDataObserverProtocol]()
+    var position : Int = -1
     
     //todo: ID mit Übergeben
-    func doItWithUrl(url: String, username: String?, password: String? ) -> Void
+    func doItWithUrl(url: String, username: String?, password: String?, position: Int ) -> Void
     {
-        
+        self.position = position
         let urlString = url
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
@@ -42,7 +42,7 @@ class GetDataFromInternet: NSObject, DataObservableProtocol {
                 let dataWithErrorTuple = (data,error)
                 
 
-                self.notifiyAllObservers(o: dataWithErrorTuple as AnyObject)
+                self.notifiyAllObservers(o: dataWithErrorTuple as AnyObject,p: position)
                 
                 
             })
@@ -56,7 +56,7 @@ class GetDataFromInternet: NSObject, DataObservableProtocol {
     /// Fügt einen neuen Observer der Klasse JobManager hinzu
     ///
     /// - parameter o: Die Observerklasse, welche DataObserverProtocol implementiert
-    func addNewObserver (o: DataObserverProtocol) -> Void
+    func addNewObserver (o: JobDataObserverProtocol) -> Void
     {
         myObservers.append(o)
        }
@@ -64,7 +64,7 @@ class GetDataFromInternet: NSObject, DataObservableProtocol {
     /// Entfernt den übergebenen Observer von der Klasse Settings
     ///
     /// - parameter o: o Die Observerklasse, welche DataObserverProtocol implementiert
-    func removeOldObserver (o: DataObserverProtocol) -> Void
+    func removeOldObserver (o: JobDataObserverProtocol) -> Void
     {
         if let i = myObservers.index(where: { $0 === o }) {
             myObservers.remove(at: i)
@@ -75,12 +75,12 @@ class GetDataFromInternet: NSObject, DataObservableProtocol {
     /// Benachrichtigt alle Observer über eine Veränderung
     ///
     /// - parameter s: Optional: Fehlermeldung
-    func notifiyAllObservers(o: AnyObject) -> Void
+    func notifiyAllObservers(o: AnyObject, p: Int) -> Void
     {
                for observer in myObservers
         {
             
-            observer.update(o: o as AnyObject)
+            observer.update(o: o as AnyObject, p: self.position)
         }
         
         

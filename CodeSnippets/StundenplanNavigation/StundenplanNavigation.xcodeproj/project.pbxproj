@@ -10,6 +10,8 @@
 		0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */ = {isa = PBXBuildFile; fileRef = 0C18F6B41E081D210037E28F /* rechtlicheTexte */; };
 		8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */; };
 		8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */; };
+		B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */; };
+		B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */; };
 		BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */; };
 		BE14C94F1EC1B45700925EAC /* JsonLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14C94E1EC1B45700925EAC /* JsonLectures.swift */; };
 		BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */; };
@@ -84,6 +86,8 @@
 		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
+		B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObserverProtocol.swift; sourceTree = "<group>"; };
+		B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObservableProtocol.swift; sourceTree = "<group>"; };
 		BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarDelegate.swift; sourceTree = "<group>"; };
 		BE14C94E1EC1B45700925EAC /* JsonLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonLectures.swift; sourceTree = "<group>"; };
 		BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				BE3AB3A31EB1F799009A6D20 /* DataObserverProtocol.swift */,
 				BE3AB3A41EB1F799009A6D20 /* myObservableProtocol.swift */,
 				BE3AB3A51EB1F799009A6D20 /* myObserverProtocol.swift */,
+				B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */,
+				B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -502,7 +508,6 @@
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = FZ89B397B6;
 						ProvisioningStyle = Automatic;
 					};
 					CEAC97151DB5FD350042FF3D = {
@@ -590,6 +595,7 @@
 				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,
 				BE3AB3BA1EB20552009A6D20 /* JsonCourses.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
+				B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
 				BE3AB3B21EB1FA09009A6D20 /* CourseController.swift in Sources */,
 				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,
@@ -602,6 +608,7 @@
 				BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */,
 				BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */,
 				BE3AB3A91EB1F799009A6D20 /* myObserverProtocol.swift in Sources */,
+				B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
 				BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */,
 				BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */,
@@ -772,7 +779,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZ89B397B6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
@@ -786,7 +793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZ89B397B6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";

@@ -8,13 +8,14 @@
 
 import UIKit
 
-class JobManager: NSObject, DataObserverProtocol, DataObservableProtocol {
+class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
 
     var myObservers: [DataObserverProtocol] = [DataObserverProtocol]()
     var jobQueueArray : [AnyObject] = []
     var lastJobSubmitted : Bool = false
     var jobGroup: DispatchGroup = DispatchGroup()
     var workItemArray : [DispatchWorkItem] = [DispatchWorkItem]()
+    var position : Int = -1
     
     override init() {
       
@@ -27,7 +28,7 @@ class JobManager: NSObject, DataObserverProtocol, DataObservableProtocol {
     /// Startet einen NetworkJob, welcher der Queueue hinzugefügt wird.
     func NetworkJob(url: String, username: String? = nil, password: String? = nil, isLastJob: Bool? = nil ) -> Void
     {
-       
+       position += 1
        
 
         if(!lastJobSubmitted)
@@ -39,7 +40,7 @@ class JobManager: NSObject, DataObserverProtocol, DataObservableProtocol {
                 {
                     let myGetDataFromInternet = GetDataFromInternet()
                     myGetDataFromInternet.addNewObserver(o: self)
-                    myGetDataFromInternet.doItWithUrl(url: url, username: username, password: password)
+                    myGetDataFromInternet.doItWithUrl(url: url, username: username, password: password,position: self.position)
                 }
             
             //füge den workItemArray das vorherig Erstellte workItem hinzu.
@@ -113,17 +114,19 @@ class JobManager: NSObject, DataObserverProtocol, DataObservableProtocol {
             observer.update(o: o)
         }
         
+        //Reset position für neue Jobs
+        self.position = -1
         
     }
     
     /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
     /// wird durch die zu observierende unterklasse (GetDataFromInternet) aufgerufen
     /// - Parameter o: o Zurückgegebenes AnyObject
-    func update (o:AnyObject) -> Void
+    func update (o:AnyObject, p: Int) -> Void
     {
         
         //todo: an richtige position des Arrays speichern, id wird mit hochgegeben.
-        jobQueueArray.append(o)
+        jobQueueArray.insert(o, at: p)
         jobGroup.leave()
         
         print("jobmanager update jobqueArray  \(jobQueueArray)")
