@@ -28,7 +28,12 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     /// Startet einen NetworkJob, welcher der Queueue hinzugefügt wird.
     func NetworkJob(url: String, username: String? = nil, password: String? = nil, isLastJob: Bool? = nil ) -> Void
     {
-       position += 1
+     
+        
+        self.position += 1
+        let p = self.position
+         jobQueueArray.append("test" as AnyObject)
+
         print("Jobposition wird gesetzt: \(position)" )
         if(!lastJobSubmitted)
         {
@@ -37,9 +42,11 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
             //Erstelle DispatchworkItem
             let workItem = DispatchWorkItem()
                 {
-                    let myGetDataFromInternet = GetDataFromInternet()
+                    
+                    
+                                        let myGetDataFromInternet = GetDataFromInternet()
                     myGetDataFromInternet.addNewObserver(o: self)
-                    myGetDataFromInternet.doItWithUrl(url: url, username: username, password: password,position: self.position)
+                    myGetDataFromInternet.doItWithUrl(url: url, username: username, password: password,position: p)
                 }
             
             //füge den workItemArray das vorherig Erstellte workItem hinzu.
@@ -49,11 +56,14 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
             {
                 for job in workItemArray
                 {
+                   
                     print("job Ausführen")
                     
                     jobGroup.enter()
+                    
                     //Führe workItem aus
                      DispatchQueue.global(qos: .userInitiated).async(execute: job)
+                  
 
                 }
        
@@ -128,10 +138,10 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     {
         print("Jobposition kommt zurück in update: \(p)" )
         
-        // jobQueueArray.insert("empty" as AnyObject, at: position)
+      
 
         //todo: an richtige position des Arrays speichern, id wird mit hochgegeben.
-        jobQueueArray.insert(o, at: 0)
+        jobQueueArray[p] = o
         jobGroup.leave()
         
         print("jobmanager update jobqueArray  \(jobQueueArray)")
