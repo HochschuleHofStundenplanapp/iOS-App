@@ -54,6 +54,9 @@ class ScheduleChangesTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        scheduleChangesController.cancelAllNetworkJobs()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         

@@ -46,6 +46,13 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
         let urlString2 = myUrl2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password, isLastJob: false)
                         myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
+            myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
+      
+        
+        for _ in 1...4
+            {
+                 myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
+            }
                    
                         myJobManager.NetworkJob(url: urlString2, username: Constants.username, password: Constants.password, isLastJob: true)
                 

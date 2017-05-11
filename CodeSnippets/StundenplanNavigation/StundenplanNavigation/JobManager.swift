@@ -85,6 +85,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     /// Bricht alle Netzwerkjobs ab
     func cancelAllNetworkJobs() -> Void
     {
+        
         for job in self.workItemArray
         {
             
@@ -121,6 +122,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     ///
     func notifiyAllObservers(o: AnyObject) -> Void
     {
+        
         for observer in myObservers
         {
             observer.update(o: o)
