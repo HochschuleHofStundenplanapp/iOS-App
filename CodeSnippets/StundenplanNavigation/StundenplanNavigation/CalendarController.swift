@@ -167,6 +167,9 @@ class CalendarController: NSObject {
         for event in events {
             CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.hashValue, isChanges: false)
         }
+        
+        // Events wieder leeren
+        events = []
     }
     
     // Erzeugt ein EKEvent aus einer Lecture
