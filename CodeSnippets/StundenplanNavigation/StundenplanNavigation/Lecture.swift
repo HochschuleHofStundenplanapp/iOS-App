@@ -165,20 +165,21 @@ enum iterationState: Int {
     case calendarWeeks = -1
     case notParsable = -2
     
-    init?(term: Int) {
-        if term == 0{
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0:
             self = .individualDate
-        }else if term == 1{
+        case 1:
             self = .daily
-        }else if term == 7 {
+        case 7:
             self = .weekly
-        }else if term == 14{
+        case 14:
             self = .twoWeeks
-        }else if term == -1{
+        case -1:
             self = .calendarWeeks
-        }else if term == -2{
+        case -2:
             self = .notParsable
-        } else {
+        default:
             return nil
         }
     }

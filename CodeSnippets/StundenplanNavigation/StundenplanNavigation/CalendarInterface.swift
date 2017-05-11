@@ -147,7 +147,7 @@ class CalendarInterface: NSObject {
             event.endDate   = updatedEvent.endDate
             event.location  = updatedEvent.location
             event.calendar  = self.calendar!
-        
+            
             do {
                 try self.eventStore.save(event, span: .thisEvent)
             } catch {

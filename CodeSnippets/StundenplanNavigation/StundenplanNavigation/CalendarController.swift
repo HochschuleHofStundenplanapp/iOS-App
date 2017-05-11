@@ -178,7 +178,8 @@ class CalendarController: NSObject {
         iteration = lecture.iteration
         
         if (lecture.iteration == iterationState.calendarWeeks) {
-            handleCalendarWeeks()
+            handleCalendarWeeks(lecture: lecture)
+            return
         } else if (lecture.iteration == iterationState.notParsable) {
             handleNotParsable()
         }
@@ -192,15 +193,15 @@ class CalendarController: NSObject {
         iteration = iterationState.weekly
     }
     
-    private func handleCalendarWeeks() {
-        // Aufzählung
-        // TODO
-        /*
-         for date in lecture.arrayWithDates {
-         tmpStartdate = date
-         }
-         iteration = iterationState.individualDate
-         */
+    private func handleCalendarWeeks(lecture: Lecture){
+        //Termine für vorgegebene Kalenderwochen
+        
+        //        iteration = iterationState.individualDate
+        //
+        //        for date in lecture.arrayWithDates {
+        //            tmpStartdate = date
+        //            createEvents(lecture: lecture)
+        //        }
     }
     
     private func createEvents(lecture: Lecture) {
