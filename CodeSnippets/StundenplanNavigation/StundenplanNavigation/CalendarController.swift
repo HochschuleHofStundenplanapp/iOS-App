@@ -19,7 +19,7 @@ class CalendarController: NSObject {
     
     override init() {
         super.init()
-        createCalendar()
+        _ = createCalendar()
     }
     
     public func createCalendar() -> Bool {
@@ -37,13 +37,13 @@ class CalendarController: NSObject {
     }
     
     public func removeCalendar() {
-        CalendarInterface.sharedInstance.removeCalendar()
+        _ = CalendarInterface.sharedInstance.removeCalendar()
     }
     
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
     public func createAllEvents(lectures : [Lecture]){
         if (CalendarInterface.sharedInstance.isAuthorized()) {
-            CalendarInterface.sharedInstance.createCalenderIfNeeded()
+            _ = CalendarInterface.sharedInstance.createCalenderIfNeeded()
             for lecture in lectures {
                 createEventsForLecture(lecture: lecture)
             }
