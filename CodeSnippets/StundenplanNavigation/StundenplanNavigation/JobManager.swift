@@ -32,7 +32,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
         
         self.position += 1
         let p = self.position
-         jobQueueArray.append("test" as AnyObject)
+         jobQueueArray.append("Wait for data" as AnyObject)
 
         print("Jobposition wird gesetzt: \(position)" )
         if(!lastJobSubmitted)
@@ -146,7 +146,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
         jobQueueArray[p] = o
         jobGroup.leave()
         
-        print("jobmanager update jobqueArray  \(jobQueueArray)")
+      
        
     }
     

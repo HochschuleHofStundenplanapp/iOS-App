@@ -49,7 +49,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
             myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
       
         
-        for _ in 1...4
+        for _ in 1...5
             {
                  myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
             }
