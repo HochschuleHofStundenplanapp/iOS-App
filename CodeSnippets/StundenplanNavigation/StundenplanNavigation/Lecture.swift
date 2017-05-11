@@ -134,7 +134,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         semester = aDecoder.decodeObject(forKey: semesterKey) as! Semester
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
         eventIDs = aDecoder.decodeObject(forKey: eventIDsKey) as! [String]
-        iteration = aDecoder.decodeObject(forKey: iterationKey) as! iterationState
+        iteration = iterationState(rawValue: Int(aDecoder.decodeInteger(forKey: iterationKey)))!
         super.init()
     }
     
@@ -153,7 +153,7 @@ class Lecture : NSObject, NSCopying, NSCoding {
         aCoder.encode(semester, forKey: semesterKey)
         aCoder.encode(comment, forKey: commentKey)
         aCoder.encode(eventIDs, forKey: eventIDsKey)
-        aCoder.encode(iteration, forKey: iterationKey)
+        aCoder.encode(iteration.rawValue, forKey: iterationKey)
     }
 }
 
@@ -164,4 +164,23 @@ enum iterationState: Int {
     case twoWeeks = 14
     case calendarWeeks = -1
     case notParsable = -2
+    
+    init?(term: Int) {
+        if term == 0{
+            self = .individualDate
+        }else if term == 1{
+            self = .daily
+        }else if term == 7 {
+            self = .weekly
+        }else if term == 14{
+            self = .twoWeeks
+        }else if term == -1{
+            self = .calendarWeeks
+        }else if term == -2{
+            self = .notParsable
+        } else {
+            return nil
+        }
+    }
 }
+
