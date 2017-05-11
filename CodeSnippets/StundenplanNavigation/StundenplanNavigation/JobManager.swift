@@ -29,8 +29,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     func NetworkJob(url: String, username: String? = nil, password: String? = nil, isLastJob: Bool? = nil ) -> Void
     {
        position += 1
-       
-
+        print("Jobposition wird gesetzt: \(position)" )
         if(!lastJobSubmitted)
         {
             //jobGroup wird beigetreten
@@ -46,15 +45,18 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
             //füge den workItemArray das vorherig Erstellte workItem hinzu.
             workItemArray.append(workItem)
             
-            if(isLastJob != nil)
+            if(isLastJob == true)
             {
                 for job in workItemArray
                 {
+                    print("job Ausführen")
+                    
                     jobGroup.enter()
                     //Führe workItem aus
                      DispatchQueue.global(qos: .userInitiated).async(execute: job)
 
                 }
+       
                 jobGroup.notify(queue: DispatchQueue.main, execute: {() -> Void in
                     self.notifiyAllObservers(o: self.jobQueueArray as AnyObject)
                     self.lastJobSubmitted = false
@@ -124,9 +126,12 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject, p: Int) -> Void
     {
+        print("Jobposition kommt zurück in update: \(p)" )
         
+        // jobQueueArray.insert("empty" as AnyObject, at: position)
+
         //todo: an richtige position des Arrays speichern, id wird mit hochgegeben.
-        jobQueueArray.insert(o, at: p)
+        jobQueueArray.insert(o, at: 0)
         jobGroup.leave()
         
         print("jobmanager update jobqueArray  \(jobQueueArray)")

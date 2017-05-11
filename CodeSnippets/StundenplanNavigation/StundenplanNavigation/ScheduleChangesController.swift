@@ -15,6 +15,8 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
     let selectedCourses = UserData.sharedInstance.selectedCourses
 
     let debugurl = "https://app.hof-university.de/soap/client.php?f=Changes&stg=MC&sem=6&tt=SS"
+    let debugurl2 = "https://app.hof-university.de/soap/client.php?f=Changes&stg=MI&sem=6&tt=SS"
+
     
     func handleChanges() -> Void
     {
@@ -37,10 +39,15 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
     //           let semesterName  =  semester.name
              //   let myUrl : String = "\(Constants.baseURI)client.php?f=Changes&stg=\(courseName.contraction)&sem=\(semesterName)&tt=\(season)"
                 let myUrl = debugurl
+        let myUrl2 = debugurl2
+
                 let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 
-        
-                myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password, isLastJob: true)
+        let urlString2 = myUrl2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password, isLastJob: false)
+                        myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
+                   
+                        myJobManager.NetworkJob(url: urlString2, username: Constants.username, password: Constants.password, isLastJob: true)
                 
               
     //        }

@@ -12,9 +12,10 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
     var myObservers = [JobDataObserverProtocol]()
     var position : Int = -1
     
-    //todo: ID mit Übergeben
+   
     func doItWithUrl(url: String, username: String?, password: String?, position: Int ) -> Void
     {
+        print("do it with url position : \(position)")
         self.position = position
         let urlString = url
         let url = URL(string: urlString)
