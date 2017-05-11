@@ -11,12 +11,18 @@ import UIKit
 class Semester: NSObject, NSCoding {
 
     var name: String
-    var course: Course
+    var course: Course!
     var season: String
     let nameKey = "semesterName"
     let courseKey = "semesterCourse"
     let seasonKey = "semesterSeason"
 
+    //Weg machen!!!
+    override init(){
+        self.name = ""
+        self.season = ""
+    }
+    
     init(name: String, course: Course, season: String) {
         self.name = name
         self.course = course

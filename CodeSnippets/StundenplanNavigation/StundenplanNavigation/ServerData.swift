@@ -11,7 +11,7 @@ import UIKit
 class ServerData: NSObject {
 
     var allCourses : [Course] = []
-    var allLectures: [[Lecture]] = [[],[],[],[],[],[]]
+    var schedule: Schedule = Schedule()
     
     func testSetup() {
 //        let dateFormatter = DateFormatter()
@@ -40,16 +40,7 @@ class ServerData: NSObject {
         get { return allCourses.count }
     }
     
-    var lecturesSize: Int {
-        get { return allLectures.count }
-    }
-    
     func course(at indexPath: IndexPath) -> Course{
         return allCourses[indexPath.row]
     }
-    
-    func lecture(at indexPath : IndexPath) -> Lecture{
-        return allLectures[indexPath.section][indexPath.row]
-    }
-   
 }

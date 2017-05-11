@@ -22,7 +22,9 @@ class LectureController: NSObject, DataObserverProtocol {
     
             let myUrl : String = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semester.course.contraction)&sem=\(semester.name)&tt=\(semester.season)"
             let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-                
+            
+            print(myUrl)
+            
             myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
         }
     
@@ -40,24 +42,11 @@ class LectureController: NSObject, DataObserverProtocol {
     ///
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void {
-        
-//        print("Das Dataobject \(o)")
-//        let b = o as! Array<Data>
-//        
-//        for dataObject in b {
-//            print("Dataobject kommt:")
-//                print(String(data: dataObject, encoding: String.Encoding.utf8)! as String)
-//                //TODO: JsonChanges muss umgeschrieben werden - Darf kein Course erwarten ..
-//    
-//                // Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: dataObject)))
-//            }
-//    
-//         print("ScheduleChanges Controller All Jobs Done")
-    
+            
         let dataArray = o as! [(Data?, Error?)]
         
         for dataObject in dataArray {
-            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
+//            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             
             if let error = dataObject.1{
                 // handle error
@@ -67,8 +56,10 @@ class LectureController: NSObject, DataObserverProtocol {
                 return
             }
             
-            //Daten Parsen
+            ServerData.sharedInstance.schedule.addSchedule(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
         }
+        
+        dump(ServerData.sharedInstance.schedule)
     }
 
     func cancelLoading() -> Void {

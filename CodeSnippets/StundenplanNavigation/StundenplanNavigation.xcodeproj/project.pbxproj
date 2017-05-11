@@ -33,6 +33,7 @@
 		BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DF91A1EB10F5300D6550C /* ServerData.swift */; };
 		BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E89DB1EB676D000D4ACCF /* Semester.swift */; };
 		BE4F4E271DE3747E00B4CC7F /* LecturesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */; };
+		BE612A951EC467E000D1FC1D /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE612A941EC467E000D1FC1D /* Schedule.swift */; };
 		BE6DCE3E1EBF22F80039DDF7 /* SemesterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DCE3D1EBF22F80039DDF7 /* SemesterController.swift */; };
 		BE6DCE411EBF2B9B0039DDF7 /* LectureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DCE401EBF2B9B0039DDF7 /* LectureController.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
@@ -109,6 +110,7 @@
 		BE4DF91A1EB10F5300D6550C /* ServerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		BE4E89DB1EB676D000D4ACCF /* Semester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		BE4F4E261DE3747E00B4CC7F /* LecturesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDelegate.swift; sourceTree = "<group>"; };
+		BE612A941EC467E000D1FC1D /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		BE6DCE3D1EBF22F80039DDF7 /* SemesterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterController.swift; sourceTree = "<group>"; };
 		BE6DCE401EBF2B9B0039DDF7 /* LectureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureController.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				BE4DF9171EB10B4500D6550C /* Lecture.swift */,
 				BE4DF91A1EB10F5300D6550C /* ServerData.swift */,
 				BE3AB3B31EB1FD32009A6D20 /* UserData.swift */,
+				BE612A941EC467E000D1FC1D /* Schedule.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = FZ89B397B6;
 						ProvisioningStyle = Automatic;
 					};
 					CEAC97151DB5FD350042FF3D = {
@@ -611,6 +615,7 @@
 				B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
 				BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */,
+				BE612A951EC467E000D1FC1D /* Schedule.swift in Sources */,
 				BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */,
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
 				BE3AB3AC1EB1F7BF009A6D20 /* GetDataFromInternet.swift in Sources */,
@@ -779,7 +784,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FZ89B397B6;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
@@ -793,7 +798,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FZ89B397B6;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
