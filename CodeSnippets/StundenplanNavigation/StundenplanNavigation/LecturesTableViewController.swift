@@ -43,11 +43,13 @@ class LecturesTableViewController: UITableViewController {
         
         lectureController = LectureController()
         
-        dataSource = LecturesTableViewDataSource(tableView: self)
+        dataSource = LecturesTableViewDataSource()
         lectureTableView.dataSource = dataSource
         
         delegate = LecturesTableViewDelegate()
         lectureTableView.delegate = delegate
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .lecturesDownloadEnded, object: nil )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,12 +57,15 @@ class LecturesTableViewController: UITableViewController {
         lectureController.loadAllLectures()
     }
     
-    func beginDownload(){
-        //Show Activity Indicator
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+        lectureController.cancelLoading()
     }
     
-    func endDownload(){
-        lectureTableView.reloadData()
+    func downloadEnded(){
+        self.lectureTableView.reloadData()
     }
     
     func showNoInternetAlert(){

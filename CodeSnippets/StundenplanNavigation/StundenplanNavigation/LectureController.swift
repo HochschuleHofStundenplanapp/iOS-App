@@ -58,8 +58,17 @@ class LectureController: NSObject, DataObserverProtocol {
             
             ServerData.sharedInstance.schedule.addSchedule(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
         }
+        self.notifyDownlaodEnded()
         
-        dump(ServerData.sharedInstance.schedule)
+//        dump(ServerData.sharedInstance.schedule)
+    }
+    
+    func notifyDownlaodEnded(){
+        NotificationCenter.default.post(name: .lecturesDownloadEnded , object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     func cancelLoading() -> Void {

@@ -28,7 +28,7 @@ class CourseTableViewController: UITableViewController {
         
         courseController = CourseController()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: Notification.Name("DownloadEnded"), object: nil )
+        NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .coursesDownloadEnded, object: nil )
     }
     
     func downloadEnded(){
@@ -52,7 +52,7 @@ class CourseTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        NotificationCenter.default.removeObserver(Notification.Name("DownloadEnded"))
+        NotificationCenter.default.removeObserver(self)
         courseController.cancelLoading()
     }
     

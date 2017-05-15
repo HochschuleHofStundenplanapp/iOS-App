@@ -13,7 +13,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     var lastLectureGroup : (courseInfo : String, semInfo : String)
     var hightLightLine : Bool
     
-    init(tableView : LecturesTableViewController) {
+    override init() {
         lastLectureGroup.courseInfo = ""
         lastLectureGroup.semInfo = ""
         hightLightLine = false
@@ -21,11 +21,33 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
+        
+//        let lecture = Settings.sharedInstance.tmpSchedule.getLectureAt(section: indexPath.section, row: indexPath.row)
+        let lecture = ServerData.sharedInstance.schedule.lecture(at: indexPath)
+//        let cellColor = computeIndexedBackgroundColor(currentPosition : indexPath)
+        
+//        cell.backgroundColor = cellColor
+        cell.courseLabel.text = lecture.name
+        cell.docentLabel.text = lecture.lecturer
+        cell.commentLabel.text = lecture.comment
+        
+        //NSDate Formatiert zu String
+        var startTimeString = ""
+        var endTimeString = ""
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+        timeFormatter.dateFormat = "HH:mm"
+        startTimeString = timeFormatter.string(from: lecture.startTime)
+        endTimeString = timeFormatter.string(from: lecture.endTime)
+        
+        cell.timeLabel.text = startTimeString + " - " + endTimeString
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return ServerData.sharedInstance.schedule.daySize(at: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -45,11 +45,11 @@ class CourseController: NSObject, DataObserverProtocol {
     }
     
     func notifyDownlaodEnded(){
-        NotificationCenter.default.post(name: Notification.Name("DownloadEnded") , object: nil)
+        NotificationCenter.default.post(name: .coursesDownloadEnded , object: nil)
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(Notification.Name("DownloadEnded"))
+        NotificationCenter.default.removeObserver(self)
     }
     
     /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
