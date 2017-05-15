@@ -59,7 +59,6 @@ class LecturesTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self)
         lectureController.cancelLoading()
     }
@@ -72,7 +71,6 @@ class LecturesTableViewController: UITableViewController {
         let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
             "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
-            //Daten erneut laden
         } ))
         self.present(alertController, animated: true, completion: nil)
         
