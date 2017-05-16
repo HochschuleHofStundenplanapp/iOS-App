@@ -10,6 +10,7 @@ import UIKit
 
 class Lecture: NSObject, NSCoding {
 
+    //Key splus+semester+lecture 
     var id: Int
     var splusname: String
     var name: String

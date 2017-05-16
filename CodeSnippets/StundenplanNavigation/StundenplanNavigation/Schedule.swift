@@ -12,12 +12,16 @@ class Schedule: NSObject {
 
     var allLectures: [[Lecture]] = [[],[],[],[],[],[]]
         
-    func addSchedule(lectures: [Lecture]){
+    func addLectures(lectures: [Lecture]){
         for lec in lectures{
             let dayIndex = Constants.weekDays.index(of: lec.day)!
             
             allLectures[dayIndex].append(lec)
         }
+    }
+    
+    func clear(){
+        allLectures = [[],[],[],[],[],[]]
     }
     
     func daySize(at section: Int) -> Int{

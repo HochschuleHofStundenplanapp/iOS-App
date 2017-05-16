@@ -35,16 +35,35 @@ class CourseController: NSObject, DataObserverProtocol {
             UserData.sharedInstance.selectedCourses.remove(at: index!)
             
             //Zugehörige selektierte Semester löschen
-            UserData.sharedInstance.removeSemester(for: clickedCourse)
+            self.removeSemester(for: clickedCourse)
             
-            //TO DO: Vorlesungen entfernen
+            //Zugehörige selektierte Vorlesungen entfernen
+            self.removeLectures(for: clickedCourse)
         }else{
             //Studiengang auswählen
             UserData.sharedInstance.selectedCourses.append(clickedCourse)
         }
     }
     
-    func notifyDownlaodEnded(){
+    private func removeLectures(for course: Course){
+        for lecture in UserData.sharedInstance.selectedLectures{
+            if(lecture.semester.course == course){
+                let index = UserData.sharedInstance.selectedLectures.index(of: lecture)
+                UserData.sharedInstance.selectedLectures.remove(at: index!)
+            }
+        }
+    }
+    
+    private func removeSemester(for course: Course){
+        for semester in UserData.sharedInstance.selectedSemesters{
+            if(semester.course == course){
+                let index = UserData.sharedInstance.selectedSemesters.index(of: semester)
+                UserData.sharedInstance.selectedSemesters.remove(at: index!)
+            }
+        }
+    }
+    
+    func notifyDownloadEnded(){
         NotificationCenter.default.post(name: .coursesDownloadEnded , object: nil)
     }
     
@@ -59,8 +78,6 @@ class CourseController: NSObject, DataObserverProtocol {
     {
         let dataArray = o as! [(Data?, Error?)]
         
-        
-        
         for dataObject in dataArray {
             //print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             
@@ -74,7 +91,7 @@ class CourseController: NSObject, DataObserverProtocol {
             
             ServerData.sharedInstance.allCourses = (JsonCourses(data: data)?.courses!)!
         }
-        notifyDownlaodEnded()
+        notifyDownloadEnded()
     }
     
     func cancelLoading(){

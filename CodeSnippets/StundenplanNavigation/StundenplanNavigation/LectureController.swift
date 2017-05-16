@@ -13,11 +13,15 @@ class LectureController: NSObject, DataObserverProtocol {
     var myJobManager : JobManager = JobManager()
     
     func loadAllLectures() -> Void {
+        
+        ServerData.sharedInstance.schedule.clear()
     
         self.myJobManager.addNewObserver(o: self)
     
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
 
+        let dump = UserData.sharedInstance.selectedSemesters
+        
         for semester in selectedSemesters.dropLast() {
     
             let myUrl : String = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semester.course.contraction)&sem=\(semester.name)&tt=\(semester.season)"
@@ -56,7 +60,7 @@ class LectureController: NSObject, DataObserverProtocol {
                 return
             }
             
-            ServerData.sharedInstance.schedule.addSchedule(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
+            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
         }
         self.notifyDownlaodEnded()
         

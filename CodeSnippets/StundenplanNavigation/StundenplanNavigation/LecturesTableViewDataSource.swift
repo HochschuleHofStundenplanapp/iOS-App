@@ -22,7 +22,6 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         
-
         let lecture = ServerData.sharedInstance.schedule.lecture(at: indexPath)
 //        let cellColor = computeIndexedBackgroundColor(currentPosition : indexPath)
         
