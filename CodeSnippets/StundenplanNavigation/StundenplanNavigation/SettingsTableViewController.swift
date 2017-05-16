@@ -42,6 +42,8 @@ class SettingsTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
+        selectedCoursesLabel.text = UserData.sharedInstance.allSelectedCourses()
+        selectedSemesterLabel.text = UserData.sharedInstance.allSelectedSemesters()
     }
     
     override func didReceiveMemoryWarning() {
