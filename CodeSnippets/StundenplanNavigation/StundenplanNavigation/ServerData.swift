@@ -7,6 +7,11 @@
 //
 
 import UIKit
+/**
+ Speichert die vom Server kommenden Infos über die 
+ * angebotenen Studiengänge und Semester -> allCourses
+ * Vorlesungen der ausgewählten Studiengänge -> schedule
+ */
 
 class ServerData: NSObject {
 

@@ -7,7 +7,13 @@
 //
 
 import UIKit
-
+/**
+ Speichert die **vom User ausgewählten** Infos über
+ * Season -> Sommer- oder Wintersemester
+ * Courses -> Studiengänge mit gewählten Semestern
+ * Semesters -> Semester mit Studiengängen
+ * Lectures -> Vorlesungen mit Info über das zugehörige Semester
+ */
 class UserData: NSObject {
 
     var callenderSync: Bool = false
