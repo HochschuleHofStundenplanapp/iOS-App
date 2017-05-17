@@ -15,19 +15,13 @@ class LectureController: NSObject, DataObserverProtocol {
     func loadAllLectures() -> Void {
         
         ServerData.sharedInstance.schedule.clear()
-    
         self.myJobManager.addNewObserver(o: self)
-    
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
-
-        let dump = UserData.sharedInstance.selectedSemesters
         
         for semester in selectedSemesters.dropLast() {
     
             let myUrl : String = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semester.course.contraction)&sem=\(semester.name)&tt=\(semester.season)"
             let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            
-            print(myUrl)
             
             myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
         }
@@ -49,22 +43,47 @@ class LectureController: NSObject, DataObserverProtocol {
             
         let dataArray = o as! [(Data?, Error?)]
         
-        for dataObject in dataArray {
-//            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
+        let selectedSemesters = UserData.sharedInstance.selectedSemesters
+        
+        for (index, element) in dataArray.enumerated() {
             
-            if let error = dataObject.1{
+            if let error = element.1{
                 // handle error
             }
             
-            guard let data = dataObject.0 else {
+            guard let data = element.0 else {
                 return
             }
             
-            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
+            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: selectedSemesters[index])?.lectures!)!)
         }
-        self.notifyDownlaodEnded()
         
-//        dump(ServerData.sharedInstance.schedule)
+//        for dataObject in dataArray {
+////            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
+//            
+//            if let error = dataObject.1{
+//                // handle error
+//            }
+//            
+//            guard let data = dataObject.0 else {
+//                return
+//            }
+//            
+//            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
+//        }
+        self.notifyDownlaodEnded()
+    }
+    
+    func toggleLecture(at indexPath: IndexPath) {
+        
+        let clickedLecture = ServerData.sharedInstance.schedule.lecture(at: indexPath)
+        
+        if UserData.sharedInstance.selectedLectures.contains(clickedLecture) {
+            let index = UserData.sharedInstance.selectedLectures.index(of: clickedLecture)
+            UserData.sharedInstance.selectedLectures.remove(at: index!)
+        }else{
+            UserData.sharedInstance.selectedLectures.append(clickedLecture)
+        }
     }
     
     func notifyDownlaodEnded(){

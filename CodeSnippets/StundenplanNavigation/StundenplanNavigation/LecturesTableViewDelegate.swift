@@ -16,9 +16,9 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
         header.textLabel?.textColor = UIColor.hawBlue
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        _ = LectureController().toggleLecture(at: indexPath)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
