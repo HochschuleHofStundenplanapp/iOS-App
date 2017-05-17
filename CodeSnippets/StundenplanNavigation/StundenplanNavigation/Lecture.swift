@@ -10,7 +10,7 @@ import UIKit
 
 class Lecture: NSObject, NSCoding {
 
-    //Key splus+semester+lecture 
+    var key: String //splusname+semester+lecture
     var id: Int
     var splusname: String
     var name: String
@@ -25,6 +25,7 @@ class Lecture: NSObject, NSCoding {
     var semester: Semester
     var comment : String
     var iteration : Int
+    let keyKey = "lectureKey"
     let idKey = "lectureId"
     let splusnameKey = "lectureSplusname"
     let nameKey = "lectureName"
@@ -42,6 +43,7 @@ class Lecture: NSObject, NSCoding {
     let iterationKey = "lectureIteration"
     
     init(id: Int, splusname: String, name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: Int) {
+        self.key = splusname + semester.name + semester.course.contraction
         self.id = id
         self.splusname = splusname
         self.name = name
@@ -91,6 +93,7 @@ class Lecture: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        key = aDecoder.decodeObject(forKey: keyKey) as! String
         id = Int(aDecoder.decodeInteger(forKey: idKey))
         splusname = aDecoder.decodeObject(forKey: splusnameKey) as! String
         name = aDecoder.decodeObject(forKey: nameKey) as! String
@@ -109,6 +112,7 @@ class Lecture: NSObject, NSCoding {
     }
     
     func encode(with aCoder: NSCoder){
+        aCoder.encode(key, forKey: keyKey)
         aCoder.encode(id, forKey: idKey)
         aCoder.encode(splusname, forKey: splusnameKey)
         aCoder.encode(name, forKey: nameKey)
@@ -130,6 +134,7 @@ class Lecture: NSObject, NSCoding {
     }
     
     static func == (lhs: Lecture, rhs: Lecture) -> Bool {
-        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.type == rhs.type) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
+//        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.type == rhs.type) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
+        return (lhs.key == rhs.key)
     }
 }
