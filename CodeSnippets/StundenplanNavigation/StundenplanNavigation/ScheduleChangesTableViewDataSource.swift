@@ -63,7 +63,7 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-          return ServerData.sharedInstance.allChanges.count
+          return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
