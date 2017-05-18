@@ -12,7 +12,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
     
     var myJobManager : JobManager = JobManager()
     let season = UserData.sharedInstance.selectedSeason
-    let selectedCourses = UserData.sharedInstance.selectedCourses
+    let selectedLectures = UserData.sharedInstance.selectedLectures
 
     let debugurl = "https://app.hof-university.de/soap/client.php?f=Changes&stg=MC&sem=6&tt=SS"
     let debugurl2 = "https://app.hof-university.de/soap/client.php?f=Changes&stg=MI&sem=6&tt=SS"
@@ -29,50 +29,54 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
         
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
-   //     for course in selectedCourses{
+        for lecture in selectedLectures.dropLast(){
           
+            var splusname = lecture.splusname
             
-            
-  //          let selectedSemesters = UserData.sharedInstance.selectedSemesters
-  //          let courseName = course
-    //        for semester in selectedSemesters.dropLast() {
-    //           let semesterName  =  semester.name
-             //   let myUrl : String = "\(Constants.baseURI)client.php?f=Changes&stg=\(courseName.contraction)&sem=\(semesterName)&tt=\(season)"
-                let myUrl = debugurl
-        let myUrl2 = debugurl2
-
-                let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-                
-        let urlString2 = myUrl2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-                myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password, isLastJob: false)
-                        myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
-            myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
-      
-        
-        for _ in 1...5
-            {
-                 myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
-            }
-                   
-                        myJobManager.NetworkJob(url: urlString2, username: Constants.username, password: Constants.password, isLastJob: true)
-                
-              
-    //        }
-            //
-           
-      //  }
+           let selectedSemesters = UserData.sharedInstance.selectedSemesters
        
+            splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            print("kappaspluname ->\(splusname)"  )
+       
+            let myUrl : String = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
+            
+            
+            print("kappaUrlVorParsen ->\(myUrl)"  )
+           
+          //      let myUrl = debugurl
+       // let myUrl2 = debugurl2
+
+           //     let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+         //    print("kappaurl -> \(urlString)")
+                
+   //     let urlString2 = myUrl2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: false)
+
+      
+            }
+            
+          
         //Hole das Letzte Item der doppelten For-Schleife
- //       let courseNameLastItem = selectedCourses.last!.contraction
- //       let selectedSemesterLastItem = UserData.sharedInstance.selectedSemesters.last!.name
+        let lectureNameLastItem = selectedLectures.last!
+     
         
-        //Markiere letzets Item im Job Manager
- //       let myUrl = "\(Constants.baseURI)client.php?f=Changes&stg=\(courseNameLastItem)&sem=\(selectedSemesterLastItem )&tt=\(season)"
- //       let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+      //  Markiere letzets Item im Job Manager
+        print("kappa Lastspluname ->\(lectureNameLastItem.splusname)"  )
+        
+        var splusname = lectureNameLastItem.splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let lastUrl = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
         
         
-  //      myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password,isLastJob: true)
-  //      print("Letzen Job hinzugefügt")
+
+        
+       // let lastUrlString = lastUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+         print("kappaurl -> \(lastUrl)")
+        
+        
+        myJobManager.NetworkJob(url: lastUrl, username: Constants.username, password: Constants.password,isLastJob: true)
+        print("Letzen Job hinzugefügt")
 
     }
     

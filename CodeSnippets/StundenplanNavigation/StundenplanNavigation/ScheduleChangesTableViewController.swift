@@ -31,8 +31,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
         
-        scheduleChangesController = ScheduleChangesController()
-        scheduleChangesController.handleChanges()
+
     
     }
 
@@ -63,6 +62,9 @@ class ScheduleChangesTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor.hawYellow
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawYellow]
+        
+        scheduleChangesController = ScheduleChangesController()
+        scheduleChangesController.handleChanges()
     }
 
     override func didReceiveMemoryWarning() {
