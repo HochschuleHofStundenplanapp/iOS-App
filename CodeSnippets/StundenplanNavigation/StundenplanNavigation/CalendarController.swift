@@ -140,7 +140,7 @@ class CalendarController: NSObject {
         newEvent.startDate = change.combinedNewDate
         newEvent.endDate   = (newEvent.startDate + 60 * 90)
         
-        newEvent.location = locationInfo + " ," + lecture.room.appending(", \(change.newRoom)")
+        newEvent.location = locationInfo + "," + lecture.room.appending(", \(change.newRoom)")
         
         newEvent.notes = lecture.comment + "  " + lecture.group
         
