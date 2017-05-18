@@ -72,8 +72,10 @@ class CalendarController: NSObject {
         let changeEventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedOldDate, onlyChanges: true)
         if (changeEventID != "") {
             let oldEvent = CalendarInterface.sharedInstance.getEventWithEventID(eventID: changeEventID)
-            oldEvent.title = change.name
-            CalendarInterface.sharedInstance.updateEvent(eventID: changeEventID, updatedEvent: oldEvent, key: lecture.hashValue, lectureToChange: false)
+            if(oldEvent != nil){
+                oldEvent?.title = change.name
+                CalendarInterface.sharedInstance.updateEvent(eventID: changeEventID, updatedEvent: oldEvent!, key: lecture.hashValue, lectureToChange: false)
+            }
         }
         
         if (change.combinedNewDate != nil) {
@@ -91,39 +93,42 @@ class CalendarController: NSObject {
         
         let oldEvent = CalendarInterface.sharedInstance.getEventWithEventID(eventID: eventID)
         
-        if (oldEvent.title != "") {
-            if (change.newDay != "") {
-                if (oldEvent.startDate != change.combinedNewDate) {
-                    // Datum geändert
-                    
-                    // Wenn nicht bereits vorhanden
-                    if (!CalendarInterface.sharedInstance.doEventExist(key: lecture.hashValue, startDate: change.combinedNewDate)) {
-                        // Neues Event erstellen
-                        let newEvent = fillNewEvent(oldEvent: oldEvent, lecture: lecture, change: change, locationInfo: locationInfo)
-                        
-                        // Neues Event erzeugen
-                        CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue, isChanges: true)
-                    }
-                    
-                    // Daten bei altem Event ändern
-                    oldEvent.title    = Constants.changesChanged + change.name
-                    oldEvent.location = nil
-                    oldEvent.alarms   = []
-                } else {
-                    // Raum geändert
-                    oldEvent.title     = Constants.changesRoomChanged + change.name
-                    
-                    oldEvent.location = locationInfo.appending(", \(change.newRoom)")
-                    
-                }
-            } else {
-                // Fällt aus
-                oldEvent.title    = Constants.changesFailed + change.name
-                oldEvent.location = nil
-                oldEvent.alarms   = []
-            }
+        if(oldEvent != nil){
             
-            CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent, key: lecture.hashValue, lectureToChange: true)
+            if (oldEvent?.title != "") {
+                if (change.newDay != "") {
+                    if (oldEvent?.startDate != change.combinedNewDate) {
+                        // Datum geändert
+                        
+                        // Wenn nicht bereits vorhanden
+                        if (!CalendarInterface.sharedInstance.doEventExist(key: lecture.hashValue, startDate: change.combinedNewDate)) {
+                            // Neues Event erstellen
+                            let newEvent = fillNewEvent(oldEvent: oldEvent!, lecture: lecture, change: change, locationInfo: locationInfo)
+                            
+                            // Neues Event erzeugen
+                            CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue, isChanges: true)
+                        }
+                        
+                        // Daten bei altem Event ändern
+                        oldEvent?.title    = Constants.changesChanged + change.name
+                        oldEvent?.location = nil
+                        oldEvent?.alarms   = []
+                    } else {
+                        // Raum geändert
+                        oldEvent?.title     = Constants.changesRoomChanged + change.name
+                        
+                        oldEvent?.location = locationInfo.appending(", \(change.newRoom)")
+                        
+                    }
+                } else {
+                    // Fällt aus
+                    oldEvent?.title    = Constants.changesFailed + change.name
+                    oldEvent?.location = nil
+                    oldEvent?.alarms   = []
+                }
+                
+                CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent!, key: lecture.hashValue, lectureToChange: true)
+            }
         }
     }
     

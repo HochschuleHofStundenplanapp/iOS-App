@@ -15,7 +15,6 @@ class CalendarInterface: NSObject {
     
     var calendar : EKCalendar?
     var eventStore : EKEventStore!
-    
     var idDictonary : CalendarEventIds!
     
     private override init() {
@@ -139,28 +138,29 @@ class CalendarInterface: NSObject {
     
     func updateEvent(eventID : String, updatedEvent : EKEvent, key : Int, lectureToChange : Bool) {
         let event = getEventWithEventID(eventID: eventID)
-        
-        if (event.title != "") {
-            event.title     = updatedEvent.title
-            event.notes     = updatedEvent.notes
-            event.startDate = updatedEvent.startDate
-            event.endDate   = updatedEvent.endDate
-            event.location  = updatedEvent.location
-            event.calendar  = self.calendar!
-            
-            do {
-                try self.eventStore.save(event, span: .thisEvent)
-            } catch {
-                print("Fehler beim Updaten eines Events")
+        if(event != nil){
+            if (event?.title != "") {
+                event?.title     = updatedEvent.title
+                event?.notes     = updatedEvent.notes
+                event?.startDate = updatedEvent.startDate
+                event?.endDate   = updatedEvent.endDate
+                event?.location  = updatedEvent.location
+                event?.calendar  = self.calendar!
+                
+                do {
+                    try self.eventStore.save(event!, span: .thisEvent)
+                } catch {
+                    print("Fehler beim Updaten eines Events")
+                }
             }
-        }
-        
-        if (lectureToChange) {
-            removeLecturesID(eventID: eventID, key: key)
-            addChangesID(eventID: eventID, key: key)
-        } else {
-            removeChangesID(eventID: eventID, key: key)
-            addLecturesID(eventID: eventID, key: key)
+            
+            if (lectureToChange) {
+                removeLecturesID(eventID: eventID, key: key)
+                addChangesID(eventID: eventID, key: key)
+            } else {
+                removeChangesID(eventID: eventID, key: key)
+                addLecturesID(eventID: eventID, key: key)
+            }
         }
     }
     
@@ -179,16 +179,17 @@ class CalendarInterface: NSObject {
         return false
     }
     
-    public func getEventWithEventID(eventID : String) -> EKEvent{
+    public func getEventWithEventID(eventID : String) -> EKEvent!{
+        // TODO Fehlermeldungen abfangen
         if (eventID != "") {
             let event = self.eventStore.event(withIdentifier: eventID)
             if (event != nil) {
                 return event!
             } else {
-                return EKEvent(eventStore: self.eventStore!)
+                return nil
             }
         } else {
-            return EKEvent(eventStore: self.eventStore!)
+            return nil
         }
     }
     
@@ -199,8 +200,10 @@ class CalendarInterface: NSObject {
             if let lectureIDs = idDictonary.lecturesEventIdDictonary[key] {
                 for id in lectureIDs {
                     let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
-                    if (event.startDate == startDate) { // TODO Test  event.title == title &&
-                        result = id
+                    if(event != nil){
+                        if (event?.startDate == startDate) { // TODO Test  event.title == title &&
+                            result = id
+                        }
                     }
                 }
             }
@@ -208,7 +211,7 @@ class CalendarInterface: NSObject {
         if let changesIDs = idDictonary.changesEventIdDictonary[key] {
             for id in changesIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
-                if (event.startDate == startDate) { // TODO Test  event.title == title &&
+                if (event?.startDate == startDate) { // TODO Test  event.title == title &&
                     result = id
                 }
             }
@@ -220,16 +223,20 @@ class CalendarInterface: NSObject {
         if let lectureIDs = idDictonary.lecturesEventIdDictonary[key] {
             for id in lectureIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
-                if (event.startDate == startDate) { // TODO Test  event.title == title &&
-                    return true
+                if(event != nil){
+                    if (event?.startDate == startDate) { // TODO Test  event.title == title &&
+                        return true
+                    }
                 }
             }
         }
         if let lectureIDs = idDictonary.changesEventIdDictonary[key] {
             for id in lectureIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
-                if (event.startDate == startDate) { // TODO Test  event.title == title &&
-                    return true
+                if(event != nil){
+                    if (event?.startDate == startDate) { // TODO Test  event.title == title &&
+                        return true
+                    }
                 }
             }
         }
