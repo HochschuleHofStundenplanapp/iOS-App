@@ -24,12 +24,13 @@ class ChangedLecture {
     var newRoom: String
     var course: Course
     var group: String
+    var splusname : String
     
     //Studiengang einfügen
     
     init(id: Int, name: String, docent: String, comment: String,
          oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String,
-         newTime: Date?, newDate: Date?, newDay: String, newRoom: String, course: Course, group: String) {
+         newTime: Date?, newDate: Date?, newDay: String, newRoom: String, course: Course, group: String, splusname : String) {
         self.id = id
         self.name = name
         self.docent = docent
@@ -44,5 +45,7 @@ class ChangedLecture {
         self.newRoom = newRoom
         self.course = course
         self.group = group
+        self.splusname = splusname
+        
     }
 }

@@ -18,44 +18,44 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
     let debugurl2 = "https://app.hof-university.de/soap/client.php?f=Changes&stg=MI&sem=6&tt=SS"
 
     
-    func handleChanges() -> Void
-    {
-
-        self.myJobManager.addNewObserver(o: self)
-
-        //Settings.sharedInstance.savedChanges.changes = []
-        // cntChanges = 0
-        for lecture in selectedLectures.dropLast(){
-          
-            var splusname = lecture.splusname
-            splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            print("kappaspluname ->\(splusname)"  )
-            let myUrl : String = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
-            print("kappaUrlVorParsen ->\(myUrl)"  )
-                myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: false)
-
-      
-            }
-            
-          
-        //Hole das Letzte Item der doppelten For-Schleife
-        let lectureNameLastItem = selectedLectures.last!
-
-      //  Markiere letzets Item im Job Manager
-        print("kappa Lastspluname ->\(lectureNameLastItem.splusname)"  )
-        let splusname = lectureNameLastItem.splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let lastUrl = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
-
-       // let lastUrlString = lastUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-         print("kappaurl -> \(lastUrl)")
-        
-        
-        myJobManager.NetworkJob(url: lastUrl, username: Constants.username, password: Constants.password,isLastJob: true)
-        print("Letzen Job hinzugefügt")
-
-    }
+//    func handleChanges() -> Void
+//    {
+//
+//        self.myJobManager.addNewObserver(o: self)
+//
+//        //Settings.sharedInstance.savedChanges.changes = []
+//        // cntChanges = 0
+//        for lecture in selectedLectures.dropLast(){
+//          
+//            var splusname = lecture.splusname
+//            splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//            print("kappaspluname ->\(splusname)"  )
+//            let myUrl : String = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
+//            print("kappaUrlVorParsen ->\(myUrl)"  )
+//                myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: false)
+//
+//      
+//            }
+//            
+//          
+//        //Hole das Letzte Item der doppelten For-Schleife
+//        let lectureNameLastItem = selectedLectures.last!
+//
+//      //  Markiere letzets Item im Job Manager
+//        print("kappa Lastspluname ->\(lectureNameLastItem.splusname)"  )
+//        let splusname = lectureNameLastItem.splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//        let lastUrl = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
+//
+//       // let lastUrlString = lastUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//         print("kappaurl -> \(lastUrl)")
+//        
+//        
+//        myJobManager.NetworkJob(url: lastUrl, username: Constants.username, password: Constants.password,isLastJob: true)
+//        print("Letzen Job hinzugefügt")
+//
+//    }
     
-    func handleAllChangesWithOnlyOneURLBecauseLessNetworkTrafficNeededForHochschuleHofServer() -> Void
+    func handleAllChanges() -> Void
     {
         
         self.myJobManager.addNewObserver(o: self)

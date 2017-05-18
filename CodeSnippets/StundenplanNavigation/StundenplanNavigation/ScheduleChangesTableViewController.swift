@@ -65,7 +65,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         scheduleChangesController = ScheduleChangesController()
        // scheduleChangesController.handleChanges()
-        scheduleChangesController.handleAllChangesWithOnlyOneURLBecauseLessNetworkTrafficNeededForHochschuleHofServer()
+        scheduleChangesController.handleChanges()
     }
 
     override func didReceiveMemoryWarning() {
