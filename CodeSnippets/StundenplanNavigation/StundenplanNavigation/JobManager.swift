@@ -25,6 +25,16 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
 
     }
     
+    func resetAll()
+    {
+        jobQueueArray  = []
+        lastJobSubmitted = false
+       jobGroup = DispatchGroup()
+    workItemArray  = [DispatchWorkItem]()
+        self.position = -1
+
+    }
+    
     /// Startet einen NetworkJob, welcher der Queueue hinzugefügt wird.
     func NetworkJob(url: String, username: String? = nil, password: String? = nil, isLastJob: Bool? = nil ) -> Void
     {
@@ -44,7 +54,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
                 {
                     
                     
-                                        let myGetDataFromInternet = GetDataFromInternet()
+                    let myGetDataFromInternet = GetDataFromInternet()
                     myGetDataFromInternet.addNewObserver(o: self)
                     myGetDataFromInternet.doItWithUrl(url: url, username: username, password: password,position: p)
                 }
@@ -92,7 +102,8 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
             job.cancel()
           
         }
-  
+        
+       resetAll()
   print("All NetworkJobs Canceled")
     }
     
@@ -129,7 +140,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
         }
         
         //Reset position für neue Jobs
-        self.position = -1
+        resetAll()
         
     }
     

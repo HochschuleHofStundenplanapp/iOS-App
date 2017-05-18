@@ -83,7 +83,7 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
             
             observer.update(o: o as AnyObject, p: self.position)
         }
-        
+         self.position = -1
         
     }
 

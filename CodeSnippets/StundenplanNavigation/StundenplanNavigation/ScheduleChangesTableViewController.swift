@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScheduleChangesTableViewController: UITableViewController {
+class ScheduleChangesTableViewController: UITableViewController, myObserverProtocol {
 
     @IBOutlet var scheduleChangesTableView: UITableView!
     
@@ -19,7 +19,8 @@ class ScheduleChangesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scheduleChangesController = ScheduleChangesController()
+        scheduleChangesController.addNewObserver(o: self)
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
         
         datasource = ScheduleChangesTableViewDataSource()
@@ -33,6 +34,11 @@ class ScheduleChangesTableViewController: UITableViewController {
         
 
     
+    }
+    
+    func update(s: String?) {
+        print ( "Lade Daten für Changes neu (tableview update)")
+        self.scheduleChangesTableView.reloadData()
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
@@ -63,7 +69,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawYellow]
         
-        scheduleChangesController = ScheduleChangesController()
+        
        // scheduleChangesController.handleChanges()
         scheduleChangesController.handleAllChanges()
     }

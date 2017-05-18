@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */ = {isa = PBXBuildFile; fileRef = 0C18F6B41E081D210037E28F /* rechtlicheTexte */; };
+		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
 		2F669B961ECDA0E3003C8629 /* ChangedLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */; };
 		8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */; };
 		8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
+		2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonChanges.swift; sourceTree = "<group>"; };
 		2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangedLecture.swift; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				CED25BB71DD1C64700FE7D1C /* Lecture */,
 				CED25BB61DD1C63600FE7D1C /* Semester */,
 				BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */,
+				2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */,
 				BE3AB3B91EB20552009A6D20 /* JsonCourses.swift */,
 				BE14C94E1EC1B45700925EAC /* JsonLectures.swift */,
 				BE3AB3A11EB1F77A009A6D20 /* Protocols */,
@@ -626,6 +629,7 @@
 				BE612A951EC467E000D1FC1D /* Schedule.swift in Sources */,
 				BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */,
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
+				2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */,
 				BE3AB3AC1EB1F7BF009A6D20 /* GetDataFromInternet.swift in Sources */,
 				BE3AB3A61EB1F799009A6D20 /* DataObservableProtocol.swift in Sources */,
 				CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */,

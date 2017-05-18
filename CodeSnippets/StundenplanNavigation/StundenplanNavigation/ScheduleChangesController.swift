@@ -8,69 +8,36 @@
 
 import UIKit
 
-class ScheduleChangesController: NSObject, DataObserverProtocol{
+class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     
     var myJobManager : JobManager = JobManager()
     let season = UserData.sharedInstance.selectedSeason
-    let selectedLectures = UserData.sharedInstance.selectedLectures
+    var selectedLectures = UserData.sharedInstance.selectedLectures
+    var myObservers = [myObserverProtocol]()
+    var myUrl : String = ""
 
-    let debugurl = "https://app.hof-university.de/soap/client.php?f=Changes&stg=MC&sem=6&tt=SS"
-    let debugurl2 = "https://app.hof-university.de/soap/client.php?f=Changes&stg=MI&sem=6&tt=SS"
+    override init()
+    {
+        super.init()
+        self.myJobManager.addNewObserver(o: self)
 
-    
-//    func handleChanges() -> Void
-//    {
-//
-//        self.myJobManager.addNewObserver(o: self)
-//
-//        //Settings.sharedInstance.savedChanges.changes = []
-//        // cntChanges = 0
-//        for lecture in selectedLectures.dropLast(){
-//          
-//            var splusname = lecture.splusname
-//            splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-//            print("kappaspluname ->\(splusname)"  )
-//            let myUrl : String = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
-//            print("kappaUrlVorParsen ->\(myUrl)"  )
-//                myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: false)
-//
-//      
-//            }
-//            
-//          
-//        //Hole das Letzte Item der doppelten For-Schleife
-//        let lectureNameLastItem = selectedLectures.last!
-//
-//      //  Markiere letzets Item im Job Manager
-//        print("kappa Lastspluname ->\(lectureNameLastItem.splusname)"  )
-//        let splusname = lectureNameLastItem.splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-//        let lastUrl = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
-//
-//       // let lastUrlString = lastUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-//         print("kappaurl -> \(lastUrl)")
-//        
-//        
-//        myJobManager.NetworkJob(url: lastUrl, username: Constants.username, password: Constants.password,isLastJob: true)
-//        print("Letzen Job hinzugefügt")
-//
-//    }
-    
+    }
     func handleAllChanges() -> Void
     {
-        
-        self.myJobManager.addNewObserver(o: self)
+          selectedLectures = UserData.sharedInstance.selectedLectures
+      //  self.myJobManager = JobManager()
         
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
         
-        var myUrl : String = "\(Constants.baseURI)client.php?f=Changes&id[]="
+        var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
+        print("selected lectures size \(selectedLectures.count)")
         for lecture in selectedLectures{
-            
+            print("lecture splus\(lecture.splusname)")
             var splusname = lecture.splusname
             splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            print("kappaspluname ->\(splusname)"  )
+           
             myUrl = myUrl + "\(splusname)&id[]="
-            print("kappaUrlVorParsen ->\(myUrl)"  )
             
             
         }
@@ -107,7 +74,12 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
             print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             //TODO: JsonChanges muss umgeschrieben werden - Darf kein Course erwarten ..
             
-            // Settings.sharedInstance.savedChanges.addChanges(cl: (JsonChanges(data: dataObject)))
+            ServerData.sharedInstance.allChanges = (JsonChanges(data: dataObject.0!)?.changes)!
+            
+          //  print( "kappacount \(ServerData.sharedInstance.allChanges.count)")
+            
+            notifiyAllObservers(s: "fertig")
+            
         }
         
      print("ScheduleChanges Controller All Jobs Done")
@@ -117,6 +89,28 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
    func cancelAllNetworkJobs() -> Void  {
         myJobManager.cancelAllNetworkJobs()
         
+    }
+    
+    func notifiyAllObservers(s: String?) -> Void
+    {
+        for observer in myObservers
+        {
+            print("DataObserver wird benachrichtigt")
+            observer.update(s: "update")
+        }
+    }
+    
+    func addNewObserver (o: myObserverProtocol) -> Void
+    {
+        myObservers.append(o)
+    }
+    
+    func removeOldObserver (o: myObserverProtocol) -> Void
+    {
+        if let i = myObservers.index(where: { $0 === o }) {
+            myObservers.remove(at: i)
+            print("DataObserver wurde entfernt")
+        }
     }
     
 }

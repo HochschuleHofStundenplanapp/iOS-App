@@ -22,7 +22,6 @@ class ChangedLecture {
     var newDate: Date?
     var newDay: String
     var newRoom: String
-    var course: Course
     var group: String
     var splusname : String
     
@@ -30,7 +29,7 @@ class ChangedLecture {
     
     init(id: Int, name: String, docent: String, comment: String,
          oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String,
-         newTime: Date?, newDate: Date?, newDay: String, newRoom: String, course: Course, group: String, splusname : String) {
+         newTime: Date?, newDate: Date?, newDay: String, newRoom: String,  group: String, splusname : String) {
         self.id = id
         self.name = name
         self.docent = docent
@@ -43,7 +42,6 @@ class ChangedLecture {
         self.newDate = newDate
         self.newDay = newDay
         self.newRoom = newRoom
-        self.course = course
         self.group = group
         self.splusname = splusname
         
