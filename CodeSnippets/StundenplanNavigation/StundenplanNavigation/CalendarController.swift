@@ -231,7 +231,7 @@ class CalendarController: NSObject {
             duration = duration + (endMinutes - minutes)
             event.endDate   = Calendar.current.date(byAdding: .minute, value: duration, to: event.startDate)!
             
-            event.location = CalendarController().getLocationInfo(room: lecture.room) + " ," + lecture.room
+            event.location = CalendarController().getLocationInfo(room: lecture.room) + ", " + lecture.room
             
             event.notes = lecture.comment + "  " + lecture.group
             
