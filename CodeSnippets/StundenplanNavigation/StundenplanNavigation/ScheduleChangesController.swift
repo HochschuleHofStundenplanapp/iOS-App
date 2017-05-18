@@ -22,36 +22,16 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
     {
 
         self.myJobManager.addNewObserver(o: self)
-        
 
-        
-    
-        
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
         for lecture in selectedLectures.dropLast(){
           
             var splusname = lecture.splusname
-            
-           let selectedSemesters = UserData.sharedInstance.selectedSemesters
-       
             splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            
             print("kappaspluname ->\(splusname)"  )
-       
             let myUrl : String = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
-            
-            
             print("kappaUrlVorParsen ->\(myUrl)"  )
-           
-          //      let myUrl = debugurl
-       // let myUrl2 = debugurl2
-
-           //     let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            
-         //    print("kappaurl -> \(urlString)")
-                
-   //     let urlString2 = myUrl2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: false)
 
       
@@ -60,17 +40,12 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
           
         //Hole das Letzte Item der doppelten For-Schleife
         let lectureNameLastItem = selectedLectures.last!
-     
-        
+
       //  Markiere letzets Item im Job Manager
         print("kappa Lastspluname ->\(lectureNameLastItem.splusname)"  )
-        
-        var splusname = lectureNameLastItem.splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let splusname = lectureNameLastItem.splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let lastUrl = "\(Constants.baseURI)client.php?f=Changes&id[]=\(splusname)"
-        
-        
 
-        
        // let lastUrlString = lastUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
          print("kappaurl -> \(lastUrl)")
         
@@ -79,6 +54,35 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
         print("Letzen Job hinzugefügt")
 
     }
+    
+    func handleAllChangesWithOnlyOneURLBecauseLessNetworkTrafficNeededForHochschuleHofServer() -> Void
+    {
+        
+        self.myJobManager.addNewObserver(o: self)
+        
+        //Settings.sharedInstance.savedChanges.changes = []
+        // cntChanges = 0
+        
+        var myUrl : String = "\(Constants.baseURI)client.php?f=Changes&id[]="
+        for lecture in selectedLectures{
+            
+            var splusname = lecture.splusname
+            splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            print("kappaspluname ->\(splusname)"  )
+            myUrl = myUrl + "\(splusname)&id[]="
+            print("kappaUrlVorParsen ->\(myUrl)"  )
+            
+            
+        }
+        
+        print(" die ganze url \(myUrl)")
+        myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: true)
+
+        
+     
+        
+    }
+
     
     /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
     ///
@@ -93,11 +97,11 @@ class ScheduleChangesController: NSObject, DataObserverProtocol{
         for dataObject in dataArray {
             //print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             
-            if let error = dataObject.1{
+            if dataObject.1 != nil{
                 // handle error
             }
             
-            guard let data = dataObject.0 else {
+            guard dataObject.0 != nil else {
                 return
             }
             print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)

@@ -64,7 +64,8 @@ class ScheduleChangesTableViewController: UITableViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawYellow]
         
         scheduleChangesController = ScheduleChangesController()
-        scheduleChangesController.handleChanges()
+       // scheduleChangesController.handleChanges()
+        scheduleChangesController.handleAllChangesWithOnlyOneURLBecauseLessNetworkTrafficNeededForHochschuleHofServer()
     }
 
     override func didReceiveMemoryWarning() {
