@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CalendarEventIds: NSObject, NSCoding {
-    static var sharedInstance = CalendarEventIds()
+class CalendarData: NSObject, NSCoding {
+    static var sharedInstance = CalendarData()
     
     var lecturesEventIdDictonary : [Int:[String]] = [:]
     var changesEventIdDictonary : [Int:[String]] = [:]

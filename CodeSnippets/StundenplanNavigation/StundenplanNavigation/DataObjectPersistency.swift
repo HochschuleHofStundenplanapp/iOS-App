@@ -41,24 +41,24 @@ class DataObjectPersistency {
         data.write(toFile: file, atomically: true)
     }
     
-    func loadIDList() -> CalendarEventIds {
-        var item : CalendarEventIds!
+    func loadCalendarData() -> CalendarData {
+        var item : CalendarData!
         let file = dataFileForName(fileName: fileNameCalendar)
         
         if (!FileManager.default.fileExists(atPath: file)) {
-            return CalendarEventIds.sharedInstance
+            return CalendarData.sharedInstance
         }
         
         if let data = NSData(contentsOfFile: file) {
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data as Data)
-            item = unarchiver.decodeObject(forKey: IDListKey) as! CalendarEventIds
+            item = unarchiver.decodeObject(forKey: IDListKey) as! CalendarData
             unarchiver.finishDecoding()
         }
         
         return item
     }
     
-    func saveIDList(items : CalendarEventIds) {
+    func saveCalendarData(items : CalendarData) {
         let file = dataFileForName(fileName: fileNameCalendar)
         let data = NSMutableData()
         
