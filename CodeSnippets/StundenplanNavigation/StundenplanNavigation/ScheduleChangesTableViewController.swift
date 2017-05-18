@@ -65,7 +65,7 @@ class ScheduleChangesTableViewController: UITableViewController {
         
         scheduleChangesController = ScheduleChangesController()
        // scheduleChangesController.handleChanges()
-        scheduleChangesController.handleChanges()
+        scheduleChangesController.handleAllChanges()
     }
 
     override func didReceiveMemoryWarning() {
