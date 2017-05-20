@@ -12,6 +12,9 @@
 		2F669B961ECDA0E3003C8629 /* ChangedLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */; };
 		8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */; };
 		8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */; };
+		81A470C41ECDAFAE008CB502 /* SelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */; };
+		81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */; };
+		81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C71ECDB016008CB502 /* SelectedCourses.swift */; };
 		B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */; };
 		B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */; };
 		BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */; };
@@ -92,6 +95,9 @@
 		2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangedLecture.swift; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
+		81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLectures.swift; sourceTree = "<group>"; };
+		81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSemesters.swift; sourceTree = "<group>"; };
+		81A470C71ECDB016008CB502 /* SelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCourses.swift; sourceTree = "<group>"; };
 		B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObserverProtocol.swift; sourceTree = "<group>"; };
 		B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObservableProtocol.swift; sourceTree = "<group>"; };
 		BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +235,9 @@
 				BE3AB3B31EB1FD32009A6D20 /* UserData.swift */,
 				BE612A941EC467E000D1FC1D /* Schedule.swift */,
 				2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */,
+				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
+				81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */,
+				81A470C71ECDB016008CB502 /* SelectedCourses.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -598,6 +607,7 @@
 				BE3AB3B61EB202C7009A6D20 /* JsonParser.swift in Sources */,
 				BE3AB3A71EB1F799009A6D20 /* DataObserverProtocol.swift in Sources */,
 				CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */,
+				81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */,
 				CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */,
 				CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */,
 				CE5728531E2E03C00017DF81 /* PopUpMenueDelegate.swift in Sources */,
@@ -609,6 +619,7 @@
 				BE3AB3BA1EB20552009A6D20 /* JsonCourses.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */,
+				81A470C41ECDAFAE008CB502 /* SelectedLectures.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
 				BE3AB3B21EB1FA09009A6D20 /* CourseController.swift in Sources */,
 				CE698D5A1DD1D6A2006D1384 /* ScheduleChangesTableViewDataSource.swift in Sources */,
@@ -640,6 +651,7 @@
 				BE6DCE411EBF2B9B0039DDF7 /* LectureController.swift in Sources */,
 				BE3AB3AD1EB1F7BF009A6D20 /* JobManager.swift in Sources */,
 				BE4F4E271DE3747E00B4CC7F /* LecturesTableViewDelegate.swift in Sources */,
+				81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */,
 				BE14C94F1EC1B45700925EAC /* JsonLectures.swift in Sources */,
 				CE7430BC1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift in Sources */,
 			);
