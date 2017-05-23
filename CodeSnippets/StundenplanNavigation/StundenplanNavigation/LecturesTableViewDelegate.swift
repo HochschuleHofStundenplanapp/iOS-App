@@ -9,6 +9,9 @@
 import UIKit
 
 class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
+    
+    
+    
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
@@ -25,5 +28,7 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     
         return 73
     }
+    
 
+    
 }

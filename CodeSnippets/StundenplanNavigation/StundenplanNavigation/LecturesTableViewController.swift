@@ -21,10 +21,9 @@ class LecturesTableViewController: UITableViewController {
     
     @IBAction func selectAllCells(_ sender: UIBarButtonItem) {
         let popUpVC = storyboard?.instantiateViewController(withIdentifier: "popUpMenue") as! PopUpMenueViewController
-        
+        popUpVC.setMainViewController(lecturesTableViewController: self)
         popUpVC.modalPresentationStyle = .popover
         popUpVC.preferredContentSize = CGSize(width: 160, height: 100)
-        popUpVC.mainViewController = self
         popUpVC.setBorder()
         
         if let popoverController = popUpVC.popoverPresentationController {
@@ -34,6 +33,7 @@ class LecturesTableViewController: UITableViewController {
         }
         present(popUpVC, animated: true, completion: nil)
         popUpMenueVC = popUpVC
+        
     }
     
     override func viewDidLoad() {

@@ -10,15 +10,57 @@ import UIKit
 
 class PopUpMenueViewController: UIViewController {
     
-    var mainViewController : LecturesTableViewController!
+    
+    var lecturesTableViewController : LecturesTableViewController!
     var lecturesDelegate: LecturesTableViewDelegate!
+    
 
+
+    func setMainViewController(lecturesTableViewController : LecturesTableViewController)
+    {
+    self.lecturesTableViewController = lecturesTableViewController
+    }
+
+    
+    
+
+    
     @IBOutlet var stroke: UIView!
     
     @IBAction func selectAllButton(_ sender: Any) {
+        
+       
+        
+        let list = ServerData.sharedInstance.schedule.allLectures
+        
+        for i in list {
+            for j in i {
+                UserData.sharedInstance.selectedLectures.append(j)
+                
+            }
+        }
+            self.lecturesTableViewController.lectureTableView.reloadData()
+        self.dismiss(animated: true) { 
+            
+        }
+        
     }
     
+
+
+    
     @IBAction func deSelectAll(_ sender: Any) {
+                
+       
+                UserData.sharedInstance.selectedLectures.removeAll()
+                
+       
+        self.lecturesTableViewController.lectureTableView.reloadData()
+        self.dismiss(animated: true) {
+            
+        }
+
+        
     }
     
     func setBorder(){
@@ -30,7 +72,7 @@ class PopUpMenueViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stroke.backgroundColor = UIColor.hawBlue
-        // Do any additional setup after loading the view.
+               // Do any additional setup after loading the view.
     }
 
 
