@@ -71,7 +71,7 @@ class JsonLectures: NSObject {
             newStartDate = newStartDate?.startLecture(startDate: newStartDate!,weekdayString: day, semester: season)
             newEndDate = newEndDate?.endLecture(endDate: newEndDate!, weekdayString: day, semester: season)
             
-            let iteration = 7
+            let iteration = iterationState.weekly
 
             let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration)
           
