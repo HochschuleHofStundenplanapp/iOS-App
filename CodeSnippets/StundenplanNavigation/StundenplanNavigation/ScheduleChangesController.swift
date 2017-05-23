@@ -15,6 +15,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     var selectedLectures = UserData.sharedInstance.selectedLectures
     var myObservers = [myObserverProtocol]()
     var myUrl : String = ""
+    var myUrlList = [String]()
 
     override init()
     {
@@ -29,7 +30,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
-        
+        ServerData.sharedInstance.allChanges.removeAll()
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
         print("selected lectures size \(selectedLectures.count)")
         for lecture in selectedLectures{
@@ -37,14 +38,39 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             var splusname = lecture.splusname
             splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
            
-            myUrl = myUrl + "\(splusname)&id[]="
+           
+            print("url länge: \(myUrl.characters.count)")
+            if(myUrl.characters.count < 5000)
+            {
+                myUrl = myUrl + "\(splusname)&id[]="
+
+            }
+            else
+            {
+                print("füge myurl der liste hinzu")
+                myUrlList.append(myUrl)
+                myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
+                myUrl = myUrl + "\(splusname)&id[]="
+
+            }
+            
+            
             
             
         }
         
         print(" die ganze url \(myUrl)")
-        myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: true)
-
+        print("myurlListe größe \(myUrlList.count)")
+        for url in myUrlList
+        {
+            print("url \(url)")
+            myJobManager.NetworkJob(url: url, username: Constants.username, password: Constants.password, isLastJob: false)
+           
+        }
+       
+        
+            myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: true)
+        
         
      
         
@@ -59,7 +85,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         print("Das Dataobject \(o)")
         let dataArray = o as! [(Data?, Error?)]
         
-        
+       
         
         for dataObject in dataArray {
             //print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
@@ -74,7 +100,12 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             //TODO: JsonChanges muss umgeschrieben werden - Darf kein Course erwarten ..
             
-            ServerData.sharedInstance.allChanges = (JsonChanges(data: dataObject.0!)?.changes)!
+            //ServerData.sharedInstance.allChanges = (JsonChanges(data: dataObject.0!)?.changes)!
+            
+            for change in (JsonChanges(data: dataObject.0!)?.changes)!
+            {
+                ServerData.sharedInstance.allChanges.append(change)
+            }
             
           //  print( "kappacount \(ServerData.sharedInstance.allChanges.count)")
             

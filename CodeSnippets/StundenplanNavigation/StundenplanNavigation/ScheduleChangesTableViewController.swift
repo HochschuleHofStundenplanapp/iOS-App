@@ -61,7 +61,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     }
     override func viewWillDisappear(_ animated: Bool) {
         scheduleChangesController.cancelAllNetworkJobs()
-    }
+           }
     
     override func viewWillAppear(_ animated: Bool) {
         
