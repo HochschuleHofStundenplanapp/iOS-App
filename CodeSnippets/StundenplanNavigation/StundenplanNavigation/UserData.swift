@@ -21,6 +21,7 @@ class UserData: NSObject {
     var selectedCourses : [Course] = []
     var selectedSemesters : [Semester] = []
     var selectedLectures: [Lecture] = []
+    var savedSplusnames : [String] = [String]()
     
     static var sharedInstance = UserData()
     private override init(){ }

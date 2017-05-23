@@ -31,6 +31,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
         ServerData.sharedInstance.allChanges.removeAll()
+        UserData.sharedInstance.savedSplusnames.removeAll()
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
         print("selected lectures size \(selectedLectures.count)")
         for lecture in selectedLectures{

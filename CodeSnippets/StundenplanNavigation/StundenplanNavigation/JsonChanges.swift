@@ -53,7 +53,7 @@ class JsonChanges {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
         
-        var savedSplusnames : [String] = [String]()
+       
         
         for i in allResults
         {
@@ -110,9 +110,9 @@ class JsonChanges {
             
           
             
-               if(!savedSplusnames.contains(splusname))
+               if(!UserData.sharedInstance.savedSplusnames.contains(splusname))
                {
-                             savedSplusnames.append(splusname)
+                             UserData.sharedInstance.savedSplusnames.append(splusname)
                 pCL.append(newCL)
                 print ("füge element \(name) zu savedplusname hinzu")
 
