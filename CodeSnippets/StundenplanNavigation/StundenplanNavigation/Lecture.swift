@@ -24,7 +24,7 @@ class Lecture: NSObject, NSCoding {
     var room: String
     var semester: Semester
     var comment : String
-    var iteration : Int
+    var iteration : iterationState
     let keyKey = "lectureKey"
     let idKey = "lectureId"
     let splusnameKey = "lectureSplusname"
@@ -42,7 +42,7 @@ class Lecture: NSObject, NSCoding {
     let commentKey = "lectureComment"
     let iterationKey = "lectureIteration"
     
-    init(id: Int, splusname: String, name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: Int) {
+    init(id: Int, splusname: String, name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: iterationState) {
         self.key = splusname + semester.name + semester.course.contraction
         self.id = id
         self.splusname = splusname
@@ -107,7 +107,7 @@ class Lecture: NSObject, NSCoding {
         room = aDecoder.decodeObject(forKey: roomKey) as! String
         semester = aDecoder.decodeObject(forKey: semesterKey) as! Semester
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
-        iteration = Int(aDecoder.decodeInteger(forKey: iterationKey))
+        iteration = iterationState(rawValue: Int(aDecoder.decodeInteger(forKey: iterationKey)))!
         super.init()
     }
     
@@ -126,7 +126,7 @@ class Lecture: NSObject, NSCoding {
         aCoder.encode(room, forKey: roomKey)
         aCoder.encode(semester, forKey: semesterKey)
         aCoder.encode(comment, forKey: commentKey)
-        aCoder.encode(iteration, forKey: iterationKey)
+        aCoder.encode(iteration.rawValue, forKey: iterationKey)
     }
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -136,5 +136,33 @@ class Lecture: NSObject, NSCoding {
     static func == (lhs: Lecture, rhs: Lecture) -> Bool {
 //        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.type == rhs.type) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
         return (lhs.key == rhs.key)
+    }
+}
+
+enum iterationState: Int {
+    case individualDate = 0
+    case daily = 1
+    case weekly = 7
+    case twoWeeks = 14
+    case calendarWeeks = -1
+    case notParsable = -2
+    
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0:
+            self = .individualDate
+        case 1:
+            self = .daily
+        case 7:
+            self = .weekly
+        case 14:
+            self = .twoWeeks
+        case -1:
+            self = .calendarWeeks
+        case -2:
+            self = .notParsable
+        default:
+            return nil
+        }
     }
 }
