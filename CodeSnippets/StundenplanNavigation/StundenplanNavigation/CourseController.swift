@@ -46,12 +46,9 @@ class CourseController: NSObject, DataObserverProtocol {
     }
     
     private func removeLectures(for course: Course){
-        for lecture in UserData.sharedInstance.selectedLectures{
-            if(lecture.semester.course == course){
-                let index = UserData.sharedInstance.selectedLectures.index(of: lecture)
-                UserData.sharedInstance.selectedLectures.remove(at: index!)
-            }
-        }
+        
+        SelectedLectures().removeLectures(with: course)
+        
     }
     
     private func removeSemester(for course: Course){

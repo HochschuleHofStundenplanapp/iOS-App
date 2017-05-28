@@ -55,7 +55,8 @@ class LectureController: NSObject, DataObserverProtocol {
                 return
             }
             
-            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: selectedSemesters[index])?.lectures!)!)
+            ServerData.sharedInstance.append(lectures: (JsonLectures(data: data, semester: selectedSemesters[index])?.lectures!)!)
+            
         }
         
 //        for dataObject in dataArray {
@@ -78,12 +79,19 @@ class LectureController: NSObject, DataObserverProtocol {
         
         let clickedLecture = ServerData.sharedInstance.schedule.lecture(at: indexPath)
         
-        if UserData.sharedInstance.selectedLectures.contains(clickedLecture) {
-            let index = UserData.sharedInstance.selectedLectures.index(of: clickedLecture)
-            UserData.sharedInstance.selectedLectures.remove(at: index!)
-        }else{
-            UserData.sharedInstance.selectedLectures.append(clickedLecture)
+        if SelectedLectures().contains(lecture: clickedLecture){
+            let indexPath = SelectedLectures().getIndexPath(for: clickedLecture)
+            SelectedLectures().remove(at: indexPath)
+        } else {
+            SelectedLectures().add(lecture: clickedLecture)
         }
+        
+        //if UserData.sharedInstance.selectedLectures.contains(clickedLecture) {
+        //    let index = UserData.sharedInstance.selectedLectures.index(of: clickedLecture)
+        //    UserData.sharedInstance.selectedLectures.remove(at: index!)
+        //}else{
+        //    UserData.sharedInstance.selectedLectures.append(clickedLecture)
+        //}
     }
     
     func notifyDownlaodEnded(){

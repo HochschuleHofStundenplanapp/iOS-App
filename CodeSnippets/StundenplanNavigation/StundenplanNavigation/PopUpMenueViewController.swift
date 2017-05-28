@@ -32,11 +32,11 @@ class PopUpMenueViewController: UIViewController {
        
         
         let list = ServerData.sharedInstance.schedule.allLectures
-        
+
         for i in list {
             for j in i {
-                UserData.sharedInstance.selectedLectures.append(j)
-                
+                //UserData.sharedInstance.selectedLectures.append(j)
+                SelectedLectures().add(lecture: j)
             }
         }
             self.lecturesTableViewController.lectureTableView.reloadData()
@@ -52,7 +52,7 @@ class PopUpMenueViewController: UIViewController {
     @IBAction func deSelectAll(_ sender: Any) {
                 
        
-                UserData.sharedInstance.selectedLectures.removeAll()
+                SelectedLectures().clear()
                 
        
         self.lecturesTableViewController.lectureTableView.reloadData()

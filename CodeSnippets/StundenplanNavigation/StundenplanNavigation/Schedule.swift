@@ -12,12 +12,8 @@ class Schedule: NSObject {
 
     var allLectures: [[Lecture]] = [[],[],[],[],[],[]]
         
-    func addLectures(lectures: [Lecture]){
-        for lec in lectures{
-            let dayIndex = Constants.weekDays.index(of: lec.day)!
-            
-            allLectures[dayIndex].append(lec)
-        }
+    func add(lecture: Lecture, at day: Int){
+        allLectures[day].append(lecture)
     }
     
     func clear(){
@@ -30,5 +26,9 @@ class Schedule: NSObject {
     
     func lecture(at indexPath: IndexPath) -> Lecture{
         return allLectures[indexPath.section][indexPath.row]
+    }
+    
+    func removeLecture(at indexpath: IndexPath){
+        allLectures[indexpath.section].remove(at: indexpath.row)
     }
 }

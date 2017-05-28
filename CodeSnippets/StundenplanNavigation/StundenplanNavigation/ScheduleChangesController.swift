@@ -12,7 +12,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     
     var myJobManager : JobManager = JobManager()
     let season = UserData.sharedInstance.selectedSeason
-    var selectedLectures = UserData.sharedInstance.selectedLectures
+    var selectedLectures = SelectedLectures().getOneDimensionalList()
     var myObservers = [myObserverProtocol]()
     var myUrl : String = ""
     var myUrlList = [String]()
@@ -25,7 +25,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     }
     func handleAllChanges() -> Void
     {
-          selectedLectures = UserData.sharedInstance.selectedLectures
+          selectedLectures = SelectedLectures().getOneDimensionalList()
       //  self.myJobManager = JobManager()
         
         //Settings.sharedInstance.savedChanges.changes = []
@@ -33,7 +33,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         ServerData.sharedInstance.allChanges.removeAll()
         UserData.sharedInstance.savedSplusnames.removeAll()
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
-        print("selected lectures size \(selectedLectures.count)")
+        //print("selected lectures size \(selectedLectures.count)")
         for lecture in selectedLectures{
             print("lecture splus\(lecture.splusname)")
             var splusname = lecture.splusname

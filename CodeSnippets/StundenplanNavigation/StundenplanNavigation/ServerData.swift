@@ -29,4 +29,16 @@ class ServerData: NSObject {
     func course(at indexPath: IndexPath) -> Course{
         return allCourses[indexPath.row]
     }
+    
+    //Die Methode kommt zur Server-Data Zugriffsschicht###########################################
+    func append(lectures : [Lecture])
+    {
+        for lec in lectures{
+            let dayIndex = Constants.weekDays.index(of: lec.day)!
+            
+            SelectedLectures().add(lecture: lec, at: dayIndex)
+        }
+    }
+    //#############################################################################
+
 }
