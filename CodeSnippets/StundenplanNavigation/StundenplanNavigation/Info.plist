@@ -24,6 +24,10 @@
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Stundenplan in Kalender übernehmen</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

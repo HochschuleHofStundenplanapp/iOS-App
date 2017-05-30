@@ -530,6 +530,11 @@
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					CEAC97151DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;

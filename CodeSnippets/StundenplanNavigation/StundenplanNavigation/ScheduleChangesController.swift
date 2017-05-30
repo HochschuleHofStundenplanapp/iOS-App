@@ -17,6 +17,8 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     var myUrl : String = ""
     var myUrlList = [String]()
 
+    
+    
     override init()
     {
         super.init()
@@ -27,9 +29,10 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     {
           selectedLectures = SelectedLectures().getOneDimensionalList()
       //  self.myJobManager = JobManager()
-        
+   
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
+          ServerData.sharedInstance.lastAllChanges =   ServerData.sharedInstance.allChanges
         ServerData.sharedInstance.allChanges.removeAll()
         UserData.sharedInstance.savedSplusnames.removeAll()
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
@@ -83,7 +86,10 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void
     {
+       
         print("Das Dataobject \(o)")
+        
+        
         let dataArray = o as! [(Data?, Error?)]
         
        
@@ -99,21 +105,29 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
                 return
             }
             print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
-            //TODO: JsonChanges muss umgeschrieben werden - Darf kein Course erwarten ..
             
-            //ServerData.sharedInstance.allChanges = (JsonChanges(data: dataObject.0!)?.changes)!
-            
-            for change in (JsonChanges(data: dataObject.0!)?.changes)!
+        for change in (JsonChanges(data: dataObject.0!)?.changes)!
             {
                 ServerData.sharedInstance.allChanges.append(change)
             }
             
-          //  print( "kappacount \(ServerData.sharedInstance.allChanges.count)")
             
-            notifiyAllObservers(s: "fertig")
             
         }
-        
+ 
+        if(ServerData.sharedInstance.allChanges.count ==   ServerData.sharedInstance.lastAllChanges.count)
+        {
+            print("Keine neuen Änderungen")
+            
+        }
+        else
+        {
+            var anzahlAenderungen = abs(ServerData.sharedInstance.allChanges.count - ServerData.sharedInstance.lastAllChanges.count)
+            print("es gibt \(anzahlAenderungen) neue Änderungen")
+        }
+
+        notifiyAllObservers(s: "fertig")
+
      print("ScheduleChanges Controller All Jobs Done")
         
     }

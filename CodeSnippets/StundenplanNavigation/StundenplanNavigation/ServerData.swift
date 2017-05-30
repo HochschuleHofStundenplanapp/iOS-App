@@ -17,6 +17,7 @@ class ServerData: NSObject {
 
     var allCourses : [Course] = []
     var allChanges : [ChangedLecture] = []
+    var lastAllChanges : [ChangedLecture] = []
     var schedule: Schedule = Schedule()
         
     static var sharedInstance = ServerData()
