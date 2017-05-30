@@ -203,12 +203,14 @@ class CalendarController: NSObject {
     private func handleCalendarWeeks(lecture: Lecture){
         //Termine für vorgegebene Kalenderwochen
         
-        //        iteration = iterationState.individualDate
-        //
-        //        for date in lecture.arrayWithDates {
-        //            tmpStartdate = date
-        //            createEvents(lecture: lecture)
-        //        }
+        /*
+        iteration = iterationState.individualDate
+        
+        for date in lecture.kwDates {
+            lecture.startdate = date
+            createEvents(lecture: lecture)
+        }
+        */
     }
     
     private func createEvents(lecture: Lecture) {
@@ -275,16 +277,16 @@ class CalendarController: NSObject {
             // Liste der zu entferndenen Lectures
             // TODO noch nicht vorhanden
             /*let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-            
-            // Liste der zu hinzugefügten Lectures
-            let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-            
-            if(!removedLectures.isEmpty) {
-                CalendarController().removeAllEvents(lectures: removedLectures)
-            }
-            if(!addedLectures.isEmpty) {
-                createAllEvents(lectures: addedLectures)
-            }*/
+             
+             // Liste der zu hinzugefügten Lectures
+             let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
+             
+             if(!removedLectures.isEmpty) {
+             CalendarController().removeAllEvents(lectures: removedLectures)
+             }
+             if(!addedLectures.isEmpty) {
+             createAllEvents(lectures: addedLectures)
+             }*/
             
             return true
         }
