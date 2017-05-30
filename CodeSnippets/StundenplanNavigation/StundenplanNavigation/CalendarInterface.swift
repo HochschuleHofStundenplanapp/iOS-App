@@ -115,6 +115,8 @@ class CalendarInterface: NSObject {
         event.endDate   = p_event.endDate
         event.location  = p_event.location
         
+        dump(event)
+        
         if (Constants.calendarAlarmOffset > 0) {
             var ekAlarms = [EKAlarm]()
             ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))

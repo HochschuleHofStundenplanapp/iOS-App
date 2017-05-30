@@ -201,12 +201,12 @@ class CalendarController: NSObject {
     private func handleCalendarWeeks(lecture: Lecture){
         //Termine für vorgegebene Kalenderwochen
         
-        //        iteration = iterationState.individualDate
-        //
-        //        for date in lecture.arrayWithDates {
-        //            tmpStartdate = date
-        //            createEvents(lecture: lecture)
-        //        }
+        iteration = iterationState.individualDate
+        
+        for date in lecture.kwDates {
+            lecture.startdate = date
+            createEvents(lecture: lecture)
+        }
     }
     
     private func createEvents(lecture: Lecture) {
