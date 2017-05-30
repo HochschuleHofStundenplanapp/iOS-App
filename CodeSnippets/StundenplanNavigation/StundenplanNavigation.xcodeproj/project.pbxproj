@@ -10,6 +10,9 @@
 		0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */ = {isa = PBXBuildFile; fileRef = 0C18F6B41E081D210037E28F /* rechtlicheTexte */; };
 		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
 		2F669B961ECDA0E3003C8629 /* ChangedLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */; };
+		654BFEB81ED427D90023607D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB51ED427D90023607D /* CalendarController.swift */; };
+		654BFEB91ED427D90023607D /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB61ED427D90023607D /* CalendarData.swift */; };
+		654BFEBA1ED427D90023607D /* CalendarInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB71ED427D90023607D /* CalendarInterface.swift */; };
 		8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */; };
 		8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */; };
 		81A470C41ECDAFAE008CB502 /* SelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */; };
@@ -93,6 +96,9 @@
 		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
 		2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonChanges.swift; sourceTree = "<group>"; };
 		2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangedLecture.swift; sourceTree = "<group>"; };
+		654BFEB51ED427D90023607D /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		654BFEB61ED427D90023607D /* CalendarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
+		654BFEB71ED427D90023607D /* CalendarInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInterface.swift; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
 		8169533D1DD1E579004ED800 /* SemesterTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDelegate.swift; sourceTree = "<group>"; };
 		81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLectures.swift; sourceTree = "<group>"; };
@@ -192,6 +198,16 @@
 				0C18F6B41E081D210037E28F /* rechtlicheTexte */,
 			);
 			name = Texte;
+			sourceTree = "<group>";
+		};
+		654BFEB41ED427320023607D /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				654BFEB51ED427D90023607D /* CalendarController.swift */,
+				654BFEB61ED427D90023607D /* CalendarData.swift */,
+				654BFEB71ED427D90023607D /* CalendarInterface.swift */,
+			);
+			name = Interfaces;
 			sourceTree = "<group>";
 		};
 		BE3AB3A01EB1F761009A6D20 /* Controller */ = {
@@ -356,6 +372,7 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				654BFEB41ED427320023607D /* Interfaces */,
 				CED25BB71DD1C64700FE7D1C /* Lecture */,
 				CED25BB61DD1C63600FE7D1C /* Semester */,
 				BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */,
@@ -613,6 +630,7 @@
 				CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */,
 				81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */,
 				CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */,
+				654BFEB91ED427D90023607D /* CalendarData.swift in Sources */,
 				CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */,
 				CE5728531E2E03C00017DF81 /* PopUpMenueDelegate.swift in Sources */,
 				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
@@ -649,6 +667,7 @@
 				BE3AB3A61EB1F799009A6D20 /* DataObservableProtocol.swift in Sources */,
 				CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */,
 				CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */,
+				654BFEBA1ED427D90023607D /* CalendarInterface.swift in Sources */,
 				DAA250771E015D51007CCEFB /* DateExtension.swift in Sources */,
 				8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */,
 				CEAC97041DB5FD350042FF3D /* AppDelegate.swift in Sources */,
@@ -658,6 +677,7 @@
 				81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */,
 				BE14C94F1EC1B45700925EAC /* JsonLectures.swift in Sources */,
 				CE7430BC1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift in Sources */,
+				654BFEB81ED427D90023607D /* CalendarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -63,15 +63,30 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         //Auslagern in eigenen Controller
-        if(syncSwitch.isOn){
+        if (syncSwitch.isOn) {
             UserData.sharedInstance.callenderSync = true
+            if(CalendarController().createCalendar() == false){
+                showAccessAlert()
+                UserData.sharedInstance.callenderSync = false
+                syncSwitch.setOn(false, animated: true)
+            }
         } else {
+            CalendarController().removeCalendar()
             UserData.sharedInstance.callenderSync = false
         }
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+        
+        if (syncSwitch.isOn) {
+            let resultCalendarRoutine = CalendarController().CalendarRoutine()
+            
+            if (!resultCalendarRoutine) {
+                showAccessAlert()
+                syncSwitch.setOn(false, animated: true)
+            }
+        }
     }
     
     func showAccessAlert() {
