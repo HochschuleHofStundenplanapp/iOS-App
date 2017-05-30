@@ -46,6 +46,7 @@ class LectureController: NSObject, DataObserverProtocol {
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
         
         for (index, element) in dataArray.enumerated() {
+            print(String(data: element.0!, encoding: String.Encoding.utf8)! as String)
             
             if let error = element.1{
                 // handle error
