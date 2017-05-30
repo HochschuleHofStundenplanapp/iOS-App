@@ -16,7 +16,7 @@ import UIKit
 class ServerData: NSObject {
 
     var allCourses : [Course] = []
-   var allChanges : [ChangedLecture] = []
+    var allChanges : [ChangedLecture] = []
     var schedule: Schedule = Schedule()
         
     static var sharedInstance = ServerData()
@@ -36,7 +36,7 @@ class ServerData: NSObject {
         for lec in lectures{
             let dayIndex = Constants.weekDays.index(of: lec.day)!
             
-            SelectedLectures().add(lecture: lec, at: dayIndex)
+            schedule.add(lecture: lec, at: dayIndex)
         }
     }
     //#############################################################################
