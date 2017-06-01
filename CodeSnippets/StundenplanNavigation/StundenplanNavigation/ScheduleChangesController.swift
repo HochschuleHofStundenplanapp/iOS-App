@@ -22,14 +22,14 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     override init()
     {
         super.init()
-        self.myJobManager.addNewObserver(o: self)
+       
 
     }
     func handleAllChanges() -> Void
     {
           selectedLectures = SelectedLectures().getOneDimensionalList()
-      //  self.myJobManager = JobManager()
-   
+        self.myJobManager = JobManager()
+    self.myJobManager.addNewObserver(o: self)
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
           ServerData.sharedInstance.lastAllChanges =   ServerData.sharedInstance.allChanges
