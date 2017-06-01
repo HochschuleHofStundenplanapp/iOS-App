@@ -20,8 +20,7 @@ class UserData: NSObject {
     var selectedSeason : String = "SS"
     var selectedCourses : [Course] = []
     var selectedSemesters : [Semester] = []
-    //var selectedLectures: [Lecture] = []
-    var savedSplusnames : [String] = [String]()
+    var savedSplusnames : [String] = [String]()//Auslagern
     var selectedLectures: Schedule = Schedule()
     
     static var sharedInstance = UserData()

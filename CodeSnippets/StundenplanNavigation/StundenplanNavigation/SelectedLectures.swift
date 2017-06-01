@@ -76,7 +76,6 @@ class SelectedLectures: NSObject {
     }
     
     func contains(lecture: Lecture) -> Bool{
-    //Noch nicht getestet
         
         let lectures = userdata.selectedLectures.allLectures
         
@@ -96,7 +95,6 @@ class SelectedLectures: NSObject {
         userdata.selectedLectures.removeLecture(at: indexPath)
     }
     
-    //Folgende Remove Methoden wurden noch nicht getestet
     func removeLectures(with course: Course){
         
         var lecturesToBeDeleted : [Lecture] = [Lecture]()
