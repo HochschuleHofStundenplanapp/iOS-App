@@ -14,6 +14,7 @@ class CourseController: NSObject, DataObserverProtocol {
     
     func loadAllCourses() -> Void {
         
+        self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
       
         let selectedSeason = UserData.sharedInstance.selectedSeason

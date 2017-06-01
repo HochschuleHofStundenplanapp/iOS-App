@@ -27,6 +27,8 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     }
     func handleAllChanges() -> Void
     {
+        
+        
           selectedLectures = SelectedLectures().getOneDimensionalList()
         self.myJobManager = JobManager()
     self.myJobManager.addNewObserver(o: self)

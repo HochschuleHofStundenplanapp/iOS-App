@@ -15,6 +15,7 @@ class LectureController: NSObject, DataObserverProtocol {
     func loadAllLectures() -> Void {
         
         ServerData.sharedInstance.schedule.clear()
+        self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
         
