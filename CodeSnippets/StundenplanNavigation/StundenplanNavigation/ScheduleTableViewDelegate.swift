@@ -9,7 +9,9 @@
 import UIKit
 
 class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
-        
+    
+    var selectedIndexPath : IndexPath? = nil
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
     }
@@ -22,9 +24,39 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath != selectedIndexPath{
+            selectedIndexPath = indexPath
+        } else {
+            selectedIndexPath = nil
+        }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(80)
+        
+        if SelectedLectures().getOneDimensionalList().count > 0 {
+            let lecture = SelectedLectures().getElement(at: indexPath)
+            
+            if(selectedIndexPath != nil){
+                if indexPath == selectedIndexPath{
+                    if(lecture.comment == ""){
+                        return 92
+                    }
+                    else{
+                        return 107
+                    }
+                }
+                else{
+                    return 58
+                }
+            }
+            else{
+                return 58
+            }
+
+        } else {
+            return CGFloat(107)
+        }
+        
     }
 }

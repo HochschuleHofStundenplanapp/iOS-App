@@ -30,6 +30,9 @@ class ScheduleTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+        
         tabBarController?.tabBar.tintColor = UIColor.hawRed
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawRed]
