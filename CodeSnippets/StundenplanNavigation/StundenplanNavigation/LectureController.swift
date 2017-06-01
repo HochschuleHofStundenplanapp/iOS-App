@@ -19,28 +19,30 @@ class LectureController: NSObject, DataObserverProtocol {
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
         
         for semester in selectedSemesters.dropLast() {
-    
+            
             let myUrl : String = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semester.course.contraction)&sem=\(semester.name)&tt=\(semester.season)"
             let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
             myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
         }
-    
-        //Hole das Letzte Item der doppelten For-Schleife
-        let semesterLastItem = selectedSemesters.last!
-
-        //Markiere letzets Item im Job Manager
-        let myUrl = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semesterLastItem.course.contraction)&sem=\(semesterLastItem.name)&tt=\(semesterLastItem.season)"
-        let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-    
-        myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password,isLastJob: true)
+        
+        if (selectedSemesters.count != 0) {
+            //Hole das Letzte Item der doppelten For-Schleife
+            let semesterLastItem = selectedSemesters.last!
+            
+            //Markiere letzets Item im Job Manager
+            let myUrl = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semesterLastItem.course.contraction)&sem=\(semesterLastItem.name)&tt=\(semesterLastItem.season)"
+            let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password,isLastJob: true)
+        }
     }
     
     /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
     ///
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void {
-            
+        
         let dataArray = o as! [(Data?, Error?)]
         
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
@@ -60,19 +62,19 @@ class LectureController: NSObject, DataObserverProtocol {
             
         }
         
-//        for dataObject in dataArray {
-////            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
-//            
-//            if let error = dataObject.1{
-//                // handle error
-//            }
-//            
-//            guard let data = dataObject.0 else {
-//                return
-//            }
-//            
-//            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
-//        }
+        //        for dataObject in dataArray {
+        ////            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
+        //
+        //            if let error = dataObject.1{
+        //                // handle error
+        //            }
+        //
+        //            guard let data = dataObject.0 else {
+        //                return
+        //            }
+        //
+        //            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
+        //        }
         self.notifyDownlaodEnded()
     }
     
@@ -102,7 +104,7 @@ class LectureController: NSObject, DataObserverProtocol {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
+    
     func cancelLoading() -> Void {
         myJobManager.cancelAllNetworkJobs()
     }
