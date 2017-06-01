@@ -203,6 +203,7 @@ class CalendarController: NSObject {
     private func handleCalendarWeeks(lecture: Lecture){
         //Termine für vorgegebene Kalenderwochen
         
+        // TODO noch einzukommentieren
         /*
         iteration = iterationState.individualDate
         

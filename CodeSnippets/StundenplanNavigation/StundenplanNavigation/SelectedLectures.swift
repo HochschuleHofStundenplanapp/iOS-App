@@ -24,23 +24,18 @@ class SelectedLectures: NSObject {
     
     func getIndexPath(for element: Lecture) -> IndexPath{
     
-        var iP = IndexPath()
+        var iP = NSIndexPath()
         
-        iP.row = 0
-        iP.section = 0
-    
         let lectures = userdata.selectedLectures.allLectures
         
         for i in 0..<lectures.count{
             for j in 0..<lectures[i].count{
                 if lectures[i][j] == element{
-                
-                    iP.row = j
-                    iP.section = i
+                    iP = NSIndexPath(row: j, section: i)
                 }
             }
         }
-        return iP
+        return iP as IndexPath
     }
     
         
