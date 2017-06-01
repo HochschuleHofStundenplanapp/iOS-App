@@ -335,4 +335,42 @@ extension Date {
         let newDate = calendar.date(byAdding: .year, value: 1, to: date)
         return newDate!
     }
+    
+    public func calendarweekToDate(day: String, cw: Int, date: Date) -> Date{
+        let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let currentYear = calendar.component(.year, from: currentDate)
+        let hours = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        var weekdayNumber = 2
+    
+        for i in weekDays {
+            if i.0 == day {
+                weekdayNumber = i.1
+            }
+        }
+    
+        let newDateComponents = DateComponents(year: currentYear, hour: hours, minute: minutes, weekday: weekdayNumber, weekOfYear: cw)
+        let newDate : Date = calendar.date(from: newDateComponents)!
+    
+        return newDate
+    }
+    
+    public func combineDateAndTime(date: Date, time: Date) -> Date{
+    
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.hour, from: date)
+        let day = calendar.component(.minute, from: date)
+        let hours = calendar.component(.hour, from: time)
+        let minutes = calendar.component(.minute, from: time)
+    
+        let combinedDateComponents = DateComponents(year: year, month: month, day: day, hour: hours, minute: minutes)
+        let combinedDate : Date = calendar.date(from: combinedDateComponents)!
+        
+        return combinedDate
+    }
+    
+    
 }

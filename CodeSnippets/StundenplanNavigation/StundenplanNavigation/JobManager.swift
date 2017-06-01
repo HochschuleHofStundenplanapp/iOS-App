@@ -16,6 +16,7 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     var jobGroup: DispatchGroup = DispatchGroup()
     var workItemArray : [DispatchWorkItem] = [DispatchWorkItem]()
     var position : Int = -1
+    var isCanceled : Bool = false
     
     override init() {
       
@@ -27,11 +28,14 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     
     func resetAll()
     {
+      
         jobQueueArray  = []
         lastJobSubmitted = false
        jobGroup = DispatchGroup()
     workItemArray  = [DispatchWorkItem]()
         self.position = -1
+        isCanceled = false
+        
 
     }
     
@@ -39,6 +43,12 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     func NetworkJob(url: String, username: String? = nil, password: String? = nil, isLastJob: Bool? = nil ) -> Void
     {
      
+        if(isCanceled)
+        {
+            resetAll()
+            isCanceled = false
+            return
+        }
         
         self.position += 1
         let p = self.position
@@ -102,8 +112,8 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
             job.cancel()
           
         }
-        
-       resetAll()
+        self.isCanceled = true
+      // resetAll()
   print("All NetworkJobs Canceled")
     }
     
@@ -133,14 +143,16 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     ///
     func notifiyAllObservers(o: AnyObject) -> Void
     {
+        if(!isCanceled)
+        {
         
         for observer in myObservers
         {
             observer.update(o: o)
         }
-        
+        }
         //Reset position für neue Jobs
-        resetAll()
+      //  resetAll()
         
     }
     
@@ -149,14 +161,21 @@ class JobManager: NSObject, DataObservableProtocol, JobDataObserverProtocol{
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject, p: Int) -> Void
     {
+        
+     
         print("Jobposition kommt zurück in update: \(p)" )
         
       
+        if(!isCanceled)
+        {
+     
 
         //todo: an richtige position des Arrays speichern, id wird mit hochgegeben.
         jobQueueArray[p] = o
         jobGroup.leave()
         
+            
+        }
       
        
     }
