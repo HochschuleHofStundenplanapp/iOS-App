@@ -31,8 +31,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        saveChangesButton.setTitle(title, for: .normal)
-        
+        saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

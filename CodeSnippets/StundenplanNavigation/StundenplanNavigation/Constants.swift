@@ -19,7 +19,7 @@ class Constants :NSObject {
     // CalendarInterface
     static let locationHochschuleHof = "Campus Hof, Alfons-Goppel-Platz 1, 95028 Hof"
     static let locationHuchschuleMuenchberg = "Campus Münchberg, Kulmbacherstraße 76, 95213 Münchberg "
-    static var calendarTitle : String = "Hochschule Hof Stundenplan App"
+    static var calendarTitle = "Hochschule Hof Stundenplan App"
     static let locationInfoMueb = "Mueb"
     static let locationInfoHof = "Hof"
     static let changesNew = "[Neu] "
@@ -28,6 +28,8 @@ class Constants :NSObject {
     static let changesFailed = "[Entfällt] "
     // Falls der AlarmOffset größer 0 ist wird ein Alarm gesetzt (Größeneinheit : Sekunden)
     static let calendarAlarmOffset = 0.0
+    
+    static let changesButtonTitle = "Änderungen übernehmen"
 }
 
 @objc enum Status : Int {
