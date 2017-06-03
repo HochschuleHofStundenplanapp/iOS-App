@@ -36,4 +36,16 @@ class SelectedLectures: NSObject {
         }
         return newList
     }
+    
+    func sort(){
+        
+        dump(userdata.selectedSchedule.lectures)
+        
+        for i in 0..<userdata.selectedSchedule.lectures.count{
+            userdata.selectedSchedule.lectures[i].sort(by: {$0.startTime < $1.startTime})
+        }
+        
+        dump(userdata.selectedSchedule.lectures)
+
+    }
 }
