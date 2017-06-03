@@ -30,10 +30,10 @@ class CourseController: NSObject, DataObserverProtocol {
         
         let clickedCourse = ServerData.sharedInstance.allCourses[indexPath.row]
         
-        if UserData.sharedInstance.selectedCourses.contains(clickedCourse) {
+        if SelectedCourses().contains(course: clickedCourse) {
             //Studiengang abwählen
-            let index = UserData.sharedInstance.selectedCourses.index(of: clickedCourse)
-            UserData.sharedInstance.selectedCourses.remove(at: index!)
+            let index = SelectedCourses().indexPath(of: clickedCourse)
+            SelectedCourses().remove(at: index)
             
             //Zugehörige selektierte Semester löschen
             self.removeSemester(for: clickedCourse)
@@ -71,7 +71,7 @@ class CourseController: NSObject, DataObserverProtocol {
         let dataArray = o as! [(Data?, Error?)]
         
         for dataObject in dataArray {
-            //print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
+            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             
             if let error = dataObject.1{
                 // handle error

@@ -17,7 +17,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
         
         cell.textLabel?.text = "\(course.nameDe)"
         
-        if UserData.sharedInstance.selectedCourses.contains(course) {
+        if SelectedCourses().contains(course: course) {
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none
@@ -27,7 +27,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ServerData.sharedInstance.coursesSize
+        return ServerData.sharedInstance.allCourses.count
     }
 }
 

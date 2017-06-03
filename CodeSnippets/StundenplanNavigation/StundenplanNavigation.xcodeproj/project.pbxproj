@@ -47,6 +47,7 @@
 		BE8B680E1ECA448600A858A3 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8B680D1ECA448600A858A3 /* NotificationNameExtension.swift */; };
 		BEC57D091EE29BD9005D8959 /* TmpSelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */; };
 		BEC57D0B1EE2B15C005D8959 /* AllLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */; };
+		BED89EF31EE2EF3100CBEF27 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED89EF21EE2EF3100CBEF27 /* SettingsController.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
 		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
 		CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */; };
@@ -135,6 +136,7 @@
 		BE8B680D1ECA448600A858A3 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedLectures.swift; sourceTree = "<group>"; };
 		BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLectures.swift; sourceTree = "<group>"; };
+		BED89EF21EE2EF3100CBEF27 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
 		CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlinePrivacyPoliceViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,14 @@
 			name = Zugriff;
 			sourceTree = "<group>";
 		};
+		BED89EF11EE2EF1900CBEF27 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BED89EF21EE2EF3100CBEF27 /* SettingsController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		CEAC96F71DB5FD350042FF3D = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +460,7 @@
 		CED25BB41DD1C60B00FE7D1C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BED89EF11EE2EF1900CBEF27 /* Controller */,
 				BE4E89DF1EB680D600D4ACCF /* ViewControllers */,
 			);
 			name = Settings;
@@ -677,6 +688,7 @@
 				BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */,
 				BE612A951EC467E000D1FC1D /* Schedule.swift in Sources */,
 				BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */,
+				BED89EF31EE2EF3100CBEF27 /* SettingsController.swift in Sources */,
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
 				2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */,
 				BE3AB3AC1EB1F7BF009A6D20 /* GetDataFromInternet.swift in Sources */,

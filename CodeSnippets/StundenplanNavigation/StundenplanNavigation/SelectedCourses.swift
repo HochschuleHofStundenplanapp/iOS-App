@@ -12,34 +12,25 @@ class SelectedCourses: NSObject {
 
     fileprivate var userdata = UserData.sharedInstance
     
-    func numberOfEntries() -> Int
-    {
+    func numberOfEntries() -> Int {
         return userdata.selectedCourses.count
     }
     
-    func getElement(from i : Int) -> Course
-    {
-        return userdata.selectedCourses[i]
-    }
-    
-    func set(element : Course, at i : Int)
-    {
-        userdata.selectedCourses[i] = element
-    }
-    
-    func remove(at i : Int)
-    {
-        userdata.selectedCourses.remove(at: i)
-    }
-    
-    func append(element : Course)
-    {
-        userdata.selectedCourses.append(element)
-    }
-    
-    func clear()
-    {
-        userdata.selectedCourses = []
+    func courseName(at section: Int) -> String {
+        return userdata.selectedCourses[section].nameDe
     }
 
+    func remove(at indexPath: IndexPath){
+        userdata.selectedCourses.remove(at: indexPath.row)
+    }
+    
+    func contains(course: Course) -> Bool{
+        return userdata.selectedCourses.contains(course)
+    }
+    
+    func indexPath(of course: Course) -> IndexPath {
+        let row = userdata.selectedCourses.index(of: course)!
+        let iP = NSIndexPath(row: row, section: 0)
+        return iP as IndexPath
+    }
 }

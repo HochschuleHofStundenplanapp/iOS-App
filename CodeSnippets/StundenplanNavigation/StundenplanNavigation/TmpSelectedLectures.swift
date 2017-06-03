@@ -47,14 +47,11 @@ class TmpSelectedLectures: NSObject {
     }
     
     func add(lecture : Lecture){
-        
         let dayIndex = Constants.weekDays.index(of: lecture.day)!
-        
         userdata.selectedSchedule.add(lecture: lecture, at: dayIndex)
     }
     
-    func clear()
-    {
+    func clear() {
         userdata.selectedSchedule.clear()
     }
     

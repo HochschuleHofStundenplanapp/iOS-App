@@ -26,10 +26,6 @@ class UserData: NSObject {
     static var sharedInstance = UserData()
     private override init(){ }
 
-    func coursesSize() -> Int {
-        return selectedCourses.count
-    }
-        
     func semesterSize(at section: Int) -> Int{
         return selectedCourses[section].semesters.count
     }
@@ -38,9 +34,13 @@ class UserData: NSObject {
         return selectedCourses[indexPath.section].semesters[indexPath.row]
     }
     
-    func courseName(at section: Int) -> String {
-        return selectedCourses[section].nameDe
-    }
+//    func coursesSize() -> Int {
+//        return selectedCourses.count
+//    }
+//    
+//    func courseName(at section: Int) -> String {
+//        return selectedCourses[section].nameDe
+//    }
     
     // Erweiterung des Modells um die Label-Texte im Settings-Screen zu erzeugen
     // Da Daten nicht sortiert sind, kommt es wohl besser in einen Controller 

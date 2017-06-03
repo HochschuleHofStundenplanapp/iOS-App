@@ -26,17 +26,14 @@ class AllLectures: NSObject {
         return serverData.schedule.lectures
     }
     
-    func append(lectures : [Lecture])
-    {
+    func append(lectures : [Lecture]) {
         for lec in lectures{
             let dayIndex = Constants.weekDays.index(of: lec.day)!
-            
             serverData.schedule.add(lecture: lec, at: dayIndex)
         }
     }
     
-    func clear()
-    {
+    func clear() {
         serverData.schedule.clear()
     }
 }
