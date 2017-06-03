@@ -22,7 +22,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         
-        let lecture = ServerData.sharedInstance.schedule.lecture(at: indexPath)
+        let lecture = AllLectures().getElement(at: indexPath)
 //        let cellColor = computeIndexedBackgroundColor(currentPosition : indexPath)
         
 //        cell.backgroundColor = cellColor
@@ -53,7 +53,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ServerData.sharedInstance.schedule.daySize(at: section)
+        return AllLectures().numberOfEntries(for: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

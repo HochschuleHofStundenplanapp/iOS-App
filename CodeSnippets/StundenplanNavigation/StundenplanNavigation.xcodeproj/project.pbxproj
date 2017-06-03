@@ -46,6 +46,7 @@
 		BE6DCE411EBF2B9B0039DDF7 /* LectureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DCE401EBF2B9B0039DDF7 /* LectureController.swift */; };
 		BE8B680E1ECA448600A858A3 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8B680D1ECA448600A858A3 /* NotificationNameExtension.swift */; };
 		BEC57D091EE29BD9005D8959 /* TmpSelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */; };
+		BEC57D0B1EE2B15C005D8959 /* AllLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
 		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
 		CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */; };
@@ -133,6 +134,7 @@
 		BE6DCE401EBF2B9B0039DDF7 /* LectureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureController.swift; sourceTree = "<group>"; };
 		BE8B680D1ECA448600A858A3 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedLectures.swift; sourceTree = "<group>"; };
+		BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLectures.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
 		CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlinePrivacyPoliceViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		BE4DF9121EB106ED00D6550C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BEC57D0C1EE2B166005D8959 /* Zugriff */,
 				BE1922931EA8022800DF119C /* Constants.swift */,
 				BE4DF9131EB109CD00D6550C /* Course.swift */,
 				BE4E89DB1EB676D000D4ACCF /* Semester.swift */,
@@ -253,10 +256,6 @@
 				BE3AB3B31EB1FD32009A6D20 /* UserData.swift */,
 				BE612A941EC467E000D1FC1D /* Schedule.swift */,
 				2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */,
-				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
-				BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */,
-				81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */,
-				81A470C71ECDB016008CB502 /* SelectedCourses.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -350,6 +349,18 @@
 				CE570FB91E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		BEC57D0C1EE2B166005D8959 /* Zugriff */ = {
+			isa = PBXGroup;
+			children = (
+				81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */,
+				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
+				81A470C71ECDB016008CB502 /* SelectedCourses.swift */,
+				BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */,
+				BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */,
+			);
+			name = Zugriff;
 			sourceTree = "<group>";
 		};
 		CEAC96F71DB5FD350042FF3D = {
@@ -633,6 +644,7 @@
 				CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */,
 				81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */,
 				CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */,
+				BEC57D0B1EE2B15C005D8959 /* AllLectures.swift in Sources */,
 				654BFEB91ED427D90023607D /* CalendarData.swift in Sources */,
 				CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */,
 				CE5728531E2E03C00017DF81 /* PopUpMenueDelegate.swift in Sources */,

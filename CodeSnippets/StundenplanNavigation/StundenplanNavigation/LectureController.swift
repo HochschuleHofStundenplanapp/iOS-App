@@ -14,7 +14,7 @@ class LectureController: NSObject, DataObserverProtocol {
     
     func loadAllLectures() -> Void {
         
-        ServerData.sharedInstance.schedule.clear()
+        AllLectures().clear()
         self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
@@ -49,7 +49,7 @@ class LectureController: NSObject, DataObserverProtocol {
         let selectedSemesters = UserData.sharedInstance.selectedSemesters
         
         for (index, element) in dataArray.enumerated() {
-            print(String(data: element.0!, encoding: String.Encoding.utf8)! as String)
+//            print(String(data: element.0!, encoding: String.Encoding.utf8)! as String)
             
             if let error = element.1{
                 // handle error
@@ -59,7 +59,7 @@ class LectureController: NSObject, DataObserverProtocol {
                 return
             }
             
-            ServerData.sharedInstance.append(lectures: (JsonLectures(data: data, semester: selectedSemesters[index])?.lectures!)!)
+            AllLectures().append(lectures: (JsonLectures(data: data, semester: selectedSemesters[index])?.lectures!)!)
             
         }
         
@@ -81,7 +81,7 @@ class LectureController: NSObject, DataObserverProtocol {
     
     func toggleLecture(at indexPath: IndexPath) {
         
-        let clickedLecture = ServerData.sharedInstance.schedule.lecture(at: indexPath)
+        let clickedLecture = AllLectures().getElement(at: indexPath)
         
         if TmpSelectedLectures().contains(lecture: clickedLecture){
             let indexPath = TmpSelectedLectures().getIndexPath(for: clickedLecture)

@@ -24,6 +24,4 @@ class SemesterController: NSObject {
             UserData.sharedInstance.selectedSemesters.append(clickedSemester)
         }
     }
-    
-    
 }
