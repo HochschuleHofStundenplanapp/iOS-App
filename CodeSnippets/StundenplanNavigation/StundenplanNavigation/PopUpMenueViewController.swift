@@ -10,28 +10,18 @@ import UIKit
 
 class PopUpMenueViewController: UIViewController {
     
-    
     var lecturesTableViewController : LecturesTableViewController!
     var lecturesDelegate: LecturesTableViewDelegate!
     @IBOutlet var stroke: UIView!
     
     @IBAction func selectAllButton(_ sender: Any) {
-        
-        let list = ServerData.sharedInstance.schedule.lectures
-
-        for i in list {
-            for j in i {
-                //UserData.sharedInstance.selectedLectures.append(j)
-                TmpSelectedLectures().add(lecture: j)
-            }
-        }
-        
+        LectureController().selectAllLectures()
         self.lecturesTableViewController.lectureTableView.reloadData()
         self.dismiss(animated: true) { }
     }
     
     @IBAction func deSelectAll(_ sender: Any) {
-        TmpSelectedLectures().clear()
+        LectureController().deselectAllLectures()
         self.lecturesTableViewController.lectureTableView.reloadData()
         self.dismiss(animated: true) { }
     }

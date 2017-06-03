@@ -62,21 +62,16 @@ class LectureController: NSObject, DataObserverProtocol {
             AllLectures().append(lectures: (JsonLectures(data: data, semester: selectedSemesters[index])?.lectures!)!)
             
         }
-        
-        //        for dataObject in dataArray {
-        ////            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
-        //
-        //            if let error = dataObject.1{
-        //                // handle error
-        //            }
-        //
-        //            guard let data = dataObject.0 else {
-        //                return
-        //            }
-        //
-        //            ServerData.sharedInstance.schedule.addLectures(lectures: (JsonLectures(data: data, semester: Semester())?.lectures!)!)
-        //        }
         self.notifyDownlaodEnded()
+    }
+    
+    func selectAllLectures() {
+        let allLectures = AllLectures().getLectures()
+        TmpSelectedLectures().set(lectures: allLectures)
+    }
+    
+    func deselectAllLectures(){
+        TmpSelectedLectures().clear()
     }
     
     func toggleLecture(at indexPath: IndexPath) {

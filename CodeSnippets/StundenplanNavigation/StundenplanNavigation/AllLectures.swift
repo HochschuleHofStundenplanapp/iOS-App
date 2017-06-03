@@ -22,6 +22,10 @@ class AllLectures: NSObject {
         return serverData.schedule.lecture(at: indexPath)
     }
     
+    func getLectures() -> [[Lecture]] {
+        return serverData.schedule.lectures
+    }
+    
     func append(lectures : [Lecture])
     {
         for lec in lectures{

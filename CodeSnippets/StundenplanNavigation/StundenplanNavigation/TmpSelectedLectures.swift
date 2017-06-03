@@ -38,6 +38,9 @@ class TmpSelectedLectures: NSObject {
         return iP as IndexPath
     }
     
+    func set(lectures: [[Lecture]]) {
+        userdata.selectedSchedule.lectures = lectures
+    }
     
     func add(lecture : Lecture, at day : Int){
         userdata.selectedSchedule.add(lecture: lecture, at: day)
