@@ -43,7 +43,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         cell.timeLabel.text = startTimeString + " - " + endTimeString
         
         //if UserData.sharedInstance.selectedLectures.contains(lecture) {
-        if SelectedLectures().contains(lecture: lecture) {
+        if TmpSelectedLectures().contains(lecture: lecture) {
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none

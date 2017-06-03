@@ -25,7 +25,7 @@ class CalendarController: NSObject {
     public func createCalendar() -> Bool {
         if(CalendarInterface.sharedInstance.isAuthorized()){
             if(CalendarInterface.sharedInstance.createCalenderIfNeeded() == true) {
-                createAllEvents(schedule: UserData.sharedInstance.selectedLectures)
+                createAllEvents(schedule: UserData.sharedInstance.selectedSchedule)
             }
             return true
         } else {
@@ -44,7 +44,7 @@ class CalendarController: NSObject {
     public func createAllEvents(schedule : Schedule){
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             _ = CalendarInterface.sharedInstance.createCalenderIfNeeded()
-            for lecturesPerDay in schedule.allLectures {
+            for lecturesPerDay in schedule.lectures {
                 for lecture in lecturesPerDay {
                     createEventsForLecture(lecture: lecture)
                 }
@@ -258,7 +258,7 @@ class CalendarController: NSObject {
         var result : Lecture? = nil
         let changeHashValue = "\(change.name)\(change.oldRoom)\(change.oldDay)\(change.oldTime)".hashValue
         
-        for lecturePerDay in UserData.sharedInstance.selectedLectures.allLectures {
+        for lecturePerDay in UserData.sharedInstance.selectedSchedule.lectures {
             for lecture in lecturePerDay {
                 if(lecture.hashValue == changeHashValue){
                     result = lecture

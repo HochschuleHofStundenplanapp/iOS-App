@@ -10,25 +10,39 @@ import UIKit
 
 class Schedule: NSObject {
 
-    var allLectures: [[Lecture]] = [[],[],[],[],[],[]]
-        
+    var lectures: [[Lecture]]
+    
+    override init() {
+        lectures = [[],[],[],[],[],[]]
+    }
+    
+    init(lectures: [[Lecture]]){
+        self.lectures = lectures
+    }
+    
     func add(lecture: Lecture, at day: Int){
-        allLectures[day].append(lecture)
+        lectures[day].append(lecture)
     }
     
     func clear(){
-        allLectures = [[],[],[],[],[],[]]
+        lectures = [[],[],[],[],[],[]]
     }
     
     func daySize(at section: Int) -> Int{
-        return allLectures[section].count
+        return lectures[section].count
     }
     
     func lecture(at indexPath: IndexPath) -> Lecture{
-        return allLectures[indexPath.section][indexPath.row]
+        return lectures[indexPath.section][indexPath.row]
     }
     
     func removeLecture(at indexpath: IndexPath){
-        allLectures[indexpath.section].remove(at: indexpath.row)
+        lectures[indexpath.section].remove(at: indexpath.row)
+    }
+    
+    override func copy() -> Any {
+        let copy = Schedule(lectures: lectures)
+        
+        return copy
     }
 }

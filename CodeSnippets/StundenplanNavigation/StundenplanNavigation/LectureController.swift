@@ -83,11 +83,11 @@ class LectureController: NSObject, DataObserverProtocol {
         
         let clickedLecture = ServerData.sharedInstance.schedule.lecture(at: indexPath)
         
-        if SelectedLectures().contains(lecture: clickedLecture){
-            let indexPath = SelectedLectures().getIndexPath(for: clickedLecture)
-            SelectedLectures().remove(at: indexPath)
+        if TmpSelectedLectures().contains(lecture: clickedLecture){
+            let indexPath = TmpSelectedLectures().getIndexPath(for: clickedLecture)
+            TmpSelectedLectures().remove(at: indexPath)
         } else {
-            SelectedLectures().add(lecture: clickedLecture)
+            TmpSelectedLectures().add(lecture: clickedLecture)
         }
         
         //if UserData.sharedInstance.selectedLectures.contains(clickedLecture) {

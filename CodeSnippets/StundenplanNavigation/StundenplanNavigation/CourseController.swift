@@ -39,17 +39,11 @@ class CourseController: NSObject, DataObserverProtocol {
             self.removeSemester(for: clickedCourse)
             
             //Zugehörige selektierte Vorlesungen entfernen
-            self.removeLectures(for: clickedCourse)
+            TmpSelectedLectures().removeLectures(with: clickedCourse)
         }else{
             //Studiengang auswählen
             UserData.sharedInstance.selectedCourses.append(clickedCourse)
         }
-    }
-    
-    private func removeLectures(for course: Course){
-        
-        SelectedLectures().removeLectures(with: course)
-        
     }
     
     private func removeSemester(for course: Course){

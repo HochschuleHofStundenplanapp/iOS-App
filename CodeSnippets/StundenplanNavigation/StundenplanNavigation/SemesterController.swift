@@ -19,7 +19,7 @@ class SemesterController: NSObject {
             UserData.sharedInstance.selectedSemesters.remove(at: index!)
             
             //Entfernen zugehörige Vorlesungen
-            SelectedLectures().removeLectures(for: clickedSemester)
+            TmpSelectedLectures().removeLectures(for: clickedSemester)
         }else{
             UserData.sharedInstance.selectedSemesters.append(clickedSemester)
         }

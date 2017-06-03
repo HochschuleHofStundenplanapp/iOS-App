@@ -25,6 +25,18 @@ class Course: NSObject, NSCoding {
         self.nameEn = nameEn
     }
     
+//    init(contraction : String, nameDe: String, nameEn: String, semesters: [Semester]) {
+//        self.contraction = contraction
+//        self.nameDe = nameDe
+//        self.nameEn = nameEn
+//        self.semesters = semesters
+//    }
+//    
+//    func copy(with zone: NSZone? = nil) -> Any {
+//        let copy = Course(contraction: contraction, nameDe: nameDe, nameEn: nameEn, semesters: semesters)
+//        return copy
+//    }
+    
     override func isEqual(_ object: Any?) -> Bool {
         return self == object as! Course
     }
