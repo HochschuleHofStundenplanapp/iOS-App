@@ -9,5 +9,11 @@
 import UIKit
 
 class SettingsController: NSObject {
-
+    
+    public func clearAllSettings() {
+        TmpSelectedLectures().clear()
+        // TODO einkommentieren wenn vorhanden
+        //TmpSelectedSemesters().clear()
+        //TmpSelectedCourses().clear()
+    }
 }
