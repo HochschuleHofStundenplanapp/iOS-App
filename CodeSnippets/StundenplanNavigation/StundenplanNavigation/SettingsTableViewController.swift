@@ -52,8 +52,10 @@ class SettingsTableViewController: UITableViewController {
         //Auslagern in eigenen Controller
         if sender.selectedSegmentIndex == 0 {
             UserData.sharedInstance.selectedSeason = "SS"
+            SettingsController().clearAllSettings()
         }else{
             UserData.sharedInstance.selectedSeason = "WS"
+            SettingsController().clearAllSettings()
         }
     }
     
