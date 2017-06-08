@@ -33,34 +33,7 @@ class UserData: NSObject {
     func semester(at indexPath: IndexPath) -> Semester{
         return selectedCourses[indexPath.section].semesters[indexPath.row]
     }
-    
-//    func coursesSize() -> Int {
-//        return selectedCourses.count
-//    }
-//    
-//    func courseName(at section: Int) -> String {
-//        return selectedCourses[section].nameDe
-//    }
-    
-    // Erweiterung des Modells um die Label-Texte im Settings-Screen zu erzeugen
-    // Da Daten nicht sortiert sind, kommt es wohl besser in einen Controller 
-    func allSelectedCourses() -> String
-    {
-        if selectedCourses.count == 0
-        {
-            return "..."
-        }
         
-        var res = ""
-        var sep = ""
-        for c in selectedCourses
-        {
-            res += sep + c.contraction
-            sep = "|"
-        }
-        return res
-    }
-    
     func allSelectedSemesters() -> String
     {
         if selectedSemesters.count == 0

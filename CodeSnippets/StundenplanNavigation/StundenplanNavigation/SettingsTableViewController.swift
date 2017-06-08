@@ -30,18 +30,16 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
-        selectedCoursesLabel.text = UserData.sharedInstance.allSelectedCourses()
+        selectedCoursesLabel.text = TmpSelectedCourses().allSelectedCourses()
         selectedSemesterLabel.text = UserData.sharedInstance.allSelectedSemesters()
     }
     
@@ -58,7 +56,6 @@ class SettingsTableViewController: UITableViewController {
             UserData.sharedInstance.selectedSeason = "WS"
         }
     }
-    
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         //Auslagern in eigenen Controller

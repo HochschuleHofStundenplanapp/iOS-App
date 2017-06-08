@@ -32,8 +32,8 @@ class CourseController: NSObject, DataObserverProtocol {
         
         if SelectedCourses().contains(course: clickedCourse) {
             //Studiengang abwählen
-            let index = SelectedCourses().indexPath(of: clickedCourse)
-            SelectedCourses().remove(at: index)
+            let index = TmpSelectedCourses().indexPath(of: clickedCourse)
+            TmpSelectedCourses().remove(at: index)
             
             //Zugehörige selektierte Semester löschen
             self.removeSemester(for: clickedCourse)

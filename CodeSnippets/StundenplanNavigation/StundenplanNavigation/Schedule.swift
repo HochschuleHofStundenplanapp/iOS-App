@@ -42,7 +42,6 @@ class Schedule: NSObject {
     
     override func copy() -> Any {
         let copy = Schedule(lectures: lectures)
-        
         return copy
     }
 }

@@ -28,12 +28,7 @@ class Semester: NSObject, NSCoding {
         self.course = course
         self.season = season
     }
-    
-//    func copy(with zone: NSZone? = nil) -> Any {
-//        let copy = Semester(name: name, course: course, season: season)
-//        return copy
-//    }
-    
+        
     override func isEqual(_ object: Any?) -> Bool {
         return self == object as! Semester
     }

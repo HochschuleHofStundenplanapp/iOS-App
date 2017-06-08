@@ -48,6 +48,8 @@
 		BEC57D091EE29BD9005D8959 /* TmpSelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */; };
 		BEC57D0B1EE2B15C005D8959 /* AllLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */; };
 		BED89EF31EE2EF3100CBEF27 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED89EF21EE2EF3100CBEF27 /* SettingsController.swift */; };
+		BEFFC0671EE957F600953157 /* TmpSelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFFC0661EE957F600953157 /* TmpSelectedCourses.swift */; };
+		BEFFC06C1EE9635A00953157 /* TmpSelectedSemesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFFC06B1EE9635A00953157 /* TmpSelectedSemesters.swift */; };
 		CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */; };
 		CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */; };
 		CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */; };
@@ -137,6 +139,8 @@
 		BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedLectures.swift; sourceTree = "<group>"; };
 		BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLectures.swift; sourceTree = "<group>"; };
 		BED89EF21EE2EF3100CBEF27 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		BEFFC0661EE957F600953157 /* TmpSelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedCourses.swift; sourceTree = "<group>"; };
+		BEFFC06B1EE9635A00953157 /* TmpSelectedSemesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedSemesters.swift; sourceTree = "<group>"; };
 		CE27EB411DED665C004F743B /* LecturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewCell.swift; sourceTree = "<group>"; };
 		CE27EB431DED8B5B004F743B /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpressumViewController.swift; sourceTree = "<group>"; };
 		CE27EB451DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlinePrivacyPoliceViewController.swift; sourceTree = "<group>"; };
@@ -356,11 +360,9 @@
 		BEC57D0C1EE2B166005D8959 /* Zugriff */ = {
 			isa = PBXGroup;
 			children = (
-				81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */,
-				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
-				81A470C71ECDB016008CB502 /* SelectedCourses.swift */,
-				BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */,
-				BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */,
+				BEFFC06A1EE95D7900953157 /* Tmp */,
+				BEFFC0691EE95D6300953157 /* ServerData */,
+				BEFFC0681EE9584B00953157 /* UserData */,
 			);
 			name = Zugriff;
 			sourceTree = "<group>";
@@ -371,6 +373,34 @@
 				BED89EF21EE2EF3100CBEF27 /* SettingsController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		BEFFC0681EE9584B00953157 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */,
+				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
+				81A470C71ECDB016008CB502 /* SelectedCourses.swift */,
+			);
+			name = UserData;
+			sourceTree = "<group>";
+		};
+		BEFFC0691EE95D6300953157 /* ServerData */ = {
+			isa = PBXGroup;
+			children = (
+				BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */,
+			);
+			name = ServerData;
+			sourceTree = "<group>";
+		};
+		BEFFC06A1EE95D7900953157 /* Tmp */ = {
+			isa = PBXGroup;
+			children = (
+				BEFFC0661EE957F600953157 /* TmpSelectedCourses.swift */,
+				BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */,
+				BEFFC06B1EE9635A00953157 /* TmpSelectedSemesters.swift */,
+			);
+			name = Tmp;
 			sourceTree = "<group>";
 		};
 		CEAC96F71DB5FD350042FF3D = {
@@ -571,7 +601,8 @@
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = FZ89B397B6;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -662,6 +693,7 @@
 				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
 				BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */,
 				BEC57D091EE29BD9005D8959 /* TmpSelectedLectures.swift in Sources */,
+				BEFFC06C1EE9635A00953157 /* TmpSelectedSemesters.swift in Sources */,
 				BE3AB3A81EB1F799009A6D20 /* myObservableProtocol.swift in Sources */,
 				8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */,
 				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,
@@ -692,6 +724,7 @@
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
 				2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */,
 				BE3AB3AC1EB1F7BF009A6D20 /* GetDataFromInternet.swift in Sources */,
+				BEFFC0671EE957F600953157 /* TmpSelectedCourses.swift in Sources */,
 				BE3AB3A61EB1F799009A6D20 /* DataObservableProtocol.swift in Sources */,
 				CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */,
 				CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */,
@@ -860,11 +893,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FZ89B397B6;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
+				PRODUCT_BUNDLE_IDENTIFIER = "dz.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -874,11 +908,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FZ89B397B6;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
+				PRODUCT_BUNDLE_IDENTIFIER = "dz.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
