@@ -69,7 +69,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         if SelectedLectures().getOneDimensionalList().count > 0{
             return Constants.weekDays[section]
         } else{
-            return "Achtung"
+            return ""
         }
     }
 }

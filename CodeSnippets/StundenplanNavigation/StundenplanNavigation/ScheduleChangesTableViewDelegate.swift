@@ -13,8 +13,10 @@ class ScheduleChangesTableViewDelegate: NSObject, UITableViewDelegate {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
 //        header.contentView.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
 //        header.textLabel?.textColor = UIColor.hawYellow
-        header.contentView.backgroundColor = UIColor.hawYellow
-        header.textLabel?.textColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
+//        header.contentView.backgroundColor = UIColor.hawYellow
+//        header.textLabel?.textColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
+//        header.textLabel?.textColor = UIColor
+        header.textLabel?.textAlignment = .center
 
     }
 }

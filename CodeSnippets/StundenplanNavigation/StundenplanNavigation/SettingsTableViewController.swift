@@ -37,7 +37,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
         selectedCoursesLabel.text = TmpSelectedCourses().allSelectedCourses()
         selectedSemesterLabel.text = UserData.sharedInstance.allSelectedSemesters()
