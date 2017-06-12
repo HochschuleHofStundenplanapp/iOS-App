@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet var saveChangesButton: UIButton!
@@ -43,6 +44,13 @@ class SettingsTableViewController: UITableViewController {
         
         selectedCoursesLabel.text = UserData.sharedInstance.allSelectedCourses()
         selectedSemesterLabel.text = UserData.sharedInstance.allSelectedSemesters()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,15 +69,31 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    func hanldeCalendarSyncChanged() {
+        if (UserData.sharedInstance.callenderSync) {
+            syncSwitch.setOn(true, animated: true)
+        } else {
+            syncSwitch.setOn(false, animated: true)
+        }
+    }
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         //Auslagern in eigenen Controller
         if (syncSwitch.isOn) {
-            UserData.sharedInstance.callenderSync = true
-            if(CalendarController().createCalendar() == false){
+            switch CalendarController().createCalendar() {
+            case EKAuthorizationStatus.denied:
                 showAccessAlert()
                 UserData.sharedInstance.callenderSync = false
                 syncSwitch.setOn(false, animated: true)
+                break
+            case EKAuthorizationStatus.notDetermined:
+                UserData.sharedInstance.callenderSync = false
+                syncSwitch.setOn(false, animated: true)
+                break
+            default:
+                UserData.sharedInstance.callenderSync = true
+                syncSwitch.setOn(true, animated: true)
+                break
             }
         } else {
             CalendarController().removeCalendar()

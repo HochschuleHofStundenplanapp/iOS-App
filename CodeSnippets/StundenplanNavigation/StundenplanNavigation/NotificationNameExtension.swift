@@ -11,5 +11,6 @@ import Foundation
 extension Notification.Name {
     
     static let coursesDownloadEnded =  Notification.Name("courseDownloadEnded")
-    static let lecturesDownloadEnded =  Notification.Name("LecturesDownloadEnded")
+    static let lecturesDownloadEnded = Notification.Name("LecturesDownloadEnded")
+    static let calendarSyncChanged =   Notification.Name("calendarSyncChanged")
 }

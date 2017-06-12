@@ -92,7 +92,14 @@ class CalendarInterface: NSObject {
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             self.eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                _ = self.createCalenderIfNeeded()
+                if (granted) {
+                    _ = self.createCalenderIfNeeded()
+                    UserData.sharedInstance.callenderSync = true
+                    NotificationCenter.default.post(name: .calendarSyncChanged , object: nil)
+                } else {
+                    UserData.sharedInstance.callenderSync = false
+                    NotificationCenter.default.post(name: .calendarSyncChanged , object: nil)
+                }
             })
         }
     }

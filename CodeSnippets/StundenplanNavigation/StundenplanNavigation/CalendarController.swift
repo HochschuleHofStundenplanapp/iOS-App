@@ -22,17 +22,17 @@ class CalendarController: NSObject {
         _ = createCalendar()
     }
     
-    public func createCalendar() -> Bool {
+    public func createCalendar() -> EKAuthorizationStatus {
         if(CalendarInterface.sharedInstance.isAuthorized()){
             if(CalendarInterface.sharedInstance.createCalenderIfNeeded() == true) {
                 createAllEvents(schedule: UserData.sharedInstance.selectedSchedule)
             }
-            return true
+            return EKAuthorizationStatus.authorized
         } else {
             if (EKEventStore.authorizationStatus(for: EKEntityType.event) == EKAuthorizationStatus.notDetermined) {
-                return true
+                return EKAuthorizationStatus.notDetermined
             }
-            return false
+            return EKAuthorizationStatus.denied
         }
     }
     
