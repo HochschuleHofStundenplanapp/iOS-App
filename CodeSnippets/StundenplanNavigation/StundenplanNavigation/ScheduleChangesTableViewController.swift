@@ -67,7 +67,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         
         tabBarController?.tabBar.tintColor = UIColor.hawYellow
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawYellow]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
        // scheduleChangesController.handleChanges()

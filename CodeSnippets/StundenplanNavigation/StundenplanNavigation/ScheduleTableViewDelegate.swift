@@ -20,8 +20,11 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
 //        header.contentView.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
 //        header.textLabel?.textColor = UIColor.hawRed
-        header.contentView.backgroundColor = UIColor.hawRed
-        header.textLabel?.textColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
+//        header.contentView.backgroundColor = UIColor.hawRed
+//        header.contentView.backgroundColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
+        header.textLabel?.textColor = UIColor.black
+//        header.textLabel?.font = header.textLabel?.font.withSize(30)
+        header.textLabel?.textAlignment = .center
 
     }
     

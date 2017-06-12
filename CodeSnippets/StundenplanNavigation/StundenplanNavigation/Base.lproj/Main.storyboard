@@ -40,7 +40,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.89411764709999997" green="0.27450980390000002" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.89411764709999997" green="0.27450980390000002" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell" rowHeight="108" id="efX-2f-MDt" customClass="ScheduleTableViewCell" customModule="StundenplanNavigation" customModuleProvider="target">
@@ -51,7 +50,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Mk-07-hm2">
-                                            <rect key="frame" x="8" y="89" width="359" height="16"/>
+                                            <rect key="frame" x="15" y="89" width="352" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="naK-DK-QYq"/>
                                             </constraints>
@@ -60,7 +59,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ausgewählte Themen der Swift 3 Programmierung" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlL-Jd-eci">
-                                            <rect key="frame" x="8" y="4" width="359" height="16"/>
+                                            <rect key="frame" x="15" y="4" width="352" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="kdL-P2-kr3"/>
                                             </constraints>
@@ -69,7 +68,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00 - 09:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVO-1g-vBH">
-                                            <rect key="frame" x="8" y="21" width="359" height="17"/>
+                                            <rect key="frame" x="15" y="21" width="352" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="0eZ-NH-fbf"/>
                                             </constraints>
@@ -78,7 +77,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prof. Dr. med. Johannes Bodky (Honorarprofessor)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lO-Xw-ylv">
-                                            <rect key="frame" x="8" y="56" width="359" height="19"/>
+                                            <rect key="frame" x="15" y="56" width="352" height="19"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13" id="F2G-Yb-v4q"/>
                                                 <constraint firstAttribute="height" constant="19" id="hxp-oz-2cP"/>
@@ -88,7 +87,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FB004b" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giU-Bx-ci0">
-                                            <rect key="frame" x="8" y="38" width="359" height="17"/>
+                                            <rect key="frame" x="15" y="38" width="352" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="RKE-z7-bTU"/>
                                                 <constraint firstAttribute="height" constant="17" id="zWW-Ky-jjW"/>
@@ -98,11 +97,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorlesung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWZ-mG-Ivw">
-                                            <rect key="frame" x="8" y="74" width="359" height="16"/>
+                                            <rect key="frame" x="15" y="74" width="352" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="N23-ff-KRt"/>
                                                 <constraint firstAttribute="height" constant="16" id="NbT-mw-iMb"/>
-                                                <constraint firstAttribute="width" constant="359" id="bin-XU-xQi"/>
+                                                <constraint firstAttribute="width" constant="352" id="bin-XU-xQi"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -111,21 +110,21 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="giU-Bx-ci0" firstAttribute="top" secondItem="VVO-1g-vBH" secondAttribute="bottom" id="0Zq-Bu-Z9v"/>
-                                        <constraint firstItem="giU-Bx-ci0" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" id="3dI-iB-CyU"/>
+                                        <constraint firstItem="giU-Bx-ci0" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" constant="7" id="3dI-iB-CyU"/>
                                         <constraint firstItem="5Mk-07-hm2" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="6hm-sU-uhd"/>
                                         <constraint firstItem="VVO-1g-vBH" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="FZA-ml-dKp"/>
-                                        <constraint firstItem="rWZ-mG-Ivw" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leading" constant="8" id="Kk5-yq-h0g"/>
+                                        <constraint firstItem="rWZ-mG-Ivw" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leading" constant="15" id="Kk5-yq-h0g"/>
                                         <constraint firstItem="rWZ-mG-Ivw" firstAttribute="top" secondItem="5Mk-07-hm2" secondAttribute="bottom" constant="-31" id="TpV-HC-vsp"/>
-                                        <constraint firstItem="5Mk-07-hm2" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" id="V3i-lg-L0w"/>
+                                        <constraint firstItem="5Mk-07-hm2" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" constant="7" id="V3i-lg-L0w"/>
                                         <constraint firstItem="5Mk-07-hm2" firstAttribute="top" secondItem="4lO-Xw-ylv" secondAttribute="bottom" constant="14" id="VgO-V8-9Vy"/>
                                         <constraint firstItem="giU-Bx-ci0" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="Xlf-rT-bZc"/>
-                                        <constraint firstItem="4lO-Xw-ylv" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" id="ZHd-RG-D8n"/>
+                                        <constraint firstItem="4lO-Xw-ylv" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" constant="7" id="ZHd-RG-D8n"/>
                                         <constraint firstItem="FlL-Jd-eci" firstAttribute="top" secondItem="r5s-Mp-H4M" secondAttribute="top" constant="4" id="fcD-L7-mKQ"/>
-                                        <constraint firstItem="VVO-1g-vBH" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" id="gZF-iX-pRh"/>
+                                        <constraint firstItem="VVO-1g-vBH" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leadingMargin" constant="7" id="gZF-iX-pRh"/>
                                         <constraint firstItem="4lO-Xw-ylv" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="gbF-jA-vvq"/>
                                         <constraint firstItem="VVO-1g-vBH" firstAttribute="top" secondItem="FlL-Jd-eci" secondAttribute="bottom" constant="1" id="iKb-JO-Boh"/>
                                         <constraint firstAttribute="trailing" secondItem="rWZ-mG-Ivw" secondAttribute="trailing" constant="8" id="nq9-AG-qA5"/>
-                                        <constraint firstItem="FlL-Jd-eci" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leading" constant="8" id="wyi-zY-PV2"/>
+                                        <constraint firstItem="FlL-Jd-eci" firstAttribute="leading" secondItem="r5s-Mp-H4M" secondAttribute="leading" constant="15" id="wyi-zY-PV2"/>
                                         <constraint firstAttribute="trailing" secondItem="FlL-Jd-eci" secondAttribute="trailing" constant="8" id="xby-F0-Vhg"/>
                                         <constraint firstItem="4lO-Xw-ylv" firstAttribute="top" secondItem="giU-Bx-ci0" secondAttribute="bottom" constant="1" id="xe3-w1-FaC"/>
                                     </constraints>
@@ -186,7 +185,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Mein Stundenplan" id="DqN-0A-hWC"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scheduleTableView" destination="vCC-yw-6YB" id="VfQ-GS-kRM"/>
@@ -206,7 +204,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="vgD-t4-Xea">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.76155871149999999" green="0.091558031740000004" blue="0.11108378319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -236,7 +237,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entfallener Termin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UV-Dy-Ko2">
-                                            <rect key="frame" x="8" y="4" width="176" height="21"/>
+                                            <rect key="frame" x="15" y="4" width="169" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="wcq-8f-ooF"/>
                                             </constraints>
@@ -245,7 +246,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09.11.2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tD-pj-fH3">
-                                            <rect key="frame" x="8" y="23" width="176" height="21"/>
+                                            <rect key="frame" x="15" y="23" width="169" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="khK-uz-2cQ"/>
                                             </constraints>
@@ -254,7 +255,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:00 Uhr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUc-1e-ey9">
-                                            <rect key="frame" x="8" y="43" width="176" height="21"/>
+                                            <rect key="frame" x="15" y="43" width="169" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="vvv-Dm-g7Y"/>
                                             </constraints>
@@ -263,7 +264,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FB 001/002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGR-Dg-Clg">
-                                            <rect key="frame" x="8" y="62" width="176" height="21"/>
+                                            <rect key="frame" x="15" y="62" width="169" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="SM1-nK-6x5"/>
                                             </constraints>
@@ -272,7 +273,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ersatztermin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6Q-rM-LKq">
-                                            <rect key="frame" x="192" y="4" width="183" height="21"/>
+                                            <rect key="frame" x="199" y="4" width="176" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Z3u-UM-ewm"/>
                                             </constraints>
@@ -281,7 +282,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="09.11.2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJt-bG-exs">
-                                            <rect key="frame" x="192" y="23" width="183" height="21"/>
+                                            <rect key="frame" x="199" y="23" width="176" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="yaI-ZS-m8y"/>
                                             </constraints>
@@ -290,7 +291,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="14:00 Uhr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gG-iA-KLQ">
-                                            <rect key="frame" x="192" y="43" width="183" height="21"/>
+                                            <rect key="frame" x="199" y="43" width="176" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Ocz-94-K9I"/>
                                             </constraints>
@@ -299,7 +300,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FB 001/002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB8-hi-Yfm">
-                                            <rect key="frame" x="192" y="62" width="183" height="21"/>
+                                            <rect key="frame" x="199" y="62" width="176" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="rvf-Kn-oao"/>
                                             </constraints>
@@ -309,26 +310,26 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="MGR-Dg-Clg" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leading" constant="8" id="9sW-ia-nr5"/>
-                                        <constraint firstItem="1UV-Dy-Ko2" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-11.5" id="D9C-zH-WVc"/>
-                                        <constraint firstItem="GUc-1e-ey9" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-11.5" id="JNU-n6-ZlP"/>
-                                        <constraint firstItem="NB8-hi-Yfm" firstAttribute="leading" secondItem="MGR-Dg-Clg" secondAttribute="trailing" constant="8" id="Jl4-VL-thJ"/>
-                                        <constraint firstItem="2gG-iA-KLQ" firstAttribute="leading" secondItem="GUc-1e-ey9" secondAttribute="trailing" constant="8" id="Kum-y4-tgd"/>
-                                        <constraint firstItem="KJt-bG-exs" firstAttribute="leading" secondItem="1tD-pj-fH3" secondAttribute="trailing" constant="8" id="QHA-jK-iei"/>
+                                        <constraint firstItem="MGR-Dg-Clg" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leading" constant="15" id="9sW-ia-nr5"/>
+                                        <constraint firstItem="1UV-Dy-Ko2" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-18.5" id="D9C-zH-WVc"/>
+                                        <constraint firstItem="GUc-1e-ey9" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-18.5" id="JNU-n6-ZlP"/>
+                                        <constraint firstItem="NB8-hi-Yfm" firstAttribute="leading" secondItem="MGR-Dg-Clg" secondAttribute="trailing" constant="15" id="Jl4-VL-thJ"/>
+                                        <constraint firstItem="2gG-iA-KLQ" firstAttribute="leading" secondItem="GUc-1e-ey9" secondAttribute="trailing" constant="15" id="Kum-y4-tgd"/>
+                                        <constraint firstItem="KJt-bG-exs" firstAttribute="leading" secondItem="1tD-pj-fH3" secondAttribute="trailing" constant="15" id="QHA-jK-iei"/>
                                         <constraint firstItem="NB8-hi-Yfm" firstAttribute="top" secondItem="KJt-bG-exs" secondAttribute="bottom" constant="18" id="W3c-9W-XSy"/>
                                         <constraint firstItem="b6Q-rM-LKq" firstAttribute="top" secondItem="xk2-1F-oUf" secondAttribute="top" constant="4" id="Yyx-lf-6KY"/>
                                         <constraint firstItem="2gG-iA-KLQ" firstAttribute="top" secondItem="b6Q-rM-LKq" secondAttribute="bottom" constant="18" id="cy8-09-Dxl"/>
-                                        <constraint firstItem="MGR-Dg-Clg" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-11.5" id="e4g-bU-kfJ"/>
-                                        <constraint firstItem="b6Q-rM-LKq" firstAttribute="leading" secondItem="1UV-Dy-Ko2" secondAttribute="trailing" constant="8" id="eqY-9y-6RB"/>
-                                        <constraint firstItem="GUc-1e-ey9" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leadingMargin" id="fOT-a6-jU5"/>
-                                        <constraint firstItem="1tD-pj-fH3" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leadingMargin" id="jlj-hb-UuC"/>
+                                        <constraint firstItem="MGR-Dg-Clg" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-18.5" id="e4g-bU-kfJ"/>
+                                        <constraint firstItem="b6Q-rM-LKq" firstAttribute="leading" secondItem="1UV-Dy-Ko2" secondAttribute="trailing" constant="15" id="eqY-9y-6RB"/>
+                                        <constraint firstItem="GUc-1e-ey9" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leadingMargin" constant="7" id="fOT-a6-jU5"/>
+                                        <constraint firstItem="1tD-pj-fH3" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leadingMargin" constant="7" id="jlj-hb-UuC"/>
                                         <constraint firstItem="MGR-Dg-Clg" firstAttribute="top" secondItem="1tD-pj-fH3" secondAttribute="bottom" constant="18" id="kZZ-AC-6eb"/>
                                         <constraint firstItem="GUc-1e-ey9" firstAttribute="top" secondItem="1UV-Dy-Ko2" secondAttribute="bottom" constant="18" id="lMu-GO-1ir"/>
                                         <constraint firstItem="1UV-Dy-Ko2" firstAttribute="top" secondItem="xk2-1F-oUf" secondAttribute="top" constant="4" id="lyW-PN-SWT"/>
                                         <constraint firstItem="1tD-pj-fH3" firstAttribute="top" secondItem="xk2-1F-oUf" secondAttribute="topMargin" constant="15" id="nXx-jj-IJN"/>
                                         <constraint firstItem="KJt-bG-exs" firstAttribute="top" secondItem="xk2-1F-oUf" secondAttribute="top" constant="23" id="s7x-2q-Krx"/>
-                                        <constraint firstItem="1UV-Dy-Ko2" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leading" constant="8" id="vFa-6R-Kb8"/>
-                                        <constraint firstItem="1tD-pj-fH3" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-11.5" id="xHU-Jg-2bM"/>
+                                        <constraint firstItem="1UV-Dy-Ko2" firstAttribute="leading" secondItem="xk2-1F-oUf" secondAttribute="leading" constant="15" id="vFa-6R-Kb8"/>
+                                        <constraint firstItem="1tD-pj-fH3" firstAttribute="width" secondItem="xk2-1F-oUf" secondAttribute="width" multiplier="0.5" constant="-18.5" id="xHU-Jg-2bM"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
@@ -369,7 +370,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Stundenplanänderungen" id="OR3-io-sbw"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="T4y-sS-098">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -390,10 +390,10 @@
                     <tabBarItem key="tabBarItem" title="Änderungen" image="Änderungen" selectedImage="Änderungen" id="qp4-zU-kEj"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Yae-Wr-9rM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Yae-Wr-9rM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.94833809140000003" green="0.76624646983591937" blue="0.20849465515951623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -434,7 +434,7 @@
                                                         <segment title="Sommersemester"/>
                                                         <segment title="Wintersemester"/>
                                                     </segments>
-                                                    <color key="tintColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.18433862924575806" green="0.45366096496582031" blue="0.70282477140426636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="sectionChanged:" destination="Xc7-6B-j2V" eventType="valueChanged" id="bdc-eR-hSw"/>
                                                     </connections>
@@ -537,10 +537,11 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoy-ia-Tob">
                                                     <rect key="frame" x="19" y="10" width="337" height="44"/>
+                                                    <color key="backgroundColor" red="0.18433862919999999" green="0.45366096500000003" blue="0.70282477139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="o8P-0F-cLu"/>
                                                     </constraints>
-                                                    <state key="normal" title="34 Änderungen übernehmen" backgroundImage="Button Background"/>
+                                                    <state key="normal" title="34 Änderungen übernehmen"/>
                                                     <state key="highlighted" backgroundImage="Button Background Selected"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -654,7 +655,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Einstellungen" id="76d-pg-Bh2"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="courseTableViewCell" destination="2mm-RZ-uMQ" id="h50-3s-9BV"/>
                         <outlet property="lecturesTableViewCell" destination="IgL-y2-prv" id="6Jx-sq-H2u"/>
@@ -679,7 +679,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" textLabel="2fm-ZJ-P6G" style="IBUITableViewCellStyleDefault" id="sHT-Wp-2s4">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -723,7 +722,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SemesterCell" textLabel="sjN-rR-A9O" style="IBUITableViewCellStyleDefault" id="PCK-Kn-UaX">
@@ -854,7 +852,6 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LecturesCell" rowHeight="73" id="LBX-Gc-w1k" customClass="LecturesTableViewCell" customModule="StundenplanNavigation" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
@@ -864,25 +861,25 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorlesung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-z5-Z6M">
-                                            <rect key="frame" x="8" y="4" width="367" height="17"/>
+                                            <rect key="frame" x="15" y="4" width="360" height="17"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uhrzeit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50i-23-Ojl">
-                                            <rect key="frame" x="8" y="21" width="367" height="17"/>
+                                            <rect key="frame" x="15" y="21" width="360" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JX7-iP-3sq">
-                                            <rect key="frame" x="8" y="53" width="367" height="15"/>
+                                            <rect key="frame" x="15" y="53" width="360" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dozent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwb-DK-lMU">
-                                            <rect key="frame" x="8" y="38" width="367" height="15"/>
+                                            <rect key="frame" x="15" y="38" width="360" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -890,16 +887,16 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Jhd-z5-Z6M" secondAttribute="trailing" id="3Cl-mQ-sZa"/>
-                                        <constraint firstItem="JX7-iP-3sq" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="8" id="3Uj-q3-o8u"/>
+                                        <constraint firstItem="JX7-iP-3sq" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="15" id="3Uj-q3-o8u"/>
                                         <constraint firstItem="JX7-iP-3sq" firstAttribute="top" secondItem="jwb-DK-lMU" secondAttribute="bottom" id="938-f3-ewr"/>
                                         <constraint firstItem="50i-23-Ojl" firstAttribute="top" secondItem="1oJ-4X-KwT" secondAttribute="top" constant="21" id="GoS-3x-Ss5"/>
-                                        <constraint firstItem="jwb-DK-lMU" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="8" id="Qjy-9A-qlb"/>
+                                        <constraint firstItem="jwb-DK-lMU" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="15" id="Qjy-9A-qlb"/>
                                         <constraint firstItem="jwb-DK-lMU" firstAttribute="top" secondItem="Jhd-z5-Z6M" secondAttribute="bottom" constant="17" id="X6h-Xd-7bF"/>
                                         <constraint firstAttribute="trailing" secondItem="jwb-DK-lMU" secondAttribute="trailing" id="aCt-Pj-si5"/>
                                         <constraint firstAttribute="trailing" secondItem="50i-23-Ojl" secondAttribute="trailing" id="amv-sD-SKM"/>
                                         <constraint firstItem="Jhd-z5-Z6M" firstAttribute="top" secondItem="1oJ-4X-KwT" secondAttribute="top" constant="4" id="eHa-fe-hfI"/>
-                                        <constraint firstItem="50i-23-Ojl" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="8" id="gEf-6J-mez"/>
-                                        <constraint firstItem="Jhd-z5-Z6M" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="8" id="qbl-De-LEE"/>
+                                        <constraint firstItem="50i-23-Ojl" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="15" id="gEf-6J-mez"/>
+                                        <constraint firstItem="Jhd-z5-Z6M" firstAttribute="leading" secondItem="1oJ-4X-KwT" secondAttribute="leading" constant="15" id="qbl-De-LEE"/>
                                         <constraint firstAttribute="trailing" secondItem="JX7-iP-3sq" secondAttribute="trailing" id="zhq-mw-lcp"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1005,10 +1002,11 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                     <tabBarItem key="tabBarItem" title="Einstellungen" image="Einstelllungen" selectedImage="Einstelllungen" id="MMq-R5-uk2"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gcO-iK-wU9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="gcO-iK-wU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1022,7 +1020,6 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
     </scenes>
     <resources>
         <image name="Änderungen" width="31" height="26"/>
-        <image name="Button Background" width="400" height="64"/>
         <image name="Button Background Selected" width="400" height="64"/>
         <image name="Einstelllungen" width="30" height="30"/>
         <image name="Haken" width="23" height="19"/>

@@ -32,12 +32,12 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return SelectedCourses().numberOfEntries()
+        return TmpSelectedCourses().numberOfEntries()
 //        return UserData.sharedInstance.coursesSize()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return SelectedCourses().courseName(at: section)
+        return TmpSelectedCourses().courseName(at: section)
 //        return UserData.sharedInstance.courseName(at: section)
     }
 }

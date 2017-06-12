@@ -31,18 +31,16 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
-        selectedCoursesLabel.text = UserData.sharedInstance.allSelectedCourses()
+        selectedCoursesLabel.text = TmpSelectedCourses().allSelectedCourses()
         selectedSemesterLabel.text = UserData.sharedInstance.allSelectedSemesters()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)

@@ -36,9 +36,11 @@ class ScheduleTableViewController: UITableViewController {
         
         tableView.reloadData()
         
-        tabBarController?.tabBar.tintColor = UIColor.hawRed
+        tabBarController?.tabBar.tintColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
+//        tabBarController?.tabBar.tintColor = UIColor.white
+
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawRed]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawRed]
 
     }
     
