@@ -17,7 +17,7 @@ class LectureController: NSObject, DataObserverProtocol {
         AllLectures().clear()
         self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
-        let selectedSemesters = UserData.sharedInstance.selectedSemesters
+        let selectedSemesters = TmpSelectedSemesters().allSemesters()
         
         for semester in selectedSemesters.dropLast() {
             
@@ -46,7 +46,7 @@ class LectureController: NSObject, DataObserverProtocol {
         
         let dataArray = o as! [(Data?, Error?)]
         
-        let selectedSemesters = UserData.sharedInstance.selectedSemesters
+        let selectedSemesters = TmpSelectedSemesters().allSemesters()
         
         for (index, element) in dataArray.enumerated() {
 //            print(String(data: element.0!, encoding: String.Encoding.utf8)! as String)
@@ -84,13 +84,6 @@ class LectureController: NSObject, DataObserverProtocol {
         } else {
             TmpSelectedLectures().add(lecture: clickedLecture)
         }
-        
-        //if UserData.sharedInstance.selectedLectures.contains(clickedLecture) {
-        //    let index = UserData.sharedInstance.selectedLectures.index(of: clickedLecture)
-        //    UserData.sharedInstance.selectedLectures.remove(at: index!)
-        //}else{
-        //    UserData.sharedInstance.selectedLectures.append(clickedLecture)
-        //}
     }
     
     func notifyDownlaodEnded(){

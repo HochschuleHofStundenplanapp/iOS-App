@@ -44,4 +44,17 @@ class Schedule: NSObject {
         let copy = Schedule(lectures: lectures)
         return copy
     }
+    
+    func contains(lecture: Lecture) -> Bool{
+                
+        for day in lectures{
+            for lec in day{
+                if lec == lecture{
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
 }

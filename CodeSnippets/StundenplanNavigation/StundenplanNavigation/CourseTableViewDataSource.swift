@@ -13,7 +13,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
         
-        let course = ServerData.sharedInstance.course(at: indexPath)
+        let course = AllCourses().course(at: indexPath)
         
         cell.textLabel?.text = "\(course.nameDe)"
         
@@ -27,7 +27,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ServerData.sharedInstance.allCourses.count
+        return AllCourses().numberOfEntries()
     }
 }
 

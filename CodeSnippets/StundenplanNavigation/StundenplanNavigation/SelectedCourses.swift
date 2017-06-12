@@ -11,7 +11,7 @@ import UIKit
 class SelectedCourses: NSObject {
 
     fileprivate var userdata = UserData.sharedInstance
-        
+    
     func contains(course: Course) -> Bool{
         return userdata.selectedCourses.contains(course)
     }

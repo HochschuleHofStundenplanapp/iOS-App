@@ -55,21 +55,6 @@ class TmpSelectedLectures: NSObject {
         userdata.selectedSchedule.clear()
     }
     
-    func contains(lecture: Lecture) -> Bool{
-        
-        let lectures = userdata.selectedSchedule.lectures
-        
-        for day in lectures{
-            for lec in day{
-                if lec == lecture{
-                    return true
-                }
-            }
-        }
-        
-        return false
-    }
-    
     func remove(at indexPath: IndexPath){
         userdata.selectedSchedule.removeLecture(at: indexPath)
     }
@@ -112,6 +97,10 @@ class TmpSelectedLectures: NSObject {
             let i = Constants.weekDays.index(of: lecture.day)!
             removeLecture(lecture: lecture, day: i)
         }
+    }
+    
+    func contains(lecture: Lecture) -> Bool{
+        return userdata.selectedSchedule.contains(lecture: lecture)
     }
     
     private func removeLecture(lecture : Lecture, day : Int){

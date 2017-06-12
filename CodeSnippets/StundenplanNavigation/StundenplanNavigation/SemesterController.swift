@@ -12,16 +12,18 @@ class SemesterController: NSObject {
 
     func toggleSemester(at indexPath: IndexPath) {
         
-        let clickedSemester = UserData.sharedInstance.semester(at: indexPath)
+        let clickedSemester = TmpSelectedSemesters().semester(at: indexPath)
         
-        if UserData.sharedInstance.selectedSemesters.contains(clickedSemester) {
-            let index = UserData.sharedInstance.selectedSemesters.index(of: clickedSemester)
-            UserData.sharedInstance.selectedSemesters.remove(at: index!)
+        if TmpSelectedSemesters().contains(semester: clickedSemester) {
+            
+            //Semester deselektieren
+            TmpSelectedSemesters().remove(semester: clickedSemester)
             
             //Entfernen zugehörige Vorlesungen
             TmpSelectedLectures().removeLectures(for: clickedSemester)
         }else{
-            UserData.sharedInstance.selectedSemesters.append(clickedSemester)
+            //Selektiertes Semester speichern 
+            TmpSelectedSemesters().append(semester: clickedSemester)
         }
     }
 }

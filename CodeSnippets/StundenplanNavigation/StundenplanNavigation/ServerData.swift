@@ -22,12 +22,4 @@ class ServerData: NSObject {
         
     static var sharedInstance = ServerData()
     private override init(){ }
-    
-    var coursesSize: Int {
-        get { return allCourses.count }
-    }
-    
-    func course(at indexPath: IndexPath) -> Course{
-        return allCourses[indexPath.row]
-    }
 }

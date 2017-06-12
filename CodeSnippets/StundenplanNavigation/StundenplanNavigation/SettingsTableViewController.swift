@@ -41,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
         selectedCoursesLabel.text = TmpSelectedCourses().allSelectedCourses()
-        selectedSemesterLabel.text = UserData.sharedInstance.allSelectedSemesters()
+        selectedSemesterLabel.text = TmpSelectedSemesters().allSelectedSemesters()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
     }

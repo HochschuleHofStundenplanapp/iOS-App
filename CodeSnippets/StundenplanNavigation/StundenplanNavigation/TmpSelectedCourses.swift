@@ -16,22 +16,21 @@ class TmpSelectedCourses: NSObject {
         return userdata.selectedCourses.count
     }
     
-    func courseName(at section: Int) -> String {
-        return userdata.selectedCourses[section].nameDe
-    }
-    
-    func remove(at indexPath: IndexPath){
-        userdata.selectedCourses.remove(at: indexPath.row)
+    func append(course : Course) {
+        userdata.selectedCourses.append(course)
     }
     
     func contains(course: Course) -> Bool{
         return userdata.selectedCourses.contains(course)
     }
     
-    func indexPath(of course: Course) -> IndexPath {
-        let row = userdata.selectedCourses.index(of: course)!
-        let iP = NSIndexPath(row: row, section: 0)
-        return iP as IndexPath
+    func courseName(at section: Int) -> String {
+        return userdata.selectedCourses[section].nameDe
+    }
+    
+    func remove(course: Course){
+        let index = userdata.selectedCourses.index(of: course)
+        userdata.selectedCourses.remove(at: index!)
     }
     
     // Erweiterung des Modells um die Label-Texte im Settings-Screen zu erzeugen

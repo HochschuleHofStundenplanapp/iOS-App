@@ -38,4 +38,8 @@ class SelectedLectures: NSObject {
             userdata.selectedSchedule.lectures[i].sort(by: {$0.startTime < $1.startTime})
         }
     }
+    
+    func contains(lecture: Lecture) -> Bool{
+        return userdata.selectedSchedule.contains(lecture: lecture)
+    }
 }

@@ -20,6 +20,7 @@
 		81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C71ECDB016008CB502 /* SelectedCourses.swift */; };
 		B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */; };
 		B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */; };
+		BE0136F81EEF36280035DEB8 /* AllCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0136F71EEF36280035DEB8 /* AllCourses.swift */; };
 		BE067FA21DF69C4900354869 /* UITabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */; };
 		BE14C94F1EC1B45700925EAC /* JsonLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14C94E1EC1B45700925EAC /* JsonLectures.swift */; };
 		BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */; };
@@ -111,6 +112,7 @@
 		81A470C71ECDB016008CB502 /* SelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCourses.swift; sourceTree = "<group>"; };
 		B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObserverProtocol.swift; sourceTree = "<group>"; };
 		B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObservableProtocol.swift; sourceTree = "<group>"; };
+		BE0136F71EEF36280035DEB8 /* AllCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCourses.swift; sourceTree = "<group>"; };
 		BE067FA11DF69C4900354869 /* UITabBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarDelegate.swift; sourceTree = "<group>"; };
 		BE14C94E1EC1B45700925EAC /* JsonLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonLectures.swift; sourceTree = "<group>"; };
 		BE18E7431DE3282100EDD1A6 /* LecturesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -379,8 +381,8 @@
 			isa = PBXGroup;
 			children = (
 				81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */,
-				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
 				81A470C71ECDB016008CB502 /* SelectedCourses.swift */,
+				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
 			);
 			name = UserData;
 			sourceTree = "<group>";
@@ -389,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */,
+				BE0136F71EEF36280035DEB8 /* AllCourses.swift */,
 			);
 			name = ServerData;
 			sourceTree = "<group>";
@@ -397,8 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				BEFFC0661EE957F600953157 /* TmpSelectedCourses.swift */,
-				BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */,
 				BEFFC06B1EE9635A00953157 /* TmpSelectedSemesters.swift */,
+				BEC57D081EE29BD9005D8959 /* TmpSelectedLectures.swift */,
 			);
 			name = Tmp;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */,
 				BEC57D091EE29BD9005D8959 /* TmpSelectedLectures.swift in Sources */,
 				BEFFC06C1EE9635A00953157 /* TmpSelectedSemesters.swift in Sources */,
+				BE0136F81EEF36280035DEB8 /* AllCourses.swift in Sources */,
 				BE3AB3A81EB1F799009A6D20 /* myObservableProtocol.swift in Sources */,
 				8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */,
 				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,

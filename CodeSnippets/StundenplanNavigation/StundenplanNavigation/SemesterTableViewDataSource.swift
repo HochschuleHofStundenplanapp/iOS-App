@@ -14,11 +14,11 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SemesterCell")!
         
-        cell.textLabel?.text = UserData.sharedInstance.semester(at: indexPath).name
+        let semester = TmpSelectedSemesters().semester(at: indexPath)
         
-        let semester = UserData.sharedInstance.semester(at: indexPath)
+        cell.textLabel?.text = semester.name
         
-        if UserData.sharedInstance.selectedSemesters.contains(semester) {
+        if SelectedSemesters().contains(semester: semester) {
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none
@@ -28,17 +28,15 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserData.sharedInstance.semesterSize(at: section)
+        return TmpSelectedSemesters().numberOfEntries(for: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return TmpSelectedCourses().numberOfEntries()
-//        return UserData.sharedInstance.coursesSize()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return TmpSelectedCourses().courseName(at: section)
-//        return UserData.sharedInstance.courseName(at: section)
     }
 }
 
