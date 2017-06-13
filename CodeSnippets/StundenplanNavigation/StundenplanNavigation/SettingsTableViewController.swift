@@ -48,8 +48,8 @@ class SettingsTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
-        selectedCoursesLabel.text = TmpSelectedCourses().allSelectedCourses()
-        selectedSemesterLabel.text = TmpSelectedSemesters().allSelectedSemesters()
+        selectedCoursesLabel.text = tmpSelectedCourses.allSelectedCourses()
+        selectedSemesterLabel.text = tmpSelectedSemesters.allSelectedSemesters()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
     }
@@ -63,10 +63,10 @@ class SettingsTableViewController: UITableViewController {
         //Auslagern in eigenen Controller
         if sender.selectedSegmentIndex == 0 {
             UserData.sharedInstance.selectedSeason = "SS"
-            SettingsController().clearAllSettings()
+            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
         }else{
             UserData.sharedInstance.selectedSeason = "WS"
-            SettingsController().clearAllSettings()
+            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
         }
     }
     

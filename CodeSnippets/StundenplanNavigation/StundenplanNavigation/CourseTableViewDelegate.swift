@@ -10,8 +10,15 @@ import UIKit
 
 class CourseTableViewDelegate: NSObject, UITableViewDelegate {
     
+    var courseController: CourseController
+    
+    init(courseController: CourseController)
+    {
+        self.courseController = courseController
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _ = CourseController().toggleCourse(at: indexPath)
+         courseController.toggleCourse(at: indexPath)
         tableView.reloadData()
     }
 }

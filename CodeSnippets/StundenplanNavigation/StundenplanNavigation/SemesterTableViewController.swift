@@ -14,6 +14,9 @@ class SemesterTableViewController: UITableViewController {
     var datasource : SemesterTableViewDataSource!
     var delegate: SemesterTableViewDelegate!
 
+    var tmpSelectedCourses: TmpSelectedCourses!
+    var tmpSelectedSemesters: TmpSelectedSemesters!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,7 @@ class SemesterTableViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = UIColor.white
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
 
-        datasource = SemesterTableViewDataSource()
+        datasource = SemesterTableViewDataSource(tmpSelectedCourses: tmpSelectedCourses, tmpSelectedSemesters: tmpSelectedSemesters)
         delegate = SemesterTableViewDelegate()
         
         tableView.dataSource = datasource

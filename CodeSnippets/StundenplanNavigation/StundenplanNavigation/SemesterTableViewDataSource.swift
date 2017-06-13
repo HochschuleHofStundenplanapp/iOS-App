@@ -27,7 +27,7 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SemesterCell")!
         
-        let semester = TmpSelectedSemesters().semester(at: indexPath)
+        let semester = tmpSelectedSemesters.semester(at: indexPath)
         
         cell.textLabel?.text = semester.name
         
@@ -41,15 +41,15 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TmpSelectedSemesters().numberOfEntries(for: section)
+        return tmpSelectedSemesters.numberOfEntries(for: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return TmpSelectedCourses().numberOfEntries()
+        return tmpSelectedCourses.numberOfEntries()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return TmpSelectedCourses().courseName(at: section)
+        return tmpSelectedCourses.courseName(at: section)
     }
 }
 
