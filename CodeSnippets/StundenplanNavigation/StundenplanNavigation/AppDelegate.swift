@@ -58,18 +58,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
     
     var scheduleChangesController : ScheduleChangesController!
     
+    var handler: (UIBackgroundFetchResult) -> Void = {_ in}
+    
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        //Setup for downloading new Changes
-//        scheduleChangesController = ScheduleChangesController()
-//        scheduleChangesController.addNewObserver(o: self)
-//        scheduleChangesController.handleAllChanges()
+        handler = completionHandler
         
+        //Setup for downloading new Changes
+        scheduleChangesController = ScheduleChangesController()
+        scheduleChangesController.addNewObserver(o: self)
+        scheduleChangesController.handleAllChanges()
+        
+
     }
     
     func update(s: String?) {
         print ( "Changes geladen")
 
+        //Test
+//        handler(UIBackgroundFetchResult.newData)
+        return
+        
+        
         if ServerData.sharedInstance.lastAllChanges.count != ServerData.sharedInstance.allChanges.count && ServerData.sharedInstance.allChanges.count > 0{
         
             //New Changes are available
@@ -88,7 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
             
             self.updateCalendar()
             
-//            completionHandler(UIBackgroundFetchResult.newData)
         }
     }
     
