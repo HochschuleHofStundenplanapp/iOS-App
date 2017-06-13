@@ -248,17 +248,17 @@ class ArtificialIntelligence: NSObject {
             tmpLength = tmpCommentLength
         }
         
-        for i in (0..<3) {
-            var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
-            
-            if tmpComment.characters[index] == "k" {
-                index = tmpComment.index(tmpComment.startIndex, offsetBy: i + 1)
-                
-                if tmpComment.characters[index] == "w" {
-                    tmpLength += 3
-                }
-            }
-        }
+//        for i in (0..<2) {
+//            var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
+//            
+//            if tmpComment.characters[index] == "k" {
+//                index = tmpComment.index(tmpComment.startIndex, offsetBy: i + 1)
+//                
+//                if tmpComment.characters[index] == "w" {
+//                    tmpLength += 3
+//                }
+//            }
+//        }
         
         for i in (0..<tmpLength) {
             let index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
