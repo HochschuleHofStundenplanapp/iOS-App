@@ -78,6 +78,7 @@
 		CEAC973F1DB61AB20042FF3D /* LecturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */; };
 		CED25BB91DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */; };
 		CED25BBB1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */; };
+		DA0AA5FB1EE4656100D64C63 /* ArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA5FA1EE4656100D64C63 /* ArtificialIntelligence.swift */; };
 		DAA250771E015D51007CCEFB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA250761E015D51007CCEFB /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +177,7 @@
 		CEAC973E1DB61AB20042FF3D /* LecturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesTableViewController.swift; sourceTree = "<group>"; };
 		CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDataSource.swift; sourceTree = "<group>"; };
 		CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
+		DA0AA5FA1EE4656100D64C63 /* ArtificialIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtificialIntelligence.swift; sourceTree = "<group>"; };
 		DAA250761E015D51007CCEFB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -429,6 +431,7 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				DA0AA5F91EE4654E00D64C63 /* Artificial Intelligence */,
 				654BFEB41ED427320023607D /* Interfaces */,
 				CED25BB71DD1C64700FE7D1C /* Lecture */,
 				CED25BB61DD1C63600FE7D1C /* Semester */,
@@ -524,6 +527,14 @@
 				BE4E89E11EB681BA00D4ACCF /* ViewControllers */,
 			);
 			name = Lecture;
+			sourceTree = "<group>";
+		};
+		DA0AA5F91EE4654E00D64C63 /* Artificial Intelligence */ = {
+			isa = PBXGroup;
+			children = (
+				DA0AA5FA1EE4656100D64C63 /* ArtificialIntelligence.swift */,
+			);
+			name = "Artificial Intelligence";
 			sourceTree = "<group>";
 		};
 		DAA250781E017C4A007CCEFB /* Extensions */ = {
@@ -679,6 +690,7 @@
 			files = (
 				CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */,
 				CEAC97351DB619D40042FF3D /* ScheduleTableViewController.swift in Sources */,
+				DA0AA5FB1EE4656100D64C63 /* ArtificialIntelligence.swift in Sources */,
 				CED25BBB1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift in Sources */,
 				CEAC973F1DB61AB20042FF3D /* LecturesTableViewController.swift in Sources */,
 				CED25BB91DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift in Sources */,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -201,7 +201,7 @@
                     <tabBarItem key="tabBarItem" title="Stundenplan" image="Stundenplan" selectedImage="Stundenplan" id="bdv-LC-yFP"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="vgD-t4-Xea">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="vgD-t4-Xea">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.76155871149999999" green="0.091558031740000004" blue="0.11108378319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -390,7 +390,7 @@
                     <tabBarItem key="tabBarItem" title="Änderungen" image="Änderungen" selectedImage="Änderungen" id="qp4-zU-kEj"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Yae-Wr-9rM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Yae-Wr-9rM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94833809140000003" green="0.76624646983591937" blue="0.20849465515951623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -498,7 +498,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="olo-V4-5LN" kind="show" id="xWJ-ko-yOz"/>
+                                            <segue destination="olo-V4-5LN" kind="show" identifier="SettingsToSemesters" id="xWJ-ko-yOz"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="XwB-XM-yK2" detailTextLabel="RcW-hw-SwC" style="IBUITableViewCellStyleSubtitle" id="IgL-y2-prv">
@@ -525,7 +525,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="UCo-oZ-bAg" kind="show" id="iqW-7l-3KP"/>
+                                            <segue destination="UCo-oZ-bAg" kind="show" identifier="SettingsToLectures" id="iqW-7l-3KP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="64" id="kLk-b3-Y4D">
@@ -1002,7 +1002,7 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                     <tabBarItem key="tabBarItem" title="Einstellungen" image="Einstelllungen" selectedImage="Einstelllungen" id="MMq-R5-uk2"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="gcO-iK-wU9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gcO-iK-wU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
