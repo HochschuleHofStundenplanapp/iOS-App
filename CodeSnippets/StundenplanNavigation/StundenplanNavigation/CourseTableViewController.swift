@@ -15,9 +15,9 @@ class CourseTableViewController: UITableViewController {
     var delegate: CourseTableViewDelegate!
     var courseController: CourseController!
     
-    var tmpSelectedCourses = TmpSelectedCourses()
-    var tmpSelectedSemesters = TmpSelectedSemesters()
-    var tmpSelectedLectures = TmpSelectedLectures()
+    var tmpSelectedCourses: TmpSelectedCourses!
+    var tmpSelectedSemesters: TmpSelectedSemesters!
+    var tmpSelectedLectures: TmpSelectedLectures!
     
     
     override func viewDidLoad() {
