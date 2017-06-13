@@ -26,7 +26,7 @@ class CourseTableViewController: UITableViewController {
         tabBarController?.tabBar.tintColor = UIColor.hawRed
         
         datasource = CourseTableViewDataSource()
-        delegate = CourseTableViewDelegate()
+        delegate = CourseTableViewDelegate(courseController: courseController)
         
         tableView.dataSource = datasource
         tableView.delegate = delegate
