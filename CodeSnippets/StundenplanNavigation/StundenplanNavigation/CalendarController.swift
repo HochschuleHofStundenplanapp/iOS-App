@@ -15,6 +15,7 @@ class CalendarController: NSObject {
     
     var events: [EKEvent] = []
     var title = ""
+    var notes = ""
     var iteration: iterationState = iterationState.weekly
     
     override init() {
@@ -105,7 +106,7 @@ class CalendarController: NSObject {
                         // Wenn nicht bereits vorhanden
                         if (!CalendarInterface.sharedInstance.doEventExist(key: lecture.hashValue, startDate: change.combinedNewDate)) {
                             // Neues Event erstellen
-                            let newEvent = fillNewEvent(oldEvent: oldEvent!, lecture: lecture, change: change, locationInfo: locationInfo)
+                            let newEvent = fillNewChangeEvent(oldEvent: oldEvent!, lecture: lecture, change: change, locationInfo: locationInfo)
                             
                             // Neues Event erzeugen
                             CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue, isChanges: true)
@@ -134,11 +135,11 @@ class CalendarController: NSObject {
         }
     }
     
-    func fillNewEvent(oldEvent : EKEvent, lecture : Lecture, change : ChangedLecture, locationInfo : String) -> EKEvent {
+    func fillNewChangeEvent(oldEvent : EKEvent, lecture : Lecture, change : ChangedLecture, locationInfo : String) -> EKEvent {
         let newEvent = EKEvent(eventStore: self.eventStore!)
         
         newEvent.title     = Constants.changesNew + change.name
-        newEvent.notes     = oldEvent.notes
+        //newEvent.notes     = oldEvent.notes
         newEvent.startDate = change.combinedNewDate
         newEvent.endDate   = (newEvent.startDate + 60 * 90)
         
@@ -183,6 +184,7 @@ class CalendarController: NSObject {
     func lectureToEKEvent(lecture: Lecture) {
         title = lecture.name
         iteration = lecture.iteration
+        notes = lecture.comment + "  " + lecture.group
         
         if (lecture.iteration == iterationState.calendarWeeks) {
             handleCalendarWeeks(lecture: lecture)
@@ -196,7 +198,8 @@ class CalendarController: NSObject {
     
     private func handleNotParsable() {
         // Nicht parsbar, deswegen Standard 7 nehmen
-        title = "[Kommentar lesen] \(title)"
+        title = Constants.readNotes + "" + title
+        notes = Constants.noteNotParsable + "" + notes
         iteration = iterationState.weekly
     }
     
@@ -238,7 +241,7 @@ class CalendarController: NSObject {
             
             event.location = CalendarController().getLocationInfo(room: lecture.room) + ", " + lecture.room
             
-            event.notes = lecture.comment + "  " + lecture.group
+            event.notes = notes
             
             if (Constants.calendarAlarmOffset > 0) {
                 var ekAlarms = [EKAlarm]()
