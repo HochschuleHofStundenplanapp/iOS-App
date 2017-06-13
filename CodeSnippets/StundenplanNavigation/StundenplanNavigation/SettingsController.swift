@@ -10,13 +10,22 @@ import UIKit
 
 class SettingsController: NSObject {
     
+   var tmpSelectedLectures: TmpSelectedLectures
+    
+    init(tmpSelectedLectures: TmpSelectedLectures) {
+        
+        
+        self.tmpSelectedLectures = tmpSelectedLectures
+        
+    }
+    
     // TODO
     public func updateCalendar() {
         _ = CalendarController().CalendarRoutine()
     }
     
     public func clearAllSettings() {
-        TmpSelectedLectures().clear()
+        tmpSelectedLectures.clear()
         // TODO einkommentieren wenn vorhanden
         //TmpSelectedSemesters().clear()
         //TmpSelectedCourses().clear()

@@ -12,6 +12,19 @@ class CourseController: NSObject, DataObserverProtocol {
 
     var myJobManager : JobManager = JobManager()
     
+    var tmpSelectedCourses : TmpSelectedCourses
+    var tmpSelectedSemesters : TmpSelectedSemesters
+    var tmpSelectedLectures : TmpSelectedLectures
+    
+    
+    
+    init (tmpSelectedCourses: TmpSelectedCourses, tmpSelectedSemesters: TmpSelectedSemesters, tmpSelectedLectures: TmpSelectedLectures)
+    {
+        self.tmpSelectedCourses = tmpSelectedCourses
+        self.tmpSelectedSemesters = tmpSelectedSemesters
+        self.tmpSelectedLectures = tmpSelectedLectures
+    }
+    
     func loadAllCourses() -> Void {
         
         self.myJobManager = JobManager()
@@ -31,18 +44,18 @@ class CourseController: NSObject, DataObserverProtocol {
 //        let clickedCourse = ServerData.sharedInstance.allCourses[indexPath.row]
         let clickedCourse = AllCourses().course(at: indexPath)
         
-        if TmpSelectedCourses().contains(course: clickedCourse) {
+        if tmpSelectedCourses.contains(course: clickedCourse) {
             //Studiengang abwählen
-            TmpSelectedCourses().remove(course: clickedCourse)
+            tmpSelectedCourses.remove(course: clickedCourse)
             
             //Zugehörige selektierte Semester löschen
-            TmpSelectedSemesters().removeSemester(with: clickedCourse)
+            tmpSelectedSemesters.removeSemester(with: clickedCourse)
             
             //Zugehörige selektierte Vorlesungen entfernen
-            TmpSelectedLectures().removeLectures(with: clickedCourse)
+            tmpSelectedLectures.removeLectures(with: clickedCourse)
         }else{
             //Studiengang auswählen
-            TmpSelectedCourses().append(course: clickedCourse)
+            tmpSelectedCourses.append(course: clickedCourse)
         }
     }
     
