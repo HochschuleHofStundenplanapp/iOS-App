@@ -114,7 +114,6 @@ class ArtificialIntelligence: NSObject {
                 }
             }
             if calendarWeekArray.count > 2 {
-                calendarWeekArray.removeAll()
                 return true
             } else {
                 calendarWeekArray.removeAll()
