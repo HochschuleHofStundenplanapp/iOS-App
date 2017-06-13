@@ -15,6 +15,11 @@ class CourseTableViewController: UITableViewController {
     var delegate: CourseTableViewDelegate!
     var courseController: CourseController!
     
+    var tmpSelectedCourses = TmpSelectedCourses()
+    var tmpSelectedSemesters = TmpSelectedSemesters()
+    var tmpSelectedLectures = TmpSelectedLectures()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -26,7 +31,7 @@ class CourseTableViewController: UITableViewController {
         tableView.dataSource = datasource
         tableView.delegate = delegate
         
-        courseController = CourseController()
+         courseController = CourseController(tmpSelectedCourses: self.tmpSelectedCourses, tmpSelectedSemesters: self.tmpSelectedSemesters, tmpSelectedLectures: self.tmpSelectedLectures)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .coursesDownloadEnded, object: nil )
     }
