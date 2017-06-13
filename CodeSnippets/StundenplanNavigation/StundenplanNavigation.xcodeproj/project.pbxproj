@@ -223,12 +223,20 @@
 		654BFEB41ED427320023607D /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				654BFEB51ED427D90023607D /* CalendarController.swift */,
-				654BFEB61ED427D90023607D /* CalendarData.swift */,
-				654BFEB71ED427D90023607D /* CalendarInterface.swift */,
+				6557F3DF1EEFE1A00019DA31 /* Calendaer */,
 				813C39D71EEFD56A00FD02AE /* NotificationInterface.swift */,
 			);
 			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		6557F3DF1EEFE1A00019DA31 /* Calendaer */ = {
+			isa = PBXGroup;
+			children = (
+				654BFEB51ED427D90023607D /* CalendarController.swift */,
+				654BFEB61ED427D90023607D /* CalendarData.swift */,
+				654BFEB71ED427D90023607D /* CalendarInterface.swift */,
+			);
+			name = Calendaer;
 			sourceTree = "<group>";
 		};
 		BE3AB3A01EB1F761009A6D20 /* Controller */ = {
