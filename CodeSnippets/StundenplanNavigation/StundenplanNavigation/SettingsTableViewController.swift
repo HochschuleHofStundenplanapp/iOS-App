@@ -25,8 +25,16 @@ class SettingsTableViewController: UITableViewController {
     var selectedCoursesString = "..."
     var selectedSemesterString = "..."
     
+    var tmpSelectedCourses: TmpSelectedCourses!
+    var tmpSelectedSemesters: TmpSelectedSemesters!
+    var tmpSelectedLectures: TmpSelectedLectures!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tmpSelectedCourses = TmpSelectedCourses()
+        tmpSelectedSemesters = TmpSelectedSemesters()
+        tmpSelectedLectures = TmpSelectedLectures()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,11 +57,6 @@ class SettingsTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
@@ -120,5 +123,18 @@ class SettingsTableViewController: UITableViewController {
             UIApplication.shared.open(openSettingsUrl!, options: [:], completionHandler: nil)
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "SettingsToCourses") {
+            let vc = segue.destination as! CourseTableViewController
+            
+        }else if (segue.identifier == "SettingsToSemesters"){
+            let vc = segue.destination as! SemesterTableViewController
+            
+        }else if (segue.identifier == "SettingsToLectures"){
+            let vc = segue.destination as! LecturesTableViewController
+            
         }
+    }
 }
