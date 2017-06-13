@@ -13,6 +13,12 @@ class LectureController: NSObject, DataObserverProtocol {
     var myJobManager : JobManager = JobManager()
 
     var tmpSelectedLectures : TmpSelectedLectures
+    
+    init (tmpSelectedLectures: TmpSelectedLectures)
+    {
+      
+        self.tmpSelectedLectures = tmpSelectedLectures
+    }
 
     
     
