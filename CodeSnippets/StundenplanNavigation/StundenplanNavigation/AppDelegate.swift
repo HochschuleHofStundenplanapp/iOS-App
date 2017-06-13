@@ -8,7 +8,6 @@
 
 import UIKit
 import EventKit
-import UserNotifications
 
 
 @UIApplicationMain
@@ -59,27 +58,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
     
     var scheduleChangesController : ScheduleChangesController!
     
+    var handler: (UIBackgroundFetchResult) -> Void = {_ in}
+    
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        //Setup for downloading new Changes
-//        scheduleChangesController = ScheduleChangesController()
-//        scheduleChangesController.addNewObserver(o: self)
-//        scheduleChangesController.handleAllChanges()
+        handler = completionHandler
         
+        //Setup for downloading new Changes
+        scheduleChangesController = ScheduleChangesController()
+        scheduleChangesController.addNewObserver(o: self)
+        scheduleChangesController.handleAllChanges()
+        
+
     }
     
     func update(s: String?) {
         print ( "Changes geladen")
 
+        //Test
+//        handler(UIBackgroundFetchResult.newData)
+        return
+        
+        
         if ServerData.sharedInstance.lastAllChanges.count != ServerData.sharedInstance.allChanges.count && ServerData.sharedInstance.allChanges.count > 0{
         
             //New Changes are available
-            let ResultChanges = compareChanges(oldChanges: ServerData.sharedInstance.lastAllChanges, newChanges: ServerData.sharedInstance.allChanges)
+            let ResultChanges = ChangesController().compareChanges(oldChanges: ServerData.sharedInstance.lastAllChanges, newChanges: ServerData.sharedInstance.allChanges)
             
-            let todayChanges = determineTodaysChanges(changedLectures: ResultChanges)
+            let todayChanges = ChangesController().determineTodaysChanges(changedLectures: ResultChanges)
             
             if ResultChanges.count > 0 {
-                self.makeNotification(changesAmount: ResultChanges.count, todayChangesAmount: todayChanges.count)
+                NotificationInterface().makeNotification(changesAmount: ResultChanges.count, todayChangesAmount: todayChanges.count)
                 
                 //Hier könnte ein Badge gesetzt werden!
                 
@@ -89,7 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
             
             self.updateCalendar()
             
-//            completionHandler(UIBackgroundFetchResult.newData)
         }
     }
     
@@ -97,125 +105,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
 //        Settings.sharedInstance.savedChanges.sort()
 //        if Settings.sharedInstance.savedCalSync {
 //            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-//                CalendarInterface.sharedInstance.updateAllEvents(changes: Settings.sharedInstance.savedChanges)
+//                CalendarInterface.sharedInstance.updateAllEvents(changes: ServerData.sharedInstance.allChanges)
 //            }
 //        }
     }
     
-    
-    //In Notification Klasse auslagern++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    func makeNotification(changesAmount : Int, todayChangesAmount: Int){
-        let content = UNMutableNotificationContent()
-        
-        var titleAmount = ""
-        switch changesAmount {
-        case 1:
-            titleAmount = "eine"
-        case 2:
-            titleAmount = "zwei"
-        case 3:
-            titleAmount = "drei"
-        default:
-            titleAmount = "mehrere"
-        }
-        
-        var title = ""
-        
-        if titleAmount == "eine"{
-            title = "Es gibt \(titleAmount) neue Stundenplanänderung"
-        } else {
-            title = "Es gibt \(titleAmount) neue Stundenplanänderungen"
-        }
-        
-        
-        var descriptionAmount = ""
-        switch todayChangesAmount {
-        case 0:
-            descriptionAmount = "keine"
-        case 1:
-            descriptionAmount = "eine"
-        case 2:
-            descriptionAmount = "zwei"
-        case 3:
-            descriptionAmount = "drei"
-        default:
-            descriptionAmount = "mehrere"
-        }
-        
-        var description = ""
-        
-        if descriptionAmount == "eine"{
-            description = "Davon \(descriptionAmount) heute"
-        } else {
-            description = "Davon \(descriptionAmount) heute"
-        }
-        
-        
-        content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: description, arguments: nil)
-        
-        var dateInfo = DateComponents()
-        dateInfo.second  = 10
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "ChangesReminder", content: content, trigger: trigger)
-        
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error : Error?) in
-            if let theError = error {
-                print(theError.localizedDescription)
-            }
-        }
-    }
-    //In Notification Klasse auslagern++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-    
-    //In Changes Zugriffsschicht auslagern------------------------------------------------------------------------------
-    func compareChanges(oldChanges: [ChangedLecture], newChanges: [ChangedLecture]) -> [ChangedLecture]{
-        
-        var resultChanges = [ChangedLecture]()
-        
-        for newChange in newChanges{
-            var isNewChangedLecture = true
-            for oldChange in oldChanges{
-                if compareChangesDetails(chLecture: newChange, chLecture2: oldChange){
-                    isNewChangedLecture = false
-                }
-            }
-            if isNewChangedLecture{
-                resultChanges.append(newChange)
-            }
-        }
-        
-        return resultChanges
-        
-    }
-    private func compareChangesDetails(chLecture : ChangedLecture, chLecture2 : ChangedLecture) -> Bool {
-        
-        return (chLecture2.name == chLecture.name) && (chLecture2.oldRoom == chLecture.oldRoom) && (chLecture2.oldDay == chLecture.oldDay) && (chLecture2.newTime == chLecture.newTime) && (chLecture2.group == chLecture.group)
-    }
-    
-    func determineTodaysChanges(changedLectures: [ChangedLecture]) -> [ChangedLecture]{
-    
-        let date = Date()
-        var todayChanges = [ChangedLecture]()
-    
-        for change in changedLectures{
-            let calendar = Calendar.current
-            let currentMonth = calendar.component(.month, from: date)
-            let currentDay = calendar.component(.day, from: date)
-            
-            let oldMonth = calendar.component(.month, from: change.oldDate)
-            let oldDay = calendar.component(.day, from: change.oldDate)
-            
-            if currentMonth == oldMonth && currentDay == oldDay {
-                todayChanges.append(change)
-            }
-        }
-        
-        return todayChanges
-    }
-    //In Changes Zugriffsschicht auslagern------------------------------------------------------------------------------
 }
 
