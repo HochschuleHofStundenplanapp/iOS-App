@@ -66,13 +66,49 @@ class JsonLectures: NSObject {
             
             var newStartDate = dateFormatter.date(from: startd + " " + startt)
             var newEndDate = dateFormatter.date(from: endd  + " " + endt)
+        
+            let ai = ArtificialIntelligence()
             
-            let season = UserData.sharedInstance.selectedSeason
-            newStartDate = newStartDate?.startLecture(startDate: newStartDate!,weekdayString: day, semester: season)
-            newEndDate = newEndDate?.endLecture(endDate: newEndDate!, weekdayString: day, semester: season)
+            let iteration = ai.iterationOfLecture(comment: comment, start: newStartDate!, end: newEndDate!)
             
-            let iteration = iterationState.weekly
+            if iteration != iterationState.notParsable && iteration != iterationState.individualDate {
 
+                let period = ai.checkPeriod(comment: comment)
+                
+                var aiStart = ai.checkStart(comment: comment)
+                var aiEnd = ai.checkEnd(comment: comment)
+                let season = UserData.sharedInstance.selectedSeason
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yyyy"
+                dateFormatter.locale = Locale(identifier: "de_DE")
+                
+                if period != ("", ""){
+                    aiStart = period.0
+                    aiEnd = period.1
+                }
+
+                if aiStart != "" {
+                    if Int(aiStart) != nil {
+                        newStartDate = newStartDate?.calendarweekToDate(day: day, cw: Int(aiStart)!, date: newStartDate!)
+                    } else if dateFormatter.date(from: aiStart) != nil {
+                        newStartDate = newStartDate?.combineDateAndTime(date: dateFormatter.date(from: aiStart)!, time: newStartDate!)
+                    }
+                } else {
+                    newStartDate = newStartDate?.startLecture(startDate: newStartDate!,weekdayString: day, semester: season)
+                }
+                
+                if aiEnd != "" {
+                    if Int(aiEnd) != nil {
+                        newEndDate = newEndDate?.calendarweekToDate(day: day, cw: Int(aiEnd)!, date: newEndDate!)
+                    } else if dateFormatter.date(from: aiEnd) != nil {
+                        newEndDate = newEndDate?.combineDateAndTime(date: dateFormatter.date(from: aiEnd)!, time: newEndDate!)
+                    }
+                } else {
+                    newEndDate = newEndDate?.endLecture(endDate: newEndDate!,weekdayString: day, semester: season)
+                }
+            }
+            
             let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration)
           
             pLectures?.append(lecture)
