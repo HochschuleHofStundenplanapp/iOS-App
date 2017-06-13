@@ -25,6 +25,7 @@ class Lecture: NSObject, NSCoding {
     var semester: Semester
     var comment : String
     var iteration : iterationState
+    var kwDates : [Date]
     let keyKey = "lectureKey"
     let idKey = "lectureId"
     let splusnameKey = "lectureSplusname"
@@ -41,8 +42,9 @@ class Lecture: NSObject, NSCoding {
     let semesterKey = "lectureSemester"
     let commentKey = "lectureComment"
     let iterationKey = "lectureIteration"
+    let kwDatesKey = "kwDates"
     
-    init(id: Int, splusname: String, name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: iterationState) {
+    init(id: Int, splusname: String, name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: iterationState, kwDates: [Date]) {
         self.key = splusname + semester.name + semester.course.contraction
         self.id = id
         self.splusname = splusname
@@ -58,6 +60,7 @@ class Lecture: NSObject, NSCoding {
         self.semester = semester
         self.comment = comment
         self.iteration = iteration
+        self.kwDates = kwDates
     }
     
     var startTime: Date {
@@ -108,6 +111,7 @@ class Lecture: NSObject, NSCoding {
         semester = aDecoder.decodeObject(forKey: semesterKey) as! Semester
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
         iteration = iterationState(rawValue: Int(aDecoder.decodeInteger(forKey: iterationKey)))!
+        kwDates = aDecoder.decodeObject(forKey: kwDatesKey) as! [Date]
         super.init()
     }
     
@@ -127,6 +131,7 @@ class Lecture: NSObject, NSCoding {
         aCoder.encode(semester, forKey: semesterKey)
         aCoder.encode(comment, forKey: commentKey)
         aCoder.encode(iteration.rawValue, forKey: iterationKey)
+        aCoder.encode(kwDates, forKey: kwDatesKey)
     }
     
     override func isEqual(_ object: Any?) -> Bool {

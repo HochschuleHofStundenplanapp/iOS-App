@@ -59,6 +59,7 @@ class JsonLectures: NSObject {
             let comment = (i["comment"]?.string)!
             
             let newId = Int(id)
+            var dateArray : [Date] = []
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
@@ -70,6 +71,16 @@ class JsonLectures: NSObject {
             let ai = ArtificialIntelligence()
             
             let iteration = ai.iterationOfLecture(comment: comment, start: newStartDate!, end: newEndDate!)
+            
+            if iteration == iterationState.calendarWeeks {
+                
+                let calendarWeeks = ai.calendarWeekArray
+                
+                for cw in calendarWeeks {
+                    let date = newStartDate?.calendarweekToDate(day: day, cw: cw, date: newStartDate!)
+                    dateArray.append(date!)
+                }
+            }
             
             if iteration != iterationState.notParsable && iteration != iterationState.individualDate {
 
@@ -109,7 +120,10 @@ class JsonLectures: NSObject {
                 }
             }
             
-            let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration)
+            dump(dateArray)
+            print(comment)
+            
+            let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration, kwDates: dateArray)
           
             pLectures?.append(lecture)
         }
