@@ -11,6 +11,10 @@ import UIKit
 class LectureController: NSObject, DataObserverProtocol {
     
     var myJobManager : JobManager = JobManager()
+
+    var tmpSelectedLectures : TmpSelectedLectures
+
+    
     
     func loadAllLectures() -> Void {
         
@@ -67,22 +71,22 @@ class LectureController: NSObject, DataObserverProtocol {
     
     func selectAllLectures() {
         let allLectures = AllLectures().getLectures()
-        TmpSelectedLectures().set(lectures: allLectures)
+        tmpSelectedLectures.set(lectures: allLectures)
     }
     
     func deselectAllLectures(){
-        TmpSelectedLectures().clear()
+        tmpSelectedLectures.clear()
     }
     
     func toggleLecture(at indexPath: IndexPath) {
         
         let clickedLecture = AllLectures().getElement(at: indexPath)
         
-        if TmpSelectedLectures().contains(lecture: clickedLecture){
+        if tmpSelectedLectures.contains(lecture: clickedLecture){
             let indexPath = TmpSelectedLectures().getIndexPath(for: clickedLecture)
-            TmpSelectedLectures().remove(at: indexPath)
+            tmpSelectedLectures.remove(at: indexPath)
         } else {
-            TmpSelectedLectures().add(lecture: clickedLecture)
+            tmpSelectedLectures.add(lecture: clickedLecture)
         }
     }
     

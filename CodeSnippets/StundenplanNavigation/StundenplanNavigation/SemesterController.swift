@@ -10,20 +10,37 @@ import UIKit
 
 class SemesterController: NSObject {
 
+    
+    
+    
+    var tmpSelectedLectures : TmpSelectedLectures
+    var tmpSelectedSemesters : TmpSelectedSemesters
+    
+    
+    init (tmpSelectedLectures: TmpSelectedLectures, tmpSelectedSemesters : TmpSelectedSemesters)
+    {
+                self.tmpSelectedLectures = tmpSelectedLectures
+        self.tmpSelectedSemesters = tmpSelectedSemesters
+    }
+    
+    
     func toggleSemester(at indexPath: IndexPath) {
+        
+        
+
         
         let clickedSemester = TmpSelectedSemesters().semester(at: indexPath)
         
-        if TmpSelectedSemesters().contains(semester: clickedSemester) {
+        if tmpSelectedSemesters.contains(semester: clickedSemester) {
             
             //Semester deselektieren
-            TmpSelectedSemesters().remove(semester: clickedSemester)
+            tmpSelectedSemesters.remove(semester: clickedSemester)
             
             //Entfernen zugehörige Vorlesungen
-            TmpSelectedLectures().removeLectures(for: clickedSemester)
+            tmpSelectedLectures.removeLectures(for: clickedSemester)
         }else{
             //Selektiertes Semester speichern 
-            TmpSelectedSemesters().append(semester: clickedSemester)
+            tmpSelectedSemesters.append(semester: clickedSemester)
         }
     }
 }
