@@ -28,11 +28,11 @@ class AllChanges: NSObject {
     
     func append(chLectures : [ChangedLecture]) {
         
-        //Check chLecture duplicates
-
-        
         for lec in chLectures{
-            serverData.allChanges.append(lec)
+            //Check chLecture duplicates
+            if !serverData.allChanges.contains(lec){
+                serverData.allChanges.append(lec)
+            }
         }
     }
     

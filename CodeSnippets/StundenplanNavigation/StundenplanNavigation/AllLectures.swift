@@ -28,20 +28,13 @@ class AllLectures: NSObject {
     
     func append(lectures : [Lecture]) {
         
-        var newLectureList : [Lecture] = []
-        
-        //Check lecture duplicates
-        for lecture in lectures{
-            for lecture2 in lectures{
-                if lecture == lecture2{
-                    
-                }
-            }
-        }
-        
         for lec in lectures{
             let dayIndex = Constants.weekDays.index(of: lec.day)!
-            serverData.schedule.add(lecture: lec, at: dayIndex)
+            
+            //Check lecture duplicates
+            if !serverData.schedule.lectures[dayIndex].contains(lec) {
+                serverData.schedule.add(lecture: lec, at: dayIndex)
+            }
         }
     }
     

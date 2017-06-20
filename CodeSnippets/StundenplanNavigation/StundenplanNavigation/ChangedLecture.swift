@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChangedLecture {
+class ChangedLecture: NSObject {
     
     var id: Int
     var name: String
@@ -90,5 +90,14 @@ class ChangedLecture {
             
             return end
         }
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        return self == object as! ChangedLecture
+    }
+    
+    static func == (lhs: ChangedLecture, rhs: ChangedLecture) -> Bool {
+
+        return (lhs.id == rhs.id)
     }
 }
