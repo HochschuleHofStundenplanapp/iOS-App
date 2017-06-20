@@ -12,16 +12,17 @@ class PopUpMenueViewController: UIViewController {
     
     var lecturesTableViewController : LecturesTableViewController!
     var lecturesDelegate: LecturesTableViewDelegate!
+    var lectureController: LectureController!
     @IBOutlet var stroke: UIView!
     
     @IBAction func selectAllButton(_ sender: Any) {
-        LectureController().selectAllLectures()
+        lectureController.selectAllLectures()
         self.lecturesTableViewController.lectureTableView.reloadData()
         self.dismiss(animated: true) { }
     }
     
     @IBAction func deSelectAll(_ sender: Any) {
-        LectureController().deselectAllLectures()
+        lectureController.deselectAllLectures()
         self.lecturesTableViewController.lectureTableView.reloadData()
         self.dismiss(animated: true) { }
     }

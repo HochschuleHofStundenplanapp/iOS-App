@@ -10,6 +10,12 @@ import UIKit
 
 class SemesterTableViewDelegate: NSObject, UITableViewDelegate {
     
+    var semesterController: SemesterController!
+    
+    init(semesterController: SemesterController){
+        self.semesterController = semesterController
+    }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
@@ -18,7 +24,7 @@ class SemesterTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _ = SemesterController().toggleSemester(at: indexPath)
+        semesterController.toggleSemester(at: indexPath)
         tableView.reloadData()
     }
 }

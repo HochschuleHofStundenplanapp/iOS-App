@@ -10,19 +10,14 @@ import UIKit
 
 class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
     
-    
-    
     var tmpSelectedCourses : TmpSelectedCourses
     var tmpSelectedSemesters : TmpSelectedSemesters
    
-    init (tmpSelectedCourses: TmpSelectedCourses, tmpSelectedSemesters: TmpSelectedSemesters)
-    {
+    init (tmpSelectedCourses: TmpSelectedCourses, tmpSelectedSemesters: TmpSelectedSemesters){
         self.tmpSelectedCourses = tmpSelectedCourses
         self.tmpSelectedSemesters = tmpSelectedSemesters
-        
     }
 
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SemesterCell")!

@@ -10,15 +10,6 @@ import UIKit
 
 class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
 
-    var lastLectureGroup : (courseInfo : String, semInfo : String)
-    var hightLightLine : Bool
-    
-    override init() {
-        lastLectureGroup.courseInfo = ""
-        lastLectureGroup.semInfo = ""
-        hightLightLine = false
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         

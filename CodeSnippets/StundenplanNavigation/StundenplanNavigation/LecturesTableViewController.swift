@@ -16,11 +16,15 @@ class LecturesTableViewController: UITableViewController {
     var delegate: LecturesTableViewDelegate!
     var lectureController: LectureController!
     
+    var tmpSelectedLectures : TmpSelectedLectures!
+    
     var popUpMenueVC : PopUpMenueViewController!
     var popUpMenueDelegate : PopUpMenueDelegate = PopUpMenueDelegate()
     
     @IBAction func selectAllCells(_ sender: UIBarButtonItem) {
         let popUpVC = storyboard?.instantiateViewController(withIdentifier: "popUpMenue") as! PopUpMenueViewController
+        popUpVC.lectureController = lectureController
+        
         popUpVC.setMainViewController(lecturesTableViewController: self)
         popUpVC.modalPresentationStyle = .popover
         popUpVC.preferredContentSize = CGSize(width: 160, height: 100)
@@ -41,12 +45,12 @@ class LecturesTableViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = UIColor.white
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
-        lectureController = LectureController()
+        lectureController = LectureController(tmpSelectedLectures: tmpSelectedLectures)
         
         dataSource = LecturesTableViewDataSource()
         lectureTableView.dataSource = dataSource
         
-        delegate = LecturesTableViewDelegate()
+        delegate = LecturesTableViewDelegate(lectureController: lectureController)
         lectureTableView.delegate = delegate
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .lecturesDownloadEnded, object: nil )

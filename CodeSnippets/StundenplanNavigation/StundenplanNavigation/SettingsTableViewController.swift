@@ -127,14 +127,21 @@ class SettingsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SettingsToCourses") {
+            
             let vc = segue.destination as! CourseTableViewController
-            
+            vc.tmpSelectedCourses = tmpSelectedCourses
+            vc.tmpSelectedSemesters = tmpSelectedSemesters
+            vc.tmpSelectedLectures = tmpSelectedLectures
         }else if (segue.identifier == "SettingsToSemesters"){
+            
             let vc = segue.destination as! SemesterTableViewController
-            
+            vc.tmpSelectedCourses = tmpSelectedCourses
+            vc.tmpSelectedSemesters = tmpSelectedSemesters
+            vc.tmpSelectedLectures = tmpSelectedLectures
         }else if (segue.identifier == "SettingsToLectures"){
-            let vc = segue.destination as! LecturesTableViewController
             
+            let vc = segue.destination as! LecturesTableViewController
+            vc.tmpSelectedLectures = tmpSelectedLectures
         }
     }
 }

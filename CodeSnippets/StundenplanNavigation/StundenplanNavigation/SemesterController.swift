@@ -10,24 +10,15 @@ import UIKit
 
 class SemesterController: NSObject {
 
-    
-    
-    
     var tmpSelectedLectures : TmpSelectedLectures
     var tmpSelectedSemesters : TmpSelectedSemesters
     
-    
-    init (tmpSelectedLectures: TmpSelectedLectures, tmpSelectedSemesters : TmpSelectedSemesters)
-    {
-                self.tmpSelectedLectures = tmpSelectedLectures
+    init (tmpSelectedLectures: TmpSelectedLectures, tmpSelectedSemesters : TmpSelectedSemesters){
+        self.tmpSelectedLectures = tmpSelectedLectures
         self.tmpSelectedSemesters = tmpSelectedSemesters
     }
     
-    
     func toggleSemester(at indexPath: IndexPath) {
-        
-        
-
         
         let clickedSemester = TmpSelectedSemesters().semester(at: indexPath)
         

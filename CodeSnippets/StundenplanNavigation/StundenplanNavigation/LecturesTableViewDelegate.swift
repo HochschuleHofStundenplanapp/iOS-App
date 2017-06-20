@@ -10,6 +10,12 @@ import UIKit
 
 class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     
+    let lectureController: LectureController
+    
+    init(lectureController: LectureController){
+        self.lectureController = lectureController
+    }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
 //        header.contentView.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
@@ -18,7 +24,7 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _ = LectureController().toggleLecture(at: indexPath)
+        lectureController.toggleLecture(at: indexPath)
         tableView.reloadData()
     }
     
