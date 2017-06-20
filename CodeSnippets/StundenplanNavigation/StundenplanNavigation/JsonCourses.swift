@@ -57,6 +57,8 @@ class JsonCourses {
                 allSemesters.append(tmpSem)
             }
     
+            allSemesters.sort(){$0.name < $1.name}
+            
             course.semesters = allSemesters
             
             pCourses?.append(course)

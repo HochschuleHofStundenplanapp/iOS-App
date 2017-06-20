@@ -65,8 +65,9 @@ class LectureController: NSObject, DataObserverProtocol {
             }
             
             AllLectures().append(lectures: (JsonLectures(data: data, semester: selectedSemesters[index])?.lectures!)!)
-            
         }
+        AllLectures().sort()
+
         self.notifyDownlaodEnded()
     }
     

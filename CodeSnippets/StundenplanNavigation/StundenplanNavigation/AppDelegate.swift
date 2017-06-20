@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
                                                                                   categories: nil))
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
+        UIApplication.shared.applicationIconBadgeNumber = 5
+        
         return true
     }
 
@@ -91,6 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
                 NotificationInterface().makeNotification(changesAmount: ResultChanges.count, todayChangesAmount: todayChanges.count)
                 
                 //Hier könnte ein Badge gesetzt werden!
+                UIApplication.shared.applicationIconBadgeNumber = ResultChanges.count
+                
                 
             } else{
                 print("No Notification")

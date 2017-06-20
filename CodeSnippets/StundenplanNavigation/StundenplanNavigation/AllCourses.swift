@@ -20,4 +20,8 @@ class AllCourses: NSObject {
     {
         return serverData.allCourses.count
     }
+    
+    func sort(){
+            serverData.allCourses.sort(by: {$0.nameDe < $1.nameDe})
+    }
 }

@@ -32,7 +32,8 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
         
-
+        //Entfernen des Badges
+        UIApplication.shared.applicationIconBadgeNumber = 0
     
     }
     
