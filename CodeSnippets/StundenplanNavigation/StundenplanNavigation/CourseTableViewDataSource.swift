@@ -9,7 +9,13 @@
 import UIKit
 
 class CourseTableViewDataSource: NSObject, UITableViewDataSource {
-        
+    
+    var tmpSelectedCourses : TmpSelectedCourses
+    
+    init (tmpSelectedCourses: TmpSelectedCourses){
+        self.tmpSelectedCourses = tmpSelectedCourses
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell")!
         
@@ -17,7 +23,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
         
         cell.textLabel?.text = "\(course.nameDe)"
         
-        if SelectedCourses().contains(course: course) {
+        if tmpSelectedCourses.contains(course: course) {
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none

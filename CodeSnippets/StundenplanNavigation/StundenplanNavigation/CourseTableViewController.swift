@@ -26,7 +26,7 @@ class CourseTableViewController: UITableViewController {
         
         courseController = CourseController(tmpSelectedCourses: self.tmpSelectedCourses, tmpSelectedSemesters: self.tmpSelectedSemesters, tmpSelectedLectures: self.tmpSelectedLectures)
         
-        datasource = CourseTableViewDataSource()
+        datasource = CourseTableViewDataSource(tmpSelectedCourses: tmpSelectedCourses)
         delegate = CourseTableViewDelegate(courseController: courseController)
         
         tableView.dataSource = datasource

@@ -10,6 +10,12 @@ import UIKit
 
 class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
 
+    var tmpSelectedLectures: TmpSelectedLectures
+    
+    init(tmpSelectedLectures: TmpSelectedLectures){
+        self.tmpSelectedLectures = tmpSelectedLectures
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         
@@ -33,7 +39,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         
         cell.timeLabel.text = startTimeString + " - " + endTimeString
         
-        if SelectedLectures().contains(lecture: lecture) {
+        if tmpSelectedLectures.contains(lecture: lecture) {
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none

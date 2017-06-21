@@ -26,7 +26,7 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         
         cell.textLabel?.text = semester.name
         
-        if SelectedSemesters().contains(semester: semester) {
+        if tmpSelectedSemesters.contains(semester: semester) {
             cell.accessoryType = .checkmark
         }else{
             cell.accessoryType = .none

@@ -47,7 +47,7 @@ class LecturesTableViewController: UITableViewController {
         
         lectureController = LectureController(tmpSelectedLectures: tmpSelectedLectures)
         
-        dataSource = LecturesTableViewDataSource()
+        dataSource = LecturesTableViewDataSource(tmpSelectedLectures: tmpSelectedLectures)
         lectureTableView.dataSource = dataSource
         
         delegate = LecturesTableViewDelegate(lectureController: lectureController)
