@@ -54,8 +54,15 @@ class LecturesViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
+
         NotificationCenter.default.removeObserver(self)
         lectureController.cancelLoading()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+
     }
     
     func downloadEnded(){

@@ -844,7 +844,7 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
             </objects>
             <point key="canvasLocation" x="3560.8000000000002" y="2442.7286356821592"/>
         </scene>
-        <!--Lectures View Controller-->
+        <!--Vorlesungen-->
         <scene sceneID="ePk-gL-DIc">
             <objects>
                 <viewController id="y0e-hV-S2u" customClass="LecturesViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -924,9 +924,8 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXS-dp-UUB">
-                                <rect key="frame" x="41" y="67" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXS-dp-UUB">
+                                <rect key="frame" x="43" y="67" width="104" height="30"/>
                                 <state key="normal" title="Alle Auswählen">
                                     <color key="titleColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -934,9 +933,8 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                                     <action selector="selectAllButton:" destination="y0e-hV-S2u" eventType="touchUpInside" id="wze-HQ-AiD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLR-Y4-wdz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLR-Y4-wdz">
                                 <rect key="frame" x="235" y="67" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Alle Abwählen">
                                     <color key="titleColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -948,14 +946,19 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FsO-Jo-FHv" secondAttribute="trailing" id="1z9-EW-ZZz"/>
+                            <constraint firstItem="VXS-dp-UUB" firstAttribute="leading" secondItem="nVz-0q-mIL" secondAttribute="leadingMargin" constant="27" id="N89-LE-Jwb"/>
                             <constraint firstItem="HCO-mY-Aov" firstAttribute="top" secondItem="0OY-fS-kGO" secondAttribute="bottom" id="QGA-vD-Pij"/>
+                            <constraint firstItem="VXS-dp-UUB" firstAttribute="top" secondItem="0OY-fS-kGO" secondAttribute="bottom" constant="3" id="Wvr-ow-2o9"/>
                             <constraint firstAttribute="trailing" secondItem="HCO-mY-Aov" secondAttribute="trailing" id="Zjo-UF-kAs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rLR-Y4-wdz" secondAttribute="trailing" constant="27" id="Zv1-N8-L5P"/>
                             <constraint firstItem="HCO-mY-Aov" firstAttribute="leading" secondItem="nVz-0q-mIL" secondAttribute="leading" id="a8n-e9-bIV"/>
                             <constraint firstAttribute="bottom" secondItem="FsO-Jo-FHv" secondAttribute="bottom" id="abO-7k-plf"/>
                             <constraint firstItem="FsO-Jo-FHv" firstAttribute="top" secondItem="nVz-0q-mIL" secondAttribute="top" constant="98" id="ap2-Jf-vod"/>
                             <constraint firstItem="FsO-Jo-FHv" firstAttribute="leading" secondItem="nVz-0q-mIL" secondAttribute="leading" id="iap-Zc-Fp3"/>
+                            <constraint firstItem="rLR-Y4-wdz" firstAttribute="top" secondItem="0OY-fS-kGO" secondAttribute="bottom" constant="3" id="vJS-so-2H7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Vorlesungen" id="gW1-1C-iRF"/>
                     <connections>
                         <outlet property="lectureTableView" destination="FsO-Jo-FHv" id="iPX-Cn-4h0"/>
                     </connections>
