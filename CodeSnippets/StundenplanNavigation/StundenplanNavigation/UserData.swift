@@ -25,4 +25,13 @@ class UserData: NSObject {
     
     static var sharedInstance = UserData()
     private override init(){ }
+    
+    override func copy() -> Any {
+        let copy = UserData()
+        copy.selectedSeason = selectedSeason
+        copy.selectedCourses = selectedCourses
+        copy.selectedSemesters = selectedSemesters
+        copy.selectedSchedule = selectedSchedule.copy() as! Schedule
+        return copy
+    }
 }

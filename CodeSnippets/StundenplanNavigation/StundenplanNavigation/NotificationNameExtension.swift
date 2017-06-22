@@ -12,5 +12,7 @@ extension Notification.Name {
     
     static let coursesDownloadEnded =  Notification.Name("courseDownloadEnded")
     static let lecturesDownloadEnded = Notification.Name("LecturesDownloadEnded")
+    static let coursesDownloadFailed =  Notification.Name("coursesDownloadFailed")
+    static let lecturesDownloadFailed = Notification.Name("lecturesDownloadFailed")
     static let calendarSyncChanged =   Notification.Name("calendarSyncChanged")
 }

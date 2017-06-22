@@ -15,17 +15,15 @@ class CourseController: NSObject, DataObserverProtocol {
     var tmpSelectedCourses : TmpSelectedCourses
     var tmpSelectedSemesters : TmpSelectedSemesters
     var tmpSelectedLectures : TmpSelectedLectures
-    
-    
-    
-    init (tmpSelectedCourses: TmpSelectedCourses, tmpSelectedSemesters: TmpSelectedSemesters, tmpSelectedLectures: TmpSelectedLectures)
-    {
+
+    init (tmpSelectedCourses: TmpSelectedCourses, tmpSelectedSemesters: TmpSelectedSemesters, tmpSelectedLectures: TmpSelectedLectures){
         self.tmpSelectedCourses = tmpSelectedCourses
         self.tmpSelectedSemesters = tmpSelectedSemesters
         self.tmpSelectedLectures = tmpSelectedLectures
     }
     
     func loadAllCourses() -> Void {
+        AllCourses().clear()
         
         self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
@@ -41,7 +39,6 @@ class CourseController: NSObject, DataObserverProtocol {
     
     func toggleCourse(at indexPath: IndexPath) {
         
-//        let clickedCourse = ServerData.sharedInstance.allCourses[indexPath.row]
         let clickedCourse = AllCourses().course(at: indexPath)
         
         if tmpSelectedCourses.contains(course: clickedCourse) {
@@ -63,6 +60,10 @@ class CourseController: NSObject, DataObserverProtocol {
         NotificationCenter.default.post(name: .coursesDownloadEnded , object: nil)
     }
     
+    func notifyDownloadFailed(){
+        NotificationCenter.default.post(name: .coursesDownloadFailed , object: nil)
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -74,18 +75,27 @@ class CourseController: NSObject, DataObserverProtocol {
     {
         let dataArray = o as! [(Data?, Error?)]
         
-        for dataObject in dataArray {
-            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
-            
-            if let error = dataObject.1{
-                // handle error
+        for errorObject in dataArray{
+            if let error = errorObject.1{
+                notifyDownloadFailed()
+                return
             }
+        }
+        
+        for dataObject in dataArray {
+//            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
+            
+//            if let error = dataObject.1{
+//                notifyDownloadFailed()
+//                return
+//                // handle error
+//            }
             
             guard let data = dataObject.0 else {
                 return
             }
             
-            ServerData.sharedInstance.allCourses = (JsonCourses(data: data)?.courses!)!
+            AllCourses().setCourses(courses: (JsonCourses(data: data)?.courses!)!)
         }
         notifyDownloadEnded()
     }
