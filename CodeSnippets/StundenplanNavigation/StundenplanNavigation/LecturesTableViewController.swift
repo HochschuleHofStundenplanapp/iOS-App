@@ -37,7 +37,6 @@ class LecturesTableViewController: UITableViewController {
         }
         present(popUpVC, animated: true, completion: nil)
         popUpMenueVC = popUpVC
-        
     }
     
     override func viewDidLoad() {
@@ -53,7 +52,8 @@ class LecturesTableViewController: UITableViewController {
         delegate = LecturesTableViewDelegate(lectureController: lectureController)
         lectureTableView.delegate = delegate
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .lecturesDownloadEnded, object: nil )
+        NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .lecturesDownloadEnded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showNoInternetAlert), name: .lecturesDownloadFailed, object: nil )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,12 +72,11 @@ class LecturesTableViewController: UITableViewController {
     }
     
     func showNoInternetAlert(){
-        let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
-            "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "Achtung", message:
+            "Keine Verbindung zum Internet. Bitte prüfen Sie ihre Internetverbindung.", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
         } ))
         self.present(alertController, animated: true, completion: nil)
-        
     }
     
     //Wird vom Delegate aus aufgerufen

@@ -33,6 +33,7 @@ class CourseTableViewController: UITableViewController {
         tableView.delegate = delegate
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .coursesDownloadEnded, object: nil )
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showNoInternetAlert), name: .coursesDownloadFailed, object: nil )
     }
     
     func downloadEnded(){
@@ -40,10 +41,9 @@ class CourseTableViewController: UITableViewController {
     }
     
     func showNoInternetAlert(){
-        let alertController = UIAlertController(title: "Internetverbindung fehlgeschlagen", message:
-            "Bitte verbinden Sie sich mit dem Internet", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "Achtung", message:
+            "Keine Verbindung zum Internet. Bitte prüfen Sie ihre Internetverbindung.", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
-            //Daten erneut laden
         } ))
         self.present(alertController, animated: true, completion: nil)
     }

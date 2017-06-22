@@ -53,12 +53,19 @@ class LectureController: NSObject, DataObserverProtocol {
         
         let selectedSemesters = TmpSelectedSemesters().allSemesters()
         
+        for errorObject in dataArray{
+            if let error = errorObject.1{
+                notifyDownlaodFailed()
+                return
+            }
+        }
+        
         for (index, element) in dataArray.enumerated() {
 //            print(String(data: element.0!, encoding: String.Encoding.utf8)! as String)
             
-            if let error = element.1{
-                // handle error
-            }
+//            if let error = element.1{
+//                // handle error
+//            }
             
             guard let data = element.0 else {
                 return
@@ -81,7 +88,6 @@ class LectureController: NSObject, DataObserverProtocol {
     }
     
     func toggleLecture(at indexPath: IndexPath) {
-        
         let clickedLecture = AllLectures().getElement(at: indexPath)
         
         if tmpSelectedLectures.contains(lecture: clickedLecture){
@@ -94,6 +100,10 @@ class LectureController: NSObject, DataObserverProtocol {
     
     func notifyDownlaodEnded(){
         NotificationCenter.default.post(name: .lecturesDownloadEnded , object: nil)
+    }
+    
+    func notifyDownlaodFailed(){
+        NotificationCenter.default.post(name: .lecturesDownloadFailed , object: nil)
     }
     
     deinit {

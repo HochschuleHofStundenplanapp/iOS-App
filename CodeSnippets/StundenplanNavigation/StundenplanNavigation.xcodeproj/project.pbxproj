@@ -242,8 +242,12 @@
 		BE3AB3A01EB1F761009A6D20 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */,
 				BE3AB3AA1EB1F7BF009A6D20 /* GetDataFromInternet.swift */,
+				BE3AB3B91EB20552009A6D20 /* JsonCourses.swift */,
 				BE3AB3AB1EB1F7BF009A6D20 /* JobManager.swift */,
+				BE14C94E1EC1B45700925EAC /* JsonLectures.swift */,
+				2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -452,10 +456,6 @@
 				654BFEB41ED427320023607D /* Interfaces */,
 				CED25BB71DD1C64700FE7D1C /* Lecture */,
 				CED25BB61DD1C63600FE7D1C /* Semester */,
-				BE3AB3B51EB202C7009A6D20 /* JsonParser.swift */,
-				2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */,
-				BE3AB3B91EB20552009A6D20 /* JsonCourses.swift */,
-				BE14C94E1EC1B45700925EAC /* JsonLectures.swift */,
 				BE3AB3A11EB1F77A009A6D20 /* Protocols */,
 				BE3AB3A01EB1F761009A6D20 /* Controller */,
 				BE4DF9121EB106ED00D6550C /* Model */,
