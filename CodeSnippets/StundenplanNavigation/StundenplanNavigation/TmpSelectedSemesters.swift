@@ -61,34 +61,27 @@ class TmpSelectedSemesters: NSObject {
         var res = ""
         var sep = ""
         
-        
-        var selCourses = userdata.selectedCourses
-        var semesters : [[Semester]] = []
-        
-        for i in 0..<selCourses.count{
-            semesters.append([Semester]())
-        }
-        
-        
-        for s in userdata.selectedSemesters
+        for course in userdata.selectedCourses
         {
+            var semesterList : [Semester] = []
+            for semester in userdata.selectedSemesters
+            {
+                if course.nameDe == semester.course.nameDe{
+                    semesterList.append(semester)
+                }
+            }
+            semesterList.sort(by: {$0.name < $1.name})
             
+            for sem in semesterList{
+                sep.append(sem.name+",")
+            }
+            if sep.characters.last == ","{
+                sep.remove(at: sep.index(before: sep.endIndex))
+            }
+            res.append(sep+"|")
+            sep = ""
         }
-        
-        
-        //            if ("" == "")
-        //            {
-        //                sep = ""
-        //            }
-        //            else if (s.course.contraction == "")
-        //            {
-        //                sep = ","
-        //            }
-        //            else {
-        //                sep = "|"
-        //            }
-        //            
-        //            res += sep + s.name
+        res.remove(at: res.index(before: res.endIndex))
 
         return res
     }
