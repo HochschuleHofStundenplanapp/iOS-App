@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
                                                                                   categories: nil))
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
-        UIApplication.shared.applicationIconBadgeNumber = 5
-        
         return true
     }
 

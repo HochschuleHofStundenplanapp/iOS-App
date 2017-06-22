@@ -140,7 +140,7 @@ class SettingsTableViewController: UITableViewController {
             vc.tmpSelectedLectures = tmpSelectedLectures
         }else if (segue.identifier == "SettingsToLectures"){
             
-            let vc = segue.destination as! LecturesTableViewController
+            let vc = segue.destination as! LecturesViewController
             vc.tmpSelectedLectures = tmpSelectedLectures
         }
     }
