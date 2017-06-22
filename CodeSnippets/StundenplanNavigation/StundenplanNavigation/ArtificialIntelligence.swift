@@ -164,27 +164,16 @@ class ArtificialIntelligence: NSObject {
                 stringToDelete.removeSubrange(tmpComment.startIndex..<startIndex.upperBound)
                 
                 for i in (0..<stringToDelete.characters.count) {
-                    var index = stringToDelete.index(stringToDelete.startIndex, offsetBy: i)
+                    let index = stringToDelete.index(stringToDelete.startIndex, offsetBy: i)
                     
-                    if stringToDelete.characters[index] == "-" {
-                        end = getNextCalendarWeekOrDate(comment: stringToDelete, keyword: "-", length: 3)
+                    if String(stringToDelete.characters[index]) == wrongPeriod {
+                        print(wrongPeriod)
+                        end = getNextCalendarWeekOrDate(comment: stringToDelete, keyword: wrongPeriod, length: 3)
                         if end != ""{
                             let endIndex = tmpComment.range(of: end)!
                             tmpComment.removeSubrange(startIndex.lowerBound..<endIndex.upperBound)
+                            
                             break
-                        }
-                    } else if stringToDelete.characters[index] == "b" {
-                        index = stringToDelete.index(stringToDelete.startIndex, offsetBy: i + 1)
-                        if stringToDelete.characters[index] == "i" {
-                            index = stringToDelete.index(stringToDelete.startIndex, offsetBy: i + 2)
-                            if stringToDelete.characters[index] == "s" {
-                                end = getNextCalendarWeekOrDate(comment: stringToDelete, keyword: "bis", length: 3)
-                                if end != ""{
-                                    let endIndex = tmpComment.range(of: end)!
-                                    tmpComment.removeSubrange(startIndex.lowerBound..<endIndex.upperBound)
-                                    break
-                                }
-                            }
                         }
                     }
                 }
@@ -246,18 +235,20 @@ class ArtificialIntelligence: NSObject {
         if tmpCommentLength < tmpLength {
             tmpLength = tmpCommentLength
         }
-        
-//        for i in (0..<2) {
-//            var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
-//            
-//            if tmpComment.characters[index] == "k" {
-//                index = tmpComment.index(tmpComment.startIndex, offsetBy: i + 1)
-//                
-//                if tmpComment.characters[index] == "w" {
-//                    tmpLength += 3
-//                }
-//            }
-//        }
+    
+        for i in (0..<2) {
+            if tmpCommentLength >= i && tmpCommentLength > 0{
+                var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
+                
+                if tmpComment.characters[index] == "k" && tmpCommentLength >= i + 1{
+                    index = tmpComment.index(tmpComment.startIndex, offsetBy: i + 1)
+                    
+                    if tmpComment.characters[index] == "w" {
+                        tmpLength += 3
+                    }
+                }
+            }
+        }
         
         for i in (0..<tmpLength) {
             let index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
@@ -274,7 +265,7 @@ class ArtificialIntelligence: NSObject {
                     if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
                         count += 5
                         
-                        if i + count > tmpCommentLength {
+                        if i + count >= tmpCommentLength {
                             return kw
                         }
                         
@@ -290,7 +281,7 @@ class ArtificialIntelligence: NSObject {
                         if dateFormatter.date(from: date) != nil {
                             count += 2
                             
-                            if i + count > tmpCommentLength {
+                            if i + count >= tmpCommentLength {
                                 return date
                             }
                             
@@ -352,7 +343,7 @@ class ArtificialIntelligence: NSObject {
                     kw += String(tmpComment.characters[newIndex])
                     count += 7
                     
-                    if i + count > tmpCommentLength {
+                    if i + count >= tmpCommentLength {
                         if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true {
                             kw = String(kw.characters.reversed())
                             return kw
@@ -362,7 +353,7 @@ class ArtificialIntelligence: NSObject {
                     }
                     
                     count += 2
-                    if i + count > tmpCommentLength {
+                    if i + count >= tmpCommentLength {
                         count -= 2
                     }
                     
@@ -411,10 +402,8 @@ class ArtificialIntelligence: NSObject {
         return ""
     }
 
-    
     private func cwExist(comment: String, position: Int) -> Bool{
         var length = 4
-        
         if position > 0 {
             length = 4
         }

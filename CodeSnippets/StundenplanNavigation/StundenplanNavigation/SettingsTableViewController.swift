@@ -35,6 +35,11 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        selectedLecturesLabel.text = ""
+        
+//        tmpSelectedCourses = TmpSelectedCourses()
+//        tmpSelectedSemesters = TmpSelectedSemesters()
+//        tmpSelectedLectures = TmpSelectedLectures()
         settingsController = SettingsController()
 //        tmpSelectedCourses = TmpSelectedCourses()
 //        tmpSelectedSemesters = TmpSelectedSemesters()
