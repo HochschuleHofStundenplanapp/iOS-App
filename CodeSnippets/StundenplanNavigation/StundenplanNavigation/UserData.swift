@@ -23,6 +23,9 @@ class UserData: NSObject {
     var savedSplusnames : [String] = [String]()//Auslagern
     var selectedSchedule: Schedule = Schedule()
     
+    var removedLectures: [Lecture] = []
+    var addedLectures: [Lecture] = []
+    
     static var sharedInstance = UserData()
     private override init(){ }
     
@@ -32,6 +35,9 @@ class UserData: NSObject {
         copy.selectedCourses = selectedCourses
         copy.selectedSemesters = selectedSemesters
         copy.selectedSchedule = selectedSchedule.copy() as! Schedule
+        
+        copy.removedLectures = removedLectures
+        copy.addedLectures = addedLectures
         return copy
     }
 }

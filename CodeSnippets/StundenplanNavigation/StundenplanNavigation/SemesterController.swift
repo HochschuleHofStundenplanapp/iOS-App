@@ -20,7 +20,7 @@ class SemesterController: NSObject {
     
     func toggleSemester(at indexPath: IndexPath) {
         
-        let clickedSemester = TmpSelectedSemesters().semester(at: indexPath)
+        let clickedSemester = tmpSelectedSemesters.semester(at: indexPath)
         
         if tmpSelectedSemesters.contains(semester: clickedSemester) {
             

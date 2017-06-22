@@ -10,7 +10,11 @@ import UIKit
 
 class TmpSelectedCourses: NSObject {
 
-    fileprivate var userdata = UserData.sharedInstance
+    fileprivate var userdata: UserData
+    
+    init(userdata: UserData){
+        self.userdata = userdata
+    }
     
     func numberOfEntries() -> Int {
         return userdata.selectedCourses.count

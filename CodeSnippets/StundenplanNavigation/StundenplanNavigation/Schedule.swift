@@ -57,4 +57,15 @@ class Schedule: NSObject {
         
         return false
     }
+    
+    func getOneDimensionalList() -> [Lecture]{        
+        var newList : [Lecture] = [Lecture]()
+        
+        for day in lectures{
+            for lecture in day{
+                newList.append(lecture)
+            }
+        }
+        return newList
+    }
 }
