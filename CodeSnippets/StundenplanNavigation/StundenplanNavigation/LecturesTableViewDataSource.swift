@@ -9,8 +9,13 @@
 import UIKit
 
 class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
-
+    
     var tmpSelectedLectures: TmpSelectedLectures
+    
+    var lastSemester :  String = ""
+    var myString : NSString = ""
+    var lastColor: UIColor = UIColor(red: 0,green: 0,blue: 0, alpha: 0.2)
+    
     
     init(tmpSelectedLectures: TmpSelectedLectures){
         self.tmpSelectedLectures = tmpSelectedLectures
@@ -20,10 +25,23 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LecturesCell")! as! LecturesTableViewCell
         
         let lecture = AllLectures().getElement(at: indexPath)
-//        let cellColor = computeIndexedBackgroundColor(currentPosition : indexPath)
         
-//        cell.backgroundColor = cellColor
-        cell.courseLabel.text = "\(lecture.semester.course.contraction) | \(lecture.name)"
+        
+        
+        
+        if(lecture.semester.course.contraction != "Sprache"){
+        myString  = "\(lecture.semester.course.contraction)\(lecture.semester.name) - \(lecture.name)" as NSString
+        }else
+        {
+            myString = "\(lecture.semester.course.contraction) - \(lecture.name)" as NSString
+  
+        }
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: myString as String)
+        myMutableString.addAttribute(NSForegroundColorAttributeName, value: lastColor, range: NSRange(location:0,length:myString.length - lecture.name.characters.count - 2))
+        
+        //lecture.semester.course.contraction.characters.count + lecture.semester.name.characters.count
+        cell.courseLabel.attributedText = myMutableString
         cell.docentLabel.text = lecture.lecturer
         cell.commentLabel.text = lecture.comment
         

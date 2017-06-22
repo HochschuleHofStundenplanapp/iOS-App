@@ -11,10 +11,13 @@ import UIKit
 class LectureController: NSObject, DataObserverProtocol {
     
     var myJobManager : JobManager = JobManager()
-    var tmpSelectedLectures : TmpSelectedLectures
     
-    init (tmpSelectedLectures: TmpSelectedLectures){
+    var tmpSelectedLectures : TmpSelectedLectures
+    var tmpSelectedSemesters : TmpSelectedSemesters
+    
+    init(tmpSelectedLectures: TmpSelectedLectures, tmpSelectedSemesters: TmpSelectedSemesters){
         self.tmpSelectedLectures = tmpSelectedLectures
+        self.tmpSelectedSemesters = tmpSelectedSemesters
     }
 
     func loadAllLectures() -> Void {
@@ -22,7 +25,7 @@ class LectureController: NSObject, DataObserverProtocol {
         AllLectures().clear()
         self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
-        let selectedSemesters = TmpSelectedSemesters().allSemesters()
+        let selectedSemesters = tmpSelectedSemesters.allSemesters()
         
         for semester in selectedSemesters.dropLast() {
             
@@ -51,7 +54,7 @@ class LectureController: NSObject, DataObserverProtocol {
         
         let dataArray = o as! [(Data?, Error?)]
         
-        let selectedSemesters = TmpSelectedSemesters().allSemesters()
+        let selectedSemesters = tmpSelectedSemesters.allSemesters()
         
         for errorObject in dataArray{
             if let error = errorObject.1{
@@ -62,10 +65,6 @@ class LectureController: NSObject, DataObserverProtocol {
         
         for (index, element) in dataArray.enumerated() {
 //            print(String(data: element.0!, encoding: String.Encoding.utf8)! as String)
-            
-//            if let error = element.1{
-//                // handle error
-//            }
             
             guard let data = element.0 else {
                 return
@@ -91,7 +90,7 @@ class LectureController: NSObject, DataObserverProtocol {
         let clickedLecture = AllLectures().getElement(at: indexPath)
         
         if tmpSelectedLectures.contains(lecture: clickedLecture){
-            let indexPath = TmpSelectedLectures().getIndexPath(for: clickedLecture)
+            let indexPath = tmpSelectedLectures.getIndexPath(for: clickedLecture)
             tmpSelectedLectures.remove(at: indexPath)
         } else {
             tmpSelectedLectures.add(lecture: clickedLecture)

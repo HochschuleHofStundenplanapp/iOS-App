@@ -10,7 +10,11 @@ import UIKit
 
 class TmpSelectedSemesters: NSObject {
 
-    fileprivate var userdata = UserData.sharedInstance
+    fileprivate var userdata: UserData
+    
+    init(userdata: UserData){
+        self.userdata = userdata
+    }
     
     func numberOfEntries(for section : Int) -> Int
     {
@@ -35,7 +39,7 @@ class TmpSelectedSemesters: NSObject {
     }
     
     func allSemesters() -> [Semester]{
-        return UserData.sharedInstance.selectedSemesters
+        return userdata.selectedSemesters
     }
     
     func removeSemester(with course: Course){
