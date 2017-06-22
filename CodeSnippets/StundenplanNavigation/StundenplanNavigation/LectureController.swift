@@ -92,8 +92,10 @@ class LectureController: NSObject, DataObserverProtocol {
         if tmpSelectedLectures.contains(lecture: clickedLecture){
             let indexPath = tmpSelectedLectures.getIndexPath(for: clickedLecture)
             tmpSelectedLectures.remove(at: indexPath)
+            
         } else {
             tmpSelectedLectures.add(lecture: clickedLecture)
+            
         }
     }
     

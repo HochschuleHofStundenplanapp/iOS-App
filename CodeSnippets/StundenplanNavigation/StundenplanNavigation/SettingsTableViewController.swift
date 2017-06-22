@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, UITabBarControllerDelegate {
     @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var syncSwitch: UISwitch!
@@ -27,6 +27,7 @@ class SettingsTableViewController: UITableViewController {
     
     var settingsController: SettingsController!
     
+    var oldTabIndex = 0
 //    var tmpSelectedCourses: TmpSelectedCourses!
 //    var tmpSelectedSemesters: TmpSelectedSemesters!
 //    var tmpSelectedLectures: TmpSelectedLectures!
@@ -58,6 +59,8 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        
         NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
     }
     
@@ -146,6 +149,14 @@ class SettingsTableViewController: UITableViewController {
             let vc = segue.destination as! LecturesViewController
             vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
             vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
+        }
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let index = tabBarController.selectedIndex
+    
+        if(index == 2){
+            settingsController = SettingsController()
         }
     }
 }

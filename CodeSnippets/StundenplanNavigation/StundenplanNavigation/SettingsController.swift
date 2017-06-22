@@ -10,11 +10,10 @@ import UIKit
 
 class SettingsController: NSObject {
     
-    var tmpSelectedCourses: TmpSelectedCourses
-    var tmpSelectedSemesters: TmpSelectedSemesters
-    var tmpSelectedLectures: TmpSelectedLectures
-    
-    var userDataCopy: UserData
+    var tmpSelectedCourses: TmpSelectedCourses!
+    var tmpSelectedSemesters: TmpSelectedSemesters!
+    var tmpSelectedLectures: TmpSelectedLectures!
+    var userDataCopy: UserData!
     
     override init() {
         userDataCopy = UserData.sharedInstance.copy() as! UserData
@@ -24,8 +23,16 @@ class SettingsController: NSObject {
         tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
     }
     
+    func createWorkingCopy(){
+        userDataCopy = UserData.sharedInstance.copy() as! UserData
+        
+        tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
+        tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
+        tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
+    }
+    
     func commitChanges(){
-        let oldLectures = SelectedLectures().getOneDimensionalList()
+        let oldLectures = UserData.sharedInstance.selectedSchedule.getOneDimensionalList()
         let newLectures = userDataCopy.selectedSchedule.getOneDimensionalList()
         
         userDataCopy.addedLectures = addedLectures(oldLectures: oldLectures, newLectures: newLectures)

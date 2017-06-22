@@ -11,24 +11,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Delegate-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="UITabBarDelegate" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     </tabBar>
                     <connections>
-                        <outlet property="delegate" destination="rnU-R7-rfX" id="pGC-MI-dQ7"/>
+                        <outlet property="delegate" destination="rnU-R7-rfX" id="RKz-hR-FfI"/>
                         <segue destination="fiw-z5-sTH" kind="relationship" relationship="viewControllers" id="DhI-38-SAp"/>
                         <segue destination="1KJ-CT-1EX" kind="relationship" relationship="viewControllers" id="UWM-wY-xhY"/>
                         <segue destination="sq1-qK-W0Z" kind="relationship" relationship="viewControllers" id="Koj-yP-tfc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
-                <customObject id="rnU-R7-rfX" customClass="UITabBarDelegate" customModule="StundenplanNavigation" customModuleProvider="target"/>
+                <customObject id="rnU-R7-rfX" customClass="SettingsTableViewController" customModule="StundenplanNavigation" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
