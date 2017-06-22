@@ -361,8 +361,8 @@ extension Date {
     
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
-        let month = calendar.component(.hour, from: date)
-        let day = calendar.component(.minute, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
         let hours = calendar.component(.hour, from: time)
         let minutes = calendar.component(.minute, from: time)
     
@@ -372,5 +372,18 @@ extension Date {
         return combinedDate
     }
     
-    
+    public func changeStartFromTwoWeekLecture(startDate: Date, semester: String) -> Date{
+        
+        let semesterBeginn = startSemester(semester: semester)
+        let calendar = Calendar.current
+        let semesterBeginnWeekDay = calendar.component(.weekday, from: semesterBeginn)
+        let startDateWeekDay = calendar.component(.weekday, from: startDate)
+        
+        if semesterBeginnWeekDay > startDateWeekDay {
+
+            let newStartDate = calendar.date(byAdding: .day, value: 7, to: startDate)!
+            return newStartDate
+        }
+        return startDate
+    }
 }

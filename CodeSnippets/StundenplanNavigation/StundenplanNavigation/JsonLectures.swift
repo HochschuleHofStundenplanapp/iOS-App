@@ -45,7 +45,7 @@ class JsonLectures: NSObject {
         {
             let id = (i["id"]?.string)!
             let splusname = (i["splusname"]?.string)!
-            let name = (i["label"]?.string)!
+            var name = (i["label"]?.string)!
             let docent = (i["docent"]?.string)!
             let type = (i["type"]?.string)!
             let style = (i["style"]?.string)!
@@ -82,6 +82,14 @@ class JsonLectures: NSObject {
                 }
             }
             
+            if iteration == iterationState.individualDate {
+                let dateFormatterName = DateFormatter()
+                dateFormatterName.dateFormat = "dd.MM"
+                dateFormatterName.locale = Locale(identifier: "de_DE")
+                
+                name = "\(dateFormatterName.string(from: newStartDate!)) \(name)"
+            }
+            
             if iteration != iterationState.notParsable && iteration != iterationState.individualDate {
 
                 let period = ai.checkPeriod(comment: comment)
@@ -98,15 +106,25 @@ class JsonLectures: NSObject {
                     aiStart = period.0
                     aiEnd = period.1
                 }
-
                 if aiStart != "" {
                     if Int(aiStart) != nil {
                         newStartDate = newStartDate?.calendarweekToDate(day: day, cw: Int(aiStart)!, date: newStartDate!)
+                        
+                        if iteration == iterationState.calendarWeeks {
+                            dateArray.append(newStartDate!)
+                        }
                     } else if dateFormatter.date(from: aiStart) != nil {
                         newStartDate = newStartDate?.combineDateAndTime(date: dateFormatter.date(from: aiStart)!, time: newStartDate!)
+                        
+                        if iteration == iterationState.calendarWeeks {
+                            dateArray.append(newStartDate!)
+                        }
                     }
                 } else {
                     newStartDate = newStartDate?.startLecture(startDate: newStartDate!,weekdayString: day, semester: season)
+                    if iteration == iterationState.twoWeeks {
+                        newStartDate = newStartDate?.changeStartFromTwoWeekLecture(startDate: newStartDate!, semester: season)
+                    }
                 }
                 
                 if aiEnd != "" {
@@ -118,6 +136,10 @@ class JsonLectures: NSObject {
                 } else {
                     newEndDate = newEndDate?.endLecture(endDate: newEndDate!,weekdayString: day, semester: season)
                 }
+            }
+            
+            if dateArray.count > 0 {
+                print(dateArray)
             }
             
             let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration, kwDates: dateArray)
