@@ -25,16 +25,19 @@ class SettingsTableViewController: UITableViewController {
     var selectedCoursesString = "..."
     var selectedSemesterString = "..."
     
-    var tmpSelectedCourses: TmpSelectedCourses!
-    var tmpSelectedSemesters: TmpSelectedSemesters!
-    var tmpSelectedLectures: TmpSelectedLectures!
+    var settingsController: SettingsController!
+    
+//    var tmpSelectedCourses: TmpSelectedCourses!
+//    var tmpSelectedSemesters: TmpSelectedSemesters!
+//    var tmpSelectedLectures: TmpSelectedLectures!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tmpSelectedCourses = TmpSelectedCourses()
-        tmpSelectedSemesters = TmpSelectedSemesters()
-        tmpSelectedLectures = TmpSelectedLectures()
+        settingsController = SettingsController()
+//        tmpSelectedCourses = TmpSelectedCourses()
+//        tmpSelectedSemesters = TmpSelectedSemesters()
+//        tmpSelectedLectures = TmpSelectedLectures()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,10 +49,9 @@ class SettingsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.hawBlue]
         
-        selectedCoursesLabel.text = tmpSelectedCourses.allSelectedCourses()
-        selectedSemesterLabel.text = tmpSelectedSemesters.allSelectedSemesters()
+        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
+        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
     }
@@ -61,13 +63,13 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
         //Auslagern in eigenen Controller
-        if sender.selectedSegmentIndex == 0 {
-            UserData.sharedInstance.selectedSeason = "SS"
-            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
-        }else{
-            UserData.sharedInstance.selectedSeason = "WS"
-            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
-        }
+//        if sender.selectedSegmentIndex == 0 {
+//            UserData.sharedInstance.selectedSeason = "SS"
+//            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
+//        }else{
+//            UserData.sharedInstance.selectedSeason = "WS"
+//            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
+//        }
     }
     
     func hanldeCalendarSyncChanged() {
@@ -103,16 +105,17 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-        
-        if (syncSwitch.isOn) {
-            let resultCalendarRoutine = CalendarController().CalendarRoutine()
-            
-            if (!resultCalendarRoutine) {
-                showAccessAlert()
-                syncSwitch.setOn(false, animated: true)
-            }
-        }
+//        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+//        
+//        if (syncSwitch.isOn) {
+//            let resultCalendarRoutine = CalendarController().CalendarRoutine()
+//            
+//            if (!resultCalendarRoutine) {
+//                showAccessAlert()
+//                syncSwitch.setOn(false, animated: true)
+//            }
+//        }
+        settingsController.commitChanges()
     }
     
     func showAccessAlert() {
@@ -129,19 +132,20 @@ class SettingsTableViewController: UITableViewController {
         if (segue.identifier == "SettingsToCourses") {
             
             let vc = segue.destination as! CourseTableViewController
-            vc.tmpSelectedCourses = tmpSelectedCourses
-            vc.tmpSelectedSemesters = tmpSelectedSemesters
-            vc.tmpSelectedLectures = tmpSelectedLectures
+            vc.tmpSelectedCourses = settingsController.tmpSelectedCourses
+            vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
+            vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
         }else if (segue.identifier == "SettingsToSemesters"){
             
             let vc = segue.destination as! SemesterTableViewController
-            vc.tmpSelectedCourses = tmpSelectedCourses
-            vc.tmpSelectedSemesters = tmpSelectedSemesters
-            vc.tmpSelectedLectures = tmpSelectedLectures
+            vc.tmpSelectedCourses = settingsController.tmpSelectedCourses
+            vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
+            vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
         }else if (segue.identifier == "SettingsToLectures"){
             
             let vc = segue.destination as! LecturesViewController
-            vc.tmpSelectedLectures = tmpSelectedLectures
+            vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
+            vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
         }
     }
 }

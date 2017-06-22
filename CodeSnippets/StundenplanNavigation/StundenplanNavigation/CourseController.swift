@@ -84,13 +84,7 @@ class CourseController: NSObject, DataObserverProtocol {
         
         for dataObject in dataArray {
 //            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
-            
-//            if let error = dataObject.1{
-//                notifyDownloadFailed()
-//                return
-//                // handle error
-//            }
-            
+                        
             guard let data = dataObject.0 else {
                 return
             }

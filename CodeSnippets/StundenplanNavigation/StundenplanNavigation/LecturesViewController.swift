@@ -16,7 +16,8 @@ class LecturesViewController: UIViewController {
     var delegate: LecturesTableViewDelegate!
     var lectureController: LectureController!
     
-    var tmpSelectedLectures : TmpSelectedLectures!
+    var tmpSelectedLectures: TmpSelectedLectures!
+    var tmpSelectedSemesters: TmpSelectedSemesters!
         
     @IBAction func selectAllButton(_ sender: Any) {
         lectureController.selectAllLectures()
@@ -35,7 +36,7 @@ class LecturesViewController: UIViewController {
         
         tabBarController?.tabBar.isHidden = true
         
-        lectureController = LectureController(tmpSelectedLectures: tmpSelectedLectures)
+        lectureController = LectureController(tmpSelectedLectures: tmpSelectedLectures, tmpSelectedSemesters: tmpSelectedSemesters)
         
         dataSource = LecturesTableViewDataSource(tmpSelectedLectures: tmpSelectedLectures)
         lectureTableView.dataSource = dataSource

@@ -10,10 +10,68 @@ import UIKit
 
 class SettingsController: NSObject {
     
-   var tmpSelectedLectures: TmpSelectedLectures
+    var tmpSelectedCourses: TmpSelectedCourses
+    var tmpSelectedSemesters: TmpSelectedSemesters
+    var tmpSelectedLectures: TmpSelectedLectures
     
-    init(tmpSelectedLectures: TmpSelectedLectures) {
-        self.tmpSelectedLectures = tmpSelectedLectures
+    var userDataCopy: UserData
+    
+    override init() {
+        userDataCopy = UserData.sharedInstance.copy() as! UserData
+        
+        tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
+        tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
+        tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
+    }
+    
+    func commitChanges(){
+        let oldLectures = SelectedLectures().getOneDimensionalList()
+        let newLectures = userDataCopy.selectedSchedule.getOneDimensionalList()
+        
+        userDataCopy.addedLectures = addedLectures(oldLectures: oldLectures, newLectures: newLectures)
+        userDataCopy.removedLectures = removedLectures(oldLectures: oldLectures, newLectures: newLectures)
+        
+        UserData.sharedInstance = userDataCopy
+    }
+    
+    // Liefert alles Lectures zurück die entfernt werden müssen
+    func removedLectures(oldLectures: [Lecture], newLectures: [Lecture]) -> [Lecture] {
+        var removedArray = [Lecture]()
+        
+        for lecture in oldLectures{
+            var contains = false
+            
+            for newLecture in newLectures {
+                if newLecture == lecture {
+                    contains = true
+                }
+            }
+            if(!contains){
+                removedArray.append(lecture)
+            }
+        }
+        return removedArray
+    }
+    
+    // Liefert alles Lecutrues zurück die hinzugefügt werden müssen
+    func addedLectures(oldLectures: [Lecture], newLectures: [Lecture]) -> [Lecture] {
+        
+        var addedArray = [Lecture]()
+        
+        for newLecture in newLectures{
+            var contains = false
+            
+            for oldLecture in oldLectures {
+                if oldLecture == newLecture {
+                    contains = true
+                }
+            }
+            if(!contains){
+                addedArray.append(newLecture)
+            }
+        }
+        
+        return addedArray
     }
     
     // TODO

@@ -10,7 +10,11 @@ import UIKit
 
 class TmpSelectedLectures: NSObject {
 
-    fileprivate var userdata = UserData.sharedInstance
+    fileprivate var userdata: UserData
+    
+    init(userdata: UserData){
+        self.userdata = userdata
+    }
     
     func numberOfEntries(for section : Int) -> Int
     {
@@ -107,5 +111,18 @@ class TmpSelectedLectures: NSObject {
         if let index = userdata.selectedSchedule.lectures[day].index(of: lecture){
             userdata.selectedSchedule.lectures[day].remove(at: index)
         }
+    }
+    
+    func getOneDimensionalList() -> [Lecture]{
+        let lectures = userdata.selectedSchedule.lectures
+        
+        var newList : [Lecture] = [Lecture]()
+        
+        for day in lectures{
+            for lecture in day{
+                newList.append(lecture)
+            }
+        }
+        return newList
     }
 }
