@@ -13,10 +13,7 @@ class SettingsController: NSObject {
    var tmpSelectedLectures: TmpSelectedLectures
     
     init(tmpSelectedLectures: TmpSelectedLectures) {
-        
-        
         self.tmpSelectedLectures = tmpSelectedLectures
-        
     }
     
     // TODO
