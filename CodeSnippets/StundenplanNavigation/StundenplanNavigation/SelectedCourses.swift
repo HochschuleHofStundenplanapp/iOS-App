@@ -15,4 +15,6 @@ class SelectedCourses: NSObject {
     func contains(course: Course) -> Bool{
         return userdata.selectedCourses.contains(course)
     }
+    
+    
 }

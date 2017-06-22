@@ -32,6 +32,8 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        selectedLecturesLabel.text = ""
+        
         tmpSelectedCourses = TmpSelectedCourses()
         tmpSelectedSemesters = TmpSelectedSemesters()
         tmpSelectedLectures = TmpSelectedLectures()

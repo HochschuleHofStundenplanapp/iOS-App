@@ -42,6 +42,10 @@ class TmpSelectedCourses: NSObject {
             return "..."
         }
         
+        //Vorher sortieren
+        userdata.selectedCourses.sort(by: {$0.nameDe < $1.nameDe})
+        
+        
         var res = ""
         var sep = ""
         for c in userdata.selectedCourses
