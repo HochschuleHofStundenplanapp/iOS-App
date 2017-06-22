@@ -23,7 +23,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
 //        let cellColor = computeIndexedBackgroundColor(currentPosition : indexPath)
         
 //        cell.backgroundColor = cellColor
-        cell.courseLabel.text = lecture.name
+        cell.courseLabel.text = "\(lecture.semester.course.contraction) | \(lecture.name)"
         cell.docentLabel.text = lecture.lecturer
         cell.commentLabel.text = lecture.comment
         
