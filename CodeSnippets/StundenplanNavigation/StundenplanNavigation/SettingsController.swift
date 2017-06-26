@@ -93,6 +93,7 @@ class SettingsController: NSObject {
     
     public func clearAllSettings() {
         tmpSelectedLectures.clear()
+        
         // TODO einkommentieren wenn vorhanden
         //TmpSelectedSemesters().clear()
         //TmpSelectedCourses().clear()

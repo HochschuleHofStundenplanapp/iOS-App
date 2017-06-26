@@ -105,17 +105,19 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-//        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-//        
-//        if (syncSwitch.isOn) {
-//            let resultCalendarRoutine = CalendarController().CalendarRoutine()
-//            
-//            if (!resultCalendarRoutine) {
-//                showAccessAlert()
-//                syncSwitch.setOn(false, animated: true)
-//            }
-//        }
+        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+        
         settingsController.commitChanges()
+        
+        if (syncSwitch.isOn) {
+            let resultCalendarRoutine = CalendarController().CalendarRoutine()
+            
+            if (!resultCalendarRoutine) {
+                showAccessAlert()
+                syncSwitch.setOn(false, animated: true)
+            }
+        }
+
     }
     
     func showAccessAlert() {
