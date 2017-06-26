@@ -42,6 +42,8 @@ class SettingsController: NSObject {
         userDataCopy.removedLectures = removed
         
         UserData.sharedInstance = userDataCopy.copy() as! UserData
+        
+        SelectedLectures().sort()
     }
     
     // Liefert alles Lectures zurück die entfernt werden müssen

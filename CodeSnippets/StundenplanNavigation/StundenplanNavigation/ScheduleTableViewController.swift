@@ -29,9 +29,6 @@ class ScheduleTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //Test
-        SelectedLectures().sort()
-        
         super.viewWillAppear(animated)
         
         tableView.reloadData()
