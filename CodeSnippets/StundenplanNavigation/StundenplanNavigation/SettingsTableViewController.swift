@@ -28,22 +28,14 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     var settingsController: SettingsController!
     
     var oldTabIndex = 0
-//    var tmpSelectedCourses: TmpSelectedCourses!
-//    var tmpSelectedSemesters: TmpSelectedSemesters!
-//    var tmpSelectedLectures: TmpSelectedLectures!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         selectedLecturesLabel.text = ""
         
-//        tmpSelectedCourses = TmpSelectedCourses()
-//        tmpSelectedSemesters = TmpSelectedSemesters()
-//        tmpSelectedLectures = TmpSelectedLectures()
         settingsController = SettingsController()
-//        tmpSelectedCourses = TmpSelectedCourses()
-//        tmpSelectedSemesters = TmpSelectedSemesters()
-//        tmpSelectedLectures = TmpSelectedLectures()
     }
     
     override func viewDidAppear(_ animated: Bool) {

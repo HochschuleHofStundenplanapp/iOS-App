@@ -10,9 +10,9 @@ import UIKit
 
 class SettingsController: NSObject {
     
-    var tmpSelectedCourses: TmpSelectedCourses!
-    var tmpSelectedSemesters: TmpSelectedSemesters!
-    var tmpSelectedLectures: TmpSelectedLectures!
+    var tmpSelectedCourses: TmpSelectedCourses
+    var tmpSelectedSemesters: TmpSelectedSemesters
+    var tmpSelectedLectures: TmpSelectedLectures
     var userDataCopy: UserData!
     
     override init() {
@@ -23,22 +23,25 @@ class SettingsController: NSObject {
         tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
     }
     
-    func createWorkingCopy(){
-        userDataCopy = UserData.sharedInstance.copy() as! UserData
-        
-        tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
-        tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
-        tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
-    }
+//    func createWorkingCopy(){
+//        userDataCopy = UserData.sharedInstance.copy() as! UserData
+//        
+//        tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
+//        tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
+//        tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
+//    }
     
     func commitChanges(){
-        let oldLectures = UserData.sharedInstance.selectedSchedule.getOneDimensionalList()
-        let newLectures = userDataCopy.selectedSchedule.getOneDimensionalList()
+        let oldLectures = SelectedLectures().getOneDimensionalList()
+        let newLectures = tmpSelectedLectures.getOneDimensionalList()
         
-        userDataCopy.addedLectures = addedLectures(oldLectures: oldLectures, newLectures: newLectures)
-        userDataCopy.removedLectures = removedLectures(oldLectures: oldLectures, newLectures: newLectures)
+        let added = addedLectures(oldLectures: oldLectures, newLectures: newLectures)
+        userDataCopy.addedLectures = added
         
-        UserData.sharedInstance = userDataCopy
+        let removed = removedLectures(oldLectures: oldLectures, newLectures: newLectures)
+        userDataCopy.removedLectures = removed
+        
+        UserData.sharedInstance = userDataCopy.copy() as! UserData
     }
     
     // Liefert alles Lectures zurück die entfernt werden müssen

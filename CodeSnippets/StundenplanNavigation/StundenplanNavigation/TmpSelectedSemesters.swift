@@ -43,10 +43,10 @@ class TmpSelectedSemesters: NSObject {
     }
     
     func removeSemester(with course: Course){
-        for semester in UserData.sharedInstance.selectedSemesters{
+        for semester in userdata.selectedSemesters{
             if(semester.course == course){
-                let index = UserData.sharedInstance.selectedSemesters.index(of: semester)
-                UserData.sharedInstance.selectedSemesters.remove(at: index!)
+                let index = userdata.selectedSemesters.index(of: semester)
+                userdata.selectedSemesters.remove(at: index!)
             }
         }
     }

@@ -16,9 +16,9 @@ class Schedule: NSObject {
         lectures = [[],[],[],[],[],[]]
     }
     
-    init(lectures: [[Lecture]]){
-        self.lectures = lectures
-    }
+//    init(lectures: [[Lecture]]){
+//        self.lectures = lectures
+//    }
     
     func add(lecture: Lecture, at day: Int){
         lectures[day].append(lecture)
@@ -41,7 +41,13 @@ class Schedule: NSObject {
     }
     
     override func copy() -> Any {
-        let copy = Schedule(lectures: lectures)
+        
+        let copy = Schedule()
+        
+        for (index, element) in lectures.enumerated(){
+            copy.lectures[index] = lectures[index]
+        }
+        
         return copy
     }
     

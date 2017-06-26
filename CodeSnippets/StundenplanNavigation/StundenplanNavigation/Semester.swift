@@ -16,12 +16,6 @@ class Semester: NSObject, NSCoding {
     let nameKey = "semesterName"
     let courseKey = "semesterCourse"
     let seasonKey = "semesterSeason"
-
-    //Weg machen!!!
-    override init(){
-        self.name = ""
-        self.season = ""
-    }
     
     init(name: String, course: Course, season: String) {
         self.name = name
