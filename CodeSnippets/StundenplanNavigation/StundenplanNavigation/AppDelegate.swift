@@ -68,16 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
         scheduleChangesController = ScheduleChangesController()
         scheduleChangesController.addNewObserver(o: self)
         scheduleChangesController.handleAllChanges()
-        
-
     }
     
     func update(s: String?) {
         print ( "Changes geladen")
-
-        //Test
-//        handler(UIBackgroundFetchResult.newData)
-        return
         
         
         if ServerData.sharedInstance.lastAllChanges.count != ServerData.sharedInstance.allChanges.count && ServerData.sharedInstance.allChanges.count > 0{

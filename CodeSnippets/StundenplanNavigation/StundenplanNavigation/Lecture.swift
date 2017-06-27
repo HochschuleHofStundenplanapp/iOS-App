@@ -135,9 +135,9 @@ class Lecture: NSObject, NSCoding {
     }
     
     override func isEqual(_ object: Any?) -> Bool {
-        var rhs = object as! Lecture!
-        return (self.name == rhs!.name) && (self.room == rhs!.room) && (self.type == rhs!.type) && (self.day == rhs!.day) && (self.semester == rhs!.semester)
-
+        let rhs = object as! Lecture
+//        return (self.name == rhs!.name) && (self.room == rhs!.room) && (self.type == rhs!.type) && (self.day == rhs!.day) && (self.semester == rhs!.semester)
+        return (self == rhs)
     }
     
     static func == (lhs: Lecture, rhs: Lecture) -> Bool {

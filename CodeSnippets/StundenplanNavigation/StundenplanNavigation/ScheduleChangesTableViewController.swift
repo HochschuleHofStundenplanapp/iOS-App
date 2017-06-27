@@ -32,9 +32,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
         
-        //Entfernen des Badges
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    
+        
     }
     
     func update(s: String?) {
@@ -73,6 +71,10 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         
        // scheduleChangesController.handleChanges()
         scheduleChangesController.handleAllChanges()
+        
+        //Entfernen des Badges
+        UIApplication.shared.applicationIconBadgeNumber = 0
+
     }
 
     override func didReceiveMemoryWarning() {
