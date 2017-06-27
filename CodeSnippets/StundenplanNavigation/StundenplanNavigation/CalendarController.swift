@@ -26,7 +26,7 @@ class CalendarController: NSObject {
     public func createCalendar() -> EKAuthorizationStatus {
         if(CalendarInterface.sharedInstance.isAuthorized()){
             if(CalendarInterface.sharedInstance.createCalenderIfNeeded() == true) {
-                createAllEvents(schedule: UserData.sharedInstance.selectedSchedule)
+                createAllEvents(lectures: SelectedLectures().getOneDimensionalList())
             }
             return EKAuthorizationStatus.authorized
         } else {
@@ -42,13 +42,11 @@ class CalendarController: NSObject {
     }
     
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
-    public func createAllEvents(schedule : Schedule){
+    public func createAllEvents(lectures : [Lecture]){
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             _ = CalendarInterface.sharedInstance.createCalenderIfNeeded()
-            for lecturesPerDay in schedule.lectures {
-                for lecture in lecturesPerDay {
-                    createEventsForLecture(lecture: lecture)
-                }
+            for lecture in lectures {
+                createEventsForLecture(lecture: lecture)
             }
             CalendarInterface.sharedInstance.saveIDs()
         }
@@ -208,13 +206,13 @@ class CalendarController: NSObject {
         
         // TODO noch einzukommentieren
         /*
-        iteration = iterationState.individualDate
-        
-        for date in lecture.kwDates {
-            lecture.startdate = date
-            createEvents(lecture: lecture)
-        }
-        */
+         iteration = iterationState.individualDate
+         
+         for date in lecture.kwDates {
+         lecture.startdate = date
+         createEvents(lecture: lecture)
+         }
+         */
     }
     
     private func createEvents(lecture: Lecture) {
@@ -277,26 +275,15 @@ class CalendarController: NSObject {
             return false
         }
         
-        if(CalendarInterface.sharedInstance.isAuthorized()) {
-            // Liste der zu entferndenen Lectures
-            // TODO noch nicht vorhanden
-            /*let removedLectures = Settings.sharedInstance.tmpSchedule.removedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-             
-             // Liste der zu hinzugefügten Lectures
-             let addedLectures = Settings.sharedInstance.tmpSchedule.addedLectures(oldSchedule: Settings.sharedInstance.savedSchedule)
-             
-             if(!removedLectures.isEmpty) {
-             CalendarController().removeAllEvents(lectures: removedLectures)
-             }
-             if(!addedLectures.isEmpty) {
-             createAllEvents(lectures: addedLectures)
-             }*/
-            
-            return true
+        if(!UserData.sharedInstance.removedLectures.isEmpty) {
+            CalendarController().removeAllEvents(lectures: UserData.sharedInstance.removedLectures)
         }
-        
-        return false
+        if(!UserData.sharedInstance.addedLectures.isEmpty) {
+            createAllEvents(lectures: UserData.sharedInstance.addedLectures)
+        }
+        return true
     }
+    
     
     // Gibt den Locaitonnamen zurück
     public func getLocationInfo( room : String) -> String {

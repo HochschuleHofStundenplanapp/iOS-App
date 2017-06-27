@@ -15,13 +15,14 @@ class CalendarInterface: NSObject {
     
     var calendar : EKCalendar?
     var eventStore : EKEventStore!
-    var calendarData : CalendarData!
+    var calendarData = CalendarData.sharedInstance
     
     private override init() {
         super.init()
         eventStore = EKEventStore()
         // TODO noch nicht vorhanden
         //calendarData = DataObjectPersistency().loadCalendarData()
+        
         
         if(!isAuthorized()){
             requestAccessToCalendar()

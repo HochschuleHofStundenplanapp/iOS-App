@@ -85,12 +85,13 @@ class SettingsController: NSObject {
     }
     
     // TODO
-    public func updateCalendar() {
-        _ = CalendarController().CalendarRoutine()
+    public func updateCalendar() -> Bool{
+        return CalendarController().CalendarRoutine()
     }
     
     public func clearAllSettings() {
         tmpSelectedLectures.clear()
+        
         // TODO einkommentieren wenn vorhanden
         //TmpSelectedSemesters().clear()
         //TmpSelectedCourses().clear()

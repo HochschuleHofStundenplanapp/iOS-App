@@ -9,7 +9,7 @@
 import Foundation
 
 class CalendarData: NSObject, NSCoding {
-    static var sharedInstance = CalendarData()
+    public static var sharedInstance = CalendarData()
     
     var lecturesEventIdDictonary : [Int:[String]] = [:]
     var changesEventIdDictonary : [Int:[String]] = [:]
