@@ -40,6 +40,14 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     func update(s: String?) {
         print ( "Lade Daten für Changes neu (tableview update)")
         self.scheduleChangesTableView.reloadData()
+        
+        // Änderungen mit dem Kalender synchronisieren
+        // TODO einkommentieren wenn Persitenz und CalendarSync scheint oft false zu sein
+        /*
+        if UserData.sharedInstance.callenderSync {
+            CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
+        }
+        */
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {

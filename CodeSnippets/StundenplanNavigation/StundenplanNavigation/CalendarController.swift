@@ -53,7 +53,7 @@ class CalendarController: NSObject {
     }
     
     // Aktualisiert Werte aller Events
-    public func updateAllEvents( changes : [ChangedLecture]){
+    public func updateAllEvents (changes : [ChangedLecture]) {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             for change in changes {
                 let lecture = CalendarController().findLecture(change: change)

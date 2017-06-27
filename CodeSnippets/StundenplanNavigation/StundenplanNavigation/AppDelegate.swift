@@ -104,13 +104,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
     }
     
     func updateCalendar(){
-//        Settings.sharedInstance.savedChanges.sort()
-//        if Settings.sharedInstance.savedCalSync {
-//            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-//                CalendarInterface.sharedInstance.updateAllEvents(changes: ServerData.sharedInstance.allChanges)
-//            }
-//        }
+        // TODO Braucht man das sortieren hier noch? 
+        // Wenn ja wie sortiert man dann die Changes?
+        //Settings.sharedInstance.savedChanges.sort()
+        
+        // TODO einkommentieren wenn Persitenz
+        /*
+        if UserData.sharedInstance.callenderSync {
+            CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
+        }
+        */
     }
-    
 }
-
