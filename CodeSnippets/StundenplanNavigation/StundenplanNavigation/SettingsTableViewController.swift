@@ -91,7 +91,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
                 break
             case EKAuthorizationStatus.notDetermined:
                 UserData.sharedInstance.callenderSync = false
-                syncSwitch.setOn(false, animated: true)
+                syncSwitch.setOn(true, animated: true)
                 break
             default:
                 UserData.sharedInstance.callenderSync = true
