@@ -35,7 +35,7 @@ class SelectedLectures: NSObject {
     }
     
     //Vielleicht auslagern??
-    func sort(){
+    func sortLecturesForSchedule(){
         for i in 0..<userdata.selectedSchedule.lectures.count{
             userdata.selectedSchedule.lectures[i].sort(by: {$0.startTime < $1.startTime})
         }
