@@ -26,7 +26,7 @@ class CalendarController: NSObject {
     public func createCalendar() -> EKAuthorizationStatus {
         if(CalendarInterface.sharedInstance.isAuthorized()){
             if(CalendarInterface.sharedInstance.createCalenderIfNeeded() == true) {
-                createAllEvents(lectures: UserData.sharedInstance.selectedSchedule.getOneDimensionalList())
+                createAllEvents(lectures: SelectedLectures().getOneDimensionalList())
             }
             return EKAuthorizationStatus.authorized
         } else {

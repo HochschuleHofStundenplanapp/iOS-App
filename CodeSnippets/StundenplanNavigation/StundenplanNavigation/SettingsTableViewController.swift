@@ -110,7 +110,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         settingsController.commitChanges()
         
         if (syncSwitch.isOn) {
-            let resultCalendarRoutine = CalendarController().CalendarRoutine()
+            let resultCalendarRoutine = settingsController.updateCalendar()
             
             if (!resultCalendarRoutine) {
                 showAccessAlert()
