@@ -11,8 +11,8 @@ import Foundation
 class CalendarData: NSObject, NSCoding {
     public static var sharedInstance = CalendarData()
     
-    var lecturesEventIdDictonary : [Int:[String]] = [:]
-    var changesEventIdDictonary : [Int:[String]] = [:]
+    var lecturesEventIdDictonary : [String:[String]] = [:]
+    var changesEventIdDictonary : [String:[String]] = [:]
     let lecturesEventIdDictonaryKey = "lecturesEventIdDictonary"
     let changesEventIdDictonaryKey = "changesEventIdDictonary"
     

@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
                                                                                   categories: nil))
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
+        UserData.sharedInstance = DataObjectPersistency().loadDataObject()
+        
         return true
     }
 

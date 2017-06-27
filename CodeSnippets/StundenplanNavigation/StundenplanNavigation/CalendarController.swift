@@ -61,7 +61,7 @@ class CalendarController: NSObject {
                 
                 handleOldChange(change: change, lecture: lecture)
                 
-                let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedOldDate, onlyChanges: false)
+                let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.key, title: change.name, startDate: change.combinedOldDate, onlyChanges: false)
                 
                 updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
             }
@@ -70,20 +70,20 @@ class CalendarController: NSObject {
     }
     
     func handleOldChange(change : ChangedLecture, lecture : Lecture) {
-        let changeEventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedOldDate, onlyChanges: true)
+        let changeEventID = CalendarInterface.sharedInstance.findEventId(key: lecture.key, title: change.name, startDate: change.combinedOldDate, onlyChanges: true)
         if (changeEventID != "") {
             let oldEvent = CalendarInterface.sharedInstance.getEventWithEventID(eventID: changeEventID)
             if(oldEvent != nil){
                 oldEvent?.title = change.name
-                CalendarInterface.sharedInstance.updateEvent(eventID: changeEventID, updatedEvent: oldEvent!, key: lecture.hashValue, lectureToChange: false)
+                CalendarInterface.sharedInstance.updateEvent(eventID: changeEventID, updatedEvent: oldEvent!, key: lecture.key, lectureToChange: false)
             }
         }
         
         if (change.combinedNewDate != nil) {
-            let changeNewEventID = CalendarInterface.sharedInstance.findEventId(key: lecture.hashValue, title: change.name, startDate: change.combinedNewDate, onlyChanges: true)
+            let changeNewEventID = CalendarInterface.sharedInstance.findEventId(key: lecture.key, title: change.name, startDate: change.combinedNewDate, onlyChanges: true)
             if (changeNewEventID != "") {
                 if (CalendarInterface.sharedInstance.removeEvent(p_eventId: changeNewEventID)) {
-                    CalendarInterface.sharedInstance.removeChangesID(eventID: changeNewEventID, key: lecture.hashValue)
+                    CalendarInterface.sharedInstance.removeChangesID(eventID: changeNewEventID, key: lecture.key)
                 }
             }
         }
@@ -102,12 +102,12 @@ class CalendarController: NSObject {
                         // Datum geändert
                         
                         // Wenn nicht bereits vorhanden
-                        if (!CalendarInterface.sharedInstance.doEventExist(key: lecture.hashValue, startDate: change.combinedNewDate)) {
+                        if (!CalendarInterface.sharedInstance.doEventExist(key: lecture.key, startDate: change.combinedNewDate)) {
                             // Neues Event erstellen
                             let newEvent = fillNewChangeEvent(oldEvent: oldEvent!, lecture: lecture, change: change, locationInfo: locationInfo)
                             
                             // Neues Event erzeugen
-                            CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.hashValue, isChanges: true)
+                            CalendarInterface.sharedInstance.createEvent(p_event: newEvent, key: lecture.key, isChanges: true)
                         }
                         
                         // Daten bei altem Event ändern
@@ -128,7 +128,7 @@ class CalendarController: NSObject {
                     oldEvent?.alarms   = []
                 }
                 
-                CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent!, key: lecture.hashValue, lectureToChange: true)
+                CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent!, key: lecture.key, lectureToChange: true)
             }
         }
     }
@@ -153,13 +153,13 @@ class CalendarController: NSObject {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             for lecture in lectures {
                 
-                let ids = CalendarInterface.sharedInstance.getIDFromDictonary(key: lecture.hashValue)
+                let ids = CalendarInterface.sharedInstance.getIDFromDictonary(key: lecture.key)
                 
                 if (!ids.isEmpty) {
                     for id in ids {
                         _ = CalendarInterface.sharedInstance.removeEvent(p_eventId: id, p_withNotes: true)
                     }
-                    CalendarInterface.sharedInstance.removeIdsFromDictonary(key: lecture.hashValue)
+                    CalendarInterface.sharedInstance.removeIdsFromDictonary(key: lecture.key)
                 }
             }
             CalendarInterface.sharedInstance.saveIDs()
@@ -171,7 +171,7 @@ class CalendarController: NSObject {
         lectureToEKEvent(lecture: lecture)
         
         for event in events {
-            CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.hashValue, isChanges: false)
+            CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.key, isChanges: false)
         }
         
         // Events wieder leeren
@@ -257,13 +257,10 @@ class CalendarController: NSObject {
     // Findet eine Lecutre anhand des Hashes
     public func findLecture(change : ChangedLecture) -> Lecture {
         var result : Lecture? = nil
-        let changeHashValue = "\(change.name)\(change.oldRoom)\(change.oldDay)\(change.oldTime)".hashValue
         
-        for lecturePerDay in UserData.sharedInstance.selectedSchedule.lectures {
-            for lecture in lecturePerDay {
-                if(lecture.hashValue == changeHashValue){
-                    result = lecture
-                }
+        for lecture in SelectedLectures().getOneDimensionalList() {
+            if(lecture.isEqual(to: change)){
+                result = lecture
             }
         }
         return result!

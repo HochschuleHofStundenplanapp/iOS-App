@@ -48,9 +48,11 @@ class JsonChanges {
         pCL = []
         
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "de_DE")
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
         let timeFormatter = DateFormatter()
+        timeFormatter.locale = Locale(identifier: "de_DE")
         timeFormatter.dateFormat = "HH:mm"
         
        
@@ -97,13 +99,11 @@ class JsonChanges {
             let newOldDate = dateFormatter.date(from: oldDate)
             let newNewDate = dateFormatter.date(from: newDate)
             
-            var newOldTime = timeFormatter.date(from: oldTime)
-            var newNewTime = timeFormatter.date(from: newTime)
+            let newOldTime = timeFormatter.date(from: oldTime)
+            let newNewTime = timeFormatter.date(from: newTime)
             
-            newOldTime = newOldTime?.changeTimeDate(date: newOldTime!)
-            newNewTime = newNewTime?.changeTimeDate(date: newNewTime!)
-            
-            
+            //newOldTime = newOldTime?.changeTimeDate(date: newOldTime!)
+            //newNewTime = newNewTime?.changeTimeDate(date: newNewTime!)
             
             let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom,  group: group, splusname: splusname)
             

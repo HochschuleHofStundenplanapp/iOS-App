@@ -8,9 +8,11 @@
 
 import UIKit
 
-class Schedule: NSObject {
+class Schedule: NSObject, NSCoding {
 
     var lectures: [[Lecture]]
+    
+    let lecturesKey = "lectures"
     
     override init() {
         lectures = [[],[],[],[],[],[]]
@@ -73,5 +75,14 @@ class Schedule: NSObject {
             }
         }
         return newList
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        lectures = aDecoder.decodeObject(forKey: lecturesKey) as! [[Lecture]]
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(lectures, forKey: lecturesKey)
     }
 }
