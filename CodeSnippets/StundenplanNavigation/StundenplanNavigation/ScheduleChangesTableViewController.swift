@@ -32,14 +32,19 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
         
-        //Entfernen des Badges
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    
+        
     }
     
     func update(s: String?) {
         print ( "Lade Daten für Changes neu (tableview update)")
         self.scheduleChangesTableView.reloadData()
+        
+        // Änderungen mit dem Kalender synchronisieren
+        // TODO CalendarSync scheint oft false zu sein
+        dump(UserData.sharedInstance.callenderSync)
+        if UserData.sharedInstance.callenderSync {
+            CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
+        }
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
@@ -73,6 +78,10 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         
        // scheduleChangesController.handleChanges()
         scheduleChangesController.handleAllChanges()
+        
+        //Entfernen des Badges
+        UIApplication.shared.applicationIconBadgeNumber = 0
+
     }
 
     override func didReceiveMemoryWarning() {

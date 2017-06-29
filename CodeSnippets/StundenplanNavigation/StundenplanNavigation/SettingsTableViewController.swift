@@ -105,8 +105,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     func hanldeCalendarSyncChanged() {
         if (UserData.sharedInstance.callenderSync) {
             syncSwitch.setOn(true, animated: true)
+            UserData.sharedInstance.callenderSync = true
         } else {
             syncSwitch.setOn(false, animated: true)
+            UserData.sharedInstance.callenderSync = false
         }
     }
     
@@ -120,8 +122,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
                 syncSwitch.setOn(false, animated: true)
                 break
             case EKAuthorizationStatus.notDetermined:
-                UserData.sharedInstance.callenderSync = false
-                syncSwitch.setOn(false, animated: true)
+                UserData.sharedInstance.callenderSync = true
+                syncSwitch.setOn(true, animated: true)
                 break
             default:
                 UserData.sharedInstance.callenderSync = true

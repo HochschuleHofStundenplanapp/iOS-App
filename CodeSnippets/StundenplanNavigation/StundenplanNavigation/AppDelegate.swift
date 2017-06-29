@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
                                                                                   categories: nil))
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
+        UserData.sharedInstance = DataObjectPersistency().loadDataObject()
+        
         return true
     }
 
@@ -68,16 +70,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
         scheduleChangesController = ScheduleChangesController()
         scheduleChangesController.addNewObserver(o: self)
         scheduleChangesController.handleAllChanges()
-        
-
     }
     
     func update(s: String?) {
         print ( "Changes geladen")
-
-        //Test
-//        handler(UIBackgroundFetchResult.newData)
-        return
         
         
         if ServerData.sharedInstance.lastAllChanges.count != ServerData.sharedInstance.allChanges.count && ServerData.sharedInstance.allChanges.count > 0{
@@ -104,13 +100,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
     }
     
     func updateCalendar(){
-//        Settings.sharedInstance.savedChanges.sort()
-//        if Settings.sharedInstance.savedCalSync {
-//            if(CalendarInterface.sharedInstance.checkCalendarAuthorizationStatus()) {
-//                CalendarInterface.sharedInstance.updateAllEvents(changes: ServerData.sharedInstance.allChanges)
-//            }
-//        }
+        // TODO Braucht man das sortieren hier noch? 
+        // Wenn ja wie sortiert man dann die Changes?
+        //Settings.sharedInstance.savedChanges.sort()
+        
+        // TODO einkommentieren wenn Persitenz
+        /*
+        if UserData.sharedInstance.callenderSync {
+            CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
+        }
+        */
     }
-    
 }
-

@@ -13,6 +13,7 @@
 		654BFEB81ED427D90023607D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB51ED427D90023607D /* CalendarController.swift */; };
 		654BFEB91ED427D90023607D /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB61ED427D90023607D /* CalendarData.swift */; };
 		654BFEBA1ED427D90023607D /* CalendarInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB71ED427D90023607D /* CalendarInterface.swift */; };
+		6557F3E11F0277F90019DA31 /* DataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6557F3E01F0277F90019DA31 /* DataObjectPersistency.swift */; };
 		813C39D61EEFD35900FD02AE /* AllChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39D51EEFD35900FD02AE /* AllChanges.swift */; };
 		813C39D81EEFD56A00FD02AE /* NotificationInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39D71EEFD56A00FD02AE /* NotificationInterface.swift */; };
 		813C39DA1EEFD7C800FD02AE /* ChangesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39D91EEFD7C800FD02AE /* ChangesController.swift */; };
@@ -106,6 +107,7 @@
 		654BFEB51ED427D90023607D /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		654BFEB61ED427D90023607D /* CalendarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		654BFEB71ED427D90023607D /* CalendarInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInterface.swift; sourceTree = "<group>"; };
+		6557F3E01F0277F90019DA31 /* DataObjectPersistency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObjectPersistency.swift; sourceTree = "<group>"; };
 		813C39D51EEFD35900FD02AE /* AllChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllChanges.swift; sourceTree = "<group>"; };
 		813C39D71EEFD56A00FD02AE /* NotificationInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationInterface.swift; sourceTree = "<group>"; };
 		813C39D91EEFD7C800FD02AE /* ChangesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				BEC57D0C1EE2B166005D8959 /* Zugriff */,
+				6557F3E01F0277F90019DA31 /* DataObjectPersistency.swift */,
 				BE1922931EA8022800DF119C /* Constants.swift */,
 				BE4DF9131EB109CD00D6550C /* Course.swift */,
 				BE4E89DB1EB676D000D4ACCF /* Semester.swift */,
@@ -732,6 +735,7 @@
 				BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */,
 				BE4DF9141EB109CD00D6550C /* Course.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
+				6557F3E11F0277F90019DA31 /* DataObjectPersistency.swift in Sources */,
 				817CBD921EFBA2C60069DCBD /* LecturesViewController.swift in Sources */,
 				BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */,
 				813C39D81EEFD56A00FD02AE /* NotificationInterface.swift in Sources */,

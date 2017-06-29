@@ -14,8 +14,10 @@ import UIKit
  * Semesters -> Semester mit Studiengängen
  * Lectures -> Vorlesungen mit Info über das zugehörige Semester
  */
-class UserData: NSObject {
+class UserData: NSObject, NSCoding{
 
+    static var sharedInstance = UserData()
+    
     var callenderSync: Bool = false
     var selectedSeason : String = "SS"
     var selectedCourses : [Course] = []
@@ -26,7 +28,15 @@ class UserData: NSObject {
     var removedLectures: [Lecture] = []
     var addedLectures: [Lecture] = []
     
-    static var sharedInstance = UserData()
+    let callenderSyncKey = "callenderSync"
+    let selectedSeasonKey = "selectedSeason"
+    let selectedCoursesKey = "selectedCourses"
+    let selectedSemestersKey = "selectedSemesters"
+    let savedSplusnamesKey = "savedSplusnames"
+    let selectedScheduleKey = "selectedSchedule"
+    let removedLecturesKey = "removedLectures"
+    let addedLecturesKey = "addedLectures"
+    
     private override init(){ }
     
     override func copy() -> Any {
@@ -39,5 +49,28 @@ class UserData: NSObject {
         copy.removedLectures = removedLectures
         copy.addedLectures = addedLectures
         return copy
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        callenderSync = aDecoder.decodeBool(forKey: callenderSyncKey)
+        selectedSeason = aDecoder.decodeObject(forKey: selectedSeasonKey) as! String
+        selectedCourses = aDecoder.decodeObject(forKey: selectedCoursesKey) as! [Course]
+        selectedSemesters = aDecoder.decodeObject(forKey: selectedSemestersKey) as! [Semester]
+        savedSplusnames = aDecoder.decodeObject(forKey: savedSplusnamesKey) as! [String]
+        selectedSchedule = aDecoder.decodeObject(forKey: selectedScheduleKey) as! Schedule
+        removedLectures = aDecoder.decodeObject(forKey: removedLecturesKey) as! [Lecture]
+        addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(callenderSync, forKey: callenderSyncKey)
+        aCoder.encode(selectedSeason, forKey: selectedSeasonKey)
+        aCoder.encode(selectedCourses, forKey: selectedCoursesKey)
+        aCoder.encode(selectedSemesters, forKey: selectedSemestersKey)
+        aCoder.encode(savedSplusnames, forKey: savedSplusnamesKey)
+        aCoder.encode(selectedSchedule, forKey: selectedScheduleKey)
+        aCoder.encode(removedLectures, forKey: removedLecturesKey)
+        aCoder.encode(addedLectures, forKey: addedLecturesKey)
     }
 }

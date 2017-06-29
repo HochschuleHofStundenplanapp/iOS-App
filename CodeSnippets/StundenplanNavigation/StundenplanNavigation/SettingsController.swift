@@ -46,6 +46,8 @@ class SettingsController: NSObject {
         userDataCopy.removedLectures = removed
         
         UserData.sharedInstance = userDataCopy.copy() as! UserData
+        
+        DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
     // Liefert alles Lectures zurück die entfernt werden müssen
