@@ -51,6 +51,10 @@ class TmpSelectedSemesters: NSObject {
         }
     }
     
+    func hasSelection() -> Bool{
+        return !userdata.selectedSemesters.isEmpty
+    }
+    
     func allSelectedSemesters() -> String
     {
         if userdata.selectedSemesters.count == 0

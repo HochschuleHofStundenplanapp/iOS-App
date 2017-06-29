@@ -27,13 +27,9 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     var settingsController: SettingsController!
     
-    var oldTabIndex = 0
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedLecturesLabel.text = ""
         
         settingsController = SettingsController()
     }
@@ -45,8 +41,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
+
+        
+        disableCellsAndButton()
         
         selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
         selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
@@ -60,8 +58,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        
         NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: .calendarSyncOn, object: nil)
         NotificationCenter.default.removeObserver(self, name: .calendarSyncOff, object: nil)
@@ -85,6 +81,41 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         //            UserData.sharedInstance.selectedSeason = "WS"
         //            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
         //        }
+    }
+    
+    private func disableCellsAndButton(){
+        if(settingsController.tmpSelectedCourses.hasSelection()){
+            semesterTableViewCell.isUserInteractionEnabled = true
+            semesterTableViewCell.textLabel?.isEnabled = true
+            semesterTableViewCell.detailTextLabel?.isEnabled = true
+            
+            if(settingsController.tmpSelectedSemesters.hasSelection()){
+                lecturesTableViewCell.isUserInteractionEnabled = true
+                lecturesTableViewCell.textLabel?.isEnabled = true
+                lecturesTableViewCell.detailTextLabel?.isEnabled = true
+                
+                saveChangesButton.isEnabled = true
+          
+            }
+            else{
+                lecturesTableViewCell.isUserInteractionEnabled = false
+                lecturesTableViewCell.textLabel?.isEnabled = false
+                lecturesTableViewCell.detailTextLabel?.isEnabled = false
+                
+                saveChangesButton.isEnabled = false
+            }
+        }
+        else{
+            semesterTableViewCell.isUserInteractionEnabled = false
+            semesterTableViewCell.textLabel?.isEnabled = false
+            semesterTableViewCell.detailTextLabel?.isEnabled = false
+            
+            lecturesTableViewCell.isUserInteractionEnabled = false
+            lecturesTableViewCell.textLabel?.isEnabled = false
+            lecturesTableViewCell.detailTextLabel?.isEnabled = false
+            
+            saveChangesButton.isEnabled = false
+        }
     }
     
     func hanldeCalendarSyncChanged() {

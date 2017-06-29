@@ -43,7 +43,6 @@ class Schedule: NSObject, NSCoding {
     }
     
     override func copy() -> Any {
-        
         let copy = Schedule()
         
         for (index, element) in lectures.enumerated(){
@@ -77,6 +76,12 @@ class Schedule: NSObject, NSCoding {
         return newList
     }
     
+
+    func isEmpty() -> Bool{
+        
+        return (lectures[0].isEmpty && lectures[1].isEmpty && lectures[2].isEmpty && lectures[3].isEmpty && lectures[4].isEmpty && lectures[5].isEmpty)
+    }
+        
     required init?(coder aDecoder: NSCoder) {
         lectures = aDecoder.decodeObject(forKey: lecturesKey) as! [[Lecture]]
         super.init()
@@ -84,5 +89,6 @@ class Schedule: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(lectures, forKey: lecturesKey)
+
     }
 }

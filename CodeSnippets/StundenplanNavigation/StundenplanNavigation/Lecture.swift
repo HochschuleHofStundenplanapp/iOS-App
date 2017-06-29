@@ -22,10 +22,12 @@ class Lecture: NSObject, NSCoding {
     var enddate: Date
     var day: String
     var room: String
+    var calendarName : String
     var semester: Semester
     var comment : String
     var iteration : iterationState
     var kwDates : [Date]
+    var calendarKey = "calendarKey"
     let keyKey = "lectureKey"
     let idKey = "lectureId"
     let splusnameKey = "lectureSplusname"
@@ -44,7 +46,7 @@ class Lecture: NSObject, NSCoding {
     let iterationKey = "lectureIteration"
     let kwDatesKey = "kwDates"
     
-    init(id: Int, splusname: String, name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: iterationState, kwDates: [Date]) {
+    init(id: Int, splusname: String,name: String, lecturer: String, type: String, style: String, group: String, startdate: Date, enddate: Date, day: String, room: String, semester: Semester, comment : String, iteration: iterationState, kwDates: [Date],calendarName : String) {
         self.key = splusname + semester.name + semester.course.contraction
         self.id = id
         self.splusname = splusname
@@ -61,6 +63,8 @@ class Lecture: NSObject, NSCoding {
         self.comment = comment
         self.iteration = iteration
         self.kwDates = kwDates
+        self.calendarName = calendarName
+       // print("fixed name in lecture \(self.calendarName) - normaler name \(self.name)")
     }
     
     var startTime: Date {
@@ -112,6 +116,7 @@ class Lecture: NSObject, NSCoding {
         comment = aDecoder.decodeObject(forKey: commentKey) as! String
         iteration = iterationState(rawValue: Int(aDecoder.decodeInteger(forKey: iterationKey)))!
         kwDates = aDecoder.decodeObject(forKey: kwDatesKey) as! [Date]
+        calendarName = aDecoder.decodeObject(forKey: calendarKey) as! String
         super.init()
     }
     
@@ -132,11 +137,12 @@ class Lecture: NSObject, NSCoding {
         aCoder.encode(comment, forKey: commentKey)
         aCoder.encode(iteration.rawValue, forKey: iterationKey)
         aCoder.encode(kwDates, forKey: kwDatesKey)
+        aCoder.encode(calendarName, forKey: calendarKey)
+     
     }
     
     override func isEqual(_ object: Any?) -> Bool {
         let rhs = object as! Lecture
-//        return (self.name == rhs!.name) && (self.room == rhs!.room) && (self.type == rhs!.type) && (self.day == rhs!.day) && (self.semester == rhs!.semester)
         return (self == rhs)
     }
     
@@ -147,7 +153,10 @@ class Lecture: NSObject, NSCoding {
             && (self.room == changeLecture.oldRoom)
             && (self.day == changeLecture.oldDay)
             && (self.startTime == changeLecture.oldTime)
+
     }
+    
+    
     
     static func == (lhs: Lecture, rhs: Lecture) -> Bool {
 //        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.type == rhs.type) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
