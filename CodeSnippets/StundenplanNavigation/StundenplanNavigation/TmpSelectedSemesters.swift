@@ -89,4 +89,8 @@ class TmpSelectedSemesters: NSObject {
 
         return res
     }
+    
+    func clear() {
+        userdata.selectedSemesters.removeAll()
+    }
 }

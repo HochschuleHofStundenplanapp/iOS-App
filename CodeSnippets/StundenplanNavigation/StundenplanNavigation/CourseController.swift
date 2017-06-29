@@ -15,11 +15,13 @@ class CourseController: NSObject, DataObserverProtocol {
     var tmpSelectedCourses : TmpSelectedCourses
     var tmpSelectedSemesters : TmpSelectedSemesters
     var tmpSelectedLectures : TmpSelectedLectures
+    var tmpSelectedSeason : String
 
-    init (tmpSelectedCourses: TmpSelectedCourses, tmpSelectedSemesters: TmpSelectedSemesters, tmpSelectedLectures: TmpSelectedLectures){
+    init (tmpSelectedCourses: TmpSelectedCourses, tmpSelectedSemesters: TmpSelectedSemesters, tmpSelectedLectures: TmpSelectedLectures, tmpSelectedSeason: String){
         self.tmpSelectedCourses = tmpSelectedCourses
         self.tmpSelectedSemesters = tmpSelectedSemesters
         self.tmpSelectedLectures = tmpSelectedLectures
+        self.tmpSelectedSeason = tmpSelectedSeason
     }
     
     func loadAllCourses() -> Void {
@@ -27,11 +29,9 @@ class CourseController: NSObject, DataObserverProtocol {
         
         self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
-      
-        let selectedSeason = UserData.sharedInstance.selectedSeason
         
         //Markiere letzets Item im Job Manager
-        let myUrl = "\(Constants.baseURI)client.php?f=Courses&tt=\(selectedSeason)"
+        let myUrl = "\(Constants.baseURI)client.php?f=Courses&tt=\(tmpSelectedSeason)"
         let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password,isLastJob: true)

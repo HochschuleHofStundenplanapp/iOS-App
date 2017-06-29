@@ -18,10 +18,6 @@ class Schedule: NSObject, NSCoding {
         lectures = [[],[],[],[],[],[]]
     }
     
-//    init(lectures: [[Lecture]]){
-//        self.lectures = lectures
-//    }
-    
     func add(lecture: Lecture, at day: Int){
         lectures[day].append(lecture)
     }

@@ -11,30 +11,24 @@ import UIKit
 class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     
     var myJobManager : JobManager = JobManager()
-    let season = UserData.sharedInstance.selectedSeason
+    //    let season = UserData.sharedInstance.selectedSeason
     var selectedLectures = SelectedLectures().getOneDimensionalList()
     var myObservers = [myObserverProtocol]()
     var myUrl : String = ""
     var myUrlList = [String]()
-
     
-    
-    override init()
-    {
+    override init() {
         super.init()
-       
-
     }
+    
     func handleAllChanges() -> Void
     {
-        
-        
-          selectedLectures = SelectedLectures().getOneDimensionalList()
+        selectedLectures = SelectedLectures().getOneDimensionalList()
         self.myJobManager = JobManager()
-    self.myJobManager.addNewObserver(o: self)
+        self.myJobManager.addNewObserver(o: self)
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
-          ServerData.sharedInstance.lastAllChanges =   ServerData.sharedInstance.allChanges
+        ServerData.sharedInstance.lastAllChanges =   ServerData.sharedInstance.allChanges
         ServerData.sharedInstance.allChanges.removeAll()
         UserData.sharedInstance.savedSplusnames.removeAll()
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
@@ -43,13 +37,13 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             print("lecture splus\(lecture.splusname)")
             var splusname = lecture.splusname
             splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-           
-           
+            
+            
             print("url länge: \(myUrl.characters.count)")
             if(myUrl.characters.count < 5000)
             {
                 myUrl = myUrl + "\(splusname)&id[]="
-
+                
             }
             else
             {
@@ -57,7 +51,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
                 myUrlList.append(myUrl)
                 myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
                 myUrl = myUrl + "\(splusname)&id[]="
-
+                
             }
             
             
@@ -71,30 +65,30 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         {
             print("url \(url)")
             myJobManager.NetworkJob(url: url, username: Constants.username, password: Constants.password, isLastJob: false)
-           
+            
         }
-       
-        
-            myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: true)
         
         
-     
+        myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: true)
+        
+        
+        
         
     }
-
+    
     
     /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
     ///
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void
     {
-       
+        
         print("Das Dataobject \(o)")
         
         
         let dataArray = o as! [(Data?, Error?)]
         
-       
+        
         
         for dataObject in dataArray {
             //print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
@@ -108,7 +102,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             }
             print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             
-        for change in (JsonChanges(data: dataObject.0!)?.changes)!
+            for change in (JsonChanges(data: dataObject.0!)?.changes)!
             {
                 ServerData.sharedInstance.allChanges.append(change)
             }
@@ -116,7 +110,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             
             
         }
- 
+        
         if(ServerData.sharedInstance.allChanges.count ==   ServerData.sharedInstance.lastAllChanges.count)
         {
             print("Keine neuen Änderungen")
@@ -127,14 +121,14 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             var anzahlAenderungen = abs(ServerData.sharedInstance.allChanges.count - ServerData.sharedInstance.lastAllChanges.count)
             print("es gibt \(anzahlAenderungen) neue Änderungen")
         }
-
+        
         notifiyAllObservers(s: "fertig")
-
-     print("ScheduleChanges Controller All Jobs Done")
+        
+        print("ScheduleChanges Controller All Jobs Done")
         
     }
     /// Bricht im JobManager alle Netzwerkjobs ab
-   func cancelAllNetworkJobs() -> Void  {
+    func cancelAllNetworkJobs() -> Void  {
         myJobManager.cancelAllNetworkJobs()
         
     }

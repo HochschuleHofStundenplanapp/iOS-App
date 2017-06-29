@@ -51,9 +51,7 @@ class JsonCourses {
             
             for s in sem{
                 
-                let season = UserData.sharedInstance.selectedSeason
-                
-                let tmpSem = Semester(name: s.string!, course: course, season: season)
+                let tmpSem = Semester(name: s.string!, course: course)
                 allSemesters.append(tmpSem)
             }
     

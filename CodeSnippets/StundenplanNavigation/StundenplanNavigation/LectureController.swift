@@ -10,14 +10,16 @@ import UIKit
 
 class LectureController: NSObject, DataObserverProtocol {
     
-    var myJobManager : JobManager = JobManager()
+    var myJobManager: JobManager = JobManager()
     
-    var tmpSelectedLectures : TmpSelectedLectures
-    var tmpSelectedSemesters : TmpSelectedSemesters
+    var tmpSelectedSeason: String
+    var tmpSelectedLectures: TmpSelectedLectures
+    var tmpSelectedSemesters: TmpSelectedSemesters
     
-    init(tmpSelectedLectures: TmpSelectedLectures, tmpSelectedSemesters: TmpSelectedSemesters){
+    init(tmpSelectedLectures: TmpSelectedLectures, tmpSelectedSemesters: TmpSelectedSemesters, tmpSelectedSeason: String){
         self.tmpSelectedLectures = tmpSelectedLectures
         self.tmpSelectedSemesters = tmpSelectedSemesters
+        self.tmpSelectedSeason = tmpSelectedSeason
     }
 
     func loadAllLectures() -> Void {
@@ -29,7 +31,7 @@ class LectureController: NSObject, DataObserverProtocol {
         
         for semester in selectedSemesters.dropLast() {
             
-            let myUrl : String = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semester.course.contraction)&sem=\(semester.name)&tt=\(semester.season)"
+            let myUrl : String = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semester.course.contraction)&sem=\(semester.name)&tt=\(tmpSelectedSeason)"
             let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
             myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password)
@@ -40,7 +42,7 @@ class LectureController: NSObject, DataObserverProtocol {
             let semesterLastItem = selectedSemesters.last!
             
             //Markiere letzets Item im Job Manager
-            let myUrl = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semesterLastItem.course.contraction)&sem=\(semesterLastItem.name)&tt=\(semesterLastItem.season)"
+            let myUrl = "\(Constants.baseURI)client.php?f=Schedule&stg=\(semesterLastItem.course.contraction)&sem=\(semesterLastItem.name)&tt=\(tmpSelectedSeason)"
             let urlString = myUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
             myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password,isLastJob: true)

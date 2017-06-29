@@ -18,13 +18,14 @@ class CourseTableViewController: UITableViewController {
     var tmpSelectedCourses: TmpSelectedCourses!
     var tmpSelectedSemesters: TmpSelectedSemesters!
     var tmpSelectedLectures: TmpSelectedLectures!
+    var tmpSelectedSeason: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
         tabBarController?.tabBar.tintColor = UIColor.hawRed
         
-        courseController = CourseController(tmpSelectedCourses: self.tmpSelectedCourses, tmpSelectedSemesters: self.tmpSelectedSemesters, tmpSelectedLectures: self.tmpSelectedLectures)
+        courseController = CourseController(tmpSelectedCourses: self.tmpSelectedCourses, tmpSelectedSemesters: self.tmpSelectedSemesters, tmpSelectedLectures: self.tmpSelectedLectures, tmpSelectedSeason: tmpSelectedSeason)
         
         datasource = CourseTableViewDataSource(tmpSelectedCourses: tmpSelectedCourses)
         delegate = CourseTableViewDelegate(courseController: courseController)

@@ -13,24 +13,22 @@ class SettingsController: NSObject {
     var tmpSelectedCourses: TmpSelectedCourses
     var tmpSelectedSemesters: TmpSelectedSemesters
     var tmpSelectedLectures: TmpSelectedLectures
+    var tmpSelectedSeason: String
     var userDataCopy: UserData!
     
     override init() {
         userDataCopy = UserData.sharedInstance.copy() as! UserData
-        
         tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
         tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
         tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
+        tmpSelectedSeason = userDataCopy.selectedSeason
     }
     
-//    func createWorkingCopy(){
-//        userDataCopy = UserData.sharedInstance.copy() as! UserData
-//        
-//        tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
-//        tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
-//        tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
-//    }
-    
+    func set(season: String){
+        tmpSelectedSeason = season
+        clearAllSettings()
+    }
+        
     func countChanges() -> Int{
         return userDataCopy.addedLectures.count + userDataCopy.removedLectures.count
     }
@@ -46,7 +44,6 @@ class SettingsController: NSObject {
         userDataCopy.removedLectures = removed
         
         UserData.sharedInstance = userDataCopy.copy() as! UserData
-        
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
@@ -96,10 +93,8 @@ class SettingsController: NSObject {
     }
     
     public func clearAllSettings() {
+        tmpSelectedCourses.clear()
+        tmpSelectedSemesters.clear()
         tmpSelectedLectures.clear()
-        
-        // TODO einkommentieren wenn vorhanden
-        //TmpSelectedSemesters().clear()
-        //TmpSelectedCourses().clear()
     }
 }
