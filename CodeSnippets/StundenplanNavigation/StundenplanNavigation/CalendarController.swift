@@ -52,6 +52,8 @@ class CalendarController: NSObject {
         }
     }
     
+    
+    
     // Aktualisiert Werte aller Events
     public func updateAllEvents (changes : [ChangedLecture]) {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
@@ -180,7 +182,9 @@ class CalendarController: NSObject {
     
     // Erzeugt ein EKEvent aus einer Lecture
     func lectureToEKEvent(lecture: Lecture) {
-        title = lecture.name
+        //print("Setze title kalender \(lecture.calendarName) - alt war \(lecture.name)")
+        title = lecture.calendarName
+       
         iteration = lecture.iteration
         notes = lecture.comment + "  " + lecture.group
         

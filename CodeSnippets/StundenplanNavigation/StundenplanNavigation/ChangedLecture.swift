@@ -96,6 +96,8 @@ class ChangedLecture: NSObject {
         return self == object as! ChangedLecture
     }
     
+ 
+    
     static func == (lhs: ChangedLecture, rhs: ChangedLecture) -> Bool {
 
         return (lhs.id == rhs.id)
