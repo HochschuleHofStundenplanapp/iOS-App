@@ -114,17 +114,11 @@ class TmpSelectedLectures: NSObject {
     }
     
     func getOneDimensionalList() -> [Lecture]{
-//        let lectures = userdata.selectedSchedule.lectures
-//        
-//        var newList : [Lecture] = [Lecture]()
-//        
-//        for day in lectures{
-//            for lecture in day{
-//                newList.append(lecture)
-//            }
-//        }
-//        return newList
         let list = userdata.selectedSchedule.getOneDimensionalList()
         return list
+    }
+    
+    func hasSelection() -> Bool{
+        return !userdata.selectedSchedule.isEmpty()
     }
 }

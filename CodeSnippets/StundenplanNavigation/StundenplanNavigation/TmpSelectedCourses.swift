@@ -37,6 +37,10 @@ class TmpSelectedCourses: NSObject {
         userdata.selectedCourses.remove(at: index!)
     }
     
+    func hasSelection() -> Bool{
+        return !userdata.selectedCourses.isEmpty
+    }
+    
     // Erweiterung des Modells um die Label-Texte im Settings-Screen zu erzeugen
     // Da Daten nicht sortiert sind, kommt es wohl besser in einen Controller
     func allSelectedCourses() -> String

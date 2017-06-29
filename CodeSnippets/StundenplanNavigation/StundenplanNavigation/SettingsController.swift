@@ -31,6 +31,10 @@ class SettingsController: NSObject {
 //        tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
 //    }
     
+    func countChanges() -> Int{
+        return userDataCopy.addedLectures.count + userDataCopy.removedLectures.count
+    }
+    
     func commitChanges(){
         let oldLectures = SelectedLectures().getOneDimensionalList()
         let newLectures = tmpSelectedLectures.getOneDimensionalList()

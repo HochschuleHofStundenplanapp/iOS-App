@@ -41,7 +41,6 @@ class Schedule: NSObject {
     }
     
     override func copy() -> Any {
-        
         let copy = Schedule()
         
         for (index, element) in lectures.enumerated(){
@@ -73,5 +72,10 @@ class Schedule: NSObject {
             }
         }
         return newList
+    }
+    
+    func isEmpty() -> Bool{
+        
+        return (lectures[0].isEmpty && lectures[1].isEmpty && lectures[2].isEmpty && lectures[3].isEmpty && lectures[4].isEmpty && lectures[5].isEmpty)
     }
 }

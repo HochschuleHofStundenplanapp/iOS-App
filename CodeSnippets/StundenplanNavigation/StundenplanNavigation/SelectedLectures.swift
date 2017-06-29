@@ -21,20 +21,10 @@ class SelectedLectures: NSObject {
     }
     
     func getOneDimensionalList() -> [Lecture]{
-//        let lectures = userdata.selectedSchedule.lectures
-//        
-//        var newList : [Lecture] = [Lecture]()
-//        
-//        for day in lectures{
-//            for lecture in day{
-//                newList.append(lecture)
-//            }
-//        }
         let list = userdata.selectedSchedule.getOneDimensionalList()
         return list
     }
     
-    //Vielleicht auslagern??
     func sortLecturesForSchedule(){
         for i in 0..<userdata.selectedSchedule.lectures.count{
             userdata.selectedSchedule.lectures[i].sort(by: {$0.startTime < $1.startTime})
