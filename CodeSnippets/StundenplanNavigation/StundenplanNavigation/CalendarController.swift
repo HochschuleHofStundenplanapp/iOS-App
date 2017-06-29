@@ -192,7 +192,7 @@ class CalendarController: NSObject {
     func lectureToEKEvent(lecture: Lecture) {
         //print("Setze title kalender \(lecture.calendarName) - alt war \(lecture.name)")
         title = lecture.calendarName
-       
+        
         iteration = lecture.iteration
         notes = lecture.comment + "  " + lecture.group
         
@@ -216,15 +216,12 @@ class CalendarController: NSObject {
     private func handleCalendarWeeks(lecture: Lecture){
         //Termine für vorgegebene Kalenderwochen
         
-        // TODO noch einzukommentieren
-        /*
-         iteration = iterationState.individualDate
-         
-         for date in lecture.kwDates {
-         lecture.startdate = date
-         createEvents(lecture: lecture)
-         }
-         */
+        iteration = iterationState.individualDate
+        
+        for date in lecture.kwDates {
+            lecture.startdate = date
+            createEvents(lecture: lecture)
+        }
     }
     
     private func createEvents(lecture: Lecture) {

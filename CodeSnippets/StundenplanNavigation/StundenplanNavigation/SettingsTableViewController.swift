@@ -30,8 +30,11 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         settingsController = SettingsController()
+        
+        if (UserData.sharedInstance.callenderSync) {
+            self.syncSwitch.setOn(true, animated: true)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
