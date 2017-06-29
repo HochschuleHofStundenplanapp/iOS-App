@@ -30,8 +30,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingsController = SettingsController()
-        
         if (UserData.sharedInstance.callenderSync) {
             self.syncSwitch.setOn(true, animated: true)
         }
@@ -40,27 +38,20 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
-        disableCellsAndButton()
         
-        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
-        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
+//        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
+//        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
 
-        
-        disableCellsAndButton()
-        
-        if (settingsController.tmpSelectedSeason == "SS"){
-            segmentControl.selectedSegmentIndex = 0
-        }else{
-            segmentControl.selectedSegmentIndex = 1
-        }
-        
         selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
         selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
+        
+        updateSeasonSegments()
+        disableCellsAndButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOn), name: .calendarSyncOn, object: nil)
@@ -91,8 +82,18 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }else{
             settingsController.set(season: "WS")
         }
+        disableCellsAndButton()
+        
         selectedCoursesLabel.text = "..."
         selectedSemesterLabel.text = "..."
+    }
+    
+    private func updateSeasonSegments(){
+        if (settingsController.tmpSelectedSeason == "SS"){
+            segmentControl.selectedSegmentIndex = 0
+        }else{
+            segmentControl.selectedSegmentIndex = 1
+        }
     }
     
     private func disableCellsAndButton(){
@@ -100,20 +101,16 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             semesterTableViewCell.isUserInteractionEnabled = true
             semesterTableViewCell.textLabel?.isEnabled = true
             semesterTableViewCell.detailTextLabel?.isEnabled = true
-            
             if(settingsController.tmpSelectedSemesters.hasSelection()){
                 lecturesTableViewCell.isUserInteractionEnabled = true
                 lecturesTableViewCell.textLabel?.isEnabled = true
                 lecturesTableViewCell.detailTextLabel?.isEnabled = true
-                
                 saveChangesButton.isEnabled = true
-          
             }
             else{
                 lecturesTableViewCell.isUserInteractionEnabled = false
                 lecturesTableViewCell.textLabel?.isEnabled = false
                 lecturesTableViewCell.detailTextLabel?.isEnabled = false
-                
                 saveChangesButton.isEnabled = false
             }
         }
@@ -121,11 +118,9 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             semesterTableViewCell.isUserInteractionEnabled = false
             semesterTableViewCell.textLabel?.isEnabled = false
             semesterTableViewCell.detailTextLabel?.isEnabled = false
-            
             lecturesTableViewCell.isUserInteractionEnabled = false
             lecturesTableViewCell.textLabel?.isEnabled = false
             lecturesTableViewCell.detailTextLabel?.isEnabled = false
-            
             saveChangesButton.isEnabled = false
         }
     }
@@ -135,7 +130,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
-        //Auslagern in eigenen Controller
         if (syncSwitch.isOn) {
             settingsController.startCalendarSync()
         } else {
@@ -144,9 +138,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-        
         settingsController.commitChanges()
     }
     
@@ -183,12 +175,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
-    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
         
         if(index == 2){
-            settingsController = SettingsController()
             let nc = viewController as! UINavigationController
             let vc = nc.childViewControllers[0] as! SettingsTableViewController
             vc.settingsController = SettingsController()
