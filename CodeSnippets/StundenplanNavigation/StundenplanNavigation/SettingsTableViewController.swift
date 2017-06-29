@@ -29,48 +29,61 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        settingsController = SettingsController()
+        
+        if (UserData.sharedInstance.callenderSync) {
+            self.syncSwitch.setOn(true, animated: true)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
-        disableCellsAndButton()
-        
-        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
-        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
 
-        disableCellsAndButton()
         
-        if (settingsController.tmpSelectedSeason == "SS"){
-            segmentControl.selectedSegmentIndex = 0
-        }else{
-            segmentControl.selectedSegmentIndex = 1
-        }
+        disableCellsAndButton()
         
         selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
         selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOn), name: .calendarSyncOn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOff), name: .calendarSyncOff, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showAccessAlert), name: .showAccessAlert, object: nil)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .calendarSyncOn, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .calendarSyncOff, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .showAccessAlert, object: nil)
+    }
+    
+    func setCalendarSyncOn() {
+        syncSwitch.setOn(true, animated: true)
+    }
+    
+    func setCalendarSyncOff() {
+        syncSwitch.setOn(false, animated: true)
     }
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            settingsController.set(season: "SS")
-        }else{
-            settingsController.set(season: "WS")
-        }
-        selectedCoursesLabel.text = "..."
-        selectedSemesterLabel.text = "..."
+        //Auslagern in eigenen Controller
+        //        if sender.selectedSegmentIndex == 0 {
+        //            UserData.sharedInstance.selectedSeason = "SS"
+        //            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
+        //        }else{
+        //            UserData.sharedInstance.selectedSeason = "WS"
+        //            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
+        //        }
     }
     
     private func disableCellsAndButton(){
@@ -109,59 +122,28 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     func hanldeCalendarSyncChanged() {
-        if (UserData.sharedInstance.callenderSync) {
-            syncSwitch.setOn(true, animated: true)
-            UserData.sharedInstance.callenderSync = true
-        } else {
-            syncSwitch.setOn(false, animated: true)
-            UserData.sharedInstance.callenderSync = false
-        }
+        settingsController.handleCalendarSync()
     }
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         //Auslagern in eigenen Controller
         if (syncSwitch.isOn) {
-            switch CalendarController().createCalendar() {
-            case EKAuthorizationStatus.denied:
-                showAccessAlert()
-                UserData.sharedInstance.callenderSync = false
-                syncSwitch.setOn(false, animated: true)
-                break
-            case EKAuthorizationStatus.notDetermined:
-                UserData.sharedInstance.callenderSync = true
-                syncSwitch.setOn(true, animated: true)
-                break
-            default:
-                UserData.sharedInstance.callenderSync = true
-                syncSwitch.setOn(true, animated: true)
-                break
-            }
+            settingsController.startCalendarSync()
         } else {
-            CalendarController().removeCalendar()
-            UserData.sharedInstance.callenderSync = false
+            settingsController.stopCalendarSync()
         }
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-//        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-        
+        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
         settingsController.commitChanges()
-        
-        if (syncSwitch.isOn) {
-            let resultCalendarRoutine = settingsController.updateCalendar()
-            
-            if (!resultCalendarRoutine) {
-                showAccessAlert()
-                syncSwitch.setOn(false, animated: true)
-            }
-        }
     }
     
     func showAccessAlert() {
         let alert = UIAlertController(title: "Berechtigungen", message: "Es werden Berechtigungen benötigt um Einträge in den Kalender zu tätigen.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in
-             let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+            let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
             UIApplication.shared.open(openSettingsUrl!, options: [:], completionHandler: nil)
         }))
         self.present(alert, animated: true, completion: nil)
@@ -169,31 +151,30 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SettingsToCourses") {
+            
             let vc = segue.destination as! CourseTableViewController
             vc.tmpSelectedCourses = settingsController.tmpSelectedCourses
             vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
             vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
-            vc.tmpSelectedSeason = settingsController.tmpSelectedSeason
         }else if (segue.identifier == "SettingsToSemesters"){
+            
             let vc = segue.destination as! SemesterTableViewController
             vc.tmpSelectedCourses = settingsController.tmpSelectedCourses
             vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
             vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
         }else if (segue.identifier == "SettingsToLectures"){
+            
             let vc = segue.destination as! LecturesViewController
             vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
             vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
-            vc.tmpSelectedSeason = settingsController.tmpSelectedSeason
         }
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
-    
+        
         if(index == 2){
-            let nc = viewController as! UINavigationController
-            let vc = nc.childViewControllers[0] as! SettingsTableViewController
-            vc.settingsController = SettingsController()
+            settingsController = SettingsController()
         }
     }
 }

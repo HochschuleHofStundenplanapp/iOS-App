@@ -13,6 +13,7 @@ import UIKit
 class JsonLectures: NSObject {
     fileprivate var pLectures : [Lecture]?
     fileprivate var semester: Semester!
+    var fixedCalendarName : String = ""
     
     var lectures : [Lecture]? {
         get {
@@ -81,13 +82,20 @@ class JsonLectures: NSObject {
                     dateArray.append(date!)
                 }
             }
+            fixedCalendarName = name
             
             if iteration == iterationState.individualDate {
                 let dateFormatterName = DateFormatter()
                 dateFormatterName.dateFormat = "dd.MM"
                 dateFormatterName.locale = Locale(identifier: "de_DE")
                 
+                
+                
+               
+                
+                
                 name = "\(dateFormatterName.string(from: newStartDate!)) \(name)"
+               
             }
             
             if iteration != iterationState.notParsable && iteration != iterationState.individualDate {
@@ -142,8 +150,9 @@ class JsonLectures: NSObject {
                 print(dateArray)
             }
             
-            let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration, kwDates: dateArray)
+            let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration, kwDates: dateArray,calendarName: self.fixedCalendarName)
           
+            
             pLectures?.append(lecture)
         }
     }

@@ -37,6 +37,14 @@ class CalendarController: NSObject {
         }
     }
     
+    public func calendarAuthorizationStatus() -> Bool {
+        if CalendarInterface.sharedInstance.isAuthorized() {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     public func removeCalendar() {
         _ = CalendarInterface.sharedInstance.removeCalendar()
     }
@@ -51,6 +59,8 @@ class CalendarController: NSObject {
             CalendarInterface.sharedInstance.saveIDs()
         }
     }
+    
+    
     
     // Aktualisiert Werte aller Events
     public func updateAllEvents (changes : [ChangedLecture]) {
@@ -180,7 +190,9 @@ class CalendarController: NSObject {
     
     // Erzeugt ein EKEvent aus einer Lecture
     func lectureToEKEvent(lecture: Lecture) {
-        title = lecture.name
+        //print("Setze title kalender \(lecture.calendarName) - alt war \(lecture.name)")
+        title = lecture.calendarName
+        
         iteration = lecture.iteration
         notes = lecture.comment + "  " + lecture.group
         
@@ -204,15 +216,12 @@ class CalendarController: NSObject {
     private func handleCalendarWeeks(lecture: Lecture){
         //Termine für vorgegebene Kalenderwochen
         
-        // TODO noch einzukommentieren
-        /*
-         iteration = iterationState.individualDate
-         
-         for date in lecture.kwDates {
-         lecture.startdate = date
-         createEvents(lecture: lecture)
-         }
-         */
+        iteration = iterationState.individualDate
+        
+        for date in lecture.kwDates {
+            lecture.startdate = date
+            createEvents(lecture: lecture)
+        }
     }
     
     private func createEvents(lecture: Lecture) {
