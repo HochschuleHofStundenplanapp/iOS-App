@@ -30,6 +30,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         // cntChanges = 0
         ServerData.sharedInstance.lastAllChanges =   ServerData.sharedInstance.allChanges
         ServerData.sharedInstance.allChanges.removeAll()
+        UserData.sharedInstance.oldChanges.removeAll()
         UserData.sharedInstance.savedSplusnames.removeAll()
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
         //print("selected lectures size \(selectedLectures.count)")
@@ -105,10 +106,16 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             for change in (JsonChanges(data: dataObject.0!)?.changes)!
             {
                 ServerData.sharedInstance.allChanges.append(change)
+                UserData.sharedInstance.oldChanges.append(change)
             }
             
             
             
+        }
+        
+
+        if(ServerData.sharedInstance.allChanges.count > 0){
+            SettingsController().commitChanges()
         }
         
         if(ServerData.sharedInstance.allChanges.count ==   ServerData.sharedInstance.lastAllChanges.count)

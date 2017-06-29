@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
         
         UserData.sharedInstance = DataObjectPersistency().loadDataObject()
         
+        ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
+        
+        print("Server: \(ServerData.sharedInstance.allChanges)")
+        
         return true
     }
 

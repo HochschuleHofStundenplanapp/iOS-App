@@ -144,7 +144,9 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
+
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+        
         settingsController.commitChanges()
     }
     

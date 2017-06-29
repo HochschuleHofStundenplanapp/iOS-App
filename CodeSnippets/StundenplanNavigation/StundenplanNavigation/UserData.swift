@@ -24,6 +24,7 @@ class UserData: NSObject, NSCoding{
     var selectedSemesters : [Semester] = []
     var savedSplusnames : [String] = [String]()//Auslagern
     var selectedSchedule: Schedule = Schedule()
+    var oldChanges : [ChangedLecture] = []
     
     var removedLectures: [Lecture] = []
     var addedLectures: [Lecture] = []
@@ -36,8 +37,9 @@ class UserData: NSObject, NSCoding{
     let selectedScheduleKey = "selectedSchedule"
     let removedLecturesKey = "removedLectures"
     let addedLecturesKey = "addedLectures"
-    
-    private override init(){ }
+    let oldChangesKey = "oldChanges"
+
+    private override init(){}
     
     override func copy() -> Any {
         let copy = UserData()
@@ -61,6 +63,8 @@ class UserData: NSObject, NSCoding{
         selectedSchedule = aDecoder.decodeObject(forKey: selectedScheduleKey) as! Schedule
         removedLectures = aDecoder.decodeObject(forKey: removedLecturesKey) as! [Lecture]
         addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
+        oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
+
         super.init()
     }
     
@@ -73,5 +77,7 @@ class UserData: NSObject, NSCoding{
         aCoder.encode(selectedSchedule, forKey: selectedScheduleKey)
         aCoder.encode(removedLectures, forKey: removedLecturesKey)
         aCoder.encode(addedLectures, forKey: addedLecturesKey)
+        aCoder.encode(oldChanges, forKey: oldChangesKey)
+
     }
 }

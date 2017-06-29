@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChangedLecture: NSObject {
+class ChangedLecture: NSObject, NSCoding {
     
     var id: Int
     var name: String
@@ -24,6 +24,21 @@ class ChangedLecture: NSObject {
     var newRoom: String
     var group: String
     var splusname : String
+    
+    var idKey = "id"
+    var nameKey = "name"
+    var docentKey = "docent"
+    var commentKey = "commentKey"
+    var oldTimeKey = "oldTime"
+    var oldDateKey = "oldDate"
+    var oldDayKey = "oldDay"
+    var oldRoomKey = "oldRoom"
+    var newTimeKey = "newTime"
+    var newDateKey = "newDate"
+    var newDayKey = "newDay"
+    var newRoomKey = "newRoom"
+    var groupKey = "group"
+    var splusnameKey = "splusname"
     
     //Studiengang einfügen
     
@@ -45,6 +60,42 @@ class ChangedLecture: NSObject {
         self.group = group
         self.splusname = splusname
         
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        id = aDecoder.decodeInteger(forKey: idKey)
+        name = aDecoder.decodeObject(forKey: nameKey) as! String
+        docent = aDecoder.decodeObject(forKey: docentKey) as! String
+        comment = aDecoder.decodeObject(forKey: commentKey) as! String
+        oldTime = aDecoder.decodeObject(forKey: oldTimeKey) as! Date
+        oldDate = aDecoder.decodeObject(forKey: oldDateKey) as! Date
+        oldDay = aDecoder.decodeObject(forKey: oldDayKey) as! String
+        oldRoom = aDecoder.decodeObject(forKey: oldRoomKey) as! String
+        newTime = aDecoder.decodeObject(forKey: newTimeKey) as? Date
+        newDate = aDecoder.decodeObject(forKey: newDateKey) as? Date
+        newDay = aDecoder.decodeObject(forKey: newDayKey) as! String
+        newRoom = aDecoder.decodeObject(forKey: newRoomKey) as! String
+        group = aDecoder.decodeObject(forKey: groupKey) as! String
+        splusname = aDecoder.decodeObject(forKey: splusnameKey) as! String
+
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(id, forKey: idKey)
+        aCoder.encode(name, forKey: nameKey)
+        aCoder.encode(docent, forKey: docentKey)
+        aCoder.encode(comment, forKey: commentKey)
+        aCoder.encode(oldTime, forKey: oldTimeKey)
+        aCoder.encode(oldDate, forKey: oldDateKey)
+        aCoder.encode(oldDay, forKey: oldDayKey)
+        aCoder.encode(oldRoom, forKey: oldRoomKey)
+        aCoder.encode(newTime, forKey: newTimeKey)
+        aCoder.encode(newDate, forKey: newDateKey)
+        aCoder.encode(newDay, forKey: newDayKey)
+        aCoder.encode(newRoom, forKey: newRoomKey)
+        aCoder.encode(group, forKey: groupKey)
+        aCoder.encode(splusname, forKey: splusnameKey)
     }
     
     var combinedOldDate: Date {
