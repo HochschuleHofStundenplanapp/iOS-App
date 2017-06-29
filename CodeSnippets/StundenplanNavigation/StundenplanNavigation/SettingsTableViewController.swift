@@ -30,7 +30,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
         settingsController = SettingsController()
     }
@@ -42,6 +41,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+
         
         disableCellsAndButton()
         
