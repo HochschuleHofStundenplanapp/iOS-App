@@ -113,10 +113,8 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             
         }
         
-
-        if(ServerData.sharedInstance.allChanges.count > 0){
-            SettingsController().commitChanges()
-        }
+        //Speichern
+        DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         
         if(ServerData.sharedInstance.allChanges.count ==   ServerData.sharedInstance.lastAllChanges.count)
         {
