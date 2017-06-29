@@ -37,6 +37,14 @@ class CalendarController: NSObject {
         }
     }
     
+    public func calendarAuthorizationStatus() -> Bool {
+        if CalendarInterface.sharedInstance.isAuthorized() {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     public func removeCalendar() {
         _ = CalendarInterface.sharedInstance.removeCalendar()
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class SettingsController: NSObject {
     
@@ -32,6 +33,7 @@ class SettingsController: NSObject {
 //    }
     
     func commitChanges(){
+        
         let oldLectures = SelectedLectures().getOneDimensionalList()
         let newLectures = tmpSelectedLectures.getOneDimensionalList()
         
@@ -41,9 +43,15 @@ class SettingsController: NSObject {
         let removed = removedLectures(oldLectures: oldLectures, newLectures: newLectures)
         userDataCopy.removedLectures = removed
         
+        if(UserData.sharedInstance.callenderSync == true){
+            userDataCopy.callenderSync = true
+        }
+        
         UserData.sharedInstance = userDataCopy.copy() as! UserData
         
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
+        
+        updateCalendar()
     }
     
     // Liefert alles Lectures zurück die entfernt werden müssen
@@ -87,8 +95,14 @@ class SettingsController: NSObject {
     }
     
     // TODO
-    public func updateCalendar() -> Bool{
-        return CalendarController().CalendarRoutine()
+    public func updateCalendar() {
+                
+        if (UserData.sharedInstance.callenderSync == true) {
+            if(!CalendarController().CalendarRoutine()){
+                NotificationCenter.default.post(name: .showAccessAlert , object: nil)
+                NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
+            }
+        }
     }
     
     public func clearAllSettings() {
@@ -97,5 +111,41 @@ class SettingsController: NSObject {
         // TODO einkommentieren wenn vorhanden
         //TmpSelectedSemesters().clear()
         //TmpSelectedCourses().clear()
+    }
+    
+    public func startCalendarSync() {
+        
+        switch CalendarController().createCalendar() {
+        case EKAuthorizationStatus.denied:
+            NotificationCenter.default.post(name: .showAccessAlert , object: nil)
+            UserData.sharedInstance.callenderSync = false
+            NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
+            break
+        case EKAuthorizationStatus.notDetermined:
+            UserData.sharedInstance.callenderSync = true
+            NotificationCenter.default.post(name: .calendarSyncOn , object: nil)
+            break
+        default:
+            UserData.sharedInstance.callenderSync = true
+            NotificationCenter.default.post(name: .calendarSyncOn , object: nil)
+            break
+        }
+    }
+    
+    public func stopCalendarSync() {
+        CalendarController().removeCalendar()
+        UserData.sharedInstance.callenderSync = false
+        NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
+    }
+    
+    public func handleCalendarSync() {
+        if (UserData.sharedInstance.callenderSync) {
+            UserData.sharedInstance.callenderSync = true
+            NotificationCenter.default.post(name: .calendarSyncOn , object: nil)
+            _ = CalendarController().createCalendar()
+        } else {
+            UserData.sharedInstance.callenderSync = false
+            NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
+        }
     }
 }

@@ -28,7 +28,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     var settingsController: SettingsController!
     
     var oldTabIndex = 0
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOn), name: .calendarSyncOn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOff), name: .calendarSyncOff, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showAccessAlert), name: .showAccessAlert, object: nil)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,74 +63,53 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         
         
         NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .calendarSyncOn, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .calendarSyncOff, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .showAccessAlert, object: nil)
+    }
+    
+    func setCalendarSyncOn() {
+        syncSwitch.setOn(true, animated: true)
+    }
+    
+    func setCalendarSyncOff() {
+        syncSwitch.setOn(false, animated: true)
     }
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
         //Auslagern in eigenen Controller
-//        if sender.selectedSegmentIndex == 0 {
-//            UserData.sharedInstance.selectedSeason = "SS"
-//            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
-//        }else{
-//            UserData.sharedInstance.selectedSeason = "WS"
-//            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
-//        }
+        //        if sender.selectedSegmentIndex == 0 {
+        //            UserData.sharedInstance.selectedSeason = "SS"
+        //            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
+        //        }else{
+        //            UserData.sharedInstance.selectedSeason = "WS"
+        //            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
+        //        }
     }
     
     func hanldeCalendarSyncChanged() {
-        if (UserData.sharedInstance.callenderSync) {
-            syncSwitch.setOn(true, animated: true)
-            UserData.sharedInstance.callenderSync = true
-        } else {
-            syncSwitch.setOn(false, animated: true)
-            UserData.sharedInstance.callenderSync = false
-        }
+        settingsController.handleCalendarSync()
     }
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         //Auslagern in eigenen Controller
         if (syncSwitch.isOn) {
-            switch CalendarController().createCalendar() {
-            case EKAuthorizationStatus.denied:
-                showAccessAlert()
-                UserData.sharedInstance.callenderSync = false
-                syncSwitch.setOn(false, animated: true)
-                break
-            case EKAuthorizationStatus.notDetermined:
-                UserData.sharedInstance.callenderSync = true
-                syncSwitch.setOn(true, animated: true)
-                break
-            default:
-                UserData.sharedInstance.callenderSync = true
-                syncSwitch.setOn(true, animated: true)
-                break
-            }
+            settingsController.startCalendarSync()
         } else {
-            CalendarController().removeCalendar()
-            UserData.sharedInstance.callenderSync = false
+            settingsController.stopCalendarSync()
         }
     }
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
         saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-        
         settingsController.commitChanges()
-        
-        if (syncSwitch.isOn) {
-            let resultCalendarRoutine = settingsController.updateCalendar()
-            
-            if (!resultCalendarRoutine) {
-                showAccessAlert()
-                syncSwitch.setOn(false, animated: true)
-            }
-        }
-
     }
     
     func showAccessAlert() {
         let alert = UIAlertController(title: "Berechtigungen", message: "Es werden Berechtigungen benötigt um Einträge in den Kalender zu tätigen.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in
-             let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+            let openSettingsUrl = URL(string: UIApplicationOpenSettingsURLString)
             UIApplication.shared.open(openSettingsUrl!, options: [:], completionHandler: nil)
         }))
         self.present(alert, animated: true, completion: nil)
@@ -155,7 +138,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
-    
+        
         if(index == 2){
             settingsController = SettingsController()
         }
