@@ -40,6 +40,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
+        disableCellsAndButton()
+        
+        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
+        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +52,12 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
 
         
         disableCellsAndButton()
+        
+        if (settingsController.tmpSelectedSeason == "SS"){
+            segmentControl.selectedSegmentIndex = 0
+        }else{
+            segmentControl.selectedSegmentIndex = 1
+        }
         
         selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
         selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
@@ -76,14 +86,13 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
-        //Auslagern in eigenen Controller
-        //        if sender.selectedSegmentIndex == 0 {
-        //            UserData.sharedInstance.selectedSeason = "SS"
-        //            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
-        //        }else{
-        //            UserData.sharedInstance.selectedSeason = "WS"
-        //            SettingsController(tmpSelectedLectures: self.tmpSelectedLectures).clearAllSettings()
-        //        }
+        if sender.selectedSegmentIndex == 0 {
+            settingsController.set(season: "SS")
+        }else{
+            settingsController.set(season: "WS")
+        }
+        selectedCoursesLabel.text = "..."
+        selectedSemesterLabel.text = "..."
     }
     
     private func disableCellsAndButton(){
@@ -156,6 +165,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             vc.tmpSelectedCourses = settingsController.tmpSelectedCourses
             vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
             vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
+            vc.tmpSelectedSeason = settingsController.tmpSelectedSeason
         }else if (segue.identifier == "SettingsToSemesters"){
             
             let vc = segue.destination as! SemesterTableViewController
@@ -167,14 +177,19 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             let vc = segue.destination as! LecturesViewController
             vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
             vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
+            vc.tmpSelectedSeason = settingsController.tmpSelectedSeason
         }
     }
+    
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
         
         if(index == 2){
             settingsController = SettingsController()
+            let nc = viewController as! UINavigationController
+            let vc = nc.childViewControllers[0] as! SettingsTableViewController
+            vc.settingsController = SettingsController()
         }
     }
 }
