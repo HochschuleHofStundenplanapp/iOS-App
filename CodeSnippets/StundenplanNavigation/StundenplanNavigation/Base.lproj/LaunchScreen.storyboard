@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,8 +28,15 @@
                                     <constraint firstAttribute="height" constant="171" id="UW2-hS-Qxx"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jct-WG-UHx">
-                                <rect key="frame" x="0.0" y="307" width="375" height="183"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.3-1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="JMG-AM-Jki">
+                                <rect key="frame" x="302" y="648" width="57" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jy5-Px-UQI">
+                                <rect key="frame" x="16" y="329" width="343" height="311"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Andreas Wolf  Daniel Glaser
 Daniel Zizer
 Jonas Beetz
@@ -37,29 +44,22 @@ Kevin Rodd Patrick Rüpplein
 Paul Forstner
 Peter Stöhr
 Sebastian Fuhrmann
-Stefan Scharrer
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.3-1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="JMG-AM-Jki">
-                                <rect key="frame" x="302" y="648" width="57" height="11"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+Stefan Scharrer</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JMG-AM-Jki" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="1jk-vA-FCe"/>
+                            <constraint firstItem="jy5-Px-UQI" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="7KM-Eg-JHL"/>
                             <constraint firstItem="jnU-eX-geN" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="79" id="7tM-8Y-QUq"/>
-                            <constraint firstAttribute="trailing" secondItem="Jct-WG-UHx" secondAttribute="trailing" id="Aif-lg-ux8"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="JMG-AM-Jki" secondAttribute="bottom" constant="8" id="R35-Vn-BeK"/>
-                            <constraint firstItem="Jct-WG-UHx" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="RxF-cn-FZT"/>
+                            <constraint firstItem="jy5-Px-UQI" firstAttribute="top" secondItem="jnU-eX-geN" secondAttribute="bottom" constant="59" id="SPB-1C-ndd"/>
+                            <constraint firstItem="JMG-AM-Jki" firstAttribute="top" secondItem="jy5-Px-UQI" secondAttribute="bottom" constant="8" id="X0R-oa-yiO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jnU-eX-geN" secondAttribute="trailing" constant="26" id="dZy-Bv-dQz"/>
                             <constraint firstItem="jnU-eX-geN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="26" id="plk-IX-log"/>
-                            <constraint firstItem="Jct-WG-UHx" firstAttribute="top" secondItem="jnU-eX-geN" secondAttribute="bottom" constant="37" id="vOX-iW-xsH"/>
+                            <constraint firstItem="jy5-Px-UQI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="vIg-tQ-mA6"/>
                         </constraints>
                     </view>
                 </viewController>
