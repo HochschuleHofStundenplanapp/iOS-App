@@ -48,8 +48,8 @@ class UserData: NSObject, NSCoding{
         copy.selectedSemesters = selectedSemesters
         copy.selectedSchedule = selectedSchedule.copy() as! Schedule
         
-//        copy.removedLectures = removedLectures
-//        copy.addedLectures = addedLectures
+        copy.removedLectures = removedLectures
+        copy.addedLectures = addedLectures
         copy.callenderSync = callenderSync
         return copy
     }
