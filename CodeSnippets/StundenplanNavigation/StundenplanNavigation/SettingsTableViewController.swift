@@ -129,10 +129,16 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
-        if (syncSwitch.isOn) {
-            settingsController.startCalendarSync()
-        } else {
-            settingsController.stopCalendarSync()
+        let ind = ActivityIndicator()
+        ind.startActivityIndicator(root: self)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+            if (self.syncSwitch.isOn) {
+                self.settingsController.startCalendarSync()
+            } else {
+                self.settingsController.stopCalendarSync()
+            }
+            ind.stopActivityIndicator()
         }
     }
     
