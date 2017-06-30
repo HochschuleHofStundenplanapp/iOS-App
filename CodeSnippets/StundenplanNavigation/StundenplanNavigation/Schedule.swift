@@ -41,7 +41,7 @@ class Schedule: NSObject, NSCoding {
     override func copy() -> Any {
         let copy = Schedule()
         
-        for (index, element) in lectures.enumerated(){
+        for (index, _) in lectures.enumerated(){
             copy.lectures[index] = lectures[index]
         }
         

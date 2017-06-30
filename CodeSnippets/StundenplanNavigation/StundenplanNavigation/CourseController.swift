@@ -76,7 +76,7 @@ class CourseController: NSObject, DataObserverProtocol {
         let dataArray = o as! [(Data?, Error?)]
         
         for errorObject in dataArray{
-            if let error = errorObject.1{
+            if errorObject.1 != nil{
                 notifyDownloadFailed()
                 return
             }

@@ -59,7 +59,7 @@ class LectureController: NSObject, DataObserverProtocol {
         let selectedSemesters = tmpSelectedSemesters.allSemesters()
         
         for errorObject in dataArray{
-            if let error = errorObject.1{
+            if errorObject.1 != nil{
                 notifyDownlaodFailed()
                 return
             }
