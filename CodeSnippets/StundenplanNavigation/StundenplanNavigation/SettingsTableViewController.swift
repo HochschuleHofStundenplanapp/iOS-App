@@ -30,6 +30,9 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+//        saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
+        
         if (UserData.sharedInstance.callenderSync) {
             self.syncSwitch.setOn(true, animated: true)
         }
@@ -37,27 +40,23 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
         
-//        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
-//        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
+        //Updates müssen in viewDidApper, weil erst hier die neue kopier erzeugt wurde (in viewWillApear ist noch die alten Instanz vorhanden)
+        updateSeasonSegments()
+        disableCellsAndButton()
+        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
+        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
+        saveChangesButton.setTitle("\(settingsController.countChanges()) Änderungen übernehmen", for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.tintColor = UIColor.hawBlue
-
-        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
-        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
-        
-        updateSeasonSegments()
-        disableCellsAndButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOn), name: .calendarSyncOn, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOff), name: .calendarSyncOff, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showAccessAlert), name: .showAccessAlert, object: nil)
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -29,13 +29,8 @@ class SettingsController: NSObject {
         tmpSelectedSeason = season
         clearAllSettings()
     }
-        
-    func countChanges() -> Int{
-        return userDataCopy.addedLectures.count + userDataCopy.removedLectures.count
-    }
     
-    func commitChanges(){
-        
+    func setRemovedAndAddedLectures() {
         let oldLectures = SelectedLectures().getOneDimensionalList()
         let newLectures = tmpSelectedLectures.getOneDimensionalList()
         
@@ -44,6 +39,23 @@ class SettingsController: NSObject {
         
         let removed = removedLectures(oldLectures: oldLectures, newLectures: newLectures)
         userDataCopy.removedLectures = removed
+    }
+        
+    func countChanges() -> Int{
+        setRemovedAndAddedLectures()
+        return userDataCopy.addedLectures.count + userDataCopy.removedLectures.count
+    }
+    
+    func commitChanges(){
+        setRemovedAndAddedLectures()
+//        let oldLectures = SelectedLectures().getOneDimensionalList()
+//        let newLectures = tmpSelectedLectures.getOneDimensionalList()
+//        
+//        let added = addedLectures(oldLectures: oldLectures, newLectures: newLectures)
+//        userDataCopy.addedLectures = added
+//        
+//        let removed = removedLectures(oldLectures: oldLectures, newLectures: newLectures)
+//        userDataCopy.removedLectures = removed
         
         if(UserData.sharedInstance.callenderSync == true){
             userDataCopy.callenderSync = true
@@ -53,6 +65,9 @@ class SettingsController: NSObject {
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         
         updateCalendar()
+        
+        UserData.sharedInstance.addedLectures = []
+        UserData.sharedInstance.removedLectures = []
     }
     
     // Liefert alles Lectures zurück die entfernt werden müssen
