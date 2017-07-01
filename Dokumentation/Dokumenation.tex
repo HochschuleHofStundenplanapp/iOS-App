@@ -1,0 +1,72 @@
+\documentclass[
+    DIV12,
+    cleardouble=plain,
+    headings=normal,
+    pdftex,
+    headexclude,footexclude,
+    final
+]{scrreprt}
+
+\usepackage{spreadtab}
+\usepackage{xspace}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[bookmarks]{hyperref}
+\usepackage{scrpage2}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\graphicspath{{./}{./Pics/}}
+
+% #################################################################
+
+\hyphenation{Cha-otn-gsch-werl}
+\setlength\headheight{1.75cm}
+
+\ihead{\small{Hochschule Hof}}
+\chead{}
+\ohead{\includegraphics[height=0.05\textheight]{fh_logo}}
+\pagestyle{scrheadings}
+
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\arraystretch}{1}
+
+\parskip0.5\baselineskip plus 0.125\baselineskip minus 0.25\baselineskip
+\parindent0em
+
+%\automark[section]{chapter}
+
+\titlehead{\begin{center}\includegraphics[width=5cm]{fh_logo}\end{center}}
+\title{
+  Stundenplan--App für iOS \\[1em]
+  Dokumentation, Spezifikation, Konstruktion
+}
+
+\author{Daniel Glaser, Stefan Scharrer}
+\date{Heute}
+
+% #################################################################
+
+
+\begin{document}
+\maketitle
+\pagenumbering{roman}
+\tableofcontents
+
+\listoftables
+
+\newpage
+\pagenumbering{arabic}
+
+%hier die einzelnen Punkte einfügen
+\include{CalendarInterface}
+
+\end{document}
