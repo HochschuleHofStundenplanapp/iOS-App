@@ -1,80 +1,96 @@
 \chapter{Calendar Interface}
-Das Calendar Interface besteht aus drei Klassen:
-\begin{itemize}
-     \item CalendarController,
-     \item CalendarInterface,
-     \item CalendarData, 
-\end{itemize}
-
-Dabei ist die CalendarController-Klasse die Klasse die genutzt werden soll wenn das Interface genutzt werden soll.
-
-\section{CalendarController}
-Dies ist der Controller für dieses Interface. Es stehen folgende Methoden zur Verfügung:
-\begin{itemize}
-     \item createCalendar(),
-     \item removeCalendar(),
-     \item createAllEvents(),
-     \item updateAllEvents(),
-     \item removeAllEvents(),
-\end{itemize}
-
-\subsection{createCalendar}
-Text
-
-\subsection{removeCalendar}
-Text
-
-\subsection{createAllEvents}
-Text
-
-\subsection{updateAllEvents}
-Text
-
-\subsection{removeAllEvents}
-Text
-
-\section{CalendarInterface}
-Dies ist die Klasse die direkt auf den Kalender zugreift. Sie bietet folgende Methoden:
-\begin{itemize}
-     \item createCalendar(),
-     \item removeCalendar(),
-     \item createEvent(),
-     \item updateEvent(),
-     \item removeEvent(),
-\end{itemize}
-
-\subsection{createCalendar}
-Text
-
-\subsection{removeCalendar}
-Text
-
-\subsection{createEvents}
-Text
-
-\subsection{updateEvents}
-Text
-
-\subsection{removeEvents}
-Text
-
-\section{CalendarData}
-Diese Klasse ist zum speichern der EventID's. Sie speichert die EventsID's für die Vorleusngen und für die Änderungen getrennt um sie getrennt bearbeiten zu können.
-
-
-
-
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[height=0.3\textheight]{LudwigII}
-    \caption{König Ludwig II}
-\end{figure}
-
-
 \begin{figure}[htb]
     \centering
     \includegraphics[height=0.3\textheight]{neuschwanstein_23}
-    \caption{König Ludwig II}
+    \caption{Diagramm}
 \end{figure}
+Das Calendar Interface besteht aus drei Klassen:
+\begin{itemize}
+     \item CalendarController
+     \item CalendarInterface
+     \item CalendarData
+\end{itemize}
+
+Dabei ist die CalendarController-Klasse die Klasse die aufgerufen werden muss um das Calendar Interface zu nutzen.
+
+\section{CalendarController}
+Der CalendarController ist der Controller für das Calendar Interface. Über ihm wird auf das Interface zugegriffen.
+
+
+Im Folgenden wird auf die wichtigsten Methoden eingegangen:
+\begin{itemize}
+     \item createCalendar()
+     \item removeCalendar()
+     \item createAllEvents()
+     \item updateAllEvents()
+     \item removeAllEvents()
+     \item CalendarRoutine()     
+\end{itemize}
+
+Jede Methode überprüft ob die Berechtigung gewährt wurde und reagiert entsprechend.
+
+\subsection{createCalendar}
+Erzeugt den Kalender falls die Berechtigung vorhanden ist. Falls er erzeugt wurde werden die Events mit createAllEvents in den Kalender geschrieben. Als Rückgabewert gibt er den Berechtigungsstatus zurück. Es gibt drei Rückgabewerte:
+\begin{itemize}
+     \item authorized \\[0.5em]
+     Bedeutet das der Nutzer die Berechtigung erteilt hat und der Kalender angelegt wurde oder bereits angelegt war.
+     \item notDetermined \\[0.5em]
+     Bedeutet das die Berechtigung gerade abgefragt wird.
+     \item denied \\[0.5em]
+     Bedeutet das die Berechtigung verweigert wurden.
+\end{itemize}
+
+\subsection{removeCalendar}
+Löscht den Kalender mit Hilfe des CalendarInterface.
+
+\subsection{createAllEvents}
+Erzeugt die aus den Vorlesungen die Events, die anschließend mit Hilfe des CalendarInterface in den Kalender geschrieben werden.
+Falls der Kalender noch nicht erzeugt wurde wird er angelegt.
+Die EventID's werden persistent gespeichert.
+
+\subsection{updateAllEvents}
+Ermittelt welche Art von Änderung vorliegt und passt die Events mit Hilfe des CalendarInterface entsprechend an.
+Die EventID's werden persistent gespeichert.
+
+\subsection{removeAllEvents}
+Holt sich für die übergebenden Vorlesungen die EventID's und löscht die entsprechenden Events mit Hilfe des CalendarInterface.
+Die Änderungen an den EventID's werden persistent gespeichert.
+
+\subsection{CalendarRoutine}
+Aktualisiert die Vorlesungen im Kalender. Dazu holt sie sich die abgewählten und neu ausgewählten Vorlesungen und übergibt sie der removeAllEvents oder createAllEvents-Methode.
+
+\section{CalendarInterface}
+Dies ist die Klasse die direkt auf den Kalender zugreift. 
+
+Im Folgenden wird auf die wichtigsten Methoden eingegangen:
+\begin{itemize}
+     \item createCalenderIfNeeded()
+     \item removeCalendar()
+     \item createEvent()
+     \item updateEvent()
+     \item removeEvent()
+     \item saveIDs()
+\end{itemize}
+
+\subsection{createCalenderIfNeeded}
+Erzeugt den Kalender falls er nicht bereits vorhanden ist. Gibt einen Boolean-Wert zurück ob der Kalender angelegt wurde.
+
+\subsection{removeCalendar}
+Löscht den Kalender falls dieser vorhanden ist. Gibt einen Boolean-Wert zurück ob das Löschen erfolgreich war.
+
+\subsection{createEvent}
+Schreibt das übergebende Event in den Kalender.
+
+\subsection{updateEvent}
+Das zu der EventID dazugehörige Event wird mit den entsprechend Werten des übergebenen Event angepasst.
+
+\subsection{removeEvent}
+Löscht das übergebene Event. Gibt einen Boolean-Wert zurück ob das Löschen erfolgreich war.
+
+\subsection{saveIDs}
+Speichert die EventIDs der Vorlesungen und Änderungen.
+
+\section{CalendarData}
+Die CaledenarData-Klasse dient dazu, die EventIDs der Vorlesungen und Änderungen getrennt in Dictonarys zu speichern.
+Die Dictonarys bestehen aus einer Zuordnung von einer ID einer Vorlesung zu mehreren EventIDs.
 
