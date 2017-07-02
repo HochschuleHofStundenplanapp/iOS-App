@@ -1,21 +1,24 @@
 \chapter{Calendar Interface}
+\section{Einleitung}
+Im folgenden Diagramm ist die Architektur und Integration des Calendar Interface in die Stundenplan App dargestellt.
 \begin{figure}[htb]
     \centering
-    \includegraphics[height=0.3\textheight]{neuschwanstein_23}
-    \caption{Diagramm}
+    \includegraphics[width=\textwidth]{CalendarInterface_Diagram}
+    \caption{CalendarInterface Diagramm}
 \end{figure}
-Das Calendar Interface besteht aus drei Klassen:
+
+Das Calendar Interface besteht aus folgenden drei Klassen:
 \begin{itemize}
      \item CalendarController
      \item CalendarInterface
      \item CalendarData
 \end{itemize}
 
-Dabei ist die CalendarController-Klasse die Klasse die aufgerufen werden muss um das Calendar Interface zu nutzen.
+Im Folgenden wird auf die Klassen genauer eingegangen.
 
+\newpage
 \section{CalendarController}
 Der CalendarController ist der Controller für das Calendar Interface. Über ihm wird auf das Interface zugegriffen.
-
 
 Im Folgenden wird auf die wichtigsten Methoden eingegangen:
 \begin{itemize}
@@ -59,6 +62,7 @@ Die Änderungen an den EventID's werden persistent gespeichert.
 \subsection{CalendarRoutine}
 Aktualisiert die Vorlesungen im Kalender. Dazu holt sie sich die abgewählten und neu ausgewählten Vorlesungen und übergibt sie der removeAllEvents oder createAllEvents-Methode.
 
+\newpage
 \section{CalendarInterface}
 Dies ist die Klasse die direkt auf den Kalender zugreift. 
 
@@ -90,6 +94,7 @@ Löscht das übergebene Event. Gibt einen Boolean-Wert zurück ob das Löschen e
 \subsection{saveIDs}
 Speichert die EventIDs der Vorlesungen und Änderungen.
 
+\newpage
 \section{CalendarData}
 Die CaledenarData-Klasse dient dazu, die EventIDs der Vorlesungen und Änderungen getrennt in Dictonarys zu speichern.
 Die Dictonarys bestehen aus einer Zuordnung von einer ID einer Vorlesung zu mehreren EventIDs.
