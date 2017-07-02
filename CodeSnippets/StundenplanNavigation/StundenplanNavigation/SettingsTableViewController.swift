@@ -132,7 +132,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         let ind = ActivityIndicator()
         ind.startActivityIndicator(root: self)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             if (self.syncSwitch.isOn) {
                 self.settingsController.startCalendarSync()
             } else {
