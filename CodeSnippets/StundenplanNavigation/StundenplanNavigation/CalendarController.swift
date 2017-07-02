@@ -37,6 +37,7 @@ class CalendarController: NSObject {
         }
     }
     
+	// TODO kann wahrscheinlich gelöscht werden
     public func calendarAuthorizationStatus() -> Bool {
         if CalendarInterface.sharedInstance.isAuthorized() {
             return true
@@ -46,7 +47,9 @@ class CalendarController: NSObject {
     }
     
     public func removeCalendar() {
-        _ = CalendarInterface.sharedInstance.removeCalendar()
+		if(CalendarInterface.sharedInstance.isAuthorized()) {
+			_ = CalendarInterface.sharedInstance.removeCalendar()
+		}
     }
     
     // Erzeugt für alle übergebenen Lectures EkEvents und schreibt diese in den Kalender
@@ -189,7 +192,7 @@ class CalendarController: NSObject {
     }
     
     // Erzeugt ein EKEvent aus einer Lecture
-    func lectureToEKEvent(lecture: Lecture) {
+    private func lectureToEKEvent(lecture: Lecture) {
         //print("Setze title kalender \(lecture.calendarName) - alt war \(lecture.name)")
         title = lecture.calendarName
         
