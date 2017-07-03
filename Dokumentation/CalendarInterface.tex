@@ -22,17 +22,17 @@ Der CalendarController ist der Controller für das Calendar Interface. Über ihm
 
 Im Folgenden wird auf die wichtigsten Methoden eingegangen:
 \begin{itemize}
-     \item createCalendar()
+     \item createCalendar() -$>$ EKAuthorizationStatus
      \item removeCalendar()
-     \item createAllEvents()
-     \item updateAllEvents()
-     \item removeAllEvents()
-     \item CalendarRoutine()     
+     \item createAllEvents(lectures : [Lecture])
+     \item updateAllEvents(changes : [ChangedLecture])
+     \item removeAllEvents(lectures : [Lecture])
+     \item CalendarRoutine() -$>$ Bool
 \end{itemize}
 
-Jede Methode überprüft ob die Berechtigung gewährt wurde und reagiert entsprechend.
+Vor dem Ausführen der Aufgabe der jeweiligen Methode wird überprüft, ob der Benutzer die Berechtigung auf den Kalender zuzugreifen, gewährt hat.
 
-\subsection{createCalendar}
+\subsection{createCalendar() -$>$ EKAuthorizationStatus}
 Erzeugt den Kalender falls die Berechtigung vorhanden ist. Falls er erzeugt wurde werden die Events mit createAllEvents in den Kalender geschrieben. Als Rückgabewert gibt er den Berechtigungsstatus zurück. Es gibt drei Rückgabewerte:
 \begin{itemize}
      \item authorized \\[0.5em]
@@ -43,24 +43,24 @@ Erzeugt den Kalender falls die Berechtigung vorhanden ist. Falls er erzeugt wurd
      Bedeutet das die Berechtigung verweigert wurden.
 \end{itemize}
 
-\subsection{removeCalendar}
-Löscht den Kalender mit Hilfe des CalendarInterface.
+\subsection{removeCalendar()}
+Löscht den Kalender und damit alle Einträge die darin vorhanden sind mit Hilfe des KalendarInterface.
 
-\subsection{createAllEvents}
-Erzeugt die aus den Vorlesungen die Events, die anschließend mit Hilfe des CalendarInterface in den Kalender geschrieben werden.
+\subsection{createAllEvents(lectures : [Lecture])}
+Erzeugt aus den Vorlesungen die Events, die anschließend mit Hilfe des CalendarInterface in den Kalender geschrieben werden.
 Falls der Kalender noch nicht erzeugt wurde wird er angelegt.
-Die EventID's werden persistent gespeichert.
+Die EventID's werden mittels der saveIDs-Methode des CalendarInterface persistent gespeichert.
 
-\subsection{updateAllEvents}
-Ermittelt welche Art von Änderung vorliegt und passt die Events mit Hilfe des CalendarInterface entsprechend an.
-Die EventID's werden persistent gespeichert.
+\subsection{updateAllEvents(changes : [ChangedLecture])}
+Ermittelt welche Art von Änderung vorliegt und passt mit Hilfe des CalendarInterface die  entsprechend Events im Kalender an.
+Die EventID's werden mittels der saveIDs-Methode des CalendarInterface persistent gespeichert.
 
-\subsection{removeAllEvents}
+\subsection{removeAllEvents(lectures : [Lecture])}
 Holt sich für die übergebenden Vorlesungen die EventID's und löscht die entsprechenden Events mit Hilfe des CalendarInterface.
-Die Änderungen an den EventID's werden persistent gespeichert.
+Die Änderungen an den EventID's werden mittels der saveIDs-Methode des CalendarInterface persistent gespeichert.
 
-\subsection{CalendarRoutine}
-Aktualisiert die Vorlesungen im Kalender. Dazu holt sie sich die abgewählten und neu ausgewählten Vorlesungen und übergibt sie der removeAllEvents oder createAllEvents-Methode.
+\subsection{CalendarRoutine() -$>$ Bool}
+Aktualisiert die Vorlesungen im Kalender. Dazu holt sie sich die abgewählten und neu ausgewählten Vorlesungen und übergibt sie der removeAllEvents() oder createAllEvents()-Methode. Der Rückgabewert gibt an, ob der Benutzer die Berechtigung erteilt hat, in den Kalendar zu schreiben.
 
 \newpage
 \section{CalendarInterface}
@@ -68,30 +68,30 @@ Dies ist die Klasse die direkt auf den Kalender zugreift.
 
 Im Folgenden wird auf die wichtigsten Methoden eingegangen:
 \begin{itemize}
-     \item createCalenderIfNeeded()
-     \item removeCalendar()
-     \item createEvent()
-     \item updateEvent()
-     \item removeEvent()
+     \item createCalenderIfNeeded() -$>$ Bool
+     \item removeCalendar() -$>$ Bool
+     \item createEvent(p\_event : EKEvent, key : String, isChanges : Bool)
+     \item updateEvent(eventID : String, updatedEvent : EKEvent, key : String, lectureToChange : Bool)
+     \item removeEvent(p\_eventId: String, p\_withNotes: Bool?=false) -$>$ Bool
      \item saveIDs()
 \end{itemize}
 
-\subsection{createCalenderIfNeeded}
+\subsection{createCalenderIfNeeded() -$>$ Bool}
 Erzeugt den Kalender falls er nicht bereits vorhanden ist. Gibt einen Boolean-Wert zurück ob der Kalender angelegt wurde.
 
-\subsection{removeCalendar}
-Löscht den Kalender falls dieser vorhanden ist. Gibt einen Boolean-Wert zurück ob das Löschen erfolgreich war.
+\subsection{removeCalendar() -$>$ Bool}
+Löscht den Kalender und damit alle Einträge, die er beinhaltet falls dieser vorhanden ist. Gibt einen Boolean-Wert zurück ob das Löschen erfolgreich war.
 
-\subsection{createEvent}
-Schreibt das übergebende Event in den Kalender.
+\subsection{createEvent(p\_event : EKEvent, key : String, isChanges : Bool)}
+Schreibt das übergebende Event in den Kalender. Unterscheidet dabei, ob es sich um eine Änderung oder eine normale Vorlesung handelt und fügt die EventID dem entsprechenden Dictonary hinzu. 
 
-\subsection{updateEvent}
-Das zu der EventID dazugehörige Event wird mit den entsprechend Werten des übergebenen Event angepasst.
+\subsection{updateEvent(eventID : String, updatedEvent : EKEvent, key : String, lectureToChange : Bool)}
+Das zu der EventID dazugehörige Event, wird mit den entsprechend Werten des übergebenen Event angepasst. Durch den lectureToChange Boolean-Wert wird unterschieden, ob aus einer Vorlesung einer Änderung wird oder ob aus einer Änderung wieder eine Vorlesung wird. Dabei werden die EventsIDs in das entsprechende Dictonary verschoben.
 
-\subsection{removeEvent}
+\subsection{removeEvent(p\_eventId: String, p\_withNotes: Bool?=false) -$>$ Bool}
 Löscht das übergebene Event. Gibt einen Boolean-Wert zurück ob das Löschen erfolgreich war.
 
-\subsection{saveIDs}
+\subsection{saveIDs()}
 Speichert die EventIDs der Vorlesungen und Änderungen.
 
 \newpage
