@@ -146,10 +146,6 @@ class JsonLectures: NSObject {
                 }
             }
             
-            if dateArray.count > 0 {
-                print(dateArray)
-            }
-            
             let lecture = Lecture(id: newId!, splusname: splusname, name: name, lecturer: docent, type: type, style: style, group: group, startdate: newStartDate!, enddate: newEndDate!, day: day, room: room, semester: self.semester, comment: comment, iteration: iteration, kwDates: dateArray,calendarName: self.fixedCalendarName)
           
             

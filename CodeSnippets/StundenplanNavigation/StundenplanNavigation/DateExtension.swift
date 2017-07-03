@@ -11,7 +11,7 @@ import Foundation
 extension Date {
     
     //gibt SS oder WS zurück
-    private func checkSemester() -> String{
+    public func checkSemester() -> String{
         let currentDate = Date()
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: currentDate)

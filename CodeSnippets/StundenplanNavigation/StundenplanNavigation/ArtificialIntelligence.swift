@@ -12,7 +12,7 @@ class ArtificialIntelligence: NSObject {
     let startArray : [String] = ["start", "beginn", "ab "]
     let endArray : [String] = [" ende"]
     let iterationArray : [String] = ["14-tägig" , "14 tägig", "14tägig", "14 tage", "14-tage",  "14tage", "zweiwöchig", "zwei wochen"]
-    let notParseAbleArray : [String] = ["außer"]
+    let notParseAbleArray : [String] = ["außer", "ohne"]
     var calendarWeekArray : [Int] = []
     let periodArray : [String] = ["-", "bis"]
     let wrongPeriodArray : [String] = ["online-anmeldung", " termine:"]
@@ -155,7 +155,7 @@ class ArtificialIntelligence: NSObject {
         var start = ""
         var end = ""
         
-        for wrongPeriod in wrongPeriodArray {
+        forLoop : for wrongPeriod in wrongPeriodArray {
             if tmpComment.contains(wrongPeriod) {
                 
                 let startIndex = tmpComment.range(of: wrongPeriod)!
@@ -165,24 +165,32 @@ class ArtificialIntelligence: NSObject {
                 
                 for i in (0..<stringToDelete.characters.count) {
                     let index = stringToDelete.index(stringToDelete.startIndex, offsetBy: i)
-                    
-                    if String(stringToDelete.characters[index]) == wrongPeriod {
-                        print(wrongPeriod)
-                        end = getNextCalendarWeekOrDate(comment: stringToDelete, keyword: wrongPeriod, length: 3)
-                        if end != ""{
-                            let endIndex = tmpComment.range(of: end)!
-                            tmpComment.removeSubrange(startIndex.lowerBound..<endIndex.upperBound)
+                    for period in periodArray {
+                        let firstLetter : String = String(period[period.startIndex])
+                        
+                        if String(stringToDelete.characters[index]) == firstLetter {
+                            let periodLength = period.characters.count
+                            let indexEnd = stringToDelete.index(index, offsetBy: periodLength)
+                            let potentialPeriod = stringToDelete.substring(with: index..<indexEnd)
                             
-                            break
+                            if potentialPeriod == period {
+                                end = getNextCalendarWeekOrDate(comment: stringToDelete, keyword: period, length: 3)
+                                if end != ""{
+                                    if tmpComment.range(of: end) == nil && end.characters.count >= 5 {
+                                        end.removeSubrange(end.index(end.endIndex, offsetBy: -5)..<end.endIndex)
+                                    }
+                                    let endIndex = tmpComment.range(of: end)!
+                                    tmpComment.removeSubrange(startIndex.lowerBound..<endIndex.upperBound)
+                                    break forLoop
+                                }
+                            }
                         }
                     }
                 }
             }
         }
         for period in periodArray {
-            
             while tmpComment.contains(period) {
-                
                 start = getPreviousCalendarWeekOrDate(comment: tmpComment, keyword: period, length: 3)
                 end = getNextCalendarWeekOrDate(comment: tmpComment, keyword: period, length: 3)
                 
@@ -223,7 +231,7 @@ class ArtificialIntelligence: NSObject {
         
         var tmpComment = comment
         var kw = ""
-        let range = tmpComment.range(of: keyword)!
+        var range = tmpComment.range(of: keyword)!
         
         tmpComment.removeSubrange(tmpComment.startIndex..<range.upperBound)
         
@@ -235,12 +243,12 @@ class ArtificialIntelligence: NSObject {
         if tmpCommentLength < tmpLength {
             tmpLength = tmpCommentLength
         }
-    
+        
         for i in (0..<2) {
-            if tmpCommentLength >= i && tmpCommentLength > 0{
+            if tmpCommentLength > i && tmpCommentLength > 0{
                 var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
                 
-                if tmpComment.characters[index] == "k" && tmpCommentLength >= i + 1{
+                if tmpComment.characters[index] == "k" && tmpCommentLength > i + 1{
                     index = tmpComment.index(tmpComment.startIndex, offsetBy: i + 1)
                     
                     if tmpComment.characters[index] == "w" {
@@ -251,7 +259,7 @@ class ArtificialIntelligence: NSObject {
         }
         
         for i in (0..<tmpLength) {
-            let index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
+            var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
             
             if Int(String(tmpComment.characters[index])) != nil {
                 kw = String(tmpComment.characters[index])
@@ -261,40 +269,123 @@ class ArtificialIntelligence: NSObject {
                     kw += String(tmpComment.characters[newIndex])
                     count += 1
                     newIndex = tmpComment.index(index, offsetBy: count)
+                }
+                
+                if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
                     
-                    if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
-                        count += 5
+                    var potentialDate = "\(kw)."
+                    count += 1
+                    newIndex = tmpComment.index(index, offsetBy: count)
+                    
+                    if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                        potentialDate += String(tmpComment.characters[newIndex])
+                        count += 1
+                        newIndex = tmpComment.index(index, offsetBy: count)
                         
-                        if i + count >= tmpCommentLength {
-                            return kw
+                        if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                            potentialDate += String(tmpComment.characters[newIndex])
+                            count += 1
+                            newIndex = tmpComment.index(index, offsetBy: count)
                         }
-                        
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "dd.MM.yyyy"
                         dateFormatter.locale = Locale(identifier: "de_DE")
                         
-                        newIndex = tmpComment.index(index, offsetBy: count + 1)
-                        var range = index ..< newIndex
-                        
-                        let date = tmpComment.substring(with: range)
-                        
-                        if dateFormatter.date(from: date) != nil {
+                        if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
+                            potentialDate += "."
+                            
                             count += 2
                             
                             if i + count >= tmpCommentLength {
-                                return date
+                                let calendar = Calendar.current
+                                let currentDate = Date()
+                                var currentYear = calendar.component(.year, from: currentDate)
+                                let season = currentDate.checkSemester()
+                                
+                                if season == "WS" {
+                                    index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
+                                    newIndex = potentialDate.index(index, offsetBy: 2)
+                                    range = index ..< newIndex
+                                    let month = Int(potentialDate.substring(with: range))
+                                    
+                                    if month! < 9 {
+                                        currentYear += 1
+                                    }
+                                }
+                                
+                                potentialDate += String(currentYear)
+                                
+                                if dateFormatter.date(from: potentialDate) != nil {
+                                    return potentialDate
+                                }
+                                return ""
                             }
                             
                             newIndex = tmpComment.index(index, offsetBy: count + 1)
-                            range = index ..< newIndex
-                            let newDate = tmpComment.substring(with: range)
+                            var range = index ..< newIndex
                             
-                            if dateFormatter.date(from: newDate) != nil {
-                                return newDate
+                            let date = tmpComment.substring(with: range)
+                            
+                            if dateFormatter.date(from: date) != nil {
+                                count += 2
+                                
+                                if i + count >= tmpCommentLength {
+                                    return date
+                                }
+                                
+                                newIndex = tmpComment.index(index, offsetBy: count + 1)
+                                range = index ..< newIndex
+                                let newDate = tmpComment.substring(with: range)
+                                
+                                if dateFormatter.date(from: newDate) != nil {
+                                    return newDate
+                                }
+                                return date
                             }
-                            return date
+                            
+                            let calendar = Calendar.current
+                            let currentDate = Date()
+                            var currentYear = calendar.component(.year, from: currentDate)
+                            let season = currentDate.checkSemester()
+                            
+                            if season == "WS" {
+                                index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
+                                newIndex = potentialDate.index(index, offsetBy: 2)
+                                range = index ..< newIndex
+                                let month = Int(potentialDate.substring(with: range))
+                                
+                                if month! < 9 {
+                                    currentYear += 1
+                                }
+                            }
+                            
+                            potentialDate += String(currentYear)
+                            if dateFormatter.date(from: potentialDate) != nil {
+                                return potentialDate
+                            }
                         } else {
-                            return kw
+                            let calendar = Calendar.current
+                            let currentDate = Date()
+                            var currentYear = calendar.component(.year, from: currentDate)
+                            let season = currentDate.checkSemester()
+                            
+                            if season == "WS" {
+                                index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
+                                newIndex = potentialDate.index(index, offsetBy: 2)
+                                range = index ..< newIndex
+                                let month = Int(potentialDate.substring(with: range))
+                                
+                                if month! < 9 {
+                                  currentYear += 1
+                                }
+                            }
+                            
+                            potentialDate += ".\(currentYear)"
+                            
+                            if dateFormatter.date(from: potentialDate) != nil {
+                                return potentialDate
+                            }
+                            return ""
                         }
                     } else {
                         return kw
@@ -310,7 +401,7 @@ class ArtificialIntelligence: NSObject {
     private func getPreviousCalendarWeekOrDate(comment: String, keyword: String, length: Int) -> String{
         var tmpComment = comment
         var kw = ""
-        let range = tmpComment.range(of: keyword)!
+        var range = tmpComment.range(of: keyword)!
         var calendarweekExist = false
         
         tmpComment.removeSubrange(range.lowerBound..<tmpComment.endIndex)
@@ -318,8 +409,7 @@ class ArtificialIntelligence: NSObject {
         let tmpCommentLength = tmpComment.characters.count
         
         tmpComment = String(tmpComment.characters.reversed())
-        
-        var count = 1
+        var count = 0
         var tmpLength = length
         
         if cwExist(comment: tmpComment, position: 0) == true {
@@ -331,72 +421,127 @@ class ArtificialIntelligence: NSObject {
             tmpLength = tmpCommentLength
         }
         
-        
         for i in (0..<tmpLength) {
-            let index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
+            var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
             
-            if Int(String(tmpComment.characters[index])) != nil {
-                kw = String(tmpComment.characters[index])
-                var newIndex = tmpComment.index(index, offsetBy: count)
-                
-                if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
-                    kw += String(tmpComment.characters[newIndex])
-                    count += 7
+            if i + count < tmpCommentLength {
+                if Int(String(tmpComment.characters[index])) != nil || tmpComment.characters[index] == "."  {
+                    var newIndex = tmpComment.index(index, offsetBy: count)
+                    var potentialDate = ""
                     
-                    if i + count >= tmpCommentLength {
-                        if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true {
-                            kw = String(kw.characters.reversed())
-                            return kw
-                        } else {
-                            return ""
+                    for j in (1..<6) {
+                        if i + count < tmpCommentLength {
+                            newIndex = tmpComment.index(index, offsetBy: count)
+                            
+                            if Int(String(tmpComment.characters[newIndex])) != nil {
+                                kw += String(tmpComment.characters[newIndex])
+                            } else if tmpComment.characters[newIndex] == "."{
+                                potentialDate = "\(kw)."
+                                count += 1
+                                newIndex = tmpComment.index(index, offsetBy: count)
+                                break
+                            } else {
+                                if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true && kw.characters.count <= 2 {
+                                    kw = String(kw.characters.reversed())
+                                    return kw
+                                } else {
+                                    return ""
+                                }
+                            }
+                            count = j
                         }
                     }
                     
-                    count += 2
-                    if i + count >= tmpCommentLength {
-                        count -= 2
-                    }
-                    
-                    newIndex = tmpComment.index(index, offsetBy: count)
-                    
-                    var range = index ..< newIndex
-                    
-                    var date = tmpComment.substring(with: range)
-                    date = String(date.characters.reversed())
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd.MM.yyyy"
-                    dateFormatter.locale = Locale(identifier: "de_DE")
-                    
-                    if dateFormatter.date(from: date) != nil {
-                        return date
-                    } else {
-                        
-                        count -= 2
+                    if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                        potentialDate += String(tmpComment.characters[newIndex])
+                        count += 1
                         newIndex = tmpComment.index(index, offsetBy: count)
-                        range = index ..< newIndex
-                        date = tmpComment.substring(with: range)
-                        date = String(date.characters.reversed())
                         
-                        if dateFormatter.date(from: date) != nil {
-                            return date
+                        if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                            potentialDate += String(tmpComment.characters[newIndex])
+                            count += 1
+                            newIndex = tmpComment.index(index, offsetBy: count)
                         }
                         
-                        if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true {
-                            kw = String(kw.characters.reversed())
-                            return kw
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "dd.MM.yyyy"
+                        dateFormatter.locale = Locale(identifier: "de_DE")
+                        
+                        if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
+                            potentialDate += "."
+                            count += 1
+                            newIndex = tmpComment.index(index, offsetBy: count)
+                            
+                            if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                                potentialDate += String(tmpComment.characters[newIndex])
+                                count += 1
+                                newIndex = tmpComment.index(index, offsetBy: count)
+                                
+                                if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                                    potentialDate += String(tmpComment.characters[newIndex])
+                                }
+                                
+                                potentialDate = String(potentialDate.characters.reversed())
+                                
+                                if dateFormatter.date(from: potentialDate) != nil {
+                                    return potentialDate
+                                } else {
+                                    let calendar = Calendar.current
+                                    let currentDate = Date()
+                                    var currentYear = calendar.component(.year, from: currentDate)
+                                    let season = currentDate.checkSemester()
+                                    
+                                    if season == "WS" {
+                                        index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
+                                        newIndex = potentialDate.index(index, offsetBy: 2)
+                                        range = index ..< newIndex
+                                        let month = Int(potentialDate.substring(with: range))
+                                        
+                                        if month! < 9 {
+                                            currentYear += 1
+                                        }
+                                    }
+                                    
+                                    potentialDate += String(currentYear)
+                                    
+                                    if dateFormatter.date(from: potentialDate) != nil {
+                                        return potentialDate
+                                    }
+                                }
+                            }
                         } else {
+                            if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true {
+                                kw = String(potentialDate.characters.reversed())
+                                kw.remove(at: kw.index(before: kw.endIndex))
+                                return kw
+                            } else {
+                                let calendar = Calendar.current
+                                let currentDate = Date()
+                                var currentYear = calendar.component(.year, from: currentDate)
+                                let season = currentDate.checkSemester()
+                                
+                                potentialDate = String(potentialDate.characters.reversed())
+                                
+                                if season == "WS" {
+                                    index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
+                                    newIndex = potentialDate.index(index, offsetBy: 2)
+                                    range = index ..< newIndex
+                                    let month = Int(potentialDate.substring(with: range))
+                                    
+                                    if month! < 9 {
+                                        currentYear += 1
+                                    }
+                                }
+                                potentialDate += ".\(String(currentYear))"
+                                
+                                if dateFormatter.date(from: potentialDate) != nil {
+                                    return potentialDate
+                                }
+                            }
                             return ""
                         }
                     }
-                } else {
-                    if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true {
-                        kw = String(kw.characters.reversed())
-                        return kw
-                    } else {
-                        return ""
-                    }
-                }
+                }   
             }
         }
         return ""
@@ -422,5 +567,4 @@ class ArtificialIntelligence: NSObject {
         }
         return false
     }
-
 }
