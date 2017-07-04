@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
         
         UserData.sharedInstance = DataObjectPersistency().loadDataObject()
         
-        ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
+//        ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
         
-        print("Server: \(ServerData.sharedInstance.allChanges)")
+//        print("Server: \(ServerData.sharedInstance.allChanges)")
         
         return true
     }
@@ -64,6 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
     
     var scheduleChangesController : ScheduleChangesController!
     
+    var tempOldChanges : [ChangedLecture] = []
+    
+    
     var handler: (UIBackgroundFetchResult) -> Void = {_ in}
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -73,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
         //Setup for downloading new Changes
         scheduleChangesController = ScheduleChangesController()
         scheduleChangesController.addNewObserver(o: self)
+        tempOldChanges = UserData.sharedInstance.oldChanges
         scheduleChangesController.handleAllChanges()
     }
     
@@ -80,10 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
         print ( "Changes geladen")
         
         
-        if ServerData.sharedInstance.lastAllChanges.count != ServerData.sharedInstance.allChanges.count && ServerData.sharedInstance.allChanges.count > 0{
+        if UserData.sharedInstance.oldChanges.count != tempOldChanges.count && UserData.sharedInstance.oldChanges.count > 0{
         
             //New Changes are available
-            let ResultChanges = ChangesController().compareChanges(oldChanges: ServerData.sharedInstance.lastAllChanges, newChanges: ServerData.sharedInstance.allChanges)
+            let ResultChanges = ChangesController().compareChanges(oldChanges: UserData.sharedInstance.oldChanges, newChanges: UserData.sharedInstance.oldChanges)
             
             let todayChanges = ChangesController().determineTodaysChanges(changedLectures: ResultChanges)
             

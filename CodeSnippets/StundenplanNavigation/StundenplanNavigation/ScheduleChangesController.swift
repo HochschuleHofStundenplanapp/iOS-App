@@ -28,8 +28,8 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         self.myJobManager.addNewObserver(o: self)
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
-        ServerData.sharedInstance.lastAllChanges =   ServerData.sharedInstance.allChanges
-        ServerData.sharedInstance.allChanges.removeAll()
+//        UserData.sharedInstance.oldChanges =   ServerData.sharedInstance.allChanges
+//        ServerData.sharedInstance.allChanges.removeAll()
         UserData.sharedInstance.oldChanges.removeAll()
         UserData.sharedInstance.savedSplusnames.removeAll()
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
@@ -96,6 +96,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             
             if dataObject.1 != nil{
                 // handle error
+                print("Error no Internet")
             }
             
             guard dataObject.0 != nil else {
@@ -105,7 +106,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             
             for change in (JsonChanges(data: dataObject.0!)?.changes)!
             {
-                ServerData.sharedInstance.allChanges.append(change)
+//                ServerData.sharedInstance.allChanges.append(change)
                 UserData.sharedInstance.oldChanges.append(change)
             }
             
@@ -116,17 +117,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         //Speichern
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         
-        if(ServerData.sharedInstance.allChanges.count ==   ServerData.sharedInstance.lastAllChanges.count)
-        {
-            print("Keine neuen Änderungen")
-            
-        }
-        else
-        {
-            var anzahlAenderungen = abs(ServerData.sharedInstance.allChanges.count - ServerData.sharedInstance.lastAllChanges.count)
-            print("es gibt \(anzahlAenderungen) neue Änderungen")
-        }
-        
+
         notifiyAllObservers(s: "fertig")
         
         print("ScheduleChanges Controller All Jobs Done")

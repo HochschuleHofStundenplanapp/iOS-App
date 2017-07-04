@@ -14,29 +14,29 @@ class AllChanges: NSObject {
     
     func numberOfEntries(for section : Int) -> Int
     {
-        return serverData.allChanges.count
+        return UserData.sharedInstance.oldChanges.count
     }
     
     func getElement(at index : Int) -> ChangedLecture
     {
-        return serverData.allChanges[index]
+        return UserData.sharedInstance.oldChanges[index]
     }
     
     func getChangedLectures() -> [ChangedLecture] {
-        return serverData.allChanges
+        return UserData.sharedInstance.oldChanges
     }
     
     func append(chLectures : [ChangedLecture]) {
         
         for lec in chLectures{
             //Check chLecture duplicates
-            if !serverData.allChanges.contains(lec){
-                serverData.allChanges.append(lec)
+            if !UserData.sharedInstance.oldChanges.contains(lec){
+                UserData.sharedInstance.oldChanges.append(lec)
             }
         }
     }
     
     func clear() {
-        serverData.allChanges.removeAll()
+        UserData.sharedInstance.oldChanges.removeAll()
     }
 }
