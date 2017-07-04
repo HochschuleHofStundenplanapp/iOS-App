@@ -60,6 +60,9 @@ class SettingsController: NSObject {
         
         UserData.sharedInstance.addedLectures = []
         UserData.sharedInstance.removedLectures = []
+        UserData.sharedInstance.savedSplusnames = []
+        UserData.sharedInstance.oldChanges = []
+//        ServerData.sharedInstance.allChanges = []
     }
     
     // Liefert alles Lectures zurück die entfernt werden müssen

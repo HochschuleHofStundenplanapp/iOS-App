@@ -28,7 +28,7 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(ServerData.sharedInstance.allChanges.count == 0){
+        if(UserData.sharedInstance.oldChanges.count == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleChangesCellEmpty") as! EmptyScheduleChangesTableViewCell
             return cell
         }
@@ -37,7 +37,7 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
             
             //Inhalt der Rows // Beispieldaten!
             
-            let changedLectures = ServerData.sharedInstance.allChanges
+            let changedLectures = UserData.sharedInstance.oldChanges
             
             
             if(changedLectures.count != 0){
@@ -68,14 +68,14 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return ServerData.sharedInstance.allChanges.count
+        return UserData.sharedInstance.oldChanges.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if(ServerData.sharedInstance.allChanges.count == 0){
+        if(UserData.sharedInstance.oldChanges.count == 0){
             return ""
         }
-        let changedLectures = ServerData.sharedInstance.allChanges
+        let changedLectures = UserData.sharedInstance.oldChanges
         if(changedLectures.count != 0){
             return changedLectures[section].name
         } else {
