@@ -40,7 +40,6 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         self.scheduleChangesTableView.reloadData()
         
         // Änderungen mit dem Kalender synchronisieren
-        // TODO CalendarSync scheint oft false zu sein
         dump(UserData.sharedInstance.callenderSync)
         if UserData.sharedInstance.callenderSync {
             CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
