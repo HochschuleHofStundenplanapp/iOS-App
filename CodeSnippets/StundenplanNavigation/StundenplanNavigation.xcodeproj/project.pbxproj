@@ -410,6 +410,7 @@
 				81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */,
 				81A470C71ECDB016008CB502 /* SelectedCourses.swift */,
 				81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */,
+				813C39D51EEFD35900FD02AE /* AllChanges.swift */,
 			);
 			name = UserData;
 			sourceTree = "<group>";
@@ -419,7 +420,6 @@
 			children = (
 				BEC57D0A1EE2B15C005D8959 /* AllLectures.swift */,
 				BE0136F71EEF36280035DEB8 /* AllCourses.swift */,
-				813C39D51EEFD35900FD02AE /* AllChanges.swift */,
 			);
 			name = ServerData;
 			sourceTree = "<group>";
