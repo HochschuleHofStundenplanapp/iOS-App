@@ -87,11 +87,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
         if UserData.sharedInstance.oldChanges.count != tempOldChanges.count && UserData.sharedInstance.oldChanges.count > 0{
         
             //New Changes are available
-            let ResultChanges = ChangesController().compareChanges(oldChanges: UserData.sharedInstance.oldChanges, newChanges: UserData.sharedInstance.oldChanges)
+            let ResultChanges = ChangesController().compareChanges(oldChanges: tempOldChanges, newChanges: UserData.sharedInstance.oldChanges)
             
             let todayChanges = ChangesController().determineTodaysChanges(changedLectures: ResultChanges)
             
             if ResultChanges.count > 0 {
+                print("Scho Notification")
+
                 NotificationInterface().makeNotification(changesAmount: ResultChanges.count, todayChangesAmount: todayChanges.count)
                 
                 //Hier könnte ein Badge gesetzt werden!
