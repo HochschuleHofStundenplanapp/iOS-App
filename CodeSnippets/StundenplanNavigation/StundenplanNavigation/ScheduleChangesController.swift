@@ -26,6 +26,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         selectedLectures = SelectedLectures().getOneDimensionalList()
         self.myJobManager = JobManager()
         self.myJobManager.addNewObserver(o: self)
+        myUrlList.removeAll()
         //Settings.sharedInstance.savedChanges.changes = []
         // cntChanges = 0
 //        UserData.sharedInstance.oldChanges =   ServerData.sharedInstance.allChanges
