@@ -10,7 +10,7 @@ import UIKit
 
 class AllChanges: NSObject {
 
-    fileprivate var serverData = ServerData.sharedInstance
+    //fileprivate var serverData = ServerData.sharedInstance
     
     func numberOfEntries(for section : Int) -> Int
     {
