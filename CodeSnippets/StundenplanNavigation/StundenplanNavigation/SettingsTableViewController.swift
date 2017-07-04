@@ -104,13 +104,13 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
                 lecturesTableViewCell.isUserInteractionEnabled = true
                 lecturesTableViewCell.textLabel?.isEnabled = true
                 lecturesTableViewCell.detailTextLabel?.isEnabled = true
-                saveChangesButton.isEnabled = true
+//                saveChangesButton.isEnabled = true
             }
             else{
                 lecturesTableViewCell.isUserInteractionEnabled = false
                 lecturesTableViewCell.textLabel?.isEnabled = false
                 lecturesTableViewCell.detailTextLabel?.isEnabled = false
-                saveChangesButton.isEnabled = false
+//                saveChangesButton.isEnabled = false
             }
         }
         else{
@@ -120,7 +120,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             lecturesTableViewCell.isUserInteractionEnabled = false
             lecturesTableViewCell.textLabel?.isEnabled = false
             lecturesTableViewCell.detailTextLabel?.isEnabled = false
-            saveChangesButton.isEnabled = false
+//            saveChangesButton.isEnabled = false
         }
     }
     
