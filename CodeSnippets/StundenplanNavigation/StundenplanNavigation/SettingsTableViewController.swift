@@ -142,9 +142,16 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
+    
     @IBAction func saveChangesButton(_ sender: UIButton) {
-        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-        settingsController.commitChanges()
+        let ind = ActivityIndicator()
+        ind.startActivityIndicator(root: self)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.settingsController.commitChanges()
+            self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+            ind.stopActivityIndicator()
+        }
     }
     
     func showAccessAlert() {
