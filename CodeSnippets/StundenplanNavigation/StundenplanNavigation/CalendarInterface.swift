@@ -77,6 +77,8 @@ class CalendarInterface: NSObject {
         if(isAppCalenderAvailable()){
             do {
                 try self.eventStore.removeCalendar(self.calendar!, commit: true)
+                calendarData.changesEventIdDictonary.removeAll()
+                calendarData.lecturesEventIdDictonary.removeAll()
             } catch {
                 return false
             }
