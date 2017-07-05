@@ -24,6 +24,21 @@ Folgende Zugrifssschichten sind vorhanden:
 \end{itemize}
 
 \newpage
+\chapter{Hintergrundaktualisierung}
+\section{Einleitung}
+Die App soll im Hintergrund regelmäßig prüfen ob neue Stundenplanänderungen für den Benutzer entstanden sind.
+Daher wurde der Background Fetch implementiert.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{BackgroundFetch}
+    \caption{Ablauf des Background Fetch}
+\end{figure}
+
+In diesem Sequenzdiagramm wird des Ablauf der application(performFetchWithCompletionHandler) Methode dargestellt. 
+Zu Beginn werden durch den ScheduleChangesController die aktuellen Stundenplanänderungen vom Server geladen. 
+Anschließend werden mit dem ChangesController die neu dazugekommenen Änderungen ermittelt und welche davon am aktuellen Tag stattfinden. Als Nächstes wird über das NotificationInterface eine lokale Notification für den User erstellt, die Ihn über die aktuellen Stundenplanänderungen informiert.
+Zuletzt wird über den CalendarController der iOS Kalender aktualisiert.
+\newpage
 \section{CalendarController}
 Der CalendarController ist der Controller für das Calendar Interface. Über ihn wird auf das Interface zugegriffen.
 
