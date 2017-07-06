@@ -15,7 +15,7 @@ class ArtificialIntelligence: NSObject {
     let notParseAbleArray : [String] = ["außer", "ohne"]
     var calendarWeekArray : [Int] = []
     let periodArray : [String] = ["-", "bis"]
-    let wrongPeriodArray : [String] = ["online-anmeldung", " termine:"]
+    let wrongPeriodArray : [String] = ["online-anmeldung", " termine:", "grundbildung messtechnik -"]
 
     
     public func iterationOfLecture(comment: String, start: Date, end: Date) -> iterationState {
