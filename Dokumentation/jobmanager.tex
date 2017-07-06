@@ -1,68 +1,11 @@
-\documentclass[a4paper, 12pt]{article}
 
-\usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc}
+\chapter{Jobmanager}
 
-\usepackage{graphicx}
-\pagestyle{headings}
-\author{Author: Kevin Rodd}
-\title{iOS Job-Manager}
-
-
-\begin{document}
-
-\thispagestyle{empty}
-\begin{center}
-\Large{Hochschule für Angewandte Wissenschaften Hof}\\
-\end{center}
-
-
-\begin{center}
-\Large{Fachbereich Informatik}
-\end{center}
-\begin{verbatim}
-
-
-
-
-
-\end{verbatim}
-\begin{center}
-\textbf{\LARGE{iOS JobManager}}
-\end{center}
-\begin{verbatim}
-
-
-\end{verbatim}
-\begin{center}
-\textbf{im Studiengang Mobile Computing}
-\end{center}
-\begin{verbatim}
-\end{verbatim}
-
-\begin{flushleft}
-\begin{tabular}{lll}
-\textbf{Thema:} & & Allgemeine Funktionsweise und Ablauf des JobManagers \\
-
-& & \\
-& & \\
-\textbf{verfasst von:} & & Kevin Rodd \flq{}kevin.rodd@hof-university.de\frq{}\\
-& & \\
-& & \\
-\end{tabular}
-\end{flushleft}
-
-
-\newpage
-
-\tableofcontents
-
-\newpage
 
 \section{Einleitung}
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.6]{JobManager.png}
+	\includegraphics[scale=0.6]{JobManager-Architektur.png}
 	\caption{Architektur und Integration des JobManagers in die Stundenplan App}
 	\label{img:JobManager-Architektur}
 \end{figure}
@@ -101,8 +44,5 @@ Sind alle Jobs erfolgreich beendet worden, so sendet der JobManager die Daten al
 \subsection{Aktuelle Version}
 In der aktuellen Version ist es möglich den JobManger mehrmals zu verwenden. Eine neue Instanziierung ist nicht notwendig, wird jedoch für einen sauberen Ablauf empfohlen.
 
-\newpage
 
 
-
-\end{document}
