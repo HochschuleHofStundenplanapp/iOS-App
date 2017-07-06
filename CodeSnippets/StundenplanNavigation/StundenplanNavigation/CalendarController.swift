@@ -296,13 +296,17 @@ class CalendarController: NSObject {
     
     // Gibt den Locaitonnamen zurück
     public func getLocationInfo( room : String) -> String {
-        let index = room.index(room.startIndex, offsetBy : 4)
-        let locationString = room.substring(to: index)
-        
-        if(locationString == Constants.locationInfoMueb){
-            return Constants.locationHuchschuleMuenchberg
+        if(room.characters.count > 3 ){
+            let index = room.index(room.startIndex, offsetBy : 4)
+            let locationString = room.substring(to: index)
+            
+            if(locationString == Constants.locationInfoMueb){
+                return Constants.locationHuchschuleMuenchberg
+            } else {
+                return Constants.locationHochschuleHof
+            }
         } else {
-            return Constants.locationHochschuleHof
+        return "Kein Ort vorhanden"
         }
     }
     
