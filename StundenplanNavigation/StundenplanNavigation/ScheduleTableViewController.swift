@@ -25,6 +25,17 @@ class ScheduleTableViewController: UITableViewController {
         
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        if #available(iOS 11.0, *) {
+            setUpNavbar()
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    func setUpNavbar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +44,6 @@ class ScheduleTableViewController: UITableViewController {
         SelectedLectures().sortLecturesForSchedule()
         tableView.reloadData()
         
-        tabBarController?.tabBar.tintColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
+        //tabBarController?.tabBar.tintColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
     }
 }

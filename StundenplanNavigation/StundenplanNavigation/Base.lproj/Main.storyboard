@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -201,12 +202,15 @@
                     <tabBarItem key="tabBarItem" title="Stundenplan" image="Stundenplan" selectedImage="Stundenplan" id="bdv-LC-yFP"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="vgD-t4-Xea">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vgD-t4-Xea">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.76155871149999999" green="0.091558031740000004" blue="0.11108378319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -387,13 +391,20 @@
         <scene sceneID="HNp-1n-N4b">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1KJ-CT-1EX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Änderungen" image="Änderungen" selectedImage="Änderungen" id="qp4-zU-kEj"/>
+                    <tabBarItem key="tabBarItem" title="Änderungen" image="Aenderungen" selectedImage="Aenderungen" id="qp4-zU-kEj"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Yae-Wr-9rM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yae-Wr-9rM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.94833809140000003" green="0.76624646983591937" blue="0.20849465515951623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="5"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -434,7 +445,6 @@
                                                         <segment title="Sommersemester"/>
                                                         <segment title="Wintersemester"/>
                                                     </segments>
-                                                    <color key="tintColor" red="0.18433862924575806" green="0.45366096496582031" blue="0.70282477140426636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="sectionChanged:" destination="Xc7-6B-j2V" eventType="valueChanged" id="bdc-eR-hSw"/>
                                                     </connections>
@@ -535,9 +545,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoy-ia-Tob">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoy-ia-Tob">
                                                     <rect key="frame" x="19" y="10" width="337" height="44"/>
-                                                    <color key="backgroundColor" red="0.18433862919999999" green="0.45366096500000003" blue="0.70282477139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="o8P-0F-cLu"/>
                                                     </constraints>
@@ -700,7 +709,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Studiengang" id="dZc-FU-d5D"/>
+                    <navigationItem key="navigationItem" title="Studiengang" largeTitleDisplayMode="never" id="dZc-FU-d5D"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="RBa-My-UnY">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -712,7 +721,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNC-Is-nLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="867"/>
+            <point key="canvasLocation" x="2905" y="570"/>
         </scene>
         <!--Semester-->
         <scene sceneID="zmD-bb-vJk">
@@ -744,23 +753,19 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Semester" id="Rjs-BI-abM"/>
+                    <navigationItem key="navigationItem" title="Semester" largeTitleDisplayMode="never" id="Rjs-BI-abM"/>
                     <connections>
                         <outlet property="semesterTableView" destination="LSy-3V-mw1" id="52h-8g-E7Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fd-g2-Pu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2905" y="1293"/>
+            <point key="canvasLocation" x="2905" y="1238"/>
         </scene>
         <!--Impressum-->
         <scene sceneID="AXv-JQ-icL">
             <objects>
                 <viewController title="Impressum" hidesBottomBarWhenPushed="YES" id="uf4-aF-WVF" customClass="ImpressumViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gaq-vY-LhU"/>
-                        <viewControllerLayoutGuide type="bottom" id="3vl-qm-o8J"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uWm-Gr-AyE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -797,9 +802,10 @@ E-Mail: poststelle@stmwfk.bayern.de</string>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="XTa-cO-wuf" secondAttribute="bottom" constant="10" id="FmD-nP-q3A"/>
                             <constraint firstItem="XTa-cO-wuf" firstAttribute="top" secondItem="uWm-Gr-AyE" secondAttribute="top" constant="5" id="Gwa-ln-OMt"/>
-                            <constraint firstAttribute="trailing" secondItem="XTa-cO-wuf" secondAttribute="trailing" constant="5" id="ec6-XQ-aKr"/>
-                            <constraint firstItem="XTa-cO-wuf" firstAttribute="leading" secondItem="uWm-Gr-AyE" secondAttribute="leading" constant="5" id="iF1-x8-QDu"/>
+                            <constraint firstItem="njq-nX-o5o" firstAttribute="trailing" secondItem="XTa-cO-wuf" secondAttribute="trailing" constant="5" id="ec6-XQ-aKr"/>
+                            <constraint firstItem="XTa-cO-wuf" firstAttribute="leading" secondItem="njq-nX-o5o" secondAttribute="leading" constant="5" id="iF1-x8-QDu"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="njq-nX-o5o"/>
                     </view>
                     <connections>
                         <outlet property="textContent" destination="XTa-cO-wuf" id="RoW-7g-TdL"/>
@@ -807,16 +813,12 @@ E-Mail: poststelle@stmwfk.bayern.de</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl9-0L-yfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2904.8000000000002" y="2182.7586206896553"/>
+            <point key="canvasLocation" x="1662" y="2069"/>
         </scene>
         <!--Datenschutzvereinbarung-->
         <scene sceneID="x8r-PS-rxE">
             <objects>
                 <viewController title="Datenschutzvereinbarung" hidesBottomBarWhenPushed="YES" id="neV-5n-V4H" customClass="OnlinePrivacyPoliceViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aXV-Ci-2nw"/>
-                        <viewControllerLayoutGuide type="bottom" id="RDg-Ep-i5U"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Y5-E9-8Mj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -834,10 +836,11 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="g1S-Jh-Dxv" secondAttribute="bottom" constant="10" id="79o-6F-bRZ"/>
-                            <constraint firstAttribute="trailing" secondItem="g1S-Jh-Dxv" secondAttribute="trailing" constant="5" id="hH4-4y-sgp"/>
-                            <constraint firstItem="g1S-Jh-Dxv" firstAttribute="leading" secondItem="3Y5-E9-8Mj" secondAttribute="leading" constant="5" id="mSj-la-0sB"/>
+                            <constraint firstItem="JYp-EF-xb8" firstAttribute="trailing" secondItem="g1S-Jh-Dxv" secondAttribute="trailing" constant="5" id="hH4-4y-sgp"/>
+                            <constraint firstItem="g1S-Jh-Dxv" firstAttribute="leading" secondItem="JYp-EF-xb8" secondAttribute="leading" constant="5" id="mSj-la-0sB"/>
                             <constraint firstItem="g1S-Jh-Dxv" firstAttribute="top" secondItem="3Y5-E9-8Mj" secondAttribute="top" id="wFE-ya-xIM"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="JYp-EF-xb8"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbh-To-Gim" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -848,10 +851,6 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
         <scene sceneID="ePk-gL-DIc">
             <objects>
                 <viewController id="y0e-hV-S2u" customClass="LecturesViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0OY-fS-kGO"/>
-                        <viewControllerLayoutGuide type="bottom" id="Iym-Mo-b6A"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nVz-0q-mIL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -945,27 +944,28 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FsO-Jo-FHv" secondAttribute="trailing" id="1z9-EW-ZZz"/>
+                            <constraint firstItem="sEo-ok-hqJ" firstAttribute="trailing" secondItem="FsO-Jo-FHv" secondAttribute="trailing" id="1z9-EW-ZZz"/>
                             <constraint firstItem="VXS-dp-UUB" firstAttribute="leading" secondItem="nVz-0q-mIL" secondAttribute="leadingMargin" constant="27" id="N89-LE-Jwb"/>
-                            <constraint firstItem="HCO-mY-Aov" firstAttribute="top" secondItem="0OY-fS-kGO" secondAttribute="bottom" id="QGA-vD-Pij"/>
-                            <constraint firstItem="VXS-dp-UUB" firstAttribute="top" secondItem="0OY-fS-kGO" secondAttribute="bottom" constant="3" id="Wvr-ow-2o9"/>
-                            <constraint firstAttribute="trailing" secondItem="HCO-mY-Aov" secondAttribute="trailing" id="Zjo-UF-kAs"/>
+                            <constraint firstItem="HCO-mY-Aov" firstAttribute="top" secondItem="sEo-ok-hqJ" secondAttribute="top" id="QGA-vD-Pij"/>
+                            <constraint firstItem="VXS-dp-UUB" firstAttribute="top" secondItem="sEo-ok-hqJ" secondAttribute="top" constant="3" id="Wvr-ow-2o9"/>
+                            <constraint firstItem="sEo-ok-hqJ" firstAttribute="trailing" secondItem="HCO-mY-Aov" secondAttribute="trailing" id="Zjo-UF-kAs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rLR-Y4-wdz" secondAttribute="trailing" constant="27" id="Zv1-N8-L5P"/>
-                            <constraint firstItem="HCO-mY-Aov" firstAttribute="leading" secondItem="nVz-0q-mIL" secondAttribute="leading" id="a8n-e9-bIV"/>
+                            <constraint firstItem="HCO-mY-Aov" firstAttribute="leading" secondItem="sEo-ok-hqJ" secondAttribute="leading" id="a8n-e9-bIV"/>
                             <constraint firstAttribute="bottom" secondItem="FsO-Jo-FHv" secondAttribute="bottom" id="abO-7k-plf"/>
                             <constraint firstItem="FsO-Jo-FHv" firstAttribute="top" secondItem="nVz-0q-mIL" secondAttribute="top" constant="98" id="ap2-Jf-vod"/>
-                            <constraint firstItem="FsO-Jo-FHv" firstAttribute="leading" secondItem="nVz-0q-mIL" secondAttribute="leading" id="iap-Zc-Fp3"/>
-                            <constraint firstItem="rLR-Y4-wdz" firstAttribute="top" secondItem="0OY-fS-kGO" secondAttribute="bottom" constant="3" id="vJS-so-2H7"/>
+                            <constraint firstItem="FsO-Jo-FHv" firstAttribute="leading" secondItem="sEo-ok-hqJ" secondAttribute="leading" id="iap-Zc-Fp3"/>
+                            <constraint firstItem="rLR-Y4-wdz" firstAttribute="top" secondItem="sEo-ok-hqJ" secondAttribute="top" constant="3" id="vJS-so-2H7"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="sEo-ok-hqJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Vorlesungen" id="gW1-1C-iRF"/>
+                    <navigationItem key="navigationItem" title="Vorlesungen" largeTitleDisplayMode="never" id="gW1-1C-iRF"/>
                     <connections>
                         <outlet property="lectureTableView" destination="FsO-Jo-FHv" id="iPX-Cn-4h0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yA-1M-DyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="1639"/>
+            <point key="canvasLocation" x="2905" y="2038"/>
         </scene>
         <!--Einstellungen-->
         <scene sceneID="jrG-IP-1Vk">
@@ -974,11 +974,13 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                     <tabBarItem key="tabBarItem" title="Einstellungen" image="Einstelllungen" selectedImage="Einstelllungen" id="MMq-R5-uk2"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gcO-iK-wU9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gcO-iK-wU9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -991,7 +993,7 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
         </scene>
     </scenes>
     <resources>
-        <image name="Änderungen" width="31" height="26"/>
+        <image name="Aenderungen" width="31" height="26"/>
         <image name="Button Background Selected" width="400" height="64"/>
         <image name="Einstelllungen" width="30" height="30"/>
         <image name="Stundenplan" width="30" height="24"/>

@@ -39,7 +39,7 @@ class CalendarInterface: NSObject {
         
         newCalendar.title = Constants.calendarTitle
         
-        newCalendar.source = eventStore.defaultCalendarForNewEvents.source
+        newCalendar.source = eventStore.defaultCalendarForNewEvents?.source
         do {
             try self.eventStore.saveCalendar(newCalendar, commit: true)
             self.calendar = newCalendar

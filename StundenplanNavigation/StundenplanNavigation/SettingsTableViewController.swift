@@ -36,6 +36,17 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         if (UserData.sharedInstance.callenderSync) {
             self.syncSwitch.setOn(true, animated: true)
         }
+        
+        if #available(iOS 11.0, *) {
+            setupNavBar()
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    func setupNavBar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,7 +62,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+//        tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOn), name: .calendarSyncOn, object: nil)
@@ -67,11 +78,11 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         NotificationCenter.default.removeObserver(self, name: .showAccessAlert, object: nil)
     }
     
-    func setCalendarSyncOn() {
+    @objc func setCalendarSyncOn() {
         syncSwitch.setOn(true, animated: true)
     }
     
-    func setCalendarSyncOff() {
+    @objc func setCalendarSyncOff() {
         syncSwitch.setOn(false, animated: true)
     }
     
@@ -124,7 +135,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
-    func hanldeCalendarSyncChanged() {
+    @objc func hanldeCalendarSyncChanged() {
         settingsController.handleCalendarSync()
     }
     
@@ -154,7 +165,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
-    func showAccessAlert() {
+    @objc func showAccessAlert() {
         let alert = UIAlertController(title: "Berechtigungen", message: "Es werden Berechtigungen benötigt um Einträge in den Kalender zu tätigen.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in

@@ -32,7 +32,21 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
         
+        if #available(iOS 11.0, *) {
+            setUpNavbar()
+        } else {
+            // Fallback on earlier versions
+        }
         
+        
+    }
+    
+    @available(iOS 11.0, *)
+    func setUpNavbar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 25)
+        ]
     }
     
     func update(s: String?) {
@@ -46,7 +60,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         }
     }
 
-    func handleRefresh(refreshControl: UIRefreshControl) {
+    @objc func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
         
@@ -70,9 +84,9 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     
     override func viewWillAppear(_ animated: Bool) {
         
-        tabBarController?.tabBar.tintColor = UIColor.hawYellow
+//        tabBarController?.tabBar.tintColor = UIColor.hawYellow
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
        // scheduleChangesController.handleChanges()
