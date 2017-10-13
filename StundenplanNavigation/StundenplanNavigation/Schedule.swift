@@ -15,7 +15,7 @@ class Schedule: NSObject, NSCoding {
     let lecturesKey = "lectures"
     
     override init() {
-        lectures = [[],[],[],[],[],[]]
+        lectures = [[],[],[],[],[],[],[]]
     }
     
     func add(lecture: Lecture, at day: Int){
@@ -23,7 +23,7 @@ class Schedule: NSObject, NSCoding {
     }
     
     func clear(){
-        lectures = [[],[],[],[],[],[]]
+        lectures = [[],[],[],[],[],[],[]]
     }
     
     func daySize(at section: Int) -> Int{
@@ -75,7 +75,7 @@ class Schedule: NSObject, NSCoding {
 
     func isEmpty() -> Bool{
         
-        return (lectures[0].isEmpty && lectures[1].isEmpty && lectures[2].isEmpty && lectures[3].isEmpty && lectures[4].isEmpty && lectures[5].isEmpty)
+        return (lectures[0].isEmpty && lectures[1].isEmpty && lectures[2].isEmpty && lectures[3].isEmpty && lectures[4].isEmpty && lectures[5].isEmpty && lectures[6].isEmpty)
     }
         
     required init?(coder aDecoder: NSCoder) {
