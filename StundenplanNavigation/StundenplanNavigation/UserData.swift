@@ -19,7 +19,7 @@ class UserData: NSObject, NSCoding{
     static var sharedInstance = UserData()
     
     var callenderSync: Bool = false
-    var selectedSeason : String = "SS"
+    var selectedSeason : String = Date().checkSemester()
     var selectedCourses : [Course] = []
     var selectedSemesters : [Semester] = []
     var savedSplusnames : [String] = [String]()//Auslagern
