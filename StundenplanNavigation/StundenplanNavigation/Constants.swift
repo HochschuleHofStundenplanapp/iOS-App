@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class Constants :NSObject {
-    static let weekDays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+    static let weekDays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag","Sonntag"]
     
     static let username = "soapuser"
     static let password = "F%98z&12"
