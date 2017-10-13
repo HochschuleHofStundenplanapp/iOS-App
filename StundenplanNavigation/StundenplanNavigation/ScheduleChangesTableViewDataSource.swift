@@ -9,9 +9,6 @@
 import UIKit
 
 class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
-    
-    
-    
     var dateFormatter : DateFormatter
     var timeFormatter : DateFormatter
    
@@ -22,8 +19,6 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         
         timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
-        
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,8 +62,15 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return UserData.sharedInstance.oldChanges.count
+        let numberOfChanges = UserData.sharedInstance.oldChanges.count
+        //wenn 0 zurueckgegeben wird, erfolgt keine Aktualisierung der table view und keine Anzeige, dass keine Aenderungen vorliegen
+        //daher Rueckgabe von 1
+        if(numberOfChanges == 0) {
+            return 1
+        } else{
+            return numberOfChanges
+        }
+//        return UserData.sharedInstance.oldChanges.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

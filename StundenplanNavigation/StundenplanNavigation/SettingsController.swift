@@ -14,7 +14,11 @@ class SettingsController: NSObject {
     var tmpSelectedCourses: TmpSelectedCourses
     var tmpSelectedSemesters: TmpSelectedSemesters
     var tmpSelectedLectures: TmpSelectedLectures
-    var tmpSelectedSeason: String
+    var tmpSelectedSeason: String {
+        didSet {
+            userDataCopy.selectedSeason = tmpSelectedSeason
+        }
+    }
     var userDataCopy: UserData!
     
     override init() {

@@ -14,8 +14,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     
     var datasource : ScheduleChangesTableViewDataSource!
     var delegate: ScheduleChangesTableViewDelegate!
-    
-            var scheduleChangesController : ScheduleChangesController!
+    var scheduleChangesController : ScheduleChangesController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +30,6 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
-        
-        
     }
     
     func update(s: String?) {
@@ -40,7 +37,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         self.scheduleChangesTableView.reloadData()
         
         // Änderungen mit dem Kalender synchronisieren
-        dump(UserData.sharedInstance.callenderSync)
+        //dump(UserData.sharedInstance.callenderSync)
         if UserData.sharedInstance.callenderSync {
             CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
         }
@@ -66,10 +63,9 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     }
     override func viewWillDisappear(_ animated: Bool) {
         scheduleChangesController.cancelAllNetworkJobs()
-           }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         tabBarController?.tabBar.tintColor = UIColor.hawYellow
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]

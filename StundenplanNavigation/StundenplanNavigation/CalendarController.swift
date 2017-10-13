@@ -69,14 +69,18 @@ class CalendarController: NSObject {
     public func updateAllEvents (changes : [ChangedLecture]) {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             for change in changes {
-                let lecture = CalendarController().findLecture(change: change)
-                let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
-                
-                handleOldChange(change: change, lecture: lecture)
-                
-                let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.key, title: change.name, startDate: change.combinedOldDate, onlyChanges: false)
-                
-                updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
+                if let lecture = CalendarController().findLecture(change: change) {
+                    let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
+                    
+                    handleOldChange(change: change, lecture: lecture)
+                    
+                    let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.key, title: change.name, startDate: change.combinedOldDate, onlyChanges: false)
+                    
+                    updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
+                } else {
+                    //TODO muss hier noch was passieren?
+                    print("lecture not found")
+                }
             }
             CalendarInterface.sharedInstance.saveIDs()
         }
@@ -267,7 +271,7 @@ class CalendarController: NSObject {
     }
     
     // Findet eine Lecutre anhand des Hashes
-    public func findLecture(change : ChangedLecture) -> Lecture {
+    public func findLecture(change : ChangedLecture) -> Lecture? {
         var result : Lecture? = nil
         
         for lecture in SelectedLectures().getOneDimensionalList() {
@@ -275,7 +279,7 @@ class CalendarController: NSObject {
                 result = lecture
             }
         }
-        return result!
+        return result
     }
     
     public func CalendarRoutine() -> Bool{

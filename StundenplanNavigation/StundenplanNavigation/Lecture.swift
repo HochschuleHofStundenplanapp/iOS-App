@@ -147,8 +147,8 @@ class Lecture: NSObject, NSCoding {
     }
     
     func isEqual(to changeLecture: ChangedLecture) -> Bool{
-        dump(self.startTime)
-        dump(changeLecture.oldTime)
+        //dump(self.startTime)
+        //dump(changeLecture.oldTime)
         return (self.name == changeLecture.name)
             && (self.room == changeLecture.oldRoom)
             && (self.day == changeLecture.oldDay)
