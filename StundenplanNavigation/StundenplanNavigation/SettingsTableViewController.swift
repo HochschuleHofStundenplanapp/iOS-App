@@ -99,7 +99,9 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     private func updateSeasonSegments(){
-        if (settingsController.tmpSelectedSeason == "SS"){
+        let today = Date()
+        let currentSemester = today.checkSemester()
+        if (currentSemester == "SS"){
             segmentControl.selectedSegmentIndex = 0
         }else{
             segmentControl.selectedSegmentIndex = 1
@@ -204,7 +206,9 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         if(index == 2){
             let nc = viewController as! UINavigationController
             let vc = nc.childViewControllers[0] as! SettingsTableViewController
-            vc.settingsController = SettingsController()
+            if vc.settingsController == nil {
+                vc.settingsController = SettingsController()
+            }
         }
     }
 }

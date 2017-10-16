@@ -15,7 +15,11 @@ class SettingsController: NSObject {
     var tmpSelectedSemesters: TmpSelectedSemesters
     var tmpSelectedLectures: TmpSelectedLectures
     var tmpSelectedSeason: String
-    var userDataCopy: UserData!
+    var userDataCopy: UserData!  {
+        didSet {
+            userDataCopy.selectedSeason = tmpSelectedSeason
+        }
+    }
     
     override init() {
         userDataCopy = UserData.sharedInstance.copy() as! UserData
