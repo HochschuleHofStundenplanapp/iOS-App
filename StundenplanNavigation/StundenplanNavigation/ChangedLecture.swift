@@ -24,6 +24,7 @@ class ChangedLecture: NSObject, NSCoding {
     var newRoom: String
     var group: String
     var splusname : String
+    var reason : String
     
     var idKey = "id"
     var nameKey = "name"
@@ -39,12 +40,13 @@ class ChangedLecture: NSObject, NSCoding {
     var newRoomKey = "newRoom"
     var groupKey = "group"
     var splusnameKey = "splusname"
+    var reasonkey = "reasonkey"
     
     //Studiengang einfügen
     
     init(id: Int, name: String, docent: String, comment: String,
          oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String,
-         newTime: Date?, newDate: Date?, newDay: String, newRoom: String,  group: String, splusname : String) {
+         newTime: Date?, newDate: Date?, newDay: String, newRoom: String,  group: String, splusname : String, reason : String) {
         self.id = id
         self.name = name
         self.docent = docent
@@ -59,6 +61,7 @@ class ChangedLecture: NSObject, NSCoding {
         self.newRoom = newRoom
         self.group = group
         self.splusname = splusname
+        self.reason = reason
         
     }
     
@@ -77,6 +80,12 @@ class ChangedLecture: NSObject, NSCoding {
         newRoom = aDecoder.decodeObject(forKey: newRoomKey) as! String
         group = aDecoder.decodeObject(forKey: groupKey) as! String
         splusname = aDecoder.decodeObject(forKey: splusnameKey) as! String
+        
+        if let reason = aDecoder.decodeObject(forKey: reasonkey) as? String{
+            self.reason = reason
+        }else{
+            self.reason = ""
+        }
 
         super.init()
     }
@@ -96,6 +105,7 @@ class ChangedLecture: NSObject, NSCoding {
         aCoder.encode(newRoom, forKey: newRoomKey)
         aCoder.encode(group, forKey: groupKey)
         aCoder.encode(splusname, forKey: splusnameKey)
+        aCoder.encode(reason, forKey: reasonkey)
     }
     
     var combinedOldDate: Date {
