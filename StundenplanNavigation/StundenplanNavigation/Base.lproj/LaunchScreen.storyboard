@@ -41,6 +41,7 @@
                     <connections>
                         <segue destination="8cI-c4-Qak" kind="relationship" relationship="viewControllers" id="LiP-cO-nfp"/>
                         <segue destination="jgx-f7-1H8" kind="relationship" relationship="viewControllers" id="WqT-Y5-qxO"/>
+                        <segue destination="XnD-Ni-5gM" kind="relationship" relationship="viewControllers" id="Ae7-CG-rzP"/>
                         <segue destination="qhT-9i-eHy" kind="relationship" relationship="viewControllers" id="XxQ-yB-g98"/>
                     </connections>
                 </tabBarController>
@@ -105,9 +106,29 @@
             </objects>
             <point key="canvasLocation" x="1627" y="1868"/>
         </scene>
+        <!--Aufgaben-->
+        <scene sceneID="vQn-Sm-f79">
+            <objects>
+                <viewController id="XnD-Ni-5gM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PEc-Zu-rBX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yas-Og-2Zl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="euC-XQ-oaf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Aufgaben" image="Aufgaben" selectedImage="Aufgaben" id="Peh-MS-Phh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTV-9Q-WDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="2598"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Aenderungen" width="31" height="26"/>
+        <image name="Aufgaben" width="25" height="30"/>
         <image name="Einstelllungen" width="30" height="30"/>
         <image name="Stundenplan" width="30" height="24"/>
     </resources>

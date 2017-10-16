@@ -24,6 +24,7 @@
 		81A470C41ECDAFAE008CB502 /* SelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */; };
 		81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */; };
 		81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C71ECDB016008CB502 /* SelectedCourses.swift */; };
+		A3FEAFF01F9505820095D8F1 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */; };
 		B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */; };
 		B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */; };
 		BE0136F81EEF36280035DEB8 /* AllCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0136F71EEF36280035DEB8 /* AllCourses.swift */; };
@@ -119,6 +120,7 @@
 		81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLectures.swift; sourceTree = "<group>"; };
 		81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSemesters.swift; sourceTree = "<group>"; };
 		81A470C71ECDB016008CB502 /* SelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCourses.swift; sourceTree = "<group>"; };
+		A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObserverProtocol.swift; sourceTree = "<group>"; };
 		B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObservableProtocol.swift; sourceTree = "<group>"; };
 		BE0136F71EEF36280035DEB8 /* AllCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCourses.swift; sourceTree = "<group>"; };
@@ -243,6 +245,30 @@
 				654BFEB71ED427D90023607D /* CalendarInterface.swift */,
 			);
 			name = Calendaer;
+			sourceTree = "<group>";
+		};
+		A3FEAFEC1F9504860095D8F1 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				A3FEAFED1F9504B70095D8F1 /* Controller */,
+				A3FEAFEE1F9504BF0095D8F1 /* ViewController */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		A3FEAFED1F9504B70095D8F1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A3FEAFEE1F9504BF0095D8F1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		BE3AB3A01EB1F761009A6D20 /* Controller */ = {
@@ -471,6 +497,7 @@
 				CED25BB31DD1C60200FE7D1C /* ScheduleChanges */,
 				CED25BB51DD1C62000FE7D1C /* Course */,
 				CED25BB41DD1C60B00FE7D1C /* Settings */,
+				A3FEAFEC1F9504860095D8F1 /* Tasks */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
 				CEAC970C1DB5FD350042FF3D /* Assets.xcassets */,
@@ -770,6 +797,7 @@
 				CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */,
 				CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */,
 				654BFEBA1ED427D90023607D /* CalendarInterface.swift in Sources */,
+				A3FEAFF01F9505820095D8F1 /* TaskViewController.swift in Sources */,
 				813C39DA1EEFD7C800FD02AE /* ChangesController.swift in Sources */,
 				0C0627811F06BB9900273A35 /* ActivityIndicator.swift in Sources */,
 				DAA250771E015D51007CCEFB /* DateExtension.swift in Sources */,

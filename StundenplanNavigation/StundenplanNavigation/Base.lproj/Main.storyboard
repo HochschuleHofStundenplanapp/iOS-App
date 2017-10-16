@@ -25,6 +25,7 @@
                         <outlet property="delegate" destination="rnU-R7-rfX" id="RKz-hR-FfI"/>
                         <segue destination="fiw-z5-sTH" kind="relationship" relationship="viewControllers" id="DhI-38-SAp"/>
                         <segue destination="1KJ-CT-1EX" kind="relationship" relationship="viewControllers" id="UWM-wY-xhY"/>
+                        <segue destination="Uu2-qE-zoe" kind="relationship" relationship="viewControllers" id="yxf-sN-lhK"/>
                         <segue destination="sq1-qK-W0Z" kind="relationship" relationship="viewControllers" id="Koj-yP-tfc"/>
                     </connections>
                 </tabBarController>
@@ -194,6 +195,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lj8-HI-qHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1661.5999999999999" y="-322.48875562218893"/>
+        </scene>
+        <!--Aufgaben-->
+        <scene sceneID="9Pc-IO-FCZ">
+            <objects>
+                <viewController title="Aufgaben" id="d66-yp-tNn" customClass="TaskViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iCE-Vr-JGt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="ykB-uH-pPS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aufgaben" id="Jm8-zo-vrm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RvZ-Q7-Vg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="-1039"/>
         </scene>
         <!--Stundenplan-->
         <scene sceneID="G56-OY-WFg">
@@ -991,9 +1008,28 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
             </objects>
             <point key="canvasLocation" x="790" y="1214"/>
         </scene>
+        <!--Aufgaben-->
+        <scene sceneID="QPh-RI-wjV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uu2-qE-zoe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Aufgaben" image="Aufgaben" selectedImage="Aufgaben" id="eUH-iE-Jnj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ROz-Sh-mZs">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="d66-yp-tNn" kind="relationship" relationship="rootViewController" id="bAY-a1-1BO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kVz-qb-lbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="-1039"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Aenderungen" width="31" height="26"/>
+        <image name="Aufgaben" width="32" height="32"/>
         <image name="Button Background Selected" width="400" height="64"/>
         <image name="Einstelllungen" width="30" height="30"/>
         <image name="Stundenplan" width="30" height="24"/>
