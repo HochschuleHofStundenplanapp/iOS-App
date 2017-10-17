@@ -43,7 +43,7 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
             cell.openButton.transform = CGAffineTransform(rotationAngle: 0.0)
         }
     }
-    
+        
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if SelectedLectures().getOneDimensionalList().count > 0 {

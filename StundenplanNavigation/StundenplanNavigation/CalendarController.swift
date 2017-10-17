@@ -27,6 +27,13 @@ class CalendarController: NSObject {
         if(CalendarInterface.sharedInstance.isAuthorized()){
             if(CalendarInterface.sharedInstance.createCalenderIfNeeded() == true) {
                 createAllEvents(lectures: SelectedLectures().getOneDimensionalList())
+                
+                //TODO: beim erstmaligen Aktivieren des sync werden keine Änderungen im Kalender eingetragen
+                //Ergänzung updateAllEvents()
+                let oldChanges = UserData.sharedInstance.oldChanges
+                if(oldChanges.count > 0){
+                    updateAllEvents(changes: oldChanges)
+                }
             }
             return EKAuthorizationStatus.authorized
         } else {
@@ -152,6 +159,7 @@ class CalendarController: NSObject {
     
     func fillNewChangeEvent(oldEvent : EKEvent, lecture : Lecture, change : ChangedLecture, locationInfo : String) -> EKEvent {
         let newEvent = EKEvent(eventStore: self.eventStore!)
+        newEvent.timeZone = NSTimeZone.local
         
         newEvent.title     = Constants.changesNew + change.name
         //newEvent.notes     = oldEvent.notes
@@ -188,6 +196,8 @@ class CalendarController: NSObject {
         lectureToEKEvent(lecture: lecture)
         
         for event in events {
+            //let tmp = event
+            //print(event)
             CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.key, isChanges: false)
         }
         
@@ -235,6 +245,7 @@ class CalendarController: NSObject {
         var tmpStartdate = lecture.startdate
         repeat {
             let event       = EKEvent(eventStore: eventStore!)
+            event.timeZone = NSTimeZone.local
             event.title     = title
             
             let tmpDate = tmpStartdate

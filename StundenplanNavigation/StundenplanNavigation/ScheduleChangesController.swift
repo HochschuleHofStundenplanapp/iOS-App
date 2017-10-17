@@ -53,6 +53,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
                 
             }
         }
+        //print("lade changes über id: \(myUrl)")
         
         for url in myUrlList
         {
