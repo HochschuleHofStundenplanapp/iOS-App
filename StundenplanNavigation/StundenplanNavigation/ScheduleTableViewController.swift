@@ -31,6 +31,11 @@ class ScheduleTableViewController: UITableViewController {
         } else {
             // Fallback on earlier versions
         }
+        
+        let taskItemIndex = 2
+        let taskNavigationCtrl = tabBarController?.viewControllers?[taskItemIndex] as! UINavigationController
+        let taskCtrl = taskNavigationCtrl.childViewControllers[0] as! TaskViewController
+        taskCtrl.updateTaskBadge()
     }
     
     @available(iOS 11.0, *)

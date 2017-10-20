@@ -25,6 +25,7 @@ class UserData: NSObject, NSCoding{
     var savedSplusnames : [String] = [String]()//Auslagern
     var selectedSchedule: Schedule = Schedule()
     var oldChanges : [ChangedLecture] = []
+    var tasks: [Task] = []
     
     var removedLectures: [Lecture] = []
     var addedLectures: [Lecture] = []
@@ -38,6 +39,7 @@ class UserData: NSObject, NSCoding{
     let removedLecturesKey = "removedLectures"
     let addedLecturesKey = "addedLectures"
     let oldChangesKey = "oldChanges"
+    let tasksKey = "taskKey"
 
     private override init(){}
     
@@ -51,6 +53,7 @@ class UserData: NSObject, NSCoding{
         copy.removedLectures = removedLectures
         copy.addedLectures = addedLectures
         copy.callenderSync = callenderSync
+        copy.tasks = tasks
         return copy
     }
     
@@ -64,6 +67,7 @@ class UserData: NSObject, NSCoding{
         removedLectures = aDecoder.decodeObject(forKey: removedLecturesKey) as! [Lecture]
         addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
         oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
+        tasks = aDecoder.decodeObject(forKey: tasksKey) as? [Task] ?? []
 
         super.init()
     }
@@ -78,6 +82,7 @@ class UserData: NSObject, NSCoding{
         aCoder.encode(removedLectures, forKey: removedLecturesKey)
         aCoder.encode(addedLectures, forKey: addedLecturesKey)
         aCoder.encode(oldChanges, forKey: oldChangesKey)
-
+        aCoder.encode(tasks, forKey: tasksKey)
+        
     }
 }
