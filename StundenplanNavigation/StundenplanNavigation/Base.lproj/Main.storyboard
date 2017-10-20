@@ -643,7 +643,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="5uG-1n-jEY">
-                            <rect key="frame" x="0.0" y="557.5" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="601.5" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -825,10 +825,33 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Rechtliches" id="2n1-8z-R95">
+                            <tableViewSection headerTitle="Infos &amp; Rechtliches" id="2n1-8z-R95">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0zE-tw-iZa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="L85-nT-Jcy">
                                         <rect key="frame" x="0.0" y="451.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L85-nT-Jcy" id="dtq-NX-aex">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Über uns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyz-kg-QXR">
+                                                    <rect key="frame" x="18" y="11" width="70" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tyz-kg-QXR" firstAttribute="top" secondItem="dtq-NX-aex" secondAttribute="topMargin" constant="3" id="3eE-Kc-llK"/>
+                                                <constraint firstItem="tyz-kg-QXR" firstAttribute="leading" secondItem="dtq-NX-aex" secondAttribute="leadingMargin" constant="10" id="RB1-7R-x1C"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="YHy-b7-Ypt" kind="show" id="WIo-Vl-iDc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0zE-tw-iZa">
+                                        <rect key="frame" x="0.0" y="495.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0zE-tw-iZa" id="BcW-c0-cHF">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -851,7 +874,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="whr-K9-vcb">
-                                        <rect key="frame" x="0.0" y="495.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="539.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="whr-K9-vcb" id="EKB-uX-gyb">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -980,6 +1003,67 @@
             </objects>
             <point key="canvasLocation" x="2905" y="1238"/>
         </scene>
+        <!--Über uns-->
+        <scene sceneID="AiB-jC-2Vm">
+            <objects>
+                <viewController title="Über uns" id="YHy-b7-Ypt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qym-mq-AoY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9zk-7k-9uU">
+                                <rect key="frame" x="16" y="74" width="343" height="544"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Stundenplanapp V4.0
+Diese iOS App wurde von Studierenden des Studiengangs Mobile Computing entwickelt.
+Die Hochschule Hof bedankt sich bei folgenden Entwicklern:
+
+Wintersemester 2017/2018
+Angelina Scheler
+Bastian Kusserow
+Christian Pfeiffer
+Christian Pöhlmann
+Johannes Franz
+Marcel Hagmann
+Maxi Sonntag
+Normen Krug
+Patrick Niepel
+Phillipp Dümleim
+Phillipp Knoblauch
+
+betreut durch: Prof. Dr. Sven Rill
+
+
+Wintersemester 2016/2017 &amp; Sommersemester 2017
+Andreas Wolf  Daniel Glaser
+Daniel Zizer
+Jonas Beetz
+Kevin Rodd Patrick Rüpplein
+Paul Forstner
+Sebastian Fuhrmann
+Stefan Scharrer
+
+betreut durch: Prof. Dr. Peter Stöhr
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9zk-7k-9uU" firstAttribute="top" secondItem="wZ1-Ui-W6w" secondAttribute="top" constant="10" id="COk-p2-53E"/>
+                            <constraint firstItem="wZ1-Ui-W6w" firstAttribute="bottom" secondItem="9zk-7k-9uU" secondAttribute="bottom" id="KB7-qY-f6R"/>
+                            <constraint firstItem="wZ1-Ui-W6w" firstAttribute="trailing" secondItem="9zk-7k-9uU" secondAttribute="trailing" constant="16" id="QdO-yE-4V2"/>
+                            <constraint firstItem="9zk-7k-9uU" firstAttribute="leading" secondItem="wZ1-Ui-W6w" secondAttribute="leading" constant="16" id="vVA-ba-131"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wZ1-Ui-W6w"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icl-dY-yjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789.60000000000002" y="2081.1094452773614"/>
+        </scene>
         <!--Impressum-->
         <scene sceneID="AXv-JQ-icL">
             <objects>
@@ -988,12 +1072,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTa-cO-wuf">
-                                <rect key="frame" x="5" y="5" width="365" height="652"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" usesAttributedText="YES" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTa-cO-wuf">
+                                <rect key="frame" x="16" y="74" width="343" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Diese Anbieterkennzeichnung gilt für die Bereitstellung von Stundenplandaten mittels dieser App. 
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Diese Anbieterkennzeichnung gilt für die Bereitstellung von Stundenplandaten mittels dieser App. 
 
-Anbieterin dieses Dienstes ist die Hochschule für Angewandte Wissenschaften Hof, Körperschaft des öffentlichen Rechts (nachfolgend kurz "Hochschule Hof").
+Anbieter dieses Dienstes ist die Hochschule für Angewandte Wissenschaften Hof, Körperschaft des öffentlichen Rechts (nachfolgend kurz "Hochschule Hof").
 
 Die Hochschule Hof wird gesetzlich vertreten durch ihren Präsidenten, Prof. Dr. Dr. h.c. Jürgen Lehmann. Sie erreichen die Hochschule Hof und den Präsidenten der Hochschule Hof wie folgt:
 
@@ -1012,16 +1098,22 @@ Salvatorstraße 2
 Fon: +49 (0) 89 / 21860
 Fax: +49 (0) 89 / 2186 2800
 E-Mail: poststelle@stmwfk.bayern.de</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="16"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" lookupSuggestion="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="XTa-cO-wuf" secondAttribute="bottom" constant="10" id="FmD-nP-q3A"/>
-                            <constraint firstItem="XTa-cO-wuf" firstAttribute="top" secondItem="uWm-Gr-AyE" secondAttribute="top" constant="5" id="Gwa-ln-OMt"/>
-                            <constraint firstItem="njq-nX-o5o" firstAttribute="trailing" secondItem="XTa-cO-wuf" secondAttribute="trailing" constant="5" id="ec6-XQ-aKr"/>
-                            <constraint firstItem="XTa-cO-wuf" firstAttribute="leading" secondItem="njq-nX-o5o" secondAttribute="leading" constant="5" id="iF1-x8-QDu"/>
+                            <constraint firstItem="njq-nX-o5o" firstAttribute="bottom" secondItem="XTa-cO-wuf" secondAttribute="bottom" constant="10" id="Hzc-OZ-sI0"/>
+                            <constraint firstItem="njq-nX-o5o" firstAttribute="trailing" secondItem="XTa-cO-wuf" secondAttribute="trailing" constant="16" id="bJO-sw-hkv"/>
+                            <constraint firstItem="XTa-cO-wuf" firstAttribute="leading" secondItem="njq-nX-o5o" secondAttribute="leading" constant="16" id="bep-xU-o8A"/>
+                            <constraint firstItem="XTa-cO-wuf" firstAttribute="top" secondItem="njq-nX-o5o" secondAttribute="top" constant="10" id="wJJ-LO-nhe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="njq-nX-o5o"/>
                     </view>
@@ -1031,7 +1123,7 @@ E-Mail: poststelle@stmwfk.bayern.de</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl9-0L-yfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="2069"/>
+            <point key="canvasLocation" x="1661.5999999999999" y="2068.5157421289355"/>
         </scene>
         <!--Datenschutzvereinbarung-->
         <scene sceneID="x8r-PS-rxE">
@@ -1042,7 +1134,7 @@ E-Mail: poststelle@stmwfk.bayern.de</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1S-Jh-Dxv">
-                                <rect key="frame" x="5" y="0.0" width="365" height="657"/>
+                                <rect key="frame" x="16" y="74" width="343" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Als technische Vorkehrung zum Schutz unserer Datenverarbeitungssysteme gegen unerlaubte Zugriffe speichern wir auf unseren am Internetübergang betriebenen Sicherheitseinrichtungen nach jedem Besuch unserer Seiten sieben Tage lang die IP-Adresse des anfordernden Rechners. 
 
@@ -1053,17 +1145,17 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="g1S-Jh-Dxv" secondAttribute="bottom" constant="10" id="79o-6F-bRZ"/>
-                            <constraint firstItem="JYp-EF-xb8" firstAttribute="trailing" secondItem="g1S-Jh-Dxv" secondAttribute="trailing" constant="5" id="hH4-4y-sgp"/>
-                            <constraint firstItem="g1S-Jh-Dxv" firstAttribute="leading" secondItem="JYp-EF-xb8" secondAttribute="leading" constant="5" id="mSj-la-0sB"/>
-                            <constraint firstItem="g1S-Jh-Dxv" firstAttribute="top" secondItem="3Y5-E9-8Mj" secondAttribute="top" id="wFE-ya-xIM"/>
+                            <constraint firstItem="g1S-Jh-Dxv" firstAttribute="leading" secondItem="JYp-EF-xb8" secondAttribute="leading" constant="16" id="P4t-sf-Qgr"/>
+                            <constraint firstItem="g1S-Jh-Dxv" firstAttribute="top" secondItem="JYp-EF-xb8" secondAttribute="top" constant="10" id="SMb-8p-JRc"/>
+                            <constraint firstItem="JYp-EF-xb8" firstAttribute="trailing" secondItem="g1S-Jh-Dxv" secondAttribute="trailing" constant="16" id="ddd-2A-8vr"/>
+                            <constraint firstItem="JYp-EF-xb8" firstAttribute="bottom" secondItem="g1S-Jh-Dxv" secondAttribute="bottom" constant="10" id="mfo-f7-AiN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JYp-EF-xb8"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbh-To-Gim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="2442.7286356821592"/>
+            <point key="canvasLocation" x="2584.8000000000002" y="2067.6161919040483"/>
         </scene>
         <!--Vorlesungen-->
         <scene sceneID="ePk-gL-DIc">
@@ -1183,7 +1275,7 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yA-1M-DyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2905" y="2038"/>
+            <point key="canvasLocation" x="3697" y="2068"/>
         </scene>
         <!--Einstellungen-->
         <scene sceneID="jrG-IP-1Vk">
