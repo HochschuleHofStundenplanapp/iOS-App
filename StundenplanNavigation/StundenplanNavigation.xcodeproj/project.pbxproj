@@ -181,7 +181,6 @@
 		CEAC973C1DB61A7A0042FF3D /* SemesterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewController.swift; sourceTree = "<group>"; };
 		CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDataSource.swift; sourceTree = "<group>"; };
 		CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
-		D48C6BBE1F9CEFEF003BB4A9 /* StundenplanNavigation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StundenplanNavigation.entitlements; sourceTree = "<group>"; };
 		DA0AA5FA1EE4656100D64C63 /* ArtificialIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtificialIntelligence.swift; sourceTree = "<group>"; };
 		DAA250761E015D51007CCEFB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -458,7 +457,6 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				D48C6BBE1F9CEFEF003BB4A9 /* StundenplanNavigation.entitlements */,
 				0C06277F1F06BB5800273A35 /* UI-Extension */,
 				DA0AA5F91EE4654E00D64C63 /* Artificial Intelligence */,
 				654BFEB41ED427320023607D /* Interfaces */,
@@ -643,9 +641,6 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -937,7 +932,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StundenplanNavigation/StundenplanNavigation.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
@@ -953,7 +947,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StundenplanNavigation/StundenplanNavigation.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
