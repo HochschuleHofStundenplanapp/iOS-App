@@ -26,8 +26,12 @@ class Schedule: NSObject, NSCoding {
         lectures = [[],[],[],[],[],[],[]]
     }
     
-    func daySize(at section: Int) -> Int{
-        return lectures[section].count
+    func daySize(at section: Int) -> Int {
+        if section < lectures.count {
+            return lectures[section].count
+        } else {
+            return 0
+        }
     }
     
     func lecture(at indexPath: IndexPath) -> Lecture{
