@@ -13,7 +13,6 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     var selectedIndexPath : IndexPath? = nil
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -25,7 +24,6 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         header.textLabel?.textColor = UIColor.black
 //        header.textLabel?.font = header.textLabel?.font.withSize(30)
         header.textLabel?.textAlignment = .center
-
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -36,8 +34,16 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
             selectedIndexPath = nil
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
+
+        //rotate Aufklapp-Pfeil
+        let cell : ScheduleTableViewCell = tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
+        if(indexPath == selectedIndexPath) {
+            cell.openButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        } else {
+            cell.openButton.transform = CGAffineTransform(rotationAngle: 0.0)
+        }
     }
-    
+        
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if SelectedLectures().getOneDimensionalList().count > 0 {
@@ -63,6 +69,5 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         } else {
             return CGFloat(107)
         }
-        
     }
 }

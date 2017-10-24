@@ -102,10 +102,12 @@ class JsonChanges {
             let newOldTime = timeFormatter.date(from: oldTime)
             let newNewTime = timeFormatter.date(from: newTime)
             
+            let reason = (i["reason"]?.string)!
+            
             //newOldTime = newOldTime?.changeTimeDate(date: newOldTime!)
             //newNewTime = newNewTime?.changeTimeDate(date: newNewTime!)
             
-            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom,  group: group, splusname: splusname)
+            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom,  group: group, splusname: splusname, reason: reason)
             
             
           

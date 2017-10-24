@@ -27,6 +27,13 @@ class CalendarController: NSObject {
         if(CalendarInterface.sharedInstance.isAuthorized()){
             if(CalendarInterface.sharedInstance.createCalenderIfNeeded() == true) {
                 createAllEvents(lectures: SelectedLectures().getOneDimensionalList())
+                
+                //TODO: beim erstmaligen Aktivieren des sync werden keine Änderungen im Kalender eingetragen
+                //Ergänzung updateAllEvents()
+                let oldChanges = UserData.sharedInstance.oldChanges
+                if(oldChanges.count > 0){
+                    updateAllEvents(changes: oldChanges)
+                }
             }
             return EKAuthorizationStatus.authorized
         } else {
@@ -69,14 +76,18 @@ class CalendarController: NSObject {
     public func updateAllEvents (changes : [ChangedLecture]) {
         if (CalendarInterface.sharedInstance.isAuthorized()) {
             for change in changes {
-                let lecture = CalendarController().findLecture(change: change)
-                let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
-                
-                handleOldChange(change: change, lecture: lecture)
-                
-                let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.key, title: change.name, startDate: change.combinedOldDate, onlyChanges: false)
-                
-                updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
+                if let lecture = CalendarController().findLecture(change: change) {
+                    let locationInfo = CalendarController().getLocationInfo(room: lecture.room)
+                    
+                    handleOldChange(change: change, lecture: lecture)
+                    
+                    let eventID = CalendarInterface.sharedInstance.findEventId(key: lecture.key, title: change.name, startDate: change.combinedOldDate, onlyChanges: false)
+                    
+                    updateEvent(change: change, lecture: lecture, eventID : eventID, locationInfo : locationInfo)
+                } else {
+                    //TODO muss hier noch was passieren?
+                    print("lecture not found")
+                }
             }
             CalendarInterface.sharedInstance.saveIDs()
         }
@@ -148,6 +159,7 @@ class CalendarController: NSObject {
     
     func fillNewChangeEvent(oldEvent : EKEvent, lecture : Lecture, change : ChangedLecture, locationInfo : String) -> EKEvent {
         let newEvent = EKEvent(eventStore: self.eventStore!)
+        newEvent.timeZone = NSTimeZone.local
         
         newEvent.title     = Constants.changesNew + change.name
         //newEvent.notes     = oldEvent.notes
@@ -184,6 +196,8 @@ class CalendarController: NSObject {
         lectureToEKEvent(lecture: lecture)
         
         for event in events {
+            //let tmp = event
+            //print(event)
             CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.key, isChanges: false)
         }
         
@@ -231,6 +245,7 @@ class CalendarController: NSObject {
         var tmpStartdate = lecture.startdate
         repeat {
             let event       = EKEvent(eventStore: eventStore!)
+            event.timeZone = NSTimeZone.local
             event.title     = title
             
             let tmpDate = tmpStartdate
@@ -267,7 +282,7 @@ class CalendarController: NSObject {
     }
     
     // Findet eine Lecutre anhand des Hashes
-    public func findLecture(change : ChangedLecture) -> Lecture {
+    public func findLecture(change : ChangedLecture) -> Lecture? {
         var result : Lecture? = nil
         
         for lecture in SelectedLectures().getOneDimensionalList() {
@@ -275,7 +290,7 @@ class CalendarController: NSObject {
                 result = lecture
             }
         }
-        return result!
+        return result
     }
     
     public func CalendarRoutine() -> Bool{
