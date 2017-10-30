@@ -40,8 +40,6 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             var splusname = lecture.splusname
             splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
-            
-            print("url länge: \(myUrl.characters.count)")
             if(myUrl.characters.count < 5000)
             {
                 myUrl = myUrl + "\(splusname)&id[]="
@@ -49,48 +47,28 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             }
             else
             {
-                print("füge myurl der liste hinzu")
                 myUrlList.append(myUrl)
                 myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
                 myUrl = myUrl + "\(splusname)&id[]="
                 
             }
-            
-            
-            
-            
         }
+        //print("lade changes über id: \(myUrl)")
         
-        print(" die ganze url \(myUrl)")
-        print("myurlListe größe \(myUrlList.count)")
         for url in myUrlList
         {
-            print("url \(url)")
             myJobManager.NetworkJob(url: url, username: Constants.username, password: Constants.password, isLastJob: false)
-            
         }
         
-        
         myJobManager.NetworkJob(url: myUrl, username: Constants.username, password: Constants.password, isLastJob: true)
-        
-        
-        
-        
     }
-    
-    
+        
     /// speichert die zurückgegeben AnyObjects in ein AnyObjects Array
     ///
     /// - Parameter o: o Zurückgegebenes AnyObject
     func update (o:AnyObject) -> Void
     {
-        
-        print("Das Dataobject \(o)")
-        
-        
         let dataArray = o as! [(Data?, Error?)]
-        
-        
         
         for dataObject in dataArray {
             //print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
@@ -103,31 +81,25 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             guard dataObject.0 != nil else {
                 return
             }
-            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
+//            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
             
             for change in (JsonChanges(data: dataObject.0!)?.changes)!
             {
 //                ServerData.sharedInstance.allChanges.append(change)
                 UserData.sharedInstance.oldChanges.append(change)
             }
-            
-            
-            
         }
         
         //Speichern
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         
-
         notifiyAllObservers(s: "fertig")
         
         print("ScheduleChanges Controller All Jobs Done")
-        
     }
     /// Bricht im JobManager alle Netzwerkjobs ab
     func cancelAllNetworkJobs() -> Void  {
         myJobManager.cancelAllNetworkJobs()
-        
     }
     
     func notifiyAllObservers(s: String?) -> Void

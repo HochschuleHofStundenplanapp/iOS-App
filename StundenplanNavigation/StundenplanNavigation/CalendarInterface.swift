@@ -14,15 +14,14 @@ class CalendarInterface: NSObject {
     static var sharedInstance = CalendarInterface()
     
     var calendar : EKCalendar?
-    var eventStore : EKEventStore!
-    var calendarData : CalendarData!
+    var eventStore : EKEventStore?
+    var calendarData : CalendarData?
     
     private override init() {
         super.init()
+        
         eventStore = EKEventStore()
-        
         calendarData = DataObjectPersistency().loadCalendarData()
-        
         
         if(!isAuthorized()){
             requestAccessToCalendar()
@@ -35,13 +34,13 @@ class CalendarInterface: NSObject {
     
     // Erstellen eines Kalenders
     private func createCalender(){
-        let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
+        let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore!)
         
         newCalendar.title = Constants.calendarTitle
         
-        newCalendar.source = eventStore.defaultCalendarForNewEvents?.source
+        newCalendar.source = eventStore!.defaultCalendarForNewEvents?.source
         do {
-            try self.eventStore.saveCalendar(newCalendar, commit: true)
+            try self.eventStore!.saveCalendar(newCalendar, commit: true)
             self.calendar = newCalendar
         } catch {
             print("Fehler bei create Calendar")
@@ -60,7 +59,7 @@ class CalendarInterface: NSObject {
     private func isAppCalenderAvailable() -> Bool
     {
         var calendars = [EKCalendar]()
-        calendars = self.eventStore.calendars(for: .event)
+        calendars = self.eventStore!.calendars(for: .event)
         for calendar in calendars {
             if(calendar.title == Constants.calendarTitle){
                 self.calendar = calendar
@@ -76,9 +75,9 @@ class CalendarInterface: NSObject {
         {return false}
         if(isAppCalenderAvailable()){
             do {
-                try self.eventStore.removeCalendar(self.calendar!, commit: true)
-                calendarData.changesEventIdDictonary.removeAll()
-                calendarData.lecturesEventIdDictonary.removeAll()
+                try self.eventStore!.removeCalendar(self.calendar!, commit: true)
+                calendarData!.changesEventIdDictonary.removeAll()
+                calendarData!.lecturesEventIdDictonary.removeAll()
             } catch {
                 return false
             }
@@ -93,7 +92,7 @@ class CalendarInterface: NSObject {
     // Berechtigungen für den Kalenderzugriff anfragen
     private func requestAccessToCalendar (){
         if (EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
-            self.eventStore.requestAccess(to: .event, completion: {
+            self.eventStore!.requestAccess(to: .event, completion: {
                 granted, error in
                 
                 DispatchQueue.main.async {
@@ -127,6 +126,7 @@ class CalendarInterface: NSObject {
     // Schreibt übergebene Events in den Kalender
     func createEvent(p_event : EKEvent, key : String, isChanges : Bool){
         let event       = EKEvent(eventStore: eventStore!)
+        //event.timeZone = NSTimeZone.local
         event.title     = p_event.title
         event.notes     = p_event.notes
         event.startDate = p_event.startDate
@@ -142,7 +142,7 @@ class CalendarInterface: NSObject {
         event.calendar  = calendar!
         
         do {
-            try eventStore?.save(event, span: .thisEvent)
+            try eventStore!.save(event, span: .thisEvent, commit: true) //(event, span: .thisEvent)
         } catch {
             print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
         }
@@ -164,9 +164,10 @@ class CalendarInterface: NSObject {
                 event?.endDate   = updatedEvent.endDate
                 event?.location  = updatedEvent.location
                 event?.calendar  = self.calendar!
+                event?.timeZone = NSTimeZone.local
                 
                 do {
-                    try self.eventStore.save(event!, span: .thisEvent)
+                    try self.eventStore!.save(event!, span: .thisEvent)
                 } catch {
                     print("Fehler beim Updaten eines Events")
                 }
@@ -184,11 +185,11 @@ class CalendarInterface: NSObject {
     
     //Entfernt übergebenes Event
     func removeEvent(p_eventId: String, p_withNotes: Bool?=false)-> Bool{
-        let eventToRemove = self.eventStore.event(withIdentifier: p_eventId)
+        let eventToRemove = self.eventStore!.event(withIdentifier: p_eventId)
         if (eventToRemove != nil) {
             if (p_withNotes == false && eventToRemove?.notes != nil){ return false }
             do {
-                try self.eventStore.remove(eventToRemove!, span: .thisEvent)
+                try self.eventStore!.remove(eventToRemove!, span: .thisEvent)
                 return true
             } catch {
                 print("Events konnte nicht gelöscht werden")
@@ -200,7 +201,7 @@ class CalendarInterface: NSObject {
     public func getEventWithEventID(eventID : String) -> EKEvent!{
         // TODO Fehlermeldungen abfangen
         if (eventID != "") {
-            let event = self.eventStore.event(withIdentifier: eventID)
+            let event = self.eventStore!.event(withIdentifier: eventID)
             if (event != nil) {
                 return event!
             } else {
@@ -215,7 +216,7 @@ class CalendarInterface: NSObject {
     public func findEventId(key : String, title : String, startDate : Date, onlyChanges : Bool) -> String{
         var result = ""
         if (!onlyChanges) {
-            if let lectureIDs = calendarData.lecturesEventIdDictonary[key] {
+            if let lectureIDs = calendarData!.lecturesEventIdDictonary[key] {
                 for id in lectureIDs {
                     let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
                     if(event != nil){
@@ -226,7 +227,7 @@ class CalendarInterface: NSObject {
                 }
             }
         }
-        if let changesIDs = calendarData.changesEventIdDictonary[key] {
+        if let changesIDs = calendarData!.changesEventIdDictonary[key] {
             for id in changesIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
                 if (event?.startDate == startDate) { // TODO Test  event.title == title &&
@@ -238,7 +239,7 @@ class CalendarInterface: NSObject {
     }
     
     public func doEventExist(key: String, startDate: Date) -> Bool {
-        if let lectureIDs = calendarData.lecturesEventIdDictonary[key] {
+        if let lectureIDs = calendarData!.lecturesEventIdDictonary[key] {
             for id in lectureIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
                 if(event != nil){
@@ -248,7 +249,7 @@ class CalendarInterface: NSObject {
                 }
             }
         }
-        if let lectureIDs = calendarData.changesEventIdDictonary[key] {
+        if let lectureIDs = calendarData!.changesEventIdDictonary[key] {
             for id in lectureIDs {
                 let event = CalendarInterface.sharedInstance.getEventWithEventID(eventID: id)
                 if(event != nil){
@@ -263,50 +264,50 @@ class CalendarInterface: NSObject {
     
     func addLecturesID(eventID : String, key : String) {
         // Event ID zu Dictonary hinzufügen
-        if var lectureIDs = calendarData.lecturesEventIdDictonary[key] {
+        if var lectureIDs = calendarData!.lecturesEventIdDictonary[key] {
             lectureIDs.append(eventID)
-            calendarData.lecturesEventIdDictonary[key] = lectureIDs
+            calendarData!.lecturesEventIdDictonary[key] = lectureIDs
         } else {
-            calendarData.lecturesEventIdDictonary[key] = [eventID]
+            calendarData!.lecturesEventIdDictonary[key] = [eventID]
         }
     }
     
     func addChangesID(eventID : String, key : String) {
         // Event ID zu Dictonary hinzufügen
-        if var lectureIDs = calendarData.changesEventIdDictonary[key] {
+        if var lectureIDs = calendarData!.changesEventIdDictonary[key] {
             lectureIDs.append(eventID)
-            calendarData.changesEventIdDictonary[key] = lectureIDs
+            calendarData!.changesEventIdDictonary[key] = lectureIDs
         } else {
-            calendarData.changesEventIdDictonary[key] = [eventID]
+            calendarData!.changesEventIdDictonary[key] = [eventID]
         }
     }
     
     func removeLecturesID(eventID : String, key : String) {
         // Event ID zu Dictonary hinzufügen
-        if var lectureIDs = calendarData.lecturesEventIdDictonary[key] {
+        if var lectureIDs = calendarData!.lecturesEventIdDictonary[key] {
             let eventIDIndex = lectureIDs.index(of: eventID)
             lectureIDs.remove(at: eventIDIndex!)
-            calendarData.lecturesEventIdDictonary[key] = lectureIDs
+            calendarData!.lecturesEventIdDictonary[key] = lectureIDs
         }
     }
     
     func removeChangesID(eventID : String, key : String) {
         // Event ID zu Dictonary hinzufügen
-        if var lectureIDs = calendarData.changesEventIdDictonary[key] {
+        if var lectureIDs = calendarData!.changesEventIdDictonary[key] {
             let eventIDIndex = lectureIDs.index(of: eventID)
             lectureIDs.remove(at: eventIDIndex!)
-            calendarData.changesEventIdDictonary[key] = lectureIDs
+            calendarData!.changesEventIdDictonary[key] = lectureIDs
         }
     }
     
     public func getIDFromDictonary(key: String) -> [String] {
         var IDs = [String]()
-        if let lectureIDs = calendarData.lecturesEventIdDictonary[key] {
+        if let lectureIDs = calendarData!.lecturesEventIdDictonary[key] {
             for lecturesID in lectureIDs {
                 IDs.append(lecturesID)
             }
         }
-        if let changesIDs = calendarData.changesEventIdDictonary[key] {
+        if let changesIDs = calendarData!.changesEventIdDictonary[key] {
             for changesID in changesIDs {
                 IDs.append(changesID)
             }
@@ -315,16 +316,16 @@ class CalendarInterface: NSObject {
     }
     
     public func removeIdsFromDictonary(key: String) {
-        if (calendarData.lecturesEventIdDictonary[key] != nil) {
-            calendarData.lecturesEventIdDictonary[key] = []
+        if (calendarData!.lecturesEventIdDictonary[key] != nil) {
+            calendarData!.lecturesEventIdDictonary[key] = []
         }
-        if calendarData.changesEventIdDictonary[key] != nil {
-            calendarData.changesEventIdDictonary[key] = []
+        if calendarData!.changesEventIdDictonary[key] != nil {
+            calendarData!.changesEventIdDictonary[key] = []
         }
     }
     
     public func saveIDs() {
-        DataObjectPersistency().saveCalendarData(items: calendarData)
+        DataObjectPersistency().saveCalendarData(items: calendarData!)
     }
 }
 

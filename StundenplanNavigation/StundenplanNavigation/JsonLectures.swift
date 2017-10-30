@@ -86,14 +86,9 @@ class JsonLectures: NSObject {
             
             if iteration == iterationState.individualDate {
                 let dateFormatterName = DateFormatter()
-                dateFormatterName.dateFormat = "dd.MM"
+                dateFormatterName.dateFormat = "dd.MM."
                 dateFormatterName.locale = Locale(identifier: "de_DE")
-                
-                
-                
-               
-                
-                
+            
                 name = "\(dateFormatterName.string(from: newStartDate!)) \(name)"
                
             }

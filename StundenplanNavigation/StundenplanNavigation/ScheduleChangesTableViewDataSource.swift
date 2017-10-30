@@ -9,9 +9,6 @@
 import UIKit
 
 class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
-    
-    
-    
     var dateFormatter : DateFormatter
     var timeFormatter : DateFormatter
    
@@ -22,8 +19,6 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
         
         timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
-        
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,12 +34,14 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
             
             let changedLectures = UserData.sharedInstance.oldChanges
             
+            let reason = changedLectures[indexPath.section].reason
             
             if(changedLectures.count != 0){
                 
                 cell.oldDateLabel.text         = dateFormatter.string(from: changedLectures[indexPath.section].oldDate)
                 cell.oldTimeLabel.text         = timeFormatter.string(from: changedLectures[indexPath.section].oldTime)
                 cell.oldRoomLabel.text         = changedLectures[indexPath.section].oldRoom
+                cell.newDateLabel.text         = reason
                 
                 if (changedLectures[indexPath.section].newDate != nil)
                 {
@@ -53,9 +50,9 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
                     cell.newRoomLabel.text = changedLectures[indexPath.section].newRoom
                 }
                 else {
-                    cell.newDateLabel.text = "Entfällt"
-                    cell.newTimeLabel.text = "wegen"
-                    cell.newRoomLabel.text = "Erkrankung"
+                    cell.newDateLabel.text = reason
+                    cell.newTimeLabel.text = ""
+                    cell.newRoomLabel.text = ""
                 }
             }
             return cell
@@ -67,8 +64,15 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return UserData.sharedInstance.oldChanges.count
+        let numberOfChanges = UserData.sharedInstance.oldChanges.count
+        //wenn 0 zurueckgegeben wird, erfolgt keine Aktualisierung der table view und keine Anzeige, dass keine Aenderungen vorliegen
+        //daher Rueckgabe von 1
+        if(numberOfChanges == 0) {
+            return 1
+        } else{
+            return numberOfChanges
+        }
+//        return UserData.sharedInstance.oldChanges.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
