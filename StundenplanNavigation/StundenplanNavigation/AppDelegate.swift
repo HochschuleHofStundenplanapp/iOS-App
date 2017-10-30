@@ -8,10 +8,12 @@
 
 import UIKit
 import EventKit
+import UserNotifications
+
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
+class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -23,15 +25,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
                                                                                   categories: nil))
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
-        UserData.sharedInstance = DataObjectPersistency().loadDataObject()
-        
+            UserData.sharedInstance = DataObjectPersistency().loadDataObject()
+            UNUserNotificationCenter.current().delegate = self
 //        ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
         
 //        print("Server: \(ServerData.sharedInstance.allChanges)")
         
+        
+        UIApplication.shared.registerForRemoteNotifications()
+        
         return true
     }
-
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("DeviceToken1: \(deviceToken)")
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("DeviceToken: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error)
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -114,4 +128,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol {
             CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
         }
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("recive Notification do something with it")
+        UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+        switch application.applicationState{
+            case .active:
+                removeAllNotifications()
+                //Get called when the app is open/active
+                switchToChanges()
+            case .inactive:
+                //Get called when the user press on a remote notification
+                removeAllNotifications()
+                switchToChanges()
+            
+            case .background:
+                print("background")
+            }
+       }
+    
+    func switchToChanges(){
+        if self.window!.rootViewController as? UITabBarController != nil {
+            let tabbarController = self.window!.rootViewController as! UITabBarController
+            tabbarController.selectedIndex = 1
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+
+        completionHandler([.alert, .badge, .sound])
+    }
+    func removeAllNotifications(){
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+
+    
+//    func registerForPushNotification(){
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+//            (granted, error) in
+//            print("Permission granted: \(granted)")
+//        }
+//    }
 }
