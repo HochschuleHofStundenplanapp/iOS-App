@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{tabularx}
+\usepackage[titletoc]{appendix}
+\begin{document}
+\begin{titlepage}
+\title{IOS-App}
+\author{Johannes Franz und Normen Krug} 
+	\title{Erweiterung der Stundenplan App um \newline Push Notifications}
+	\date{Wintersemester 2017/2018} 
+	\maketitle 
+\end{titlepage}
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\tableofcontents 
+\newpage
+
+\section{Einleitung}
+Da Push Notifications ein fester Bestandteil vieler Apps sind, soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server prüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Chronjobs das Backend bereit.
+
+Github: \url{https://github.com/HochschuleHofStundenplanapp}
+
+
+
+\section{Projektfortschritt}
+Um den Projektfortschritt nachvollziehen zu können, wurde dieser tabellarisch in Verbindung mit dem aktuellen Datum aufgelistet.\\
+
+
+\noindent%
+\begin{tabularx}{\textwidth}{p{.25\textwidth}X}
+\textbf{Datum} & \textbf{Erreichter Meilenstein}  \\ \hline 
+
+Vorlesungsbeginn & Themenfindung \\ \hline
+
+Siri & Einarbeitung in Siri. Erkennen erster Hürden. \\ \hline
+
+Neue Themenfindung & Verwerfen von der Siri Projektidee und neue Themenfindung. \\ \hline
+
+Festlegung & Thema Push Notifications festgelegt und Beginn der Einarbeitung. \\ \hline
+
+28.10.2017 & Push Notifications lassen sich per PHP Script an einen fest eingestellten Token schicken \\ \hline
+
+30.10.2017 & Eine Beispiel iOS App kann per http php script mittels MAMP lokal eine push notification senden. \newline
+Datenbank lokal in PhpMyAdmin angelegt. \newline
+PHP Script schreibt bei Aufruf in die angelegte SQL Datenbank. \newline
+Einarbeitung und Konvertierung der Dokumentation in Latex.
+ \\ \hline
+ 
+ 
+ 
+
+\end{tabularx}
+
+\newpage
+\section{Umsetzung}
+
+Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht.
+
+\newpage
+\section{Anhang}
+\begin{figure}[h]
+%	\includegraphics[width=15cm]{hype-cycle-for-emerging-technologies-2017}
+\end{figure}
+
+\newpage
+\section{Eigenständigkeitserklärung}
+
+\end{document}
+
