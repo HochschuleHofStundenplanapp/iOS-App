@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=latex 2017.10.30)  30 OCT 2017 20:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=latex 2017.10.30)  31 OCT 2017 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -430,11 +430,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `Dokumentation_Johannes_Franz_und_Normen_Krug.toc'.
 
  [1]
-Overfull \hbox (3.83406pt too wide) in paragraph at lines 21--22
-\OT1/cmr/m/n/10 den-plan^^?anderungen ak-tiv zu in-formieren, um speziell auf k
-urzfristige []Anderungen
- []
-
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -445,19 +440,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
  []
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 54--54
+Underfull \hbox (badness 3428) in paragraph at lines 58--58
 []|\OT1/cmr/m/n/10 Neue The-men-find-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+\OT1/cmr/m/n/10 Einarbeitung in beste-hende Schnittstelle und
  []
 
 [2] [3] [4] [5] (./Dokumentation_Johannes_Franz_und_Normen_Krug.aux) ) 
 Here is how much of TeX's memory you used:
- 1194 strings out of 492996
- 14204 string characters out of 6132729
- 72209 words of memory out of 5000000
- 4766 multiletter control sequences out of 15000+600000
+ 1195 strings out of 492996
+ 14212 string characters out of 6132729
+ 74209 words of memory out of 5000000
+ 4767 multiletter control sequences out of 15000+600000
  7756 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 25i,10n,19p,608b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,10n,19p,619b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Dokumentation_Johannes_Franz_und_Normen_Krug.dvi (6 pages, 38
-76 bytes).
+Output written on Dokumentation_Johannes_Franz_und_Normen_Krug.dvi (6 pages, 50
+44 bytes).
