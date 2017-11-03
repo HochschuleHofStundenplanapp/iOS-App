@@ -82,7 +82,7 @@ class TaskViewController: UIViewController, TaskViewProtocol {
         taskTableView.reloadData()
     }
     
-    func updateTaskBadge() {
+    @objc func updateTaskBadge() {
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         let taskItemIndex = 2
         let tabBarItem = tabBarController?.tabBar.items![taskItemIndex]

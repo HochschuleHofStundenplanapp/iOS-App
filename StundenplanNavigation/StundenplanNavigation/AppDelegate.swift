@@ -21,8 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //Setup for Notifications and BackgroundFetch
-        application.registerUserNotificationSettings ( UIUserNotificationSettings(types: [.alert, .badge,.sound],
-                                                                                  categories: nil))
+            
+            
+            //UIUserNotificationSettings(types: [.alert, .badge,.sound],categories: nil)
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
             UserData.sharedInstance = DataObjectPersistency().loadDataObject()

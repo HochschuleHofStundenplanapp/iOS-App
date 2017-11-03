@@ -17,16 +17,19 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-//        header.contentView.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
-//        header.textLabel?.textColor = UIColor.hawRed
-//        header.contentView.backgroundColor = UIColor.hawRed
-//        header.contentView.backgroundColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
+
         header.textLabel?.textColor = UIColor.black
-//        header.textLabel?.font = header.textLabel?.font.withSize(30)
         header.textLabel?.textAlignment = .center
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+ //       if !cell.isExpanded {
+  //          cell.isExpanded = true
+  //      }
+//        else{
+ //           cell.isExpanded = false
+  //x      }
         
         if indexPath != selectedIndexPath{
             selectedIndexPath = indexPath
@@ -35,12 +38,14 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
 
-        //rotate Aufklapp-Pfeil
-        let cell : ScheduleTableViewCell = tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell
+          //rotate Aufklapp-Pfeil
+        let cell : ScheduleTableViewCell = tableView.cellForRow(at: indexPath) as! ScheduleTableViewCell!
+        
         if(indexPath == selectedIndexPath) {
-            cell.openButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+           cell.OpenButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            print("Cell rotation for \(indexPath)")
         } else {
-            cell.openButton.transform = CGAffineTransform(rotationAngle: 0.0)
+            cell.OpenButton.transform = CGAffineTransform(rotationAngle: 0.0)
         }
     }
         
@@ -60,6 +65,7 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
                 }
                 else{
                     return 58
+                
                 }
             }
             else{

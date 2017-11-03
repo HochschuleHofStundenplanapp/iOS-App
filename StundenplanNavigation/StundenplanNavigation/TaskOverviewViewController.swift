@@ -102,7 +102,7 @@ class TaskOverviewViewController: UIViewController {
         taskDueDateTextField.text = date.formattedDate
     }
     
-    func createTaskAction(_ sender: UIBarButtonItem) {
+    @objc func createTaskAction(_ sender: UIBarButtonItem) {
         print("Create Task Aktion")
         let userFilledAllTaskInformation = true
         saveTask(shouldAppend: true)
@@ -111,14 +111,14 @@ class TaskOverviewViewController: UIViewController {
         }
     }
     
-    func editTaskAction(_ sender: UIBarButtonItem) {
+    @objc func editTaskAction(_ sender: UIBarButtonItem) {
         print("Edit Task Aktion")
         receivedViewMode = ViewMode.edit
         saveTask()
         setUpUI()
     }
     
-    func displayTaskAction(_ sender: UIBarButtonItem) {
+    @objc func displayTaskAction(_ sender: UIBarButtonItem) {
         print("Display Task Aktion")
         receivedViewMode = ViewMode.detail
         saveTask()
