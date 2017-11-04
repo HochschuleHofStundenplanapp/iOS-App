@@ -8,6 +8,23 @@
 
 import UIKit
 
+class TaskLectureController {
+    
+    private func compare(task: Task, with lecture: Lecture, lectureDate: Date) -> Bool {
+        let result = lecture.name.contains(task.lecture) && lectureDate.formattedDate == task.dueDate.formattedDate
+        return result
+    }
+    
+    func hasTask(for lecture: Lecture, at date: Date) -> Bool {
+        for task in UserData.sharedInstance.tasks {
+            if compare(task: task, with: lecture, lectureDate: date) {
+                return true
+            }
+        }
+        return false
+    }
+}
+
 class TaskOverviewViewController: UIViewController {
     @IBOutlet weak var taskTitleTextField: UITextField!
     @IBOutlet weak var taskDueDateTextField: UITextField!

@@ -27,6 +27,8 @@ class UserData: NSObject, NSCoding{
     var oldChanges : [ChangedLecture] = []
     var tasks: [Task] = []
     
+    var calendarIdentifier: String?
+    
     var removedLectures: [Lecture] = []
     var addedLectures: [Lecture] = []
     

@@ -30,12 +30,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-//        saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
-        
-        if (UserData.sharedInstance.callenderSync) {
-            self.syncSwitch.setOn(true, animated: true)
-        }
+        self.syncSwitch.setOn(UserData.sharedInstance.callenderSync, animated: true)
         
         if #available(iOS 11.0, *) {
             setupNavBar()
@@ -65,25 +60,13 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
 //        tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOn), name: .calendarSyncOn, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOff), name: .calendarSyncOff, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showAccessAlert), name: .showAccessAlert, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showHasNoAccessAlert), name: .showHasNoAccessAlert, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .calendarSyncOn, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .calendarSyncOff, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .showAccessAlert, object: nil)
-    }
-    
-    @objc func setCalendarSyncOn() {
-        syncSwitch.setOn(true, animated: true)
-    }
-    
-    @objc func setCalendarSyncOff() {
-        syncSwitch.setOn(false, animated: true)
+        NotificationCenter.default.removeObserver(self, name: .showHasNoAccessAlert, object: nil)
     }
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
@@ -148,7 +131,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         let ind = ActivityIndicator()
         ind.startActivityIndicator(root: self)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.global().async {
             if (self.syncSwitch.isOn) {
                 self.settingsController.startCalendarSync()
             } else {
@@ -163,14 +146,14 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         let ind = ActivityIndicator()
         ind.startActivityIndicator(root: self)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.global().async {
             self.settingsController.commitChanges()
             self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
             ind.stopActivityIndicator()
         }
     }
     
-    @objc func showAccessAlert() {
+    @objc func showHasNoAccessAlert() {
         let alert = UIAlertController(title: "Berechtigungen", message: "Es werden Berechtigungen benötigt um Einträge in den Kalender zu tätigen.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in
