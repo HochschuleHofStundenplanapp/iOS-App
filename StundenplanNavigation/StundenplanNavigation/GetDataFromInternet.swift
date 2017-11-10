@@ -40,6 +40,10 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
                 
                     //Benachrichtige Alle Observer mit den Daten
                 
+                let jsonString = String(data: data!, encoding: String.Encoding.utf8)
+//                print(jsonString)
+                print("-----")
+                
                 let dataWithErrorTuple = (data,error)
                 
 
