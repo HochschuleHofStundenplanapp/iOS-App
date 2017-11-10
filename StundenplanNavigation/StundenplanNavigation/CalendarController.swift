@@ -79,11 +79,9 @@ class CalendarController: NSObject {
      */
     private func createEventsForLecture(lecture: Lecture) {
         lectureToEKEvent(lecture: lecture)
-        
         for event in events {
             CalendarInterface.sharedInstance.createEvent(p_event: event, key: lecture.key, isChanges: false)
         }
-        
         events = []
     }
     
@@ -95,7 +93,6 @@ class CalendarController: NSObject {
         
         iteration = lecture.iteration
         notes = lecture.comment + "  " + lecture.group
-        
         if (lecture.iteration == iterationState.calendarWeeks) {
             handleCalendarWeeks(lecture: lecture)
             return
@@ -161,6 +158,9 @@ class CalendarController: NSObject {
             
             // startdate für die nächste Vorlesung in einer Woche setzen
             tmpStartdate = Calendar.current.date(byAdding: .day, value: iteration.rawValue, to: tmpStartdate)!
+            if tmpStartdate.timeIntervalSince(lecture.enddate) < -100_000_000 {
+                tmpStartdate = Date()
+            }
         } while (tmpStartdate.timeIntervalSince(lecture.enddate) <= 0 && iteration != iterationState.individualDate)
     }
     

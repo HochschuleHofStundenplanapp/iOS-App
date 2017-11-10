@@ -117,7 +117,17 @@ class JsonLectures: NSObject {
                             dateArray.append(newStartDate!)
                         }
                     } else if dateFormatter.date(from: aiStart) != nil {
-                        newStartDate = newStartDate?.combineDateAndTime(date: dateFormatter.date(from: aiStart)!, time: newStartDate!)
+                        let tmpDate = dateFormatter.date(from: aiStart)!
+                        let calendar = Calendar.current
+                        let year = calendar.component(Calendar.Component.year, from: tmpDate)
+                        // es gibt den einzelfall, das ein Jahr 0017 und nicht 2017 ist und somit die nachfolgende Berechnung ewig läuft...
+                        // folgende Abfrage, gleicht das aus
+                        if year < 100 {
+                            let balancedDate = Calendar.current.date(byAdding: Calendar.Component.year, value: 2000, to: tmpDate, wrappingComponents: false)
+                            newStartDate = newStartDate?.combineDateAndTime(date: balancedDate!, time: newStartDate!)
+                        } else {
+                            newStartDate = newStartDate?.combineDateAndTime(date: dateFormatter.date(from: aiStart)!, time: newStartDate!)
+                        }
                         
                         if iteration == iterationState.calendarWeeks {
                             dateArray.append(newStartDate!)

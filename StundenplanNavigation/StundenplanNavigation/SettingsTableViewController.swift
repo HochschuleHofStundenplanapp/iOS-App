@@ -22,6 +22,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     @IBOutlet var selectedSemesterLabel: UILabel!
     @IBOutlet var selectedLecturesLabel: UILabel!
     
+    let backgroundProgressIndicator = ActivityIndicator()
+    
     var selectedCoursesString = "..."
     var selectedSemesterString = "..."
     
@@ -128,28 +130,30 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
-        let ind = ActivityIndicator()
-        ind.startActivityIndicator(root: self)
+        backgroundProgressIndicator.startActivityIndicator(root: self)
 
+        let isSwitchOn = syncSwitch.isOn
         DispatchQueue.global().async {
-            if (self.syncSwitch.isOn) {
+            if (isSwitchOn) {
                 self.settingsController.startCalendarSync()
             } else {
                 self.settingsController.stopCalendarSync()
             }
-            ind.stopActivityIndicator()
+            DispatchQueue.main.async {
+                self.backgroundProgressIndicator.stopActivityIndicator()
+            }
         }
     }
     
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-        let ind = ActivityIndicator()
-        ind.startActivityIndicator(root: self)
-        
+        backgroundProgressIndicator.startActivityIndicator(root: self)
         DispatchQueue.global().async {
             self.settingsController.commitChanges()
-            self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-            ind.stopActivityIndicator()
+            DispatchQueue.main.async {
+                self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+                self.backgroundProgressIndicator.stopActivityIndicator()
+            }
         }
     }
     
