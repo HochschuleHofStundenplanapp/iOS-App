@@ -1015,10 +1015,10 @@
 				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iospps.hof-university.stundenplan";
+				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1031,10 +1031,10 @@
 				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iospps.hof-university.stundenplan";
+				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

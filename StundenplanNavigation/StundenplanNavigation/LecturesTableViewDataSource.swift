@@ -38,7 +38,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         }
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String)
-        myMutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: lastColor, range: NSRange(location:0,length:myString.length - lecture.name.characters.count - 2))
+        myMutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: lastColor, range: NSRange(location:0,length:myString.length - lecture.name.count - 2))
         
         //lecture.semester.course.contraction.characters.count + lecture.semester.name.characters.count
         cell.courseLabel.attributedText = myMutableString

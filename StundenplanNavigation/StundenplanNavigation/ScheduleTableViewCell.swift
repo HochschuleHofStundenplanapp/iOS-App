@@ -30,4 +30,9 @@ class ScheduleTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setExpandedState(newState : Bool){
+        print("Cell was expanded")
+        isExpanded = newState
+        }
 }
