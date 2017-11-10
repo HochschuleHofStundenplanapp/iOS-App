@@ -12,8 +12,12 @@ class AllCourses: NSObject {
 
     fileprivate var serverData = ServerData.sharedInstance
     
-    func course(at indexPath: IndexPath) -> Course{
-        return serverData.allCourses[indexPath.row]
+    func course(at row:Int) -> Course{
+        return serverData.allCourses[row]
+    }
+    
+    func getCourses() ->[Course]{
+        return serverData.allCourses
     }
     
     func numberOfEntries() -> Int
