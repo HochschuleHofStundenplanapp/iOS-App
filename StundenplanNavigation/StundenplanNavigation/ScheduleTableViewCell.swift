@@ -32,7 +32,7 @@ class ScheduleTableViewCell: UITableViewCell {
     }
     
     func setExpandedState(newState : Bool){
-        print("Cell was expanded")
+        //print("Cell was expanded")
         isExpanded = newState
         }
 }

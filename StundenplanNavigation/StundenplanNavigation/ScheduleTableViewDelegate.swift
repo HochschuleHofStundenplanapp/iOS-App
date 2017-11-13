@@ -31,6 +31,13 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
         
+        //alle cells "schliessen" / Pfeile auf Ausgangsposition (Pfeil der zuletzt geöffneten sonst "offen")
+        for cell : UITableViewCell in tableView.visibleCells {
+            let _cell = cell as? ScheduleTableViewCell
+            _cell?.OpenButton.transform = CGAffineTransform(rotationAngle: 0.0)
+            _cell?.setExpandedState(newState: false)
+        }
+
         if let cell : ScheduleTableViewCell = tableView.cellForRow(at: indexPath) as? ScheduleTableViewCell {
             if(indexPath == selectedIndexPath) {
                 cell.OpenButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
@@ -40,6 +47,7 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
                 cell.setExpandedState(newState: false)
             }
         }
+        
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
