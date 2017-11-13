@@ -48,14 +48,6 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             startTimeString = timeFormatter.string(from: startTime)
             endTimeString = timeFormatter.string(from: endTime)
             
-            let rename = TaskLectureController()
-            let lectureDate = Date()                                                // TODO: ✅🚨 auf Schnittstelle warten
-            if rename.hasTask(for: lecture, at: lectureDate) {
-                // TODO: ✅ Design ändern
-                cell.backgroundColor = UIColor.red
-            } else {
-                cell.backgroundColor = UIColor.white
-            }
             
             cell.comment.text = lecture.comment
             cell.course.text = lecture.name

@@ -3,21 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0C0627811F06BB9900273A35 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0627801F06BB9900273A35 /* ActivityIndicator.swift */; };
 		0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */ = {isa = PBXBuildFile; fileRef = 0C18F6B41E081D210037E28F /* rechtlicheTexte */; };
-		0F58698D1F9896A700DE2462 /* UILecturePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */; };
-		0F58698F1F9896B500DE2462 /* UILecturePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */; };
-		0F5869911F9896CD00DE2462 /* TaskViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */; };
-		0F7C98A31F95EEF30044F08C /* UITaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C98A21F95EEF30044F08C /* UITaskTableViewCell.swift */; };
-		0FC2FECD1F953CA600BDDB0D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FECC1F953CA600BDDB0D /* Task.swift */; };
-		0FC2FECF1F953CB900BDDB0D /* TaskDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FECE1F953CB900BDDB0D /* TaskDisplayController.swift */; };
-		0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */; };
-		0FC2FED31F953CDB00BDDB0D /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */; };
-		0FC2FED51F953D3300BDDB0D /* TaskOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */; };
 		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
 		2F669B961ECDA0E3003C8629 /* ChangedLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */; };
 		654BFEB81ED427D90023607D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB51ED427D90023607D /* CalendarController.swift */; };
@@ -33,7 +24,6 @@
 		81A470C41ECDAFAE008CB502 /* SelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */; };
 		81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */; };
 		81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C71ECDB016008CB502 /* SelectedCourses.swift */; };
-		A3FEAFF01F9505820095D8F1 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */; };
 		B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */; };
 		B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */; };
 		BE0136F81EEF36280035DEB8 /* AllCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0136F71EEF36280035DEB8 /* AllCourses.swift */; };
@@ -114,15 +104,6 @@
 /* Begin PBXFileReference section */
 		0C0627801F06BB9900273A35 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
-		0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILecturePickerDataSource.swift; sourceTree = "<group>"; };
-		0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILecturePickerDelegate.swift; sourceTree = "<group>"; };
-		0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewProtocol.swift; sourceTree = "<group>"; };
-		0F7C98A21F95EEF30044F08C /* UITaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITaskTableViewCell.swift; sourceTree = "<group>"; };
-		0FC2FECC1F953CA600BDDB0D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		0FC2FECE1F953CB900BDDB0D /* TaskDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDisplayController.swift; sourceTree = "<group>"; };
-		0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDataSource.swift; sourceTree = "<group>"; };
-		0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDelegate.swift; sourceTree = "<group>"; };
-		0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewViewController.swift; sourceTree = "<group>"; };
 		2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonChanges.swift; sourceTree = "<group>"; };
 		2F669B951ECDA0E3003C8629 /* ChangedLecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangedLecture.swift; sourceTree = "<group>"; };
 		654BFEB51ED427D90023607D /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -138,7 +119,6 @@
 		81A470C31ECDAFAE008CB502 /* SelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLectures.swift; sourceTree = "<group>"; };
 		81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSemesters.swift; sourceTree = "<group>"; };
 		81A470C71ECDB016008CB502 /* SelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCourses.swift; sourceTree = "<group>"; };
-		A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObserverProtocol.swift; sourceTree = "<group>"; };
 		B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObservableProtocol.swift; sourceTree = "<group>"; };
 		BE0136F71EEF36280035DEB8 /* AllCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCourses.swift; sourceTree = "<group>"; };
@@ -263,39 +243,6 @@
 				654BFEB71ED427D90023607D /* CalendarInterface.swift */,
 			);
 			name = Calendaer;
-			sourceTree = "<group>";
-		};
-		A3FEAFEC1F9504860095D8F1 /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				0F7C98A21F95EEF30044F08C /* UITaskTableViewCell.swift */,
-				0FC2FECC1F953CA600BDDB0D /* Task.swift */,
-				0FC2FECE1F953CB900BDDB0D /* TaskDisplayController.swift */,
-				0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */,
-				0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */,
-				0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */,
-				0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */,
-				0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */,
-				A3FEAFED1F9504B70095D8F1 /* Controller */,
-				A3FEAFEE1F9504BF0095D8F1 /* ViewController */,
-			);
-			name = Tasks;
-			sourceTree = "<group>";
-		};
-		A3FEAFED1F9504B70095D8F1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		A3FEAFEE1F9504BF0095D8F1 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */,
-				0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */,
-			);
-			name = ViewController;
 			sourceTree = "<group>";
 		};
 		BE3AB3A01EB1F761009A6D20 /* Controller */ = {
@@ -524,7 +471,6 @@
 				CED25BB31DD1C60200FE7D1C /* ScheduleChanges */,
 				CED25BB51DD1C62000FE7D1C /* Course */,
 				CED25BB41DD1C60B00FE7D1C /* Settings */,
-				A3FEAFEC1F9504860095D8F1 /* Tasks */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
 				CEAC970C1DB5FD350042FF3D /* Assets.xcassets */,
@@ -686,13 +632,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = "Hof University";
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Jonas Beetz";
 				TargetAttributes = {
 					CEAC96FF1DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 5DB3XUQ936;
-						LastSwiftMigration = 0900;
+						DevelopmentTeam = FM446M8BR4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -702,20 +647,18 @@
 					};
 					CEAC97151DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CEAC96FF1DB5FD350042FF3D;
 					};
 					CEAC97201DB5FD350042FF3D = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CEAC96FF1DB5FD350042FF3D;
 					};
 				};
 			};
 			buildConfigurationList = CEAC96FB1DB5FD350042FF3D /* Build configuration list for PBXProject "StundenplanNavigation" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -778,13 +721,11 @@
 				BE3AB3A71EB1F799009A6D20 /* DataObserverProtocol.swift in Sources */,
 				CEAC973D1DB61A7A0042FF3D /* SemesterTableViewController.swift in Sources */,
 				81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */,
-				0FC2FECF1F953CB900BDDB0D /* TaskDisplayController.swift in Sources */,
 				CE27EB421DED665C004F743B /* LecturesTableViewCell.swift in Sources */,
 				BEC57D0B1EE2B15C005D8959 /* AllLectures.swift in Sources */,
 				654BFEB91ED427D90023607D /* CalendarData.swift in Sources */,
 				CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */,
 				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
-				0F58698D1F9896A700DE2462 /* UILecturePickerDataSource.swift in Sources */,
 				BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */,
 				BEC57D091EE29BD9005D8959 /* TmpSelectedLectures.swift in Sources */,
 				BEFFC06C1EE9635A00953157 /* TmpSelectedSemesters.swift in Sources */,
@@ -792,12 +733,9 @@
 				BE3AB3A81EB1F799009A6D20 /* myObservableProtocol.swift in Sources */,
 				8169533C1DD1E564004ED800 /* SemesterTableViewDataSource.swift in Sources */,
 				CE27EB461DED8DB2004F743B /* OnlinePrivacyPoliceViewController.swift in Sources */,
-				0F5869911F9896CD00DE2462 /* TaskViewProtocol.swift in Sources */,
 				BE3AB3BA1EB20552009A6D20 /* JsonCourses.swift in Sources */,
 				CEAC97371DB61A1C0042FF3D /* ScheduleChangesTableViewController.swift in Sources */,
 				B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */,
-				0FC2FED51F953D3300BDDB0D /* TaskOverviewViewController.swift in Sources */,
-				0F7C98A31F95EEF30044F08C /* UITaskTableViewCell.swift in Sources */,
 				81A470C41ECDAFAE008CB502 /* SelectedLectures.swift in Sources */,
 				CEAC97391DB61A330042FF3D /* SettingsTableViewController.swift in Sources */,
 				BE3AB3B21EB1FA09009A6D20 /* CourseController.swift in Sources */,
@@ -807,9 +745,7 @@
 				BE6DCE3E1EBF22F80039DDF7 /* SemesterController.swift in Sources */,
 				BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */,
 				BE4DF9141EB109CD00D6550C /* Course.swift in Sources */,
-				0F58698F1F9896B500DE2462 /* UILecturePickerDelegate.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
-				0FC2FED31F953CDB00BDDB0D /* TaskTableViewDelegate.swift in Sources */,
 				6557F3E11F0277F90019DA31 /* DataObjectPersistency.swift in Sources */,
 				817CBD921EFBA2C60069DCBD /* LecturesViewController.swift in Sources */,
 				BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */,
@@ -820,7 +756,6 @@
 				B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
 				BE8B680E1ECA448600A858A3 /* NotificationNameExtension.swift in Sources */,
-				0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */,
 				BE612A951EC467E000D1FC1D /* Schedule.swift in Sources */,
 				BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */,
 				BED89EF31EE2EF3100CBEF27 /* SettingsController.swift in Sources */,
@@ -832,10 +767,8 @@
 				CE698D601DD1DA3C006D1384 /* CourseTableViewDelegate.swift in Sources */,
 				CE4121581DD0C98C008FED2C /* ScheduleTableViewCell.swift in Sources */,
 				654BFEBA1ED427D90023607D /* CalendarInterface.swift in Sources */,
-				A3FEAFF01F9505820095D8F1 /* TaskViewController.swift in Sources */,
 				813C39DA1EEFD7C800FD02AE /* ChangesController.swift in Sources */,
 				0C0627811F06BB9900273A35 /* ActivityIndicator.swift in Sources */,
-				0FC2FECD1F953CA600BDDB0D /* Task.swift in Sources */,
 				DAA250771E015D51007CCEFB /* DateExtension.swift in Sources */,
 				8169533E1DD1E579004ED800 /* SemesterTableViewDelegate.swift in Sources */,
 				CEAC97041DB5FD350042FF3D /* AppDelegate.swift in Sources */,
@@ -909,9 +842,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -919,11 +850,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -966,9 +893,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -976,11 +901,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1012,14 +933,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5DB3XUQ936;
+				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1028,14 +948,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5DB3XUQ936;
+				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1048,8 +967,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanNavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanNavigation.app/StundenplanNavigation";
 			};
 			name = Debug;
@@ -1063,8 +981,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanNavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanNavigation.app/StundenplanNavigation";
 			};
 			name = Release;
@@ -1077,8 +994,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanNavigationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = StundenplanNavigation;
 			};
 			name = Debug;
@@ -1091,8 +1007,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JonasBeetz.StundenplanNavigationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = StundenplanNavigation;
 			};
 			name = Release;

@@ -22,8 +22,8 @@ class CourseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.tintColor = UIColor.white
-//        tabBarController?.tabBar.tintColor = UIColor.hawRed
+        navigationController?.navigationBar.tintColor = UIColor.white
+        tabBarController?.tabBar.tintColor = UIColor.hawRed
         
         courseController = CourseController(tmpSelectedCourses: self.tmpSelectedCourses, tmpSelectedSemesters: self.tmpSelectedSemesters, tmpSelectedLectures: self.tmpSelectedLectures, tmpSelectedSeason: tmpSelectedSeason)
         
@@ -37,11 +37,11 @@ class CourseTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.showNoInternetAlert), name: .coursesDownloadFailed, object: nil )
     }
     
-    @objc func downloadEnded(){
+    func downloadEnded(){
         self.courseTableView.reloadData()
     }
     
-    @objc func showNoInternetAlert(){
+    func showNoInternetAlert(){
         let alertController = UIAlertController(title: "Achtung", message:
             "Keine Verbindung zum Internet. Bitte prüfen Sie ihre Internetverbindung.", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in

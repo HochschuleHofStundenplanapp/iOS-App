@@ -23,8 +23,8 @@ class SemesterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        navigationController?.navigationBar.tintColor = UIColor.white
-//        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+        navigationController?.navigationBar.tintColor = UIColor.white
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
 
         semesterController = SemesterController(tmpSelectedLectures: tmpSelectedLectures, tmpSelectedSemesters: tmpSelectedSemesters)
         

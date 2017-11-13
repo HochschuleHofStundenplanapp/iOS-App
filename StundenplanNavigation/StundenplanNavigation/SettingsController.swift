@@ -21,8 +21,6 @@ class SettingsController: NSObject {
     }
     var userDataCopy: UserData!
     
-    lazy var calendarController = CalendarController()
-    
     override init() {
         userDataCopy = UserData.sharedInstance.copy() as! UserData
         tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
@@ -68,6 +66,7 @@ class SettingsController: NSObject {
         UserData.sharedInstance.removedLectures = []
         UserData.sharedInstance.savedSplusnames = []
         UserData.sharedInstance.oldChanges = []
+//        ServerData.sharedInstance.allChanges = []
     }
     
     // Liefert alles Lectures zurück die entfernt werden müssen
@@ -110,10 +109,13 @@ class SettingsController: NSObject {
         return addedArray
     }
     
+    // TODO
     public func updateCalendar() {
-        if UserData.sharedInstance.callenderSync {
-            if !calendarController.updateIOSCalendar() {
-                NotificationCenter.default.post(name: .showHasNoAccessAlert , object: nil)
+                
+        if (UserData.sharedInstance.callenderSync == true) {
+            if(!CalendarController().CalendarRoutine()){
+                NotificationCenter.default.post(name: .showAccessAlert , object: nil)
+                NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
             }
         }
     }
@@ -125,30 +127,40 @@ class SettingsController: NSObject {
     }
     
     public func startCalendarSync() {
-        calendarController.createCalendar()
         
-        switch calendarController.getAuthorizationStatus() {
+        switch CalendarController().createCalendar() {
         case EKAuthorizationStatus.denied:
-            NotificationCenter.default.post(name: .showHasNoAccessAlert , object: nil)
+            NotificationCenter.default.post(name: .showAccessAlert , object: nil)
             UserData.sharedInstance.callenderSync = false
+            NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
+            break
+        case EKAuthorizationStatus.notDetermined:
+            UserData.sharedInstance.callenderSync = true
+            NotificationCenter.default.post(name: .calendarSyncOn , object: nil)
+            break
         default:
             UserData.sharedInstance.callenderSync = true
+            NotificationCenter.default.post(name: .calendarSyncOn , object: nil)
+            break
         }
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
     public func stopCalendarSync() {
-        calendarController.removeCalendar()
+        CalendarController().removeCalendar()
         UserData.sharedInstance.callenderSync = false
+        NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
     public func handleCalendarSync() {
         if (UserData.sharedInstance.callenderSync) {
             UserData.sharedInstance.callenderSync = true
-            calendarController.createCalendar()
+            NotificationCenter.default.post(name: .calendarSyncOn , object: nil)
+            _ = CalendarController().createCalendar()
         } else {
             UserData.sharedInstance.callenderSync = false
+            NotificationCenter.default.post(name: .calendarSyncOff , object: nil)
         }
     }
 }

@@ -18,33 +18,7 @@ class CourseTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        courseController.toggleCourse(at: getRowInTableView(indexPath: indexPath, tableView: tableView))
+         courseController.toggleCourse(at: indexPath)
         tableView.reloadData()
     }
-    
-    fileprivate func getRowInTableView(indexPath: IndexPath, tableView:UITableView) -> Int{
-        var total = 0
-        for i in 0..<indexPath.section{
-            let rows = tableView.numberOfRows(inSection: i)
-            total+=rows
-        }
-        
-        total+=indexPath.row
-        
-        return total
-    }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-

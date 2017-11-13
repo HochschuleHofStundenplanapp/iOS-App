@@ -22,8 +22,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     @IBOutlet var selectedSemesterLabel: UILabel!
     @IBOutlet var selectedLecturesLabel: UILabel!
     
-    let backgroundProgressIndicator = ActivityIndicator()
-    
     var selectedCoursesString = "..."
     var selectedSemesterString = "..."
     
@@ -32,18 +30,12 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.syncSwitch.setOn(UserData.sharedInstance.callenderSync, animated: true)
+//        saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+//        saveChangesButton.setTitle(Constants.changesButtonTitle, for: .normal)
         
-        if #available(iOS 11.0, *) {
-            setupNavBar()
-        } else {
-            // Fallback on earlier versions
+        if (UserData.sharedInstance.callenderSync) {
+            self.syncSwitch.setOn(true, animated: true)
         }
-    }
-    
-    @available(iOS 11.0, *)
-    func setupNavBar(){
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,16 +51,28 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showHasNoAccessAlert), name: .showHasNoAccessAlert, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOn), name: .calendarSyncOn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setCalendarSyncOff), name: .calendarSyncOff, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showAccessAlert), name: .showAccessAlert, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .calendarSyncChanged, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .showHasNoAccessAlert, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .calendarSyncOn, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .calendarSyncOff, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .showAccessAlert, object: nil)
+    }
+    
+    func setCalendarSyncOn() {
+        syncSwitch.setOn(true, animated: true)
+    }
+    
+    func setCalendarSyncOff() {
+        syncSwitch.setOn(false, animated: true)
     }
     
     @IBAction func sectionChanged(_ sender: UISegmentedControl) {
@@ -86,14 +90,11 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     private func updateSeasonSegments(){
         let today = Date()
         let currentSemester = today.checkSemester()
-        
         if (currentSemester == "SS"){
             segmentControl.selectedSegmentIndex = 0
         }else{
             segmentControl.selectedSegmentIndex = 1
         }
-        
-        settingsController.tmpSelectedSeason = currentSemester
     }
     
     private func disableCellsAndButton(){
@@ -125,39 +126,37 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
-    @objc func hanldeCalendarSyncChanged() {
+    func hanldeCalendarSyncChanged() {
         settingsController.handleCalendarSync()
     }
     
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
-        backgroundProgressIndicator.startActivityIndicator(root: self)
+        let ind = ActivityIndicator()
+        ind.startActivityIndicator(root: self)
 
-        let isSwitchOn = syncSwitch.isOn
-        DispatchQueue.global().async {
-            if (isSwitchOn) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            if (self.syncSwitch.isOn) {
                 self.settingsController.startCalendarSync()
             } else {
                 self.settingsController.stopCalendarSync()
             }
-            DispatchQueue.main.async {
-                self.backgroundProgressIndicator.stopActivityIndicator()
-            }
+            ind.stopActivityIndicator()
         }
     }
     
     
     @IBAction func saveChangesButton(_ sender: UIButton) {
-        backgroundProgressIndicator.startActivityIndicator(root: self)
-        DispatchQueue.global().async {
+        let ind = ActivityIndicator()
+        ind.startActivityIndicator(root: self)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             self.settingsController.commitChanges()
-            DispatchQueue.main.async {
-                self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
-                self.backgroundProgressIndicator.stopActivityIndicator()
-            }
+            self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+            ind.stopActivityIndicator()
         }
     }
     
-    @objc func showHasNoAccessAlert() {
+    func showAccessAlert() {
         let alert = UIAlertController(title: "Berechtigungen", message: "Es werden Berechtigungen benötigt um Einträge in den Kalender zu tätigen.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Schließen", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Einstellungen", style: .default, handler: { action in
@@ -192,7 +191,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
-        if(index == 3){
+        
+        if(index == 2){
             let nc = viewController as! UINavigationController
             let vc = nc.childViewControllers[0] as! SettingsTableViewController
             if vc.settingsController == nil {

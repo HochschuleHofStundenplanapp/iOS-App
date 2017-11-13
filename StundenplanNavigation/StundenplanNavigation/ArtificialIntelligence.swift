@@ -9,12 +9,12 @@
 import UIKit
 
 class ArtificialIntelligence: NSObject {
-    let startStringArray : [String] = ["start", "beginn", "ab "]
-    let endStringArray : [String] = [" ende"]
-    let recurrenceStringArray : [String] = ["14-tägig" , "14 tägig", "14tägig", "14 tage", "14-tage",  "14tage", "zweiwöchig", "zwei wochen"]
-    let notParseableStringArray : [String] = ["außer", "ohne"]
+    let startArray : [String] = ["start", "beginn", "ab "]
+    let endArray : [String] = [" ende"]
+    let iterationArray : [String] = ["14-tägig" , "14 tägig", "14tägig", "14 tage", "14-tage",  "14tage", "zweiwöchig", "zwei wochen"]
+    let notParseAbleArray : [String] = ["außer", "ohne"]
     var calendarWeekArray : [Int] = []
-    let periodStringArray : [String] = ["-", "bis"]
+    let periodArray : [String] = ["-", "bis"]
     let wrongPeriodArray : [String] = ["online-anmeldung", " termine:", "grundbildung messtechnik -"]
 
     
@@ -42,7 +42,7 @@ class ArtificialIntelligence: NSObject {
     }
     
     private func isParseAble(comment: String) -> Bool{
-        for string in notParseableStringArray {
+        for string in notParseAbleArray {
             if comment.contains(string) {
                 return false
             }
@@ -52,38 +52,36 @@ class ArtificialIntelligence: NSObject {
     
     private func containsEnumeration(comment: String) -> Bool{
         let tmpComment = comment.lowercased()
-        let tmpCommentLength = tmpComment.count
-        
+        let tmpCommentLength = tmpComment.characters.count
         
         for i in (0..<tmpCommentLength) {
             var kw = ""
             var count = 0
             var enumeration = false
             
-            
             let index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
-            if Int(String(tmpComment[index])) != nil {
+            if Int(String(tmpComment.characters[index])) != nil {
                 
                 while enumeration == false {
                     var newIndex = tmpComment.index(index, offsetBy: count)
                     
-                    if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                        kw += String(tmpComment[newIndex])
+                    if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                        kw += String(tmpComment.characters[newIndex])
                         count += 1
                         
-                    } else if i + count < tmpCommentLength && String(tmpComment[newIndex]) == "," {
+                    } else if i + count < tmpCommentLength && String(tmpComment.characters[newIndex]) == "," {
                         if Int(kw) != nil {
                             calendarWeekArray.append(Int(kw)!)
                             kw = ""
                         }
                         count += 1
-                    } else if i + count < tmpCommentLength && String(tmpComment[newIndex]) == " " {
+                    } else if i + count < tmpCommentLength && String(tmpComment.characters[newIndex]) == " " {
                         count += 1
-                    } else if i + count + 2 < tmpCommentLength && String(tmpComment[newIndex]) == "u" {
+                    } else if i + count + 2 < tmpCommentLength && String(tmpComment.characters[newIndex]) == "u" {
                         newIndex = tmpComment.index(index, offsetBy: count + 1)
-                        if String(tmpComment[newIndex]) == "n" {
+                        if String(tmpComment.characters[newIndex]) == "n" {
                             newIndex = tmpComment.index(index, offsetBy: count + 2)
-                            if String(tmpComment[newIndex]) == "d" {
+                            if String(tmpComment.characters[newIndex]) == "d" {
                                 count += 3
                                 if Int(kw) != nil {
                                     calendarWeekArray.append(Int(kw)!)
@@ -144,7 +142,7 @@ class ArtificialIntelligence: NSObject {
     
     //gibt true zurück wenn die Vorlesung alle 14 Tage ist
     private func checkIteration(comment: String) -> Bool{
-        for iteration in recurrenceStringArray{
+        for iteration in iterationArray{
             if comment.contains(iteration){
                 return true
             }
@@ -165,20 +163,20 @@ class ArtificialIntelligence: NSObject {
                 
                 stringToDelete.removeSubrange(tmpComment.startIndex..<startIndex.upperBound)
                 
-                for i in (0..<stringToDelete.count) {
+                for i in (0..<stringToDelete.characters.count) {
                     let index = stringToDelete.index(stringToDelete.startIndex, offsetBy: i)
-                    for period in periodStringArray {
+                    for period in periodArray {
                         let firstLetter : String = String(period[period.startIndex])
                         
-                        if String(stringToDelete[index]) == firstLetter {
-                            let periodLength = period.count
+                        if String(stringToDelete.characters[index]) == firstLetter {
+                            let periodLength = period.characters.count
                             let indexEnd = stringToDelete.index(index, offsetBy: periodLength)
-                            let potentialPeriod = stringToDelete[index..<indexEnd]
+                            let potentialPeriod = stringToDelete.substring(with: index..<indexEnd)
                             
                             if potentialPeriod == period {
                                 end = getNextCalendarWeekOrDate(comment: stringToDelete, keyword: period, length: 3)
                                 if end != ""{
-                                    if tmpComment.range(of: end) == nil && end.count >= 5 {
+                                    if tmpComment.range(of: end) == nil && end.characters.count >= 5 {
                                         end.removeSubrange(end.index(end.endIndex, offsetBy: -5)..<end.endIndex)
                                     }
                                     let endIndex = tmpComment.range(of: end)!
@@ -191,7 +189,7 @@ class ArtificialIntelligence: NSObject {
                 }
             }
         }
-        for period in periodStringArray {
+        for period in periodArray {
             while tmpComment.contains(period) {
                 start = getPreviousCalendarWeekOrDate(comment: tmpComment, keyword: period, length: 3)
                 end = getNextCalendarWeekOrDate(comment: tmpComment, keyword: period, length: 3)
@@ -210,9 +208,9 @@ class ArtificialIntelligence: NSObject {
     public func checkStart(comment: String) -> String {
         let tmpComment = comment.lowercased()
         
-        for start in startStringArray {
+        for start in startArray {
             if tmpComment.contains(start){
-                return getNextCalendarWeekOrDate(comment: tmpComment, keyword: start, length: tmpComment.count)
+                return getNextCalendarWeekOrDate(comment: tmpComment, keyword: start, length: tmpComment.characters.count)
             }
         }
         return ""
@@ -221,9 +219,9 @@ class ArtificialIntelligence: NSObject {
     public func checkEnd(comment: String) -> String{
         let tmpComment = comment.lowercased()
         
-        for end in endStringArray {
+        for end in endArray {
             if tmpComment.contains(end){
-                return getNextCalendarWeekOrDate(comment: tmpComment, keyword: end, length: tmpComment.count)
+                return getNextCalendarWeekOrDate(comment: tmpComment, keyword: end, length: tmpComment.characters.count)
             }
         }
         return ""
@@ -237,7 +235,7 @@ class ArtificialIntelligence: NSObject {
         
         tmpComment.removeSubrange(tmpComment.startIndex..<range.upperBound)
         
-        let tmpCommentLength = tmpComment.count
+        let tmpCommentLength = tmpComment.characters.count
         var count = 1
         
         var tmpLength = length
@@ -250,10 +248,10 @@ class ArtificialIntelligence: NSObject {
             if tmpCommentLength > i && tmpCommentLength > 0{
                 var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
                 
-                if tmpComment[index] == "k" && tmpCommentLength > i + 1{
+                if tmpComment.characters[index] == "k" && tmpCommentLength > i + 1{
                     index = tmpComment.index(tmpComment.startIndex, offsetBy: i + 1)
                     
-                    if tmpComment[index] == "w" {
+                    if tmpComment.characters[index] == "w" {
                         tmpLength += 3
                     }
                 }
@@ -263,29 +261,29 @@ class ArtificialIntelligence: NSObject {
         for i in (0..<tmpLength) {
             var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
             
-            if Int(String(tmpComment[index])) != nil {
-                kw = String(tmpComment[index])
+            if Int(String(tmpComment.characters[index])) != nil {
+                kw = String(tmpComment.characters[index])
                 var newIndex = tmpComment.index(index, offsetBy: count)
                 
-                if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                    kw += String(tmpComment[newIndex])
+                if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                    kw += String(tmpComment.characters[newIndex])
                     count += 1
                     newIndex = tmpComment.index(index, offsetBy: count)
                 }
                 
-                if i + count < tmpCommentLength && tmpComment[newIndex] == "." {
+                if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
                     
                     var potentialDate = "\(kw)."
                     count += 1
                     newIndex = tmpComment.index(index, offsetBy: count)
                     
-                    if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                        potentialDate += String(tmpComment[newIndex])
+                    if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                        potentialDate += String(tmpComment.characters[newIndex])
                         count += 1
                         newIndex = tmpComment.index(index, offsetBy: count)
                         
-                        if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                            potentialDate += String(tmpComment[newIndex])
+                        if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                            potentialDate += String(tmpComment.characters[newIndex])
                             count += 1
                             newIndex = tmpComment.index(index, offsetBy: count)
                         }
@@ -293,7 +291,7 @@ class ArtificialIntelligence: NSObject {
                         dateFormatter.dateFormat = "dd.MM.yyyy"
                         dateFormatter.locale = Locale(identifier: "de_DE")
                         
-                        if i + count < tmpCommentLength && tmpComment[newIndex] == "." {
+                        if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
                             potentialDate += "."
                             
                             count += 2
@@ -308,7 +306,7 @@ class ArtificialIntelligence: NSObject {
                                     index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
                                     newIndex = potentialDate.index(index, offsetBy: 2)
                                     range = index ..< newIndex
-                                    let month = Int(potentialDate[range])
+                                    let month = Int(potentialDate.substring(with: range))
                                     
                                     if month! < 9 {
                                         currentYear += 1
@@ -326,7 +324,7 @@ class ArtificialIntelligence: NSObject {
                             newIndex = tmpComment.index(index, offsetBy: count + 1)
                             var range = index ..< newIndex
                             
-                            let date = String(tmpComment[range])
+                            let date = tmpComment.substring(with: range)
                             
                             if dateFormatter.date(from: date) != nil {
                                 count += 2
@@ -337,7 +335,7 @@ class ArtificialIntelligence: NSObject {
                                 
                                 newIndex = tmpComment.index(index, offsetBy: count + 1)
                                 range = index ..< newIndex
-                                let newDate = String(tmpComment[range])
+                                let newDate = tmpComment.substring(with: range)
                                 
                                 if dateFormatter.date(from: newDate) != nil {
                                     return newDate
@@ -354,7 +352,7 @@ class ArtificialIntelligence: NSObject {
                                 index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
                                 newIndex = potentialDate.index(index, offsetBy: 2)
                                 range = index ..< newIndex
-                                let month = Int(potentialDate[range])
+                                let month = Int(potentialDate.substring(with: range))
                                 
                                 if month! < 9 {
                                     currentYear += 1
@@ -375,7 +373,7 @@ class ArtificialIntelligence: NSObject {
                                 index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
                                 newIndex = potentialDate.index(index, offsetBy: 2)
                                 range = index ..< newIndex
-                                let month = Int(potentialDate[range])
+                                let month = Int(potentialDate.substring(with: range))
                                 
                                 if month! < 9 {
                                   currentYear += 1
@@ -408,9 +406,9 @@ class ArtificialIntelligence: NSObject {
         
         tmpComment.removeSubrange(range.lowerBound..<tmpComment.endIndex)
         
-        let tmpCommentLength = tmpComment.count
+        let tmpCommentLength = tmpComment.characters.count
         
-        tmpComment = String(tmpComment.reversed())
+        tmpComment = String(tmpComment.characters.reversed())
         var count = 0
         var tmpLength = length
         
@@ -427,7 +425,7 @@ class ArtificialIntelligence: NSObject {
             var index = tmpComment.index(tmpComment.startIndex, offsetBy: i)
             
             if i + count < tmpCommentLength {
-                if Int(String(tmpComment[index])) != nil || tmpComment[index] == "."  {
+                if Int(String(tmpComment.characters[index])) != nil || tmpComment.characters[index] == "."  {
                     var newIndex = tmpComment.index(index, offsetBy: count)
                     var potentialDate = ""
                     
@@ -435,16 +433,16 @@ class ArtificialIntelligence: NSObject {
                         if i + count < tmpCommentLength {
                             newIndex = tmpComment.index(index, offsetBy: count)
                             
-                            if Int(String(tmpComment[newIndex])) != nil {
-                                kw += String(tmpComment[newIndex])
-                            } else if tmpComment[newIndex] == "."{
+                            if Int(String(tmpComment.characters[newIndex])) != nil {
+                                kw += String(tmpComment.characters[newIndex])
+                            } else if tmpComment.characters[newIndex] == "."{
                                 potentialDate = "\(kw)."
                                 count += 1
                                 newIndex = tmpComment.index(index, offsetBy: count)
                                 break
                             } else {
-                                if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true && kw.count <= 2 {
-                                    kw = String(kw.reversed())
+                                if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true && kw.characters.count <= 2 {
+                                    kw = String(kw.characters.reversed())
                                     return kw
                                 } else {
                                     return ""
@@ -454,13 +452,13 @@ class ArtificialIntelligence: NSObject {
                         }
                     }
                     
-                    if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                        potentialDate += String(tmpComment[newIndex])
+                    if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                        potentialDate += String(tmpComment.characters[newIndex])
                         count += 1
                         newIndex = tmpComment.index(index, offsetBy: count)
                         
-                        if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                            potentialDate += String(tmpComment[newIndex])
+                        if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                            potentialDate += String(tmpComment.characters[newIndex])
                             count += 1
                             newIndex = tmpComment.index(index, offsetBy: count)
                         }
@@ -469,21 +467,21 @@ class ArtificialIntelligence: NSObject {
                         dateFormatter.dateFormat = "dd.MM.yyyy"
                         dateFormatter.locale = Locale(identifier: "de_DE")
                         
-                        if i + count < tmpCommentLength && tmpComment[newIndex] == "." {
+                        if i + count < tmpCommentLength && tmpComment.characters[newIndex] == "." {
                             potentialDate += "."
                             count += 1
                             newIndex = tmpComment.index(index, offsetBy: count)
                             
-                            if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                                potentialDate += String(tmpComment[newIndex])
+                            if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                                potentialDate += String(tmpComment.characters[newIndex])
                                 count += 1
                                 newIndex = tmpComment.index(index, offsetBy: count)
                                 
-                                if i + count < tmpCommentLength && Int(String(tmpComment[newIndex])) != nil {
-                                    potentialDate += String(tmpComment[newIndex])
+                                if i + count < tmpCommentLength && Int(String(tmpComment.characters[newIndex])) != nil {
+                                    potentialDate += String(tmpComment.characters[newIndex])
                                 }
                                 
-                                potentialDate = String(potentialDate.reversed())
+                                potentialDate = String(potentialDate.characters.reversed())
                                 
                                 if dateFormatter.date(from: potentialDate) != nil {
                                     return potentialDate
@@ -497,7 +495,7 @@ class ArtificialIntelligence: NSObject {
                                         index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
                                         newIndex = potentialDate.index(index, offsetBy: 2)
                                         range = index ..< newIndex
-                                        let month = Int(potentialDate[range])
+                                        let month = Int(potentialDate.substring(with: range))
                                         
                                         if month! < 9 {
                                             currentYear += 1
@@ -513,7 +511,7 @@ class ArtificialIntelligence: NSObject {
                             }
                         } else {
                             if cwExist(comment: tmpComment, position: i) == true || calendarweekExist == true {
-                                kw = String(potentialDate.reversed())
+                                kw = String(potentialDate.characters.reversed())
                                 kw.remove(at: kw.index(before: kw.endIndex))
                                 return kw
                             } else {
@@ -522,13 +520,13 @@ class ArtificialIntelligence: NSObject {
                                 var currentYear = calendar.component(.year, from: currentDate)
                                 let season = currentDate.checkSemester()
                                 
-                                potentialDate = String(potentialDate.reversed())
+                                potentialDate = String(potentialDate.characters.reversed())
                                 
                                 if season == "WS" {
                                     index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
                                     newIndex = potentialDate.index(index, offsetBy: 2)
                                     range = index ..< newIndex
-                                    let month = Int(potentialDate[range])
+                                    let month = Int(potentialDate.substring(with: range))
                                     
                                     if month! < 9 {
                                         currentYear += 1
@@ -554,14 +552,14 @@ class ArtificialIntelligence: NSObject {
         if position > 0 {
             length = 4
         }
-        if comment.count > position + length{
+        if comment.characters.count > position + length{
             for i in (position..<position + length) {
                 var index = comment.index(comment.startIndex, offsetBy: i)
                 
-                if comment[index] == "w" {
+                if comment.characters[index] == "w" {
                     index = comment.index(comment.startIndex, offsetBy: i + 1)
                     
-                    if comment[index] == "k" {
+                    if comment.characters[index] == "k" {
                         return true
                     }
                 }

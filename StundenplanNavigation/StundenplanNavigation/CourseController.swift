@@ -37,9 +37,9 @@ class CourseController: NSObject, DataObserverProtocol {
         myJobManager.NetworkJob(url: urlString, username: Constants.username, password: Constants.password,isLastJob: true)
     }
     
-    func toggleCourse(at row : Int) {
+    func toggleCourse(at indexPath: IndexPath) {
         
-        let clickedCourse = AllCourses().course(at: row)
+        let clickedCourse = AllCourses().course(at: indexPath)
         
         if tmpSelectedCourses.contains(course: clickedCourse) {
             //Studiengang abwählen

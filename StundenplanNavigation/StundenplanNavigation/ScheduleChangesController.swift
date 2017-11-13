@@ -40,7 +40,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             var splusname = lecture.splusname
             splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
-            if(myUrl.count < 5000)
+            if(myUrl.characters.count < 5000)
             {
                 myUrl = myUrl + "\(splusname)&id[]="
                 

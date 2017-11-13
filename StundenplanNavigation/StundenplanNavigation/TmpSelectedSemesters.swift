@@ -79,7 +79,7 @@ class TmpSelectedSemesters: NSObject {
             for sem in semesterList{
                 sep.append(sem.name+",")
             }
-            if sep.last == ","{
+            if sep.characters.last == ","{
                 sep.remove(at: sep.index(before: sep.endIndex))
             }
             res.append(sep+"|")

@@ -32,8 +32,8 @@ class LecturesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.tintColor = UIColor.white
-//        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+        navigationController?.navigationBar.tintColor = UIColor.white
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
         tabBarController?.tabBar.isHidden = true
         
@@ -67,11 +67,11 @@ class LecturesViewController: UIViewController {
 
     }
     
-    @objc func downloadEnded(){
+    func downloadEnded(){
         self.lectureTableView.reloadData()
     }
     
-    @objc func showNoInternetAlert(){
+    func showNoInternetAlert(){
         let alertController = UIAlertController(title: "Achtung", message:
             "Keine Verbindung zum Internet. Bitte prüfen Sie ihre Internetverbindung.", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in

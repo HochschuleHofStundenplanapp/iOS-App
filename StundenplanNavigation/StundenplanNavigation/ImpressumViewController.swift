@@ -14,7 +14,7 @@ class ImpressumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.white
         // Do any additional setup after loading the view.
     }
 
