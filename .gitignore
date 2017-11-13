@@ -17,3 +17,10 @@ Dokumentation/Dokumenation.out
 Dokumentation/Dokumenation.aux
 Dokumentation/Dokumenation.log
 Dokumentation/CalendarInterface.log
+
+
+
+
+
+## ignoriert push settings und den bundle identifier
+StundenplanNavigation/StundenplanNavigation.xcodeproj/project.pbxproj

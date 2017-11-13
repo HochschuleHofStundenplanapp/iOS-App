@@ -16,7 +16,10 @@ class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var room: UILabel!
     @IBOutlet weak var docent: UILabel!
-    @IBOutlet weak var openButton: UIImageView!
+    @IBOutlet weak var OpenButton: UIImageView!
+    
+    var isExpanded : Bool = false
+    
     
     override func layoutSubviews(){
         super.layoutSubviews()
@@ -27,4 +30,9 @@ class ScheduleTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setExpandedState(newState : Bool){
+        //print("Cell was expanded")
+        isExpanded = newState
+        }
 }

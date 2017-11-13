@@ -17,12 +17,8 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-//        header.contentView.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 0.9)
-//        header.textLabel?.textColor = UIColor.hawRed
-//        header.contentView.backgroundColor = UIColor.hawRed
-//        header.contentView.backgroundColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
+
         header.textLabel?.textColor = UIColor.black
-//        header.textLabel?.font = header.textLabel?.font.withSize(30)
         header.textLabel?.textAlignment = .center
     }
     
@@ -34,6 +30,13 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
             selectedIndexPath = nil
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        //alle cells "schliessen" / Pfeile auf Ausgangsposition (Pfeil der zuletzt geöffneten sonst "offen")
+        for cell : UITableViewCell in tableView.visibleCells {
+            let _cell = cell as? ScheduleTableViewCell
+            _cell?.OpenButton.transform = CGAffineTransform(rotationAngle: 0.0)
+            _cell?.setExpandedState(newState: false)
+        }
 
         //rotate Aufklapp-Pfeil
         if let cell : ScheduleTableViewCell = tableView.cellForRow(at: indexPath) as? ScheduleTableViewCell {
@@ -43,32 +46,25 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
                 cell.openButton.transform = CGAffineTransform(rotationAngle: 0.0)
             }
         }
+        
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var newHeigth : CGFloat = 58
         
         if SelectedLectures().getOneDimensionalList().count > 0 {
             let lecture = SelectedLectures().getElement(at: indexPath)
             
             if(selectedIndexPath != nil){
                 if indexPath == selectedIndexPath{
-                    if(lecture.comment == ""){
-                        return 92
-                    }
-                    else{
-                        return 107
-                    }
+                    if(lecture.comment == ""){newHeigth = 92}
+                    else{newHeigth = 107}
                 }
-                else{
-                    return 58
-                }
+                else {newHeigth = 58}
             }
-            else{
-                return 58
-            }
+            else{newHeigth = 58}
 
-        } else {
-            return CGFloat(107)
-        }
+        } else {newHeigth = 107}
+        return newHeigth
     }
 }

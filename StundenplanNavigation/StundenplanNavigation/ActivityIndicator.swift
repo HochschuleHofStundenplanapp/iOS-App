@@ -19,7 +19,7 @@ class ActivityIndicator: NSObject {
 
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         activityIndicator.center = root.view.center
-        activityIndicator.backgroundColor = UIColor(colorLiteralRed: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        activityIndicator.color = UIColor.darkGray
         
         root.view.addSubview(activityIndicator)
         

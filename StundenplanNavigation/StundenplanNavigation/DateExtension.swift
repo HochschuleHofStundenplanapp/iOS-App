@@ -10,6 +10,13 @@ import Foundation
 
 extension Date {
     
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, dd.MM.yyyy"
+        let dateString = dateFormatter.string(from: self)
+        return dateString
+    }
+    
     //gibt SS oder WS zurück
     public func checkSemester() -> String{
         let currentDate = Date()
