@@ -17,7 +17,7 @@ class TaskLectureController {
     
     func hasTask(for lecture: Lecture, at date: Date) -> Bool {
         for task in UserData.sharedInstance.tasks {
-            if compare(task: task, with: lecture, lectureDate: date) {
+            if compare(task: task, with: lecture, lectureDate: date) && !task.checked {
                 return true
             }
         }
