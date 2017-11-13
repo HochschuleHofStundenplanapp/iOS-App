@@ -75,6 +75,7 @@ class TaskViewController: UIViewController, TaskViewProtocol {
         otherVC.navigationController?.popViewController(animated: true)
         dataSource.reloadData()
         taskTableView.reloadData()
+        updateTaskBadge()
     }
     
     func changed(filterCriteria: Bool) {
