@@ -105,6 +105,7 @@ class TaskOverviewViewController: UIViewController {
         lectureDelegate.displaySelectedResult(on: taskLectureTextField)
         lecturePicker.dataSource = lectureDataSource
         lecturePicker.delegate = lectureDelegate
+        lecturePicker.backgroundColor = UIColor.white
         taskLectureTextField.inputView = lecturePicker
     }
     

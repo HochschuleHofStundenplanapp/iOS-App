@@ -51,10 +51,10 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             let rename = TaskLectureController()
             let lectureDate = Date()                                                // TODO: ✅🚨 auf Schnittstelle warten
             if rename.hasTask(for: lecture, at: lectureDate) {
-                // TODO: ✅ Design ändern
-                cell.backgroundColor = UIColor.red
+                cell.hasTaskView.isHidden = false
+                cell.hasTaskView.textColor = appColor.taskWarning
             } else {
-                cell.backgroundColor = UIColor.white
+                cell.hasTaskView.isHidden = true
             }
             
             cell.comment.text = lecture.comment

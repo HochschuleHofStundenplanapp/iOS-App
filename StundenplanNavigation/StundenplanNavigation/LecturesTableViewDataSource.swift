@@ -14,8 +14,6 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
     
     var lastSemester :  String = ""
     var myString : NSString = ""
-    var lastColor: UIColor = UIColor(red: 0,green: 0,blue: 0, alpha: 0.2)
-    
     
     init(tmpSelectedLectures: TmpSelectedLectures){
         self.tmpSelectedLectures = tmpSelectedLectures
@@ -26,7 +24,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         
         let lecture = AllLectures().getElement(at: indexPath)
         
-        
+        cell.tintColor = appColor.tintColor
         
         
         if(lecture.semester.course.contraction != "Sprache"){
@@ -38,7 +36,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         }
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String)
-        myMutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: lastColor, range: NSRange(location:0,length:myString.length - lecture.name.count - 2))
+        myMutableString.addAttribute(NSAttributedStringKey.foregroundColor, value: appColor.text2, range: NSRange(location:0,length:myString.length - lecture.name.count - 2))
         
         //lecture.semester.course.contraction.characters.count + lecture.semester.name.characters.count
         cell.courseLabel.attributedText = myMutableString

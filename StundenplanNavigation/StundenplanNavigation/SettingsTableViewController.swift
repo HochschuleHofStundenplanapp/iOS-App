@@ -36,8 +36,23 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         
         if #available(iOS 11.0, *) {
             setupNavBar()
-        } else {
-            // Fallback on earlier versions
+        }
+        setUpUI()
+    }
+    
+    func setUpUI() {
+        segmentControl.tintColor = appColor.tintColor
+        saveChangesButton.tintColor = appColor.tintColor
+        syncSwitch.onTintColor = appColor.tintColor
+        
+        tabBarController?.tabBar.tintColor = appColor.tintColor
+        navigationController?.navigationBar.tintColor = appColor.tintColor
+        
+    
+        if let navigationController =  tabBarController?.viewControllers?[2] as? UINavigationController {
+            if let taskVCtrl = navigationController.viewControllers[0] as? TaskViewController {
+                taskVCtrl.updateTaskBadge()
+            }
         }
     }
     
@@ -192,6 +207,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
+        
         if(index == 3){
             let nc = viewController as! UINavigationController
             let vc = nc.childViewControllers[0] as! SettingsTableViewController
@@ -199,5 +215,16 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
                 vc.settingsController = SettingsController()
             }
         }
+    }
+    
+    @IBAction func deleteMeeee(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: appColor.faculty = .economics
+        case 1: appColor.faculty = .computerScience
+        case 2: appColor.faculty = .engineeringSciences
+        default: appColor.faculty = .default
+        }
+        sender.tintColor = appColor.tintColor
+        setUpUI()
     }
 }
