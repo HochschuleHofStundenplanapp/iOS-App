@@ -15,7 +15,7 @@ import UIKit
  * Lectures -> Vorlesungen mit Info über das zugehörige Semester
  */
 class UserData: NSObject, NSCoding{
-
+    
     static var sharedInstance = UserData()
     
     var callenderSync: Bool = false
@@ -25,6 +25,8 @@ class UserData: NSObject, NSCoding{
     var savedSplusnames : [String] = [String]()//Auslagern
     var selectedSchedule: Schedule = Schedule()
     var oldChanges : [ChangedLecture] = []
+    
+    var calendarIdentifier: String?
     
     var removedLectures: [Lecture] = []
     var addedLectures: [Lecture] = []
@@ -38,7 +40,7 @@ class UserData: NSObject, NSCoding{
     let removedLecturesKey = "removedLectures"
     let addedLecturesKey = "addedLectures"
     let oldChangesKey = "oldChanges"
-
+    
     private override init(){}
     
     override func copy() -> Any {
@@ -64,7 +66,7 @@ class UserData: NSObject, NSCoding{
         removedLectures = aDecoder.decodeObject(forKey: removedLecturesKey) as! [Lecture]
         addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
         oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
-
+        
         super.init()
     }
     
@@ -78,6 +80,7 @@ class UserData: NSObject, NSCoding{
         aCoder.encode(removedLectures, forKey: removedLecturesKey)
         aCoder.encode(addedLectures, forKey: addedLecturesKey)
         aCoder.encode(oldChanges, forKey: oldChangesKey)
-
+        
     }
 }
+

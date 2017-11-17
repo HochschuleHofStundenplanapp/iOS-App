@@ -18,7 +18,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             return 1
         }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if SelectedLectures().getOneDimensionalList().count > 0{
@@ -29,7 +29,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         
         if SelectedLectures().getOneDimensionalList().count > 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleTableViewCell
@@ -48,7 +48,6 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             startTimeString = timeFormatter.string(from: startTime)
             endTimeString = timeFormatter.string(from: endTime)
             
-            
             cell.comment.text = lecture.comment
             cell.course.text = lecture.name
             cell.docent.text = lecture.lecturer
@@ -56,14 +55,14 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             cell.time.text = "\(startTimeString) - \(endTimeString)"
             
             return cell
-
+            
         } else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCellEmpty") as! EmptyScheduleTableViewCell
             return cell
         }
-
+        
     }
-
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if SelectedLectures().getOneDimensionalList().count > 0{
@@ -73,3 +72,4 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
         }
     }
 }
+
