@@ -3,12 +3,19 @@
 \BOOKMARK [1][-]{section.1.2}{\334berschrift B}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.3}{\334berschrift B}{chapter.1}% 4
 \BOOKMARK [0][-]{chapter.2}{Design}{}% 5
-\BOOKMARK [0][-]{chapter.3}{Siri Probleme}{}% 6
-\BOOKMARK [1][-]{section.3.1}{\334berschrift A}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.2}{\334berschrift B}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.3}{\334berschrift B}{chapter.3}% 9
-\BOOKMARK [0][-]{chapter.4}{Push Notifications}{}% 10
-\BOOKMARK [1][-]{section.4.1}{Projektfortschritt}{chapter.4}% 11
-\BOOKMARK [1][-]{section.4.2}{Umsetzung}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.3}{Aufgetretene Probleme}{chapter.4}% 13
-\BOOKMARK [0][-]{chapter.5}{Testen der Anwendung}{}% 14
+\BOOKMARK [0][-]{chapter.3}{Erweiterung durch eine Siri Integration}{}% 6
+\BOOKMARK [1][-]{section.3.1}{Einleitung}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.2}{Istzustand}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.3}{Beispielhafte Anfragen}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.4}{Umsetzung}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.5}{Voraussetzung f\374r SiriKit}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.6}{Siri Problem}{chapter.3}% 12
+\BOOKMARK [0][-]{chapter.4}{Push Notifications}{}% 13
+\BOOKMARK [1][-]{section.4.1}{Einleitung}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.2}{Projektfortschritt}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.3}{Umsetzung}{chapter.4}% 16
+\BOOKMARK [2][-]{subsection.4.3.1}{SQL Create Statement}{section.4.3}% 17
+\BOOKMARK [2][-]{subsection.4.3.2}{Swift register}{section.4.3}% 18
+\BOOKMARK [1][-]{section.4.4}{Aufgetretene Probleme}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.5}{Anhang}{chapter.4}% 20
+\BOOKMARK [0][-]{chapter.5}{Testen der Anwendung}{}% 21

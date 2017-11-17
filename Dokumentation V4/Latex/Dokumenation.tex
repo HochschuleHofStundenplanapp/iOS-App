@@ -21,6 +21,31 @@
 \usepackage{float}
 \usepackage{xcolor}
 \usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{multirow} % tabelle
+\usepackage{listings} % code aus datei einbinden
+\usepackage{scrhack}
+% \usepackage{minted} % package for swift
+
+% Swift language definition
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% word wrap with a red arrow
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
 
 \graphicspath{{./}{./images/}}
 
@@ -45,13 +70,13 @@
 %\automark[section]{chapter}
 
 \titlehead{\begin{center}\includegraphics[width=5cm]{fh_logo}\end{center}}
-\title{
+ \title{
   Stundenplan--App v4 für iOS \\[1em]
   Dokumentation, Spezifikation, Konstruktion
 }
 
 \author{}
-\date{xx.xx.2018}
+\date{xx.xx.2018} %##Abgabedatum einfügen
 
 % #################################################################
 
