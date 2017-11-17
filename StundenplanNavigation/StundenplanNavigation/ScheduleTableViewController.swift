@@ -36,6 +36,7 @@ class ScheduleTableViewController: UITableViewController {
         let taskNavigationCtrl = tabBarController?.viewControllers?[taskItemIndex] as! UINavigationController
         let taskCtrl = taskNavigationCtrl.childViewControllers[0] as! TaskViewController
         taskCtrl.updateTaskBadge()
+        setUpUI()
     }
     
     @available(iOS 11.0, *)
@@ -50,5 +51,10 @@ class ScheduleTableViewController: UITableViewController {
         tableView.reloadData()
         
         //tabBarController?.tabBar.tintColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
+    }
+    
+    func setUpUI() {
+        tabBarController?.tabBar.tintColor = appColor.tintColor
+        navigationController?.navigationBar.tintColor = appColor.tintColor
     }
 }
