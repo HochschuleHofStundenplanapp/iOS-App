@@ -1379,14 +1379,14 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
     </scenes>
     <resources>
         <image name="Aenderungen" width="31" height="26"/>
-        <image name="Aufgaben" width="25" height="30"/>
+        <image name="Aufgaben" width="30" height="30"/>
         <image name="Button Background Selected" width="400" height="64"/>
         <image name="Einstelllungen" width="30" height="30"/>
         <image name="Stundenplan" width="30" height="24"/>
         <image name="aufklapp_pfeil" width="35" height="35"/>
         <image name="icon_calendar" width="32" height="32"/>
-        <image name="icon_description" width="27" height="32"/>
-        <image name="icon_lecture" width="27" height="32"/>
+        <image name="icon_description" width="32" height="32"/>
+        <image name="icon_lecture" width="32" height="32"/>
         <image name="icon_title" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

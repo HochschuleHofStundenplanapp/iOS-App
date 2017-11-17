@@ -192,6 +192,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
+        
         if(index == 3){
             let nc = viewController as! UINavigationController
             let vc = nc.childViewControllers[0] as! SettingsTableViewController

@@ -45,6 +45,6 @@ class UITaskTableViewCell: UITableViewCell {
             tableView.reloadRows(at: [indexPath], with: .right)
         }
         let nc = NotificationCenter.default
-        nc.post(name: Notification.Name("completedTaskChanged"), object: nil)
+        nc.post(name: .completedTaskChanged, object: nil)
     }
 }
