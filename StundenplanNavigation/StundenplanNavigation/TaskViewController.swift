@@ -10,6 +10,7 @@ import UIKit
 
 class TaskViewController: UIViewController, TaskViewProtocol {
     @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet weak var filterSegmentedControll: UISegmentedControl!
     
     var dataSource: TaskTableViewDataSource!
     var delegate: TaskTableViewDelegate!
@@ -32,9 +33,22 @@ class TaskViewController: UIViewController, TaskViewProtocol {
         nc.addObserver(self, selector: #selector(updateTaskBadge), name: Notification.Name("completedTaskChanged"), object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpUI()
+        taskTableView.reloadData()
+    }
+    
     deinit {
         let nc = NotificationCenter.default
         nc.removeObserver(self, name: Notification.Name("completedTaskChanged"), object: nil)
+    }
+    
+    func setUpUI() {
+        filterSegmentedControll.tintColor = appColor.tintColor
+        
+        tabBarController?.tabBar.tintColor = appColor.tintColor
+        navigationController?.navigationBar.tintColor = appColor.tintColor
     }
     
     @available(iOS 11.0, *)
@@ -87,6 +101,7 @@ class TaskViewController: UIViewController, TaskViewProtocol {
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         let taskItemIndex = 2
         let tabBarItem = tabBarController?.tabBar.items![taskItemIndex]
+        tabBarItem?.badgeColor = appColor.badge
         let numberOfTasks = TaskDisplayController().numberOfNotCompletedTasks()
         if numberOfTasks == 0 {
             tabBarItem?.badgeValue = nil

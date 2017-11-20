@@ -113,11 +113,18 @@
                                                 <constraint firstAttribute="width" constant="14" id="nPK-O5-0x0"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBE-P3-6LH">
+                                            <rect key="frame" x="296" y="42" width="8" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="giU-Bx-ci0" firstAttribute="trailing" secondItem="4lO-Xw-ylv" secondAttribute="trailing" id="0YS-LC-dgP"/>
                                         <constraint firstItem="4lO-Xw-ylv" firstAttribute="leading" secondItem="rWZ-mG-Ivw" secondAttribute="leading" id="1O0-g0-tYU"/>
                                         <constraint firstItem="4lO-Xw-ylv" firstAttribute="top" secondItem="giU-Bx-ci0" secondAttribute="bottom" id="2Vp-kn-yeY"/>
+                                        <constraint firstItem="vBE-P3-6LH" firstAttribute="centerY" secondItem="r5s-Mp-H4M" secondAttribute="centerY" id="3oW-pk-HPL"/>
                                         <constraint firstItem="rWZ-mG-Ivw" firstAttribute="centerX" secondItem="5Mk-07-hm2" secondAttribute="centerX" id="5xe-sP-6dM"/>
                                         <constraint firstItem="giU-Bx-ci0" firstAttribute="top" secondItem="VVO-1g-vBH" secondAttribute="bottom" id="936-nZ-mLa"/>
                                         <constraint firstItem="FlL-Jd-eci" firstAttribute="leading" secondItem="VVO-1g-vBH" secondAttribute="leading" id="MBR-lL-vW7"/>
@@ -127,6 +134,7 @@
                                         <constraint firstItem="CA9-um-ht5" firstAttribute="trailing" secondItem="r5s-Mp-H4M" secondAttribute="trailingMargin" id="fqc-UG-rz8"/>
                                         <constraint firstItem="4lO-Xw-ylv" firstAttribute="trailing" secondItem="rWZ-mG-Ivw" secondAttribute="trailing" id="gut-iH-hcP"/>
                                         <constraint firstItem="CA9-um-ht5" firstAttribute="trailing" secondItem="giU-Bx-ci0" secondAttribute="trailing" id="h7h-Cj-Ygn"/>
+                                        <constraint firstAttribute="trailing" secondItem="vBE-P3-6LH" secondAttribute="trailing" constant="16" id="iCz-xl-X5h"/>
                                         <constraint firstItem="FlL-Jd-eci" firstAttribute="top" secondItem="r5s-Mp-H4M" secondAttribute="topMargin" constant="-3" id="knl-ux-b3c"/>
                                         <constraint firstItem="CA9-um-ht5" firstAttribute="leading" secondItem="VVO-1g-vBH" secondAttribute="trailing" constant="5" id="lCz-BX-CkD"/>
                                         <constraint firstItem="FlL-Jd-eci" firstAttribute="top" secondItem="CA9-um-ht5" secondAttribute="top" id="piK-EG-bme"/>
@@ -143,6 +151,7 @@
                                     <outlet property="comment" destination="5Mk-07-hm2" id="NhB-Nx-2uz"/>
                                     <outlet property="course" destination="FlL-Jd-eci" id="1FC-vv-bDA"/>
                                     <outlet property="docent" destination="4lO-Xw-ylv" id="8jN-5e-6ei"/>
+                                    <outlet property="hasTaskView" destination="vBE-P3-6LH" id="a8x-PH-JbE"/>
                                     <outlet property="room" destination="giU-Bx-ci0" id="EN6-eT-733"/>
                                     <outlet property="time" destination="VVO-1g-vBH" id="2f4-qD-Smj"/>
                                     <outlet property="type" destination="rWZ-mG-Ivw" id="8ey-YM-nbh"/>
@@ -304,6 +313,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterSegmentedControll" destination="pHy-U9-NUp" id="led-NY-na0"/>
                         <outlet property="taskTableView" destination="XQt-gD-pip" id="pNJ-GM-BaY"/>
                         <segue destination="1cg-tG-vmm" kind="show" identifier="TasksToTaskDetail" id="zuh-nQ-TGW"/>
                     </connections>
@@ -740,7 +750,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="5uG-1n-jEY">
-                            <rect key="frame" x="0.0" y="601.5" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="645.5" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -780,14 +790,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Studiengang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uxZ-mi-IxA">
-                                                    <rect key="frame" x="15" y="5" width="97" height="20.5"/>
+                                                    <rect key="frame" x="16" y="5" width="97" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" tag="2" contentMode="left" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A9B-iu-mC3">
-                                                    <rect key="frame" x="15" y="25.5" width="11" height="14.5"/>
+                                                    <rect key="frame" x="16" y="25.5" width="11" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -807,14 +817,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Semester" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gaJ-Tc-IjF">
-                                                    <rect key="frame" x="15" y="5" width="73" height="20.5"/>
+                                                    <rect key="frame" x="16" y="5" width="73" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vPE-3T-0XE">
-                                                    <rect key="frame" x="15" y="25.5" width="11" height="14.5"/>
+                                                    <rect key="frame" x="16" y="25.5" width="11" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -951,7 +961,7 @@
                                         <rect key="frame" x="0.0" y="495.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0zE-tw-iZa" id="BcW-c0-cHF">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impressum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoQ-Vf-n0X">
@@ -974,7 +984,7 @@
                                         <rect key="frame" x="0.0" y="539.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="whr-K9-vcb" id="EKB-uX-gyb">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datenschutzvereinbarung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-mL-BTw">
@@ -992,6 +1002,33 @@
                                         <connections>
                                             <segue destination="neV-5n-V4H" kind="show" id="351-Fi-pdL"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bXa-oR-E0A">
+                                        <rect key="frame" x="0.0" y="583.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bXa-oR-E0A" id="uYK-sI-YxI">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="khq-d2-lh4">
+                                                    <rect key="frame" x="16" y="8" width="288" height="29"/>
+                                                    <segments>
+                                                        <segment title="Wirtschaft"/>
+                                                        <segment title="Informatik"/>
+                                                        <segment title="Ingenieur"/>
+                                                        <segment title="default"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="deleteMeeee:" destination="Xc7-6B-j2V" eventType="valueChanged" id="qFD-up-ISI"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="khq-d2-lh4" firstAttribute="top" secondItem="uYK-sI-YxI" secondAttribute="top" constant="8" id="Z0j-RA-0fQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="khq-d2-lh4" secondAttribute="trailing" constant="16" id="Ze5-oA-fcy"/>
+                                                <constraint firstItem="khq-d2-lh4" firstAttribute="leading" secondItem="uYK-sI-YxI" secondAttribute="leading" constant="16" id="lms-CC-rIO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1016,7 +1053,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKh-ht-6Tw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="1214.8425787106448"/>
+            <point key="canvasLocation" x="1698.75" y="1213.75"/>
         </scene>
         <!--Studiengang-->
         <scene sceneID="DkE-zP-RWG">
@@ -1367,6 +1404,8 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                     </view>
                     <navigationItem key="navigationItem" title="Vorlesungen" largeTitleDisplayMode="never" id="gW1-1C-iRF"/>
                     <connections>
+                        <outlet property="btnDeselectAll" destination="rLR-Y4-wdz" id="zhQ-eF-rpB"/>
+                        <outlet property="btnSelectAll" destination="VXS-dp-UUB" id="mSl-9V-iau"/>
                         <outlet property="lectureTableView" destination="FsO-Jo-FHv" id="iPX-Cn-4h0"/>
                     </connections>
                 </viewController>

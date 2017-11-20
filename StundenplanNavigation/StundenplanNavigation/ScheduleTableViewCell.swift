@@ -17,6 +17,7 @@ class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var room: UILabel!
     @IBOutlet weak var docent: UILabel!
     @IBOutlet weak var OpenButton: UIImageView!
+    @IBOutlet weak var hasTaskView: UILabel!
     
     var isExpanded : Bool = false
     

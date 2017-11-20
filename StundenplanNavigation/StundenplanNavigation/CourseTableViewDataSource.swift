@@ -34,6 +34,7 @@ class CourseTableViewDataSource: NSObject, UITableViewDataSource {
         let course = tupleArray[indexPath.section].value[indexPath.row]
         
         cell.textLabel?.text = "\(course.nameDe)"
+        cell.tintColor = appColor.tintColor
         
         if tmpSelectedCourses.contains(course: course) {
             cell.accessoryType = .checkmark

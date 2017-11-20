@@ -12,6 +12,8 @@ class LecturesViewController: UIViewController {
 
 //    @IBOutlet var selectAllButton: UIBarButtonItem!
     @IBOutlet var lectureTableView: UITableView!
+    @IBOutlet weak var btnSelectAll: UIButton!
+    @IBOutlet weak var btnDeselectAll: UIButton!
     var dataSource : LecturesTableViewDataSource!
     var delegate: LecturesTableViewDelegate!
     var lectureController: LectureController!
@@ -47,6 +49,7 @@ class LecturesViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .lecturesDownloadEnded, object: nil )
         NotificationCenter.default.addObserver(self, selector: #selector(self.showNoInternetAlert), name: .lecturesDownloadFailed, object: nil )
+        setUpUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +68,11 @@ class LecturesViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
 
+    }
+    
+    func setUpUI() {
+        btnSelectAll.setTitleColor(appColor.tintColor, for: .normal)
+        btnDeselectAll.setTitleColor(appColor.tintColor, for: .normal)
     }
     
     @objc func downloadEnded(){

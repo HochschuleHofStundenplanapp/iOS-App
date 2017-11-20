@@ -25,6 +25,7 @@ class SemesterTableViewDataSource: NSObject, UITableViewDataSource {
         let semester = tmpSelectedSemesters.semester(at: indexPath)
         
         cell.textLabel?.text = semester.name
+        cell.tintColor = appColor.tintColor
         
         if tmpSelectedSemesters.contains(semester: semester) {
             cell.accessoryType = .checkmark

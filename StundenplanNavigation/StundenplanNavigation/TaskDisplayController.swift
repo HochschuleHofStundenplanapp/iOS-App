@@ -77,6 +77,9 @@ class TaskDisplayController {
         tasks[indexPath.section].remove(at: indexPath.row)
         userData.tasks = flatTaskArray()
         DataObjectPersistency().saveDataObject(items: userData)
+        
+        let nc = NotificationCenter.default
+        nc.post(name: .completedTaskChanged, object: nil)
     }
     
     func deleteSection(at index: Int) {

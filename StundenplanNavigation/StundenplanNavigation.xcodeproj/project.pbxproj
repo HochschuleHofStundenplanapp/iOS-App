@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C0627811F06BB9900273A35 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0627801F06BB9900273A35 /* ActivityIndicator.swift */; };
 		0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */ = {isa = PBXBuildFile; fileRef = 0C18F6B41E081D210037E28F /* rechtlicheTexte */; };
+		0F1B1B231FBED537006ACEB5 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B1B221FBED537006ACEB5 /* AppColor.swift */; };
 		0F58698D1F9896A700DE2462 /* UILecturePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */; };
 		0F58698F1F9896B500DE2462 /* UILecturePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */; };
 		0F5869911F9896CD00DE2462 /* TaskViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */; };
@@ -114,6 +115,7 @@
 /* Begin PBXFileReference section */
 		0C0627801F06BB9900273A35 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
+		0F1B1B221FBED537006ACEB5 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILecturePickerDataSource.swift; sourceTree = "<group>"; };
 		0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILecturePickerDelegate.swift; sourceTree = "<group>"; };
 		0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewProtocol.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 				CEAC970C1DB5FD350042FF3D /* Assets.xcassets */,
 				CEAC970E1DB5FD350042FF3D /* LaunchScreen.storyboard */,
 				CEAC97111DB5FD350042FF3D /* Info.plist */,
+				0F1B1B221FBED537006ACEB5 /* AppColor.swift */,
 			);
 			path = StundenplanNavigation;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				BE4DF9181EB10B4500D6550C /* Lecture.swift in Sources */,
 				BE4DF9141EB109CD00D6550C /* Course.swift in Sources */,
 				0F58698F1F9896B500DE2462 /* UILecturePickerDelegate.swift in Sources */,
+				0F1B1B231FBED537006ACEB5 /* AppColor.swift in Sources */,
 				CEAC973B1DB61A5D0042FF3D /* CourseTableViewController.swift in Sources */,
 				0FC2FED31F953CDB00BDDB0D /* TaskTableViewDelegate.swift in Sources */,
 				6557F3E11F0277F90019DA31 /* DataObjectPersistency.swift in Sources */,

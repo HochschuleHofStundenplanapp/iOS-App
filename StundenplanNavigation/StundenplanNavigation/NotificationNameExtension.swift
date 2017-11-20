@@ -16,4 +16,5 @@ extension Notification.Name {
     static let lecturesDownloadFailed = Notification.Name("lecturesDownloadFailed")
     static let calendarSyncChanged =   Notification.Name("calendarSyncChanged")
     static let showHasNoAccessAlert = Notification.Name("showHasNoAccessAlert")
+    static let completedTaskChanged = NSNotification.Name("completedTaskChanged")
 }
