@@ -48,7 +48,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        tabBarController?.tabBar.tintColor = UIColor.hawBlue
+        tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showHasNoAccessAlert), name: .showHasNoAccessAlert, object: nil)

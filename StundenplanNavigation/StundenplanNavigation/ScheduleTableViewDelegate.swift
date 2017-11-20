@@ -36,13 +36,13 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         tableView.reloadRows(at: [indexPath], with: .automatic)
 
         //rotate Aufklapp-Pfeil
-        if let cell : ScheduleTableViewCell = tableView.cellForRow(at: indexPath) as? ScheduleTableViewCell {
-            if(indexPath == selectedIndexPath) {
-                cell.openButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-            } else {
-                cell.openButton.transform = CGAffineTransform(rotationAngle: 0.0)
-            }
-        }
+//        if let cell : ScheduleTableViewCell = tableView.cellForRow(at: indexPath) as? ScheduleTableViewCell {
+//            if(indexPath == selectedIndexPath) {
+//                cell.openButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+//            } else {
+//                cell.openButton.transform = CGAffineTransform(rotationAngle: 0.0)
+//            }
+//        }
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
