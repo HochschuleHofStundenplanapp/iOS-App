@@ -31,6 +31,8 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
         
         if #available(iOS 11.0, *) {
             setUpNavbar()

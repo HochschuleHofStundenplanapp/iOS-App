@@ -17,6 +17,9 @@ class ScheduleChangesTableViewCell: UITableViewCell {
     @IBOutlet var newDateLabel: UILabel!
     @IBOutlet var newTimeLabel: UILabel!
     @IBOutlet var newRoomLabel: UILabel!
+    @IBOutlet weak var additionalInfo: UILabel!
+    //Height constraint with priority of 250. Change this to 999 and set the label to hidden to hide the label and update constraints(shrinking of Cell). Otherwise label will take the available space anyway. Priority is changed in data source.
+    @IBOutlet var heightConstraint: NSLayoutConstraint!
     
     override func layoutSubviews()
     {

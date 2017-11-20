@@ -34,8 +34,8 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
             
             let changedLectures = UserData.sharedInstance.oldChanges
             
-            let reason = changedLectures[indexPath.section].reason
-            
+            let reason = changedLectures[indexPath.section].text
+            //print("Reason: \(reason)")
             if(changedLectures.count != 0){
                 
                 cell.oldDateLabel.text         = dateFormatter.string(from: changedLectures[indexPath.section].oldDate)
@@ -48,11 +48,19 @@ class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
                     cell.newDateLabel.text = dateFormatter.string(from: changedLectures[indexPath.section].newDate!)
                     cell.newTimeLabel.text = timeFormatter.string(from: changedLectures[indexPath.section].newTime!)
                     cell.newRoomLabel.text = changedLectures[indexPath.section].newRoom
+                    
                 }
                 else {
-                    cell.newDateLabel.text = reason
+                    cell.newDateLabel.text = ""
                     cell.newTimeLabel.text = ""
                     cell.newRoomLabel.text = ""
+                }
+                
+                if let info = reason {
+                    
+                    cell.additionalInfo.text = "⚠︎ \(info)"
+                    cell.additionalInfo.isHidden = info.isEmpty
+                    cell.heightConstraint.priority = info.isEmpty ? UILayoutPriority(rawValue: 999) : UILayoutPriority(rawValue: 250)
                 }
             }
             return cell

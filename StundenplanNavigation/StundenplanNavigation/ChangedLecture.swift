@@ -24,7 +24,7 @@ class ChangedLecture: NSObject, NSCoding {
     var newRoom: String
     var group: String
     var splusname : String
-    var reason : String
+    var text : String?
     
     var idKey = "id"
     var nameKey = "name"
@@ -46,7 +46,7 @@ class ChangedLecture: NSObject, NSCoding {
     
     init(id: Int, name: String, docent: String, comment: String,
          oldTime: Date, oldDate: Date, oldDay: String, oldRoom: String,
-         newTime: Date?, newDate: Date?, newDay: String, newRoom: String,  group: String, splusname : String, reason : String) {
+         newTime: Date?, newDate: Date?, newDay: String, newRoom: String,  group: String, splusname : String, reason : String?) {
         self.id = id
         self.name = name
         self.docent = docent
@@ -61,7 +61,7 @@ class ChangedLecture: NSObject, NSCoding {
         self.newRoom = newRoom
         self.group = group
         self.splusname = splusname
-        self.reason = reason
+        self.text = reason
         
     }
     
@@ -82,9 +82,9 @@ class ChangedLecture: NSObject, NSCoding {
         splusname = aDecoder.decodeObject(forKey: splusnameKey) as! String
         
         if let reason = aDecoder.decodeObject(forKey: reasonkey) as? String{
-            self.reason = reason
+            self.text = reason
         }else{
-            self.reason = ""
+            self.text = ""
         }
 
         super.init()
@@ -105,7 +105,7 @@ class ChangedLecture: NSObject, NSCoding {
         aCoder.encode(newRoom, forKey: newRoomKey)
         aCoder.encode(group, forKey: groupKey)
         aCoder.encode(splusname, forKey: splusnameKey)
-        aCoder.encode(reason, forKey: reasonkey)
+        aCoder.encode(text, forKey: reasonkey)
     }
     
     var combinedOldDate: Date {
