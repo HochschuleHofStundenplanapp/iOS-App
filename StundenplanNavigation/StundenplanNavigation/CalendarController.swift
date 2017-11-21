@@ -263,6 +263,16 @@ class CalendarController: NSObject {
                     oldEvent?.alarms   = []
                 }
                 
+                //Notiz in titel und notes ergänzen
+                if let changeText = change.text {
+                    if(changeText.count > 0) {
+                        oldEvent?.title = Constants.readNotes + oldEvent!.title
+                        if(!(oldEvent?.notes!.starts(with: changeText))!) {
+                            oldEvent?.notes = changeText + "\n" + oldEvent!.notes!
+                        }
+                    }
+                }
+                
                 CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent!, key: lecture.key, lectureToChange: true)
             }
         }
@@ -272,14 +282,22 @@ class CalendarController: NSObject {
         let newEvent = EKEvent(eventStore: self.eventStore)
         newEvent.timeZone = NSTimeZone.local
         
-        newEvent.title     = Constants.changesNew + change.name
         //newEvent.notes     = oldEvent.notes
         newEvent.startDate = change.combinedNewDate
         newEvent.endDate   = (newEvent.startDate + 60 * 90)
         
         newEvent.location = locationInfo + ", " + change.newRoom
         
+        newEvent.title  = Constants.changesNew + change.name
         newEvent.notes = lecture.comment + "  " + lecture.group
+
+        //Notiz in titel und notes ergänzen
+        if let changeText = change.text {
+            if(changeText.count > 0) {
+                newEvent.title = Constants.readNotes + newEvent.title
+                newEvent.notes = changeText + "\n" + newEvent.notes!
+            }
+        }
         
         return newEvent
     }

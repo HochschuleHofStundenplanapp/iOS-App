@@ -30,7 +30,25 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         
         //Entfernt Seperators von leeren Cells am Ende der Tabelle
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        
+//        if #available(iOS 11.0, *) {
+//            setUpNavbar()
+//        } else {
+//            // Fallback on earlier versions
+//        }
+        
+        
     }
+    
+//    @available(iOS 11.0, *)
+//    func setUpNavbar(){
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.largeTitleTextAttributes = [
+//            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 25)
+//        ]
+//    }
     
     func update(s: String?) {
         print ( "Lade Daten für Changes neu (tableview update)")

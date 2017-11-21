@@ -102,8 +102,8 @@ class JsonChanges {
             let newOldTime = timeFormatter.date(from: oldTime)
             let newNewTime = timeFormatter.date(from: newTime)
             
-            let reason = (i["reason"]?.string)!
-            
+            let reason = (i["text"]?.string)
+        
             //newOldTime = newOldTime?.changeTimeDate(date: newOldTime!)
             //newNewTime = newNewTime?.changeTimeDate(date: newNewTime!)
             
