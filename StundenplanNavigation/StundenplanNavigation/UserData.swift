@@ -25,7 +25,6 @@ class UserData: NSObject, NSCoding{
     var savedSplusnames : [String] = [String]()//Auslagern
     var selectedSchedule: Schedule = Schedule()
     var oldChanges : [ChangedLecture] = []
-    
     var calendarIdentifier: String?
     
     var removedLectures: [Lecture] = []
@@ -40,7 +39,8 @@ class UserData: NSObject, NSCoding{
     let removedLecturesKey = "removedLectures"
     let addedLecturesKey = "addedLectures"
     let oldChangesKey = "oldChanges"
-    
+    let calendarIdentifierKey = "calendarIdentifier"
+
     private override init(){}
     
     override func copy() -> Any {
@@ -53,6 +53,8 @@ class UserData: NSObject, NSCoding{
         copy.removedLectures = removedLectures
         copy.addedLectures = addedLectures
         copy.callenderSync = callenderSync
+
+        copy.calendarIdentifier = calendarIdentifier
         return copy
     }
     
@@ -67,6 +69,12 @@ class UserData: NSObject, NSCoding{
         addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
         oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
         
+        if let calIdent = aDecoder.decodeObject(forKey: calendarIdentifierKey) {
+            calendarIdentifier = calIdent as! String
+        } else {
+            print("calendar ident is nil")
+        }
+
         super.init()
     }
     
@@ -80,6 +88,7 @@ class UserData: NSObject, NSCoding{
         aCoder.encode(removedLectures, forKey: removedLecturesKey)
         aCoder.encode(addedLectures, forKey: addedLecturesKey)
         aCoder.encode(oldChanges, forKey: oldChangesKey)
+        aCoder.encode(calendarIdentifier, forKey: calendarIdentifierKey)
         
     }
 }

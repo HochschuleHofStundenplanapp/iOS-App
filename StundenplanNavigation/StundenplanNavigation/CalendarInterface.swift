@@ -167,7 +167,7 @@ class CalendarInterface: NSObject {
      Schreibt übergebene Events in den Kalender
      */
     func createEvent(p_event : EKEvent, key : String, isChanges : Bool){
-        let event       = EKEvent(eventStore: eventStore)
+       let event       = EKEvent(eventStore: eventStore)
         event.title     = p_event.title
         event.notes     = p_event.notes
         event.startDate = p_event.startDate
