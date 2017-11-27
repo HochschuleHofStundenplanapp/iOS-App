@@ -1,4 +1,5 @@
 \chapter{Erweiterung durch eine Siri Integration}
+Johannes Franz \& Normen Krug
 
 \section{Einleitung}
 Da sprachbasierte Mensch-Maschinen-Interface immer beliebter und praktikabler werden, ist es naheliegend, dass die Stundenplan App um diese erweitert wird. Apple bietet mit Siri solch einen Sprachassistenten ein. Dieser ist tief im System eingebaut und wird daher von Apple gut unterstützt. 
@@ -56,10 +57,10 @@ Apple empfiehlt das bei allen Erweiterungen.  Dieser Schritt ist notwendig, weil
 
 
 
-\section{Siri Problem}
+\section{Einschränkungen}
 
 Apple gewährt keinen vollständigen Zugriff auf Siri. Die zu entwickelte App muss in eine der Folgenden Kategorien/Domains fallen:
-\newline
+%\newline
 \begin{itemize}
 \item VoIP Calling 
 \item Messaging
@@ -74,13 +75,15 @@ Apple gewährt keinen vollständigen Zugriff auf Siri. Die zu entwickelte App mu
 \item Restaurant Reservations
 \end{itemize}
 
+\newpage
+
 Die Schlüsselwörter welche Siri voraussetzt, um zu erkennen dass der Benutzer mit der App interagieren will, hängen von der Domain ab.
 Diese Schlüsselwörter müssen zwingend in der Anfrage des Benutzer enthalten sein. 
 
 Beispiel: 
 
 In der „Search Message“  Domain müssen die Wörter „Suche“ und „Nachrichten“ enthalten sein. Falls eines der beiden Wörter nicht in der Anfrage enthalten ist, erkennt Siri die Anfrage nicht.  \newline
-Passender Blog-Post zu den Thema: 
+Passender Blog-Post zu den Thema: \newline
 \url{https://swifting.io/blog/2016/07/18/20-sirikit-can-you-outsmart-provided-intents/}
 
 Mögliche Workarounds: \newline

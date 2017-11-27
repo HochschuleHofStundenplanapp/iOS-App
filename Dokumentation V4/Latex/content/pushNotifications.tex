@@ -1,11 +1,10 @@
 \chapter{Push Notifications}
-
-
+Johannes Franz \& Normen Krug
 
 \section{Einleitung}
 Push Notifications sind ein fester Bestandteil vieler Apps. Deswegen soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server überprüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Chronjobs das Backend bereit.
 
-Github: \url{https://github.com/HochschuleHofStundenplanapp}
+GitHub repository: \url{https://github.com/HochschuleHofStundenplanapp/iOS-App/}
 
 
 \section{Projektfortschritt}
@@ -44,13 +43,34 @@ Einarbeitung in bestehende Schnittstelle und Überlegungen wie das bestehende Ba
 \newpage
 
 
+\section{Vorbereitung der Datenbank}
+
+\subsection{Erzeugen einer lokalen Testumgebung}
+
+\subsubsection{MAMP}
+Die Testumgebung MAMP (Akronym steht für: Mac, Apache, MySQL, PHP) virtualisiert die genannten Komponenten, um lokale Tests zu ermöglichen.
+
+\subsubsection{MySQL Datenbank}
+
+Ein SQL Statement zum erzeugen der Tabelle:
+\lstinputlisting[language=SQL]{content/pushNotifications_create.sql}
+
+
+
+
+
 \section{Umsetzung}
 
 Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht.
 
-\subsection{SQL Create Statement}
-Ein SQL Statement zum erzeugen einer Tabelle:
-\lstinputlisting[language=SQL]{content/pushNotifications_create.sql}
+
+\subsection{Zertifikate}
+Um mit einer gesicherten Verbindung auf die Apple Schnittstelle zugreifen werden zwei Zertifikate benötigt. Dabei handelt es sich um ein öffentliches und privates Zertifikat. Diese Zertifikate müssen vor der Verwendung in das passende Format umgewandelt werden, bevor sie benutzbar sind.
+
+Die MacOS App "Apns Sender" ermöglicht die ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
+Quelle: \url{https://github.com/immobiliare/ApnsPHP}
+
+
 
 \subsection{Swift register}
 Ein Swift Beispiel:
