@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var syncSwitch: UISwitch!
+    @IBOutlet weak var facultySegmentControl: UISegmentedControl!
     
     @IBOutlet var courseTableViewCell: UITableViewCell!
     @IBOutlet var semesterTableViewCell: UITableViewCell!
@@ -44,6 +45,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         segmentControl.tintColor = appColor.tintColor
         saveChangesButton.tintColor = appColor.tintColor
         syncSwitch.onTintColor = appColor.tintColor
+        facultySegmentControl.tintColor = appColor.tintColor
         
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
@@ -217,14 +219,13 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
-    @IBAction func deleteMeeee(_ sender: UISegmentedControl) {
+    @IBAction func changeFacultyColor(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0: appColor.faculty = .economics
         case 1: appColor.faculty = .computerScience
         case 2: appColor.faculty = .engineeringSciences
         default: appColor.faculty = .default
         }
-        sender.tintColor = appColor.tintColor
         setUpUI()
     }
 }

@@ -17,4 +17,5 @@ extension Notification.Name {
     static let calendarSyncChanged =   Notification.Name("calendarSyncChanged")
     static let showHasNoAccessAlert = Notification.Name("showHasNoAccessAlert")
     static let completedTaskChanged = NSNotification.Name("completedTaskChanged")
+    static let appColorHasChanged = NSNotification.Name("appColorHasChanged")
 }

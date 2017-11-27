@@ -21,6 +21,10 @@ class CourseTableViewDelegate: NSObject, UITableViewDelegate {
         
         courseController.toggleCourse(at: getRowInTableView(indexPath: indexPath, tableView: tableView))
         tableView.reloadData()
+        
+        if let onboardingViewController = tableView.parentViewController as? OnboardingCourseViewController {
+            onboardingViewController.checkIfCanPassScreen()
+        }
     }
     
     fileprivate func getRowInTableView(indexPath: IndexPath, tableView:UITableView) -> Int{

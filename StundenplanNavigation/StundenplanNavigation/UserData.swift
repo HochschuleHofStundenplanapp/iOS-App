@@ -27,6 +27,7 @@ class UserData: NSObject, NSCoding{
     var oldChanges : [ChangedLecture] = []
     var tasks: [Task] = []
     
+    
     var calendarIdentifier: String?
     
     var removedLectures: [Lecture] = []
@@ -42,6 +43,7 @@ class UserData: NSObject, NSCoding{
     let addedLecturesKey = "addedLectures"
     let oldChangesKey = "oldChanges"
     let tasksKey = "taskKey"
+    let calendarIdentifierKey = "calendarIdentifier"
 
     private override init(){}
     
@@ -70,6 +72,7 @@ class UserData: NSObject, NSCoding{
         addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
         oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
         tasks = aDecoder.decodeObject(forKey: tasksKey) as? [Task] ?? []
+        calendarIdentifier = aDecoder.decodeObject(forKey: calendarIdentifierKey) as? String
 
         super.init()
     }
@@ -85,6 +88,6 @@ class UserData: NSObject, NSCoding{
         aCoder.encode(addedLectures, forKey: addedLecturesKey)
         aCoder.encode(oldChanges, forKey: oldChangesKey)
         aCoder.encode(tasks, forKey: tasksKey)
-        
+        aCoder.encode(calendarIdentifier, forKey: calendarIdentifierKey)
     }
 }

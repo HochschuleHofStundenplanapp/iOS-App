@@ -8,10 +8,21 @@
 
 import UIKit
 
-var appColor = AppColor(faculty: AppColor.Faculty.computerScience)
+var appColor = AppColor(faculty: AppColor.Faculty.default)
 
 struct AppColor {
-    var faculty: Faculty
+    var faculty: Faculty {
+        didSet {
+            // Delay, weil das SegmentedControll gedrückt wird und bei der Veränderung der Farbe, die Notification gesendet wird
+            // und noch während der Touch-Animation die Farbe ändern will --> Boom! Programm Crash!
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
+                DispatchQueue.main.async {
+                    let nc = NotificationCenter.default
+                    nc.post(name: NSNotification.Name.appColorHasChanged, object: nil)
+                }
+            })
+        }
+    }
     
     init(faculty: Faculty) {
         self.faculty = faculty
@@ -49,6 +60,13 @@ struct AppColor {
         return UIColor.red
     }
     
+    var currentPageIndicatorTint: UIColor {
+        return tintColor.withAlphaComponent(0.3)
+    }
+    
+    var pageIndicatorTintColor: UIColor {
+        return tintColor
+    }
     
     enum Faculty {
         case economics
@@ -61,7 +79,7 @@ struct AppColor {
             case .economics: return UIColor(red: 239.0/255.0, green: 78.0/255.0, blue: 74.0/255.0, alpha: 1.0)
             case .computerScience: return UIColor(red: 248.0/255.0, green: 177.0/255.0, blue: 45.0/255.0, alpha: 1.0)
             case .engineeringSciences: return UIColor(red: 51.0/255.0, green: 108.0/255.0, blue: 185.0/255.0, alpha: 1.0)
-            case .default: return UIColor.black
+            case .default: return UIColor(red: 33.0/255.0, green: 33.0/255.0, blue: 33.0/255.0, alpha: 1.0)
             }
         }
     }

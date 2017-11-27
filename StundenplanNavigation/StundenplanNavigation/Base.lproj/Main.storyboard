@@ -844,14 +844,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Vorlesungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XwB-XM-yK2">
-                                                    <rect key="frame" x="15" y="5" width="96" height="20.5"/>
+                                                    <rect key="frame" x="16" y="5" width="96" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RcW-hw-SwC">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -1019,7 +1019,7 @@
                                                         <segment title="default"/>
                                                     </segments>
                                                     <connections>
-                                                        <action selector="deleteMeeee:" destination="Xc7-6B-j2V" eventType="valueChanged" id="qFD-up-ISI"/>
+                                                        <action selector="changeFacultyColor:" destination="Xc7-6B-j2V" eventType="valueChanged" id="g2J-QE-XYC"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -1041,6 +1041,7 @@
                     <navigationItem key="navigationItem" title="Einstellungen" id="76d-pg-Bh2"/>
                     <connections>
                         <outlet property="courseTableViewCell" destination="2mm-RZ-uMQ" id="h50-3s-9BV"/>
+                        <outlet property="facultySegmentControl" destination="khq-d2-lh4" id="YXB-Xw-fnj"/>
                         <outlet property="lecturesTableViewCell" destination="IgL-y2-prv" id="6Jx-sq-H2u"/>
                         <outlet property="saveChangesButton" destination="hoy-ia-Tob" id="2yJ-Xx-nyp"/>
                         <outlet property="segmentControl" destination="h3a-Mh-G6e" id="jvw-HD-RHB"/>

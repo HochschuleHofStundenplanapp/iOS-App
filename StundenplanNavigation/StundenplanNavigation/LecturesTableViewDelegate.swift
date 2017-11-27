@@ -26,6 +26,10 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lectureController.toggleLecture(at: indexPath)
         tableView.reloadData()
+        
+        if let onboardingViewController = tableView.parentViewController as? OnboardingLecturesViewController {
+            onboardingViewController.checkIfCanPassScreen()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -13,7 +13,15 @@
 		0F58698D1F9896A700DE2462 /* UILecturePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */; };
 		0F58698F1F9896B500DE2462 /* UILecturePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */; };
 		0F5869911F9896CD00DE2462 /* TaskViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */; };
+		0F605D391FC426CD00710CD4 /* OnboardingSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */; };
+		0F605D3B1FC4299500710CD4 /* OnboardingLecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3A1FC4299500710CD4 /* OnboardingLecturesViewController.swift */; };
+		0F605D3D1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift */; };
+		0F6457FB1FCC267B00857BD6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6457FA1FCC267B00857BD6 /* UIView.swift */; };
 		0F7C98A31F95EEF30044F08C /* UITaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C98A21F95EEF30044F08C /* UITaskTableViewCell.swift */; };
+		0FB0C1931FC35CD700E79C42 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0C1921FC35CD700E79C42 /* Onboarding.storyboard */; };
+		0FB0C1951FC35CFA00E79C42 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0C1941FC35CFA00E79C42 /* OnboardingViewController.swift */; };
+		0FB0C1981FC35D1700E79C42 /* OnboardingFacultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0C1971FC35D1700E79C42 /* OnboardingFacultyViewController.swift */; };
+		0FB0C19A1FC35D2400E79C42 /* OnboardingCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0C1991FC35D2400E79C42 /* OnboardingCourseViewController.swift */; };
 		0FC2FECD1F953CA600BDDB0D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FECC1F953CA600BDDB0D /* Task.swift */; };
 		0FC2FECF1F953CB900BDDB0D /* TaskDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FECE1F953CB900BDDB0D /* TaskDisplayController.swift */; };
 		0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */; };
@@ -119,7 +127,15 @@
 		0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILecturePickerDataSource.swift; sourceTree = "<group>"; };
 		0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILecturePickerDelegate.swift; sourceTree = "<group>"; };
 		0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewProtocol.swift; sourceTree = "<group>"; };
+		0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSemesterViewController.swift; sourceTree = "<group>"; };
+		0F605D3A1FC4299500710CD4 /* OnboardingLecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLecturesViewController.swift; sourceTree = "<group>"; };
+		0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsViewController.swift; sourceTree = "<group>"; };
+		0F6457FA1FCC267B00857BD6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0F7C98A21F95EEF30044F08C /* UITaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITaskTableViewCell.swift; sourceTree = "<group>"; };
+		0FB0C1921FC35CD700E79C42 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		0FB0C1941FC35CFA00E79C42 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		0FB0C1971FC35D1700E79C42 /* OnboardingFacultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFacultyViewController.swift; sourceTree = "<group>"; };
+		0FB0C1991FC35D2400E79C42 /* OnboardingCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCourseViewController.swift; sourceTree = "<group>"; };
 		0FC2FECC1F953CA600BDDB0D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		0FC2FECE1F953CB900BDDB0D /* TaskDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDisplayController.swift; sourceTree = "<group>"; };
 		0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -246,6 +262,28 @@
 				0C18F6B41E081D210037E28F /* rechtlicheTexte */,
 			);
 			name = Texte;
+			sourceTree = "<group>";
+		};
+		0FB0C1911FC35CC100E79C42 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0FB0C1921FC35CD700E79C42 /* Onboarding.storyboard */,
+				0FB0C1941FC35CFA00E79C42 /* OnboardingViewController.swift */,
+				0FB0C1961FC35D0200E79C42 /* OnboardingViewCtrler */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		0FB0C1961FC35D0200E79C42 /* OnboardingViewCtrler */ = {
+			isa = PBXGroup;
+			children = (
+				0FB0C1971FC35D1700E79C42 /* OnboardingFacultyViewController.swift */,
+				0FB0C1991FC35D2400E79C42 /* OnboardingCourseViewController.swift */,
+				0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */,
+				0F605D3A1FC4299500710CD4 /* OnboardingLecturesViewController.swift */,
+				0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift */,
+			);
+			name = OnboardingViewCtrler;
 			sourceTree = "<group>";
 		};
 		654BFEB41ED427320023607D /* Interfaces */ = {
@@ -527,6 +565,7 @@
 				CED25BB51DD1C62000FE7D1C /* Course */,
 				CED25BB41DD1C60B00FE7D1C /* Settings */,
 				A3FEAFEC1F9504860095D8F1 /* Tasks */,
+				0FB0C1911FC35CC100E79C42 /* Onboarding */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
 				CEAC970C1DB5FD350042FF3D /* Assets.xcassets */,
@@ -622,6 +661,7 @@
 				DAA250761E015D51007CCEFB /* DateExtension.swift */,
 				BE4DF9101EB1051800D6550C /* UIColorExtension.swift */,
 				BE8B680D1ECA448600A858A3 /* NotificationNameExtension.swift */,
+				0F6457FA1FCC267B00857BD6 /* UIView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -743,6 +783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C18F6B51E081D210037E28F /* rechtlicheTexte in Resources */,
+				0FB0C1931FC35CD700E79C42 /* Onboarding.storyboard in Resources */,
 				CEAC97101DB5FD350042FF3D /* LaunchScreen.storyboard in Resources */,
 				CEAC970D1DB5FD350042FF3D /* Assets.xcassets in Resources */,
 				CEAC970B1DB5FD350042FF3D /* Main.storyboard in Resources */,
@@ -774,6 +815,7 @@
 				813C39D61EEFD35900FD02AE /* AllChanges.swift in Sources */,
 				CEAC97351DB619D40042FF3D /* ScheduleTableViewController.swift in Sources */,
 				DA0AA5FB1EE4656100D64C63 /* ArtificialIntelligence.swift in Sources */,
+				0F6457FB1FCC267B00857BD6 /* UIView.swift in Sources */,
 				CED25BBB1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift in Sources */,
 				CED25BB91DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift in Sources */,
 				BE1922941EA8022800DF119C /* Constants.swift in Sources */,
@@ -786,9 +828,11 @@
 				BEC57D0B1EE2B15C005D8959 /* AllLectures.swift in Sources */,
 				654BFEB91ED427D90023607D /* CalendarData.swift in Sources */,
 				CE570FBA1E27F466001B3EC4 /* EmptyScheduleChangesTableViewCell.swift in Sources */,
+				0FB0C1951FC35CFA00E79C42 /* OnboardingViewController.swift in Sources */,
 				CE698D5C1DD1D6E1006D1384 /* ScheduleChangesTableViewCell.swift in Sources */,
 				0F58698D1F9896A700DE2462 /* UILecturePickerDataSource.swift in Sources */,
 				BE4DF91B1EB10F5300D6550C /* ServerData.swift in Sources */,
+				0F605D3D1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift in Sources */,
 				BEC57D091EE29BD9005D8959 /* TmpSelectedLectures.swift in Sources */,
 				BEFFC06C1EE9635A00953157 /* TmpSelectedSemesters.swift in Sources */,
 				BE0136F81EEF36280035DEB8 /* AllCourses.swift in Sources */,
@@ -818,6 +862,8 @@
 				817CBD921EFBA2C60069DCBD /* LecturesViewController.swift in Sources */,
 				BE4E89DC1EB676D000D4ACCF /* Semester.swift in Sources */,
 				813C39D81EEFD56A00FD02AE /* NotificationInterface.swift in Sources */,
+				0FB0C19A1FC35D2400E79C42 /* OnboardingCourseViewController.swift in Sources */,
+				0FB0C1981FC35D1700E79C42 /* OnboardingFacultyViewController.swift in Sources */,
 				BE18E7441DE3282100EDD1A6 /* LecturesTableViewDataSource.swift in Sources */,
 				BE3AB3A91EB1F799009A6D20 /* myObserverProtocol.swift in Sources */,
 				2F669B961ECDA0E3003C8629 /* ChangedLecture.swift in Sources */,
@@ -826,6 +872,7 @@
 				BE8B680E1ECA448600A858A3 /* NotificationNameExtension.swift in Sources */,
 				0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */,
 				BE612A951EC467E000D1FC1D /* Schedule.swift in Sources */,
+				0F605D391FC426CD00710CD4 /* OnboardingSemesterViewController.swift in Sources */,
 				BE3AB3B41EB1FD32009A6D20 /* UserData.swift in Sources */,
 				BED89EF31EE2EF3100CBEF27 /* SettingsController.swift in Sources */,
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
@@ -848,6 +895,7 @@
 				BE4F4E271DE3747E00B4CC7F /* LecturesTableViewDelegate.swift in Sources */,
 				81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */,
 				BE14C94F1EC1B45700925EAC /* JsonLectures.swift in Sources */,
+				0F605D3B1FC4299500710CD4 /* OnboardingLecturesViewController.swift in Sources */,
 				CE7430BC1DF592130016E5C0 /* EmptyScheduleTableViewCell.swift in Sources */,
 				654BFEB81ED427D90023607D /* CalendarController.swift in Sources */,
 			);

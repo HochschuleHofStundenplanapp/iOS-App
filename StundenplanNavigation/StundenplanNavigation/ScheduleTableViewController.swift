@@ -16,6 +16,8 @@ class ScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showOnboardingIfNeeded()
 
         datasource = ScheduleTableViewDataSource()
         delegate = ScheduleTableViewDelegate()
@@ -36,7 +38,6 @@ class ScheduleTableViewController: UITableViewController {
         let taskNavigationCtrl = tabBarController?.viewControllers?[taskItemIndex] as! UINavigationController
         let taskCtrl = taskNavigationCtrl.childViewControllers[0] as! TaskViewController
         taskCtrl.updateTaskBadge()
-        setUpUI()
     }
     
     @available(iOS 11.0, *)
@@ -50,11 +51,19 @@ class ScheduleTableViewController: UITableViewController {
         SelectedLectures().sortLecturesForSchedule()
         tableView.reloadData()
         
-        //tabBarController?.tabBar.tintColor = UIColor(red: 201/255, green: 55/255, blue: 59/255, alpha: 1)
+        setUpUI()
     }
     
     func setUpUI() {
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
+    }
+    
+    func showOnboardingIfNeeded() {
+        if UserData.sharedInstance.selectedCourses.isEmpty {
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let onboardingVCtrl = storyboard.instantiateViewController(withIdentifier: OnboardingIDs.onboardingStartID)
+            present(onboardingVCtrl, animated: true)
+        }
     }
 }

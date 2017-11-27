@@ -26,5 +26,9 @@ class SemesterTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         semesterController.toggleSemester(at: indexPath)
         tableView.reloadData()
+        
+        if let onboardingViewController = tableView.parentViewController as? OnboardingSemesterViewController {
+            onboardingViewController.checkIfCanPassScreen()
+        }
     }
 }
