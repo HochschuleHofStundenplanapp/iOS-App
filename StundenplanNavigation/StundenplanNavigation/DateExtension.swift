@@ -367,12 +367,16 @@ extension Date {
     public func combineDateAndTime(date: Date, time: Date) -> Date{
         
         let calendar = Calendar.current
-        let year = calendar.component(.year, from: date)
+        var year = calendar.component(.year, from: date)
+        //fix bug, sofern Jahr nur 2-stellig 26.10.17 -> 26.10.2017
+        if(year < 100) {
+            year += 2000;
+        }
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
         let hours = calendar.component(.hour, from: time)
         let minutes = calendar.component(.minute, from: time)
-        
+
         let combinedDateComponents = DateComponents(year: year, month: month, day: day, hour: hours, minute: minutes)
         let combinedDate : Date = calendar.date(from: combinedDateComponents)!
         

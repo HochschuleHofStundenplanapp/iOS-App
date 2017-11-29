@@ -144,7 +144,7 @@ class CalendarController: NSObject {
             duration = duration + (endMinutes - minutes)
             event.endDate   = Calendar.current.date(byAdding: .minute, value: duration, to: event.startDate)!
             
-            event.location = getLocationInfo(room: lecture.room) + ", " + lecture.room
+            event.location = lecture.room + ", " + getLocationInfo(room: lecture.room)
             
             event.notes = notes
             
@@ -352,7 +352,7 @@ class CalendarController: NSObject {
      */
     public func getLocationInfo( room : String) -> String {
         if(room.count > 3 ){
-            let index = room.index(room.startIndex, offsetBy : 4)
+            let index = room.index(room.startIndex, offsetBy : 3)
             let locationString = room[...index]
             
             if(locationString == Constants.locationInfoMueb){
