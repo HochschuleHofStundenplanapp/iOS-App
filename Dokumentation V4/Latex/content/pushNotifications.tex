@@ -36,6 +36,14 @@ Das PHP Script parst nun das ankommende JSON File und fügt per insert die gepar
 Einarbeitung in bestehende Schnittstelle und Überlegungen wie das bestehende Backend erweitert werden muss. 
  \\ \hline
  
+
+Zwischenzeit & PHP Scripte der bestehenden (Android) Schnittstelle angepasst und getestet. \newline
+\\ \hline 
+ 
+ 
+24.11.2017 & Server erhalten. \newline
+\\ \hline 
+ 
  
 
 \end{tabularx}
@@ -43,9 +51,9 @@ Einarbeitung in bestehende Schnittstelle und Überlegungen wie das bestehende Ba
 \newpage
 
 
-\section{Vorbereitung der Datenbank}
+\section{Vorbereitung einer Testumgebung}
 
-\subsection{Erzeugen einer lokalen Testumgebung}
+\subsection{MAMP als Virtuelle Umgebung}
 
 \subsubsection{MAMP}
 Die Testumgebung MAMP (Akronym steht für: Mac, Apache, MySQL, PHP) virtualisiert die genannten Komponenten, um lokale Tests zu ermöglichen.
@@ -60,14 +68,13 @@ Ein SQL Statement zum erzeugen der Tabelle:
 
 
 \section{Umsetzung}
-
 Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht.
 
 
 \subsection{Zertifikate}
 Um mit einer gesicherten Verbindung auf die Apple Schnittstelle zugreifen werden zwei Zertifikate benötigt. Dabei handelt es sich um ein öffentliches und privates Zertifikat. Diese Zertifikate müssen vor der Verwendung in das passende Format umgewandelt werden, bevor sie benutzbar sind.
 
-Die MacOS App "Apns Sender" ermöglicht die ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
+Die MacOS App "Easy APNs Provider" ermöglicht die ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
 Quelle: \url{https://github.com/immobiliare/ApnsPHP}
 
 
@@ -78,7 +85,7 @@ Ein Swift Beispiel:
 
 
 \section{Aufgetretene Probleme}
-
+Als Herausforderungen zu sehende Punkte haben häufig sehr viel Zeit in Anspruch genommen oder den Projektfortschritt gebremst.
 
 \begin{itemize}
 \item Zertifikate sehr verwirrend
@@ -88,9 +95,3 @@ Ein Swift Beispiel:
 \item Abgelaufnes Zertifikat
 \end{itemize}
 
-
-\newpage
-\section{Anhang}
-\begin{figure}[h]
-%	\includegraphics[width=15cm]{hype-cycle-for-emerging-technologies-2017}
-\end{figure}

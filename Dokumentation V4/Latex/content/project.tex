@@ -8,19 +8,127 @@ Hier könnte etwas über den Pr\\
 \newpage
 \section{Überlegungen zu Projektbeginn}
 
-\subsection{GitHub}
+\subsection{GitHub / Branches}
+GitHub ist ein Plattform zur effektiven Versionsverwaltung von Softwareprojekten. Branches stellen gewisse Softwareversionen da. Das Verwenden mehren Branches ermöglicht es größeren Softwareteams gleichzeitig an verschiedenen Features der App zu arbeiten.
+Für die iOS Studnenplanapp wurde ein passendes Branch Konzept vom Projekt Team ausgearbeitet.
 
-GitHub repository: \url{https://github.com/HochschuleHofStundenplanapp/iOS-App/}
+Der Großteil der Kommunikation lief über Issues und den Project Tab.
+
+\subsubsection{Vorher}
+
+Zu Projektbeginn wurden folgende Branches vorgefunden:
+- master
+- development (obsolete)
+- v2 (depricated)
+- v3 (aktuell auf Deployment Target 10.0 entspricht iOS Version 10)
 
 
-\subsubsection{Branches}
+Von den vorherigen Projektteams wurde in GitHub ein Wiki angelegt.
+Link zum Wiki:\\
+\url{https://github.com/HochschuleHofStundenplanapp/iOS-App/wiki}
+
+Darin wurden im Notiz Style und kurzer Form eine Auszüge aus den jeweiligen PDF Dokumenten zusammengetragen.
 
 
 
-\section{Lessons learned}
 
+GitHub Branch Übersicht:\\
+ \url{https://github.com/HochschuleHofStundenplanapp/iOS-App/branches}
+
+\subsubsection{Nachher}
+Es wurde beschlossen, die vorherige Struktur beizubehalten. Dabei wurden Branches jeweils mit der Versionsnummer beschriftet.
+
+Der "master" Branch wird immer mit der aktuellsten Version gefüllt.
+
+Neue Branches:
+- v3.1 (Bugfixes, kleinere neue "Features". Der Branch bleibt auf Swift 3.1  / iOS 10.0)
+- v3.2 Weitere Bugfixes. Der Branch bleibt auf Swift 3.1  / iOS 10.0 %%##todo
+- v4 in Rahmen der Studienarbeit entwickelte Erweiterungen der App (Swift 4 / iOS 11)
+
+
+
+
+Es wurde sich dafür entschieden beim iOS 10 deployment Target zu bleiben, um möglichst viele unter den Studierende verbeitete, alte Geräte zu unterstützen.
+
+Version 4 wurde im laufe des Projekts auf Swift 4 geupgradet, bevor weitere Funktionen eingebaut wurden.
+
+Zu Projektbeginn entstand die Idee, Branches nach Features zu benennen. Dabei war Design, Siri, Kalendersynchronisation, etc. angedacht. In der Projektphase hat sich zwischenzeitlich bewährt, die Branches weiterhin nach Versionsnummern zu benennen und zwischenzeitlich bei großen Änderungen ein Thema anzuhängen.
+
+
+
+
+\section{Ziele für Version 4}
+Folgende Aufgaben wurden als Ziel für die Version 4 festgelegt:
+\begin{itemize}
+\item Onboarding
+\item Hausaufgaben Manager
+\item Push Notifications
+\item Widget
+\item iOS 11 Design
+\item Testkonzept für die App
+\end{itemize}
+
+
+\section{Teams}
+
+Team1(Pfeiffer, Scheler):
+\begin{itemize}
+\item Design
+\end{itemize}
+
+
+Team2(Franz, Krug):
+\begin{itemize}
+\item Siri
+\item Push Notifications
+\end{itemize}
+
+
+Team3(Hagmann, Knoblauch, Niepel):
+\begin{itemize}
+\item Verschiedene Fehlerbehebungen
+\item Hausaufgaben Manager
+\end{itemize}
+
+
+Team4(Kusserow, Sonntag, Dümmlein):
+\begin{itemize}
+\item Stundenplan Verbesserungen
+\item Widget
+\end{itemize}
+
+
+Team5(Pöhlmann):
+\begin{itemize}
+\item Testkonzept ausarbeiten und Testen
+\end{itemize}
+
+
+\section{Kommunikation}
+\begin{itemize}
+\item Chat Gruppe mit allen Beteiligten
+\item Buschfunk in der Hochschule
+\item GitHub (Issues, Project Sektion)
+\item Scrum ähnliche Vorstellung neu eingebauter Funktionen zu Beginn jeder Vorlesung
+\end{itemize}
+
+
+\section{Fazit des Projektes}
 Herausforderungen:
 \begin{itemize}
 \item Überblick bewahren
 \item Git Projekt und Issues im Blick zu haben
 \end{itemize}
+
+
+\section{Projektfortschritt dokumentiert}
+Projekt Tab in Github\\
+\url{https://github.com/HochschuleHofStundenplanapp/iOS-App/projects}
+Scrum ähnliches arbeiten
+
+
+
+
+\section{Ausblick}
+%% ganz runter setzten.
+
