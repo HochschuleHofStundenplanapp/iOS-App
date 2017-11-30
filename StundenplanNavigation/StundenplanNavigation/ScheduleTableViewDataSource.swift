@@ -52,7 +52,7 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             cell.course.text = lecture.name
             cell.docent.text = lecture.lecturer
             cell.room.text = lecture.room
-            cell.time.text = "\(startTimeString) - \(endTimeString)"
+            cell.time.text = "\(startTimeString) Uhr - \(endTimeString) Uhr"
             
             return cell
             

@@ -53,22 +53,22 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
             if(selectedIndexPath != nil){
                 if indexPath == selectedIndexPath{
                     if(lecture.comment == ""){
-                        return 92
+                        return 98
                     }
                     else{
-                        return 107
+                        return 110
                     }
                 }
                 else{
-                    return 58
+                    return 64.5
                 }
             }
             else{
-                return 58
+                return 64.5
             }
 
         } else {
-            return CGFloat(107)
+            return 110
         }
     }
 }
