@@ -42,6 +42,8 @@ class OnboardingLecturesViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .lecturesDownloadEnded, object: nil )
         NotificationCenter.default.addObserver(self, selector: #selector(self.showNoInternetAlert), name: .lecturesDownloadFailed, object: nil )
         setUpUI()
+        
+        checkIfCanPassScreen()
     }
     
     override func viewWillAppear(_ animated: Bool) {

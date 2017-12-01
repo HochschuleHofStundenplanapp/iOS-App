@@ -112,6 +112,7 @@
                         <viewLayoutGuide key="safeArea" id="9ja-GW-G3o"/>
                     </view>
                     <navigationItem key="navigationItem" title="Schritt 1 von 5" id="egV-KF-ztB">
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="SHQ-O1-mJs"/>
                         <barButtonItem key="rightBarButtonItem" title="Weiter" id="bKs-so-8iI">
                             <connections>
                                 <segue destination="xHZ-Kp-1gc" kind="show" id="TpR-ZW-bR1"/>
@@ -136,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TbI-6y-iz4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="500.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" textLabel="Y82-yJ-PVY" style="IBUITableViewCellStyleDefault" id="RDT-TV-wY7">
@@ -160,7 +161,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evo-qC-0ZQ">
-                                <rect key="frame" x="0.0" y="500" width="375" height="166.5"/>
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STUDIENGANG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUa-yM-CWL">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -171,7 +172,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deinen Studiengang aus" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88c-wF-wjO">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deine Studiengänge aus" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88c-wF-wjO">
                                         <rect key="frame" x="0.0" y="58" width="375" height="108"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
@@ -204,6 +205,7 @@
                         <viewLayoutGuide key="safeArea" id="c95-x5-UZF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Schritt 2 von 5" id="FLG-YE-O83">
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="ljD-Ng-SRe"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="Jkw-cE-g1p">
                             <connections>
                                 <segue destination="bUF-XS-zbM" kind="show" identifier="OnboardingToSemesters" id="8GA-dg-iRR"/>
@@ -246,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QhS-ZH-oLi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="500.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SemesterCell" textLabel="Sly-Ob-ueR" style="IBUITableViewCellStyleDefault" id="RQ9-5h-ask">
@@ -270,7 +272,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yoo-oF-Dbt">
-                                <rect key="frame" x="0.0" y="500" width="375" height="166.5"/>
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEMESTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4v-Hi-5Xm">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -281,7 +283,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deinen Semester aus" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYd-AW-zbn">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deine Semester aus" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYd-AW-zbn">
                                         <rect key="frame" x="0.0" y="58" width="375" height="108"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
@@ -314,6 +316,7 @@
                         <viewLayoutGuide key="safeArea" id="H4L-CX-Dy0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Schritt 3 von 5" id="q9c-dp-rav">
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="cyp-Cq-VVM"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="eSf-Pa-eH6">
                             <connections>
                                 <segue destination="wY3-TX-CE6" kind="show" identifier="OnboardingToLecture" id="ppv-J4-s7z"/>
@@ -338,7 +341,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="owx-Mf-y43">
-                                <rect key="frame" x="0.0" y="94" width="375" height="406"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="406.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LecturesCell" rowHeight="73" id="9Tf-RL-kgI" customClass="LecturesTableViewCell" customModule="StundenplanNavigation" customModuleProvider="target">
@@ -422,9 +425,9 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN2-Pd-sEY">
-                                <rect key="frame" x="0.0" y="500" width="375" height="166.5"/>
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KURSE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1Q-Qh-6xP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorlesungen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1Q-Qh-6xP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="OFs-mM-Sqt"/>
@@ -433,7 +436,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deinen Semester aus" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG5-Kh-fem">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deine Vorlesungen aus" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG5-Kh-fem">
                                         <rect key="frame" x="0.0" y="58" width="375" height="108"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
@@ -469,6 +472,7 @@
                         <viewLayoutGuide key="safeArea" id="rWJ-6R-RB1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Schritt 4 von 5" id="ARU-rk-bq3">
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="EMm-1B-xT6"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="swL-Ze-ARE">
                             <connections>
                                 <action selector="nextOnboardingScreenBarButtonAction:" destination="wY3-TX-CE6" id="0rg-zl-RZF"/>
@@ -517,7 +521,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8y-mq-7IT">
-                                <rect key="frame" x="0.0" y="500" width="375" height="166.5"/>
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYNCHRONISATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZP-5X-7Qv">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>

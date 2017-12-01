@@ -568,8 +568,8 @@
 				0FB0C1911FC35CC100E79C42 /* Onboarding */,
 				CEAC97031DB5FD350042FF3D /* AppDelegate.swift */,
 				CEAC97091DB5FD350042FF3D /* Main.storyboard */,
-				CEAC970C1DB5FD350042FF3D /* Assets.xcassets */,
 				CEAC970E1DB5FD350042FF3D /* LaunchScreen.storyboard */,
+				CEAC970C1DB5FD350042FF3D /* Assets.xcassets */,
 				CEAC97111DB5FD350042FF3D /* Info.plist */,
 				0F1B1B221FBED537006ACEB5 /* AppColor.swift */,
 			);

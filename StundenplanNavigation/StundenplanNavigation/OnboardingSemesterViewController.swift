@@ -38,6 +38,8 @@ class OnboardingSemesterViewController: UIViewController {
         semesterTableView.delegate = delegate
         
         semesterTableView.tableFooterView = UIView(frame: .zero)
+        
+        checkIfCanPassScreen()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

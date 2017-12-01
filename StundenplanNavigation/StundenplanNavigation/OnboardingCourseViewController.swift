@@ -50,6 +50,8 @@ class OnboardingCourseViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .coursesDownloadEnded, object: nil )
         NotificationCenter.default.addObserver(self, selector: #selector(self.showNoInternetAlert), name: .coursesDownloadFailed, object: nil )
+        
+        checkIfCanPassScreen()
     }
     
     @objc func downloadEnded(){
