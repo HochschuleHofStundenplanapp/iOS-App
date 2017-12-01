@@ -476,7 +476,7 @@
                                                         <segment title="Sommersemester"/>
                                                         <segment title="Wintersemester"/>
                                                     </segments>
-                                                    <color key="tintColor" red="0.18433862924575806" green="0.45366096496582031" blue="0.70282477140426636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.1764705882" green="0.2666666667" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="sectionChanged:" destination="Xc7-6B-j2V" eventType="valueChanged" id="bdc-eR-hSw"/>
                                                     </connections>
@@ -579,7 +579,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoy-ia-Tob">
                                                     <rect key="frame" x="19" y="10" width="337" height="44"/>
-                                                    <color key="backgroundColor" red="0.18433862919999999" green="0.45366096500000003" blue="0.70282477139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.1764705882" green="0.2666666667" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="o8P-0F-cLu"/>
                                                     </constraints>
@@ -623,7 +623,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tsb-TD-9Lr">
                                                     <rect key="frame" x="310" y="6" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.08235294118" green="0.32156862749999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" red="0.1764705882" green="0.2666666667" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="syncSwitchChanged:" destination="Xc7-6B-j2V" eventType="valueChanged" id="8AM-bh-rt9"/>
                                                     </connections>

@@ -179,6 +179,12 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 0){
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
         
