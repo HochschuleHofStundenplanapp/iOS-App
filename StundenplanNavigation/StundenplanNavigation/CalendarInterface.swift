@@ -57,10 +57,11 @@ class CalendarInterface: NSObject {
      
      */
     public func createCalenderIfNeeded() {
+        removeOldCalenderFromIOSCalendar()
+
         if (!isAppCalenderAvailable()) {
             createCalender()
         }
-        removeOldCalenderFromIOSCalendar()
     }
     
     /**
@@ -111,23 +112,47 @@ class CalendarInterface: NSObject {
     
     
     /**
-     Löscht den alten Kalender (der der auf Titel und nicht auf identifier gesucht wurde).
+     Ergänzt calendar identifier in UserData für bereits gespeicherten Kalender
+     Löscht alten Kalender, falls doppelt vorhanden oder identifier nicht passt
      
      Damit nicht zwei Kalender nach dem nächsten AppStore-Update im iOS Kalender auftauchen.
-     
-     Implementierung der Änderungen in **Version 1.40**
-     */
+    */
     private func removeOldCalenderFromIOSCalendar() {
         if isAuthorized() {
-            let allCalendars = eventStore.calendars(for: .event)
-            for calendar in allCalendars {
-                if calendar.title == Constants.calendarTitle && calendar.calendarIdentifier != UserData.sharedInstance.calendarIdentifier {
-                    do {
-                        try eventStore.removeCalendar(calendar, commit: true)
-                    } catch {
-                        print(error)
+            var identifierStoredInUserData = false
+            var storedIdentifier = ""
+            
+            //identifier bereits gespeichert
+            if UserData.sharedInstance.calendarIdentifier != nil {
+                identifierStoredInUserData = true
+                storedIdentifier = UserData.sharedInstance.calendarIdentifier!
+                print("stored calendar: \(storedIdentifier)")
+            }
+            
+            //identifier mus gespeichert werden
+            if !identifierStoredInUserData {
+                let allCalendars = eventStore.calendars(for: .event)
+                for calendar in allCalendars {
+                    print("check iOS calendar: \(calendar.title) mit \(calendar.calendarIdentifier)")
+                    
+                    //neuer Identifier  nach Update noch nicht gespeichert -> dann speichern
+                    if calendar.title == Constants.calendarTitle && !identifierStoredInUserData {
+                        //identifier erstmals nach Update in UserData speichern
+                        print("identifier for calendar saved in UserData: \(calendar.calendarIdentifier)")
+                        UserData.sharedInstance.calendarIdentifier = calendar.calendarIdentifier
+                        identifierStoredInUserData = true
                     }
-                    return
+                    
+                    //falls mehrere HS Kalender vorhanden sind, aber Identifier nicht passt
+                    //nur zur Sicherheit, braucht es eigentlich nicht, sofern alles richtig funktioniert
+                    if calendar.title == Constants.calendarTitle && identifierStoredInUserData && calendar.calendarIdentifier != storedIdentifier {
+                        do {
+                            try eventStore.removeCalendar(calendar, commit: true)
+                            print("old or duplicate calender deleted")
+                        } catch {
+                            print(error)
+                        }
+                    }
                 }
             }
         }
