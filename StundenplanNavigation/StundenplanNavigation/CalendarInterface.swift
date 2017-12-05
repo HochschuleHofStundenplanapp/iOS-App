@@ -126,21 +126,18 @@ class CalendarInterface: NSObject {
             if UserData.sharedInstance.calendarIdentifier != nil {
                 identifierStoredInUserData = true
                 storedIdentifier = UserData.sharedInstance.calendarIdentifier!
-                print("stored calendar: \(storedIdentifier)")
             }
             
             //identifier mus gespeichert werden
             if !identifierStoredInUserData {
                 let allCalendars = eventStore.calendars(for: .event)
                 for calendar in allCalendars {
-                    print("check iOS calendar: \(calendar.title) mit \(calendar.calendarIdentifier)")
-                    
-                    //neuer Identifier  nach Update noch nicht gespeichert -> dann speichern
+                    //neuer Identifier nach Update noch nicht gespeichert -> dann speichern
                     if calendar.title == Constants.calendarTitle && !identifierStoredInUserData {
                         //identifier erstmals nach Update in UserData speichern
-                        print("identifier for calendar saved in UserData: \(calendar.calendarIdentifier)")
                         UserData.sharedInstance.calendarIdentifier = calendar.calendarIdentifier
                         identifierStoredInUserData = true
+                        storedIdentifier = calendar.calendarIdentifier
                     }
                     
                     //falls mehrere HS Kalender vorhanden sind, aber Identifier nicht passt
@@ -148,7 +145,6 @@ class CalendarInterface: NSObject {
                     if calendar.title == Constants.calendarTitle && identifierStoredInUserData && calendar.calendarIdentifier != storedIdentifier {
                         do {
                             try eventStore.removeCalendar(calendar, commit: true)
-                            print("old or duplicate calender deleted")
                         } catch {
                             print(error)
                         }
