@@ -58,6 +58,10 @@ class SettingsController: NSObject {
         if(UserData.sharedInstance.callenderSync == true){
             userDataCopy.callenderSync = true
         }
+        if(UserData.sharedInstance.calendarIdentifier != nil){
+            userDataCopy.calendarIdentifier = UserData.sharedInstance.calendarIdentifier
+        }
+
         
         UserData.sharedInstance = userDataCopy.copy() as! UserData
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)

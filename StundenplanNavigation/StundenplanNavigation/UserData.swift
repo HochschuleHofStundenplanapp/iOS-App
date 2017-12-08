@@ -57,6 +57,7 @@ class UserData: NSObject, NSCoding{
         copy.removedLectures = removedLectures
         copy.addedLectures = addedLectures
         copy.callenderSync = callenderSync
+        copy.calendarIdentifier = calendarIdentifier
         copy.tasks = tasks
         return copy
     }
