@@ -335,7 +335,7 @@ class CalendarController: NSObject {
      */
     public func updateIOSCalendar() -> Bool{
         if(!CalendarInterface.sharedInstance.isAuthorized()) {
-            UserData.sharedInstance.callenderSync = false
+            UserData.sharedInstance.calenderSync = false
             return false
         }
         

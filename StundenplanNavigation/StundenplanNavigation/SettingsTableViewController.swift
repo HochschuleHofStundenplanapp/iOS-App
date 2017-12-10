@@ -33,7 +33,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.syncSwitch.setOn(UserData.sharedInstance.callenderSync, animated: true)
+        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: true)
         
         if #available(iOS 11.0, *) {
             setupNavBar()

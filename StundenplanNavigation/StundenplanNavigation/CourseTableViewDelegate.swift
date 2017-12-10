@@ -27,6 +27,13 @@ class CourseTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerTitle = view as? UITableViewHeaderFooterView {
+            headerTitle.textLabel?.textColor = appColor.headerText
+            headerTitle.contentView.backgroundColor = appColor.headerBackground
+        }
+    }
+    
     fileprivate func getRowInTableView(indexPath: IndexPath, tableView:UITableView) -> Int{
         var total = 0
         for i in 0..<indexPath.section{

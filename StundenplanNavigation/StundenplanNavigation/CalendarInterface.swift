@@ -165,11 +165,11 @@ class CalendarInterface: NSObject {
             self.eventStore.requestAccess(to: .event, completion: { granted, error in
                 DispatchQueue.main.async {
                     if granted {
-                        UserData.sharedInstance.callenderSync = true
+                        UserData.sharedInstance.calenderSync = true
                         NotificationCenter.default.post(name: .calendarSyncChanged , object: nil)
                         self.createCalenderIfNeeded()
                     } else {
-                        UserData.sharedInstance.callenderSync = false
+                        UserData.sharedInstance.calenderSync = false
                         NotificationCenter.default.post(name: .calendarSyncChanged , object: nil)
                     }
                 }

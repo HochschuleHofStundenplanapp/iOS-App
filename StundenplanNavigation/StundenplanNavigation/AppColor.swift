@@ -79,7 +79,7 @@ struct AppColor {
             case .economics: return UIColor(red: 239.0/255.0, green: 78.0/255.0, blue: 74.0/255.0, alpha: 1.0)
             case .computerScience: return UIColor(red: 248.0/255.0, green: 177.0/255.0, blue: 45.0/255.0, alpha: 1.0)
             case .engineeringSciences: return UIColor(red: 51.0/255.0, green: 108.0/255.0, blue: 185.0/255.0, alpha: 1.0)
-            case .default: return UIColor(red: 33.0/255.0, green: 33.0/255.0, blue: 33.0/255.0, alpha: 1.0)
+            case .default: return UIColor(red: 192.0/255.0, green: 192.0/255.0, blue: 192.0/255.0, alpha: 1.0)
             }
         }
     }

@@ -55,8 +55,8 @@ class SettingsController: NSObject {
     func commitChanges(){
         setRemovedAndAddedLectures()
         
-        if(UserData.sharedInstance.callenderSync == true){
-            userDataCopy.callenderSync = true
+        if(UserData.sharedInstance.calenderSync == true){
+            userDataCopy.calenderSync = true
         }
         if(UserData.sharedInstance.calendarIdentifier != nil){
             userDataCopy.calendarIdentifier = UserData.sharedInstance.calendarIdentifier
@@ -115,7 +115,7 @@ class SettingsController: NSObject {
     }
     
     public func updateCalendar() {
-        if UserData.sharedInstance.callenderSync {
+        if UserData.sharedInstance.calenderSync {
             if !calendarController.updateIOSCalendar() {
                 NotificationCenter.default.post(name: .showHasNoAccessAlert , object: nil)
             }
@@ -134,25 +134,25 @@ class SettingsController: NSObject {
         switch calendarController.getAuthorizationStatus() {
         case EKAuthorizationStatus.denied:
             NotificationCenter.default.post(name: .showHasNoAccessAlert , object: nil)
-            UserData.sharedInstance.callenderSync = false
+            UserData.sharedInstance.calenderSync = false
         default:
-            UserData.sharedInstance.callenderSync = true
+            UserData.sharedInstance.calenderSync = true
         }
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
     public func stopCalendarSync() {
         calendarController.removeCalendar()
-        UserData.sharedInstance.callenderSync = false
+        UserData.sharedInstance.calenderSync = false
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
     public func handleCalendarSync() {
-        if (UserData.sharedInstance.callenderSync) {
-            UserData.sharedInstance.callenderSync = true
+        if (UserData.sharedInstance.calenderSync) {
+            UserData.sharedInstance.calenderSync = true
             calendarController.createCalendar()
         } else {
-            UserData.sharedInstance.callenderSync = false
+            UserData.sharedInstance.calenderSync = false
         }
     }
 }
