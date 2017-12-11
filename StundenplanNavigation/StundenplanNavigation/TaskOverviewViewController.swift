@@ -10,14 +10,18 @@ import UIKit
 
 class TaskLectureController {
     
-    private func compare(task: Task, with lecture: Lecture, lectureDate: Date) -> Bool {
-        let result = lecture.name.contains(task.lecture) && lectureDate.formattedDate == task.dueDate.formattedDate
-        return result
+    private func compare(task: Task, with lecture: Lecture, sectionWeekday: Int) -> Bool {
+        let equalLecture = lecture.name.contains(task.lecture)
+        let weekdayTask = Calendar.current.component(.weekday, from: task.dueDate)
+        
+        let equalWeekday = sectionWeekday == (weekdayTask - 2) //zB Section der Vorlesung == 0 && Wochentag des Tasks ist Montag -> 2 (Sonntag = 1)
+        
+        return equalLecture && equalWeekday
     }
     
-    func hasTask(for lecture: Lecture, at date: Date) -> Bool {
+    func hasTask(for lecture: Lecture, at sectionWeekday: Int) -> Bool {
         for task in UserData.sharedInstance.tasks {
-            if compare(task: task, with: lecture, lectureDate: date) && !task.checked {
+            if compare(task: task, with: lecture, sectionWeekday: sectionWeekday) && !task.checked {
                 return true
             }
         }

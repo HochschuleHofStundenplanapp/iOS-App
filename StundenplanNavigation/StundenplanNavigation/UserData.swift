@@ -18,7 +18,7 @@ class UserData: NSObject, NSCoding{
 
     static var sharedInstance = UserData()
     
-    var callenderSync: Bool = false
+    var calenderSync: Bool = false
     var selectedSeason : String = Date().checkSemester()
     var selectedCourses : [Course] = []
     var selectedSemesters : [Semester] = []
@@ -56,13 +56,14 @@ class UserData: NSObject, NSCoding{
         
         copy.removedLectures = removedLectures
         copy.addedLectures = addedLectures
-        copy.callenderSync = callenderSync
+        copy.calenderSync = calenderSync
+        copy.calendarIdentifier = calendarIdentifier
         copy.tasks = tasks
         return copy
     }
     
     required init?(coder aDecoder: NSCoder) {
-        callenderSync = aDecoder.decodeBool(forKey: callenderSyncKey)
+        calenderSync = aDecoder.decodeBool(forKey: callenderSyncKey)
         selectedSeason = aDecoder.decodeObject(forKey: selectedSeasonKey) as! String
         selectedCourses = aDecoder.decodeObject(forKey: selectedCoursesKey) as! [Course]
         selectedSemesters = aDecoder.decodeObject(forKey: selectedSemestersKey) as! [Semester]
@@ -78,7 +79,7 @@ class UserData: NSObject, NSCoding{
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(callenderSync, forKey: callenderSyncKey)
+        aCoder.encode(calenderSync, forKey: callenderSyncKey)
         aCoder.encode(selectedSeason, forKey: selectedSeasonKey)
         aCoder.encode(selectedCourses, forKey: selectedCoursesKey)
         aCoder.encode(selectedSemesters, forKey: selectedSemestersKey)

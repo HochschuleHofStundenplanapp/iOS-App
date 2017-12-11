@@ -49,8 +49,12 @@ class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
             endTimeString = timeFormatter.string(from: endTime)
             
             let rename = TaskLectureController()
-            let lectureDate = Date()                                                // TODO: ✅🚨 auf Schnittstelle warten
-            if rename.hasTask(for: lecture, at: lectureDate) {
+          
+            //let lectureDate = Date()                                            // TODO: ✅🚨 auf Schnittstelle warten
+            //let weekday = Calendar.current.component(.weekday, from: lectureDate)
+            let sectionWeekday = indexPath.section
+            
+            if rename.hasTask(for: lecture, at: sectionWeekday) {
                 cell.hasTaskView.isHidden = false
                 cell.hasTaskView.textColor = appColor.taskWarning
             } else {

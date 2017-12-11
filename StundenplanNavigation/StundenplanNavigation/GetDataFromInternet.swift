@@ -15,7 +15,7 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
    
     func doItWithUrl(url: String, username: String?, password: String?, position: Int ) -> Void
     {
-        print("do it with url position : \(position)")
+        print("do it with url: \(url) position : \(position)")
         self.position = position
         let urlString = url
         let url = URL(string: urlString)
@@ -37,19 +37,15 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
             data, response, error in
             
             DispatchQueue.main.async(execute: { () -> Void in
+                //Benachrichtige Alle Observer mit den Daten
                 
-                    //Benachrichtige Alle Observer mit den Daten
-                
-                let jsonString = String(data: data!, encoding: String.Encoding.utf8)
+                //let jsonString = String(data: data!, encoding: String.Encoding.utf8)
 //                print(jsonString)
                 print("-----")
                 
                 let dataWithErrorTuple = (data,error)
                 
-
                 self.notifiyAllObservers(o: dataWithErrorTuple as AnyObject,p: position)
-                
-                
             })
         })
         task.resume()
