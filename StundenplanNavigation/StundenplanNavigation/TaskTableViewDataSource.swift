@@ -37,6 +37,8 @@ class TaskTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let taskToDelete = getTask(for: indexPath)
+            CalendarInterface.sharedInstance.removeTaskFromCalendar(task: taskToDelete)
             taskDisplayCtrl.delete(at: indexPath)
             if taskDisplayCtrl.numberOfRows(in: indexPath.section) == 0 {
                 taskDisplayCtrl.deleteSection(at: indexPath.section)

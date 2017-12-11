@@ -150,6 +150,7 @@ class TaskOverviewViewController: UIViewController {
         
         if appendTask, let task = receivedTask {
             UserData.sharedInstance.tasks.append(task)
+            CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
         }
         
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)

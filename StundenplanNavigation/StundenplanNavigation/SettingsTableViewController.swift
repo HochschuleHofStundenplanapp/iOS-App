@@ -150,7 +150,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         backgroundProgressIndicator.startActivityIndicator(root: self)
 
         let isSwitchOn = syncSwitch.isOn
-        DispatchQueue.global().async {
+        UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+        DispatchQueue.global(qos: .background).async {
             if (isSwitchOn) {
                 self.settingsController.startCalendarSync()
             } else {
@@ -158,6 +159,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             }
             DispatchQueue.main.async {
                 self.backgroundProgressIndicator.stopActivityIndicator()
+                UIApplication.shared.endBackgroundTask(UIBackgroundTaskIdentifier())
             }
         }
     }
@@ -220,6 +222,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     @IBAction func changeFacultyColor(_ sender: UISegmentedControl) {
+        let task = Task(title: "Task Title :)", dueDate: Date(), taskDescription: "Beschreibung", lecture: "Fortgeschrittene Programmierung unter Swift 3")
+        
+        CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
+        CalendarInterface.sharedInstance.removeTaskFromCalendar(task: task)
         switch sender.selectedSegmentIndex {
         case 0: appColor.faculty = .economics
         case 1: appColor.faculty = .computerScience
