@@ -144,7 +144,8 @@ class CalendarController: NSObject {
             duration = duration + (endMinutes - minutes)
             event.endDate   = Calendar.current.date(byAdding: .minute, value: duration, to: event.startDate)!
             
-            event.location = getLocationInfo(room: lecture.room) + ", " + lecture.room
+            event.location = lecture.room + ", " + getLocationInfo(room: lecture.room)
+
             
             event.notes = notes
             
@@ -263,6 +264,17 @@ class CalendarController: NSObject {
                     oldEvent?.alarms   = []
                 }
                 
+                //Notiz in titel und notes ergänzen
+                if let changeText = change.text {
+                    if(changeText.count > 0) {
+                        oldEvent?.title = Constants.readNotes + oldEvent!.title
+                        if(!(oldEvent?.notes!.starts(with: changeText))!) {
+                            oldEvent?.notes = changeText + "\n" + oldEvent!.notes!
+                        }
+                    }
+                }
+
+                
                 CalendarInterface.sharedInstance.updateEvent(eventID: eventID, updatedEvent: oldEvent!, key: lecture.key, lectureToChange: true)
             }
         }
@@ -272,15 +284,23 @@ class CalendarController: NSObject {
         let newEvent = EKEvent(eventStore: self.eventStore)
         newEvent.timeZone = NSTimeZone.local
         
-        newEvent.title     = Constants.changesNew + change.name
         //newEvent.notes     = oldEvent.notes
         newEvent.startDate = change.combinedNewDate
         newEvent.endDate   = (newEvent.startDate + 60 * 90)
         
         newEvent.location = locationInfo + ", " + change.newRoom
-        
+
+        newEvent.title  = Constants.changesNew + change.name
         newEvent.notes = lecture.comment + "  " + lecture.group
         
+        //Notiz in titel und notes ergänzen
+        if let changeText = change.text {
+            if(changeText.count > 0) {
+                newEvent.title = Constants.readNotes + newEvent.title
+                newEvent.notes = changeText + "\n" + newEvent.notes!
+            }
+        }
+
         return newEvent
     }
     
@@ -315,7 +335,7 @@ class CalendarController: NSObject {
      */
     public func updateIOSCalendar() -> Bool{
         if(!CalendarInterface.sharedInstance.isAuthorized()) {
-            UserData.sharedInstance.callenderSync = false
+            UserData.sharedInstance.calenderSync = false
             return false
         }
         
@@ -334,7 +354,7 @@ class CalendarController: NSObject {
      */
     public func getLocationInfo( room : String) -> String {
         if(room.count > 3 ){
-            let index = room.index(room.startIndex, offsetBy : 4)
+            let index = room.index(room.startIndex, offsetBy : 3)
             let locationString = room[...index]
             
             if(locationString == Constants.locationInfoMueb){

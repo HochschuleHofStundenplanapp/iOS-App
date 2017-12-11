@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     }
     
     func updateCalendar(){
-        if UserData.sharedInstance.callenderSync {
+        if UserData.sharedInstance.calenderSync {
             CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
         }
     }

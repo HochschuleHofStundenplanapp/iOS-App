@@ -11,6 +11,7 @@ import UIKit
 class OnboardingFacultyViewController: UIViewController {
     @IBOutlet weak var facultySegmentedControl: UISegmentedControl!
     @IBOutlet weak var tutorialDescriptionView: UIView!
+    @IBOutlet weak var ScreenshotPreviewImageView: UIImageView!
     
     deinit {
         let nc = NotificationCenter.default
@@ -35,10 +36,18 @@ class OnboardingFacultyViewController: UIViewController {
     
     @IBAction func selectedFacultySegmentedControllAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0: appColor.faculty = .economics
-        case 1: appColor.faculty = .computerScience
-        case 2: appColor.faculty = .engineeringSciences
-        default: appColor.faculty = .default
+        case 0:
+            appColor.faculty = .economics
+            ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Wirtschaft")
+        case 1:
+            appColor.faculty = .computerScience
+            ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Informatik")
+        case 2:
+            appColor.faculty = .engineeringSciences
+            ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Ingenieur")
+        default:
+            appColor.faculty = .default
+            ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Standard")
         }
     }
     
