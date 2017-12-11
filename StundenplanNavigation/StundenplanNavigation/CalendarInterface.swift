@@ -392,6 +392,49 @@ class CalendarInterface: NSObject {
     public func saveIDs() {
         DataObjectPersistency().saveCalendarData(items: calendarData)
     }
+    
+    public func addTaskToCalendar(task: Task) {
+        if let events = getCalendarEvents() {
+            for event in events {
+                
+                if event.title == task.lecture && event.startDate.formattedDate == task.dueDate.formattedDate {
+                    let taskNote = "\n\(task.title)\n\(task.taskDescription)"
+                    event.notes?.append(taskNote)
+                    do {
+                        try eventStore.save(event, span: .thisEvent)
+                    } catch {
+                        print("CalendarInterface-Error: addTaskToCalendar")
+                    }
+                }
+            }
+        }
+    }
+    
+    public func removeTaskFromCalendar(task: Task) {
+        if let events = getCalendarEvents() {
+            for event in events {
+                if event.title == task.lecture && event.startDate.formattedDate == task.dueDate.formattedDate {
+                    let taskNote = "\n\(task.title)\n\(task.taskDescription)"
+                    event.notes = event.notes?.replacingOccurrences(of: taskNote, with: "")
+                    do {
+                        try eventStore.save(event, span: .thisEvent)
+                    } catch {
+                        print("CalendarInterface-Error: removeTaskFromCalendar")
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getCalendarEvents() -> [EKEvent]? {
+        if let calendar = calendar {
+            let prediction = eventStore.predicateForEvents(withStart: Date(), end: Date.distantFuture, calendars: [calendar])
+            let events = eventStore.events(matching: prediction)
+            return events
+        }
+        return nil
+    }
+    
 }
 
 
