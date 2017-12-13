@@ -29,8 +29,6 @@ class OnboardingLecturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tutorialDescriptionView.applyShadow()
-        
         lectureController = LectureController(tmpSelectedLectures: tmpSelectedLectures, tmpSelectedSemesters: tmpSelectedSemesters, tmpSelectedSeason: tmpSelectedSeason)
         
         dataSource = LecturesTableViewDataSource(tmpSelectedLectures: tmpSelectedLectures)

@@ -32,7 +32,6 @@ class UserData: NSObject, NSCoding{
     
     var removedLectures: [Lecture] = []
     var addedLectures: [Lecture] = []
-    
     let callenderSyncKey = "callenderSync"
     let selectedSeasonKey = "selectedSeason"
     let selectedCoursesKey = "selectedCourses"
@@ -60,6 +59,16 @@ class UserData: NSObject, NSCoding{
         copy.calendarIdentifier = calendarIdentifier
         copy.tasks = tasks
         return copy
+    }
+
+    func wipeUserData(){
+        calenderSync = false
+        selectedSeason = Date().checkSemester()
+        selectedCourses = []
+        selectedSemesters = []
+        savedSplusnames = [String]()//Auslagern
+        selectedSchedule = Schedule()
+        oldChanges = []
     }
     
     required init?(coder aDecoder: NSCoder) {

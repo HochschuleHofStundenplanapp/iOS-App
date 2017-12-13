@@ -24,8 +24,6 @@ class OnboardingFacultyViewController: UIViewController {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(setUpUI), name: NSNotification.Name.appColorHasChanged, object: nil)
         
-        tutorialDescriptionView.applyShadow()
-        
         setUpUI()
     }
 

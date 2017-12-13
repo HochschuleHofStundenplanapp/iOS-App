@@ -58,6 +58,16 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
+    func showOnboardingAgain() {
+            settingsController.clearAllSettings()
+            UserData.sharedInstance.wipeUserData()
+            self.settingsController.stopCalendarSync()
+            self.syncSwitch.setOn(false, animated: false)
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let onboardingVCtrl = storyboard.instantiateViewController(withIdentifier: OnboardingIDs.onboardingStartID)
+            present(onboardingVCtrl, animated: true)
+    }
+    
     @available(iOS 11.0, *)
     func setupNavBar(){
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -220,6 +230,18 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.section == 1 && indexPath.row == 0){
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        if (indexPath.section == 2 && indexPath.row == 1){
+            showOnboardingAgain()
+        }
+    }
+    
+    
     
     @IBAction func changeFacultyColor(_ sender: UISegmentedControl) {
         let task = Task(title: "Task Title :)", dueDate: Date(), taskDescription: "Beschreibung", lecture: "Fortgeschrittene Programmierung unter Swift 3")

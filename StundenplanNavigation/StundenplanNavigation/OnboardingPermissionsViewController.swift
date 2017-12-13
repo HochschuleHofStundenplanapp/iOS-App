@@ -20,8 +20,6 @@ class OnboardingPermissionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tutorialDescriptionView.applyShadow()
         saveChangesActivityIndicatorView.hidesWhenStopped = true
         applyChanges()
     }
@@ -59,15 +57,11 @@ class OnboardingPermissionsViewController: UIViewController {
         let isSwitchOn = sender.isOn
         DispatchQueue.global().async {
             if (isSwitchOn) {
-                self.FinishOnboardingBarButton.isEnabled = false
-                self.FinishOnboardingBarButton.tintColor = UIColor(red: 192.0/255.0, green: 192.0/255.0, blue: 192.0/255.0, alpha: 1.0)
                 self.settingsController.startCalendarSync()
             } else {
                 self.settingsController.stopCalendarSync()
             }
             DispatchQueue.main.async {
-                self.FinishOnboardingBarButton.isEnabled = true
-                self.synchronizationIsLoadingStackView.isHidden = true
                 self.saveChangesActivityIndicatorView.stopAnimating()
                 self.FinishOnboardingBarButton.tintColor = appColor.tintColor
             }
