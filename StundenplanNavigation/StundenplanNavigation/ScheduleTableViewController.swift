@@ -39,6 +39,7 @@ class ScheduleTableViewController: UITableViewController {
         let taskCtrl = taskNavigationCtrl.childViewControllers[0] as! TaskViewController
         taskCtrl.updateTaskBadge()
     }
+
     
     @available(iOS 11.0, *)
     func setUpNavbar(){

@@ -38,6 +38,19 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         if #available(iOS 11.0, *) {
             setupNavBar()
         }
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(reloadCommitedSettings), name: Notification.Name("finishedOnboarding"), object: nil)
+        
+        
+        setUpUI()
+    }
+    
+    
+    
+    @objc func reloadCommitedSettings(){
+        settingsController.reinit()
+        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
         setUpUI()
     }
     

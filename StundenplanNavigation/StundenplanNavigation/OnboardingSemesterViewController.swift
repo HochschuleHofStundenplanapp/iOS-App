@@ -27,7 +27,6 @@ class OnboardingSemesterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tutorialDescriptionView.applyShadow()
         
         semesterController = SemesterController(tmpSelectedLectures: tmpSelectedLectures, tmpSelectedSemesters: tmpSelectedSemesters)
         

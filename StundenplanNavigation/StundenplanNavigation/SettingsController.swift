@@ -23,6 +23,14 @@ class SettingsController: NSObject {
     
     lazy var calendarController = CalendarController()
     
+    func reinit(){
+        userDataCopy = UserData.sharedInstance.copy() as! UserData
+        tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
+        tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
+        tmpSelectedLectures = TmpSelectedLectures(userdata: userDataCopy)
+        tmpSelectedSeason = userDataCopy.selectedSeason
+    }
+    
     override init() {
         userDataCopy = UserData.sharedInstance.copy() as! UserData
         tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)

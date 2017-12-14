@@ -69,6 +69,10 @@ class OnboardingPermissionsViewController: UIViewController {
     }
     
     @IBAction func endOnboardingAction(_ sender: UIBarButtonItem) {
+        //Notification
+        let nc = NotificationCenter.default
+        
+        nc.post(name: NSNotification.Name(rawValue: "finishedOnboarding"), object: nil)
         dismiss(animated: false)
     }
     
