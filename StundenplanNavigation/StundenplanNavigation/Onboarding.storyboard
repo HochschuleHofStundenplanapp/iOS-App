@@ -274,7 +274,7 @@
                                 <rect key="frame" x="0.0" y="208" width="375" height="604"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" textLabel="Y82-yJ-PVY" style="IBUITableViewCellStyleDefault" id="RDT-TV-wY7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" textLabel="Y82-yJ-PVY" style="IBUITableViewCellStyleDefault" id="RDT-TV-wY7">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RDT-TV-wY7" id="4nG-Q5-61b">
@@ -389,7 +389,7 @@
                                 <rect key="frame" x="0.0" y="208" width="375" height="604"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SemesterCell" textLabel="Sly-Ob-ueR" style="IBUITableViewCellStyleDefault" id="RQ9-5h-ask">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SemesterCell" textLabel="Sly-Ob-ueR" style="IBUITableViewCellStyleDefault" id="RQ9-5h-ask">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RQ9-5h-ask" id="gvK-eS-7Pe">
@@ -713,6 +713,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="FinishOnboardingBarButton" destination="28O-Wc-Pn9" id="yMl-Kf-6s7"/>
+                        <outlet property="SyncronisationStackView" destination="tmz-xa-mfN" id="Id7-AB-N5z"/>
                         <outlet property="saveChangesActivityIndicatorView" destination="Gwd-BA-Qx1" id="Umt-rE-NWr"/>
                         <outlet property="synchronizationIsLoadingStackView" destination="tmz-xa-mfN" id="xxp-gx-whi"/>
                         <outlet property="tutorialDescriptionView" destination="q8y-mq-7IT" id="6ZZ-qF-vAL"/>

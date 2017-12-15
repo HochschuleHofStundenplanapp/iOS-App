@@ -50,7 +50,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     @objc func reloadCommitedSettings(){
         settingsController.reinit()
-        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
+        self.syncSwitch.setOn(true, animated: false)
         setUpUI()
     }
     

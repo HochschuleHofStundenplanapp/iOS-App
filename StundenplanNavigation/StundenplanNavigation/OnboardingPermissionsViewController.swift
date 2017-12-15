@@ -13,6 +13,7 @@ class OnboardingPermissionsViewController: UIViewController {
     @IBOutlet weak var synchronizationIsLoadingStackView: UIStackView!
     @IBOutlet weak var tutorialDescriptionView: UIView!
     @IBOutlet weak var saveChangesActivityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var SyncronisationStackView: UIStackView!
     @IBOutlet weak var calendarSynchronizationView: UIView!
     @IBOutlet weak var FinishOnboardingBarButton: UIBarButtonItem!
     
@@ -63,6 +64,7 @@ class OnboardingPermissionsViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.saveChangesActivityIndicatorView.stopAnimating()
+                self.SyncronisationStackView.isHidden = true
                 self.FinishOnboardingBarButton.tintColor = appColor.tintColor
             }
         }

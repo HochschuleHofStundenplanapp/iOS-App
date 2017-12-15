@@ -62,7 +62,7 @@ class UserData: NSObject, NSCoding{
     }
 
     func wipeUserData(){
-        calenderSync = false
+//        calenderSync = false
         selectedSeason = Date().checkSemester()
         selectedCourses = []
         selectedSemesters = []
