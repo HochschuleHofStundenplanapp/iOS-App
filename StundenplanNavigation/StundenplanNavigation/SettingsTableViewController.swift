@@ -33,24 +33,19 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
+        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCommitedSettings), name: .finishedOnboarding, object: nil)
         
         if #available(iOS 11.0, *) {
             setupNavBar()
         }
-        
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(reloadCommitedSettings), name: Notification.Name("finishedOnboarding"), object: nil)
-        
-        
         setUpUI()
     }
     
     
     
     @objc func reloadCommitedSettings(){
-        settingsController.reinit()
-        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
+        settingsController.resetTMPVariables()
         setUpUI()
     }
     
@@ -59,7 +54,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         saveChangesButton.tintColor = appColor.tintColor
         syncSwitch.onTintColor = appColor.tintColor
         facultySegmentControl.tintColor = appColor.tintColor
-        setFacultySegmentControlSegment()
         
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
@@ -72,22 +66,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
-    private func setFacultySegmentControlSegment() {
-        switch appColor.faculty {
-        case .economics:
-            facultySegmentControl.selectedSegmentIndex = 0
-        case .computerScience:
-            facultySegmentControl.selectedSegmentIndex = 1
-        case .engineeringSciences:
-            facultySegmentControl.selectedSegmentIndex = 2
-        default:
-            facultySegmentControl.selectedSegmentIndex = 3
-        }
-    }
-    
     func showOnboardingAgain() {
             settingsController.clearAllSettings()
             UserData.sharedInstance.wipeUserData()
+            appColor.faculty = Faculty.default
             self.settingsController.stopCalendarSync()
             self.syncSwitch.setOn(false, animated: false)
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
@@ -102,21 +84,22 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         //Updates müssen in viewDidApper, weil erst hier die neue kopier erzeugt wurde (in viewWillApear ist noch die alten Instanz vorhanden)
         updateSeasonSegments()
         disableCellsAndButton()
         selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
         selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
         saveChangesButton.setTitle("\(settingsController.countChanges()) Änderungen übernehmen", for: .normal)
+        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        tabBarController?.tabBar.tintColor = UIColor.hawBlue
         
         NotificationCenter.default.addObserver(self, selector: #selector(hanldeCalendarSyncChanged), name: .calendarSyncChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showHasNoAccessAlert), name: .showHasNoAccessAlert, object: nil)
+        
+        updatePickedColorSegment()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -148,6 +131,21 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
         
         settingsController.tmpSelectedSeason = currentSemester
+    }
+    
+    private func updatePickedColorSegment(){
+        switch appColor.faculty {
+        case Faculty.economics:
+            facultySegmentControl.selectedSegmentIndex = 0
+        case Faculty.computerScience:
+            facultySegmentControl.selectedSegmentIndex = 1
+        case Faculty.engineeringSciences:
+            facultySegmentControl.selectedSegmentIndex = 2
+        default:
+            facultySegmentControl.selectedSegmentIndex = 3
+            
+        }
+        
     }
     
     private func disableCellsAndButton(){

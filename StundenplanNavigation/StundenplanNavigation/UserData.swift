@@ -43,6 +43,7 @@ class UserData: NSObject, NSCoding{
     let oldChangesKey = "oldChanges"
     let tasksKey = "taskKey"
     let calendarIdentifierKey = "calendarIdentifier"
+    let appcolorKey = "appcolor"
 
     private override init(){}
     
@@ -62,7 +63,7 @@ class UserData: NSObject, NSCoding{
     }
 
     func wipeUserData(){
-        calenderSync = false
+//        calenderSync = false
         selectedSeason = Date().checkSemester()
         selectedCourses = []
         selectedSemesters = []
@@ -83,6 +84,18 @@ class UserData: NSObject, NSCoding{
         oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
         tasks = aDecoder.decodeObject(forKey: tasksKey) as? [Task] ?? []
         calendarIdentifier = aDecoder.decodeObject(forKey: calendarIdentifierKey) as? String
+        let loadedfacultyName = aDecoder.decodeObject(forKey:appcolorKey) as? String ?? "default"
+        
+        switch loadedfacultyName {
+        case "economics":
+            appColor.faculty = Faculty.economics
+        case "computerScience":
+            appColor.faculty = Faculty.computerScience
+        case "engineeringSciences":
+            appColor.faculty = Faculty.engineeringSciences
+        default:
+            appColor.faculty = Faculty.default
+        }
 
         super.init()
     }
@@ -99,5 +112,6 @@ class UserData: NSObject, NSCoding{
         aCoder.encode(oldChanges, forKey: oldChangesKey)
         aCoder.encode(tasks, forKey: tasksKey)
         aCoder.encode(calendarIdentifier, forKey: calendarIdentifierKey)
+        aCoder.encode(appColor.faculty.faculty, forKey: appcolorKey)
     }
 }
