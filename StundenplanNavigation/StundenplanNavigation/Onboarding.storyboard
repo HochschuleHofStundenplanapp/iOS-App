@@ -186,7 +186,7 @@
                                     <segment title="Wirtschaft"/>
                                     <segment title="Informatik"/>
                                     <segment title="Ingenieur"/>
-                                    <segment title="Hochschule"/>
+                                    <segment title="HS Hof"/>
                                 </segments>
                                 <connections>
                                     <action selector="selectedFacultySegmentedControllAction:" destination="x9J-Mn-pnM" eventType="valueChanged" id="MHd-Hc-X0w"/>
@@ -714,6 +714,7 @@
                     <connections>
                         <outlet property="FinishOnboardingBarButton" destination="28O-Wc-Pn9" id="yMl-Kf-6s7"/>
                         <outlet property="SyncronisationStackView" destination="tmz-xa-mfN" id="Id7-AB-N5z"/>
+                        <outlet property="TurnOnCalenderSynchronisationSwitch" destination="0VY-o2-17A" id="Kdp-Kh-zvv"/>
                         <outlet property="saveChangesActivityIndicatorView" destination="Gwd-BA-Qx1" id="Umt-rE-NWr"/>
                         <outlet property="synchronizationIsLoadingStackView" destination="tmz-xa-mfN" id="xxp-gx-whi"/>
                         <outlet property="tutorialDescriptionView" destination="q8y-mq-7IT" id="6ZZ-qF-vAL"/>

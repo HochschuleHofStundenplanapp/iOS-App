@@ -18,4 +18,5 @@ extension Notification.Name {
     static let showHasNoAccessAlert = Notification.Name("showHasNoAccessAlert")
     static let completedTaskChanged = NSNotification.Name("completedTaskChanged")
     static let appColorHasChanged = NSNotification.Name("appColorHasChanged")
+    static let finishedOnboarding = NSNotification.Name("finishedOnboarding")
 }

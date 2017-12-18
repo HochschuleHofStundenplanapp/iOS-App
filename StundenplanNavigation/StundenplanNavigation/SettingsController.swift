@@ -23,7 +23,7 @@ class SettingsController: NSObject {
     
     lazy var calendarController = CalendarController()
     
-    func reinit(){
+    func resetTMPVariables(){
 //        tmpSelectedVariablen gleich denen aus den UserData machen. Wird nach erneuter Ausführung des Onboarding aufgerufen
         userDataCopy = UserData.sharedInstance.copy() as! UserData
         tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
