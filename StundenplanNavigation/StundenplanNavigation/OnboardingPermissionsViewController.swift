@@ -13,8 +13,10 @@ class OnboardingPermissionsViewController: UIViewController {
     @IBOutlet weak var synchronizationIsLoadingStackView: UIStackView!
     @IBOutlet weak var tutorialDescriptionView: UIView!
     @IBOutlet weak var saveChangesActivityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var SyncronisationStackView: UIStackView!
     @IBOutlet weak var calendarSynchronizationView: UIView!
     @IBOutlet weak var FinishOnboardingBarButton: UIBarButtonItem!
+    @IBOutlet weak var TurnOnCalenderSynchronisationSwitch: UISwitch!
     
     var settingsController: SettingsController!
     
@@ -22,6 +24,7 @@ class OnboardingPermissionsViewController: UIViewController {
         super.viewDidLoad()
         saveChangesActivityIndicatorView.hidesWhenStopped = true
         applyChanges()
+        setupUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +40,10 @@ class OnboardingPermissionsViewController: UIViewController {
                 self.synchronizationIsLoadingStackView.isHidden = true
             }
         }
+    }
+    
+    func setupUI(){
+        TurnOnCalenderSynchronisationSwitch.onTintColor = appColor.tintColor
     }
     
     func askForCalendarPermissions() {
@@ -63,6 +70,7 @@ class OnboardingPermissionsViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.saveChangesActivityIndicatorView.stopAnimating()
+                self.SyncronisationStackView.isHidden = true
                 self.FinishOnboardingBarButton.tintColor = appColor.tintColor
             }
         }
@@ -72,7 +80,7 @@ class OnboardingPermissionsViewController: UIViewController {
         //Notification
         let nc = NotificationCenter.default
         
-        nc.post(name: NSNotification.Name(rawValue: "finishedOnboarding"), object: nil)
+        nc.post(name: .finishedOnboarding, object: nil)
         dismiss(animated: false)
     }
     

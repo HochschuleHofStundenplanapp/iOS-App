@@ -8,10 +8,10 @@
 
 import UIKit
 
-var appColor = AppColor(faculty: AppColor.Faculty.default)
+var appColor = AppColor(faculty: Faculty.default)
 
 struct AppColor {
-    var faculty: Faculty {
+    var  faculty: Faculty {
         didSet {
             // Delay, weil das SegmentedControll gedrückt wird und bei der Veränderung der Farbe, die Notification gesendet wird
             // und noch während der Touch-Animation die Farbe ändern will --> Boom! Programm Crash!
@@ -68,19 +68,29 @@ struct AppColor {
         return tintColor
     }
     
-    enum Faculty {
-        case economics
-        case computerScience
-        case engineeringSciences
-        case `default`
-        
-        var color: UIColor {
-            switch self {
-            case .economics: return UIColor(red: 239.0/255.0, green: 78.0/255.0, blue: 74.0/255.0, alpha: 1.0)
-            case .computerScience: return UIColor(red: 248.0/255.0, green: 177.0/255.0, blue: 45.0/255.0, alpha: 1.0)
-            case .engineeringSciences: return UIColor(red: 51.0/255.0, green: 108.0/255.0, blue: 185.0/255.0, alpha: 1.0)
-            case .default: return UIColor(red: 192.0/255.0, green: 192.0/255.0, blue: 192.0/255.0, alpha: 1.0)
-            }
+}
+
+enum Faculty {
+    case economics
+    case computerScience
+    case engineeringSciences
+    case `default`
+    
+    var color: UIColor {
+        switch self {
+        case .economics: return UIColor(red: 239.0/255.0, green: 78.0/255.0, blue: 74.0/255.0, alpha: 1.0)
+        case .computerScience: return UIColor(red: 248.0/255.0, green: 177.0/255.0, blue: 45.0/255.0, alpha: 1.0)
+        case .engineeringSciences: return UIColor(red: 51.0/255.0, green: 108.0/255.0, blue: 185.0/255.0, alpha: 1.0)
+        case .default: return UIColor(red: 192.0/255.0, green: 192.0/255.0, blue: 192.0/255.0, alpha: 1.0)
+        }
+    }
+    
+    var faculty : String {
+        switch self {
+        case .economics: return "economics"
+        case .computerScience: return "computerScience"
+        case .engineeringSciences: return "engineeringSciences"
+        case .default: return "default"
         }
     }
 }

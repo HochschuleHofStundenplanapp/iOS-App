@@ -24,6 +24,9 @@ class OnboardingFacultyViewController: UIViewController {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(setUpUI), name: NSNotification.Name.appColorHasChanged, object: nil)
         
+        //Beim Starten des Onboardings wird die Farbe wieder auf Default gesetzt
+        appColor.faculty = .default
+        
         setUpUI()
     }
 

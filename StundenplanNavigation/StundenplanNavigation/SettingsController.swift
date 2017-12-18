@@ -23,7 +23,8 @@ class SettingsController: NSObject {
     
     lazy var calendarController = CalendarController()
     
-    func reinit(){
+    func resetTMPVariables(){
+//        tmpSelectedVariablen gleich denen aus den UserData machen. Wird nach erneuter Ausführung des Onboarding aufgerufen
         userDataCopy = UserData.sharedInstance.copy() as! UserData
         tmpSelectedCourses = TmpSelectedCourses(userdata: userDataCopy)
         tmpSelectedSemesters = TmpSelectedSemesters(userdata: userDataCopy)
@@ -137,8 +138,7 @@ class SettingsController: NSObject {
     }
     
     public func startCalendarSync() {
-        calendarController.createCalendar()
-        
+
         switch calendarController.getAuthorizationStatus() {
         case EKAuthorizationStatus.denied:
             NotificationCenter.default.post(name: .showHasNoAccessAlert , object: nil)
@@ -146,12 +146,13 @@ class SettingsController: NSObject {
         default:
             UserData.sharedInstance.calenderSync = true
         }
+        calendarController.createCalendar()
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
     public func stopCalendarSync() {
-        calendarController.removeCalendar()
         UserData.sharedInstance.calenderSync = false
+        calendarController.removeCalendar()
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     

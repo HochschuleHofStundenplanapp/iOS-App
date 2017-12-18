@@ -187,6 +187,9 @@ class CalendarInterface: NSObject {
      Schreibt übergebene Events in den Kalender
      */
     func createEvent(p_event : EKEvent, key : String, isChanges : Bool){
+        if UserData.sharedInstance.calenderSync {
+            
+        
         let event       = EKEvent(eventStore: eventStore)
         event.title     = p_event.title
         event.notes     = p_event.notes
@@ -212,6 +215,7 @@ class CalendarInterface: NSObject {
             addChangesID(eventID: event.eventIdentifier, key: key)
         } else {
             addLecturesID(eventID: event.eventIdentifier, key: key)
+        }
         }
     }
     

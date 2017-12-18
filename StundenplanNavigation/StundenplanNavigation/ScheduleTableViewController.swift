@@ -56,6 +56,7 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func setUpUI() {
+        print("Color", appColor.faculty)
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
     }
