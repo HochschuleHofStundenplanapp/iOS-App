@@ -152,11 +152,22 @@ class TaskOverviewViewController: UIViewController {
         receivedTask.lecture = taskLectureTextField.text!
         receivedTask.taskDescription = taskDescriptionTextView.text!
         
-        if appendTask, let task = receivedTask {
-            UserData.sharedInstance.tasks.append(task)
-            CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
+        guard let task = receivedTask else {
+            DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
+            return
         }
         
+        //Task wird angehängt
+        if appendTask {
+            UserData.sharedInstance.tasks.append(task)
+            
+        }
+        //Task wird gelöscht
+        else {
+            CalendarInterface.sharedInstance.removeTaskFromCalendar(task: task)
+        }
+        
+        CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     
