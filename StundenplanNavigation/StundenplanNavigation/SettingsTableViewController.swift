@@ -33,7 +33,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: true)
+        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
         
         if #available(iOS 11.0, *) {
             setupNavBar()
@@ -59,6 +59,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         saveChangesButton.tintColor = appColor.tintColor
         syncSwitch.onTintColor = appColor.tintColor
         facultySegmentControl.tintColor = appColor.tintColor
+        setFacultySegmentControlSegment()
         
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
@@ -68,6 +69,19 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             if let taskVCtrl = navigationController.viewControllers[0] as? TaskViewController {
                 taskVCtrl.updateTaskBadge()
             }
+        }
+    }
+    
+    private func setFacultySegmentControlSegment() {
+        switch appColor.faculty {
+        case .economics:
+            facultySegmentControl.selectedSegmentIndex = 0
+        case .computerScience:
+            facultySegmentControl.selectedSegmentIndex = 1
+        case .engineeringSciences:
+            facultySegmentControl.selectedSegmentIndex = 2
+        default:
+            facultySegmentControl.selectedSegmentIndex = 3
         }
     }
     
