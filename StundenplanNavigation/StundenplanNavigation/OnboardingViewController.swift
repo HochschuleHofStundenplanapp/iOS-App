@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StundenplanFramework
 
 struct OnboardingIDs {
     private init() {}

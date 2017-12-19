@@ -13,9 +13,7 @@
 		0F58698D1F9896A700DE2462 /* UILecturePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */; };
 		0F58698F1F9896B500DE2462 /* UILecturePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F58698E1F9896B500DE2462 /* UILecturePickerDelegate.swift */; };
 		0F5869911F9896CD00DE2462 /* TaskViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5869901F9896CD00DE2462 /* TaskViewProtocol.swift */; };
-		0F605D391FC426CD00710CD4 /* OnboardingSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */; };
 		0F605D3B1FC4299500710CD4 /* OnboardingLecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3A1FC4299500710CD4 /* OnboardingLecturesViewController.swift */; };
-		0F605D3D1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift */; };
 		0F6457FB1FCC267B00857BD6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6457FA1FCC267B00857BD6 /* UIView.swift */; };
 		0F7C98A31F95EEF30044F08C /* UITaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C98A21F95EEF30044F08C /* UITaskTableViewCell.swift */; };
 		0FB0C1931FC35CD700E79C42 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0C1921FC35CD700E79C42 /* Onboarding.storyboard */; };
@@ -26,6 +24,8 @@
 		0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */; };
 		0FC2FED31F953CDB00BDDB0D /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */; };
 		0FC2FED51F953D3300BDDB0D /* TaskOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */; };
+		26905DB51FE959970007E979 /* OnboardingSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */; };
+		26905DB71FE959AA0007E979 /* OnboardingPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift */; };
 		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
 		402DD3451FD1A34600E5B5A0 /* WidgetLectureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402DD3441FD1A34600E5B5A0 /* WidgetLectureController.swift */; };
 		406205C71FD476BD00B6F4F6 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406205C51FD476BC00B6F4F6 /* TimerView.swift */; };
@@ -317,6 +317,28 @@
 			name = Texte;
 			sourceTree = "<group>";
 		};
+		0FB0C1911FC35CC100E79C42 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0FB0C1921FC35CD700E79C42 /* Onboarding.storyboard */,
+				0FB0C1941FC35CFA00E79C42 /* OnboardingViewController.swift */,
+				0FB0C1961FC35D0200E79C42 /* OnboardingViewCtrler */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		0FB0C1961FC35D0200E79C42 /* OnboardingViewCtrler */ = {
+			isa = PBXGroup;
+			children = (
+				0FB0C1971FC35D1700E79C42 /* OnboardingFacultyViewController.swift */,
+				0FB0C1991FC35D2400E79C42 /* OnboardingCourseViewController.swift */,
+				0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */,
+				0F605D3A1FC4299500710CD4 /* OnboardingLecturesViewController.swift */,
+				0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift */,
+			);
+			name = OnboardingViewCtrler;
+			sourceTree = "<group>";
+		};
 		400590B21FC823C60083F86C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,28 +369,6 @@
 				402DD3441FD1A34600E5B5A0 /* WidgetLectureController.swift */,
 			);
 			path = StundenplanWidget;
-			sourceTree = "<group>";
-		};
-		0FB0C1911FC35CC100E79C42 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				0FB0C1921FC35CD700E79C42 /* Onboarding.storyboard */,
-				0FB0C1941FC35CFA00E79C42 /* OnboardingViewController.swift */,
-				0FB0C1961FC35D0200E79C42 /* OnboardingViewCtrler */,
-			);
-			name = Onboarding;
-			sourceTree = "<group>";
-		};
-		0FB0C1961FC35D0200E79C42 /* OnboardingViewCtrler */ = {
-			isa = PBXGroup;
-			children = (
-				0FB0C1971FC35D1700E79C42 /* OnboardingFacultyViewController.swift */,
-				0FB0C1991FC35D2400E79C42 /* OnboardingCourseViewController.swift */,
-				0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */,
-				0F605D3A1FC4299500710CD4 /* OnboardingLecturesViewController.swift */,
-				0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsViewController.swift */,
-			);
-			name = OnboardingViewCtrler;
 			sourceTree = "<group>";
 		};
 		654BFEB41ED427320023607D /* Interfaces */ = {
@@ -963,6 +963,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26905DB71FE959AA0007E979 /* OnboardingPermissionsViewController.swift in Sources */,
+				26905DB51FE959970007E979 /* OnboardingSemesterViewController.swift in Sources */,
 				CE27EB441DED8B5B004F743B /* ImpressumViewController.swift in Sources */,
 				CEAC97351DB619D40042FF3D /* ScheduleTableViewController.swift in Sources */,
 				DA0AA5FB1EE4656100D64C63 /* ArtificialIntelligence.swift in Sources */,

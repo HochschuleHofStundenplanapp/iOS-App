@@ -790,22 +790,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Studiengang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uxZ-mi-IxA">
-<<<<<<< Updated upstream
-                                                    <rect key="frame" x="15" y="5" width="97" height="20.333333333333332"/>
-=======
                                                     <rect key="frame" x="15" y="5" width="97" height="20.5"/>
->>>>>>> Stashed changes
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" tag="2" contentMode="left" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A9B-iu-mC3">
-<<<<<<< Updated upstream
-                                                    <rect key="frame" x="15" y="25.333333333333332" width="11" height="14.333333333333334"/>
-=======
                                                     <rect key="frame" x="15" y="25.5" width="11" height="14.5"/>
->>>>>>> Stashed changes
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -825,22 +817,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Semester" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gaJ-Tc-IjF">
-<<<<<<< Updated upstream
-                                                    <rect key="frame" x="15" y="5" width="73" height="20.333333333333332"/>
-=======
                                                     <rect key="frame" x="15" y="5" width="73" height="20.5"/>
->>>>>>> Stashed changes
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vPE-3T-0XE">
-<<<<<<< Updated upstream
-                                                    <rect key="frame" x="15" y="25.333333333333332" width="11" height="14.333333333333334"/>
-=======
                                                     <rect key="frame" x="15" y="25.5" width="11" height="14.5"/>
->>>>>>> Stashed changes
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -1024,11 +1008,7 @@
                                         <rect key="frame" x="0.0" y="583.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0zE-tw-iZa" id="BcW-c0-cHF">
-<<<<<<< Updated upstream
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
->>>>>>> Stashed changes
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impressum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoQ-Vf-n0X">
@@ -1051,11 +1031,7 @@
                                         <rect key="frame" x="0.0" y="627.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="whr-K9-vcb" id="EKB-uX-gyb">
-<<<<<<< Updated upstream
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
->>>>>>> Stashed changes
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datenschutzvereinbarung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-mL-BTw">
