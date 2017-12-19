@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 import Foundation
 
 class JsonCourses {

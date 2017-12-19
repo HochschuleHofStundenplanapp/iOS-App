@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 import UserNotifications
-
+import StundenplanFramework
 
 
 @UIApplicationMain
@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             
             if ResultChanges.count > 0 {
                 print("Scho Notification")
-
+                
                 NotificationInterface().makeNotification(changesAmount: ResultChanges.count, todayChangesAmount: todayChanges.count)
                 
                 //Hier könnte ein Badge gesetzt werden!

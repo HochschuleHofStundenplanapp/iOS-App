@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class ScheduleChangesTableViewController: UITableViewController, myObserverProtocol {
 
     @IBOutlet var scheduleChangesTableView: UITableView!

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class TaskTableViewDelegate: NSObject, UITableViewDelegate {
     weak var viewCtrl: UIViewController?
     var taskToSend: Task!

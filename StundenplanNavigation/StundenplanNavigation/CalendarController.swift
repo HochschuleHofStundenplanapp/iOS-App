@@ -8,7 +8,7 @@
 
 import UIKit
 import EventKit
-
+import StundenplanFramework
 class CalendarController: NSObject {
     
     var eventStore = CalendarInterface.sharedInstance.eventStore
@@ -172,7 +172,7 @@ class CalendarController: NSObject {
         var result : Lecture? = nil
         
         for lecture in SelectedLectures().getOneDimensionalList() {
-            if(lecture.isEqual(to: change)){
+            if(lecture.isEqual(change)){
                 result = lecture
             }
         }

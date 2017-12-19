@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class CourseController: NSObject, DataObserverProtocol {
 
     var myJobManager : JobManager = JobManager()

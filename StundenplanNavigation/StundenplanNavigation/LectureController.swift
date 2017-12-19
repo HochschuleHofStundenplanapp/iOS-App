@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StundenplanFramework
 
 class LectureController: NSObject, DataObserverProtocol {
     

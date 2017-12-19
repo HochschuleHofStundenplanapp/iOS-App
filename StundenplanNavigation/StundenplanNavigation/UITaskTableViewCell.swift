@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class UITaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskTitleLabel: UILabel!
     @IBOutlet weak var taskDescriptionLabel: UILabel!

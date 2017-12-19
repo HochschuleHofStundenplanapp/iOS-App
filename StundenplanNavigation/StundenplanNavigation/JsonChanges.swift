@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StundenplanFramework
 
 class JsonChanges {
     fileprivate var pCL : [ChangedLecture]
@@ -102,13 +103,13 @@ class JsonChanges {
             let newOldTime = timeFormatter.date(from: oldTime)
             let newNewTime = timeFormatter.date(from: newTime)
             
-            let reason = (i["text"]?.string)
+            let text = (i["text"]?.string)
         
             //newOldTime = newOldTime?.changeTimeDate(date: newOldTime!)
             //newNewTime = newNewTime?.changeTimeDate(date: newNewTime!)
             
-            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom,  group: group, splusname: splusname, reason: reason)
             
+            let newCL = ChangedLecture(id: newId!, name: name, docent: docent, comment: comment, oldTime: newOldTime!, oldDate: newOldDate!, oldDay: oldDay, oldRoom: oldRoom, newTime: newNewTime, newDate: newNewDate, newDay: newDay, newRoom: newRoom, group: group, splusname: splusname, text: text)
             
           
             

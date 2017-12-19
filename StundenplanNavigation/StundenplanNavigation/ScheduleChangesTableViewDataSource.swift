@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class ScheduleChangesTableViewDataSource: NSObject, UITableViewDataSource {
     var dateFormatter : DateFormatter
     var timeFormatter : DateFormatter

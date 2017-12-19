@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class ScheduleTableViewDataSource: NSObject, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -39,9 +39,17 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
             DispatchQueue.main.async(execute: { () -> Void in
                 //Benachrichtige Alle Observer mit den Daten
                 
+<<<<<<< Updated upstream
                 //let jsonString = String(data: data!, encoding: String.Encoding.utf8)
 //                print(jsonString)
+=======
+                    //Benachrichtige Alle Observer mit den Daten
+                if let data = data {
+                let jsonString = String(data: data, encoding: String.Encoding.utf8)
+                print(jsonString)
+>>>>>>> Stashed changes
                 print("-----")
+                }
                 
                 let dataWithErrorTuple = (data,error)
                 

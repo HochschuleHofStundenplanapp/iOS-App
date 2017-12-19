@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class SelectedSemesters: NSObject {
     
     fileprivate var userdata = UserData.sharedInstance

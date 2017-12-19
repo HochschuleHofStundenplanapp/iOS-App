@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StundenplanFramework
 
 class SelectedCourses: NSObject {
 

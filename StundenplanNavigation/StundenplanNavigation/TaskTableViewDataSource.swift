@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class TaskTableViewDataSource: NSObject, UITableViewDataSource {
     private let taskDisplayCtrl = TaskDisplayController(sortMode: .date)
     

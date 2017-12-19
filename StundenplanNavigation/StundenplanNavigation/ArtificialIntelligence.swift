@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class ArtificialIntelligence: NSObject {
     let startStringArray : [String] = ["start", "beginn", "ab "]
     let endStringArray : [String] = [" ende"]

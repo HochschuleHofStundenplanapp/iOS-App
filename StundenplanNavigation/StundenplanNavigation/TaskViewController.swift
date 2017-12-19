@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StundenplanFramework
 
 class TaskViewController: UIViewController, TaskViewProtocol {
     @IBOutlet weak var taskTableView: UITableView!

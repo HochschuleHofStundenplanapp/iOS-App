@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class TmpSelectedLectures: NSObject {
 
     fileprivate var userdata: UserData

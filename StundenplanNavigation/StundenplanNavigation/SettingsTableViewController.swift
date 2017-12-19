@@ -8,7 +8,7 @@
 
 import UIKit
 import EventKit
-
+import StundenplanFramework
 class SettingsTableViewController: UITableViewController, UITabBarControllerDelegate {
     @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!

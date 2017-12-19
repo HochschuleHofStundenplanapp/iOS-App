@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class TaskLectureController {
     
     private func compare(task: Task, with lecture: Lecture, sectionWeekday: Int) -> Bool {

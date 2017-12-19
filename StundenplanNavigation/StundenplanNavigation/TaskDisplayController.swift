@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import StundenplanFramework
+
 
 class TaskDisplayController {
     private(set) var sortMode: SortMode

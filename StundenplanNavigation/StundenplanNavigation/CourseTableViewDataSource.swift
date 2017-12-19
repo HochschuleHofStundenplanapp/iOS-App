@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class CourseTableViewDataSource: NSObject, UITableViewDataSource {
     
     var tmpSelectedCourses : TmpSelectedCourses

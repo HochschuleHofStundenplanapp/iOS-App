@@ -9,6 +9,7 @@
 //!!!!!!!!!!!!!Semestera anpassen!!!!!!!!!!!!!!!!!!
 
 import UIKit
+import StundenplanFramework
 
 class JsonLectures: NSObject {
     fileprivate var pLectures : [Lecture]?

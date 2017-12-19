@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class UILecturePickerDataSource : NSObject, UIPickerViewDataSource {
     private var lectureNames: [String] = []
     

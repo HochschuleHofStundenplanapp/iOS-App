@@ -10,7 +10,7 @@ import Foundation
 
 extension Date {
     
-    var formattedDate: String {
+    public var formattedDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, dd.MM.yyyy"
         let dateString = dateFormatter.string(from: self)
@@ -375,7 +375,7 @@ extension Date {
     
         let combinedDateComponents = DateComponents(year: year, month: month, day: day, hour: hours, minute: minutes)
         let combinedDate : Date = calendar.date(from: combinedDateComponents)!
-        
+        print(combinedDate)
         return combinedDate
     }
     

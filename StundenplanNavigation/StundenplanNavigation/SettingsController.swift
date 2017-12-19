@@ -8,7 +8,7 @@
 
 import UIKit
 import EventKit
-
+import StundenplanFramework
 class SettingsController: NSObject {
     
     var tmpSelectedCourses: TmpSelectedCourses

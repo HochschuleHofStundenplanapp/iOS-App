@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import StundenplanFramework
 class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     
     var myJobManager : JobManager = JobManager()
