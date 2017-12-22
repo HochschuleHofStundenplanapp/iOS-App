@@ -16,9 +16,14 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    var navbar = UINavigationBar.appearance()
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        navbar.titleTextAttributes = [ NSAttributedStringKey.foregroundColor: UIColor.white]
+        navbar.barTintColor = UIColor.hawGrey
         
         //Setup for Notifications and BackgroundFetch
             
