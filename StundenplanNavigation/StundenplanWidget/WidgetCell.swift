@@ -10,7 +10,7 @@ import UIKit
 import StundenplanFramework
 
 class WidgetCell: UITableViewCell {
-
+    
     @IBOutlet var nowOutlet: UILabel!
     @IBOutlet var course: UILabel!
     @IBOutlet var time: UILabel!
@@ -21,27 +21,27 @@ class WidgetCell: UITableViewCell {
     var end : Date!
     var timer = Timer()
     var delegate : TableViewUpdater!
-    private var lecture : Lecture!
+    private var lectureTuple : (lecture:Lecture, day:Int)!
+    let ctrl = WidgetLectureController()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-   
-    func setLecture(lecture : Lecture, now : String) {
+    
+    func setLecture(lecture : (Lecture, Int)) {
         
-        self.lecture = lecture
-        nowOutlet.text = now
-        course.text = lecture.name
-        room.text = lecture.room
+        self.lectureTuple = lecture
+        course.text = lecture.0.name
+        room.text = lecture.0.room
         let timeFormatter = DateFormatter()
         timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
         timeFormatter.dateFormat = "HH:mm"
-        let startTimeString = timeFormatter.string(from: lecture.startTime)
-        let endTimeString = timeFormatter.string(from: lecture.endTime)
+        let startTimeString = timeFormatter.string(from: lecture.0.startTime)
+        let endTimeString = timeFormatter.string(from: lecture.0.endTime)
         time.text = "\(startTimeString) - \(endTimeString)"
-        start = Date().combineDateAndTime(date: Date(), time: lecture.startTime)
-        end = Date().combineDateAndTime(date: Date(), time: lecture.endTime)
+        start = Date().combineDateAndTime(date: Date(), time: lecture.0.startTime)
+        end = Date().combineDateAndTime(date: Date(), time: lecture.0.endTime)
         
         updateTimerAndView(start: start, end: end)
         
@@ -57,26 +57,28 @@ class WidgetCell: UITableViewCell {
     func updateTimerAndView(start: Date, end: Date){
         let restMinutes = calculateRestMinutes(end)
         let lectureDuration = calculateLectureDuration(from: start, to: end)
+        print("Rest Minutes: \(restMinutes)")
         print("Duration: \(lectureDuration)")
         let percentage = calculatePercentageRestMinutes(restMinutes, lectureDuration)
         
-        if restMinutes >= 0 && restMinutes <= lectureDuration{
-            if WidgetLectureController().isUpcomingLectureToday(){
+        let isToday = isTodayOrSameWeekdayInNextWeeks(lectureTuple.day)
+
+        if restMinutes >= 0 && isToday{
+            //if restMinutes >= 0 && restMinutes <= lectureDuration && isToday{
+            if WidgetLectureController().isUpcomingLectureToday() && restMinutes <= lectureDuration{
                 nowOutlet.text = "Jetzt"
                 timerView.percentageOfHour = percentage
                 timerView.setNeedsDisplay()
                 restTime.text = "\(restMinutes) min."
             }else{
-                nowOutlet.text = "Am 1.1.2000"
+                nowOutlet.text = "Nächste"
                 timerView.isHidden = true
                 restTime.text = ""
             }
-        }else{  //Wird aufgerufen, sobald die Stunde um ist oder keine andere Stunde heute mehr stattfindet
-            nowOutlet.text = "Nächste"
+        }else{
+            nowOutlet.text = getNowLabel(for: lectureTuple.day)
             timerView.isHidden = true
             restTime.text = ""
-            
-            
         }
         
     }
@@ -84,7 +86,7 @@ class WidgetCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -108,8 +110,40 @@ class WidgetCell: UITableViewCell {
         let double = Double(minutes)/Double(duration)
         return double
     }
+    
+    func getNowLabel(for day: Int) -> String {
+        let curWeekday = ctrl.getWeekday()
+        let dif = day - curWeekday
+        
+        switch dif {
+        case 1:
+            return "Morgen"
+        case 2:
+            return "Übermorgen"
+        default:
+            let timeInterval = Double(dif*3600*24)
+            let date = Date().addingTimeInterval(timeInterval)
+            let formatter = DateFormatter()
+            formatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+            formatter.dateFormat = "dd.MM.YYYY"
+            return formatter.string(from: date)
+        }
+        
+    }
+    
+    private func isTodayOrSameWeekdayInNextWeeks(_ day: Int) -> Bool {
+        print("Day+1= \(day+1) Weekday+1=\(ctrl.getWeekday()+1)")
+        return (day+1) / (ctrl.getWeekday()+1) == 1
+    }
+    
+    
+    
+    
+    
 }
+
 
 protocol TableViewUpdater {
     func updateTableView(hide: Bool, timerView: TimerView)
 }
+

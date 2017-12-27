@@ -9,24 +9,27 @@
 import UIKit
 import StundenplanFramework
 
-class widgetTableViewDataSource: NSObject, UITableViewDataSource {
+class WidgetTableViewDataSource: NSObject, UITableViewDataSource {
     
     let lectureCtrl = WidgetLectureController()
     var expanded = false
     var delegate : TableViewUpdater!
+    var firstIsNext = false
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WidgetCell") as! WidgetCell
-        let lecture = lectureCtrl.getAllLecture()[indexPath.row]
+        let (lecture, day) = lectureCtrl.getAllLecture()[indexPath.row]
         cell.delegate = delegate
         
-        if indexPath.row == 0 {
-            cell.setLecture(lecture: lecture, now: "Jetzt")
-        }else{
-           cell.setLecture(lecture: lecture, now: "Nächste")
-            cell.timerView.isHidden = true
-        }
         
+        cell.setLecture(lecture: (lecture,day))
+        
+        // Kann man sicher besser machen
+        if indexPath.row == 0 && cell.nowOutlet.text == "Nächste" {
+            firstIsNext = true
+        }else if indexPath.row == 1 && firstIsNext && cell.nowOutlet.text == "Nächste"{
+            cell.nowOutlet.text = "Übernächste"
+        }
         
         return cell
     }
@@ -40,3 +43,4 @@ class widgetTableViewDataSource: NSObject, UITableViewDataSource {
         }
     }
 }
+

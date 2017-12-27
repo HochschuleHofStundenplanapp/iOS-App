@@ -16,12 +16,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
     @IBOutlet var tableView: UITableView!
     @IBOutlet var changesHeightConstraint: NSLayoutConstraint!
  
-    var dataSource : widgetTableViewDataSource!
+    var dataSource : WidgetTableViewDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
-        dataSource = widgetTableViewDataSource()
+        dataSource = WidgetTableViewDataSource()
         dataSource.delegate = self
         tableView.dataSource = dataSource
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
