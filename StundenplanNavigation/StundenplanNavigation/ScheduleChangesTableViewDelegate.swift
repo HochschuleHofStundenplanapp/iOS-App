@@ -22,9 +22,9 @@ class ScheduleChangesTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerTitle = view as? UITableViewHeaderFooterView {
-            headerTitle.textLabel?.textColor = appColor.headerText
-            headerTitle.contentView.backgroundColor = appColor.headerBackground
-            headerTitle.textLabel?.textAlignment = .center
+            headerTitle.textLabel?.textColor = appColor.headerBackground
+            headerTitle.backgroundView?.backgroundColor = UIColor(red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1.0)
+            headerTitle.textLabel?.textAlignment = .left
         }
     }
     

@@ -29,6 +29,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     var selectedSemesterString = "..."
     
     var settingsController: SettingsController!
+    var navBar = UINavigationBar.appearance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         facultySegmentControl.tintColor = appColor.tintColor
         
         tabBarController?.tabBar.tintColor = appColor.tintColor
-        navigationController?.navigationBar.tintColor = appColor.tintColor
+        navigationController?.navigationBar.barTintColor = appColor.tintColor
+        navBar.barTintColor = appColor.tintColor
         
     
         if let navigationController =  tabBarController?.viewControllers?[2] as? UINavigationController {

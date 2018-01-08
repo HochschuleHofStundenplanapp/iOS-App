@@ -19,10 +19,12 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
 
-        header.backgroundView?.backgroundColor = appColor.headerBackground
-        header.textLabel?.textColor = appColor.headerText
+        header.backgroundView?.backgroundColor = UIColor(red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1.0)
+        header.textLabel?.textColor = appColor.headerBackground
         
-        header.textLabel?.textAlignment = .center
+        header.textLabel?.text = header.textLabel?.text?.uppercased()
+        
+        header.textLabel?.textAlignment = .left
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
