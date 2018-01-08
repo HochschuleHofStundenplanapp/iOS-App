@@ -27,6 +27,7 @@ class Constants :NSObject {
     static let changesRoomChanged = "[Raumänderung] "
     static let changesFailed = "[Entfällt] "
     static let readNotes = "⚠︎ [Notizen lesen] "
+    static let hasTaskNote = "⚠︎ "
     static let noteNotParsable = "Terminangaben unklar, bitte selber überprüfen: "
     // Falls der AlarmOffset größer 0 ist wird ein Alarm gesetzt (Größeneinheit : Sekunden)
     static let calendarAlarmOffset = 0.0

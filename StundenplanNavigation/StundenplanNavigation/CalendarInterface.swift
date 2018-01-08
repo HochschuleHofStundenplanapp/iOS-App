@@ -404,6 +404,7 @@ class CalendarInterface: NSObject {
                 if event.title == task.lecture && event.startDate.formattedDate == task.dueDate.formattedDate {
                     let taskNote = "\n\(task.title)\n\(task.taskDescription)"
                     event.notes?.append(taskNote)
+                    event.title.insert(contentsOf: Constants.hasTaskNote, at: event.title.startIndex)
                     do {
                         try eventStore.save(event, span: .thisEvent)
                     } catch {
@@ -417,9 +418,10 @@ class CalendarInterface: NSObject {
     public func removeTaskFromCalendar(task: Task) {
         if let events = getCalendarEvents() {
             for event in events {
-                if event.title == task.lecture && event.startDate.formattedDate == task.dueDate.formattedDate {
+                if event.title == "\(Constants.hasTaskNote)\(task.lecture)" && event.startDate.formattedDate == task.dueDate.formattedDate {
                     let taskNote = "\n\(task.title)\n\(task.taskDescription)"
                     event.notes = event.notes?.replacingOccurrences(of: taskNote, with: "")
+                    event.title = event.title.replacingOccurrences(of: Constants.hasTaskNote, with: "")
                     do {
                         try eventStore.save(event, span: .thisEvent)
                     } catch {
