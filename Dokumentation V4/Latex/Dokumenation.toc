@@ -37,13 +37,13 @@
 \contentsline {section}{\numberline {6.3}Erster Bug}{17}{section.6.3}
 \contentsline {chapter}{\numberline {7}Aufgaben Erweiterung}{18}{chapter.7}
 \contentsline {section}{\numberline {7.1}Einleitung}{18}{section.7.1}
-\contentsline {section}{\numberline {7.2}Planung}{18}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Mockup}{18}{subsection.7.2.1}
-\contentsline {section}{\numberline {7.3}Umsetzung}{18}{section.7.3}
-\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{19}{chapter.8}
-\contentsline {section}{\numberline {8.1}Einleitung}{19}{section.8.1}
-\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{19}{section.8.2}
-\contentsline {chapter}{\numberline {9}Onboarding}{20}{chapter.9}
-\contentsline {section}{\numberline {9.1}Einleitung}{20}{section.9.1}
-\contentsline {chapter}{\numberline {10}Universal App Colors}{21}{chapter.10}
-\contentsline {section}{\numberline {10.1}Einleitung}{21}{section.10.1}
+\contentsline {section}{\numberline {7.2}Planung}{19}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Mockup}{19}{subsection.7.2.1}
+\contentsline {section}{\numberline {7.3}Umsetzung}{20}{section.7.3}
+\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{21}{chapter.8}
+\contentsline {section}{\numberline {8.1}Einleitung}{21}{section.8.1}
+\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{21}{section.8.2}
+\contentsline {chapter}{\numberline {9}Onboarding}{22}{chapter.9}
+\contentsline {section}{\numberline {9.1}Einleitung}{22}{section.9.1}
+\contentsline {chapter}{\numberline {10}Universal App Colors}{23}{chapter.10}
+\contentsline {section}{\numberline {10.1}Einleitung}{23}{section.10.1}
