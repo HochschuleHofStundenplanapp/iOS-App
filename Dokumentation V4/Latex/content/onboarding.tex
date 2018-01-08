@@ -5,3 +5,16 @@ Patrick Niepel \& Marcel Hagmann \& Carl Philipp Knoblauch
 Eine weitere Aufgabe, die unsere Gruppe übernommen hat, war das Onboarding für die Stundenplan App. In dem Onboarding kann der Nutzer gleich zum Start der App seine Einstellungen zu Fakultät, Studiengang, Semester, Vorlesung und Kalendersynchronisation vornehmen. Das Onboarding wird gestartet, wenn noch keine Angaben zu den genannten Einstellungen gemacht wurden.
 
 
+\section{Umsetzung}
+Zuerst überlegten wir uns, welche Informationen die App vom Nutzer benötigt, damit der Dienst im vollen Umfang verwendet werden kann.
+Dabei kamen wir auf folgendes Ergebnis:
+1. Fakultät (die, die Farbe der App bestimmt)
+2. Abfrage der Fakultät
+3. Abfrage der Fakultät
+4. Abfrage des Studiengangs
+5. Abfrage des Semesters
+6. Abfrage der besuchten Vorlesungen
+7. Ob eine Synchronisation mit dem Kalender gewünscht ist
+
+Das gesamte Onboarding befindet sich in einem separaten Storyboard (Onboarding.storyboard), damit die Übersichtlichkeit des aktuellen Projektes weiterhin gewährleistet wird.
+Jeder Schritt im Onboarding (Ausnahme: Kalendersynchronisation) kann nur fortgesetzt werden, wenn eine Auswahl getroffen worden ist, die für die weiteren Schritte zwingend notwendig ist.

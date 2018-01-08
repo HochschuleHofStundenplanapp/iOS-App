@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  22 DEC 2017 10:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  8 JAN 2018 12:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2188,34 +2188,30 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 8.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 8.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 12.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 12.
  <./images/Mockup_ios_aufgaben.pdf, id=375, 490.28384pt x 419.7826pt>
 File: ./images/Mockup_ios_aufgaben.pdf Graphic file (type pdf)
 
 <use ./images/Mockup_ios_aufgaben.pdf>
-Package pdftex.def Info: ./images/Mockup_ios_aufgaben.pdf used on input line 19
+Package pdftex.def Info: ./images/Mockup_ios_aufgaben.pdf used on input line 15
 .
 (pdftex.def)             Requested size: 403.31511pt x 345.31927pt.
 File: ./images/fh_logo.jpg Graphic file (type jpg)
  <use ./images/fh_logo.jpg>
-Package pdftex.def Info: ./images/fh_logo.jpg used on input line 24.
+Package pdftex.def Info: ./images/fh_logo.jpg used on input line 20.
 (pdftex.def)             Requested size: 45.18515pt x 31.83195pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 24.
+(babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 24.
+(babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 24.
+(babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 24.
+(babel)             in language  on input line 20.
  [19 <./images/Mockup_ios_aufgaben.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 25.
+(babel)             in language  on input line 21.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 25.
+(babel)             in language  on input line 21.
 )
 File: ./images/fh_logo.jpg Graphic file (type jpg)
  <use ./images/fh_logo.jpg>
@@ -2244,9 +2240,15 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 7.
+(babel)             in language  on input line 8.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 7.
+(babel)             in language  on input line 8.
+
+Overfull \hbox (5.01706pt too wide) in paragraph at lines 21--24
+\OT1/cmr/m/n/10.95 von 2017 das Jahr 2017 aus-ge-ge-ben wur-de, was da-zu f[]uh
+rte, dass die Semestervorlesungsstunden-
+ []
+
 )
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
@@ -2273,7 +2275,16 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 8.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 8.
 )
+Overfull \hbox (2.7055pt too wide) in paragraph at lines 19--107
+[]\OT1/cmr/m/n/10.95 Das ge-sam-te On-boar-ding be-fin-det sich in ei-nem se-pa
+-ra-ten Sto-ry-board (On-boar-ding.storyboard),
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2282,7 +2293,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 107.
- [22
+[22
 
 
 
@@ -2300,7 +2311,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
 
-Overfull \hbox (5.62538pt too wide) in paragraph at lines 5--6
+Overfull \hbox (5.62538pt too wide) in paragraph at lines 5--7
 \OT1/cmr/m/n/10.95 kann und die-se dann f[]ur die gan-ze App []ubernommen wer-d
 en. Die Hoch-schul-far-ben re-pr[]asentieren
  []
@@ -2342,34 +2353,43 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
 (./content/calendar.aux) (./content/onboarding.aux) (./content/colors.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
-Package rerunfilecheck Info: File `Dokumenation.out' has not changed.
-(rerunfilecheck)             Checksum: 088B906D17D39B372B029B4FD4D31938;2977.
 
+
+Package rerunfilecheck Warning: File `Dokumenation.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Dokumenation.out':
+(rerunfilecheck)             Before: 088B906D17D39B372B029B4FD4D31938;2977
+(rerunfilecheck)             After:  89D7A274AC63C22889E2215295D4B3FF;2987.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
  ) 
 Here is how much of TeX's memory you used:
- 39308 strings out of 492995
- 884794 string characters out of 6132704
+ 39309 strings out of 492995
+ 884805 string characters out of 6132704
  1158479 words of memory out of 5000000
  42167 multiletter control sequences out of 15000+600000
  10249 words of font info for 36 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  73i,15n,100p,10447b,1323s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Dokumenation.pdf (27 pages, 496568 bytes).
+pdfTeX warning (dest): name{subsection.7.2.1} has been referenced but does no
+t exist, replaced by a fixed one
+
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Dokumenation.pdf (27 pages, 499765 bytes).
 PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
- 433 compressed objects within 5 object streams
- 95 named destinations out of 1000 (max. 500000)
+ 490 PDF objects out of 1000 (max. 8388607)
+ 434 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
  417 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,7 +2,24 @@
 Patrick Niepel \& Marcel Hagmann \& Carl Philipp Knoblauch
 
 \section{Einleitung}
-Wir haben die Kalenderschnittstelle komplett überarbeitet.
+Da Code öfters über die Zeit an Übersichtlichkeit und Korrektheit verliert, wie es in der Kalenderschnittstelle der Fall war, muss dieser in regelmäßigen Abständen kontrolliert und überarbeitet werden.
+Um was wir uns kümmerten.
 
 \section{Überarbeitung}
+Eigentlich wollten wir nur die folgenden Klassen überarbeiten:
+* CalendarController
+* CalendarInterface
 
+Allerdings waren unsere Änderungen so groß, dass folgende Klassen auch davon betroffen waren:
+* DateExtension
+* NotificationNameExtension
+* SettingsController
+* SettingsTableViewController
+
+Als erstes überarbeiteten wir den einfachen Teil, die Übersichtlichkeit des Codes. Da Code von oben nach unten gelesen wird und beim Lesen des alten Codes viel hin und her gesprungen werden muss, ordneten wir zu allererst die Reihenfolge der einzelnen Methoden in.
+
+Danach überprüften wir jede Methode auf Logikfehler und bemerkten dabei, dass unsere Vorgänge an der ein oder anderen Stelle gepfuscht haben, wodurch sich dann Folgefehler durch das gesamte Programm zogen.
+Einer dieser Fehler war Beispielsweise der, dass in gewissen Vorlesungsstunden der Vorlesungsbeginn in der Klasse xxx, falsch berechnet wird und so Anstelle von 2017 das Jahr 2017 ausgegeben wurde, was dazu führte, dass die Semestervorlesungsstunden-Berechnung nicht von 9 Millionen (das ein paar Sekunden dauert) von 6 Milliarden berechnet wurde und somit dazu führte, dass die App für den Nutzer “einfriert”.
+Wir fanden diesen Fehler und entfernten diesen und damit auch die dadurch unnötig gewordenen Notifications, die die Vorgänger dazu verwendeten um vorzeitig aus dieser “fast Endlosschleife” auszubrechen.
+
+Des Weiteren sorgten wir für eine bessere Behandlung der Fehler die während der Ausführung der Operationen auftreten konnten, das die Kalendersynchronisation im Hintergrund auch nach dem Schließen der App weiter läuft, der Kalender anhand seiner ID gesichert wird und der alte Kalender dementsprechend durch den neuen ausgetauscht wird.
