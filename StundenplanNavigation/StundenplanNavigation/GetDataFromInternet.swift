@@ -42,7 +42,7 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
                     //Benachrichtige Alle Observer mit den Daten
                 if let data = data {
                 let jsonString = String(data: data, encoding: String.Encoding.utf8)
-                print(jsonString)
+                    print(jsonString!)
                 print("-----")
                 }
                 

@@ -66,7 +66,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
             print(tableView.numberOfRows(inSection: 0))
             
             let cell =  tableView.cellForRow(at: tableView.indexPathsForVisibleRows![0])
-            print(cell)
+            print(cell!)
             if let cell = cell{
                 preferredContentSize = CGSize(width: 0, height: CGFloat(cell.frame.height * 2)+10+changesHeightConstraint.constant)
             }
