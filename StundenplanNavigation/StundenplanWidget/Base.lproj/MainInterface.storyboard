@@ -87,10 +87,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widgetArrow" translatesAutoresizingMaskIntoConstraints="NO" id="xPm-f9-KnD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="12"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="TvJ-EB-Y5D"/>
-                                                        <constraint firstAttribute="width" constant="64" id="VnI-nH-4R1"/>
+                                                        <constraint firstAttribute="width" constant="80" id="VnI-nH-4R1"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jetzt" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-Ti-4mQ">

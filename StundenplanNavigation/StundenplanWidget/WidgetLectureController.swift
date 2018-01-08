@@ -14,27 +14,31 @@ class WidgetLectureController {
     private let date = Date()
     private let calendar = Calendar.current
     var lecturesForCurrentDay : [Lecture] = []
+    let dataPersistency : DataObjectPersistency!
     
     init(){
+        dataPersistency = DataObjectPersistency()
         let _ = getAllLecture()
     }
     
-    func getAllLecture() -> [Lecture] {
-       
+    func getAllLecture() -> [(lecture:Lecture, day:Int)] {
+        
         let day = getWeekday()
-        lecturesForCurrentDay = DataObjectPersistency().loadDataObject().selectedSchedule.lectures[day]
-
-        var resultLectures : [Lecture] = []
+        lecturesForCurrentDay = dataPersistency.loadDataObject().selectedSchedule.lectures[day]
+        
+        var resultLectures : [(Lecture, Int)] = []
         
         let currentLecture = getCurrentLecture()
         
         if let aLecture = currentLecture {
-            resultLectures.append(aLecture)
+            resultLectures.append((aLecture,day))
         }
         
         let upcoming = lecturesForCurrentDay.filter { (lecture) -> Bool in
             let dateTime = date.combineDateAndTime(date: date, time: lecture.startTime)
             return date.timeIntervalSinceReferenceDate <= dateTime.timeIntervalSinceReferenceDate
+            }.map { (lecture) -> (Lecture, Int) in
+                return (lecture,day)
         }
         resultLectures+=upcoming
         
@@ -58,13 +62,17 @@ class WidgetLectureController {
     }
     
     
-    func getLecturesFor(_ weekday: Int) -> [Lecture] {
+    func getLecturesFor(_ weekday: Int) -> [(Lecture, Int)] {
         let aNextWeekday = nextWeekday(of: weekday)
         let lecturesOnWeekday = DataObjectPersistency().loadDataObject().selectedSchedule.lectures[weekday]
         if lecturesOnWeekday.count < 2{
-            return lecturesOnWeekday + getLecturesFor(aNextWeekday)
+            return lecturesOnWeekday.map({ (lecture) -> (Lecture,Int) in
+                return (lecture,weekday)
+            }) + getLecturesFor(aNextWeekday)
         }else{
-            return lecturesOnWeekday
+            return lecturesOnWeekday.map({ (lecture) -> (Lecture,Int) in
+                return (lecture, weekday)
+            })
         }
         
     }
@@ -78,11 +86,11 @@ class WidgetLectureController {
     }
     
     /*
-        Calculates the current Weekday. Swift returns Weekday 1 for Sunday, to map it to the model we need Weekday 6. For the other Weekdays we need to subtract 2. Example: Weekday for Monday = 2 (Sunday is 1) -> Weekday-2 = 0 = Monday
-    */
+     Calculates the current Weekday. Swift returns Weekday 1 for Sunday, to map it to the model we need Weekday 6. For the other Weekdays we need to subtract 2. Example: Weekday for Monday = 2 (Sunday is 1) -> Weekday-2 = 0 = Monday
+     */
     func getWeekday() -> Int{
-         let day = calendar.component(.weekday, from: date)
-
+        let day = calendar.component(.weekday, from: date)
+        
         if day == 1 {
             return 6
         }else {
