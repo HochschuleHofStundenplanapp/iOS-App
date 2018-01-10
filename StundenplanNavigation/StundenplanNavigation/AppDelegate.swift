@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         
 //        print("Server: \(ServerData.sharedInstance.allChanges)")
         
-        
+        registerForPushNotification()
         UIApplication.shared.registerForRemoteNotifications()
         
         return true
@@ -47,8 +47,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         print("DeviceToken1: \(deviceToken)")
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print("DeviceToken: \(token)")
+        forwardTokenToServer(deviceToken: token)
     }
-    
+    func forwardTokenToServer(deviceToken: String){
+        //now find all courses
+        let lectures = UserData.sharedInstance.selectedSchedule.getOneDimensionalList()
+        // var pushJSON : [String: Any] =   fix later
+        print("lectures->count\(lectures.count)")
+        var jsonLectures : [String: [Any]] = [:]
+        var tmpArray: [String] = []
+        for item in lectures{
+            tmpArray.append(item.splusname)
+        }
+        jsonLectures.updateValue(tmpArray, forKey: "lecture")
+        
+        var payload : [String: Any] = ["fcm_token": deviceToken]
+        
+        payload.updateValue(tmpArray, forKey: "vorlesung_id")
+        let osparm = 1
+        payload.updateValue(osparm, forKey: "os")
+        print(payload)
+        
+        print("tmp -> Count\(payload.count)")
+        let isValidJson = JSONSerialization.isValidJSONObject(payload)
+        if isValidJson{
+            print("isValid")
+            sendToServer(jsonObject: payload)
+        }
+    }
+    func sendToServer(jsonObject: [String: Any]){
+        let username = "soapuser"
+        let password = "F%98z&12"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        //### if plist
+        let myUrl = String(format: "https://apptest.hof-university.de/soap/fcm_register_user_new.php")
+        
+        var request = URLRequest(url:URL(string: myUrl)!)
+        
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        
+        
+        request.httpMethod = "POST"
+        
+        //let params = ["email":"name@mail.com", "password":"password"]
+        let params = jsonObject
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        print(params)
+        
+        URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
+            if let safeData = data{
+                print("response: \(String(data:safeData, encoding:.utf8))")
+            }
+            }.resume()
+    }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error)
     }
@@ -168,12 +226,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     func removeAllNotifications(){
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
+    func registerForPushNotification(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+        }
+    }
 
-    
-//    func registerForPushNotification(){
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-//            (granted, error) in
-//            print("Permission granted: \(granted)")
-//        }
-//    }
 }
