@@ -57,7 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         var jsonLectures : [String: [Any]] = [:]
         var tmpArray: [String] = []
         for item in lectures{
-            tmpArray.append(item.splusname)
+            if !tmpArray.contains(item.splusname){ //hotfix should be fix on my_schedule 
+                tmpArray.append(item.splusname)
+            }
         }
         jsonLectures.updateValue(tmpArray, forKey: "lecture")
         
