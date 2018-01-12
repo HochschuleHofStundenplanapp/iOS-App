@@ -68,6 +68,10 @@ struct AppColor {
         return tintColor
     }
     
+    var navigationBarTintColor: UIColor {
+        return UIColor.white
+    }
+    
 }
 
 enum Faculty {

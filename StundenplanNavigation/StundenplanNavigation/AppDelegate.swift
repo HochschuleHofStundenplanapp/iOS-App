@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         
 //        print("Server: \(ServerData.sharedInstance.allChanges)")
         
-        registerForPushNotification()
         UIApplication.shared.registerForRemoteNotifications()
         
         return true
