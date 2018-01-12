@@ -208,7 +208,9 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             self.settingsController.commitChanges()
             DispatchQueue.main.async {
                 self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+                UIApplication.shared.registerForRemoteNotifications()
                 self.backgroundProgressIndicator.stopActivityIndicator()
+                
             }
         }
     }

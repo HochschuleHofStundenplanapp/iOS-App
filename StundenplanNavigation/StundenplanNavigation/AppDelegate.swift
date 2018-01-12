@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 //        ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
         
 //        print("Server: \(ServerData.sharedInstance.allChanges)")
-        
+  
         registerForPushNotification()
         UIApplication.shared.registerForRemoteNotifications()
         
@@ -83,10 +83,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
+        var myUrl : String = "https://apptest.hof-university.de/soap/fcm_register_user.php" //default value
+        let resourceFileDictinoary: NSDictionary?
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist"){
+            resourceFileDictinoary = NSDictionary(contentsOfFile: path)
+            if let dict = resourceFileDictinoary{
+                if !(dict["isPushTesting"] as! Bool){
+                   let productive = dict["ProductiveURL"] as! String
+                    myUrl = productive + "fcm_update_and_send.php"
+                }
+                else{
+                    myUrl = dict["TestURL"] as! String + "fcm_register_user_new.php"
+                }
+            }
+            
+        }
         
-        //### if plist
-        let myUrl = String(format: "https://apptest.hof-university.de/soap/fcm_register_user_new.php")
-        
+        //### if plist change url
+        print("Url: \(myUrl)")
         var request = URLRequest(url:URL(string: myUrl)!)
         
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")

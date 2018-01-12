@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ProductiveURL</key>
+	<string>https://app.hof-university.de/soap/</string>
+	<key>TestURL</key>
+	<string>https://apptest.hof-university.de/soap/</string>
+	<key>isPushTesting</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
