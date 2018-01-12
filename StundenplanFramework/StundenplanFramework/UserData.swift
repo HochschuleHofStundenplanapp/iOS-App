@@ -89,8 +89,8 @@ public class UserData: NSObject, NSCoding{
         addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
         oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
         tasks = aDecoder.decodeObject(forKey: tasksKey) as? [Task] ?? []
-        selectedAppColor = (aDecoder.decodeObject(forKey:appcolorKey) as? String)!
-        print("decoded app Color: " + (aDecoder.decodeObject(forKey:appcolorKey) as? String)!)
+        selectedAppColor = (aDecoder.decodeObject(forKey:appcolorKey) as? String ?? "")
+        //print("decoded app Color: " + (aDecoder.decodeObject(forKey:appcolorKey) as? String)!)
         print("myAppColor is:" + selectedAppColor)
         
         
