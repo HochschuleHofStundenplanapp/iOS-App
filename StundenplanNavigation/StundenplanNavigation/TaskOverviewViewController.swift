@@ -12,11 +12,13 @@ class TaskLectureController {
     
     private func compare(task: Task, with lecture: Lecture, sectionWeekday: Int) -> Bool {
         let equalLecture = lecture.name.contains(task.lecture)
-        let weekdayTask = Calendar.current.component(.weekday, from: task.dueDate)
         
-        let equalWeekday = sectionWeekday == (weekdayTask - 2) //zB Section der Vorlesung == 0 && Wochentag des Tasks ist Montag -> 2 (Sonntag = 1)
+        // Auskommentieren wenn roter Punkt nur zur Vorlesung angezeigt werden soll, für die das Datum der Aufgabe mit dem Wochentag der Vorlesung übereinstimmt
+        //let weekdayTask = Calendar.current.component(.weekday, from: task.dueDate)
+        //let equalWeekday = sectionWeekday == (weekdayTask - 2) //zB Section der Vorlesung == 0 && Wochentag des Tasks ist Montag -> 2 (Sonntag = 1)
         
-        return equalLecture && equalWeekday
+        // Roter Punkt wird bei jeder Vorlesung für das Fach angezeigt
+        return equalLecture
     }
     
     func hasTask(for lecture: Lecture, at sectionWeekday: Int) -> Bool {
