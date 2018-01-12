@@ -26,7 +26,7 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerTitle = view as? UITableViewHeaderFooterView {
             headerTitle.textLabel?.textColor = appColor.headerText
-            headerTitle.contentView.backgroundColor = appColor.headerBackground
+//            headerTitle.contentView.backgroundColor = appColor.headerText
             headerTitle.textLabel?.textAlignment = .center
         }
     }

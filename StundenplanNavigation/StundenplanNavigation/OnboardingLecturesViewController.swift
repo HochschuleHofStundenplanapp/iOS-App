@@ -67,8 +67,8 @@ class OnboardingLecturesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OnboardingToPermissions" {
-            let destinationCtrl = segue.destination as! OnboardingPermissionsViewController
+        if segue.identifier == "OnboardingToPermissionsPush" {
+            let destinationCtrl = segue.destination as! OnboardingPermissionsPushViewController
             destinationCtrl.settingsController = settingsController
         }
     }

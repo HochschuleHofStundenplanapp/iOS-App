@@ -20,7 +20,7 @@ class ScheduleTableViewDelegate: NSObject, UITableViewDelegate {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
 
         header.backgroundView?.backgroundColor = UIColor(red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1.0)
-        header.textLabel?.textColor = appColor.headerBackground
+        header.textLabel?.textColor = appColor.headerText
         
         header.textLabel?.text = header.textLabel?.text?.uppercased()
         

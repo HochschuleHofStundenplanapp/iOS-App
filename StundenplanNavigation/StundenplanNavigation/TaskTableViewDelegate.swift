@@ -35,7 +35,7 @@ class TaskTableViewDelegate: NSObject, UITableViewDelegate {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.white
         header.textLabel?.textAlignment = .center
-        header.backgroundView?.backgroundColor = appColor.headerBackground
+        header.backgroundView?.backgroundColor = appColor.headerText
         header.textLabel?.textColor = appColor.headerText
     }
 }

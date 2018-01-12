@@ -81,8 +81,7 @@ class LectureController: NSObject, DataObserverProtocol {
     }
     
     func selectAllLectures() {
-        let allLectures = AllLectures().getLectures()
-        tmpSelectedLectures.set(lectures: allLectures)
+        tmpSelectedLectures.set(lectures: AllLectures().getLectures())
     }
     
     func deselectAllLectures(){
