@@ -26,13 +26,14 @@ public class UserData: NSObject, NSCoding{
     public var selectedSchedule: Schedule = Schedule()
     public var oldChanges : [ChangedLecture] = []
     public var tasks: [Task] = []
+    public var selectedAppColor : String = ""
     
     public var calendarIdentifier: String?
     
     public var removedLectures: [Lecture] = []
     public var addedLectures: [Lecture] = []
     
-    let callenderSyncKey = "callenderSync"
+    let calenderSyncKey = "callenderSync"
     let selectedSeasonKey = "selectedSeason"
     let selectedCoursesKey = "selectedCourses"
     let selectedSemestersKey = "selectedSemesters"
@@ -42,6 +43,7 @@ public class UserData: NSObject, NSCoding{
     let addedLecturesKey = "addedLectures"
     let oldChangesKey = "oldChanges"
     let tasksKey = "taskKey"
+    let appcolorKey = "appcolor"
 
     private override init(){}
     
@@ -56,7 +58,14 @@ public class UserData: NSObject, NSCoding{
         copy.addedLectures = addedLectures
         copy.calenderSync = calenderSync
         copy.tasks = tasks
+        copy.selectedAppColor = selectedAppColor
         return copy
+    }
+    
+    public func setSelectedAppColor (newAppColor : String) {
+        selectedAppColor = newAppColor
+        print("new set AppColor: " +  selectedAppColor)
+        
     }
     
     public func wipeUserData(){
@@ -70,7 +79,7 @@ public class UserData: NSObject, NSCoding{
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        calenderSync = aDecoder.decodeBool(forKey: callenderSyncKey)
+        calenderSync = aDecoder.decodeBool(forKey: calenderSyncKey)
         selectedSeason = aDecoder.decodeObject(forKey: selectedSeasonKey) as! String
         selectedCourses = aDecoder.decodeObject(forKey: selectedCoursesKey) as! [Course]
         selectedSemesters = aDecoder.decodeObject(forKey: selectedSemestersKey) as! [Semester]
@@ -80,12 +89,16 @@ public class UserData: NSObject, NSCoding{
         addedLectures = aDecoder.decodeObject(forKey: addedLecturesKey) as! [Lecture]
         oldChanges = aDecoder.decodeObject(forKey: oldChangesKey) as! [ChangedLecture]
         tasks = aDecoder.decodeObject(forKey: tasksKey) as? [Task] ?? []
-
+        selectedAppColor = (aDecoder.decodeObject(forKey:appcolorKey) as? String)!
+        print("decoded app Color: " + (aDecoder.decodeObject(forKey:appcolorKey) as? String)!)
+        print("myAppColor is:" + selectedAppColor)
+        
+        
         super.init()
     }
     
     public func encode(with aCoder: NSCoder) {
-        aCoder.encode(calenderSync, forKey: callenderSyncKey)
+        aCoder.encode(calenderSync, forKey: calenderSyncKey)
         aCoder.encode(selectedSeason, forKey: selectedSeasonKey)
         aCoder.encode(selectedCourses, forKey: selectedCoursesKey)
         aCoder.encode(selectedSemesters, forKey: selectedSemestersKey)
@@ -95,6 +108,7 @@ public class UserData: NSObject, NSCoding{
         aCoder.encode(addedLectures, forKey: addedLecturesKey)
         aCoder.encode(oldChanges, forKey: oldChangesKey)
         aCoder.encode(tasks, forKey: tasksKey)
-        
-    }
+        aCoder.encode(selectedAppColor, forKey: appcolorKey)
+        print("encoded AppColor: " + selectedAppColor)
+        }
 }

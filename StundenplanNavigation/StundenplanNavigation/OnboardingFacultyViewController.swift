@@ -32,7 +32,8 @@ class OnboardingFacultyViewController: UIViewController {
 
     @objc func setUpUI() {
         self.facultySegmentedControl.tintColor = appColor.tintColor
-        self.navigationController?.navigationBar.tintColor = appColor.tintColor
+        self.navigationController?.navigationBar.tintColor = appColor.navigationBarTintColor
+        self.navigationController?.navigationBar.barTintColor = appColor.tintColor
     }
     
     @IBAction func selectedFacultySegmentedControllAction(_ sender: UISegmentedControl) {
@@ -50,6 +51,7 @@ class OnboardingFacultyViewController: UIViewController {
             appColor.faculty = .default
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Standard")
         }
+        setUpUI()
     }
     
 }

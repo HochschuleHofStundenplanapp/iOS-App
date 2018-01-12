@@ -30,6 +30,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     var settingsController: SettingsController!
     var navBar = UINavigationBar.appearance()
+    let UsrData : UserData = UserData.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -273,15 +274,27 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     
     @IBAction func changeFacultyColor(_ sender: UISegmentedControl) {
+        
+        /* Ist das Debug Code und kann das weg?
         let task = Task(title: "Task Title :)", dueDate: Date(), taskDescription: "Beschreibung", lecture: "Fortgeschrittene Programmierung unter Swift 3")
         
         CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
         CalendarInterface.sharedInstance.removeTaskFromCalendar(task: task)
+ 
+        */
         switch sender.selectedSegmentIndex {
-        case 0: appColor.faculty = .economics
-        case 1: appColor.faculty = .computerScience
-        case 2: appColor.faculty = .engineeringSciences
-        default: appColor.faculty = .default
+        case 0:
+            appColor.faculty = .economics
+            UsrData.setSelectedAppColor(newAppColor: "economics")
+        case 1:
+            appColor.faculty = .computerScience
+            UsrData.setSelectedAppColor(newAppColor: "computerScience")
+        case 2:
+            appColor.faculty = .engineeringSciences
+            UsrData.setSelectedAppColor(newAppColor: "engineeringScience")
+        default:
+            appColor.faculty = .default
+            UsrData.setSelectedAppColor(newAppColor: "default")
         }
         setUpUI()
     }

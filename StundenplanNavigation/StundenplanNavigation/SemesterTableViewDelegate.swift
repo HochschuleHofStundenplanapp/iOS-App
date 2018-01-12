@@ -25,7 +25,7 @@ class SemesterTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerTitle = view as? UITableViewHeaderFooterView {
             headerTitle.textLabel?.textColor = appColor.headerText
-            headerTitle.contentView.backgroundColor = appColor.headerBackground
+//            headerTitle.contentView.backgroundColor = appColor.headerBackground
             headerTitle.textLabel?.textAlignment = .center
         }
     }

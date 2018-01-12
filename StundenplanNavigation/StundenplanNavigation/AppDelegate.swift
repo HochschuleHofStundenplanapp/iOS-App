@@ -16,14 +16,18 @@ import StundenplanFramework
 class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    var navbar = UINavigationBar.appearance()
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UserData.sharedInstance = DataObjectPersistency().loadDataObject()
         
-        navbar.titleTextAttributes = [ NSAttributedStringKey.foregroundColor: UIColor.white]
-        navbar.barTintColor = UIColor.hawGrey
+        let faculty = Faculty(facultyName: UserData.sharedInstance.selectedAppColor)
+        appColor.faculty = faculty
+        
+        let navbar = UINavigationBar.appearance()
+        setupAppColor()
+        navbar.barTintColor = appColor.tintColor
         
         //Setup for Notifications and BackgroundFetch
             
@@ -31,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             //UIUserNotificationSettings(types: [.alert, .badge,.sound],categories: nil)
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
-            UserData.sharedInstance = DataObjectPersistency().loadDataObject()
             UNUserNotificationCenter.current().delegate = self
 //        ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
         
@@ -42,6 +45,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         
         return true
     }
+    
+    func setupAppColor(){
+        let usrdata = UserData.sharedInstance
+        switch usrdata.selectedAppColor {
+        case "economics":
+            appColor.faculty = Faculty.economics
+        case "computerScience":
+            appColor.faculty = Faculty.computerScience
+        case "engineeringSciences":
+            appColor.faculty = Faculty.engineeringSciences
+        default:
+            print("selected appcolor was: " + usrdata.selectedAppColor)
+            appColor.faculty = Faculty.default
+        }
+        
+        print("loaded Color", appColor.faculty)
+    }
+    
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("DeviceToken1: \(deviceToken)")

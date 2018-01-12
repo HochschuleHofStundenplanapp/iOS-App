@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class OnboardingPermissionsViewController: UIViewController {
+class OnboardingPermissionsCalendarViewController: UIViewController {
     @IBOutlet weak var synchronizationIsLoadingStackView: UIStackView!
     @IBOutlet weak var tutorialDescriptionView: UIView!
     @IBOutlet weak var saveChangesActivityIndicatorView: UIActivityIndicatorView!

@@ -22,8 +22,6 @@ class CourseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.tintColor = UIColor.white
-//        tabBarController?.tabBar.tintColor = UIColor.hawRed
         
         courseController = CourseController(tmpSelectedCourses: self.tmpSelectedCourses, tmpSelectedSemesters: self.tmpSelectedSemesters, tmpSelectedLectures: self.tmpSelectedLectures, tmpSelectedSeason: tmpSelectedSeason)
         

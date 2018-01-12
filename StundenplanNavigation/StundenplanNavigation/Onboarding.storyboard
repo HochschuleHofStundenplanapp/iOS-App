@@ -578,7 +578,7 @@
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="swL-Ze-ARE">
                             <connections>
                                 <action selector="nextOnboardingScreenBarButtonAction:" destination="wY3-TX-CE6" id="0rg-zl-RZF"/>
-                                <segue destination="Imd-kk-mYB" kind="show" identifier="OnboardingToPermissions" id="ipc-JK-ZJP"/>
+                                <segue destination="PLy-6Y-xwj" kind="show" identifier="OnboardingToPermissionsPush" id="igW-1s-Uu2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -596,7 +596,7 @@
         <!--Schritt 5 von 5-->
         <scene sceneID="eaA-rK-Hbb">
             <objects>
-                <viewController id="Imd-kk-mYB" customClass="OnboardingPermissionsViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Imd-kk-mYB" customClass="OnboardingPermissionsCalendarViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wLl-M9-xNg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -722,7 +722,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oif-bO-R6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5888.8000000000002" y="43.596059113300491"/>
+            <point key="canvasLocation" x="6726" y="44"/>
+        </scene>
+        <!--Schritt 5 von 5-->
+        <scene sceneID="r9r-DY-BBP">
+            <objects>
+                <viewController id="PLy-6Y-xwj" customClass="OnboardingPermissionsPushViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VsL-zY-ihg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Push Push" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="D1S-E6-ste">
+                                <rect key="frame" x="16" y="256" width="343" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="aJh-KJ-lJ1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_allowCalenderAcces" translatesAutoresizingMaskIntoConstraints="NO" id="b71-tc-kqM">
+                                <rect key="frame" x="16" y="292" width="343" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b71-tc-kqM" secondAttribute="height" multiplier="343:128" id="YMT-Xp-dwS"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aI-dn-xtg">
+                                <rect key="frame" x="0.0" y="88" width="375" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyK-Bk-T5A">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="4zo-cF-uUq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Push Push" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5D-wM-Wqj">
+                                        <rect key="frame" x="8" y="54" width="359" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="iXU-Oo-uOm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fyK-Bk-T5A" firstAttribute="top" secondItem="4aI-dn-xtg" secondAttribute="top" id="DuZ-vq-PwW"/>
+                                    <constraint firstAttribute="trailing" secondItem="A5D-wM-Wqj" secondAttribute="trailing" constant="8" id="H2R-bA-syW"/>
+                                    <constraint firstAttribute="trailing" secondItem="fyK-Bk-T5A" secondAttribute="trailing" id="LgN-NI-Whz"/>
+                                    <constraint firstAttribute="height" constant="120" id="QN5-Oc-gfI"/>
+                                    <constraint firstItem="fyK-Bk-T5A" firstAttribute="leading" secondItem="4aI-dn-xtg" secondAttribute="leading" id="QXa-k2-HDO"/>
+                                    <constraint firstItem="A5D-wM-Wqj" firstAttribute="top" secondItem="fyK-Bk-T5A" secondAttribute="bottom" constant="4" id="Ums-eO-Pzp"/>
+                                    <constraint firstItem="A5D-wM-Wqj" firstAttribute="leading" secondItem="4aI-dn-xtg" secondAttribute="leading" constant="8" id="xfE-BP-5pC"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9s-q2-30Q">
+                                <rect key="frame" x="16" y="428" width="343" height="30"/>
+                                <state key="normal" title="Push erlauben"/>
+                                <connections>
+                                    <action selector="requestPushNotificationPermissionAction:" destination="PLy-6Y-xwj" eventType="touchUpInside" id="JHd-ai-aE2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="b71-tc-kqM" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="9R4-7t-Mqn"/>
+                            <constraint firstItem="D1S-E6-ste" firstAttribute="top" secondItem="4aI-dn-xtg" secondAttribute="bottom" constant="48" id="FUq-3G-dKX"/>
+                            <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="D1S-E6-ste" secondAttribute="trailing" constant="16" id="HVN-F6-ppY"/>
+                            <constraint firstItem="4aI-dn-xtg" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" id="O20-8J-ZcY"/>
+                            <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="b71-tc-kqM" secondAttribute="trailing" constant="16" id="RPU-cB-FnT"/>
+                            <constraint firstItem="D1S-E6-ste" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="TpJ-C6-46w"/>
+                            <constraint firstItem="e9s-q2-30Q" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="Y4R-Ei-oGe"/>
+                            <constraint firstItem="4aI-dn-xtg" firstAttribute="top" secondItem="aR7-IO-dab" secondAttribute="top" id="ZCt-b8-vqF"/>
+                            <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="e9s-q2-30Q" secondAttribute="trailing" constant="16" id="fjQ-Y0-smu"/>
+                            <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="4aI-dn-xtg" secondAttribute="trailing" id="fyO-OX-yKQ"/>
+                            <constraint firstItem="e9s-q2-30Q" firstAttribute="top" secondItem="b71-tc-kqM" secondAttribute="bottom" constant="8" id="oEl-ig-Esf"/>
+                            <constraint firstItem="b71-tc-kqM" firstAttribute="top" secondItem="D1S-E6-ste" secondAttribute="bottom" constant="16" id="rHK-tr-X0E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aR7-IO-dab"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Schritt 5 von 5" id="Jeu-KK-imK">
+                        <barButtonItem key="rightBarButtonItem" title="Weiter" id="aHa-gt-p57">
+                            <connections>
+                                <segue destination="Imd-kk-mYB" kind="show" identifier="OnboardingToPermissionsCalendar" id="0fs-ps-xZQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opQ-mj-Zze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5896.8000000000002" y="43.596059113300491"/>
         </scene>
     </scenes>
     <resources>

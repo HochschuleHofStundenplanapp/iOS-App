@@ -172,7 +172,7 @@ class CalendarController: NSObject {
         var result : Lecture? = nil
         
         for lecture in SelectedLectures().getOneDimensionalList() {
-            if(lecture.isEqual(to: change)){
+            if(lecture.isEqual(change)){
                 result = lecture
             }
         }
