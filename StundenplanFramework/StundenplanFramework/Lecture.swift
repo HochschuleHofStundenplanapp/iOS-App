@@ -141,12 +141,13 @@ public class Lecture: NSObject, NSCoding {
      
     }
     
-    override public func isEqual(_ object: Any?) -> Bool {
-        let rhs = object as! Lecture
-        return (self == rhs)
-    }
+//    Ausgeklammert, weil wann wird diese Function gebraucht?
+//    override public func isEqual(_ object: Any?) -> Bool {
+//        let rhs = object as! Lecture
+//        return (self == rhs)
+//    }
     
-    func isEqual(to changeLecture: ChangedLecture) -> Bool{
+    public func isEqual(to changeLecture: ChangedLecture) -> Bool{
         //dump(self.startTime)
         //dump(changeLecture.oldTime)
         return (self.name == changeLecture.name)

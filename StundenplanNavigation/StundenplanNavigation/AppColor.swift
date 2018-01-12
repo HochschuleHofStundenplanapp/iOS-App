@@ -18,7 +18,7 @@ struct AppColor {
             DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
                 DispatchQueue.main.async {
                     let nc = NotificationCenter.default
-                    nc.post(name: NSNotification.Name.appColorHasChanged, object: nil)
+                   nc.post(name: .appColorHasChanged, object: nil)
                 }
             })
         }
@@ -48,13 +48,13 @@ struct AppColor {
         return tintColor
     }
     
-    var headerBackground: UIColor {
+    var headerText: UIColor {
         return tintColor
     }
     
-    var headerText: UIColor {
-        return UIColor.white
-    }
+//    var headerText: UIColor {
+//        return UIColor.white
+//    }
     
     var taskWarning: UIColor {
         return UIColor.red
@@ -75,6 +75,15 @@ enum Faculty {
     case computerScience
     case engineeringSciences
     case `default`
+    
+    init(facultyName: String) {
+        switch facultyName {
+        case "economics": self = .economics
+        case "computerScience": self = .computerScience
+        case "engineeringSciences": self = .engineeringSciences
+        default: self = .default
+        }
+    }
     
     var color: UIColor {
         switch self {

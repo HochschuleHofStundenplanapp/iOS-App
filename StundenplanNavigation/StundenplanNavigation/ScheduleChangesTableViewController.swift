@@ -14,6 +14,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     
     var datasource : ScheduleChangesTableViewDataSource!
     var delegate: ScheduleChangesTableViewDelegate!
+    let usrdata : UserData! = UserData.sharedInstance
     
             var scheduleChangesController : ScheduleChangesController!
     
@@ -34,20 +35,21 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
+        
+        
         if #available(iOS 11.0, *) {
             setUpNavbar()
         } else {
             // Fallback on earlier versions
         }
-        
-        
     }
     
     @available(iOS 11.0, *)
     func setUpNavbar(){
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 25)
+            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 25),
+            NSAttributedStringKey.foregroundColor: UIColor.white
         ]
     }
     
@@ -85,18 +87,11 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
            }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-//        tabBarController?.tabBar.tintColor = UIColor.hawYellow
-        
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
-        
        // scheduleChangesController.handleChanges()
         scheduleChangesController.handleAllChanges()
         
         //Entfernen des Badges
         UIApplication.shared.applicationIconBadgeNumber = 0
-
     }
 
     override func didReceiveMemoryWarning() {

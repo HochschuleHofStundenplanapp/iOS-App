@@ -14,6 +14,7 @@ class ScheduleTableViewController: UITableViewController {
     @IBOutlet var scheduleTableView: UITableView!
     var datasource : ScheduleTableViewDataSource!
     var delegate: ScheduleTableViewDelegate!
+    let usrdata : UserData = UserData.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,21 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func setUpUI() {
-        print("Color", appColor.faculty)
+        let usrdata = UserData.sharedInstance
+        switch usrdata.selectedAppColor {
+        case "economics":
+            appColor.faculty = Faculty.economics
+        case "computerScience":
+            appColor.faculty = Faculty.computerScience
+        case "engineeringSciences":
+            appColor.faculty = Faculty.engineeringSciences
+        default:
+            print("selected appcolor was: " + usrdata.selectedAppColor)
+            appColor.faculty = Faculty.default
+        }
+        
+        print("loaded Color", appColor.faculty)
+        
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
     }

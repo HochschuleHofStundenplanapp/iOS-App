@@ -47,6 +47,7 @@ class LecturesViewController: UIViewController {
         delegate = LecturesTableViewDelegate(lectureController: lectureController)
         lectureTableView.delegate = delegate
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.downloadEnded), name: .lecturesDownloadEnded, object: nil )
         NotificationCenter.default.addObserver(self, selector: #selector(self.showNoInternetAlert), name: .lecturesDownloadFailed, object: nil )
         setUpUI()
@@ -65,6 +66,7 @@ class LecturesViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
         lectureController.cancelLoading()
     }
+    
     
     override func viewDidDisappear(_ animated: Bool) {
 
