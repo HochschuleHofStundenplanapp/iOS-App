@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  8 JAN 2018 12:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.5)  12 JAN 2018 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1699,34 +1699,34 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 77.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 116.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 125.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 125.
+(babel)             in language  on input line 128.
 File: ./images/fh_logo.jpg Graphic file (type jpg)
  <use ./images/fh_logo.jpg>
-Package pdftex.def Info: ./images/fh_logo.jpg used on input line 129.
+Package pdftex.def Info: ./images/fh_logo.jpg used on input line 131.
 (pdftex.def)             Requested size: 45.18515pt x 31.83195pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 131.
  [3]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 141.
+(babel)             in language  on input line 144.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 141.
+(babel)             in language  on input line 144.
 )
 File: ./images/fh_logo.jpg Graphic file (type jpg)
 
@@ -2047,48 +2047,43 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 15.
 
-Underfull \hbox (badness 4699) in paragraph at lines 91--91
+Underfull \hbox (badness 4699) in paragraph at lines 98--98
 \OT1/cmr/m/n/10.95 mann, Pa-trick Nie-pel, Carl
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 91--91
+Underfull \hbox (badness 3471) in paragraph at lines 98--98
 []|\OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/m/n/10.95 Wei-ter an der Ka-len-der-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--91
-[]|\OT1/cmr/bx/n/10.95 Push: \OT1/cmr/m/n/10.95 Ka-len-der-schnitt-stel-le
- []
-
-
-Underfull \hbox (badness 2073) in paragraph at lines 91--91
+Underfull \hbox (badness 2073) in paragraph at lines 98--98
 []|\OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/m/n/10.95 Bug ge-fun-den: Da-tums-be-
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 91--91
+Underfull \hbox (badness 4805) in paragraph at lines 98--98
 \OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/m/n/10.95 App Co-lor De-sign (Far-
  []
 
 
-Underfull \hbox (badness 1867) in paragraph at lines 91--91
+Underfull \hbox (badness 1867) in paragraph at lines 98--98
 \OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/bx/n/10.95 Pu-sh: \OT1/cmr/m/n/10.95 App Co-lo
 r De-sign
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
 [15
 
 
@@ -2099,53 +2094,98 @@ Overfull \vbox (14.29984pt too high) has occurred while \output is active []
 File: ./images/fh_logo.jpg Graphic file (type jpg)
 
 <use ./images/fh_logo.jpg>
-Package pdftex.def Info: ./images/fh_logo.jpg used on input line 94.
+Package pdftex.def Info: ./images/fh_logo.jpg used on input line 101.
 (pdftex.def)             Requested size: 45.18515pt x 31.83195pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 101.
  [16]
-Underfull \hbox (badness 1231) in paragraph at lines 189--189
+Underfull \hbox (badness 1231) in paragraph at lines 184--184
 []|\OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/m/n/10.95 Ein-ar-bei-tung und Pla-nung
  []
 
 
-Underfull \hbox (badness 4819) in paragraph at lines 189--189
+Underfull \hbox (badness 4819) in paragraph at lines 184--184
 \OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/m/n/10.95 Ka-len-der-schnitt-stel-len De-
  []
 
 
-Underfull \hbox (badness 7221) in paragraph at lines 189--189
+Underfull \hbox (badness 7221) in paragraph at lines 184--184
 \OT1/cmr/m/n/10.95 bug-ging (Ka-len-de-rID wur-de
  []
 
 
-Underfull \hbox (badness 4832) in paragraph at lines 189--189
+Underfull \hbox (badness 4832) in paragraph at lines 184--184
 \OT1/cmr/m/n/10.95 auch im Ka-len-der an-zei-gen
  []
 
 
-Underfull \hbox (badness 5460) in paragraph at lines 189--189
+Underfull \hbox (badness 5460) in paragraph at lines 184--184
 \OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/bx/n/10.95 Bug: \OT1/cmr/m/n/10.95 Ein-stel-lu
 n-gen Syn-
  []
 
 
-Underfull \hbox (badness 1033) in paragraph at lines 189--189
+Underfull \hbox (badness 1033) in paragraph at lines 184--184
 \OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/bx/n/10.95 Bug: \OT1/cmr/m/n/10.95 Beim App sc
 hlie-^^Yen
  []
 
+
+Underfull \hbox (badness 1577) in paragraph at lines 184--184
+\OT1/cmr/m/n/10.95 ab (wird nur zum teil aus-
+ []
+
+
+Underfull \hbox (badness 1320) in paragraph at lines 184--184
+[]|\OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/bx/n/10.95 Bug: \OT1/cmr/m/n/10.95 Beim L[]
+oschen ei-ner
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]|\OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/bx/n/10.95 Neue Auf-ga-be: \OT1/cmr/m/n/10.
+95 Push-
+ []
+
+
+Underfull \hbox (badness 7832) in paragraph at lines 184--184
+\OT1/cmr/m/n/10.95 Notifications in On-boar-ding
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/bx/n/10.95 Neue Auf-ga-be: \OT1/cmr/m/n/10.95 
+Ro-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]|\OMS/cmsy/m/n/10.95 ^^O \OT1/cmr/m/n/10.95 Auf-ga-ben Er-wei-te-rung
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 191.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 191.
-)
+(babel)             in language  on input line 186.
+File: ./images/fh_logo.jpg Graphic file (type jpg)
+<use ./images/fh_logo.jpg>
+Package pdftex.def Info: ./images/fh_logo.jpg used on input line 190.
+(pdftex.def)             Requested size: 45.18515pt x 31.83195pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 190.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 190.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 190.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 190.
+ [17])
 File: ./images/fh_logo.jpg Graphic file (type jpg)
  <use ./images/fh_logo.jpg>
 Package pdftex.def Info: ./images/fh_logo.jpg used on input line 104.
@@ -2158,10 +2198,11 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 104.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 104.
- [17]
+ [18]
 \openout2 = `content/tasks.aux'.
 
- (./content/tasks.tex
+
+(./content/tasks.tex
 chapter 7.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -2179,7 +2220,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 7.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 7.
-[18
+[19
 
 
 
@@ -2188,7 +2229,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 8.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 8.
- <./images/Mockup_ios_aufgaben.pdf, id=375, 490.28384pt x 419.7826pt>
+ <./images/Mockup_ios_aufgaben.pdf, id=379, 490.28384pt x 419.7826pt>
 File: ./images/Mockup_ios_aufgaben.pdf Graphic file (type pdf)
 
 <use ./images/Mockup_ios_aufgaben.pdf>
@@ -2207,7 +2248,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 20.
- [19 <./images/Mockup_ios_aufgaben.pdf>]
+ [20 <./images/Mockup_ios_aufgaben.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 21.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2225,7 +2266,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 105.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 105.
- [20]
+ [21]
 \openout2 = `content/calendar.aux'.
 
 
@@ -2240,12 +2281,12 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 7.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 7.
 
-Overfull \hbox (5.01706pt too wide) in paragraph at lines 21--24
-\OT1/cmr/m/n/10.95 von 2017 das Jahr 2017 aus-ge-ge-ben wur-de, was da-zu f[]uh
+Overfull \hbox (5.01706pt too wide) in paragraph at lines 24--27
+\OT1/cmr/m/n/10.95 von 2017 das Jahr 0017 aus-ge-ge-ben wur-de, was da-zu f[]uh
 rte, dass die Semestervorlesungsstunden-
  []
 
@@ -2258,7 +2299,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
- [21
+ [22
 
 
 
@@ -2280,7 +2321,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 8.
 )
-Overfull \hbox (2.7055pt too wide) in paragraph at lines 19--107
+Overfull \hbox (2.7055pt too wide) in paragraph at lines 21--107
 []\OT1/cmr/m/n/10.95 Das ge-sam-te On-boar-ding be-fin-det sich in ei-nem se-pa
 -ra-ten Sto-ry-board (On-boar-ding.storyboard),
  []
@@ -2293,7 +2334,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 107.
-[22
+[23
 
 
 
@@ -2325,7 +2366,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 108.
- [23
+ [24
 
 
 
@@ -2341,7 +2382,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 114.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 114.
- [24
+ [25
 
 
 ]
@@ -2353,43 +2394,34 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
 (./content/calendar.aux) (./content/onboarding.aux) (./content/colors.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
+Package rerunfilecheck Info: File `Dokumenation.out' has not changed.
+(rerunfilecheck)             Checksum: 89D7A274AC63C22889E2215295D4B3FF;2987.
 
-
-Package rerunfilecheck Warning: File `Dokumenation.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Dokumenation.out':
-(rerunfilecheck)             Before: 088B906D17D39B372B029B4FD4D31938;2977
-(rerunfilecheck)             After:  89D7A274AC63C22889E2215295D4B3FF;2987.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
  ) 
 Here is how much of TeX's memory you used:
- 39309 strings out of 492995
- 884805 string characters out of 6132704
- 1158479 words of memory out of 5000000
+ 39316 strings out of 492995
+ 884833 string characters out of 6132704
+ 1158476 words of memory out of 5000000
  42167 multiletter control sequences out of 15000+600000
  10249 words of font info for 36 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  73i,15n,100p,10447b,1323s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.7.2.1} has been referenced but does no
-t exist, replaced by a fixed one
-
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Dokumenation.pdf (27 pages, 499765 bytes).
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr
+/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Dokumenation.pdf (28 pages, 500764 bytes).
 PDF statistics:
- 490 PDF objects out of 1000 (max. 8388607)
- 434 compressed objects within 5 object streams
- 96 named destinations out of 1000 (max. 500000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 445 compressed objects within 5 object streams
+ 103 named destinations out of 1000 (max. 500000)
  417 words of extra memory for PDF output out of 10000 (max. 10000000)
 
