@@ -1,0 +1,11 @@
+wget https://curl.haxx.se/download/curl-7.54.0.tar.bz2
+tar -xvjf curl-7.54.0.tar.bz2
+cd curl-7.54.0/
+./configure --with-nghttp2 --prefix=/usr/local --with-ssl=/usr/local/ssl
+make
+make install
+ldconfig
+
+
+ggf. php7.0-curl erneut installieren
+// Apache neu starten

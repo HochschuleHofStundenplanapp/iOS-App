@@ -21,29 +21,31 @@
 \contentsline {section}{\numberline {3.6}Einschr\IeC {\"a}nkungen}{7}{section.3.6}
 \contentsline {chapter}{\numberline {4}Push Notifications}{10}{chapter.4}
 \contentsline {section}{\numberline {4.1}Einleitung}{10}{section.4.1}
-\contentsline {section}{\numberline {4.2}Projektfortschritt}{10}{section.4.2}
+\contentsline {section}{\numberline {4.2}Projektablauf}{10}{section.4.2}
 \contentsline {section}{\numberline {4.3}Vorbereitung einer Testumgebung}{12}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}MAMP als Virtuelle Umgebung}{12}{subsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.1.1}MAMP}{12}{subsubsection.4.3.1.1}
 \contentsline {subsubsection}{\numberline {4.3.1.2}MySQL Datenbank}{12}{subsubsection.4.3.1.2}
 \contentsline {section}{\numberline {4.4}Umsetzung}{12}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Zertifikate}{12}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Swift register}{12}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}Aufgetretene Probleme}{13}{section.4.5}
-\contentsline {chapter}{\numberline {5}Testen der Anwendung}{14}{chapter.5}
-\contentsline {chapter}{\numberline {6}Gruppe PMP}{15}{chapter.6}
-\contentsline {section}{\numberline {6.1}Einleitung}{15}{section.6.1}
-\contentsline {section}{\numberline {6.2}\IeC {\"U}berblick}{15}{section.6.2}
-\contentsline {section}{\numberline {6.3}Erster Bug}{18}{section.6.3}
-\contentsline {chapter}{\numberline {7}Aufgaben Erweiterung}{19}{chapter.7}
-\contentsline {section}{\numberline {7.1}Einleitung}{19}{section.7.1}
-\contentsline {section}{\numberline {7.2}Planung und Mockup}{20}{section.7.2}
-\contentsline {section}{\numberline {7.3}Funktionen}{21}{section.7.3}
-\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{22}{chapter.8}
-\contentsline {section}{\numberline {8.1}Einleitung}{22}{section.8.1}
-\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{22}{section.8.2}
-\contentsline {chapter}{\numberline {9}Onboarding}{23}{chapter.9}
-\contentsline {section}{\numberline {9.1}Einleitung}{23}{section.9.1}
-\contentsline {section}{\numberline {9.2}Umsetzung}{23}{section.9.2}
-\contentsline {chapter}{\numberline {10}Universal App Colors}{24}{chapter.10}
-\contentsline {section}{\numberline {10.1}Beschreibung}{24}{section.10.1}
+\contentsline {subsection}{\numberline {4.4.1}Server Installation}{13}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Zertifikate}{13}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Swift register}{13}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Aufgetretene Probleme}{14}{section.4.5}
+\contentsline {section}{\numberline {4.6}Weitere Arbeiten}{14}{section.4.6}
+\contentsline {chapter}{\numberline {5}Testen der Anwendung}{15}{chapter.5}
+\contentsline {chapter}{\numberline {6}Gruppe PMP}{16}{chapter.6}
+\contentsline {section}{\numberline {6.1}Einleitung}{16}{section.6.1}
+\contentsline {section}{\numberline {6.2}\IeC {\"U}berblick}{16}{section.6.2}
+\contentsline {section}{\numberline {6.3}Erster Bug}{19}{section.6.3}
+\contentsline {chapter}{\numberline {7}Aufgaben Erweiterung}{20}{chapter.7}
+\contentsline {section}{\numberline {7.1}Einleitung}{20}{section.7.1}
+\contentsline {section}{\numberline {7.2}Planung und Mockup}{21}{section.7.2}
+\contentsline {section}{\numberline {7.3}Funktionen}{22}{section.7.3}
+\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{23}{chapter.8}
+\contentsline {section}{\numberline {8.1}Einleitung}{23}{section.8.1}
+\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{23}{section.8.2}
+\contentsline {chapter}{\numberline {9}Onboarding}{24}{chapter.9}
+\contentsline {section}{\numberline {9.1}Einleitung}{24}{section.9.1}
+\contentsline {section}{\numberline {9.2}Umsetzung}{24}{section.9.2}
+\contentsline {chapter}{\numberline {10}Universal App Colors}{25}{chapter.10}
+\contentsline {section}{\numberline {10.1}Beschreibung}{25}{section.10.1}

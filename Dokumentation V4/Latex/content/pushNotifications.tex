@@ -2,12 +2,12 @@
 Johannes Franz \& Normen Krug
 
 \section{Einleitung}
-Push Notifications sind ein fester Bestandteil vieler Apps. Deswegen soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server überprüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Chronjobs das Backend bereit.
+Push Notifications sind ein fester Bestandteil moderner Apps. Deswegen soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server überprüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Chronjobs das Backend bereit.
 
 GitHub repository: \url{https://github.com/HochschuleHofStundenplanapp/iOS-App/}
 
 
-\section{Projektfortschritt}
+\section{Projektablauf}
 Um den Projektfortschritt nachvollziehen zu können, wurde dieser tabellarisch in Verbindung mit dem aktuellen Datum aufgelistet.
 
 
@@ -41,10 +41,13 @@ Zwischenzeit & PHP Scripte der bestehenden (Android) Schnittstelle angepasst und
 \\ \hline 
  
  
-24.11.2017 & Server erhalten. \newline
+24.11.2017 & Testserver wurde bereitgestellt. \newline
 \\ \hline 
  
  
+2018 & Push Notifications mit HTTP2 implementiert.
+\newline
+\\ \hline  
 
 \end{tabularx}
 
@@ -58,11 +61,14 @@ Zwischenzeit & PHP Scripte der bestehenden (Android) Schnittstelle angepasst und
 \subsubsection{MAMP}
 Die Testumgebung MAMP (Akronym steht für: Mac, Apache, MySQL, PHP) virtualisiert die genannten Komponenten, um lokale Tests zu ermöglichen.
 
+
 \subsubsection{MySQL Datenbank}
 
-Ein SQL Statement zum erzeugen der Tabelle:
+Die Tabelle \textit{fcm\_nutzer} enthält eine Zuordnung von abonnierten Vorlesungsverlegungen mit dem jeweiligen Token des Gerätes. Dabei ist zusätzlich vermerkt welches Betriebssystem verwendet wird. Die \textit{0} in der Spalte \textit{os} steht dabei für Android während \textit{1} iOS repräsentierts. \\
+Da die ausgewählte Sprache des Nutzers nicht bekannt ist, wird für die \textit{language} Spalte an dieser Stelle auch null akzeptiert. Um bei einer späteren Version der App zwischen Nutzern die noch keine Sprache ausgewählt haben und allen anderen differenzieren zu können, wird hier trotz der aktuell nur in deutsch vorhandenen App der Wert nicht standardmäßig auf deutsch gesetzt.
 \lstinputlisting[language=SQL]{content/pushNotifications_create.sql}
-
+Da eine bestehende Infrastruktur die Grundlage dieses Projektes darstellt, musste diese Tabelle lediglich um \textit{os} und \textit{language} erweitert werden.\\
+Auf Änderungen an anderen Tabellen konnte komplett verzichtet werden.
 
 
 
@@ -71,27 +77,64 @@ Ein SQL Statement zum erzeugen der Tabelle:
 Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht.
 
 
-\subsection{Zertifikate}
-Um mit einer gesicherten Verbindung auf die Apple Schnittstelle zugreifen werden zwei Zertifikate benötigt. Dabei handelt es sich um ein öffentliches und privates Zertifikat. Diese Zertifikate müssen vor der Verwendung in das passende Format umgewandelt werden, bevor sie benutzbar sind.
+\subsection{Server Installation}
+Zur Installation der Software sind Admin Rechte notwendig. Der \textit{wget} Befehl läd dabei eine zum aktuellen Zeitpunkt sehr neue \textit{curl} Version herunter. Diese hat die Besonderheit HTTP2 zu unterstützen, welches für die Push Notification Schnittstelle von Apple vorausgesetzt ist.
+\lstinputlisting[language=bash]{content/pushNotifications_server_install.bsh}
 
-Die MacOS App "Easy APNs Provider" ermöglicht die ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
+
+\subsection{Zertifikate}
+Um mit einer gesicherten Verbindung auf die Apple Push Notification Schnittstelle zuzugreifen, werden zwei Zertifikate benötigt. Dabei handelt es sich um ein öffentliches und privates Zertifikat. Diese Zertifikate müssen vor der Verwendung in das Zielformat \textit{.pem} umgewandelt werden, bevor sie benutzbar sind.
+
+Um die Zertifikate zu anzulegen und zu verwalten, stellt Apple eine Übersicht dem bei Apple angemeldeten Entwickler bereit. Bei dem verwendeten Zertifikat wird zwischen \textit{Development} und \textit{Production} unterschieden.\\
+\url{https://developer.apple.com/account/ios/certificate/}
+
+\\
+Die MacOS App ``Easy APNs Provider`` ermöglichte ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.\\
 Quelle: \url{https://github.com/immobiliare/ApnsPHP}
 
 
 
-\subsection{Swift register}
-Ein Swift Beispiel:
+\subsection{Code zum Registrieren am Server}
+Um sich am Server für eine Vorlesung zu registrieren waren Veränderungen im Code notwendig.
 \lstinputlisting[language=Swift]{content/pushNotifications_Swift_Example.swift}
 
 
 \section{Aufgetretene Probleme}
-Als Herausforderungen zu sehende Punkte haben häufig sehr viel Zeit in Anspruch genommen oder den Projektfortschritt gebremst.
+Als Herausforderung zu sehende Punkte haben häufig sehr viel Zeit in Anspruch genommen oder den Projektfortschritt entschleunigt.
+
 
 \begin{itemize}
-\item Zertifikate sehr verwirrend
-\item Bundle identifier und App Capabilities nach einem Git Pull
-\item Komplexes Testen (Lokale Server, unterschiedliche Datei- und Serverstände) 
-\item Kein Zugriff auf die Git Schnittstelle.
-\item Abgelaufnes Zertifikat
+\item Verzögerte Bereitstellung des Servers führte zu komplexen Reimplementierungen in schwer zu synchronisierenden getrennten VMs
+\item Beschränkte Rechte auf dem Testserver die nach und nach erweitert werden mussten
+\item Verschiedene Zertifikatarten sind sehr verwirrend
+\item Bundle Identifier und App Capabilities mussten nach jedem Git Pull wieder angepasst werden
+\item Komplexes Testen (Lokale Server, Erreichbarkeit im Labornetzwerk / Wi-Fi, unterschiedliche Datei- und Serverstände) 
+\item Zu Beginn kein Zugriff auf die Git Schnittstellen Projekt
+\item Ablaufende Zertifikate
+\item Serverseitig unterschiedliche Übertragungsverfahren zwischen Android und iOS
+\item Erschwertes Debugging der PHP Scripte
+\item HTTP2 wurde von Apache2 und Curl nicht offiziell unterstützt
+\item Struktur der Datenbank und der PHP Scripte war durch die Android App vorgegeben
+\item Veraltete APNs Variante war stark verbreitet, brachte allerdings viele Probleme mit sich und musste als Ansatz letztendlich verworfen werden
+\end{itemize}
+
+
+\section{lessons learned}
+Unser Team hat feststellen müssen, dass zu einem umfassenden iOS Projekt mehr als nur der Interface Builder und die Sprache Swift gehört. So sind Punkte zu nennen die positiv aus dem Projekt mitgenommen wurden.
+\begin{itemize}
+\item Linuxkenntnisse
+\item PHP und Debugging auf dem Server
+\item Beachten von Abhängigkeiten wie der Abwärtskompatibilität der Software zu früheren und bestehenden Android Versionen
+\end{itemize}
+
+\section{Weitere Arbeiten}
+In diesem Projektabschnitt konnten alle gesteckten Ziele erreicht werden. Da solch ein relativ junges Projekt noch viele Möglichkeiten beinhaltet Funktionen zu verbessern und neue Funktionen einzuführen werden hier mögliche Punkte zur Anregung aufgelistet.
+
+\begin{itemize}
+\item Auswertungen die aktuell bei der Android und iOS App mehrfach auf dem Client Gerät stattfinden, können auf dem Server zentral bearbeitet werden. Dies verringert die Komplexität bei beiden Anwendungen und erleichtert die Wartung des Codes an zentraler Stelle.
+\item Erweiterung der Push Notification Information um eine Priorität, Ablaufdatum,...
+\item Aufkommende Issues und Ideen aus dem öffentlichen Git Projekt der iOS App und Schnittstelle
+\item Erweiterung der App und Schnittstelle um andere Sprachen wie z.B. Englisch was in der Android App bereits angeboten wird
+
 \end{itemize}
 
