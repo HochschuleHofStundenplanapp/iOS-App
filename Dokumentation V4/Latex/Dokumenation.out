@@ -11,40 +11,44 @@
 \BOOKMARK [1][-]{section.1.7}{Projektfortschritt dokumentiert}{chapter.1}% 11
 \BOOKMARK [1][-]{section.1.8}{Ausblick}{chapter.1}% 12
 \BOOKMARK [0][-]{chapter.2}{Design}{}% 13
-\BOOKMARK [0][-]{chapter.3}{Erweiterung durch eine Siri Integration}{}% 14
-\BOOKMARK [1][-]{section.3.1}{Einleitung}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.2}{Istzustand}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.3}{Beispielhafte Anfragen}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.4}{Umsetzung}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.5}{Voraussetzung f\374r SiriKit}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.6}{Einschr\344nkungen}{chapter.3}% 20
-\BOOKMARK [0][-]{chapter.4}{Push Notifications}{}% 21
-\BOOKMARK [1][-]{section.4.1}{Einleitung}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.2}{Projektablauf}{chapter.4}% 23
-\BOOKMARK [1][-]{section.4.3}{Vorbereitung einer Testumgebung}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.3.1}{MAMP als Virtuelle Umgebung}{section.4.3}% 25
-\BOOKMARK [3][-]{subsubsection.4.3.1.1}{MAMP}{subsection.4.3.1}% 26
-\BOOKMARK [3][-]{subsubsection.4.3.1.2}{MySQL Datenbank}{subsection.4.3.1}% 27
-\BOOKMARK [1][-]{section.4.4}{Umsetzung}{chapter.4}% 28
-\BOOKMARK [2][-]{subsection.4.4.1}{Server Installation}{section.4.4}% 29
-\BOOKMARK [2][-]{subsection.4.4.2}{Zertifikate}{section.4.4}% 30
-\BOOKMARK [2][-]{subsection.4.4.3}{Swift register}{section.4.4}% 31
-\BOOKMARK [1][-]{section.4.5}{Aufgetretene Probleme}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.6}{Weitere Arbeiten}{chapter.4}% 33
-\BOOKMARK [0][-]{chapter.5}{Testen der Anwendung}{}% 34
-\BOOKMARK [0][-]{chapter.6}{Gruppe PMP}{}% 35
-\BOOKMARK [1][-]{section.6.1}{Einleitung}{chapter.6}% 36
-\BOOKMARK [1][-]{section.6.2}{\334berblick}{chapter.6}% 37
-\BOOKMARK [1][-]{section.6.3}{Erster Bug}{chapter.6}% 38
-\BOOKMARK [0][-]{chapter.7}{Aufgaben Erweiterung}{}% 39
-\BOOKMARK [1][-]{section.7.1}{Einleitung}{chapter.7}% 40
-\BOOKMARK [1][-]{section.7.2}{Planung und Mockup}{chapter.7}% 41
-\BOOKMARK [1][-]{section.7.3}{Funktionen}{chapter.7}% 42
-\BOOKMARK [0][-]{chapter.8}{Kalenderschnittstelle}{}% 43
-\BOOKMARK [1][-]{section.8.1}{Einleitung}{chapter.8}% 44
-\BOOKMARK [1][-]{section.8.2}{\334berarbeitung}{chapter.8}% 45
-\BOOKMARK [0][-]{chapter.9}{Onboarding}{}% 46
-\BOOKMARK [1][-]{section.9.1}{Einleitung}{chapter.9}% 47
-\BOOKMARK [1][-]{section.9.2}{Umsetzung}{chapter.9}% 48
-\BOOKMARK [0][-]{chapter.10}{Universal App Colors}{}% 49
-\BOOKMARK [1][-]{section.10.1}{Beschreibung}{chapter.10}% 50
+\BOOKMARK [1][-]{section.2.1}{Einleitung}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.2}{Mockups}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.1}{Screen1}{section.2.2}% 16
+\BOOKMARK [0][-]{chapter.3}{Erweiterung durch eine Siri Integration}{}% 17
+\BOOKMARK [1][-]{section.3.1}{Einleitung}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.2}{Istzustand}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.3}{Beispielhafte Anfragen}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.4}{Umsetzung}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.5}{Voraussetzung f\374r SiriKit}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.6}{Einschr\344nkungen}{chapter.3}% 23
+\BOOKMARK [0][-]{chapter.4}{Push Notifications}{}% 24
+\BOOKMARK [1][-]{section.4.1}{Einleitung}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.2}{Projektablauf}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.3}{Vorbereitung einer Testumgebung}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.3.1}{MAMP als Virtuelle Umgebung}{section.4.3}% 28
+\BOOKMARK [3][-]{subsubsection.4.3.1.1}{MAMP}{subsection.4.3.1}% 29
+\BOOKMARK [3][-]{subsubsection.4.3.1.2}{MySQL Datenbank}{subsection.4.3.1}% 30
+\BOOKMARK [1][-]{section.4.4}{Umsetzung}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.4.1}{Server Installation}{section.4.4}% 32
+\BOOKMARK [2][-]{subsection.4.4.2}{Zertifikate}{section.4.4}% 33
+\BOOKMARK [2][-]{subsection.4.4.3}{Code zum Registrieren am Server}{section.4.4}% 34
+\BOOKMARK [1][-]{section.4.5}{Aufgetretene Probleme}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.6}{lessons learned}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.7}{Weitere Arbeiten}{chapter.4}% 37
+\BOOKMARK [0][-]{chapter.5}{Testen der Anwendung}{}% 38
+\BOOKMARK [0][-]{chapter.6}{Gruppe PMP}{}% 39
+\BOOKMARK [1][-]{section.6.1}{Einleitung}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.2}{\334berblick}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.3}{Erster Bug}{chapter.6}% 42
+\BOOKMARK [0][-]{chapter.7}{Aufgaben Erweiterung}{}% 43
+\BOOKMARK [1][-]{section.7.1}{Einleitung}{chapter.7}% 44
+\BOOKMARK [1][-]{section.7.2}{Planung und Mockup}{chapter.7}% 45
+\BOOKMARK [1][-]{section.7.3}{Funktionen}{chapter.7}% 46
+\BOOKMARK [0][-]{chapter.8}{Kalenderschnittstelle}{}% 47
+\BOOKMARK [1][-]{section.8.1}{Einleitung}{chapter.8}% 48
+\BOOKMARK [1][-]{section.8.2}{\334berarbeitung}{chapter.8}% 49
+\BOOKMARK [0][-]{chapter.9}{Onboarding}{}% 50
+\BOOKMARK [1][-]{section.9.1}{Einleitung}{chapter.9}% 51
+\BOOKMARK [1][-]{section.9.2}{Umsetzung}{chapter.9}% 52
+\BOOKMARK [0][-]{chapter.10}{Universal App Colors}{}% 53
+\BOOKMARK [1][-]{section.10.1}{Beschreibung}{chapter.10}% 54

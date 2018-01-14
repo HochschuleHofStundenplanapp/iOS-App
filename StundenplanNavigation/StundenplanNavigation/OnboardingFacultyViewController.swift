@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import StundenplanFramework
 
 class OnboardingFacultyViewController: UIViewController {
     @IBOutlet weak var facultySegmentedControl: UISegmentedControl!
     @IBOutlet weak var tutorialDescriptionView: UIView!
     @IBOutlet weak var ScreenshotPreviewImageView: UIImageView!
+    let usrdata = UserData.sharedInstance
     
     deinit {
         let nc = NotificationCenter.default
@@ -26,6 +28,7 @@ class OnboardingFacultyViewController: UIViewController {
         
         //Beim Starten des Onboardings wird die Farbe wieder auf Default gesetzt
         appColor.faculty = .default
+        usrdata.setSelectedAppColor(newAppColor: "default")
         
         setUpUI()
     }
@@ -40,16 +43,20 @@ class OnboardingFacultyViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             appColor.faculty = .economics
+            usrdata.setSelectedAppColor(newAppColor: "economics")
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Wirtschaft")
         case 1:
             appColor.faculty = .computerScience
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Informatik")
+            usrdata.setSelectedAppColor(newAppColor: "computerScience")
         case 2:
             appColor.faculty = .engineeringSciences
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Ingenieur")
+            usrdata.setSelectedAppColor(newAppColor: "engineeringSciences")
         default:
             appColor.faculty = .default
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Standard")
+            usrdata.setSelectedAppColor(newAppColor: "default")
         }
         setUpUI()
     }
