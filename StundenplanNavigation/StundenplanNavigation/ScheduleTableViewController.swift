@@ -58,8 +58,7 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func setUpUI() {
-        let usrdata = UserData.sharedInstance
-        switch usrdata.selectedAppColor {
+        switch usrdata.getSelectedAppColor() {
         case "economics":
             appColor.faculty = Faculty.economics
         case "computerScience":
@@ -67,7 +66,7 @@ class ScheduleTableViewController: UITableViewController {
         case "engineeringSciences":
             appColor.faculty = Faculty.engineeringSciences
         default:
-            print("selected appcolor was: " + usrdata.selectedAppColor)
+            print("selected appcolor was: " + usrdata.getSelectedAppColor())
             appColor.faculty = Faculty.default
         }
         

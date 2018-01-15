@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 import StundenplanFramework
+
 class SettingsTableViewController: UITableViewController, UITabBarControllerDelegate {
     @IBOutlet var saveChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -73,6 +74,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             settingsController.clearAllSettings()
             UserData.sharedInstance.wipeUserData()
             appColor.faculty = Faculty.default
+            UsrData.setSelectedAppColor(newAppColor: "default")
             self.settingsController.stopCalendarSync()
             self.syncSwitch.setOn(false, animated: false)
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
