@@ -2,10 +2,13 @@
 Johannes Franz \& Normen Krug
 
 \section{Einleitung}
-Push Notifications sind ein fester Bestandteil moderner Apps. Deswegen soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server überprüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Chronjobs das Backend bereit.
+Push Notifications sind ein fester Bestandteil moderner Apps. Nutzer erwarten es häufig bei Änderungen oder Neuigkeiten informiert zu werden. Deswegen soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server überprüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Chronjobs das Backend bereit.
 
 GitHub repository: \url{https://github.com/HochschuleHofStundenplanapp/iOS-App/}
 
+
+\section{Istzustand}
+Die iOS Version stellt nur lokale Push Notifications bereit. Dabei wird bisher keine Serverkomponente benötigt.
 
 \section{Projektablauf}
 Um den Projektfortschritt nachvollziehen zu können, wurde dieser tabellarisch in Verbindung mit dem aktuellen Datum aufgelistet.
@@ -35,6 +38,8 @@ Einarbeitung und Konvertierung der Dokumentation in Latex.
 Das PHP Script parst nun das ankommende JSON File und fügt per insert die geparsten Daten in die Datenbank ein.\newline 
 Einarbeitung in bestehende Schnittstelle und Überlegungen wie das bestehende Backend erweitert werden muss. 
  \\ \hline
+ 
+ \
  
 
 Zwischenzeit & PHP Scripte der bestehenden (Android) Schnittstelle angepasst und getestet. \newline
