@@ -35,12 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             //UIUserNotificationSettings(types: [.alert, .badge,.sound],categories: nil)
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
-            UNUserNotificationCenter.current().delegate = self
-//        ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
+        UNUserNotificationCenter.current().delegate = self
+//      ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
         
-//        print("Server: \(ServerData.sharedInstance.allChanges)")
-  
-        registerForPushNotification()
+//      print("Server: \(ServerData.sharedInstance.allChanges)")
+//      registerForPushNotification()
         UIApplication.shared.registerForRemoteNotifications()
         
         return true
@@ -66,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("DeviceToken1: \(deviceToken)")
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print("DeviceToken: \(token)")
         forwardTokenToServer(deviceToken: token)
@@ -74,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     func forwardTokenToServer(deviceToken: String){
         //now find all courses
         let lectures = UserData.sharedInstance.selectedSchedule.getOneDimensionalList()
-        // var pushJSON : [String: Any] =   fix later
         print("lectures->count\(lectures.count)")
         var jsonLectures : [String: [Any]] = [:]
         var tmpArray: [String] = []
@@ -84,28 +81,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             }
         }
         jsonLectures.updateValue(tmpArray, forKey: "lecture")
-        
         var payload : [String: Any] = ["fcm_token": deviceToken]
-        
         payload.updateValue(tmpArray, forKey: "vorlesung_id")
+        
         let osparm = 1
         payload.updateValue(osparm, forKey: "os")
-        print(payload)
         
-        print("tmp -> Count\(payload.count)")
+        
         let isValidJson = JSONSerialization.isValidJSONObject(payload)
         if isValidJson{
-            print("isValid")
             sendToServer(jsonObject: payload)
+        }else{
+            print("oops! Something went wrong")
         }
     }
     func sendToServer(jsonObject: [String: Any]){
+        //### Authentication soap
         let username = "soapuser"
         let password = "F%98z&12"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
-        var myUrl : String = "https://apptest.hof-university.de/soap/fcm_register_user.php" //default value
+        
+        var myUrl : String?
+        
+        //get data from info.plist
         let resourceFileDictinoary: NSDictionary?
         if let path = Bundle.main.path(forResource: "Info", ofType: "plist"){
             resourceFileDictinoary = NSDictionary(contentsOfFile: path)
@@ -117,33 +117,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
                 else{
                     myUrl = dict["TestURL"] as! String + "fcm_register_user_new.php"
                 }
+                //### if isPushTesting plist change url
+                print("Url: \(myUrl)")
+                var request = URLRequest(url:URL(string: myUrl!)!)
+                request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+                request.httpMethod = "POST"
+                let params = jsonObject
+                request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                print(params)
+                
+                //http request
+                URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
+                    if let safeData = data{
+                        print("response: \(String(describing: String(data:safeData, encoding:.utf8)))")
+                    }
+                    }.resume()
+
             }
-            
+        else{
+                    print("oops! Something went wrong")
         }
         
-        //### if plist change url
-        print("Url: \(myUrl)")
-        var request = URLRequest(url:URL(string: myUrl)!)
-        
-        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        
-        
-        
-        request.httpMethod = "POST"
-        
-        //let params = ["email":"name@mail.com", "password":"password"]
-        let params = jsonObject
-        
-        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        print(params)
-        
-        URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
-            if let safeData = data{
-                print("response: \(String(data:safeData, encoding:.utf8))")
-            }
-            }.resume()
+        }
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error)
@@ -199,27 +196,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     func update(s: String?) {
         print ( "Changes geladen")
         
-        
+        //### deprecated because of remote notifictation
         if UserData.sharedInstance.oldChanges.count != tempOldChanges.count && UserData.sharedInstance.oldChanges.count > 0{
+//            //New Changes are available
+//            let ResultChanges = ChangesController().compareChanges(oldChanges: tempOldChanges, newChanges: UserData.sharedInstance.oldChanges)
+//
+//            let todayChanges = ChangesController().determineTodaysChanges(changedLectures: ResultChanges)
+//
+//            if ResultChanges.count > 0 {
+//                print("Show Notification")
+//
+//                NotificationInterface().makeNotification(changesAmount: ResultChanges.count, todayChangesAmount: todayChanges.count)
+//
+//                //Hier könnte ein Badge gesetzt werden!
+//                UIApplication.shared.applicationIconBadgeNumber = ResultChanges.count
+//
+//
+//            } else{
+//                print("No Notification")
+//            }
         
-            //New Changes are available
-            let ResultChanges = ChangesController().compareChanges(oldChanges: tempOldChanges, newChanges: UserData.sharedInstance.oldChanges)
-            
-            let todayChanges = ChangesController().determineTodaysChanges(changedLectures: ResultChanges)
-            
-            if ResultChanges.count > 0 {
-                print("Scho Notification")
-                
-                NotificationInterface().makeNotification(changesAmount: ResultChanges.count, todayChangesAmount: todayChanges.count)
-                
-                //Hier könnte ein Badge gesetzt werden!
-                UIApplication.shared.applicationIconBadgeNumber = ResultChanges.count
-                
-                
-            } else{
-                print("No Notification")
-            }
-            
             self.updateCalendar()
             
         }
