@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserData.sharedInstance = DataObjectPersistency().loadDataObject()
         
-        let faculty = Faculty(facultyName: UserData.sharedInstance.selectedAppColor)
+        let faculty = Faculty(facultyName: UserData.sharedInstance.getSelectedAppColor())
         appColor.faculty = faculty
         
         let navbar = UINavigationBar.appearance()
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     
     func setupAppColor(){
         let usrdata = UserData.sharedInstance
-        switch usrdata.selectedAppColor {
+        switch usrdata.getSelectedAppColor() {
         case "economics":
             appColor.faculty = Faculty.economics
         case "computerScience":
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         case "engineeringSciences":
             appColor.faculty = Faculty.engineeringSciences
         default:
-            print("selected appcolor was: " + usrdata.selectedAppColor)
+            print("selected appcolor was: " + usrdata.getSelectedAppColor())
             appColor.faculty = Faculty.default
         }
         

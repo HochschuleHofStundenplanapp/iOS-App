@@ -26,7 +26,7 @@ public class UserData: NSObject, NSCoding{
     public var selectedSchedule: Schedule = Schedule()
     public var oldChanges : [ChangedLecture] = []
     public var tasks: [Task] = []
-    public var selectedAppColor : String = ""
+    private var selectedAppColor : String = "economics"
     
     public var calendarIdentifier: String?
     
@@ -63,9 +63,14 @@ public class UserData: NSObject, NSCoding{
     }
     
     public func setSelectedAppColor (newAppColor : String) {
-        selectedAppColor = newAppColor
+        self.selectedAppColor = newAppColor
+        DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         print("new set AppColor: " +  selectedAppColor)
         
+    }
+    
+    public func getSelectedAppColor() -> String {
+        return selectedAppColor
     }
     
     public func wipeUserData(){
