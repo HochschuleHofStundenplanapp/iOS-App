@@ -26,7 +26,7 @@ public class UserData: NSObject, NSCoding{
     public var selectedSchedule: Schedule = Schedule()
     public var oldChanges : [ChangedLecture] = []
     public var tasks: [Task] = []
-    private var selectedAppColor : String = "economics"
+    private var selectedAppColor : String = ""
     
     public var calendarIdentifier: String?
     

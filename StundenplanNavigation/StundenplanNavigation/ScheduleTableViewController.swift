@@ -58,20 +58,21 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     func setUpUI() {
-        switch usrdata.getSelectedAppColor() {
-        case "economics":
+        switch UserData.sharedInstance.getSelectedAppColor() {
+        case Faculty.economics.faculty:
             appColor.faculty = Faculty.economics
-        case "computerScience":
+        case Faculty.computerScience.faculty:
             appColor.faculty = Faculty.computerScience
-        case "engineeringSciences":
+        case Faculty.engineeringSciences.faculty:
             appColor.faculty = Faculty.engineeringSciences
         default:
-            print("selected appcolor was: " + usrdata.getSelectedAppColor())
+            print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
             appColor.faculty = Faculty.default
         }
         
         print("loaded Color", appColor.faculty)
-        
+
+        UINavigationBar.appearance().barTintColor = appColor.tintColor
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
     }

@@ -13,7 +13,6 @@ class OnboardingFacultyViewController: UIViewController {
     @IBOutlet weak var facultySegmentedControl: UISegmentedControl!
     @IBOutlet weak var tutorialDescriptionView: UIView!
     @IBOutlet weak var ScreenshotPreviewImageView: UIImageView!
-    let usrdata = UserData.sharedInstance
     
     deinit {
         let nc = NotificationCenter.default
@@ -28,7 +27,7 @@ class OnboardingFacultyViewController: UIViewController {
         
         //Beim Starten des Onboardings wird die Farbe wieder auf Default gesetzt
         appColor.faculty = .default
-        usrdata.setSelectedAppColor(newAppColor: "default")
+        UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.default.faculty)
         
         setUpUI()
     }
@@ -43,20 +42,20 @@ class OnboardingFacultyViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             appColor.faculty = .economics
-            usrdata.setSelectedAppColor(newAppColor: "economics")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.economics.faculty)
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Wirtschaft")
         case 1:
             appColor.faculty = .computerScience
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Informatik")
-            usrdata.setSelectedAppColor(newAppColor: "computerScience")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.computerScience.faculty)
         case 2:
             appColor.faculty = .engineeringSciences
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Ingenieur")
-            usrdata.setSelectedAppColor(newAppColor: "engineeringSciences")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.engineeringSciences.faculty)
         default:
             appColor.faculty = .default
             ScreenshotPreviewImageView.image = #imageLiteral(resourceName: "Standard")
-            usrdata.setSelectedAppColor(newAppColor: "default")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.default.faculty)
         }
         setUpUI()
     }

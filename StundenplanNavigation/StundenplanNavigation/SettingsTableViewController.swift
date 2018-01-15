@@ -31,7 +31,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     var settingsController: SettingsController!
     var navBar = UINavigationBar.appearance()
-    let UsrData : UserData = UserData.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +73,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             settingsController.clearAllSettings()
             UserData.sharedInstance.wipeUserData()
             appColor.faculty = Faculty.default
-            UsrData.setSelectedAppColor(newAppColor: "default")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: "default")
             self.settingsController.stopCalendarSync()
             self.syncSwitch.setOn(false, animated: false)
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
@@ -287,16 +286,16 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         switch sender.selectedSegmentIndex {
         case 0:
             appColor.faculty = .economics
-            UsrData.setSelectedAppColor(newAppColor: "economics")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.economics.faculty)
         case 1:
             appColor.faculty = .computerScience
-            UsrData.setSelectedAppColor(newAppColor: "computerScience")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.computerScience.faculty)
         case 2:
             appColor.faculty = .engineeringSciences
-            UsrData.setSelectedAppColor(newAppColor: "engineeringScience")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.engineeringSciences.faculty)
         default:
             appColor.faculty = .default
-            UsrData.setSelectedAppColor(newAppColor: "default")
+            UserData.sharedInstance.setSelectedAppColor(newAppColor: Faculty.default.faculty)
         }
         setUpUI()
     }
