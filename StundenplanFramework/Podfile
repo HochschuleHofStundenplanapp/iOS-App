@@ -5,7 +5,7 @@ xcodeproj '../StundenplanNavigation/StundenplanNavigation.xcodeproj'
 target 'StundenplanNavigation' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
-    pod 'SwiftSoup'
+    pod 'SwiftSoup', '~> 1.5.8'
     project '../StundenplanNavigation/StundenplanNavigation.xcodeproj'
     # Pods for StundenplanNavigation
     
@@ -24,7 +24,7 @@ target 'StundenplanNavigation' do
 end
 target 'StundenplanFramework' do
     use_frameworks!
-    pod 'SwiftSoup'
+    pod 'SwiftSoup', '~> 1.5.8'
     project 'StundenplanFramework.xcodeproj'
 end
 
