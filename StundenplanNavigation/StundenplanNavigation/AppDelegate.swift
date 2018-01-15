@@ -47,16 +47,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     }
     
     func setupAppColor(){
-        let usrdata = UserData.sharedInstance
-        switch usrdata.getSelectedAppColor() {
-        case "economics":
+        switch UserData.sharedInstance.getSelectedAppColor() {
+        case Faculty.economics.faculty:
             appColor.faculty = Faculty.economics
-        case "computerScience":
+        case Faculty.computerScience.faculty:
             appColor.faculty = Faculty.computerScience
-        case "engineeringSciences":
+        case Faculty.engineeringSciences.faculty:
             appColor.faculty = Faculty.engineeringSciences
         default:
-            print("selected appcolor was: " + usrdata.getSelectedAppColor())
+            print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
             appColor.faculty = Faculty.default
         }
         
