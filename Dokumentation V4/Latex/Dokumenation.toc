@@ -29,23 +29,24 @@
 \contentsline {section}{\numberline {4.4}Umsetzung}{12}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Server Installation}{13}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Zertifikate}{13}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Swift register}{13}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.3}Code zum Registrieren am Server}{13}{subsection.4.4.3}
 \contentsline {section}{\numberline {4.5}Aufgetretene Probleme}{14}{section.4.5}
-\contentsline {section}{\numberline {4.6}Weitere Arbeiten}{14}{section.4.6}
-\contentsline {chapter}{\numberline {5}Testen der Anwendung}{15}{chapter.5}
-\contentsline {chapter}{\numberline {6}Gruppe PMP}{16}{chapter.6}
-\contentsline {section}{\numberline {6.1}Einleitung}{16}{section.6.1}
-\contentsline {section}{\numberline {6.2}\IeC {\"U}berblick}{16}{section.6.2}
-\contentsline {section}{\numberline {6.3}Erster Bug}{19}{section.6.3}
-\contentsline {chapter}{\numberline {7}Aufgaben Erweiterung}{20}{chapter.7}
-\contentsline {section}{\numberline {7.1}Einleitung}{20}{section.7.1}
-\contentsline {section}{\numberline {7.2}Planung und Mockup}{21}{section.7.2}
-\contentsline {section}{\numberline {7.3}Funktionen}{22}{section.7.3}
-\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{23}{chapter.8}
-\contentsline {section}{\numberline {8.1}Einleitung}{23}{section.8.1}
-\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{23}{section.8.2}
-\contentsline {chapter}{\numberline {9}Onboarding}{24}{chapter.9}
-\contentsline {section}{\numberline {9.1}Einleitung}{24}{section.9.1}
-\contentsline {section}{\numberline {9.2}Umsetzung}{24}{section.9.2}
-\contentsline {chapter}{\numberline {10}Universal App Colors}{25}{chapter.10}
-\contentsline {section}{\numberline {10.1}Beschreibung}{25}{section.10.1}
+\contentsline {section}{\numberline {4.6}lessons learned}{14}{section.4.6}
+\contentsline {section}{\numberline {4.7}Weitere Arbeiten}{14}{section.4.7}
+\contentsline {chapter}{\numberline {5}Testen der Anwendung}{16}{chapter.5}
+\contentsline {chapter}{\numberline {6}Gruppe PMP}{17}{chapter.6}
+\contentsline {section}{\numberline {6.1}Einleitung}{17}{section.6.1}
+\contentsline {section}{\numberline {6.2}\IeC {\"U}berblick}{17}{section.6.2}
+\contentsline {section}{\numberline {6.3}Erster Bug}{20}{section.6.3}
+\contentsline {chapter}{\numberline {7}Aufgaben Erweiterung}{21}{chapter.7}
+\contentsline {section}{\numberline {7.1}Einleitung}{21}{section.7.1}
+\contentsline {section}{\numberline {7.2}Planung und Mockup}{22}{section.7.2}
+\contentsline {section}{\numberline {7.3}Funktionen}{23}{section.7.3}
+\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{24}{chapter.8}
+\contentsline {section}{\numberline {8.1}Einleitung}{24}{section.8.1}
+\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{24}{section.8.2}
+\contentsline {chapter}{\numberline {9}Onboarding}{25}{chapter.9}
+\contentsline {section}{\numberline {9.1}Einleitung}{25}{section.9.1}
+\contentsline {section}{\numberline {9.2}Umsetzung}{25}{section.9.2}
+\contentsline {chapter}{\numberline {10}Universal App Colors}{26}{chapter.10}
+\contentsline {section}{\numberline {10.1}Beschreibung}{26}{section.10.1}

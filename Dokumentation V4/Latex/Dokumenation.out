@@ -28,23 +28,24 @@
 \BOOKMARK [1][-]{section.4.4}{Umsetzung}{chapter.4}% 28
 \BOOKMARK [2][-]{subsection.4.4.1}{Server Installation}{section.4.4}% 29
 \BOOKMARK [2][-]{subsection.4.4.2}{Zertifikate}{section.4.4}% 30
-\BOOKMARK [2][-]{subsection.4.4.3}{Swift register}{section.4.4}% 31
+\BOOKMARK [2][-]{subsection.4.4.3}{Code zum Registrieren am Server}{section.4.4}% 31
 \BOOKMARK [1][-]{section.4.5}{Aufgetretene Probleme}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.6}{Weitere Arbeiten}{chapter.4}% 33
-\BOOKMARK [0][-]{chapter.5}{Testen der Anwendung}{}% 34
-\BOOKMARK [0][-]{chapter.6}{Gruppe PMP}{}% 35
-\BOOKMARK [1][-]{section.6.1}{Einleitung}{chapter.6}% 36
-\BOOKMARK [1][-]{section.6.2}{\334berblick}{chapter.6}% 37
-\BOOKMARK [1][-]{section.6.3}{Erster Bug}{chapter.6}% 38
-\BOOKMARK [0][-]{chapter.7}{Aufgaben Erweiterung}{}% 39
-\BOOKMARK [1][-]{section.7.1}{Einleitung}{chapter.7}% 40
-\BOOKMARK [1][-]{section.7.2}{Planung und Mockup}{chapter.7}% 41
-\BOOKMARK [1][-]{section.7.3}{Funktionen}{chapter.7}% 42
-\BOOKMARK [0][-]{chapter.8}{Kalenderschnittstelle}{}% 43
-\BOOKMARK [1][-]{section.8.1}{Einleitung}{chapter.8}% 44
-\BOOKMARK [1][-]{section.8.2}{\334berarbeitung}{chapter.8}% 45
-\BOOKMARK [0][-]{chapter.9}{Onboarding}{}% 46
-\BOOKMARK [1][-]{section.9.1}{Einleitung}{chapter.9}% 47
-\BOOKMARK [1][-]{section.9.2}{Umsetzung}{chapter.9}% 48
-\BOOKMARK [0][-]{chapter.10}{Universal App Colors}{}% 49
-\BOOKMARK [1][-]{section.10.1}{Beschreibung}{chapter.10}% 50
+\BOOKMARK [1][-]{section.4.6}{lessons learned}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.7}{Weitere Arbeiten}{chapter.4}% 34
+\BOOKMARK [0][-]{chapter.5}{Testen der Anwendung}{}% 35
+\BOOKMARK [0][-]{chapter.6}{Gruppe PMP}{}% 36
+\BOOKMARK [1][-]{section.6.1}{Einleitung}{chapter.6}% 37
+\BOOKMARK [1][-]{section.6.2}{\334berblick}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.3}{Erster Bug}{chapter.6}% 39
+\BOOKMARK [0][-]{chapter.7}{Aufgaben Erweiterung}{}% 40
+\BOOKMARK [1][-]{section.7.1}{Einleitung}{chapter.7}% 41
+\BOOKMARK [1][-]{section.7.2}{Planung und Mockup}{chapter.7}% 42
+\BOOKMARK [1][-]{section.7.3}{Funktionen}{chapter.7}% 43
+\BOOKMARK [0][-]{chapter.8}{Kalenderschnittstelle}{}% 44
+\BOOKMARK [1][-]{section.8.1}{Einleitung}{chapter.8}% 45
+\BOOKMARK [1][-]{section.8.2}{\334berarbeitung}{chapter.8}% 46
+\BOOKMARK [0][-]{chapter.9}{Onboarding}{}% 47
+\BOOKMARK [1][-]{section.9.1}{Einleitung}{chapter.9}% 48
+\BOOKMARK [1][-]{section.9.2}{Umsetzung}{chapter.9}% 49
+\BOOKMARK [0][-]{chapter.10}{Universal App Colors}{}% 50
+\BOOKMARK [1][-]{section.10.1}{Beschreibung}{chapter.10}% 51
