@@ -6,7 +6,6 @@
 //  Copyright © 2016 Jonas Beetz. All rights reserved.
 //
 
-import UIKit
 
 public class DataObjectPersistency {
     private let fileName = "data2.plist"
@@ -20,19 +19,37 @@ public class DataObjectPersistency {
     
     public func loadDataObject() -> UserData {
         var item : UserData!
-        let file = dataFileForName(fileName: fileName)
+        var file = dataFileForName(fileName: fileName)
         
         if (!FileManager.default.fileExists(atPath: file)) {
-            return UserData.sharedInstance
+            file = newDataFileForName(fileName: fileName)
+            
+            if(!FileManager.default.fileExists(atPath: file)){
+                return UserData.sharedInstance
+            }
         }
         
         if let data = NSData(contentsOfFile: file) {
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data as Data)
+            let unarchiver = setupUnarchiver(data: data)
             item = unarchiver.decodeObject(forKey: dataKey) as! UserData
             unarchiver.finishDecoding()
         }
         
         return item
+    }
+    
+    // Wenn auf dem Gerät die App ohne AppGroup und ohne Framework installiert war, müssen beim Unarchiver
+    // Klassennamen neu auf die entsprechenden Klassen gemappt werden
+    private func setupUnarchiver(data: NSData) -> NSKeyedUnarchiver{
+        let unarchiver = NSKeyedUnarchiver(forReadingWith: data as Data)
+        unarchiver.setClass(UserData.self, forClassName: "StundenplanNavigation.UserData")
+        unarchiver.setClass(Course.self, forClassName: "StundenplanNavigation.Course")
+        unarchiver.setClass(Semester.self, forClassName: "StundenplanNavigation.Semester")
+        unarchiver.setClass(Schedule.self, forClassName: "StundenplanNavigation.Schedule")
+        unarchiver.setClass(Lecture.self, forClassName: "StundenplanNavigation.Lecture")
+        unarchiver.setClass(ChangedLecture.self, forClassName: "StundenplanNavigation.ChangedLecture")
+        
+        return unarchiver
     }
     
     public func saveDataObject(items : UserData) {
@@ -72,11 +89,16 @@ public class DataObjectPersistency {
         data.write(toFile: file, atomically: true)
     }
     
+    private func oldDocumentPath() -> String {
+        let allPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        return allPaths[0]
+    }
+    
     private func documentPath() -> String {
-        //let allPathes = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        //return allPathes[0]
+        
         let fileManager = FileManager.default
         let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: Constants.appGroupID)
+        
         return container!.path
     }
     
@@ -87,6 +109,10 @@ public class DataObjectPersistency {
     
     private func dataFileForName(fileName : String) -> String {
         return (documentPath() as NSString).appendingPathComponent(fileName)
+    }
+    
+    private func newDataFileForName(fileName: String) -> String {
+        return (oldDocumentPath() as NSString).appendingPathComponent(fileName)
     }
     
     private func tmpFileForName(fileName : String) -> String {

@@ -1,0 +1,37 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+workspace '../StundenplanNavigation.xcworkspace'
+xcodeproj '../StundenplanNavigation/StundenplanNavigation.xcodeproj'
+target 'StundenplanNavigation' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    pod 'SwiftSoup'
+    project '../StundenplanNavigation/StundenplanNavigation.xcodeproj'
+    # Pods for StundenplanNavigation
+    
+    target 'StundenplanNavigationTests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+    
+    
+    
+    target 'StundenplanNavigationUITests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+    
+end
+target 'StundenplanFramework' do
+    use_frameworks!
+    pod 'SwiftSoup'
+    project 'StundenplanFramework.xcodeproj'
+end
+
+target 'StundenplanWidget' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    
+    # Pods for StundenplanWidget
+    
+end

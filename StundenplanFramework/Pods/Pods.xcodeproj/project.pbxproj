@@ -1,0 +1,1393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		065C9D6DC07279D4B216546E719F0C02 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A6677827DBA02A83EC3359D513333 /* Validate.swift */; };
+		0673AF794D92AAA979B7742E2D4E4DE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		0E8075EFA637FBDD14770409FB2C2786 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCF5CC7CF2C5D8A9614A7594208FA7 /* Attributes.swift */; };
+		0EBD2DE57BD9329C7D31AD6A01A4B0CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		11A2C7D71301B308782BD2B58C645A07 /* XmlTreeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FD986C85730D8DF75FB2A4152B0BD /* XmlTreeBuilder.swift */; };
+		12128EA6FF8437C5E9F245DF410F7B37 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44522D8D8770660DA0A055D988C6FD66 /* Elements.swift */; };
+		1E25F43FB38F2408CD83FC045B0A951D /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3E56F2EE8DA918D59461695CA0A73 /* ParseError.swift */; };
+		2189ACA4F572ABFB69561AB04F1DD5C7 /* TreeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2005E18A17D8432D600D482946D4853 /* TreeBuilder.swift */; };
+		23FAC7FB337E2F45290A31C80A878A02 /* HtmlTreeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E06B99125D7235986F5D7B72C6375A2 /* HtmlTreeBuilder.swift */; };
+		2A35E27F98DFC94A9418C2C3B9A87D9C /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C0DDEA29B76684DE018F529B05DAF /* Whitelist.swift */; };
+		30FC648C5BDE6B2A643F08312A613AA5 /* Pods-StundenplanNavigation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C760235AA79CDEC4EAA960E3AB8B3BF9 /* Pods-StundenplanNavigation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35D8AC547BA1F565DDD306EA96EDDA3F /* Tokeniser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3B52F70E88D2AAF09B90CF31FD8F3 /* Tokeniser.swift */; };
+		371E6F584C9AFE9BCED5F7C084B0B693 /* StructuralEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E9CAE847A747B6035DD7897522E6B3 /* StructuralEvaluator.swift */; };
+		39E7CC96508125AFD28EFE5FFB0036EF /* HttpStatusException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630405AF103BE0784FC9F1DCDCD38697 /* HttpStatusException.swift */; };
+		3CFE487E71BCABC7D3ED816088681653 /* QueryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C0F72E08235D6F7E7899B570146174 /* QueryParser.swift */; };
+		3DB19657CDE1ABF22C40EFA0B6BF0D70 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C8B211B0D820409975E0CED455873 /* Token.swift */; };
+		3F89D6FCC612D222374D98592317E22E /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6235B2201DD7DB5DEC881D9EEFAD0668 /* Document.swift */; };
+		468B0870096D940D0EE473928E0FB03C /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891F553D19B720459C76E855199AE6A8 /* Collector.swift */; };
+		4891F71BDDC7B88EF1579046A96461C7 /* Pods-StundenplanNavigationUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 63EE330FAA53C50C9FF667F50D590A6E /* Pods-StundenplanNavigationUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B22C3C558EA275F5A70501C774B0D89 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0F2496EE4A25ED1BC61246533BA9DB /* Exception.swift */; };
+		51BD3E37B6A99E6A96D72622E7E2CAEB /* BooleanAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43135FFED43499A32E8D4B93EF8497DE /* BooleanAttribute.swift */; };
+		53E0AECF15C2EE9A1A527F1E5827A7D4 /* SerializationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB27AFE288A80F619BD84ABCA86E98E8 /* SerializationException.swift */; };
+		55C7FE84191D92A662FB57FD35986DBA /* Pods-StundenplanNavigationTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5368BF0E9ACD6CF7033C4D5608E36DAE /* Pods-StundenplanNavigationTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57708089212F5DC5DEFDD2C64F4FB594 /* NodeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604190ED985B8459D4C3CB00B08EA1B2 /* NodeVisitor.swift */; };
+		5910693DAEA48CFB62289953137C6608 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		639C0059801F9B11838C0C12B63AD7DA /* Pods-StundenplanFramework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE13344FC6478698670191ADF5D23924 /* Pods-StundenplanFramework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6460DD310D036838500001A4907ED64C /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE3159671F061357B3988820992AB3 /* DataUtil.swift */; };
+		64D3FA712B4CDEA8B2AD75841721F9E7 /* Pods-StundenplanWidget-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 10E1935F957CFE671575C5BEB6E49CD6 /* Pods-StundenplanWidget-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E87086A8E98AACB76D16986EE332586 /* SwiftSoup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7FE9BBC26C485FA0644BE827A3819 /* SwiftSoup.swift */; };
+		7347FEBCD65A139157EE0BD117A4BA31 /* TokeniserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E206093B8CFA7D169994473FF3E06161 /* TokeniserState.swift */; };
+		79D68AC6344ABA44AA2C850B5154DAF8 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA80EA825456A85C5EAC81128B7D2A13 /* StreamReader.swift */; };
+		8074AED5A6050FB328FAE178E22843F0 /* Pods-StundenplanNavigationUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B293D0C4916C8192771383306E4DBE /* Pods-StundenplanNavigationUITests-dummy.m */; };
+		85826DD5D9DDE40FF0EEF6DDA403E22B /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B9BE6A120CF124AC947FD213458C40 /* TextNode.swift */; };
+		875DE729EAE567A803D943D1D33E20BC /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA06715F85D033EEFF5E596790DFC3 /* OrderedDictionary.swift */; };
+		8767E38B0F6B1ABC74ACDA9E5890153F /* SimpleDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537704880A3EEBF0AEBDF2621EB6A0F3 /* SimpleDictionary.swift */; };
+		882F46539B568C260CE43A0894B86618 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2E200B9A53BE45ABCE292F1D437814 /* Parser.swift */; };
+		8BC6EC6501EED48D67E1AC5CDB31CBB9 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A118F700581BBB3243C0D7FB77C29D4 /* Node.swift */; };
+		8E88E6C17074DAE211F962B0458AF46C /* StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12F1CEC81E5C1E794F0CF413C1CB0A /* StringBuilder.swift */; };
+		8EBCA1CDEE868943B2AFF11BA61BEF9D /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD652EC954FA79D571169EEE782E52 /* Element.swift */; };
+		90A4116723548F2C9EB821C2B0F13AFB /* SwiftSoup-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EB52349E8DBF3FCE89A138FFE5F1955F /* SwiftSoup-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92755FC7EC50C492CC4AEA406BC3373B /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956F25711ABFDA06A834B23E76E18FD /* Tag.swift */; };
+		92A6A32F7F4F6A240E10CA3FAA4A0242 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F70944F55E23CA9F1AA9C3F5E543E6 /* Attribute.swift */; };
+		94E625C8EA48F4EC3B013B5275D8185B /* UnicodeScalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0956AF381D1BCA58B1DB673ADE2D36F /* UnicodeScalar.swift */; };
+		996BE22C6D7B5F89FBAF06A60C615203 /* CharacterReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEDF1B4C93C6BF04A8B3A376D824DF8 /* CharacterReader.swift */; };
+		9A4FDE5795ADB791D77956436C7C2E2C /* HtmlTreeBuilderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DF94B4A7E96608E4C28CA87594E86E /* HtmlTreeBuilderState.swift */; };
+		9B1A0AC8B6F584060D25E86B5B824FAA /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060C6BF3EB96502284C4EED48AE8473 /* Entities.swift */; };
+		9BCE0C5A09075EF7DD9540A4B7F049C3 /* ParseErrorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED412CB67CEC5AD53D090DEE9295FEF /* ParseErrorList.swift */; };
+		9D5C161E60634F1A0A52B0E883237B56 /* ParseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75616435FEC520E0AB2B9A03B42B9463 /* ParseSettings.swift */; };
+		A9DB469FB34C58057084A98A7161EC54 /* Pods-StundenplanNavigation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7843E8F101923A2476B145E8CE4DEA /* Pods-StundenplanNavigation-dummy.m */; };
+		AEB77456F587C8EF889D6906AEF10620 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061E45166C4F6CA7950D7D4C21B927 /* String.swift */; };
+		AFB8538680E530FB424C6DE8A987DE5B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E30D96D9E0C51D7D98102AF5F400C /* Comment.swift */; };
+		B187B10B08936AACCD70D5939B3CA2E0 /* CombiningEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CFDFD9EC0461E0183230E7BD4D23C /* CombiningEvaluator.swift */; };
+		B6AD1CBCE97F028096F7CD18B31EBAC7 /* SwiftSoup-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A65BF3A5D3FDD06E1004E1CB379749 /* SwiftSoup-dummy.m */; };
+		C38E1A1ED83984B0F21058AB0830A010 /* Pods-StundenplanNavigationTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDAFD7833213E53F41C0A00CEC200AD /* Pods-StundenplanNavigationTests-dummy.m */; };
+		C429156BCCD51030A8A548B681C9E018 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8CDB58FEC3DF8E9E9C788D7986C1A /* Evaluator.swift */; };
+		C50C7D8E5DCC8CF3932059C1F024894A /* Pods-StundenplanFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 492980AC9D04AA0CE3075161B9FBE783 /* Pods-StundenplanFramework-dummy.m */; };
+		CB46D404C6569C98A16E80B66F9E3EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		CB4B647EFC7FA114C2F08CA9BF6F974D /* DocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11884996774307AC571FE915381DDA /* DocumentType.swift */; };
+		CCABE542DB549AAA769A4B4020D1DB08 /* FormElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B2CD38A0917CAC75420AFA2BE3217D /* FormElement.swift */; };
+		CEB9A1E6FD6FA599493E807AC8E314DF /* Pods-StundenplanWidget-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F4EA0E5BC46477C20FC8098351DAEF /* Pods-StundenplanWidget-dummy.m */; };
+		D0E5F9E02D862690178522F68BE299BE /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007D3C79D0CF0BE6FF2556B8846850EA /* ArrayExt.swift */; };
+		D76E3743C3D4CE5BF565B9C602FE98C1 /* Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C699DC348D289409414BCFACDADC92 /* Selector.swift */; };
+		DB4580DD14900C580E28157DF3D6527A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		DDEF2F2EA7B31866C2AE5B88AF0B7E9B /* XmlDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C5C6357B71AF5FED442F9E3F6C77C /* XmlDeclaration.swift */; };
+		DEE42120CFD2550D628881427BCBBF88 /* TokenQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1FDBFD8A4C10159D5648D741FAABF /* TokenQueue.swift */; };
+		E088FA3603288E010D7C0AA6AFBBD4A1 /* Cleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AD2063C746E24C76A695124CB8F61C /* Cleaner.swift */; };
+		E2D9F69360E1BEAAE54C6AEBFF9226C2 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85808BF20F785856A36A4A52D595EC /* Pattern.swift */; };
+		E5010D8EFE0D0A62571CC06A62B16E3D /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6624F64CD104A5B090FB1650EBBA42 /* OrderedSet.swift */; };
+		E64A7F76A713CFA1747B8FB16E85627B /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8DBAFB48F24C32F0F280BEEE6DF2D9 /* Connection.swift */; };
+		EBEED2900F14341D4CA6219397D8405F /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C0363736F54D355C889057930C8FA /* StringUtil.swift */; };
+		EBEFA0D78BB805BB6AFB36300B9FC6D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		EC8B9309CF748FDEAF96B68141F4096C /* CharacterExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C99786795B1D08392875CE49B837F6 /* CharacterExt.swift */; };
+		EC932A54DE8826DB3570E48ECB6AD314 /* DataNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29037850BEB5FB77E124FFF3C513B2DE /* DataNode.swift */; };
+		EE41F4F3CB167F515F604FBC7E423F67 /* NodeTraversor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8122F2BB284283B425EEEC260DED5BD /* NodeTraversor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6FB23E6389561E4FCE6BDE644DFBB8A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97A20DC66444AA4DE3C27EAA36E2851B;
+			remoteInfo = SwiftSoup;
+		};
+		E556C9C28034863882C38F23F36F3C06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97A20DC66444AA4DE3C27EAA36E2851B;
+			remoteInfo = SwiftSoup;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		007D3C79D0CF0BE6FF2556B8846850EA /* ArrayExt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArrayExt.swift; path = Sources/ArrayExt.swift; sourceTree = "<group>"; };
+		009B7A3C873BF3DCFFDE0C06C7D2DC41 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ABCB45A478973AA36ADA6D36C5016D4 /* Pods-StundenplanNavigationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigationTests.release.xcconfig"; sourceTree = "<group>"; };
+		0AEE3159671F061357B3988820992AB3 /* DataUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataUtil.swift; path = Sources/DataUtil.swift; sourceTree = "<group>"; };
+		0B10F74F38B1F3904AAFDC5CF0C64DDE /* Pods-StundenplanNavigationUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StundenplanNavigationUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		10E1935F957CFE671575C5BEB6E49CD6 /* Pods-StundenplanWidget-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanWidget-umbrella.h"; sourceTree = "<group>"; };
+		123BAC0D2E46BFFF8BF1E8817C65E1A3 /* Pods-StundenplanFramework-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanFramework-acknowledgements.markdown"; sourceTree = "<group>"; };
+		152AD7EB565A6175D92D951078FBA88B /* Pods-StundenplanWidget-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanWidget-resources.sh"; sourceTree = "<group>"; };
+		1552A5701144EF2FF6F345084CE400F4 /* Pods_StundenplanFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanFramework.framework; path = "Pods-StundenplanFramework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17A190C91BEF95B32CA0694F03A80F25 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CC078E6EDC329E8E0528395CF88B944 /* Pods_StundenplanNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanNavigationTests.framework; path = "Pods-StundenplanNavigationTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CEDF1B4C93C6BF04A8B3A376D824DF8 /* CharacterReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = Sources/CharacterReader.swift; sourceTree = "<group>"; };
+		1F061E45166C4F6CA7950D7D4C21B927 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = String.swift; path = Sources/String.swift; sourceTree = "<group>"; };
+		1F9C8B211B0D820409975E0CED455873 /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Sources/Token.swift; sourceTree = "<group>"; };
+		257F003B93BFA576D1B12B1F75DA8DED /* Pods-StundenplanNavigation-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanNavigation-acknowledgements.markdown"; sourceTree = "<group>"; };
+		25B2CD38A0917CAC75420AFA2BE3217D /* FormElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormElement.swift; path = Sources/FormElement.swift; sourceTree = "<group>"; };
+		25ECA478B3431A9E0E9362D8802F1A7C /* Pods-StundenplanNavigationUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigationUITests-frameworks.sh"; sourceTree = "<group>"; };
+		26633DAE08D07AC57A445B6C3343BCD8 /* Pods-StundenplanNavigationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		26F612D0377F077E8F660D59909D2071 /* Pods-StundenplanNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigation.release.xcconfig"; sourceTree = "<group>"; };
+		29037850BEB5FB77E124FFF3C513B2DE /* DataNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataNode.swift; path = Sources/DataNode.swift; sourceTree = "<group>"; };
+		2ED412CB67CEC5AD53D090DEE9295FEF /* ParseErrorList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseErrorList.swift; path = Sources/ParseErrorList.swift; sourceTree = "<group>"; };
+		3B5C635F93918765F93900132573DBDB /* Pods-StundenplanNavigationTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StundenplanNavigationTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3C2C0DDEA29B76684DE018F529B05DAF /* Whitelist.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Whitelist.swift; path = Sources/Whitelist.swift; sourceTree = "<group>"; };
+		3E3A44BA80B0DBABB005CA7802CB273B /* Pods-StundenplanWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanWidget.release.xcconfig"; sourceTree = "<group>"; };
+		40F4EA0E5BC46477C20FC8098351DAEF /* Pods-StundenplanWidget-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanWidget-dummy.m"; sourceTree = "<group>"; };
+		43135FFED43499A32E8D4B93EF8497DE /* BooleanAttribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BooleanAttribute.swift; path = Sources/BooleanAttribute.swift; sourceTree = "<group>"; };
+		44522D8D8770660DA0A055D988C6FD66 /* Elements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Elements.swift; path = Sources/Elements.swift; sourceTree = "<group>"; };
+		48B3B52F70E88D2AAF09B90CF31FD8F3 /* Tokeniser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tokeniser.swift; path = Sources/Tokeniser.swift; sourceTree = "<group>"; };
+		4907FA10761AAAE1847667989654A4FC /* Pods-StundenplanFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanFramework.release.xcconfig"; sourceTree = "<group>"; };
+		492980AC9D04AA0CE3075161B9FBE783 /* Pods-StundenplanFramework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanFramework-dummy.m"; sourceTree = "<group>"; };
+		499DF0FC87A39AF6060C91F8F1E98D60 /* Pods-StundenplanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		4A118F700581BBB3243C0D7FB77C29D4 /* Node.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Sources/Node.swift; sourceTree = "<group>"; };
+		4A640DD239DB915CA424AE2866A80435 /* Pods_StundenplanNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanNavigation.framework; path = "Pods-StundenplanNavigation.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C5413201E8F84D86318A1A55C48D5E3 /* Pods-StundenplanNavigation-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StundenplanNavigation-acknowledgements.plist"; sourceTree = "<group>"; };
+		4CF9A1F374954F6826D3263175753C8D /* Pods-StundenplanWidget-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StundenplanWidget-acknowledgements.plist"; sourceTree = "<group>"; };
+		4D8DBAFB48F24C32F0F280BEEE6DF2D9 /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Sources/Connection.swift; sourceTree = "<group>"; };
+		5368BF0E9ACD6CF7033C4D5608E36DAE /* Pods-StundenplanNavigationTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanNavigationTests-umbrella.h"; sourceTree = "<group>"; };
+		537704880A3EEBF0AEBDF2621EB6A0F3 /* SimpleDictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleDictionary.swift; path = Sources/SimpleDictionary.swift; sourceTree = "<group>"; };
+		579FD986C85730D8DF75FB2A4152B0BD /* XmlTreeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XmlTreeBuilder.swift; path = Sources/XmlTreeBuilder.swift; sourceTree = "<group>"; };
+		5D12F1CEC81E5C1E794F0CF413C1CB0A /* StringBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringBuilder.swift; path = Sources/StringBuilder.swift; sourceTree = "<group>"; };
+		604190ED985B8459D4C3CB00B08EA1B2 /* NodeVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NodeVisitor.swift; path = Sources/NodeVisitor.swift; sourceTree = "<group>"; };
+		6235B2201DD7DB5DEC881D9EEFAD0668 /* Document.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Document.swift; path = Sources/Document.swift; sourceTree = "<group>"; };
+		630405AF103BE0784FC9F1DCDCD38697 /* HttpStatusException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HttpStatusException.swift; path = Sources/HttpStatusException.swift; sourceTree = "<group>"; };
+		63EE330FAA53C50C9FF667F50D590A6E /* Pods-StundenplanNavigationUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanNavigationUITests-umbrella.h"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		671FC09A9ACE92F7CE015556FFD11773 /* Pods-StundenplanNavigationTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigationTests-resources.sh"; sourceTree = "<group>"; };
+		6B60F94FFBAC47103B8D5C556F0DDE9C /* Pods-StundenplanNavigationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6CD94176C28C4EB644B3ECE9BA812590 /* Pods-StundenplanNavigationUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanNavigationUITests.modulemap"; sourceTree = "<group>"; };
+		6D6A6677827DBA02A83EC3359D513333 /* Validate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validate.swift; path = Sources/Validate.swift; sourceTree = "<group>"; };
+		6D809D92E46704DF80DE886845B656E2 /* Pods-StundenplanFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		71C0F72E08235D6F7E7899B570146174 /* QueryParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryParser.swift; path = Sources/QueryParser.swift; sourceTree = "<group>"; };
+		73DD652EC954FA79D571169EEE782E52 /* Element.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Element.swift; path = Sources/Element.swift; sourceTree = "<group>"; };
+		74C99786795B1D08392875CE49B837F6 /* CharacterExt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CharacterExt.swift; path = Sources/CharacterExt.swift; sourceTree = "<group>"; };
+		75616435FEC520E0AB2B9A03B42B9463 /* ParseSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseSettings.swift; path = Sources/ParseSettings.swift; sourceTree = "<group>"; };
+		780019B5CD115B08D6AC3337339FA659 /* Pods-StundenplanNavigation-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigation-resources.sh"; sourceTree = "<group>"; };
+		78B293D0C4916C8192771383306E4DBE /* Pods-StundenplanNavigationUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanNavigationUITests-dummy.m"; sourceTree = "<group>"; };
+		7AC3E56F2EE8DA918D59461695CA0A73 /* ParseError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseError.swift; path = Sources/ParseError.swift; sourceTree = "<group>"; };
+		7C89446B3A9A97B6C89B78049B1941FB /* Pods-StundenplanNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanNavigation.modulemap"; sourceTree = "<group>"; };
+		7C9843B706902FD213595947CC6490D4 /* Pods-StundenplanNavigation-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigation-frameworks.sh"; sourceTree = "<group>"; };
+		7D11884996774307AC571FE915381DDA /* DocumentType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocumentType.swift; path = Sources/DocumentType.swift; sourceTree = "<group>"; };
+		7E06B99125D7235986F5D7B72C6375A2 /* HtmlTreeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HtmlTreeBuilder.swift; path = Sources/HtmlTreeBuilder.swift; sourceTree = "<group>"; };
+		7EDB43AA2FDB62DE2468619ADB70B503 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F7FD406C16D40044B9C6C9CA8766FBC /* SwiftSoup.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftSoup.modulemap; sourceTree = "<group>"; };
+		7FDCF5CC7CF2C5D8A9614A7594208FA7 /* Attributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Attributes.swift; path = Sources/Attributes.swift; sourceTree = "<group>"; };
+		81F9628BFBBE1A891305BB0A42DB3DD5 /* Pods-StundenplanNavigationTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanNavigationTests.modulemap"; sourceTree = "<group>"; };
+		85BA06715F85D033EEFF5E596790DFC3 /* OrderedDictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OrderedDictionary.swift; path = Sources/OrderedDictionary.swift; sourceTree = "<group>"; };
+		86DC33BF4B47B4021DF6CA2F9FD66666 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8773C569D0FC2A9C8FA36A32FAB20A10 /* Pods_StundenplanWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanWidget.framework; path = "Pods-StundenplanWidget.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88AD2063C746E24C76A695124CB8F61C /* Cleaner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cleaner.swift; path = Sources/Cleaner.swift; sourceTree = "<group>"; };
+		891F553D19B720459C76E855199AE6A8 /* Collector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Collector.swift; path = Sources/Collector.swift; sourceTree = "<group>"; };
+		91F70944F55E23CA9F1AA9C3F5E543E6 /* Attribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Attribute.swift; path = Sources/Attribute.swift; sourceTree = "<group>"; };
+		92398983D7AFAC12B5F447D3D18E47AD /* Pods-StundenplanNavigationUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanNavigationUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97B9BE6A120CF124AC947FD213458C40 /* TextNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextNode.swift; path = Sources/TextNode.swift; sourceTree = "<group>"; };
+		9A1C5C6357B71AF5FED442F9E3F6C77C /* XmlDeclaration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XmlDeclaration.swift; path = Sources/XmlDeclaration.swift; sourceTree = "<group>"; };
+		9C4532EDDABFCF405690669587581F4A /* Pods-StundenplanFramework-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanFramework-resources.sh"; sourceTree = "<group>"; };
+		9CF8CDB58FEC3DF8E9E9C788D7986C1A /* Evaluator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Evaluator.swift; path = Sources/Evaluator.swift; sourceTree = "<group>"; };
+		9ED0F412129E2F60DDA5A091AB9C09DC /* Pods-StundenplanWidget.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanWidget.modulemap"; sourceTree = "<group>"; };
+		A060C6BF3EB96502284C4EED48AE8473 /* Entities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entities.swift; path = Sources/Entities.swift; sourceTree = "<group>"; };
+		A5C699DC348D289409414BCFACDADC92 /* Selector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Selector.swift; path = Sources/Selector.swift; sourceTree = "<group>"; };
+		A76EAE6697CB33DB7E9A68DB366A54DF /* Pods-StundenplanNavigationUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigationUITests-resources.sh"; sourceTree = "<group>"; };
+		A8122F2BB284283B425EEEC260DED5BD /* NodeTraversor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NodeTraversor.swift; path = Sources/NodeTraversor.swift; sourceTree = "<group>"; };
+		AB27AFE288A80F619BD84ABCA86E98E8 /* SerializationException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SerializationException.swift; path = Sources/SerializationException.swift; sourceTree = "<group>"; };
+		AB2E200B9A53BE45ABCE292F1D437814 /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Parser.swift; sourceTree = "<group>"; };
+		AB9CFDFD9EC0461E0183230E7BD4D23C /* CombiningEvaluator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombiningEvaluator.swift; path = Sources/CombiningEvaluator.swift; sourceTree = "<group>"; };
+		B11BE77EC57CBEF0B645BC40611EC68E /* Pods-StundenplanNavigationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B51CF4F383DFC1B1CC269330746BFE6C /* SwiftSoup-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSoup-prefix.pch"; sourceTree = "<group>"; };
+		B567867A99BF2CE4C6138A59AAF64135 /* Pods-StundenplanNavigationTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanNavigationTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B7641037A89907A306D8006AA4E807EB /* Pods-StundenplanNavigationTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigationTests-frameworks.sh"; sourceTree = "<group>"; };
+		BA80EA825456A85C5EAC81128B7D2A13 /* StreamReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamReader.swift; path = Sources/StreamReader.swift; sourceTree = "<group>"; };
+		BAD7FE9BBC26C485FA0644BE827A3819 /* SwiftSoup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSoup.swift; path = Sources/SwiftSoup.swift; sourceTree = "<group>"; };
+		BBDC1C3FC3017077C49F580E973D5724 /* SwiftSoup.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftSoup.xcconfig; sourceTree = "<group>"; };
+		BE85808BF20F785856A36A4A52D595EC /* Pattern.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pattern.swift; path = Sources/Pattern.swift; sourceTree = "<group>"; };
+		C280FF2A782E9816A805ED3530B69198 /* Pods-StundenplanWidget-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanWidget-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C5A1FDBFD8A4C10159D5648D741FAABF /* TokenQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenQueue.swift; path = Sources/TokenQueue.swift; sourceTree = "<group>"; };
+		C760235AA79CDEC4EAA960E3AB8B3BF9 /* Pods-StundenplanNavigation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanNavigation-umbrella.h"; sourceTree = "<group>"; };
+		CBEE68CD0FECB208D4435D397E23F3A6 /* SwiftSoup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftSoup.framework; path = SwiftSoup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0956AF381D1BCA58B1DB673ADE2D36F /* UnicodeScalar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnicodeScalar.swift; path = Sources/UnicodeScalar.swift; sourceTree = "<group>"; };
+		D61E30D96D9E0C51D7D98102AF5F400C /* Comment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Sources/Comment.swift; sourceTree = "<group>"; };
+		D82C0363736F54D355C889057930C8FA /* StringUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtil.swift; path = Sources/StringUtil.swift; sourceTree = "<group>"; };
+		D8E7C1C445D1F03FB0D52F255B7B4A94 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D956F25711ABFDA06A834B23E76E18FD /* Tag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = Sources/Tag.swift; sourceTree = "<group>"; };
+		DF0F2496EE4A25ED1BC61246533BA9DB /* Exception.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Exception.swift; path = Sources/Exception.swift; sourceTree = "<group>"; };
+		E1940F40B08B09F1F8EF2204F2521074 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E206093B8CFA7D169994473FF3E06161 /* TokeniserState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokeniserState.swift; path = Sources/TokeniserState.swift; sourceTree = "<group>"; };
+		E64E7B20AD897759648473A9EFF2B97A /* Pods-StundenplanFramework-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StundenplanFramework-acknowledgements.plist"; sourceTree = "<group>"; };
+		E7A65BF3A5D3FDD06E1004E1CB379749 /* SwiftSoup-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftSoup-dummy.m"; sourceTree = "<group>"; };
+		E7E9CAE847A747B6035DD7897522E6B3 /* StructuralEvaluator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StructuralEvaluator.swift; path = Sources/StructuralEvaluator.swift; sourceTree = "<group>"; };
+		EB52349E8DBF3FCE89A138FFE5F1955F /* SwiftSoup-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSoup-umbrella.h"; sourceTree = "<group>"; };
+		EFD0F3E0DDC585E494A03813D91F9414 /* Pods-StundenplanNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigation.debug.xcconfig"; sourceTree = "<group>"; };
+		F1AC635DCC99B8EC7EEF1E4FBEBE079E /* Pods-StundenplanFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanFramework.modulemap"; sourceTree = "<group>"; };
+		F2005E18A17D8432D600D482946D4853 /* TreeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TreeBuilder.swift; path = Sources/TreeBuilder.swift; sourceTree = "<group>"; };
+		F2DF94B4A7E96608E4C28CA87594E86E /* HtmlTreeBuilderState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HtmlTreeBuilderState.swift; path = Sources/HtmlTreeBuilderState.swift; sourceTree = "<group>"; };
+		FA6624F64CD104A5B090FB1650EBBA42 /* OrderedSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OrderedSet.swift; path = Sources/OrderedSet.swift; sourceTree = "<group>"; };
+		FE13344FC6478698670191ADF5D23924 /* Pods-StundenplanFramework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanFramework-umbrella.h"; sourceTree = "<group>"; };
+		FE1839C6934027130FCD8FA5E87E6FBB /* Pods_StundenplanNavigationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanNavigationUITests.framework; path = "Pods-StundenplanNavigationUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7843E8F101923A2476B145E8CE4DEA /* Pods-StundenplanNavigation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanNavigation-dummy.m"; sourceTree = "<group>"; };
+		FEDAFD7833213E53F41C0A00CEC200AD /* Pods-StundenplanNavigationTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanNavigationTests-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62F3D73266FB51D94707DA41FCF51FC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB46D404C6569C98A16E80B66F9E3EEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		784A0ADBA6E86EAFD4DC36A20833403F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB4580DD14900C580E28157DF3D6527A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B63BA4114DC6EFC1A05080F9B6B08AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBEFA0D78BB805BB6AFB36300B9FC6D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		889D38B973A10218B83C7594A70A20A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EBD2DE57BD9329C7D31AD6A01A4B0CE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E330547B50986A3DB04EC46A83FC0797 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5910693DAEA48CFB62289953137C6608 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF7250234C806ABF98986197C88AE91B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0673AF794D92AAA979B7742E2D4E4DE1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3ACA40809E17B9A6904EADFE2DDE955F /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC8F5AB2028BC0A26C25A79746D51C /* Pods-StundenplanFramework */,
+				A394CCB10C67B76BAC4529901B402013 /* Pods-StundenplanNavigation */,
+				7CB80225A229BDC9BFCB2945A1F1A972 /* Pods-StundenplanNavigationTests */,
+				5232C6AB0DFED196E3317A58D41BC19C /* Pods-StundenplanNavigationUITests */,
+				D38222D2F2602CEA0907917A14A07171 /* Pods-StundenplanWidget */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4A6AE3407B130446AEFC2B5FB0CF6901 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1552A5701144EF2FF6F345084CE400F4 /* Pods_StundenplanFramework.framework */,
+				4A640DD239DB915CA424AE2866A80435 /* Pods_StundenplanNavigation.framework */,
+				1CC078E6EDC329E8E0528395CF88B944 /* Pods_StundenplanNavigationTests.framework */,
+				FE1839C6934027130FCD8FA5E87E6FBB /* Pods_StundenplanNavigationUITests.framework */,
+				8773C569D0FC2A9C8FA36A32FAB20A10 /* Pods_StundenplanWidget.framework */,
+				CBEE68CD0FECB208D4435D397E23F3A6 /* SwiftSoup.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CC8EC2B6FCF74234C8DF1D2FAF4E695 /* SwiftSoup */ = {
+			isa = PBXGroup;
+			children = (
+				007D3C79D0CF0BE6FF2556B8846850EA /* ArrayExt.swift */,
+				91F70944F55E23CA9F1AA9C3F5E543E6 /* Attribute.swift */,
+				7FDCF5CC7CF2C5D8A9614A7594208FA7 /* Attributes.swift */,
+				43135FFED43499A32E8D4B93EF8497DE /* BooleanAttribute.swift */,
+				74C99786795B1D08392875CE49B837F6 /* CharacterExt.swift */,
+				1CEDF1B4C93C6BF04A8B3A376D824DF8 /* CharacterReader.swift */,
+				88AD2063C746E24C76A695124CB8F61C /* Cleaner.swift */,
+				891F553D19B720459C76E855199AE6A8 /* Collector.swift */,
+				AB9CFDFD9EC0461E0183230E7BD4D23C /* CombiningEvaluator.swift */,
+				D61E30D96D9E0C51D7D98102AF5F400C /* Comment.swift */,
+				4D8DBAFB48F24C32F0F280BEEE6DF2D9 /* Connection.swift */,
+				29037850BEB5FB77E124FFF3C513B2DE /* DataNode.swift */,
+				0AEE3159671F061357B3988820992AB3 /* DataUtil.swift */,
+				6235B2201DD7DB5DEC881D9EEFAD0668 /* Document.swift */,
+				7D11884996774307AC571FE915381DDA /* DocumentType.swift */,
+				73DD652EC954FA79D571169EEE782E52 /* Element.swift */,
+				44522D8D8770660DA0A055D988C6FD66 /* Elements.swift */,
+				A060C6BF3EB96502284C4EED48AE8473 /* Entities.swift */,
+				9CF8CDB58FEC3DF8E9E9C788D7986C1A /* Evaluator.swift */,
+				DF0F2496EE4A25ED1BC61246533BA9DB /* Exception.swift */,
+				25B2CD38A0917CAC75420AFA2BE3217D /* FormElement.swift */,
+				7E06B99125D7235986F5D7B72C6375A2 /* HtmlTreeBuilder.swift */,
+				F2DF94B4A7E96608E4C28CA87594E86E /* HtmlTreeBuilderState.swift */,
+				630405AF103BE0784FC9F1DCDCD38697 /* HttpStatusException.swift */,
+				4A118F700581BBB3243C0D7FB77C29D4 /* Node.swift */,
+				A8122F2BB284283B425EEEC260DED5BD /* NodeTraversor.swift */,
+				604190ED985B8459D4C3CB00B08EA1B2 /* NodeVisitor.swift */,
+				85BA06715F85D033EEFF5E596790DFC3 /* OrderedDictionary.swift */,
+				FA6624F64CD104A5B090FB1650EBBA42 /* OrderedSet.swift */,
+				7AC3E56F2EE8DA918D59461695CA0A73 /* ParseError.swift */,
+				2ED412CB67CEC5AD53D090DEE9295FEF /* ParseErrorList.swift */,
+				AB2E200B9A53BE45ABCE292F1D437814 /* Parser.swift */,
+				75616435FEC520E0AB2B9A03B42B9463 /* ParseSettings.swift */,
+				BE85808BF20F785856A36A4A52D595EC /* Pattern.swift */,
+				71C0F72E08235D6F7E7899B570146174 /* QueryParser.swift */,
+				A5C699DC348D289409414BCFACDADC92 /* Selector.swift */,
+				AB27AFE288A80F619BD84ABCA86E98E8 /* SerializationException.swift */,
+				537704880A3EEBF0AEBDF2621EB6A0F3 /* SimpleDictionary.swift */,
+				BA80EA825456A85C5EAC81128B7D2A13 /* StreamReader.swift */,
+				1F061E45166C4F6CA7950D7D4C21B927 /* String.swift */,
+				5D12F1CEC81E5C1E794F0CF413C1CB0A /* StringBuilder.swift */,
+				D82C0363736F54D355C889057930C8FA /* StringUtil.swift */,
+				E7E9CAE847A747B6035DD7897522E6B3 /* StructuralEvaluator.swift */,
+				BAD7FE9BBC26C485FA0644BE827A3819 /* SwiftSoup.swift */,
+				D956F25711ABFDA06A834B23E76E18FD /* Tag.swift */,
+				97B9BE6A120CF124AC947FD213458C40 /* TextNode.swift */,
+				1F9C8B211B0D820409975E0CED455873 /* Token.swift */,
+				48B3B52F70E88D2AAF09B90CF31FD8F3 /* Tokeniser.swift */,
+				E206093B8CFA7D169994473FF3E06161 /* TokeniserState.swift */,
+				C5A1FDBFD8A4C10159D5648D741FAABF /* TokenQueue.swift */,
+				F2005E18A17D8432D600D482946D4853 /* TreeBuilder.swift */,
+				D0956AF381D1BCA58B1DB673ADE2D36F /* UnicodeScalar.swift */,
+				6D6A6677827DBA02A83EC3359D513333 /* Validate.swift */,
+				3C2C0DDEA29B76684DE018F529B05DAF /* Whitelist.swift */,
+				9A1C5C6357B71AF5FED442F9E3F6C77C /* XmlDeclaration.swift */,
+				579FD986C85730D8DF75FB2A4152B0BD /* XmlTreeBuilder.swift */,
+				BDA46F0D81E0F1D9995A5ED7DB62D096 /* Support Files */,
+			);
+			name = SwiftSoup;
+			path = SwiftSoup;
+			sourceTree = "<group>";
+		};
+		5232C6AB0DFED196E3317A58D41BC19C /* Pods-StundenplanNavigationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E1940F40B08B09F1F8EF2204F2521074 /* Info.plist */,
+				6CD94176C28C4EB644B3ECE9BA812590 /* Pods-StundenplanNavigationUITests.modulemap */,
+				92398983D7AFAC12B5F447D3D18E47AD /* Pods-StundenplanNavigationUITests-acknowledgements.markdown */,
+				0B10F74F38B1F3904AAFDC5CF0C64DDE /* Pods-StundenplanNavigationUITests-acknowledgements.plist */,
+				78B293D0C4916C8192771383306E4DBE /* Pods-StundenplanNavigationUITests-dummy.m */,
+				25ECA478B3431A9E0E9362D8802F1A7C /* Pods-StundenplanNavigationUITests-frameworks.sh */,
+				A76EAE6697CB33DB7E9A68DB366A54DF /* Pods-StundenplanNavigationUITests-resources.sh */,
+				63EE330FAA53C50C9FF667F50D590A6E /* Pods-StundenplanNavigationUITests-umbrella.h */,
+				26633DAE08D07AC57A445B6C3343BCD8 /* Pods-StundenplanNavigationUITests.debug.xcconfig */,
+				B11BE77EC57CBEF0B645BC40611EC68E /* Pods-StundenplanNavigationUITests.release.xcconfig */,
+			);
+			name = "Pods-StundenplanNavigationUITests";
+			path = "Target Support Files/Pods-StundenplanNavigationUITests";
+			sourceTree = "<group>";
+		};
+		7CB80225A229BDC9BFCB2945A1F1A972 /* Pods-StundenplanNavigationTests */ = {
+			isa = PBXGroup;
+			children = (
+				17A190C91BEF95B32CA0694F03A80F25 /* Info.plist */,
+				81F9628BFBBE1A891305BB0A42DB3DD5 /* Pods-StundenplanNavigationTests.modulemap */,
+				B567867A99BF2CE4C6138A59AAF64135 /* Pods-StundenplanNavigationTests-acknowledgements.markdown */,
+				3B5C635F93918765F93900132573DBDB /* Pods-StundenplanNavigationTests-acknowledgements.plist */,
+				FEDAFD7833213E53F41C0A00CEC200AD /* Pods-StundenplanNavigationTests-dummy.m */,
+				B7641037A89907A306D8006AA4E807EB /* Pods-StundenplanNavigationTests-frameworks.sh */,
+				671FC09A9ACE92F7CE015556FFD11773 /* Pods-StundenplanNavigationTests-resources.sh */,
+				5368BF0E9ACD6CF7033C4D5608E36DAE /* Pods-StundenplanNavigationTests-umbrella.h */,
+				6B60F94FFBAC47103B8D5C556F0DDE9C /* Pods-StundenplanNavigationTests.debug.xcconfig */,
+				0ABCB45A478973AA36ADA6D36C5016D4 /* Pods-StundenplanNavigationTests.release.xcconfig */,
+			);
+			name = "Pods-StundenplanNavigationTests";
+			path = "Target Support Files/Pods-StundenplanNavigationTests";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				AC3460218F790A478D700E3775DA8276 /* Pods */,
+				4A6AE3407B130446AEFC2B5FB0CF6901 /* Products */,
+				3ACA40809E17B9A6904EADFE2DDE955F /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A394CCB10C67B76BAC4529901B402013 /* Pods-StundenplanNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				D8E7C1C445D1F03FB0D52F255B7B4A94 /* Info.plist */,
+				7C89446B3A9A97B6C89B78049B1941FB /* Pods-StundenplanNavigation.modulemap */,
+				257F003B93BFA576D1B12B1F75DA8DED /* Pods-StundenplanNavigation-acknowledgements.markdown */,
+				4C5413201E8F84D86318A1A55C48D5E3 /* Pods-StundenplanNavigation-acknowledgements.plist */,
+				FE7843E8F101923A2476B145E8CE4DEA /* Pods-StundenplanNavigation-dummy.m */,
+				7C9843B706902FD213595947CC6490D4 /* Pods-StundenplanNavigation-frameworks.sh */,
+				780019B5CD115B08D6AC3337339FA659 /* Pods-StundenplanNavigation-resources.sh */,
+				C760235AA79CDEC4EAA960E3AB8B3BF9 /* Pods-StundenplanNavigation-umbrella.h */,
+				EFD0F3E0DDC585E494A03813D91F9414 /* Pods-StundenplanNavigation.debug.xcconfig */,
+				26F612D0377F077E8F660D59909D2071 /* Pods-StundenplanNavigation.release.xcconfig */,
+			);
+			name = "Pods-StundenplanNavigation";
+			path = "Target Support Files/Pods-StundenplanNavigation";
+			sourceTree = "<group>";
+		};
+		AC3460218F790A478D700E3775DA8276 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CC8EC2B6FCF74234C8DF1D2FAF4E695 /* SwiftSoup */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDA46F0D81E0F1D9995A5ED7DB62D096 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				86DC33BF4B47B4021DF6CA2F9FD66666 /* Info.plist */,
+				7F7FD406C16D40044B9C6C9CA8766FBC /* SwiftSoup.modulemap */,
+				BBDC1C3FC3017077C49F580E973D5724 /* SwiftSoup.xcconfig */,
+				E7A65BF3A5D3FDD06E1004E1CB379749 /* SwiftSoup-dummy.m */,
+				B51CF4F383DFC1B1CC269330746BFE6C /* SwiftSoup-prefix.pch */,
+				EB52349E8DBF3FCE89A138FFE5F1955F /* SwiftSoup-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftSoup";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D38222D2F2602CEA0907917A14A07171 /* Pods-StundenplanWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7EDB43AA2FDB62DE2468619ADB70B503 /* Info.plist */,
+				9ED0F412129E2F60DDA5A091AB9C09DC /* Pods-StundenplanWidget.modulemap */,
+				C280FF2A782E9816A805ED3530B69198 /* Pods-StundenplanWidget-acknowledgements.markdown */,
+				4CF9A1F374954F6826D3263175753C8D /* Pods-StundenplanWidget-acknowledgements.plist */,
+				40F4EA0E5BC46477C20FC8098351DAEF /* Pods-StundenplanWidget-dummy.m */,
+				152AD7EB565A6175D92D951078FBA88B /* Pods-StundenplanWidget-resources.sh */,
+				10E1935F957CFE671575C5BEB6E49CD6 /* Pods-StundenplanWidget-umbrella.h */,
+				499DF0FC87A39AF6060C91F8F1E98D60 /* Pods-StundenplanWidget.debug.xcconfig */,
+				3E3A44BA80B0DBABB005CA7802CB273B /* Pods-StundenplanWidget.release.xcconfig */,
+			);
+			name = "Pods-StundenplanWidget";
+			path = "Target Support Files/Pods-StundenplanWidget";
+			sourceTree = "<group>";
+		};
+		D3DC8F5AB2028BC0A26C25A79746D51C /* Pods-StundenplanFramework */ = {
+			isa = PBXGroup;
+			children = (
+				009B7A3C873BF3DCFFDE0C06C7D2DC41 /* Info.plist */,
+				F1AC635DCC99B8EC7EEF1E4FBEBE079E /* Pods-StundenplanFramework.modulemap */,
+				123BAC0D2E46BFFF8BF1E8817C65E1A3 /* Pods-StundenplanFramework-acknowledgements.markdown */,
+				E64E7B20AD897759648473A9EFF2B97A /* Pods-StundenplanFramework-acknowledgements.plist */,
+				492980AC9D04AA0CE3075161B9FBE783 /* Pods-StundenplanFramework-dummy.m */,
+				9C4532EDDABFCF405690669587581F4A /* Pods-StundenplanFramework-resources.sh */,
+				FE13344FC6478698670191ADF5D23924 /* Pods-StundenplanFramework-umbrella.h */,
+				6D809D92E46704DF80DE886845B656E2 /* Pods-StundenplanFramework.debug.xcconfig */,
+				4907FA10761AAAE1847667989654A4FC /* Pods-StundenplanFramework.release.xcconfig */,
+			);
+			name = "Pods-StundenplanFramework";
+			path = "Target Support Files/Pods-StundenplanFramework";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0CF0A770B42E23CF3A1AB20C86FF14A8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90A4116723548F2C9EB821C2B0F13AFB /* SwiftSoup-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1323DEAD11805B8CED3AACDD4B146063 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55C7FE84191D92A662FB57FD35986DBA /* Pods-StundenplanNavigationTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		485314F58AC54F68465E656E73D0310E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D3FA712B4CDEA8B2AD75841721F9E7 /* Pods-StundenplanWidget-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BB770F0CA8529C0E8D27216C5982A94 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30FC648C5BDE6B2A643F08312A613AA5 /* Pods-StundenplanNavigation-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A912B2FE8E177EE8333BF608EF30106D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				639C0059801F9B11838C0C12B63AD7DA /* Pods-StundenplanFramework-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9AB83D861E9FA7650E561CA28C56C72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4891F71BDDC7B88EF1579046A96461C7 /* Pods-StundenplanNavigationUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		204CAFF8888E48EDE0BD816E1CC76EAB /* Pods-StundenplanNavigationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8870864A9AB3884639EA01C065E7324 /* Build configuration list for PBXNativeTarget "Pods-StundenplanNavigationTests" */;
+			buildPhases = (
+				A8D244E428BC9CB6C2C178CC04D4C7BF /* Sources */,
+				62F3D73266FB51D94707DA41FCF51FC8 /* Frameworks */,
+				1323DEAD11805B8CED3AACDD4B146063 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-StundenplanNavigationTests";
+			productName = "Pods-StundenplanNavigationTests";
+			productReference = 1CC078E6EDC329E8E0528395CF88B944 /* Pods_StundenplanNavigationTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7852864C836D0D608D90FD9F80D2B31A /* Pods-StundenplanNavigationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFCF25756C2EBDDA99C0C42682D2CFC9 /* Build configuration list for PBXNativeTarget "Pods-StundenplanNavigationUITests" */;
+			buildPhases = (
+				E4FEF8C22D6B68DA008A66E621642438 /* Sources */,
+				EF7250234C806ABF98986197C88AE91B /* Frameworks */,
+				A9AB83D861E9FA7650E561CA28C56C72 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-StundenplanNavigationUITests";
+			productName = "Pods-StundenplanNavigationUITests";
+			productReference = FE1839C6934027130FCD8FA5E87E6FBB /* Pods_StundenplanNavigationUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		97A20DC66444AA4DE3C27EAA36E2851B /* SwiftSoup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04D5712E0D7280B9DD059B0C89646D57 /* Build configuration list for PBXNativeTarget "SwiftSoup" */;
+			buildPhases = (
+				1699A56D98D45D833CA45A969697D89E /* Sources */,
+				889D38B973A10218B83C7594A70A20A9 /* Frameworks */,
+				0CF0A770B42E23CF3A1AB20C86FF14A8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSoup;
+			productName = SwiftSoup;
+			productReference = CBEE68CD0FECB208D4435D397E23F3A6 /* SwiftSoup.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AC6A4FD78E1062839124EEAD7063B72A /* Pods-StundenplanFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B72A5DB7B84E3F0D4A25C467BDB9F93 /* Build configuration list for PBXNativeTarget "Pods-StundenplanFramework" */;
+			buildPhases = (
+				86975D028934E660967486E405D857AD /* Sources */,
+				E330547B50986A3DB04EC46A83FC0797 /* Frameworks */,
+				A912B2FE8E177EE8333BF608EF30106D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53A40D1C28CF1EA4CA77E96B9D80AFEB /* PBXTargetDependency */,
+			);
+			name = "Pods-StundenplanFramework";
+			productName = "Pods-StundenplanFramework";
+			productReference = 1552A5701144EF2FF6F345084CE400F4 /* Pods_StundenplanFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CFE51AFDCB689EF5155A92BE96AB0D87 /* Pods-StundenplanWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80C31B384C630BA844205CC25611C9C3 /* Build configuration list for PBXNativeTarget "Pods-StundenplanWidget" */;
+			buildPhases = (
+				9AC3DEEFE10EBB67C4BF895330D55207 /* Sources */,
+				784A0ADBA6E86EAFD4DC36A20833403F /* Frameworks */,
+				485314F58AC54F68465E656E73D0310E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-StundenplanWidget";
+			productName = "Pods-StundenplanWidget";
+			productReference = 8773C569D0FC2A9C8FA36A32FAB20A10 /* Pods_StundenplanWidget.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EAD0DA2CD0770E9AD28DE6521B851736 /* Pods-StundenplanNavigation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A76719EFB59E8081C20CFA73E4C3D32D /* Build configuration list for PBXNativeTarget "Pods-StundenplanNavigation" */;
+			buildPhases = (
+				6A068D10609E503F2DBAFB80B4E4F7FF /* Sources */,
+				7B63BA4114DC6EFC1A05080F9B6B08AE /* Frameworks */,
+				6BB770F0CA8529C0E8D27216C5982A94 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0F25CD0C4428724D0539DD3D77C3F3CB /* PBXTargetDependency */,
+			);
+			name = "Pods-StundenplanNavigation";
+			productName = "Pods-StundenplanNavigation";
+			productReference = 4A640DD239DB915CA424AE2866A80435 /* Pods_StundenplanNavigation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 4A6AE3407B130446AEFC2B5FB0CF6901 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC6A4FD78E1062839124EEAD7063B72A /* Pods-StundenplanFramework */,
+				EAD0DA2CD0770E9AD28DE6521B851736 /* Pods-StundenplanNavigation */,
+				204CAFF8888E48EDE0BD816E1CC76EAB /* Pods-StundenplanNavigationTests */,
+				7852864C836D0D608D90FD9F80D2B31A /* Pods-StundenplanNavigationUITests */,
+				CFE51AFDCB689EF5155A92BE96AB0D87 /* Pods-StundenplanWidget */,
+				97A20DC66444AA4DE3C27EAA36E2851B /* SwiftSoup */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1699A56D98D45D833CA45A969697D89E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0E5F9E02D862690178522F68BE299BE /* ArrayExt.swift in Sources */,
+				92A6A32F7F4F6A240E10CA3FAA4A0242 /* Attribute.swift in Sources */,
+				0E8075EFA637FBDD14770409FB2C2786 /* Attributes.swift in Sources */,
+				51BD3E37B6A99E6A96D72622E7E2CAEB /* BooleanAttribute.swift in Sources */,
+				EC8B9309CF748FDEAF96B68141F4096C /* CharacterExt.swift in Sources */,
+				996BE22C6D7B5F89FBAF06A60C615203 /* CharacterReader.swift in Sources */,
+				E088FA3603288E010D7C0AA6AFBBD4A1 /* Cleaner.swift in Sources */,
+				468B0870096D940D0EE473928E0FB03C /* Collector.swift in Sources */,
+				B187B10B08936AACCD70D5939B3CA2E0 /* CombiningEvaluator.swift in Sources */,
+				AFB8538680E530FB424C6DE8A987DE5B /* Comment.swift in Sources */,
+				E64A7F76A713CFA1747B8FB16E85627B /* Connection.swift in Sources */,
+				EC932A54DE8826DB3570E48ECB6AD314 /* DataNode.swift in Sources */,
+				6460DD310D036838500001A4907ED64C /* DataUtil.swift in Sources */,
+				3F89D6FCC612D222374D98592317E22E /* Document.swift in Sources */,
+				CB4B647EFC7FA114C2F08CA9BF6F974D /* DocumentType.swift in Sources */,
+				8EBCA1CDEE868943B2AFF11BA61BEF9D /* Element.swift in Sources */,
+				12128EA6FF8437C5E9F245DF410F7B37 /* Elements.swift in Sources */,
+				9B1A0AC8B6F584060D25E86B5B824FAA /* Entities.swift in Sources */,
+				C429156BCCD51030A8A548B681C9E018 /* Evaluator.swift in Sources */,
+				4B22C3C558EA275F5A70501C774B0D89 /* Exception.swift in Sources */,
+				CCABE542DB549AAA769A4B4020D1DB08 /* FormElement.swift in Sources */,
+				23FAC7FB337E2F45290A31C80A878A02 /* HtmlTreeBuilder.swift in Sources */,
+				9A4FDE5795ADB791D77956436C7C2E2C /* HtmlTreeBuilderState.swift in Sources */,
+				39E7CC96508125AFD28EFE5FFB0036EF /* HttpStatusException.swift in Sources */,
+				8BC6EC6501EED48D67E1AC5CDB31CBB9 /* Node.swift in Sources */,
+				EE41F4F3CB167F515F604FBC7E423F67 /* NodeTraversor.swift in Sources */,
+				57708089212F5DC5DEFDD2C64F4FB594 /* NodeVisitor.swift in Sources */,
+				875DE729EAE567A803D943D1D33E20BC /* OrderedDictionary.swift in Sources */,
+				E5010D8EFE0D0A62571CC06A62B16E3D /* OrderedSet.swift in Sources */,
+				1E25F43FB38F2408CD83FC045B0A951D /* ParseError.swift in Sources */,
+				9BCE0C5A09075EF7DD9540A4B7F049C3 /* ParseErrorList.swift in Sources */,
+				882F46539B568C260CE43A0894B86618 /* Parser.swift in Sources */,
+				9D5C161E60634F1A0A52B0E883237B56 /* ParseSettings.swift in Sources */,
+				E2D9F69360E1BEAAE54C6AEBFF9226C2 /* Pattern.swift in Sources */,
+				3CFE487E71BCABC7D3ED816088681653 /* QueryParser.swift in Sources */,
+				D76E3743C3D4CE5BF565B9C602FE98C1 /* Selector.swift in Sources */,
+				53E0AECF15C2EE9A1A527F1E5827A7D4 /* SerializationException.swift in Sources */,
+				8767E38B0F6B1ABC74ACDA9E5890153F /* SimpleDictionary.swift in Sources */,
+				79D68AC6344ABA44AA2C850B5154DAF8 /* StreamReader.swift in Sources */,
+				AEB77456F587C8EF889D6906AEF10620 /* String.swift in Sources */,
+				8E88E6C17074DAE211F962B0458AF46C /* StringBuilder.swift in Sources */,
+				EBEED2900F14341D4CA6219397D8405F /* StringUtil.swift in Sources */,
+				371E6F584C9AFE9BCED5F7C084B0B693 /* StructuralEvaluator.swift in Sources */,
+				B6AD1CBCE97F028096F7CD18B31EBAC7 /* SwiftSoup-dummy.m in Sources */,
+				6E87086A8E98AACB76D16986EE332586 /* SwiftSoup.swift in Sources */,
+				92755FC7EC50C492CC4AEA406BC3373B /* Tag.swift in Sources */,
+				85826DD5D9DDE40FF0EEF6DDA403E22B /* TextNode.swift in Sources */,
+				3DB19657CDE1ABF22C40EFA0B6BF0D70 /* Token.swift in Sources */,
+				35D8AC547BA1F565DDD306EA96EDDA3F /* Tokeniser.swift in Sources */,
+				7347FEBCD65A139157EE0BD117A4BA31 /* TokeniserState.swift in Sources */,
+				DEE42120CFD2550D628881427BCBBF88 /* TokenQueue.swift in Sources */,
+				2189ACA4F572ABFB69561AB04F1DD5C7 /* TreeBuilder.swift in Sources */,
+				94E625C8EA48F4EC3B013B5275D8185B /* UnicodeScalar.swift in Sources */,
+				065C9D6DC07279D4B216546E719F0C02 /* Validate.swift in Sources */,
+				2A35E27F98DFC94A9418C2C3B9A87D9C /* Whitelist.swift in Sources */,
+				DDEF2F2EA7B31866C2AE5B88AF0B7E9B /* XmlDeclaration.swift in Sources */,
+				11A2C7D71301B308782BD2B58C645A07 /* XmlTreeBuilder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A068D10609E503F2DBAFB80B4E4F7FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9DB469FB34C58057084A98A7161EC54 /* Pods-StundenplanNavigation-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86975D028934E660967486E405D857AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C50C7D8E5DCC8CF3932059C1F024894A /* Pods-StundenplanFramework-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AC3DEEFE10EBB67C4BF895330D55207 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB9A1E6FD6FA599493E807AC8E314DF /* Pods-StundenplanWidget-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8D244E428BC9CB6C2C178CC04D4C7BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C38E1A1ED83984B0F21058AB0830A010 /* Pods-StundenplanNavigationTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4FEF8C22D6B68DA008A66E621642438 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8074AED5A6050FB328FAE178E22843F0 /* Pods-StundenplanNavigationUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0F25CD0C4428724D0539DD3D77C3F3CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftSoup;
+			target = 97A20DC66444AA4DE3C27EAA36E2851B /* SwiftSoup */;
+			targetProxy = E556C9C28034863882C38F23F36F3C06 /* PBXContainerItemProxy */;
+		};
+		53A40D1C28CF1EA4CA77E96B9D80AFEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftSoup;
+			target = 97A20DC66444AA4DE3C27EAA36E2851B /* SwiftSoup */;
+			targetProxy = 6FB23E6389561E4FCE6BDE644DFBB8A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0C0BAB36BCDA06C31F8B6E3F03EB853C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B11BE77EC57CBEF0B645BC40611EC68E /* Pods-StundenplanNavigationUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanNavigationUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanNavigationUITests/Pods-StundenplanNavigationUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanNavigationUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0F4831DEE7A0A329AA985331F13EEC8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B60F94FFBAC47103B8D5C556F0DDE9C /* Pods-StundenplanNavigationTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanNavigationTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanNavigationTests/Pods-StundenplanNavigationTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanNavigationTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2BCA9DC5FFCD82380BDF2AB0801DA888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26F612D0377F077E8F660D59909D2071 /* Pods-StundenplanNavigation.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanNavigation/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanNavigation/Pods-StundenplanNavigation.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanNavigation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		69E6897677C5DB1A70816253E09E2E84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D809D92E46704DF80DE886845B656E2 /* Pods-StundenplanFramework.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanFramework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanFramework/Pods-StundenplanFramework.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanFramework;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7C07ED8089F70A31B83996A8910D7F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		876B99897D9028FBB46AB64D90B0B0EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBDC1C3FC3017077C49F580E973D5724 /* SwiftSoup.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSoup/SwiftSoup-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSoup/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftSoup/SwiftSoup.modulemap";
+				PRODUCT_NAME = SwiftSoup;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98F29E7567052F62660DDD7069ADF73C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9F1D8EB20277CFADA3340A4A0DBDC925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4907FA10761AAAE1847667989654A4FC /* Pods-StundenplanFramework.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanFramework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanFramework/Pods-StundenplanFramework.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanFramework;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A7164FBA74FCBE10D8A20924E3DF7767 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26633DAE08D07AC57A445B6C3343BCD8 /* Pods-StundenplanNavigationUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanNavigationUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanNavigationUITests/Pods-StundenplanNavigationUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanNavigationUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AF57962CE75CEA39BDE9CAD1EBB217BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3A44BA80B0DBABB005CA7802CB273B /* Pods-StundenplanWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanWidget/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED74D806D0DBD86A12A1FD17B13040E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 499DF0FC87A39AF6060C91F8F1E98D60 /* Pods-StundenplanWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanWidget/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EE869BC24F6F5B6000C2EE85F24E17B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD0F3E0DDC585E494A03813D91F9414 /* Pods-StundenplanNavigation.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanNavigation/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanNavigation/Pods-StundenplanNavigation.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanNavigation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EFA41DE08592F36252DA70C0F2D68E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBDC1C3FC3017077C49F580E973D5724 /* SwiftSoup.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSoup/SwiftSoup-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSoup/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftSoup/SwiftSoup.modulemap";
+				PRODUCT_NAME = SwiftSoup;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FF7B72CBB095FD8EBC69E62A376923E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0ABCB45A478973AA36ADA6D36C5016D4 /* Pods-StundenplanNavigationTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StundenplanNavigationTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StundenplanNavigationTests/Pods-StundenplanNavigationTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_StundenplanNavigationTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04D5712E0D7280B9DD059B0C89646D57 /* Build configuration list for PBXNativeTarget "SwiftSoup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				876B99897D9028FBB46AB64D90B0B0EE /* Debug */,
+				EFA41DE08592F36252DA70C0F2D68E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C07ED8089F70A31B83996A8910D7F18 /* Debug */,
+				98F29E7567052F62660DDD7069ADF73C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80C31B384C630BA844205CC25611C9C3 /* Build configuration list for PBXNativeTarget "Pods-StundenplanWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED74D806D0DBD86A12A1FD17B13040E6 /* Debug */,
+				AF57962CE75CEA39BDE9CAD1EBB217BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B72A5DB7B84E3F0D4A25C467BDB9F93 /* Build configuration list for PBXNativeTarget "Pods-StundenplanFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69E6897677C5DB1A70816253E09E2E84 /* Debug */,
+				9F1D8EB20277CFADA3340A4A0DBDC925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A76719EFB59E8081C20CFA73E4C3D32D /* Build configuration list for PBXNativeTarget "Pods-StundenplanNavigation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE869BC24F6F5B6000C2EE85F24E17B0 /* Debug */,
+				2BCA9DC5FFCD82380BDF2AB0801DA888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8870864A9AB3884639EA01C065E7324 /* Build configuration list for PBXNativeTarget "Pods-StundenplanNavigationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F4831DEE7A0A329AA985331F13EEC8E /* Debug */,
+				FF7B72CBB095FD8EBC69E62A376923E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFCF25756C2EBDDA99C0C42682D2CFC9 /* Build configuration list for PBXNativeTarget "Pods-StundenplanNavigationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7164FBA74FCBE10D8A20924E3DF7767 /* Debug */,
+				0C0BAB36BCDA06C31F8B6E3F03EB853C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
