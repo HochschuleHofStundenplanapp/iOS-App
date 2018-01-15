@@ -24,6 +24,7 @@
 		0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */; };
 		0FC2FED31F953CDB00BDDB0D /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */; };
 		0FC2FED51F953D3300BDDB0D /* TaskOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */; };
+		2643C2E2200D00AB007C8744 /* Pods_StundenplanNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */; };
 		26905DB51FE959970007E979 /* OnboardingSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */; };
 		26905DB71FE959AA0007E979 /* OnboardingPermissionsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsCalendarViewController.swift */; };
 		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
@@ -38,6 +39,7 @@
 		40E3D99F1FCC2163007B8722 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E3D99E1FCC2163007B8722 /* TodayViewController.swift */; };
 		40E3D9A21FCC2163007B8722 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40E3D9A01FCC2163007B8722 /* MainInterface.storyboard */; };
 		40E3D9A61FCC2163007B8722 /* StundenplanWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 40E3D99A1FCC2163007B8722 /* StundenplanWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		588D901DA68F5407B7D91A1E /* Pods_StundenplanNavigationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BADF20A1196EA8EC9E1F97C /* Pods_StundenplanNavigationTests.framework */; };
 		654BFEB81ED427D90023607D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB51ED427D90023607D /* CalendarController.swift */; };
 		654BFEBA1ED427D90023607D /* CalendarInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB71ED427D90023607D /* CalendarInterface.swift */; };
 		813C39D81EEFD56A00FD02AE /* NotificationInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39D71EEFD56A00FD02AE /* NotificationInterface.swift */; };
@@ -47,8 +49,10 @@
 		817CBD921EFBA2C60069DCBD /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817CBD911EFBA2C60069DCBD /* LecturesViewController.swift */; };
 		81A470C61ECDAFDD008CB502 /* SelectedSemesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */; };
 		81A470C81ECDB016008CB502 /* SelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A470C71ECDB016008CB502 /* SelectedCourses.swift */; };
+		8D623E60C23D5E8B71B10312 /* Pods_StundenplanNavigationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB13C8CFCD8116A8CD0FF52A /* Pods_StundenplanNavigationUITests.framework */; };
 		A3FEAFF01F9505820095D8F1 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */; };
 		AA3AFCF62007A6B200CED69D /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AFCF52007A6B200CED69D /* AppColor.swift */; };
+		AEF6FA608106D0534DDBD6ED /* Pods_StundenplanWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F8C2D1D5FD9762E7E42587 /* Pods_StundenplanWidget.framework */; };
 		B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */; };
 		B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */; };
 		BE14C94F1EC1B45700925EAC /* JsonLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14C94E1EC1B45700925EAC /* JsonLectures.swift */; };
@@ -170,6 +174,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		029A1A93680E2902631F08BA /* Pods-StundenplanNavigationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanNavigationUITests.debug.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationUITests/Pods-StundenplanNavigationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0C0627801F06BB9900273A35 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		0C18F6B41E081D210037E28F /* rechtlicheTexte */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rechtlicheTexte; sourceTree = "<group>"; };
 		0F58698C1F9896A700DE2462 /* UILecturePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILecturePickerDataSource.swift; sourceTree = "<group>"; };
@@ -189,7 +194,10 @@
 		0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDataSource.swift; sourceTree = "<group>"; };
 		0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDelegate.swift; sourceTree = "<group>"; };
 		0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewViewController.swift; sourceTree = "<group>"; };
+		2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_StundenplanNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonChanges.swift; sourceTree = "<group>"; };
+		3848006B9AFF4FC80C560411 /* Pods-StundenplanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanWidget.debug.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		3BADF20A1196EA8EC9E1F97C /* Pods_StundenplanNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400590A61FC81BD50083F86C /* StundenplanNavigation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StundenplanNavigation.entitlements; sourceTree = "<group>"; };
 		402DD3441FD1A34600E5B5A0 /* WidgetLectureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLectureController.swift; sourceTree = "<group>"; };
 		406205C51FD476BC00B6F4F6 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -202,8 +210,11 @@
 		40E3D9A11FCC2163007B8722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		40E3D9A31FCC2163007B8722 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E3D9AB1FCC219A007B8722 /* StundenplanWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StundenplanWidget.entitlements; sourceTree = "<group>"; };
+		5234CCD285242540F1AF5BC6 /* Pods-StundenplanNavigationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanNavigationTests.debug.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationTests/Pods-StundenplanNavigationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		627576215A2C669FA34A51D1 /* Pods-StundenplanNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanNavigation.release.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigation/Pods-StundenplanNavigation.release.xcconfig"; sourceTree = "<group>"; };
 		654BFEB51ED427D90023607D /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		654BFEB71ED427D90023607D /* CalendarInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInterface.swift; sourceTree = "<group>"; };
+		7DE6927993FB2FABDCB830CA /* Pods-StundenplanNavigationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanNavigationUITests.release.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationUITests/Pods-StundenplanNavigationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		813C39D71EEFD56A00FD02AE /* NotificationInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationInterface.swift; sourceTree = "<group>"; };
 		813C39D91EEFD7C800FD02AE /* ChangesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesController.swift; sourceTree = "<group>"; };
 		8169533B1DD1E564004ED800 /* SemesterTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -211,8 +222,11 @@
 		817CBD911EFBA2C60069DCBD /* LecturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
 		81A470C51ECDAFDD008CB502 /* SelectedSemesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSemesters.swift; sourceTree = "<group>"; };
 		81A470C71ECDB016008CB502 /* SelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCourses.swift; sourceTree = "<group>"; };
+		81F8C2D1D5FD9762E7E42587 /* Pods_StundenplanWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		922A32D34C9B4916F79D5CF8 /* Pods-StundenplanWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanWidget.release.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget.release.xcconfig"; sourceTree = "<group>"; };
 		A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		AA3AFCF52007A6B200CED69D /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		ADF3941F13702289074DDED1 /* Pods-StundenplanNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanNavigation.debug.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigation/Pods-StundenplanNavigation.debug.xcconfig"; sourceTree = "<group>"; };
 		B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObserverProtocol.swift; sourceTree = "<group>"; };
 		B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDataObservableProtocol.swift; sourceTree = "<group>"; };
 		BE14C94E1EC1B45700925EAC /* JsonLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonLectures.swift; sourceTree = "<group>"; };
@@ -267,6 +281,8 @@
 		CED25BB81DD1C69D00FE7D1C /* ScheduleTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDataSource.swift; sourceTree = "<group>"; };
 		CED25BBA1DD1C6AC00FE7D1C /* ScheduleTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewDelegate.swift; sourceTree = "<group>"; };
 		DA0AA5FA1EE4656100D64C63 /* ArtificialIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtificialIntelligence.swift; sourceTree = "<group>"; };
+		E5E8C0887DBFAA7CDCBC9959 /* Pods-StundenplanNavigationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanNavigationTests.release.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationTests/Pods-StundenplanNavigationTests.release.xcconfig"; sourceTree = "<group>"; };
+		EB13C8CFCD8116A8CD0FF52A /* Pods_StundenplanNavigationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40E3D99C1FCC2163007B8722 /* NotificationCenter.framework in Frameworks */,
+				AEF6FA608106D0534DDBD6ED /* Pods_StundenplanWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2643C2E2200D00AB007C8744 /* Pods_StundenplanNavigation.framework in Frameworks */,
 				40E3D9921FCC20A0007B8722 /* StundenplanFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				588D901DA68F5407B7D91A1E /* Pods_StundenplanNavigationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D623E60C23D5E8B71B10312 /* Pods_StundenplanNavigationUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +365,11 @@
 		400590B21FC823C60083F86C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */,
 				40E3D99B1FCC2163007B8722 /* NotificationCenter.framework */,
+				3BADF20A1196EA8EC9E1F97C /* Pods_StundenplanNavigationTests.framework */,
+				EB13C8CFCD8116A8CD0FF52A /* Pods_StundenplanNavigationUITests.framework */,
+				81F8C2D1D5FD9762E7E42587 /* Pods_StundenplanWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -372,6 +396,21 @@
 				402DD3441FD1A34600E5B5A0 /* WidgetLectureController.swift */,
 			);
 			path = StundenplanWidget;
+			sourceTree = "<group>";
+		};
+		4DE175CCD026943C693EC97C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3941F13702289074DDED1 /* Pods-StundenplanNavigation.debug.xcconfig */,
+				627576215A2C669FA34A51D1 /* Pods-StundenplanNavigation.release.xcconfig */,
+				5234CCD285242540F1AF5BC6 /* Pods-StundenplanNavigationTests.debug.xcconfig */,
+				E5E8C0887DBFAA7CDCBC9959 /* Pods-StundenplanNavigationTests.release.xcconfig */,
+				029A1A93680E2902631F08BA /* Pods-StundenplanNavigationUITests.debug.xcconfig */,
+				7DE6927993FB2FABDCB830CA /* Pods-StundenplanNavigationUITests.release.xcconfig */,
+				3848006B9AFF4FC80C560411 /* Pods-StundenplanWidget.debug.xcconfig */,
+				922A32D34C9B4916F79D5CF8 /* Pods-StundenplanWidget.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		654BFEB41ED427320023607D /* Interfaces */ = {
@@ -610,6 +649,7 @@
 				40E3D99D1FCC2163007B8722 /* StundenplanWidget */,
 				CEAC97011DB5FD350042FF3D /* Products */,
 				400590B21FC823C60083F86C /* Frameworks */,
+				4DE175CCD026943C693EC97C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -750,9 +790,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40E3D9A71FCC2163007B8722 /* Build configuration list for PBXNativeTarget "StundenplanWidget" */;
 			buildPhases = (
+				1E616C8DC75EF68AA3078268 /* [CP] Check Pods Manifest.lock */,
 				40E3D9961FCC2163007B8722 /* Sources */,
 				40E3D9971FCC2163007B8722 /* Frameworks */,
 				40E3D9981FCC2163007B8722 /* Resources */,
+				A7A81653CD3CC1FC7356ECA4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -767,11 +809,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEAC972A1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigation" */;
 			buildPhases = (
+				D071B36D707D525300E397FF /* [CP] Check Pods Manifest.lock */,
 				CEAC96FC1DB5FD350042FF3D /* Sources */,
 				CEAC96FD1DB5FD350042FF3D /* Frameworks */,
 				CEAC96FE1DB5FD350042FF3D /* Resources */,
 				400590C21FC825770083F86C /* Embed Frameworks */,
 				40E3D9AA1FCC2163007B8722 /* Embed App Extensions */,
+				5C853E75250857FC4887FAC7 /* [CP] Embed Pods Frameworks */,
+				41B4D922BAF79686F720297F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -788,9 +833,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEAC972D1DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigationTests" */;
 			buildPhases = (
+				7BF7C6B489D42D56B4E647D3 /* [CP] Check Pods Manifest.lock */,
 				CEAC97121DB5FD350042FF3D /* Sources */,
 				CEAC97131DB5FD350042FF3D /* Frameworks */,
 				CEAC97141DB5FD350042FF3D /* Resources */,
+				5C151AF38BC134E600E59FF8 /* [CP] Embed Pods Frameworks */,
+				709B74870FB8473E6F51EC31 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -806,9 +854,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEAC97301DB5FD350042FF3D /* Build configuration list for PBXNativeTarget "StundenplanNavigationUITests" */;
 			buildPhases = (
+				600776EFDC2DD939D4E38EC2 /* [CP] Check Pods Manifest.lock */,
 				CEAC971D1DB5FD350042FF3D /* Sources */,
 				CEAC971E1DB5FD350042FF3D /* Frameworks */,
 				CEAC971F1DB5FD350042FF3D /* Resources */,
+				D672B447E8F419F7064BDF89 /* [CP] Embed Pods Frameworks */,
+				7F3F3CE938D6D0BB70961B35 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -951,6 +1002,189 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E616C8DC75EF68AA3078268 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StundenplanWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41B4D922BAF79686F720297F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigation/Pods-StundenplanNavigation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C151AF38BC134E600E59FF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationTests/Pods-StundenplanNavigationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C853E75250857FC4887FAC7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigation/Pods-StundenplanNavigation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigation/Pods-StundenplanNavigation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		600776EFDC2DD939D4E38EC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StundenplanNavigationUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		709B74870FB8473E6F51EC31 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationTests/Pods-StundenplanNavigationTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BF7C6B489D42D56B4E647D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StundenplanNavigationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F3F3CE938D6D0BB70961B35 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationUITests/Pods-StundenplanNavigationUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7A81653CD3CC1FC7356ECA4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D071B36D707D525300E397FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StundenplanNavigation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D672B447E8F419F7064BDF89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanNavigationUITests/Pods-StundenplanNavigationUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40E3D9961FCC2163007B8722 /* Sources */ = {
@@ -1115,6 +1349,7 @@
 /* Begin XCBuildConfiguration section */
 		40E3D9A81FCC2163007B8722 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3848006B9AFF4FC80C560411 /* Pods-StundenplanWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1137,6 +1372,7 @@
 		};
 		40E3D9A91FCC2163007B8722 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 922A32D34C9B4916F79D5CF8 /* Pods-StundenplanWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1268,6 +1504,7 @@
 		};
 		CEAC972B1DB5FD350042FF3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADF3941F13702289074DDED1 /* Pods-StundenplanNavigation.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1287,6 +1524,7 @@
 		};
 		CEAC972C1DB5FD350042FF3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 627576215A2C669FA34A51D1 /* Pods-StundenplanNavigation.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1306,6 +1544,7 @@
 		};
 		CEAC972E1DB5FD350042FF3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5234CCD285242540F1AF5BC6 /* Pods-StundenplanNavigationTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1321,6 +1560,7 @@
 		};
 		CEAC972F1DB5FD350042FF3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E8C0887DBFAA7CDCBC9959 /* Pods-StundenplanNavigationTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1336,6 +1576,7 @@
 		};
 		CEAC97311DB5FD350042FF3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029A1A93680E2902631F08BA /* Pods-StundenplanNavigationUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = StundenplanNavigationUITests/Info.plist;
@@ -1350,6 +1591,7 @@
 		};
 		CEAC97321DB5FD350042FF3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DE6927993FB2FABDCB830CA /* Pods-StundenplanNavigationUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = StundenplanNavigationUITests/Info.plist;
