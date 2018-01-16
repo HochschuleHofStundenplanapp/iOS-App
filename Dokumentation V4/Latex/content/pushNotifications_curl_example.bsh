@@ -1,0 +1,1 @@
+curl --http2 -d '{"aps":{"alert":"[MESSAGE TEXT]","sound":"default"}}' --cert "server_certificates_bundle_sandbox.pem":"" -H "apns-topic: iosapps.hof-university.stundenplan" --http2 https://api.development.push.apple.com/3/device/424f676a488ee552061b085b7565fac714de9c864ffbe0855b1cce4c95ac24cb
