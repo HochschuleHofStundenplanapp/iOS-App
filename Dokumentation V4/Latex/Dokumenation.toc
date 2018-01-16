@@ -7,46 +7,54 @@
 \contentsline {subsubsection}{\numberline {1.2.1.2}Verbesserungen}{2}{subsubsection.1.2.1.2}
 \contentsline {section}{\numberline {1.3}Ziele f\IeC {\"u}r Version 4}{3}{section.1.3}
 \contentsline {section}{\numberline {1.4}Teams}{3}{section.1.4}
-\contentsline {section}{\numberline {1.5}Kommunikation}{3}{section.1.5}
-\contentsline {section}{\numberline {1.6}Fazit des Projektes}{4}{section.1.6}
-\contentsline {section}{\numberline {1.7}Projektfortschritt dokumentiert}{4}{section.1.7}
-\contentsline {section}{\numberline {1.8}Ausblick}{4}{section.1.8}
+\contentsline {section}{\numberline {1.5}Kommunikation}{4}{section.1.5}
+\contentsline {section}{\numberline {1.6}Projektfortschritt dokumentiert}{4}{section.1.6}
+\contentsline {section}{\numberline {1.7}Fazit und Ausblick}{4}{section.1.7}
 \contentsline {chapter}{\numberline {2}Design}{5}{chapter.2}
-\contentsline {chapter}{\numberline {3}Erweiterung durch eine Siri Integration}{6}{chapter.3}
-\contentsline {section}{\numberline {3.1}Einleitung}{6}{section.3.1}
-\contentsline {section}{\numberline {3.2}Istzustand}{7}{section.3.2}
-\contentsline {section}{\numberline {3.3}Beispielhafte Anfragen}{7}{section.3.3}
-\contentsline {section}{\numberline {3.4}Umsetzung}{7}{section.3.4}
-\contentsline {section}{\numberline {3.5}Voraussetzung f\IeC {\"u}r SiriKit}{7}{section.3.5}
-\contentsline {section}{\numberline {3.6}Einschr\IeC {\"a}nkungen}{7}{section.3.6}
-\contentsline {chapter}{\numberline {4}Push Notifications}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Einleitung}{10}{section.4.1}
-\contentsline {section}{\numberline {4.2}Projektablauf}{10}{section.4.2}
-\contentsline {section}{\numberline {4.3}Vorbereitung einer Testumgebung}{12}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}MAMP als Virtuelle Umgebung}{12}{subsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.1.1}MAMP}{12}{subsubsection.4.3.1.1}
-\contentsline {subsubsection}{\numberline {4.3.1.2}MySQL Datenbank}{12}{subsubsection.4.3.1.2}
-\contentsline {section}{\numberline {4.4}Umsetzung}{12}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Server Installation}{13}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Zertifikate}{13}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Code zum Registrieren am Server}{13}{subsection.4.4.3}
-\contentsline {section}{\numberline {4.5}Aufgetretene Probleme}{14}{section.4.5}
-\contentsline {section}{\numberline {4.6}lessons learned}{14}{section.4.6}
-\contentsline {section}{\numberline {4.7}Weitere Arbeiten}{14}{section.4.7}
-\contentsline {chapter}{\numberline {5}Testen der Anwendung}{16}{chapter.5}
-\contentsline {chapter}{\numberline {6}Gruppe PMP}{17}{chapter.6}
-\contentsline {section}{\numberline {6.1}Einleitung}{17}{section.6.1}
-\contentsline {section}{\numberline {6.2}\IeC {\"U}berblick}{17}{section.6.2}
-\contentsline {section}{\numberline {6.3}Erster Bug}{20}{section.6.3}
-\contentsline {chapter}{\numberline {7}Aufgaben Erweiterung}{21}{chapter.7}
-\contentsline {section}{\numberline {7.1}Einleitung}{21}{section.7.1}
-\contentsline {section}{\numberline {7.2}Planung und Mockup}{22}{section.7.2}
-\contentsline {section}{\numberline {7.3}Funktionen}{23}{section.7.3}
-\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{24}{chapter.8}
-\contentsline {section}{\numberline {8.1}Einleitung}{24}{section.8.1}
-\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{24}{section.8.2}
-\contentsline {chapter}{\numberline {9}Onboarding}{25}{chapter.9}
-\contentsline {section}{\numberline {9.1}Einleitung}{25}{section.9.1}
-\contentsline {section}{\numberline {9.2}Umsetzung}{25}{section.9.2}
-\contentsline {chapter}{\numberline {10}Universal App Colors}{26}{chapter.10}
-\contentsline {section}{\numberline {10.1}Beschreibung}{26}{section.10.1}
+\contentsline {section}{\numberline {2.1}Einleitung}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Stundenplan}{5}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Screen1}{5}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Onboarding}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Einstellungen}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}Widget}{5}{section.2.5}
+\contentsline {section}{\numberline {2.6}demo}{5}{section.2.6}
+\contentsline {chapter}{\numberline {3}Erweiterung durch eine Siri Integration}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Einleitung}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}Istzustand}{10}{section.3.2}
+\contentsline {section}{\numberline {3.3}Beispielhafte Anfragen}{10}{section.3.3}
+\contentsline {section}{\numberline {3.4}Umsetzung}{10}{section.3.4}
+\contentsline {section}{\numberline {3.5}Voraussetzung f\IeC {\"u}r SiriKit}{10}{section.3.5}
+\contentsline {section}{\numberline {3.6}Einschr\IeC {\"a}nkungen}{10}{section.3.6}
+\contentsline {section}{\numberline {3.7}lessons learnd}{12}{section.3.7}
+\contentsline {chapter}{\numberline {4}Push Notifications}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Einleitung}{13}{section.4.1}
+\contentsline {section}{\numberline {4.2}Istzustand}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Projektablauf}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}Vorbereitung einer Testumgebung}{15}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}MAMP als Virtuelle Umgebung}{15}{subsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.1.1}MAMP}{15}{subsubsection.4.4.1.1}
+\contentsline {subsubsection}{\numberline {4.4.1.2}MySQL Datenbank}{15}{subsubsection.4.4.1.2}
+\contentsline {section}{\numberline {4.5}Umsetzung}{15}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Server Installation}{16}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Zertifikate}{16}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Code zum Registrieren am Server}{16}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Aufgetretene Probleme}{17}{section.4.6}
+\contentsline {section}{\numberline {4.7}lessons learned}{17}{section.4.7}
+\contentsline {section}{\numberline {4.8}Weitere Arbeiten}{17}{section.4.8}
+\contentsline {chapter}{\numberline {5}Testen der Anwendung}{19}{chapter.5}
+\contentsline {chapter}{\numberline {6}Gruppe PMP}{20}{chapter.6}
+\contentsline {section}{\numberline {6.1}Einleitung}{20}{section.6.1}
+\contentsline {section}{\numberline {6.2}\IeC {\"U}berblick}{20}{section.6.2}
+\contentsline {section}{\numberline {6.3}Erster Bug}{23}{section.6.3}
+\contentsline {chapter}{\numberline {7}Aufgaben Erweiterung}{24}{chapter.7}
+\contentsline {section}{\numberline {7.1}Einleitung}{24}{section.7.1}
+\contentsline {section}{\numberline {7.2}Planung und Mockup}{25}{section.7.2}
+\contentsline {section}{\numberline {7.3}Funktionen}{26}{section.7.3}
+\contentsline {chapter}{\numberline {8}Kalenderschnittstelle}{27}{chapter.8}
+\contentsline {section}{\numberline {8.1}Einleitung}{27}{section.8.1}
+\contentsline {section}{\numberline {8.2}\IeC {\"U}berarbeitung}{27}{section.8.2}
+\contentsline {chapter}{\numberline {9}Onboarding}{28}{chapter.9}
+\contentsline {section}{\numberline {9.1}Einleitung}{28}{section.9.1}
+\contentsline {section}{\numberline {9.2}Umsetzung}{28}{section.9.2}
+\contentsline {chapter}{\numberline {10}Universal App Colors}{29}{chapter.10}
+\contentsline {section}{\numberline {10.1}Beschreibung}{29}{section.10.1}
