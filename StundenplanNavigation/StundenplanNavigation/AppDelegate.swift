@@ -83,15 +83,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         var payload : [String: Any] = ["fcm_token": deviceToken]
         payload.updateValue(tmpArray, forKey: "vorlesung_id")
         
-        let osparm = 1
-        payload.updateValue(osparm, forKey: "os")
+        let osParam = 1
+        payload.updateValue(osParam, forKey: "os")
+        
+        
+        
+        // can be disabled. server doesn't expect it.
+        if (true) {
+            let lang : String = "de"
+            payload.updateValue(lang, forKey: "language")
+        }
         
         
         let isValidJson = JSONSerialization.isValidJSONObject(payload)
         if isValidJson{
             sendToServer(jsonObject: payload)
         }else{
-            print("oops! Something went wrong")
+            print("JSON not valid")
         }
     }
     func sendToServer(jsonObject: [String: Any]){
@@ -111,10 +119,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             if let dict = resourceFileDictinoary{
                 if !(dict["isPushTesting"] as! Bool){
                    let productive = dict["ProductiveURL"] as! String
-                    myUrl = productive + "fcm_update_and_send.php"
+                    myUrl = productive + "fcm_update_and_send.php?os=1" // 0 = Android, 1 = iOS
                 }
                 else{
-                    myUrl = dict["TestURL"] as! String + "fcm_register_user_new.php"
+                    myUrl = dict["TestURL"] as! String + "fcm_register_user_new.php?os=1"
                 }
                 //### if isPushTesting plist change url
                 print("Url: \(myUrl)")
