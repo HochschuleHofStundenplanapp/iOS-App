@@ -34,7 +34,8 @@ class TmpSelectedLectures: NSObject {
         
         for i in 0..<lectures.count{
             for j in 0..<lectures[i].count{
-                if lectures[i][j] == element{
+                let lecture = lectures[i][j]
+                if lecture == element{
                     iP = NSIndexPath(row: j, section: i)
                 }
             }

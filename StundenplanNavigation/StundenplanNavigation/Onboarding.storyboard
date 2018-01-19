@@ -132,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="376.80000000000001" y="43.628185907046479"/>
         </scene>
-        <!--Schritt 1 von 5-->
+        <!--Schritt 1 von 6-->
         <scene sceneID="IkY-HJ-e0a">
             <objects>
                 <viewController storyboardIdentifier="onboardingFacultyID" id="x9J-Mn-pnM" customClass="OnboardingFacultyViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,7 +211,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ja-GW-G3o"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 1 von 5" id="egV-KF-ztB">
+                    <navigationItem key="navigationItem" title="Schritt 1 von 6" id="egV-KF-ztB">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="SHQ-O1-mJs"/>
                         <barButtonItem key="rightBarButtonItem" title="Weiter" id="bKs-so-8iI">
                             <connections>
@@ -229,7 +229,7 @@
             </objects>
             <point key="canvasLocation" x="2308" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 2 von 5-->
+        <!--Schritt 2 von 6-->
         <scene sceneID="sim-tb-Wio">
             <objects>
                 <viewController storyboardIdentifier="onboardingCourseID" id="xHZ-Kp-1gc" customClass="OnboardingCourseViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -307,7 +307,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c95-x5-UZF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 2 von 5" id="FLG-YE-O83">
+                    <navigationItem key="navigationItem" title="Schritt 2 von 6" id="FLG-YE-O83">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="ljD-Ng-SRe"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="Jkw-cE-g1p">
                             <connections>
@@ -342,7 +342,7 @@
             </objects>
             <point key="canvasLocation" x="1361" y="44"/>
         </scene>
-        <!--Schritt 3 von 5-->
+        <!--Schritt 3 von 6-->
         <scene sceneID="cf4-MD-Dvg">
             <objects>
                 <viewController id="bUF-XS-zbM" customClass="OnboardingSemesterViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -422,7 +422,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H4L-CX-Dy0"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 3 von 5" id="q9c-dp-rav">
+                    <navigationItem key="navigationItem" title="Schritt 3 von 6" id="q9c-dp-rav">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="cyp-Cq-VVM"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="eSf-Pa-eH6">
                             <connections>
@@ -439,7 +439,7 @@
             </objects>
             <point key="canvasLocation" x="4072.8000000000002" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 4 von 5-->
+        <!--Schritt 4 von 6-->
         <scene sceneID="2t1-qp-s3W">
             <objects>
                 <viewController id="wY3-TX-CE6" customClass="OnboardingLecturesViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -573,7 +573,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rWJ-6R-RB1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 4 von 5" id="ARU-rk-bq3">
+                    <navigationItem key="navigationItem" title="Schritt 4 von 6" id="ARU-rk-bq3">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="EMm-1B-xT6"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="swL-Ze-ARE">
                             <connections>
@@ -593,7 +593,7 @@
             </objects>
             <point key="canvasLocation" x="5013.6000000000004" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 5 von 5-->
+        <!--Schritt 6 von 6-->
         <scene sceneID="eaA-rK-Hbb">
             <objects>
                 <viewController id="Imd-kk-mYB" customClass="OnboardingPermissionsCalendarViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -704,7 +704,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D5R-lS-bqc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 5 von 5" id="4v1-4v-8Pj">
+                    <navigationItem key="navigationItem" title="Schritt 6 von 6" id="4v1-4v-8Pj">
                         <barButtonItem key="rightBarButtonItem" title="Fertig" id="28O-Wc-Pn9">
                             <connections>
                                 <action selector="endOnboardingAction:" destination="Imd-kk-mYB" id="Dib-3E-imM"/>
@@ -724,7 +724,7 @@
             </objects>
             <point key="canvasLocation" x="6726" y="44"/>
         </scene>
-        <!--Schritt 5 von 5-->
+        <!--Schritt 5 von 6-->
         <scene sceneID="r9r-DY-BBP">
             <objects>
                 <viewController id="PLy-6Y-xwj" customClass="OnboardingPermissionsPushViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -732,7 +732,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Push Push" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="D1S-E6-ste">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Nutzung erlauben" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="D1S-E6-ste">
                                 <rect key="frame" x="16" y="256" width="343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="aJh-KJ-lJ1"/>
@@ -741,7 +741,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_allowCalenderAcces" translatesAutoresizingMaskIntoConstraints="NO" id="b71-tc-kqM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_allowPush" translatesAutoresizingMaskIntoConstraints="NO" id="b71-tc-kqM">
                                 <rect key="frame" x="16" y="292" width="343" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b71-tc-kqM" secondAttribute="height" multiplier="343:128" id="YMT-Xp-dwS"/>
@@ -750,16 +750,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aI-dn-xtg">
                                 <rect key="frame" x="0.0" y="88" width="375" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyK-Bk-T5A">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH-BENACHRICHTIGUNGEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyK-Bk-T5A">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="4zo-cF-uUq"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Push Push" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5D-wM-Wqj">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Mit Push-Benachrichtigungen erhältst du Änderungen für deine Vorlesungen auf dein Handy." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5D-wM-Wqj">
                                         <rect key="frame" x="8" y="54" width="359" height="70"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -805,7 +805,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aR7-IO-dab"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 5 von 5" id="Jeu-KK-imK">
+                    <navigationItem key="navigationItem" title="Schritt 5 von 6" id="Jeu-KK-imK">
                         <barButtonItem key="rightBarButtonItem" title="Weiter" id="aHa-gt-p57">
                             <connections>
                                 <segue destination="Imd-kk-mYB" kind="show" identifier="OnboardingToPermissionsCalendar" id="0fs-ps-xZQ"/>
@@ -820,6 +820,7 @@
     </scenes>
     <resources>
         <image name="Onboarding_allowCalenderAcces" width="584" height="222"/>
+        <image name="Onboarding_allowPush" width="584" height="222"/>
         <image name="Standard" width="750" height="1334"/>
         <image name="iTunes" width="1024" height="1024"/>
     </resources>

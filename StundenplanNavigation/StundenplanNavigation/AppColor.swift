@@ -52,10 +52,6 @@ struct AppColor {
         return tintColor
     }
     
-//    var headerText: UIColor {
-//        return UIColor.white
-//    }
-    
     var taskWarning: UIColor {
         return UIColor.red
     }
