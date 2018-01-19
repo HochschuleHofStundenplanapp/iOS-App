@@ -26,6 +26,8 @@ public class UserData: NSObject, NSCoding{
     public var selectedSchedule: Schedule = Schedule()
     public var oldChanges : [ChangedLecture] = []
     public var tasks: [Task] = []
+    public var appointments : [Tuple] = []
+    
     private var selectedAppColor : String = ""
     
     public var calendarIdentifier: String?
@@ -44,6 +46,7 @@ public class UserData: NSObject, NSCoding{
     let oldChangesKey = "oldChanges"
     let tasksKey = "taskKey"
     let appcolorKey = "appcolor"
+    let appointmentKey = "appointmentKey"
 
     private override init(){}
     
@@ -59,6 +62,7 @@ public class UserData: NSObject, NSCoding{
         copy.calenderSync = calenderSync
         copy.tasks = tasks
         copy.selectedAppColor = selectedAppColor
+        copy.appointments = appointments
         return copy
     }
     
@@ -96,7 +100,8 @@ public class UserData: NSObject, NSCoding{
         tasks = aDecoder.decodeObject(forKey: tasksKey) as? [Task] ?? []
         selectedAppColor = (aDecoder.decodeObject(forKey:appcolorKey) as? String ?? "")
         //print("decoded app Color: " + (aDecoder.decodeObject(forKey:appcolorKey) as? String)!)
-        print("myAppColor is:" + selectedAppColor)
+        //print("myAppColor is:" + selectedAppColor)
+        appointments = aDecoder.decodeObject(forKey: appointmentKey) as? [Tuple] ?? []
         
         
         super.init()
@@ -114,6 +119,7 @@ public class UserData: NSObject, NSCoding{
         aCoder.encode(oldChanges, forKey: oldChangesKey)
         aCoder.encode(tasks, forKey: tasksKey)
         aCoder.encode(selectedAppColor, forKey: appcolorKey)
-        print("encoded AppColor: " + selectedAppColor)
+        //print("encoded AppColor: " + selectedAppColor)
+        aCoder.encode(appointments, forKey: appointmentKey)
         }
 }

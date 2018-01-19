@@ -93,7 +93,12 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         disableCellsAndButton()
         selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
         selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
-        saveChangesButton.setTitle("\(settingsController.countChanges()) Änderungen übernehmen", for: .normal)
+        let countChanges = settingsController.countChanges()
+        if(countChanges > 0) {
+            saveChangesButton.setTitle("\(countChanges) Änderungen übernehmen", for: .normal)
+        } else {
+            saveChangesButton.setTitle("keine Änderungen vorgenommen", for: .normal)
+        }
         self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
     }
     
@@ -209,7 +214,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         DispatchQueue.global().async {
             self.settingsController.commitChanges()
             DispatchQueue.main.async {
-                self.saveChangesButton.setTitle("0 Änderungen übernehmen", for: .normal)
+                self.saveChangesButton.setTitle("keine Änderungen vorgenommen", for: .normal)
                 UIApplication.shared.registerForRemoteNotifications()
                 self.backgroundProgressIndicator.stopActivityIndicator()
                 
@@ -247,6 +252,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             vc.tmpSelectedLectures = settingsController.tmpSelectedLectures
             vc.tmpSelectedSemesters = settingsController.tmpSelectedSemesters
             vc.tmpSelectedSeason = settingsController.tmpSelectedSeason
+            vc.settingsController = settingsController
         }
     }
     

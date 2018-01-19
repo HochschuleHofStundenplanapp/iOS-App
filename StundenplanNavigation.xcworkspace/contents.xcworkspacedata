@@ -5,12 +5,6 @@
       location = "group:StundenplanFramework/Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:StundenplanNavigation/StundenplanNavigation.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:StundenplanFramework/StundenplanFramework.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:StundenplanNavigation/StundenplanNavigation.xcodeproj">
    </FileRef>
 </Workspace>
