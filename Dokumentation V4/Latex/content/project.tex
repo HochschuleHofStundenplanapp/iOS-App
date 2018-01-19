@@ -4,23 +4,23 @@ Johannes Franz \& Christian Pfeiffer
 \section{Ausgangssituation}
 %%todo: Beschreiben, dass die iOS App schon von unseren Vorgängern entwickelt worden ist und welche Funktionen diese (V1,V2,V3) hattte
 
-Im Wintersemester 2016/2017 begann die Entwicklung der iOS Stundenplanapp mit Studierenden des Studiengangs Mobile Computing im 5. Semester im Rahmen des Moduls "Fortgeschrittene Themen der Swift 3 Programmierung". Am Ende dieses Semesters wurde die Version V1 im AppStore veröffentlicht. Im Sommersemester 2017 wurde die App weiterentwickelt und schlussendlich die Version 2.0 veröffentlicht, welche eine Background Fetch Funktionalität einführte, lokale Notifications bei Vorlesungsverlegungen und Verbesserungen bei der Erkennung von einzelnen Vorlesungsterminen einführte.
+Im Wintersemester 2016/2017 begann die Entwicklung der iOS Stundenplanapp mit Studierenden des Studiengangs Mobile Computing im 5. Semester im Rahmen des Moduls "Fortgeschrittene Themen der Swift 3 Programmierung". Am Ende dieses Semesters wurde die Version V1 im AppStore veröffentlicht. Im Sommersemester 2017 wurde die App weiterentwickelt und schlussendlich die Version 2.0 veröffentlicht, welche eine Background Fetch Funktionalität einführte, lokale Notifications bei Vorlesungsverlegungen und Verbesserungen bei der Erkennung von einzelnen Vorlesungsterminen integrierte..
 
-Im Wintersemester 2017/2018 übernahmen unsere Projektgruppe (Studierende des 5. Semesters) im Rahmen des Moduls "Fortgeschrittene Themen der Swift 3 Programmierung" die Pflege und Weiterentwicklung der iOS Stundenplanapp.
+Im Wintersemester 2017/2018 übernahmen unser Studienjahrgang (Studierende des 5. Semesters) im Rahmen des Moduls "Fortgeschrittene Themen der Swift 3 Programmierung" die Pflege und Weiterentwicklung der iOS Stundenplanapp.
 
 
 \newpage
 \section{Überlegungen zu Projektbeginn}
 
 \subsection{GitHub / Branches}
-GitHub ist ein Plattform zur effektiven Versionsverwaltung von Softwareprojekten. Branches stellen gewisse Softwareversionen da. Das Verwenden mehrerer Branches ermöglicht es größeren Softwareteams gleichzeitig an verschiedenen Softwarefeatures zu arbeiten.
-Für die iOS Stundenplanapp wurde ein passendes Branch Konzept vom Projekt Team ausgearbeitet.
+GitHub ist eine Plattform zur effektiven Versionsverwaltung von Softwareprojekten. Branches stellen gewisse Softwareversionen dar. Das Verwenden mehrerer Branches ermöglicht es größeren Softwareteams gleichzeitig an verschiedenen Softwarefeatures zu arbeiten.
+Für die iOS Stundenplanapp wurde ein passendes Branch-Konzept vom Projektmanagment Team ausgearbeitet.
 
 Der Großteil der Kommunikation lief über Issues und den Project Tab von GitHub ab.
 
 \subsubsection{Ausgangslage}
 
-Zu Projektbeginn wurden folgende Branches vorgefunden:
+Zu Projektbeginn waren folgende Branches vorhanden:
 \begin{itemize}
 \item master
 \item development (obsolete)
@@ -48,34 +48,39 @@ Der "master" Branch wird immer mit der aktuellsten Version gefüllt.
 
 Neue Branches sind eingeführt worden:
 \begin{itemize}
-\item v3.1 (Bugfixes, kleinere neue "Features". Der Branch bleibt auf Swift 3.1  / iOS 10.0)
-\item v3.2 Weitere Bugfixes. Der Branch bleibt auf Swift 3.1  / iOS 10.0 %%##todo
-\item v4 in Rahmen der Studienarbeit entwickelte Erweiterungen der App (Swift 4 / iOS 11)
-\item v4-widget Subbranch der v4 zur Anpassung der App an ein Framework, welches Vorraussetzung für die Implementierung eines Widget war.
+\item v3.1: (Bugfixes, kleinere neue "Features". Der Branch bleibt auf Swift 3.1  / iOS 10.0)
+\item v3.2: Weitere Bugfixes. Der Branch bleibt auf Swift 3.1  / iOS 10.0 %%##todo
+\item v4: in Rahmen der Studienarbeit entwickelte Erweiterungen der App (Swift 4 / iOS 11)
+\item v4-widget: Subbranch der v4 zur Anpassung der App an ein Framework, welches Vorraussetzung für die Implementierung eines Widget war.
 \end{itemize}
 
-Es wurden auch Branches entfernt:
+Veränderungen an bestehenden Branches:
 \begin{itemize}
-\item development Der development Branch wurde als obsolet gekennzeichnet und deshalb entfernt.
+\item master: Der master Branch beeinhaltet immer die aktuell ausgelieferte Version aus dem Appstore.
+\item development: Der development Branch wurde als obsolet gekennzeichnet und deshalb entfernt.
 \end{itemize}
 
-Es wurde von der Projektgruppe entschieden beim iOS 10 Deployment Target zu bleiben, da zu Beginn des Semester iOS 11 erst veröffentlicht wurde und die Verteilung erst ein paar Monate dauert. Zudem wurde für einige ältere Geräte, wie dem iPhone 5, iPhone 5C, and iPad 4, der Support eingestellt.
 
-Letztendlich wurde entschieden das Projekt auf Swift 4 zu aktualisieren, da dies unseren Nutzern eine bessere Performance brachte Es gab auch Effizienz Verbesserungen bei der String Manipulation.\\
+Es wurde von der Projektgruppe entschieden beim iOS 10 Deployment Target zu bleiben, da zu Beginn des Semester iOS 11 erst veröffentlicht wurde und die Verteilung erst ein paar Monate dauerte. Zudem wurde für einige ältere Geräte, wie dem iPhone 5, iPhone 5C, and iPad 4, der Support eingestellt, weshalb einige Studierende keine App Updates mehr erhalten würden.
 
-Zu Projektbeginn entstand die Idee, Branches nach Features zu benennen. Dabei war Design, Siri, Kalendersynchronisation, etc. angedacht. In der Projektphase hat sich zwischenzeitlich bewährt, die Branches weiterhin nach Versionsnummern zu benennen und bei großen Änderungen der Versionsnummer ein Thema anzuhängen.
+Letztendlich wurde entschieden das Projekt auf Swift 4 zu aktualisieren. Dies brachte u.a. Effizienzverbesserungen bei der String Manipulation. Diese wird beispielsweise in der Artificial Intelligence Klasse verwendet.
+
+Zu Projektbeginn entstand die Idee, Branches nach Features zu benennen. Dabei war Design, Siri, Kalendersynchronisation, etc. angedacht. In der Projektphase hat sich zwischenzeitlich bewährt, Branches weiterhin nach Versionsnummern zu benennen und bei großen Änderungen der Versionsnummer ein Thema anzuhängen.
 
 
 \section{Ziele für Version 4}
 Folgende Aufgaben wurden als Ziel für die Version 4 festgelegt:
 % Jede Funktion kurz Beschreiben, was es tut... Warum wir es brauchen Add Siri, weil ist ja dokumentiert - cpfeiffer
 \begin{itemize}
+\item Migration des Projektes auf Swift 4
 \item Onboarding
 \item Hausaufgaben Manager
 \item Push Notifications
 \item Widget
 \item iOS 11 Design
 \item Testkonzept für die App
+\item Auslagerung des Appmodels in ein Framework
+\item Parsen von vorlesungsfreien Tagen von der HS Webseite
 \end{itemize}
 
 
@@ -86,14 +91,16 @@ Team 1: (Pfeiffer, Scheler)
 \item Design
 \item Buxfixes
 \item Swift 4 Konvertierung
+\item Universal App Color Persistenz
+\item Design des Onboarding
 \end{itemize}
 
 
 Team 2: (Franz, Krug):
 \begin{itemize}
 \item Siri
-\item Push Notifications
-\item Anpassung der Schnittstelle
+\item Implementierung von Push Notifications
+\item Erweiterung der Schnittstelle
 \end{itemize}
 
 
@@ -111,12 +118,15 @@ Team 4: (Kusserow, Sonntag, Dümmlein):
 \begin{itemize}
 \item Stundenplan Verbesserungen
 \item Erstellen eines Widgets
+\item Auslagerung des Appmodels in ein Framework
+\item Parseen von vorlesungsfreien Tagen von der HS Webseite
 \end{itemize}
 
 
 Team 5: (Pöhlmann):
 \begin{itemize}
-\item Testkonzept ausarbeiten und Testen nach Protokoll
+\item Testkonzept ausarbeiten
+\item Testen nach Protokoll
 \end{itemize}
 
 
@@ -125,13 +135,13 @@ Zur Verständigung untereinander und Festlegung der einzelnen Aufgaben wurden ve
 \begin{itemize}
 \item Chat Gruppe mit allen Beteiligten
 \item Kommunikation während der Zeit in der Hochschule
-\item GitHub (Issues, Project Sektion)
+\item GitHub (Issues, Project Tab)
 \item Scrum ähnliche Vorstellung neu eingebauter Funktionen zu Beginn jeder Vorlesung
 \end{itemize}
 
 
 \section{Projektfortschritt dokumentiert}
-Mithilfe des Projektfeature in GitHub konnte immer der Überblick über Subtasks der einzelnen Teams behalten werden und so der Fortschritt der einzelnen Teams dokumentiert werden.
+Unter Zuhilfenahme des Projektfeature in GitHub konnte immer der Überblick über Subtasks der einzelnen Teams behalten werden und so der Fortschritt der Gruppen dokumentiert werden.
 
 Projekt Tab in GitHub\\
 \url{https://github.com/HochschuleHofStundenplanapp/iOS-App/projects}
@@ -142,8 +152,7 @@ Projekt Tab in GitHub\\
 
 
 \section{Fazit und Ausblick}
-Zu Beginn des Semesters bemühte sich das Team den Nutzern der Version 3 weiter mit Service Updates und Fehlerbehebungen zu versorgen. Hierfür entstanden die Versionen V3.1 und V3.2, welche die Stabilität der Stundenplanapp verbesserten und akute Probleme wie das Fehlen des roten Beschreibungstextes bei Stundenplanänderungen behob.
-Bis zu Ende des Semesters war die Projektgruppe in der Lage alle geplanten Features in die V4 zu implementieren. Darüber hinaus entwickelte ein Team mit der Erweiterung SwiftSoup einen Parser für die Hochschul-Homepage, welcher in der Lage ist die vorlesungsfreie Zeit zu auszulesen. Damit kann nun immer der richtige Stundenplan, für das entsprechende Halbjahr angezeigt werden.\\
+Zu Beginn des Semesters wurden die Nutzer  mit Service Updates und Fehlerbehebungen versorgt. Hierfür entstanden die Versionen V3.1 und V3.2, welche die Stabilität der Stundenplanapp verbesserten und akute Probleme wie das Fehlen des roten Beschreibungstextes bei Stundenplanänderungen behob.
 
-Zum Ende der Projektphase entsprach die Version 4 der App einen auslieferbaren Zustand. Nur noch kleine Änderungen und die Übergabe der Server Komponente an den IT-Service zum Updaten der Produktiv Server Umgebung stehen einer Veröffentlichung im weg.
+Bis zum Ende des Semesters waren wir in der Lage alle zielgesetzten Funktionalitäten in die V4 zu implementieren. Nur noch kleine Änderungen und die Übergabe der Server Komponente an den IT-Service zum Updaten der Produktiv Server Umgebung verzögerten die Veröffentlichung in den Appstore.
 Wie auch bei der vorherigen Version werden zu Beginn des Sommersemester 2018 weitere Qualitätsverbesserungen und Fehlerbehebungen vorgenommen  werden müssen, damit die neue Version bei den Endnutzern als abgerundetes Produkt ankommt.
