@@ -122,10 +122,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
                     myUrl = productive + "fcm_update_and_send.php?os=1" // 0 = Android, 1 = iOS
                 }
                 else{
-                    myUrl = dict["TestURL"] as! String + "fcm_register_user_new.php?os=1"
+                    myUrl = dict["TestURL"] as! String + "fcm_register_user.php?os=1"
                 }
                 //### if isPushTesting plist change url
-                print("Url: \(myUrl)")
                 var request = URLRequest(url:URL(string: myUrl!)!)
                 request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
                 request.httpMethod = "POST"
