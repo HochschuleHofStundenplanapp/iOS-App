@@ -33,6 +33,7 @@
 		40A0F6E61FD0C07200F8F5E8 /* WidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0F6E51FD0C07200F8F5E8 /* WidgetCell.swift */; };
 		40A0F6E91FD0C11700F8F5E8 /* widgetTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0F6E81FD0C11700F8F5E8 /* widgetTableViewDataSource.swift */; };
 		40A0F6EE1FD0CC6000F8F5E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAC970C1DB5FD350042FF3D /* Assets.xcassets */; };
+		40B51E722012466D00FB2865 /* AppointmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B51E712012466D00FB2865 /* AppointmentTableViewController.swift */; };
 		40E3D9921FCC20A0007B8722 /* StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; };
 		40E3D9931FCC20A0007B8722 /* StundenplanFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40E3D99C1FCC2163007B8722 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D99B1FCC2163007B8722 /* NotificationCenter.framework */; };
@@ -203,6 +204,7 @@
 		406205C51FD476BC00B6F4F6 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		40A0F6E51FD0C07200F8F5E8 /* WidgetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCell.swift; sourceTree = "<group>"; };
 		40A0F6E81FD0C11700F8F5E8 /* widgetTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widgetTableViewDataSource.swift; sourceTree = "<group>"; };
+		40B51E712012466D00FB2865 /* AppointmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewController.swift; sourceTree = "<group>"; };
 		40E3D9881FCC2075007B8722 /* StundenplanFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = StundenplanFramework.xcodeproj; path = ../StundenplanFramework/StundenplanFramework.xcodeproj; sourceTree = "<group>"; };
 		40E3D99A1FCC2163007B8722 /* StundenplanWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StundenplanWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E3D99B1FCC2163007B8722 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -372,6 +374,14 @@
 				81F8C2D1D5FD9762E7E42587 /* Pods_StundenplanWidget.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40B51E6F2012464300FB2865 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				40B51E712012466D00FB2865 /* AppointmentTableViewController.swift */,
+			);
+			name = Appointment;
 			sourceTree = "<group>";
 		};
 		40E3D9891FCC2075007B8722 /* Products */ = {
@@ -667,6 +677,7 @@
 		CEAC97021DB5FD350042FF3D /* StundenplanNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				40B51E6F2012464300FB2865 /* Appointment */,
 				400590A61FC81BD50083F86C /* StundenplanNavigation.entitlements */,
 				0C06277F1F06BB5800273A35 /* UI-Extension */,
 				DA0AA5F91EE4654E00D64C63 /* Artificial Intelligence */,
@@ -1250,6 +1261,7 @@
 				BE3AB3A91EB1F799009A6D20 /* myObserverProtocol.swift in Sources */,
 				B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */,
 				CE698D581DD1D68F006D1384 /* ScheduleChangesTableViewDelegate.swift in Sources */,
+				40B51E722012466D00FB2865 /* AppointmentTableViewController.swift in Sources */,
 				BE8B680E1ECA448600A858A3 /* NotificationNameExtension.swift in Sources */,
 				0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */,
 				BED89EF31EE2EF3100CBEF27 /* SettingsController.swift in Sources */,

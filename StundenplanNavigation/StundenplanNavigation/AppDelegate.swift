@@ -37,12 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         
         UNUserNotificationCenter.current().delegate = self
 //      ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
-        
+        checkForSemesterAppointments()
 //      print("Server: \(ServerData.sharedInstance.allChanges)")
 //      registerForPushNotification()
         UIApplication.shared.registerForRemoteNotifications()
         
         return true
+    }
+    
+    func checkForSemesterAppointments() {
+        print(UserData.sharedInstance.appointments.count)
+        if UserData.sharedInstance.appointments.count == 0 {
+            print("Noch keine Termine vorhanden..Termine werden geparsed und gespeichert")
+            let parser = AppointmentParser()
+            parser.downloadAndParseAppointmentContent()
+        }
     }
     
     func setupAppColor(){
