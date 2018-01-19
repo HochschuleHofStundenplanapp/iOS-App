@@ -32,6 +32,7 @@ class LecturesTableViewDelegate: NSObject, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("func tableView(_ tableView: UITableView, didSelectRowAt indexPath: \(indexPath)")
         lectureController.toggleLecture(at: indexPath)
         tableView.reloadData()
         

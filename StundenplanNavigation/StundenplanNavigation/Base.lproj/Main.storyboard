@@ -968,8 +968,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onboarding neustarten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5h-KO-dvI">
-                                                    <rect key="frame" x="26" y="14.000000000000002" width="177.66666666666666" height="20.666666666666671"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Einführungsassistent neustarten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5h-KO-dvI">
+                                                    <rect key="frame" x="26" y="14" width="248" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1171,7 +1171,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9zk-7k-9uU">
                                 <rect key="frame" x="16" y="98" width="343" height="631"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Stundenplanapp V4.0
+                                <mutableString key="text">Stundenplanapp V4.0
 Diese iOS App wurde von Studierenden des Studiengangs Mobile Computing entwickelt.
 Die Hochschule Hof bedankt sich bei folgenden Entwicklern:
 
@@ -1186,7 +1186,7 @@ Maxi Sonntag
 Normen Krug
 Patrick Niepel
 Phillipp Dümleim
-Phillipp Knoblauch
+Carl Phillipp Knoblauch
 
 betreut durch: Prof. Dr. Sven Rill
 
@@ -1201,7 +1201,7 @@ Sebastian Fuhrmann
 Stefan Scharrer
 
 betreut durch: Prof. Dr. Peter Stöhr
-</string>
+</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                 <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>

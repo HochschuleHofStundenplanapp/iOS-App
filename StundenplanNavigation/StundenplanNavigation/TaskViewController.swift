@@ -50,6 +50,7 @@ class TaskViewController: UIViewController, TaskViewProtocol {
         
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.tintColor = appColor.tintColor
+        navigationItem.rightBarButtonItem?.tintColor = appColor.navigationBarTintColor
     }
     
     @available(iOS 11.0, *)
