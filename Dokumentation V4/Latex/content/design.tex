@@ -2,24 +2,35 @@
 Angelina Scheler \& Christian Pfeiffer
 
 \section{Einleitung}
-Aufgabe des Design Teams war das Design der StundenplanApp zu überarbeiten und zu verbessern, unter Berücksichtigung der Apple Design Guideline. Folgende Punkte waren uns dabei wichtig:
+Aufgabe des Design Teams war das Design der Stundenplanapp zu überarbeiten und zu verbessern, unter Berücksichtigung der Apple Human Interface Design Guideline. Dabei wurden für die V4 folgende Ziele gesetzt:
 
 \begin{itemize}
-\item Neues Design
-\item Besseres Design
-\item iOS Design
-\item Fakultätsfarben
-\item Übersichtliches Design
-\item Selbsterklärendes Design
-\item Onboarding Assistent
-\item Widget
+\item Verbesserung der Stundenplanansicht
+\item Design eines Onboarding Assistenten
+\item Verbesserung und Vereinfachung der Einstellungen
+\item Design eines Widgets
 \end{itemize}
 
 
 \section{Stundenplan}
-Um das Layout übersichtlicher zu gestalten wurden verschiedene Designkonzepte entworfen.
-\subsection{Design Vorschläge}
-Die folgenden Abbildungen zeigen die Stundenplan Ansicht in den jeweiligen Fakultätsfarben. Die Stundenplan Informationen wurde in Spalten aufgeteilt. 
+Die Ansicht des Stundenplans ist das primäre Feature unserer Stundenplanapp. Deshalb ist es besonders wichtig, dieses stetig zu verbessern und zu erweitern.
+Deshalb haben wir, um das Layout übersichtlicher zu gestalten, verschiedene Designkonzepte entworfen.
+
+\subsection{Vorschlag zur Verbesserung der Usability der Stundenplanansicht}
+Zu Beginn des Semesters wurde ein Konzept entwickelt, innerhalb dessen die Stundenplanfunktion durch eine Wochenansicht erweitert werden sollte. 
+
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.5]{design_stundenplan}}
+	\caption{Neues Stundenplanbedienkonzept}
+	\label{fig1}
+\end{figure}
+
+Mit dem rechten oberen Navigationitem kann zwischen einer Wochenansicht und der klassischen Stundenplanansicht gewechselt werden. In der klassischen Stundenplanansicht kann der Benutzer durch ein ein Segmented Control Element unterhalb der Navigationbar zwischen 'Mein Stundenplan'' und den Stundenplanänderungen wechseln. In der Wochenansicht werden ''Mein Stundenplan'' und die Stundenplanänderungen in einer Ansicht für die aktuelle Woche kombiniert dargestellt. 
+
+\subsection{Entwicklung eines neuen Farbdesigns mit neuem Layout der Zellen}
+In der vorherigen Version der Stundenplanapp hatte jede Funktion eine eigene, dem Hochschulfakultäten entsprechende, Farbe. Da das Wechseln der Farbe, bei Auswahl einer neuen Funktion inkonsistent ist, hat das Designteam ein Konzept entwickelt, durch welches der Appnutzer in den Einstellungen seine Fakultät wählen kann und die App damit mit der gewählten Fakultätsfarbe anpassen kann. 
+Die folgenden Abbildungen zeigen die Stundenplanansicht in den jeweiligen Fakultätsfarben. Das Layout der Stundenplanzellen wurde darüber hinaus auch verbessert. 
 
 \begin{figure}[H]
 	\centering
@@ -48,6 +59,7 @@ Die folgenden Abbildungen zeigen die Stundenplan Ansicht in den jeweiligen Fakul
 	\caption{Design Konzept 4,  Stundenplan Ansicht}
 	\label{fig1}
 \end{figure}
+
 \subsection{Finales Design}
 Das Finale Design ist ein Kompromiss aus Altem und Neuem Layout, die Fakultätsfarben wurden eingeführt, Informationen übersichtlicher positioniert und farblich angepasst.
 
@@ -70,8 +82,35 @@ Das Finale Design ist ein Kompromiss aus Altem und Neuem Layout, die Fakultätsf
 
 \section{Onboarding}
 
+Um neuen Appnutzern eine geführte Einführung in die Funktionalität und Einstellungsmöglichkeiten zu bieten, ist die Implementation einer Onboardingfunktion sinnvoll. Deshalb wurden Mockups einer solchen Funktion entwickelt, die einen solchen Onboardingprozess darstellen.
+
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.4]{design_onboarding1}}
+	\caption{Neues Stundenplanbedienkonzept}
+	\label{fig1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.5]{design_onboarding2}}
+	\caption{Neues Stundenplanbedienkonzept}
+	\label{fig1}
+\end{figure}
+
+
 \section{Einstellungen}
 Das Einrichten der App unter Einstellungen sollte durch eine übersichtlichere Gestaltung vereinfacht werden. 
+
+\subsection{Vereinfachung der Stundenplanauswahl}
+In der vorherigen Versionen der Stundenplanapp, war die Auswahl eines persönlichen Stundenplans 
+
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.5]{design_settings}}
+	\caption{Optimierung der Schritte zur Stundenplanauswahl auf die nötigsten Schritte}
+	\label{fig1}
+\end{figure}
 
 \subsection{Design Vorschlag}
 
@@ -126,9 +165,9 @@ Eine weitere Aufgabe, die unsere Gruppe übernommen hat, war das Onboarding für
 \item Fakultät (die die Farbe der App bestimmt)
 \end{enumerate}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[width=0.4\textwidth]{Mein_Stundenplan} }
+  \frame{ \includegraphics[width=0.3\textwidth]{design_onboarding1} }
 	\caption{Mein schönstes Mockup}
 	\label{fig2}
 \end{figure}
