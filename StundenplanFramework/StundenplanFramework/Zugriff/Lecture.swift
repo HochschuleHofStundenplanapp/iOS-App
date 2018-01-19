@@ -159,7 +159,7 @@ public class Lecture: NSObject, NSCoding {
     
     
     
-    static func == (lhs: Lecture, rhs: Lecture) -> Bool {
+    public static func == (lhs: Lecture, rhs: Lecture) -> Bool {
 //        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.room == rhs.room) && (lhs.type == rhs.type) && (lhs.day == rhs.day) && (lhs.semester == rhs.semester)
         return (lhs.key == rhs.key)
     }

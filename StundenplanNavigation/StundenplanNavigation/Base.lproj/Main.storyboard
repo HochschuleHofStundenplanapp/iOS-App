@@ -1428,7 +1428,7 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                     <navigationItem key="navigationItem" title="Vorlesungen" largeTitleDisplayMode="never" id="gW1-1C-iRF">
                         <barButtonItem key="rightBarButtonItem" title="Speichern" id="lJa-fZ-qNx">
                             <connections>
-                                <action selector="SaveSelectedLectures:" destination="y0e-hV-S2u" id="XZp-nK-6Wj"/>
+                                <action selector="saveSelectedLecture:" destination="y0e-hV-S2u" id="tWA-sa-F4z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -36,6 +36,7 @@ class OnboardingFacultyViewController: UIViewController {
         self.facultySegmentedControl.tintColor = appColor.tintColor
         self.navigationController?.navigationBar.tintColor = appColor.navigationBarTintColor
         self.navigationController?.navigationBar.barTintColor = appColor.tintColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:appColor.navigationBarTintColor]
     }
     
     @IBAction func selectedFacultySegmentedControllAction(_ sender: UISegmentedControl) {
