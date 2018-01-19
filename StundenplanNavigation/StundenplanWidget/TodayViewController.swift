@@ -44,14 +44,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
     
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(NCUpdateResult.newData)
     }
+    
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .compact {
@@ -61,12 +56,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
         }else{
             dataSource.expanded = true
             tableView.reloadData()
-            print(tableView.numberOfSections)
-            print(tableView.indexPathsForVisibleRows![0])
-            print(tableView.numberOfRows(inSection: 0))
             
             let cell =  tableView.cellForRow(at: tableView.indexPathsForVisibleRows![0])
-            print(cell!)
+
             if let cell = cell{
                 preferredContentSize = CGSize(width: 0, height: CGFloat(cell.frame.height * 2)+10+changesHeightConstraint.constant)
             }

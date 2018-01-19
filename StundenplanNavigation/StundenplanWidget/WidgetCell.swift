@@ -17,54 +17,49 @@ class WidgetCell: UITableViewCell {
     @IBOutlet var room: UILabel!
     @IBOutlet var timerView: TimerView!
     @IBOutlet var restTime: UILabel!
-    var start : Date!
-    var end : Date!
-    var timer = Timer()
+    fileprivate var start : Date!
+    fileprivate var end : Date!
+    fileprivate var timer = Timer()
+    fileprivate var lectureTuple : (lecture:Lecture, day:Int)!
+    fileprivate let ctrl = WidgetLectureController()
     var delegate : TableViewUpdater!
-    private var lectureTuple : (lecture:Lecture, day:Int)!
-    let ctrl = WidgetLectureController()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
     func setLecture(lecture : (Lecture, Int)) {
         
         self.lectureTuple = lecture
         course.text = lecture.0.name
         room.text = lecture.0.room
+        //Formatting the time
         let timeFormatter = DateFormatter()
         timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
         timeFormatter.dateFormat = "HH:mm"
         let startTimeString = timeFormatter.string(from: lecture.0.startTime)
         let endTimeString = timeFormatter.string(from: lecture.0.endTime)
+        
         time.text = "\(startTimeString) - \(endTimeString)"
         start = Date().combineDateAndTime(date: Date(), time: lecture.0.startTime)
         end = Date().combineDateAndTime(date: Date(), time: lecture.0.endTime)
         
-        updateTimerAndView(start: start, end: end)
+        updateTimerAndView()
         
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
+        //Setting up the timer which updates the TimerView every minute
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateTimerAndView), userInfo: nil, repeats: true)
         
         
     }
     
-    @objc func handleTimer() {
-        updateTimerAndView(start: start, end: end)
-    }
-    
-    func updateTimerAndView(start: Date, end: Date){
+    /**
+     Updates the Timer.
+    */
+    @objc func updateTimerAndView(){
         let restMinutes = calculateRestMinutes(end)
         let lectureDuration = calculateLectureDuration(from: start, to: end)
-        print("Rest Minutes: \(restMinutes)")
-        print("Duration: \(lectureDuration)")
         let percentage = calculatePercentageRestMinutes(restMinutes, lectureDuration)
         
-        let isToday = isTodayOrSameWeekdayInNextWeeks(lectureTuple.day)
+        let bIsToday = isToday(lectureTuple.day)
 
-        if restMinutes >= 0 && isToday{
-            //if restMinutes >= 0 && restMinutes <= lectureDuration && isToday{
+        // Sets the label accordingly.
+        if restMinutes >= 0 && bIsToday{
             if WidgetLectureController().isUpcomingLectureToday() && restMinutes <= lectureDuration{
                 nowOutlet.text = "Jetzt"
                 timerView.percentageOfHour = percentage
@@ -84,12 +79,11 @@ class WidgetCell: UITableViewCell {
     }
     
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
+    /**
+     * Calculates the minutes from now till end parameter.
+     * - parameter end: the end time.
+     * - returns: the rest minutes as Int.
+     */
     func calculateRestMinutes(_ end : Date) -> Int{
         let start = Date()
         
@@ -99,6 +93,13 @@ class WidgetCell: UITableViewCell {
         return components.minute!
     }
     
+    /**
+     Calculates the duration of the lecture.
+     - parameters:
+        - start: the start time of the lecture.
+        - end: the end time of the lecture.
+     - returns: The lecture duration.
+    */
     func calculateLectureDuration(from start: Date, to end: Date) -> Int{
         let calendar = Calendar.current
         let flags = Calendar.Component.minute
@@ -106,14 +107,29 @@ class WidgetCell: UITableViewCell {
         return components.minute!
     }
     
+    /**
+     * Calculates the percentage rest minutes for the timer to display.
+     * - parameters:
+     *     - minutes: the remaining minutes.
+     *     - duration: the lecture duration.
+     * - returns: The percentage value as a double between 0 and 1.
+    */
     func calculatePercentageRestMinutes(_ minutes : Int, _ duration: Int) -> Double{
         let double = Double(minutes)/Double(duration)
         return double
     }
     
+    /**
+     * Calculates the string for the now label.
+     *  # Values
+     *   - Morgen
+     *   - Übermorgen
+     *   - Ein Datum nach übermorgen
+     *  - parameter day: The day for which the string should be calculated.
+    */
     func getNowLabel(for day: Int) -> String {
         let curWeekday = ctrl.getWeekday()
-        let dif = day - curWeekday
+        let dif = day - curWeekday - 1
         
         switch dif {
         case 1:
@@ -131,15 +147,14 @@ class WidgetCell: UITableViewCell {
         
     }
     
-    private func isTodayOrSameWeekdayInNextWeeks(_ day: Int) -> Bool {
+    /**
+     Calculates if the passed day parameter is today.
+    */
+    private func isToday(_ day: Int) -> Bool {
         print("Day+1= \(day+1) Weekday+1=\(ctrl.getWeekday()+1)")
-        return (day+1) / (ctrl.getWeekday()+1) == 1
+        return ((day+1) % (ctrl.getWeekday()+1) == 0)&&((day+1)/(ctrl.getWeekday()+1)==1)
     }
-    
-    
-    
-    
-    
+
 }
 
 

@@ -96,7 +96,7 @@ public class UserData: NSObject, NSCoding{
         tasks = aDecoder.decodeObject(forKey: tasksKey) as? [Task] ?? []
         selectedAppColor = (aDecoder.decodeObject(forKey:appcolorKey) as? String ?? "")
         //print("decoded app Color: " + (aDecoder.decodeObject(forKey:appcolorKey) as? String)!)
-        print("myAppColor is:" + selectedAppColor)
+        //print("myAppColor is:" + selectedAppColor)
         
         
         super.init()
