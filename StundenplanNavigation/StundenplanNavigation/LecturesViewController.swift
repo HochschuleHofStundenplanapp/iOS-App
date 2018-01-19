@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class LecturesViewController: UIViewController {
 
@@ -21,6 +22,9 @@ class LecturesViewController: UIViewController {
     var tmpSelectedLectures: TmpSelectedLectures!
     var tmpSelectedSemesters: TmpSelectedSemesters!
     var tmpSelectedSeason: String!
+    
+    var settingsController: SettingsController!
+    let backgroundProgressIndicator = ActivityIndicator()
         
     @IBAction func selectAllButton(_ sender: Any) {
         lectureController.selectAllLectures()
@@ -30,6 +34,21 @@ class LecturesViewController: UIViewController {
     @IBAction func deSelectAll(_ sender: Any) {
         lectureController.deselectAllLectures()
         lectureTableView.reloadData()
+    }
+    
+    @IBAction func saveSelectedLecture(_ sender: Any) {
+        backgroundProgressIndicator.startActivityIndicator(root: self)
+        DispatchQueue.global().async {
+            self.settingsController.commitChanges()
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+                self.backgroundProgressIndicator.stopActivityIndicator()
+            }
+        }
+        
+        print("save selected lectures")
+        
+        navigationController!.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
