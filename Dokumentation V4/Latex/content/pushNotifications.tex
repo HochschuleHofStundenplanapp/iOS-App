@@ -76,7 +76,14 @@ Da eine bestehende Infrastruktur die Grundlage dieses Projektes darstellt, musst
 Auf Änderungen an anderen Tabellen konnte komplett verzichtet werden.
 
 
-
+\subsubsection{fcm\_nutzer Tabelle}
+Diese Tabelle beinhaltet vor allem die Verknüpfung zwischen dem eingetragenen Token (\textit{token}), der abonnierten Vorlesung (\textit{vorlesung id}) und dem mobilen Betriebsystem (\textit{os}). Diese Tabelle wurde beim Testsystem und beim Produktivsystem bereits um die neue Spalte \textit{os} und \textit{language} erweitert. Für letzere wurde die Schnittstelle, iOS und Android Version angepasst und getestet. Diese Funktion kann für zukünftige Implementierungen verwendet werden.
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[width=1.0\textwidth]{datenbank_nutzer} }
+	\caption{Tabelle fcm\_nutzer in phpmyadmin}
+	\label{datenbank_nutzer}
+\end{figure}
 
 \section{Umsetzung}
 Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht.
@@ -128,18 +135,18 @@ Bevor die App verwendet werden kann, muss speziell im Fall der Push Notification
 In der \textit{Info.plist} stehen drei neue Parameter für Push Notifications bereit. Diese ermöglichen das Hin- und Herschalten zwischen dem Test- und Produktivserver mittels des \textit{isPushTesting} Parameters. Die beiden anderen Parameter repräsentieren sprechend den jeweiligen Link.\\
 Bei dieser Einstellung ist darauf zu achten, dass sie sich nur auf die Anmeldung am jeweiligen Server bezieht. Informationen wie Stundenpläne und Änderungen kommen unabhängig von dieser Einstellung weiterhin vom Produktivserver (\textit{ https://app.hof-university.de/soap/}).
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[width=0.9\textwidth]{plist} }
+  \frame{ \includegraphics[width=1.0\textwidth]{plist} }
 	\caption{Anpassungen in der Info.plist}
 	\label{plist}
 \end{figure}
 
 
 Das Developer Team muss wie folgt ausgewählt werden, damit Push Notifications zur Verfügung stehen:
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[width=0.9\textwidth]{devteam} }
+  \frame{ \includegraphics[width=1.0\textwidth]{devteam} }
 	\caption{Wahl des Developer Teams}
 	\label{devteam}
 \end{figure}
@@ -147,9 +154,9 @@ Das Developer Team muss wie folgt ausgewählt werden, damit Push Notifications z
 
 Capabilities müssen wie folgt angepasst werden:
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[width=0.9\textwidth]{capabilities} }
+  \frame{ \includegraphics[width=1.0\textwidth]{capabilities} }
 	\caption{Angepasste Capabilities}
 	\label{capabilities}
 \end{figure}
