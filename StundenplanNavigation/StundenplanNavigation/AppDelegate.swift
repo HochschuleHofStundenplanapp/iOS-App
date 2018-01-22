@@ -68,6 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         }
         
         print("loaded Color", appColor.faculty)
+        
+        let barButton = UIBarButtonItem.appearance()
+        barButton.tintColor = UIColor.white
     }
     
     

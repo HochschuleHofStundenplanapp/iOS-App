@@ -18,6 +18,13 @@ class OnboardingFacultyViewController: UIViewController {
         let nc = NotificationCenter.default
         nc.removeObserver(self, name: NSNotification.Name.appColorHasChanged, object: nil)
     }
+    @IBAction func abortOnboarding(_ sender: Any) {
+        //Notification
+        let nc = NotificationCenter.default
+        UserData.sharedInstance.finishedOnboarding = true
+        nc.post(name: .finishedOnboarding, object: nil)
+        dismiss(animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,6 +8,7 @@
 
 import UIKit
 import EventKit
+import StundenplanFramework
 
 class OnboardingPermissionsCalendarViewController: UIViewController {
     @IBOutlet weak var synchronizationIsLoadingStackView: UIStackView!
@@ -44,6 +45,7 @@ class OnboardingPermissionsCalendarViewController: UIViewController {
     
     func setupUI(){
         TurnOnCalenderSynchronisationSwitch.onTintColor = appColor.tintColor
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
     
     func askForCalendarPermissions() {
@@ -71,7 +73,7 @@ class OnboardingPermissionsCalendarViewController: UIViewController {
             DispatchQueue.main.async {
                 self.saveChangesActivityIndicatorView.stopAnimating()
                 self.SyncronisationStackView.isHidden = true
-                self.FinishOnboardingBarButton.tintColor = appColor.tintColor
+                self.FinishOnboardingBarButton.tintColor = UIColor.white
             }
         }
     }
@@ -79,7 +81,7 @@ class OnboardingPermissionsCalendarViewController: UIViewController {
     @IBAction func endOnboardingAction(_ sender: UIBarButtonItem) {
         //Notification
         let nc = NotificationCenter.default
-        
+        UserData.sharedInstance.finishedOnboarding = true
         nc.post(name: .finishedOnboarding, object: nil)
         dismiss(animated: false)
     }

@@ -51,7 +51,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSs-df-jyt">
-                                <rect key="frame" x="16" y="703" width="343" height="55"/>
+                                <rect key="frame" x="16" y="644" width="343" height="55"/>
                                 <color key="backgroundColor" white="0.37" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="5qz-KU-Zo5"/>
@@ -61,12 +61,25 @@
                                     <segue destination="BIF-Qg-ah6" kind="show" id="1Im-zy-zqx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taC-Zm-RL3">
+                                <rect key="frame" x="16" y="707" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="4be-zE-RuL"/>
+                                </constraints>
+                                <state key="normal" title="Abbrechen">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AbortOnboarding:" destination="JRr-0h-6Rc" eventType="touchUpInside" id="KfS-aE-hUf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GvJ-Gh-47Y" firstAttribute="top" secondItem="svM-SS-ztg" secondAttribute="bottom" id="0jN-xD-yLa"/>
                             <constraint firstItem="x8Z-9S-7xH" firstAttribute="top" secondItem="f1O-UB-pz5" secondAttribute="bottom" constant="8" id="Fcs-b8-x1c"/>
-                            <constraint firstItem="brj-Ib-GgY" firstAttribute="bottom" secondItem="gSs-df-jyt" secondAttribute="bottom" constant="20" id="IQI-Nc-qdm"/>
+                            <constraint firstItem="brj-Ib-GgY" firstAttribute="bottom" secondItem="taC-Zm-RL3" secondAttribute="bottom" constant="16" id="Jnh-Bm-IMZ"/>
+                            <constraint firstItem="taC-Zm-RL3" firstAttribute="top" secondItem="gSs-df-jyt" secondAttribute="bottom" constant="8" id="NmN-2x-N7X"/>
                             <constraint firstItem="x8Z-9S-7xH" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="OJ6-N0-agx"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="gSs-df-jyt" secondAttribute="trailing" constant="16" id="TRk-9J-jGJ"/>
                             <constraint firstItem="f1O-UB-pz5" firstAttribute="top" secondItem="GvJ-Gh-47Y" secondAttribute="bottom" id="Wha-uk-b3N"/>
@@ -74,9 +87,11 @@
                             <constraint firstItem="x8Z-9S-7xH" firstAttribute="top" secondItem="f1O-UB-pz5" secondAttribute="bottom" id="ZGe-OQ-Nxh"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="f1O-UB-pz5" secondAttribute="trailing" constant="16" id="b26-rq-PH6"/>
                             <constraint firstItem="f1O-UB-pz5" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="fON-qi-b41"/>
+                            <constraint firstItem="taC-Zm-RL3" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="gaW-b2-hkc"/>
                             <constraint firstItem="GvJ-Gh-47Y" firstAttribute="centerX" secondItem="brj-Ib-GgY" secondAttribute="centerX" id="iHd-n2-Mkx"/>
                             <constraint firstItem="svM-SS-ztg" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="jVi-iJ-5Z8"/>
                             <constraint firstItem="gSs-df-jyt" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="kZb-AR-L2p"/>
+                            <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="taC-Zm-RL3" secondAttribute="trailing" constant="16" id="nL4-kq-8qk"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="svM-SS-ztg" secondAttribute="trailing" constant="16" id="oKD-A8-6GJ"/>
                             <constraint firstItem="svM-SS-ztg" firstAttribute="top" secondItem="brj-Ib-GgY" secondAttribute="top" constant="20" id="ovD-AP-Mio"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="x8Z-9S-7xH" secondAttribute="trailing" constant="16" id="pRn-UK-VKl"/>
@@ -90,11 +105,11 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="0jN-xD-yLa"/>
+                                <exclude reference="Z0s-ZY-4Td"/>
                                 <exclude reference="Wha-uk-b3N"/>
                                 <exclude reference="tWW-VE-tBH"/>
                                 <exclude reference="Fcs-b8-x1c"/>
                                 <exclude reference="ZGe-OQ-Nxh"/>
-                                <exclude reference="Z0s-ZY-4Td"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -110,9 +125,9 @@
                                 <include reference="x8Z-9S-7xH"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Z0s-ZY-4Td"/>
                                 <include reference="tWW-VE-tBH"/>
                                 <include reference="Fcs-b8-x1c"/>
-                                <include reference="Z0s-ZY-4Td"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -213,6 +228,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Schritt 1 von 6" id="egV-KF-ztB">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="SHQ-O1-mJs"/>
+                        <barButtonItem key="leftBarButtonItem" title="Abbrechen" id="Dnd-cE-3Bt">
+                            <connections>
+                                <action selector="abortOnboarding:" destination="x9J-Mn-pnM" id="fRN-mC-gAg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Weiter" id="bKs-so-8iI">
                             <connections>
                                 <segue destination="xHZ-Kp-1gc" kind="show" id="TpR-ZW-bR1"/>

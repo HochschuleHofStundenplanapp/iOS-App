@@ -8,9 +8,9 @@
 
 
 public class DataObjectPersistency {
-    private let fileName = "data2.plist"
+    private let fileName = "data_v4.plist"
     private let dataKey  = "Data2Object"
-    private let fileNameCalendar = "IDList.plist"
+    private let fileNameCalendar = "CalendarIDList_v4.plist"
     private let IDListKey = "IDList"
     
     public init() {
