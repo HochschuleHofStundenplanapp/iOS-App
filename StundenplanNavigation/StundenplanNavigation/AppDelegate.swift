@@ -98,10 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         
         
         // can be disabled. server doesn't expect it.
-        if (true) {
-            let lang : String = "de"
-            payload.updateValue(lang, forKey: "language")
-        }
+//        if (true) {
+//            let lang : String = "de"
+//            payload.updateValue(lang, forKey: "language")
+//        }
         
         
         let isValidJson = JSONSerialization.isValidJSONObject(payload)
