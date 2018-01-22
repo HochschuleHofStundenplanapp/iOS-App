@@ -215,7 +215,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             self.settingsController.commitChanges()
             DispatchQueue.main.async {
                 self.saveChangesButton.setTitle("keine Änderungen vorgenommen", for: .normal)
-                UIApplication.shared.registerForRemoteNotifications()
                 self.backgroundProgressIndicator.stopActivityIndicator()
                 
             }
