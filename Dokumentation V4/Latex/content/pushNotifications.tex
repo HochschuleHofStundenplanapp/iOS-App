@@ -66,7 +66,13 @@ Zwischenzeit & PHP Scripte der bestehenden (Android) Schnittstelle angepasst und
 \subsubsection{MAMP}
 Die Testumgebung MAMP (Akronym steht für: Mac, Apache, MySQL, PHP) virtualisiert die genannten Komponenten, um lokale Tests zu ermöglichen.
 
-\section{Umsetzung}
+\subsection{Hilfstools}
+Die MacOS App ``Easy APNs Provider`` ermöglichte ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
+Zu beachten ist das der ``Easy APNs Provider`` das veraltete Push Interface benutzt. 
+\\
+Quelle: \url{https://itunes.apple.com/de/app/easy-apns-provider-push-notification-service-testing-tool/id989622350?mt=12}
+
+\section{Vorbereitung der Umsetzung}
 Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht. Nur dieser Dienst ist es erlaubt, die Push Notification direkt an das iOS Gerät zu senden.
 
 
@@ -101,17 +107,6 @@ Um mit einer gesicherten Verbindung auf die Apple Push Notification Schnittstell
 Um die Zertifikate zu anzulegen und zu verwalten, stellt Apple eine Übersicht dem bei Apple angemeldeten Entwickler bereit. Bei dem verwendeten Zertifikat wird zwischen \textit{Development} und \textit{Production} unterschieden.\\
 \url{https://developer.apple.com/account/ios/certificate/}
 
-
-Die MacOS App ``Easy APNs Provider`` ermöglichte ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
-Zu beachten ist das der ``Easy APNs Provider`` das veraltete Push Interface benutzt. 
-\\
-Quelle: \url{https://itunes.apple.com/de/app/easy-apns-provider-push-notification-service-testing-tool/id989622350?mt=12}
-
-
-
-\subsection{Code zum Registrieren am Server}
-Um sich am Server für eine Vorlesung zu registrieren waren Veränderungen im Code notwendig.
-\lstinputlisting[language=Swift]{content/pushNotifications_Swift_Example.swift}
 
 \subsection{CURL}
 Der Server verwendet CURL um die Push Notificiation an den Service von Apple zu senden.  
@@ -161,7 +156,14 @@ Capabilities müssen wie folgt angepasst werden:
 	\label{capabilities}
 \end{figure}
 
+\section{Implementierung}
+\subsection{Server-Schnittstelle}
+\subsection{Registerung für Push Notification}
+\subsection{Sendne der Volesungsdaten zum Server}
 
+	#Code zum Registrieren am Server
+	#Um sich am Server für eine Vorlesung zu registrieren waren Veränderungen im Code notwendig.
+	\lstinputlisting[language=Swift]{content/pushNotifications_Swift_Example.swift}
 
 \section{Aufgetretene Probleme}
 Als Herausforderung zu sehende Punkte haben häufig sehr viel Zeit in Anspruch genommen oder den Projektfortschritt entschleunigt.
@@ -195,7 +197,7 @@ Unser Team hat feststellen müssen, dass zu einem umfassenden iOS Projekt mehr a
 In diesem Projektabschnitt konnten alle gesteckten Ziele erreicht werden. Da solch ein relativ junges Projekt noch viele Möglichkeiten beinhaltet Funktionen zu verbessern und neue Funktionen einzuführen werden hier mögliche Punkte zur Anregung aufgelistet.
 
 \begin{itemize}
-\item Auswertungen die aktuell bei der Android und iOS App mehrfach auf dem Client Gerät stattfinden, können auf dem Server zentral bearbeitet werden. Dies verringert die Komplexität bei beiden Anwendungen und erleichtert die Wartung des Codes an zentraler Stelle.
+\item Die Auswertung des Kommentarfeldes welche, aktuell bei der Android und iOS App auf dem Client Gerät stattfinden, könnten auf dem Server zentral bearbeitet werden. Das würde die Komplexität der beiden Apps verringern und erleichtert die Wartung des Codes an zentraler Stelle.
 \item Erweiterung der Push Notification Information um eine Priorität, Ablaufdatum,...
 \item Aufkommende Issues und Ideen aus dem öffentlichen Git Projekt der iOS App und Schnittstelle
 \item Erweiterung der App und Schnittstelle um andere Sprachen wie z.B. Englisch was in der Android App bereits angeboten wird
