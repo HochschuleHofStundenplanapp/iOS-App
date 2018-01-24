@@ -27,6 +27,7 @@ public class UserData: NSObject, NSCoding{
     public var oldChanges : [ChangedLecture] = []
     public var tasks: [Task] = []
     public var appointments : [Tuple] = []
+    public var showAppointments : Bool = false
     public var removedLectures: [Lecture] = []
     public var addedLectures: [Lecture] = []
     public var currentSemester : String = Date().checkSemester()
@@ -48,6 +49,7 @@ public class UserData: NSObject, NSCoding{
     let tasksKey = "taskKey"
     let appcolorKey = "appcolor"
     let appointmentKey = "appointmentKey"
+    let showAppointmentsKey = "showAppointmentsKey"
     let currentSemesterKey = "currentSemesterKey"
 
     private override init(){}
@@ -65,6 +67,7 @@ public class UserData: NSObject, NSCoding{
         copy.tasks = tasks
         copy.selectedAppColor = selectedAppColor
         copy.appointments = appointments
+        copy.showAppointments = showAppointments
         copy.currentSemester = currentSemester
         return copy
     }
@@ -106,6 +109,7 @@ public class UserData: NSObject, NSCoding{
         //print("myAppColor is:" + selectedAppColor)
         currentSemester = aDecoder.decodeObject(forKey: currentSemesterKey) as? String ?? Date().checkSemester()
         appointments = aDecoder.decodeObject(forKey: appointmentKey) as? [Tuple] ?? []
+        showAppointments = aDecoder.decodeBool(forKey: showAppointmentsKey)
         
         
         super.init()
@@ -126,5 +130,6 @@ public class UserData: NSObject, NSCoding{
         //print("encoded AppColor: " + selectedAppColor)
         aCoder.encode(currentSemester, forKey: currentSemesterKey)
         aCoder.encode(appointments, forKey: appointmentKey)
+        aCoder.encode(showAppointments, forKey : showAppointmentsKey)
         }
 }

@@ -24,6 +24,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     @IBOutlet var selectedSemesterLabel: UILabel!
     @IBOutlet var selectedLecturesLabel: UILabel!
     
+    @IBOutlet weak var showAppointmentsSwitch: UISwitch!
+    
     let backgroundProgressIndicator = ActivityIndicator()
     
     var selectedCoursesString = "..."
@@ -37,6 +39,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         
         self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: true)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCommitedSettings), name: .finishedOnboarding, object: nil)
+        showAppointmentsSwitch.setOn(UserData.sharedInstance.showAppointments, animated: true)
         
         if #available(iOS 11.0, *) {
             setupNavBar()
@@ -290,8 +293,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
-    
-    
     @IBAction func changeFacultyColor(_ sender: UISegmentedControl) {
         
         /* Ist das Debug Code und kann das weg?
@@ -317,4 +318,13 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
         setUpUI()
     }
+    
+    @IBAction func showAppointmentsInWidget(_ sender: Any) {
+        let showAppointmentsSwitch = sender as! UISwitch
+        UserData.sharedInstance.showAppointments = showAppointmentsSwitch.isOn
+        DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
+    }
+    
+    
+    
 }
