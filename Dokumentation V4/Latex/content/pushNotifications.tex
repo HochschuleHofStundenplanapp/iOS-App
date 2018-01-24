@@ -59,15 +59,27 @@ Zwischenzeit & PHP Scripte der bestehenden (Android) Schnittstelle angepasst und
 \newpage
 
 
-\section{Vorbereitung einer Testumgebung}
+\section{Erster Ansatz der Umsetzung}
 
 \subsection{MAMP als Virtuelle Umgebung}
 
 \subsubsection{MAMP}
 Die Testumgebung MAMP (Akronym steht für: Mac, Apache, MySQL, PHP) virtualisiert die genannten Komponenten, um lokale Tests zu ermöglichen.
 
+\subsection{Hilfstools}
+Die MacOS App ``Easy APNs Provider`` ermöglichte ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
+Zu beachten ist das der ``Easy APNs Provider`` das veraltete Push Interface benutzt. 
+\\
+Quelle: \url{https://itunes.apple.com/de/app/easy-apns-provider-push-notification-service-testing-tool/id989622350?mt=12}
 
-\subsubsection{MySQL Datenbank}
+\section{Vorbereitung der Umsetzung}
+Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht. Nur dieser Dienst ist es erlaubt, die Push Notification direkt an das iOS Gerät zu senden.
+
+
+\subsection{Server Installation}
+Zur Installation der Software sind Root Rechte notwendig. Der \textit{wget} Befehl läd dabei eine zum aktuellen Zeitpunkt sehr neue \textit{curl} Version herunter. Diese hat die Besonderheit HTTP2 zu unterstützen, welches für die Push Notification Schnittstelle von Apple vorausgesetzt ist.
+
+\subsection{MySQL Datenbank}
 
 Die Tabelle \textit{fcm\_nutzer} enthält eine Zuordnung von abonnierten Vorlesungsverlegungen mit dem jeweiligen Token des Gerätes. Dabei ist zusätzlich vermerkt welches Betriebssystem verwendet wird. Die \textit{0} in der Spalte \textit{os} steht dabei für Android während \textit{1} iOS repräsentierts. \\
 Da die ausgewählte Sprache des Nutzers nicht bekannt ist, wird für die \textit{language} Spalte an dieser Stelle auch null akzeptiert. Um bei einer späteren Version der App zwischen Nutzern die noch keine Sprache ausgewählt haben und allen anderen differenzieren zu können, wird hier trotz der aktuell nur in deutsch vorhandenen App der Wert nicht standardmäßig auf deutsch gesetzt.
@@ -85,14 +97,6 @@ Diese Tabelle beinhaltet vor allem die Verknüpfung zwischen dem eingetragenen T
 	\label{datenbank_nutzer}
 \end{figure}
 
-\section{Umsetzung}
-Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht.
-
-
-\subsection{Server Installation}
-Zur Installation der Software sind Admin Rechte notwendig. Der \textit{wget} Befehl läd dabei eine zum aktuellen Zeitpunkt sehr neue \textit{curl} Version herunter. Diese hat die Besonderheit HTTP2 zu unterstützen, welches für die Push Notification Schnittstelle von Apple vorausgesetzt ist.
-
-
 \textcolor{black}{
 \lstinputlisting[language=bash]{content/pushNotifications_server_install.bsh}
 }
@@ -104,18 +108,9 @@ Um die Zertifikate zu anzulegen und zu verwalten, stellt Apple eine Übersicht d
 \url{https://developer.apple.com/account/ios/certificate/}
 
 
-Die MacOS App ``Easy APNs Provider`` ermöglichte ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.\\
-Quelle: \url{https://github.com/immobiliare/ApnsPHP}
-
-
-
-
-\subsection{Code zum Registrieren am Server}
-Um sich am Server für eine Vorlesung zu registrieren waren Veränderungen im Code notwendig.
-\lstinputlisting[language=Swift]{content/pushNotifications_Swift_Example.swift}
-
 \subsection{CURL}
-Zum Senden der Push Notifications via. HTTP2 wurde CURL verwendet.
+Der Server verwendet CURL um die Push Notificiation an den Service von Apple zu senden.  
+CURL verwendet dabei das HTTP2 Protokoll.
 
 \textcolor{black}{
 \lstinputlisting[language=bash]{content/pushNotifications_curl_example.bsh}
@@ -124,7 +119,7 @@ Zum Senden der Push Notifications via. HTTP2 wurde CURL verwendet.
 
 \subsection{Sicherheit}
 Das Thema Sicherheit spielt in der IT eine Zentrale, aber oft vernachlässigte Rolle. So ist beim der Einrichtung auf dem Server auf einige Punkte zu achten. Die hier verwendeten Software Versionen wie Apache2, MySQL oder CURL können auf dem Server auf die in der Zukunft aktuelle Version geupdatet werden.
-Die CHMODE Rechte der PHP Dateien sowie Zertifikate müssen entsprechend angepasst werden und nur gewissen Usern angehören.\\
+Die Dateirechte der PHP Dateien sowie Zertifikate müssen entsprechend angepasst werden und nur gewissen Usern angehören.\\
 Da das Projekt öffentlich auf GitHub für jeden einsehbar ist, müssen die Passwörter so gewählt werden, dass sie keinem vorher verwendeten Passwort gleichen. Dies war bisher im Umgang mit dem Testsystem absichtlich nicht der Fall, was praktische Vorteile mit sich gebracht hat.
 
 
@@ -161,7 +156,14 @@ Capabilities müssen wie folgt angepasst werden:
 	\label{capabilities}
 \end{figure}
 
+\section{Implementierung}
+\subsection{Server-Schnittstelle}
+\subsection{Registerung für Push Notification}
+\subsection{Sendne der Volesungsdaten zum Server}
 
+	Code zum Registrieren am Server
+	Um sich am Server für eine Vorlesung zu registrieren waren Veränderungen im Code notwendig.
+	\lstinputlisting[language=Swift]{content/pushNotifications_Swift_Example.swift}
 
 \section{Aufgetretene Probleme}
 Als Herausforderung zu sehende Punkte haben häufig sehr viel Zeit in Anspruch genommen oder den Projektfortschritt entschleunigt.
@@ -177,7 +179,7 @@ Als Herausforderung zu sehende Punkte haben häufig sehr viel Zeit in Anspruch g
 \item Ablaufende Zertifikate
 \item Serverseitig unterschiedliche Übertragungsverfahren zwischen Android und iOS
 \item Erschwertes Debugging der PHP Scripte
-\item HTTP2 wurde von Apache2 und Curl nicht offiziell unterstützt
+\item Die auf den Server vorhanden Versionen von apache2 und cURL, hatten kein HTTP2 unterstützt  
 \item Struktur der Datenbank und der PHP Scripte war durch die Android App vorgegeben
 \item Veraltete APNs Variante war stark verbreitet, brachte allerdings viele Probleme mit sich und musste als Ansatz letztendlich verworfen werden
 \end{itemize}
@@ -195,7 +197,7 @@ Unser Team hat feststellen müssen, dass zu einem umfassenden iOS Projekt mehr a
 In diesem Projektabschnitt konnten alle gesteckten Ziele erreicht werden. Da solch ein relativ junges Projekt noch viele Möglichkeiten beinhaltet Funktionen zu verbessern und neue Funktionen einzuführen werden hier mögliche Punkte zur Anregung aufgelistet.
 
 \begin{itemize}
-\item Auswertungen die aktuell bei der Android und iOS App mehrfach auf dem Client Gerät stattfinden, können auf dem Server zentral bearbeitet werden. Dies verringert die Komplexität bei beiden Anwendungen und erleichtert die Wartung des Codes an zentraler Stelle.
+\item Die Auswertung des Kommentarfeldes welche, aktuell bei der Android und iOS App auf dem Client Gerät stattfinden, könnten auf dem Server zentral bearbeitet werden. Das würde die Komplexität der beiden Apps verringern und erleichtert die Wartung des Codes an zentraler Stelle.
 \item Erweiterung der Push Notification Information um eine Priorität, Ablaufdatum,...
 \item Aufkommende Issues und Ideen aus dem öffentlichen Git Projekt der iOS App und Schnittstelle
 \item Erweiterung der App und Schnittstelle um andere Sprachen wie z.B. Englisch was in der Android App bereits angeboten wird

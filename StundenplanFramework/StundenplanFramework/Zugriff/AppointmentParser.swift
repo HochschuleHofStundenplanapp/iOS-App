@@ -34,6 +34,7 @@ public class AppointmentParser {
                 if let website = website{
                     let appointments = self.parseAppointments(html: website)
                     UserData.sharedInstance.appointments = appointments
+                    UserData.sharedInstance.currentSemester = Date().checkSemester()
                     DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
                 }
             }

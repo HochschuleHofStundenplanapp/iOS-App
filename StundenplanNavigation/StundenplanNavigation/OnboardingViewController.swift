@@ -21,6 +21,7 @@ struct OnboardingIDs {
 class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
     }
     
@@ -31,11 +32,19 @@ class OnboardingViewController: UIViewController {
         }
     }
     
+    @IBAction func AbortOnboarding(_ sender: Any) {
+        //Notification
+        let nc = NotificationCenter.default
+        
+        nc.post(name: .finishedOnboarding, object: nil)
+        dismiss(animated: true)
+    }
+    
     func hasFinishedOnboarding() -> Bool {
-        if UserData.sharedInstance.selectedCourses.isEmpty {
-            return false
-        } else {
+        if UserData.sharedInstance.finishedOnboarding {
             return true
+        } else {
+            return false
         }
     }
 

@@ -24,6 +24,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
         dataSource = WidgetTableViewDataSource()
         dataSource.delegate = self
         tableView.dataSource = dataSource
+        tableView.delegate = dataSource
+        
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         checkIfChangesAreAvailable()
     }
@@ -65,6 +67,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
             
         }
     }
+    
     
     func updateTableView(hide: Bool, timerView: TimerView){
         tableView.reloadData()

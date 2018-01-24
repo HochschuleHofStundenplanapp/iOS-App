@@ -27,13 +27,14 @@ public class UserData: NSObject, NSCoding{
     public var oldChanges : [ChangedLecture] = []
     public var tasks: [Task] = []
     public var appointments : [Tuple] = []
-    
-    private var selectedAppColor : String = ""
-    
-    public var calendarIdentifier: String?
-    
     public var removedLectures: [Lecture] = []
     public var addedLectures: [Lecture] = []
+    public var currentSemester : String = Date().checkSemester()
+    
+    public var finishedOnboarding = false //is true if the User aborts or completes Onboarding
+    
+    private var selectedAppColor : String = ""
+    public var calendarIdentifier: String?
     
     let calenderSyncKey = "callenderSync"
     let selectedSeasonKey = "selectedSeason"
@@ -47,6 +48,7 @@ public class UserData: NSObject, NSCoding{
     let tasksKey = "taskKey"
     let appcolorKey = "appcolor"
     let appointmentKey = "appointmentKey"
+    let currentSemesterKey = "currentSemesterKey"
 
     private override init(){}
     
@@ -63,6 +65,7 @@ public class UserData: NSObject, NSCoding{
         copy.tasks = tasks
         copy.selectedAppColor = selectedAppColor
         copy.appointments = appointments
+        copy.currentSemester = currentSemester
         return copy
     }
     
@@ -101,6 +104,7 @@ public class UserData: NSObject, NSCoding{
         selectedAppColor = (aDecoder.decodeObject(forKey:appcolorKey) as? String ?? "")
         //print("decoded app Color: " + (aDecoder.decodeObject(forKey:appcolorKey) as? String)!)
         //print("myAppColor is:" + selectedAppColor)
+        currentSemester = aDecoder.decodeObject(forKey: currentSemesterKey) as? String ?? Date().checkSemester()
         appointments = aDecoder.decodeObject(forKey: appointmentKey) as? [Tuple] ?? []
         
         
@@ -120,6 +124,7 @@ public class UserData: NSObject, NSCoding{
         aCoder.encode(tasks, forKey: tasksKey)
         aCoder.encode(selectedAppColor, forKey: appcolorKey)
         //print("encoded AppColor: " + selectedAppColor)
+        aCoder.encode(currentSemester, forKey: currentSemesterKey)
         aCoder.encode(appointments, forKey: appointmentKey)
         }
 }

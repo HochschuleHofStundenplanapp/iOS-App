@@ -70,7 +70,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     func showOnboardingAgain() {
-            settingsController.clearAllSettings()
+        let alertSheetController = UIAlertController(title: "Onboarding neustarten", message: "Wenn du das Onboarding neustartest, werden die App Daten und Einstellungen zurückgesetzt",preferredStyle: .alert)
+        
+        alertSheetController.addAction(UIAlertAction(title: "Daten löschen", style: UIAlertActionStyle.destructive, handler: { (actionSheetController) -> Void in
+            self.settingsController.clearAllSettings()
             UserData.sharedInstance.wipeUserData()
             appColor.faculty = Faculty.default
             UserData.sharedInstance.setSelectedAppColor(newAppColor: "default")
@@ -78,7 +81,15 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             self.syncSwitch.setOn(false, animated: false)
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
             let onboardingVCtrl = storyboard.instantiateViewController(withIdentifier: OnboardingIDs.onboardingStartID)
-            present(onboardingVCtrl, animated: true)
+            UserData.sharedInstance.finishedOnboarding = false
+            self.present(onboardingVCtrl, animated: true)
+        }))
+        alertSheetController.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertActionStyle.cancel, handler: { (actionSheetController) -> Void in
+            }))
+        
+        self.present(alertSheetController, animated: true) {}
+        
+        
     }
     
     @available(iOS 11.0, *)
@@ -190,6 +201,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         settingsController.handleCalendarSync()
     }
     
+    
     @IBAction func syncSwitchChanged(_ sender: UISwitch) {
         backgroundProgressIndicator.startActivityIndicator(root: self)
 
@@ -215,7 +227,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             self.settingsController.commitChanges()
             DispatchQueue.main.async {
                 self.saveChangesButton.setTitle("keine Änderungen vorgenommen", for: .normal)
-                UIApplication.shared.registerForRemoteNotifications()
                 self.backgroundProgressIndicator.stopActivityIndicator()
                 
             }
@@ -269,11 +280,12 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.section == 1 && indexPath.row == 0){
+        print("Selected Section: " + String(indexPath.section) + " row: " + String(indexPath.row))
+        if (indexPath.section == 1 && indexPath.row == 1){
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        if (indexPath.section == 2 && indexPath.row == 1){
+        if (indexPath.section == 1 && indexPath.row == 2){
             showOnboardingAgain()
         }
     }
