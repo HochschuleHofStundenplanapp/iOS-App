@@ -27,14 +27,14 @@ public class UserData: NSObject, NSCoding{
     public var oldChanges : [ChangedLecture] = []
     public var tasks: [Task] = []
     public var appointments : [Tuple] = []
-    public var currentSemester : String = Date().checkSemester()
-    
-    private var selectedAppColor : String = ""
-    
-    public var calendarIdentifier: String?
-    
     public var removedLectures: [Lecture] = []
     public var addedLectures: [Lecture] = []
+    public var currentSemester : String = Date().checkSemester()
+    
+    public var finishedOnboarding = false //is true if the User aborts or completes Onboarding
+    
+    private var selectedAppColor : String = ""
+    public var calendarIdentifier: String?
     
     let calenderSyncKey = "callenderSync"
     let selectedSeasonKey = "selectedSeason"

@@ -68,6 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         }
         
         print("loaded Color", appColor.faculty)
+        
+        let barButton = UIBarButtonItem.appearance()
+        barButton.tintColor = UIColor.white
     }
     
     
@@ -98,10 +101,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         
         
         // can be disabled. server doesn't expect it.
-        if (true) {
-            let lang : String = "de"
-            payload.updateValue(lang, forKey: "language")
-        }
+//        if (true) {
+//            let lang : String = "de"
+//            payload.updateValue(lang, forKey: "language")
+//        }
         
         
         let isValidJson = JSONSerialization.isValidJSONObject(payload)
