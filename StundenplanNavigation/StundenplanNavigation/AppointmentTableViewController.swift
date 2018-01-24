@@ -9,32 +9,36 @@
 import UIKit
 import StundenplanFramework
 
-class AppointmentTableViewController: UITableViewController {
+class AppointmentTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let userData = UserData.sharedInstance
     
+    @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return userData.appointments.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return userData.appointments[section].appointments.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return userData.appointments[section].header
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.YYYY"
@@ -43,10 +47,12 @@ class AppointmentTableViewController: UITableViewController {
         cell.textLabel?.text = appointment.name
         cell.detailTextLabel?.text = "\(formatter.string(from: appointment.date.start)) \(appointment.date.start == appointment.date.end ? "" : "-" + formatter.string(from: appointment.date.end))"
         
+        
+        
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

@@ -506,10 +506,10 @@
             </objects>
             <point key="canvasLocation" x="791" y="-322"/>
         </scene>
-        <!--Stundenplanänderungen-->
+        <!--Änderungen-->
         <scene sceneID="jVv-LS-CtS">
             <objects>
-                <tableViewController id="7Ee-In-rxf" customClass="ScheduleChangesTableViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Änderungen" id="7Ee-In-rxf" customClass="ScheduleChangesTableViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" estimatedRowHeight="106" sectionHeaderHeight="-1" sectionFooterHeight="28" id="quZ-3P-ooe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1001,7 +1001,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="9mM-db-mUJ" kind="show" id="nJj-FL-Pqs"/>
+                                            <segue destination="Peg-aY-Iha" kind="show" id="89s-VC-3ig"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="L85-nT-Jcy">
@@ -1516,6 +1516,72 @@ Im Übrigen, insbesondere auf dem verwendeten Server, werden keine IP-Adressen p
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVz-qb-lbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="790" y="-1039"/>
+        </scene>
+        <!--Termine-->
+        <scene sceneID="ap2-FP-SSE">
+            <objects>
+                <viewController title="Termine" id="Peg-aY-Iha" customClass="AppointmentTableViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uoY-1e-m43">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ti-YW-8Ce">
+                                <rect key="frame" x="8" y="177" width="359" height="552"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentCell" textLabel="Dbd-PG-hSv" detailTextLabel="o7z-Sh-aPb" style="IBUITableViewCellStyleSubtitle" id="yRf-Re-eJN">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yRf-Re-eJN" id="eIJ-8C-ls2">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dbd-PG-hSv">
+                                                    <rect key="frame" x="15" y="5" width="33.333333333333336" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o7z-Sh-aPb">
+                                                    <rect key="frame" x="14.999999999999996" y="25.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experimentelles Feature, Daten können abweichen. Offizielle Termine finden Sie auf der Website." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qi1-3G-Ixb">
+                                <rect key="frame" x="8" y="148" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9ti-YW-8Ce" firstAttribute="bottom" secondItem="nab-5X-MM0" secondAttribute="bottom" id="aWD-f6-gUC"/>
+                            <constraint firstItem="9ti-YW-8Ce" firstAttribute="leading" secondItem="nab-5X-MM0" secondAttribute="leading" constant="8" id="aj1-Uq-EM0"/>
+                            <constraint firstItem="nab-5X-MM0" firstAttribute="trailing" secondItem="qi1-3G-Ixb" secondAttribute="trailing" constant="8" id="f8I-WI-mmV"/>
+                            <constraint firstItem="qi1-3G-Ixb" firstAttribute="top" secondItem="nab-5X-MM0" secondAttribute="top" constant="8" id="sNo-sM-ySS"/>
+                            <constraint firstItem="nab-5X-MM0" firstAttribute="trailing" secondItem="9ti-YW-8Ce" secondAttribute="trailing" constant="8" id="vMp-AA-N6D"/>
+                            <constraint firstItem="9ti-YW-8Ce" firstAttribute="top" secondItem="qi1-3G-Ixb" secondAttribute="bottom" constant="8" id="wVg-kH-cf3"/>
+                            <constraint firstItem="qi1-3G-Ixb" firstAttribute="leading" secondItem="nab-5X-MM0" secondAttribute="leading" constant="8" id="y9A-NP-Rdy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nab-5X-MM0"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9ti-YW-8Ce" id="Nmo-XS-0k6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2Q-kw-fmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-936.79999999999995" y="2097.7832512315272"/>
         </scene>
         <!--Termine-->
         <scene sceneID="YlT-Mz-nOw">
