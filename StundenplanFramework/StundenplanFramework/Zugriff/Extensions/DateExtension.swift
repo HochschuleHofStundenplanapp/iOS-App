@@ -156,7 +156,7 @@ public extension Date {
                 newStartDate = calendar.date(byAdding: .day, value: 1, to: newStartDate)!
             }
             
-            return newStartDate
+            return startWinter // 💥 newStartDate
         }
         return currentDate
     }

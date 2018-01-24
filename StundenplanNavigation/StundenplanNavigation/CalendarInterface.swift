@@ -59,7 +59,7 @@ class CalendarInterface: NSObject {
      */
     public func createCalenderIfNeeded() {
         removeOldCalenderFromIOSCalendar()
-
+        
         if (!isAppCalenderAvailable()) {
             createCalender()
         }
@@ -147,7 +147,7 @@ class CalendarInterface: NSObject {
                         } catch {
                             print(error)
                         }
-
+                        
                     }
                 }
             }
@@ -190,33 +190,35 @@ class CalendarInterface: NSObject {
     func createEvent(p_event : EKEvent, key : String, isChanges : Bool){
         if UserData.sharedInstance.calenderSync {
             
-        
-        let event       = EKEvent(eventStore: eventStore)
-        event.title     = p_event.title
-        event.notes     = p_event.notes
-        event.startDate = p_event.startDate
-        event.endDate   = p_event.endDate
-        event.location  = p_event.location
-        
-        if Constants.calendarAlarmOffset > 0 {
-            var ekAlarms = [EKAlarm]()
-            ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
-            event.alarms    = ekAlarms
-        }
-        
-        event.calendar  = calendar!
-        
-        do {
-            try eventStore.save(event, span: .thisEvent, commit: true)
-        } catch {
-            print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
-        }
-        
-        if isChanges {
-            addChangesID(eventID: event.eventIdentifier, key: key)
-        } else {
-            addLecturesID(eventID: event.eventIdentifier, key: key)
-        }
+            
+            let event       = EKEvent(eventStore: eventStore)
+            event.title     = p_event.title
+            event.notes     = p_event.notes
+            event.startDate = p_event.startDate
+            event.endDate   = p_event.endDate
+            event.location  = p_event.location
+            
+            if Constants.calendarAlarmOffset > 0 {
+                var ekAlarms = [EKAlarm]()
+                ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
+                event.alarms    = ekAlarms
+            }
+            
+            event.calendar  = calendar!
+            
+            print("\t\t---> \(event.title) - \(event.startDate) - \(event.endDate)")
+            
+            do {
+                try eventStore.save(event, span: .thisEvent, commit: true)
+            } catch {
+                print("Fehler beim erzeugen eines Events und beim Eintragen des Events")
+            }
+            
+            if isChanges {
+                addChangesID(eventID: event.eventIdentifier, key: key)
+            } else {
+                addLecturesID(eventID: event.eventIdentifier, key: key)
+            }
         }
     }
     
