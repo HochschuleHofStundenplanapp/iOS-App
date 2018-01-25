@@ -1,0 +1,8 @@
+\chapter{Studiengang Sortierung}
+Philipp Dümlein \& Bastian Kusserow \& Maximilian Sonntag
+
+\section{Einleitung}
+Da wir anfangs Probleme mit dem Zugriff auf die Model Daten vom Widget aus hatten, war unsere nächste Aufgabe die Sortierung der Studiengänge nach dem jeweiligen Anfangsbuchstaben bei der Studiengangsauswahl.
+
+\section{Umsetzung}
+Dafür wurden der CourseTableViewDataSource und der CourseTableViewDelegate angepasst. Im DataSource wurde eine Methode implementiert, die die Studiengänge bei der Initialisierung sortiert. Außerdem wurde die didSelectRowAt Methode des Delegates auf die neu dazu gekommenen Sections angepasst.

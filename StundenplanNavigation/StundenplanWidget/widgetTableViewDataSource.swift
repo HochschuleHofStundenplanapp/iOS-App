@@ -17,7 +17,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     var firstIsNext = false
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //if !AppointmentController.isLectureFreeDay(){
+        
         let wCell = tableView.dequeueReusableCell(withIdentifier: "WidgetCell") as! WidgetCell
         let (lecture, day) = lectureCtrl.getAllLecture()[indexPath.row]
         wCell.delegate = delegate
@@ -26,11 +26,12 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         wCell.setLecture(lecture: (lecture,day))
         
         // Kann man sicher besser machen
-        if indexPath.row == 0 && wCell.nowOutlet.text == "Nächste" {
+        if indexPath.row == 0 && wCell.nowOutlet.text == "NÄCHSTE" {
             firstIsNext = true
-        }else if indexPath.row == 1 && firstIsNext && wCell.nowOutlet.text == "Nächste"{
-            wCell.nowOutlet.text = "Übernächste"
+        }else if indexPath.row == 1 && firstIsNext && wCell.nowOutlet.text == "NÄCHSTE"{
+            wCell.nowOutlet.text = "ÜBERNÄCHSTE"
         }
+        
         if DataObjectPersistency().loadDataObject().showAppointments{
             if let appointment = checkForAppointment(on: wCell.nowOutlet.text!){
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentCell") as! AppointmentCell
@@ -43,11 +44,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         
         
         return wCell
-        /*}else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentCell") as! AppointmentCell
-            cell.AppointmentName.text = AppointmentController.getFreeDayAppointment()?.name
-            return cell
-        }*/
+       
     }
     
     func formatDate(interval : DateInterval) -> String {
@@ -55,8 +52,8 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         formatter.locale = NSLocale(localeIdentifier: "de") as Locale!
         formatter.dateFormat = "dd.MM.YYYY"
         let start = formatter.string(from: interval.start)
-        print(interval.start)
-        print(interval.end)
+        //print(interval.start)
+        //print(interval.end)
         let end = interval.start != interval.end ? " - \(formatter.string(from:interval.end))" : ""
         
         return "\(start)\(end)"
@@ -64,7 +61,6 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     
     func checkForAppointment(on aDate: String) -> Appointment? {
         let userData = DataObjectPersistency().loadDataObject()
-        userData.appointments[1].appointments.append(Appointment(name: "Tag der Deutschen Einheit", date: DateInterval(start: Date(), duration: 0)))
         let formatter = DateFormatter()
         formatter.locale = NSLocale(localeIdentifier: "de") as Locale!
         formatter.dateFormat = "dd.MM.YYYY"
@@ -83,7 +79,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
             let date = getDateFrom(string: aDate)
             let appointments = userData.appointments
             for app in appointments[1].appointments {
-                print("Else \(Calendar.current.startOfDay(for: app.date.start))")
+                //print("Else \(Calendar.current.startOfDay(for: app.date.start))")
                 if Calendar.current.startOfDay(for: app.date.start) == Calendar.current.startOfDay(for: date) { return app}
             }
             
@@ -96,13 +92,13 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     func getDateFrom(string:String) -> Date {
         let midnight = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())
         switch string {
-        case "Jetzt":
+        case "JETZT":
             return midnight!
-        case "Nächste":
+        case "NÄCHSTE":
             return midnight!
-        case "Morgen":
+        case "MORGEN":
             return Calendar.current.date(byAdding: .day, value: 1, to: midnight!)!
-        case "Übermorgen":
+        case "ÜBERMORGEN":
             return Calendar.current.date(byAdding: .day, value: 2, to: midnight!)!
         default:
             return midnight!

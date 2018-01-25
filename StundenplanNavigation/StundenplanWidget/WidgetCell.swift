@@ -61,12 +61,12 @@ class WidgetCell: UITableViewCell {
         // Sets the label accordingly.
         if restMinutes >= 0 && bIsToday{
             if WidgetLectureController().isUpcomingLectureToday() && restMinutes <= lectureDuration{
-                nowOutlet.text = "Jetzt"
+                nowOutlet.text = "JETZT"
                 timerView.percentageOfHour = percentage
                 timerView.setNeedsDisplay()
                 restTime.text = "\(restMinutes) min."
             }else{
-                nowOutlet.text = "Nächste"
+                nowOutlet.text = "NÄCHSTE"
                 timerView.isHidden = true
                 restTime.text = ""
             }
@@ -133,9 +133,9 @@ class WidgetCell: UITableViewCell {
         
         switch dif {
         case 1:
-            return "Morgen"
+            return "MORGEN"
         case 2:
-            return "Übermorgen"
+            return "ÜBERMORGEN"
         default:
             let timeInterval = Double(dif*3600*24)
             let date = Date().addingTimeInterval(timeInterval)
@@ -151,7 +151,7 @@ class WidgetCell: UITableViewCell {
      Calculates if the passed day parameter is today.
     */
     private func isToday(_ day: Int) -> Bool {
-        print("Day+1= \(day+1) Weekday+1=\(ctrl.getWeekday()+1)")
+        //print("Day+1= \(day+1) Weekday+1=\(ctrl.getWeekday()+1)")
         return ((day+1) % (ctrl.getWeekday()+1) == 0)&&((day+1)/(ctrl.getWeekday()+1)==1)
     }
 

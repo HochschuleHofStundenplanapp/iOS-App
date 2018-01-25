@@ -1,0 +1,44 @@
+\chapter{Gruppe Widget}
+Philipp Dümlein \& Bastian Kusserow \& Maximilian Sonntag
+
+\section{Einleitung}
+Diese Gruppe besteht aus Philipp Dümlein, Maximilian Sonntag und Bastian Kusserow.
+Die größte Aufgabe unserer Gruppe war das Widget für die Stundenplan App. Hiermit sollte es möglich sein seine derzeitige und kommende Vorlesung zu sehen. Somit soll der Nutzer nicht mehr die App öffnen müssen, um seine derzeitig wichtigsten Termine anzuzeigen. 
+Neben der Implementierung des Widgets wurden außerdem..
+\begin{itemize}
+\item Erweiterung der Stundeplan App um das zusätzliche Feld "text"  im Stundenplan JSON File
+\item Einführung einer Sortierung bei der Studiengang Auswahl
+\item Auslagerung des Models in ein Cocoa Touch Framework
+\item Parsen und Anzeigen der Termine des aktuellen Semesters
+\end{itemize}
+in die Stundenplan App integriert.
+
+\section{Umsetzung des Widgets}
+
+Zuerst haben wir uns überlegt, welche die wichtigsten Informationen für den Nutzer sind, um diese dann im Widget anzuzeigen. Hierbei sind wir zu diesen Punkten kommen:
+
+\begin{enumerate}
+\item UITableView mit zwei Zellen, welche die derzeitige und kommende Vorlesung zeigen. TableView für Skalierbarkeit, falls noch etwas hinzugefügt werden soll
+\item Erste Zelle mit Restzeitindikator, der den Fortschritt der derzeitigen Vorlesung anzeigt
+\item Beide Zellen
+\subitem Label für den Zeitpunkt der Vorlesung im Verhältnis zur derzeitigen Zeit
+\subitem Namen der Vorlesung
+\subitem Zeitspanne der Vorlesung
+\subitem Raum der Vorlesung
+\end{enumerate}
+
+Das Widget benötigt die Modeldaten aus der StundenplanApp, jedoch haben wir bemerkt, dass diese nicht direkt erreichbar sind. Deshalb wurde ein Framework erstellt, welches die nötigen Modelklassen beinhaltet, die für die Darstellung des Widgets nötig sind.
+
+Beim implementieren des Widgets haben wir festgestellt, dass es viele verschiedene Möglichkeiten der Darstellung gibt. Daher sind diese hier zum Verständnis hier nochmals aufgeführt:
+
+\begin{enumerate}
+\item Erste Zelle zeigt die derzeitige Vorlesung an. Hierbei wird der Restzeitindikator angezeigt. Die Zweite Zelle zeigt die nächste Vorlesung am selben Tag. Das Label der ersten Zelle zeigt "Jetzt", das der zweiten zeigt "Nächste".
+\item Erste Zelle zeigt die derzeitige Vorlesung an. Hierbei wird der Restzeitindikator angezeigt. Die Zweite Zelle zeigt die nächste Vorlesung am nächsten Tag. Das Label der ersten Zelle zeigt "Jetzt", das der zweiten zeigt "Morgen".
+\item Erste Zelle zeigt die nächste Vorlesung an. Hierbei wird der Restzeitindikator nicht angezeigt. Die Zweite Zelle zeigt die darauf folgende Vorlesung am selben Tag. Das Label der ersten Zelle zeigt "Nächste", das der zweiten zeigt "Übernächste".
+\item Erste Zelle zeigt die nächste Vorlesung am nächsten Tag an. Die Zweite Zelle zeigt die Vorlesung danach an. Das Label der ersten Zelle zeigt "Morgen", das der zweiten zeigt ebenso "Morgen".
+\item Die nächsten Vorlesungen sind mehrere Tage entfernt (beispielsweise in den Ferien). Die Labels zeigen das Datum der nächsten Vorlesung an.
+\end{enumerate}
+
+\section{Experimentell}
+
+Da mittlerweile auch die für das aktuelle Semster relevanten Termine in die App integriert wurden, werden diese auch im Widget beachtet. Sollte an einer im Widget angezeigten Vorlesung ein vorlesungsfreier Tag sein, so wird dieser Termin in der Zelle angezeigt. Falls der Nutzer dies nicht möchte, kann das Anzeigen der Termine im Widget unter den Einstellungen der Stundenplan App deaktiviert werden. 

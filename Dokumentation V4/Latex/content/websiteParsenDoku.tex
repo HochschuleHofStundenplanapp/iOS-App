@@ -1,0 +1,14 @@
+\chapter{Website Termine}
+Philipp Dümlein \& Bastian Kusserow \& Maximilian Sonntag
+
+\section{Einleitung}
+Eine kleinere Aufgabe unserer Gruppe war das Parsen der Termine aus der Hochschulwebsite. Hiermit sollten diese Termine in die Anzeige des Stundenplans und des Widgets integriert werden.
+
+\section{Umsetzung}
+Für das Parsen der Website haben wir den CocoaPod ''SwiftSoup" verwendet. Hiermit war es möglich die div-Elemente der Tabellen auszulesen. Ebenso konnten die Tabellenzeilen einzeln ausgelesen werden. Auf diesen Zeilen basierend wurden die Daten ausgelesen. Hierbei wird sich darauf verlassen, dass die Darstellung der Daten dem Format "dd.MM.YYYY" entsprechen. Ebenso gibt es nicht nur Daten sondern auch Datenspannen, d.h. es gibt ein Start und ein Enddatum. Diese müssen dem Format "dd.MM.YYYY - dd.MM.YYYY" entsprechen.
+Die fertig geparsten Daten werden in das Model der Stundenplan-App gespeichert und können in einem eigenen Screen in den Settings angesehen werden.
+Das Herunterladen und speichern der Daten erfolgt beim ersten App Start. Sollte sich das Semester ändern werden die Termine erneut für das dann aktuelle Semester heruntergeladen.
+
+\section{Wichtig}
+Die im Projekt enthaltenen PodFiles müssen beim Checkout / Pull von GitHub zunächst neu installiert werden, damit das Projekt problemfrei funktioniert. Hierzu muss auf dem Gerät CocoaPods installiert sein.
+Vor dem Öffnen des Projekts muss dann im StundenplanFramework-Ordner "pod install" ausgeführt werden. Nun kann der Workspace geöffnet werden,welcher nun StundenplanNavigation, StundenplanFramework (als Unterprojekt) und Pods enthält. Sollte neben den Pods noch einmal StundenplanFramework erstellt worden sein, kann dieses aus dem Projekt gelöscht werden ("remove by reference"!). Nun sollte das Projekt fehlerfrei einsetzbar sein.

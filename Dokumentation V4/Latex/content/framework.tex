@@ -1,0 +1,13 @@
+\chapter{Framework}
+Philipp Dümlein \& Bastian Kusserow \& Maximilian Sonntag
+
+\section{Einleitung}
+Um alle Daten die in der Stundenplan App angezeigt werden auch im Widget angezeigt werden können, musste, wie bereits erwähnt das Model auf dem die App basiert in ein Framework ausgelagert werden.
+
+\section{Umsetzung}
+Zu aller erst wurde das Framework erzeugt und die Dateien des Models in das Framework verschoben.
+Danach wurde die UserDataObjectPersistency Klasse angepasst, da der Document Path des Widgets und der der Stundenplan App verschieden waren und somit das Widget noch nicht auf die Daten der Stundenplan App zugreifen konnte. Deshalb wurde für das Projekt eine eigene AppGroup hinzugefügt. So konnte das Widget mit einigen Anpassungen der DataObjectPersistency auf diesen Container zugreifen und so die Daten der Stundenplan App abrufen.
+Da wir vermeiden möchten dass die App beim Update über den AppStore ihre Daten verliert, wurden außerdem noch einige Methoden implementiert, die die alten Daten der App an den neuen Speicherort verschiebt.
+
+\section{Wichtig}
+Wenn im Model neue Felder oder Methoden hinzugefügt werden sollen, muss immer der Zugriffsmodifizierer public hinzugefügt werden, da der standardmäßige Modifizierer internal ist und so weder App noch Widget auf die Methoden oder Felder zugreifen können.

@@ -1,0 +1,10 @@
+\chapter{Erweiterung um das Textfeld im JSON}
+Philipp Dümlein \& Bastian Kusserow \& Maximilian Sonntag
+
+\section{Einleitung}
+Die erste Aufgabe unseres Teams war das Hinzufügen der JSON Property "text". Diese musste danach noch in dem Tab "Änderungen" angezeigt werden.
+
+\section{Umsetzung}
+Für das Einfügen der Property wurde die Model Klasse "ChangedLecture" um das Feld text erweitert. Danach wurde in der Klasse "JsonChanges" die Property "text" extrahiert.
+Um diese dann in der Zelle anzuzeigen, musste die Zelle für die Änderungen angepasst werden. Außerdem sollte das Textfeld nur angezeigt werden, wenn in der text Property auch tatsächlich etwas steht. Dabei sind wir auf das Problem gestoßen, dass im Storyboard bei der Zelle einige Constraints falsch gesetzt wurden. Deshalb mussten die Constraints die komplette Zelle noch einmal neu gesetzt werden. Nun kann das Height-Constraint für das Text Label durch Änderung des Constant Werts geändert werden.
+
