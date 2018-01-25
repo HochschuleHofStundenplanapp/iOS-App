@@ -9,6 +9,7 @@ Aufgabe des Design Teams war das Design der Stundenplanapp zu überarbeiten und 
 \item Design eines Onboarding Assistenten
 \item Verbesserung und Vereinfachung der Einstellungen
 \item Design eines Widgets
+\item Entwicklung eines digitalen Prototypen
 \end{itemize}
 
 
@@ -65,20 +66,10 @@ Das Finale Design ist ein Kompromiss aus Altem und Neuem Layout, die Fakultätsf
 
 \begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[scale=0.5]{FinalesDesignStundenplan}}
+  \frame{ \includegraphics[scale=0.3]{FinalesDesignStundenplan}}
 	\caption{Finales Design, Stundenplan Ansicht}
 	\label{fig1}
 \end{figure}
-
-\begin{figure}[H]
-	\centering
-  \frame{ \includegraphics[scale=0.5]{DesignAuswahlStudiengang}}
-	\caption{Finales Design, bsp. Auswahl Studiengänge}
-	\label{fig1}
-\end{figure}
-
-
-
 
 \section{Onboarding}
 
@@ -87,30 +78,43 @@ Um neuen Appnutzern eine geführte Einführung in die Funktionalität und Einste
 \begin{figure}[H]
 	\centering
   \frame{ \includegraphics[scale=0.4]{design_onboarding1}}
-	\caption{Neues Stundenplanbedienkonzept}
+	\caption{Onboardingkonzeptmockup}
 	\label{fig1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
   \frame{ \includegraphics[scale=0.5]{design_onboarding2}}
-	\caption{Neues Stundenplanbedienkonzept}
+	\caption{Onboardingkonzeptmockup}
 	\label{fig1}
 \end{figure}
+
+\subsection{finales Design}
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.4]{design_onboarding3}}
+	\caption{finale Implementierung des Onboarding}
+	\label{fig1}
+\end{figure}
+
+Beim ersten Start der App, wird der Nutzer von der App begrüßt und kann sich entscheiden, ober er das Onboarding durchführen möchte, oder es lieber überspringen möchte. Falls er sich entschließt, dass Onboarding durchzuführen, kann er auf dem nächsten Bildschirm eine seiner Lieblingsfakultät entsprechenden App Farbe entscheiden. Im darauffolgenden Schritt, müssen der/die Studiengang/Studiengägne ausgewählt werden und anschließend das/die Semester.  Im 4. Schritt können die Vorlesungen gewählt werden. In den letzten zwei Schritten werden dem Benutzer die Vorteile von Push Notifications und der Kalendersyncronisation erklärt. Hier kann er jeweils die Entscheidung treffen diese Funktionen zu aktivieren und der App dafür die benötigten iOS Berechtigungen erteilen. Nach erfolgtem Onboarding schließt sich der Onboarding Assistent und der Benutzer befindet sich in den Einstellungen.
+
 
 
 \section{Einstellungen}
-Das Einrichten der App unter Einstellungen sollte durch eine übersichtlichere Gestaltung vereinfacht werden. 
+Das Vornehmen von Einstellungen ist ein wichtiger Bestandteil unserer Stundenplanapp, deshalb ist es wichtig in diesem Bereich ein Konzept zu entwickeln, welches dem Appnutzer eine gute Übersicht, sowie die für ihn wichtigen Schritte zu den Einstellungen so effizient wie möglich präsentiert.
 
 \subsection{Vereinfachung der Stundenplanauswahl}
-In der vorherigen Versionen der Stundenplanapp, war die Auswahl eines persönlichen Stundenplans 
+In der vorherigen Versionen der Stundenplanapp, war die Auswahl eines persönlichen Stundenplans zu kompliziert und zu langwierig. Deswegen wurde ein Konzept entwickelt, mithilfe dessen ein personalisierter Stundenplan in einem Schritt weniger und mit weniger Einstellungselemente  ausgewählt werden kann.
 
 \begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[scale=0.5]{design_settings}}
+  \frame{ \includegraphics[scale=0.4]{design_settings}}
 	\caption{Optimierung der Schritte zur Stundenplanauswahl auf die nötigsten Schritte}
 	\label{fig1}
 \end{figure}
+
+Im Gegensatz zur vorherigen Version fällt mit diesem Konzept der Schritt des Bestätigen des Stundenplanes auf dem Einstellungsbildschirm weg. Stattdessen werden die ausgewählten Vorlesungen in der Push Over View der Vorlesungsauswahl bestätigt. Die Vorlesungsauswahl ist auch keine Table View Zelle mehr, sondern ein Button. Der Button zum Bestätigen der Ausgewählten Vorlesungen entfällt ebenso.
 
 \subsection{Design Vorschlag}
 
@@ -126,49 +130,43 @@ Es wurde ein Menüpunkt für die Fakultätsauswahl und starten des Einführungsa
 
 \begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[scale=0.5]{FinalesDesignSettings}}
+  \frame{ \includegraphics[scale=0.15]{FinalesDesignSettings}}
 	\caption{Finales Design, Stundenplan Einstellungen}
 	\label{fig1}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-  \frame{ \includegraphics[scale=0.5]{DesignAuswahlStudiengang}}
-	\caption{Finales Design, bsp. Auswahl Studiengänge}
-	\label{fig1}
-\end{figure}
+In der finalen Version wurden, die Einstellungsmöglichkeiten neu angeordnet, sowie einige Einstellungen (Onboarding neustarten, Auswahl einer Fakultätsfarbe, Termine, Widget etc.) hinzugefügt.
 
 \section{Widget}
 
-\subsection{Design Vorschlag}
-
+\subsection{Design Widget}
 \begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[scale=0.5]{WidgetDesign}}
-	\caption{Design Vorschlag, Widget}
+  \frame{ \includegraphics[scale=0.5]{design_widget}}
+	\caption{Design  Widget 1}
 	\label{fig1}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.4]{WidgetDesign}}
+	\caption{Design Widget 2}
+	\label{fig1}
+\end{figure}
+
+Es wurde entschieden die Stundenplanapp durch ein Widget zu erweitern. Deshalb wurde auch ein Widget Designkonzept zur Ansicht der zwei folgenden Vorlesungen entwickelt. Ein sich füllender Kreis, mit verbleibender Zeitangabe, in der rechten Seite der Widgetzelle gibt Aufschluss über den zeitlichen Fortschritt der aktuellen Vorlesung.
 
 
-
-\section{demo}
-Eine weitere Aufgabe, die unsere Gruppe übernommen hat, war das Onboarding für die Stundenplan App. Im Onboarding kann der Nutzer gleich zum Start der App seine Einstellungen zu Fakultät, Studiengang, Semester, Vorlesung und Kalendersynchronisation vornehmen. Das Onboarding wird gestartet, wenn noch keine Angaben zu den genannten Einstellungen gemacht wurden.
-
-\begin{itemize}
-\item Neues Design
-\item besseres Design
-\item iOS Design
-\end{itemize}
-
-\begin{enumerate}
-\item Fakultät (die die Farbe der App bestimmt)
-\end{enumerate}
+\section{Entwicklung eines digitalen Prototypen}
+Um die entwickelten Designentwürfe mit dem Entwicklerteams besser zu kommunizieren, wurde mithilfe des Design und Prototyping Programm Adobe XD ein digitaler Prototyp entwickelt. Mithilfe des digitalen Prototyp ist es möglich die angesetzten Designentwürfe in einem Click-Dummy auszuprobieren.
 
 \begin{figure}[H]
 	\centering
-  \frame{ \includegraphics[width=0.3\textwidth]{design_onboarding1} }
-	\caption{Mein schönstes Mockup}
-	\label{fig2}
+  \frame{ \includegraphics[scale=0.3]{design_digitalPrototype}}
+	\caption{digitaler Prototyp}
+	\label{fig1}
 \end{figure}
+
+Link zum digitalen Prototypen:\\
+\url{https://xd.adobe.com/view/9cd14a5a-1e60-47c7-836d-6343e4d0784d}
 

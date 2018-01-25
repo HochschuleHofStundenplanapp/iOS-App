@@ -31,13 +31,13 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         }else if indexPath.row == 1 && firstIsNext && wCell.nowOutlet.text == "Nächste"{
             wCell.nowOutlet.text = "Übernächste"
         }
-        if DataObjectPersistency().loadDataObject().showAppointments{
+        if false{
             if let appointment = checkForAppointment(on: wCell.nowOutlet.text!){
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentCell") as! AppointmentCell
                 cell.AppointmentName.text = appointment.name
                 cell.date.text = formatDate(interval: appointment.date)
-                cell.timeOutlet.text = wCell.nowOutlet.text
-                return cell
+               cell.timeOutlet.text = wCell.nowOutlet.text
+               return cell
             }
         }
         
