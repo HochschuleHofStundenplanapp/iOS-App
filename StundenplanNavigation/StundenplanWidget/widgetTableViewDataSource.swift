@@ -31,7 +31,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         }else if indexPath.row == 1 && firstIsNext && wCell.nowOutlet.text == "Nächste"{
             wCell.nowOutlet.text = "Übernächste"
         }
-        if false{
+        if DataObjectPersistency().loadDataObject().showAppointments{
             if let appointment = checkForAppointment(on: wCell.nowOutlet.text!){
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentCell") as! AppointmentCell
                 cell.AppointmentName.text = appointment.name
