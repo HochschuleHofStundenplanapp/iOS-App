@@ -37,8 +37,8 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentCell") as! AppointmentCell
                 cell.AppointmentName.text = appointment.name
                 cell.date.text = formatDate(interval: appointment.date)
-                cell.timeOutlet.text = wCell.nowOutlet.text
-                return cell
+               cell.timeOutlet.text = wCell.nowOutlet.text
+               return cell
             }
         }
         
