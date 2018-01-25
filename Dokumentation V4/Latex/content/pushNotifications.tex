@@ -159,11 +159,16 @@ Capabilities müssen wie folgt angepasst werden:
 \section{Implementierung}
 \subsection{Server-Schnittstelle}
 \subsection{Registerung für Push Notification}
-\subsection{Sendne der Volesungsdaten zum Server}
-
-	Code zum Registrieren am Server
-	Um sich am Server für eine Vorlesung zu registrieren waren Veränderungen im Code notwendig.
-	\lstinputlisting[language=Swift]{content/pushNotifications_Swift_Example.swift}
+\subsection{Senden der Volesungsdaten zum Server}
+Damit der User für alle seine Vorlesungen über Änderungen informiert werden kann, müssen alle Vorlesungen gebündelt mit seinen Devicetoken 
+zum Server gelangen. 
+\subsubsection{Extrahieren der VorlesungIds}
+Um an die Splusnamen der Vorlesungen zukommen, werden alle Vorlesungen aus den Model geladen. Die Splusnamen werden in ein JSONArray
+gepackt und zusammen mit den Parametern Devicetoken, OS und Sprache in ein JSONObject umgewandelt.
+\lstinputlisting[language=swift]{content/lectures.swift}
+\subsubsection{POST Anfrage}
+Die Daten werden per HTTP POST Request an den Hochschule Server übermittelt. Alle benötigten Metatdaten werden der URLRequest Klasse übergeben. Zusätzlich wird der JSONPayload in den Body der Anfrage geschrieben. 
+\lstinputlisting[language=swift]{content/PostRequest.swift}
 
 \section{Aufgetretene Probleme}
 Als Herausforderung zu sehende Punkte haben häufig sehr viel Zeit in Anspruch genommen oder den Projektfortschritt entschleunigt.
