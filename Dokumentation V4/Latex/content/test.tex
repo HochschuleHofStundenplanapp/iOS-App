@@ -20,25 +20,26 @@ Die einzelnen Testschritte: \newline
 Die App wurde mit den in Reihenfolge festgelegten Testschritten in den jeweiligen Studiengang und den einzelnen Semestern getestet.\newline
 \newline
 
-Das Testing  findet in den  folgenden Studiengängen statt.\newline
-\newline
-BBB  Berufsbegleitender Bachelor Betriebswirtschaft\newline
-BBB I  Berufsbegleitender Bachelor Betriebswirtschaft SP Industrie- und Dienstleistungsunternehmen\newline
-BW dual  Betriebswirtschaft dual\newline
-Inf  Informatik\newline
-Master GMA  Master General Management\newline
-Master IP  Master Internationales Personalmanagement\newline
-Master M  Master Marketing Management\newline
-MD  Mediendesign\newline
-MC  Mobile Computing\newline
-Sprache  Sprachenprogramm\newline
-UT  Umweltingenieurwesen\newline
-Vinf  Verwaltungsinformatik\newline
-WT  Werkstofftechnik\newline
-Wing  Wirtschaftsingenieurwesen\newline
-Wing PP  Wirtschaftsingenieurwesen Produktion- und Prozessmanagement\newline
-WR  Wirtschaftsrecht\newline
+Das Testing  findet in den  folgenden Studiengängen statt:
 
+\begin{itemize}
+\item BBB  Berufsbegleitender Bachelor Betriebswirtschaft
+\item BBB I  Berufsbegleitender Bachelor Betriebswirtschaft SP Industrie- und Dienstleistungsunternehmen
+\item BW dual  Betriebswirtschaft dual
+\item Inf  Informatik
+\item Master GMA  Master General Management
+\item Master IP  Master Internationales Personalmanagement
+\item Master M  Master Marketing Management
+\item AMD  Mediendesign
+\item MC  Mobile Computing
+\item Sprache  Sprachenprogramm
+\item UT  Umweltingenieurwesen
+\item Vinf  Verwaltungsinformatik
+\item WT  Werkstofftechnik
+\item Wing  Wirtschaftsingenieurwesen
+\item Wing PP  Wirtschaftsingenieurwesen Produktion- und Prozessmanagement
+\item WR  Wirtschaftsrecht
+\end{itemize}
 
 
 
@@ -76,23 +77,35 @@ WR  Wirtschaftsrecht & X & X & X & X & X &   \\ \hline
 \textbf{Studiengänge} &\textbf{Bemerkung / Auffäligkeiten}   \\ \hline 
 
 Master M  Master Marketing Management &
-"bei Sem 3 Error warning:
+bei Sem 3 Error warning:
 StundenplanNavigation[655:162086] Error getting event with identifier 2CB1FFA2-32C1-4AC5-9C16-C93ED8D6DD71:882C0617-8728-4B49-8C56-DA50DF72D594: Error Domain=EKCADErrorDomain Code=1010 "(null)""   \\ \hline
 MD  Mediendesign & Semester 5/7 Praxisprojekt  \\ \hline
 
 Sprache  Sprachenprogramm & 
-"Sprachauswahl Deutsch
+Sprachauswahl Deutsch
 Deutsch als Fremdsprache - Kurs A2 Modul A mit Deutsch als Fremdsprache - Kurs A1.2 Bei Sync mit Kalender -$>$ kein Abschließender Prozess"   \\ \hline
 Wing PP Wirtschaftsingenieurwesen Produktion- und Prozessmanagement & 
 Sem 3  Donnerstag Vorlesung Ingenieurinformatik fehlt bie der Kalender Synchronisation  \\ \hline
 WR  Wirtschaftsrecht & 
-"Sem 1a beinhaltet auch montags Rede und Präsentation, (Gewerblicher Rechtsschutz und Urheberrecht -$>$ Mo, Di; Sem 3b Mo) im Kalender
+Sem 1a beinhaltet auch montags Rede und Präsentation, (Gewerblicher Rechtsschutz und Urheberrecht -$>$ Mo, Di; Sem 3b Mo) im Kalender
 Bei Stundenplanänderungen Sem 1b -$>$ Nachholtermin wird noch bekannt gegeben -$>$ Eintrag: Dienstlich
 Bei unbekannten Ersatztermin Eintrag: Sonstiges"   \\ \hline
 \end{tabularx}
- \newline
+
+\subsection{Aufgetretene Bugs}
+
+Beim Testen der Anwendung wurden meistens Probleme mit der Kalender-Synchronisation gefunden. Eines der Probleme war, das Vorlesungen fehlten, doppelt vorkamen, oder falsch angezeigt wurden wie im folgenden Beispiel. Eine Vorlesung aus Mobile Computing Semester eins folgt der aktuellen Uhrzeit. \newline
+
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.2]{test_vorlesung}}
+	\caption{testingBug1}
+	\label{fig1}
+\end{figure}
 
 
+
+\newpage
 \section{Durchführung V3.2}
 \subsection{Stundenplan}
 Version 3.2 vom 01.12.2017 Testflight Version 4\newline
@@ -130,19 +143,28 @@ BW dual  Betriebswirtschaft dual &
 Sem 3 Teilweise doppelte Einträge  \\ \hline
 
 Sprache  Sprachenprogramm & 
-"Sprachauswahl Deutsch
-"Englisch Refresher Course nicht im Klonender am 13.12.2017 (ohne Spl-Änderungs-Angabe)
+Sprachauswahl Deutsch
+Englisch Refresher Course nicht im Kalender am 13.12.2017 (ohne Spl-Änderungs-Angabe)
 Türkisch Vorlesung und Änderung nur auf der Website; nicht in der VL Auswahl"   \\ \hline
-Allgemein & "Abbruch der Synchronisation beim ändern des Tabs 
+Allgemein & Abbruch der Synchronisation beim ändern des Tabs 
 Bei erneut Synchronisieren mit Kalender -$>$ erneutes Einfügen im Kalender 
-Anlegen eines neuen Kalender nach Sofortbeenden der App und erneut Sync
+Anlegen eines neuen Kalender nach sofort Beenden der App und erneut Sync
 -$>$ Kalender manuell löschen"  \\ \hline
 Allgemein & Vorlesungsfreie Zeiten werden nicht berücksichtigt  \\ \hline
 \end{tabularx}
-
-
+\newpage
+\subsection{Aufgetretene Bugs}
+Beim Testen wurde festgestellt das ist Schwierigkeiten mit der Übertragung zum Kalender gibt. Vorlesungseinträge waren doppelt, einige Vorlesungsänderungen fehlten auch in der App. Die Vorlesungen wurden auch in den vorlesungsfreien Zeiten im Kalender angezeigt. \newline
+ 
+\begin{figure}[H]
+	\centering
+  \frame{ \includegraphics[scale=0.25]{test_doppelt}}
+	\caption{testingBug2}
+	\label{fig1}
+\end{figure}
 
 \section{Durchführung V4.0}
+\subsection{Stundenplan}
 Version 4.0 vom 19.01.2018\newline
 \noindent%
 \begin{tabularx}{\textwidth}{|p{.55\textwidth}|X|X|X|X|X|X| }
@@ -261,6 +283,9 @@ Onboarding von den Einstellungen starten &  & X   \\ \hline
 \begin{tabularx}{\textwidth}{|p{.1\textwidth}|X|X| }
 \hline
 \textbf{Test Nr.} &\textbf{Bemerkung / Auffäligkeiten}   \\ \hline 
+1 & 
+Beim Eintragen mehrzeiliger Beschreibung verscheindet im Querformat der eingegebene Text hinter der Tastatur. \\ \hline
+
  2 & 
 Aufgabe wird nicht angezeigt
 Aufgabe wird nach Neustart der App angezeigt
@@ -297,16 +322,21 @@ Bei klicken auf die Mitteilung keine Weiterleitung zur App  \\ \hline
 \newline
 
 \subsection{Sonstige Tests}
-Diese Tests konnten noch nicht durchgeführt werden, da die Version 4 noch nicht veröffentlicht wurde. \newline\newline
+
 \noindent%
 \begin{tabularx}{\textwidth}{|p{.04 \textwidth}|p{.84 \textwidth}|X|X|X| }
 \hline
 \textbf{Nr.} &\textbf{Testschritte} &\textbf{OK}   \\ \hline 
 
-1 & Benutzer hat die alte App (Version 3) auf dem Handy -> installiert neue Version &      \\ \hline
+1 & Benutzer hat die alte App (Version 3) auf dem Handy -$>$ installiert neue Version &      \\ \hline
 
 \end{tabularx}
 \newline
-\newline
-
-
+\subsection{Aufgetretene Bugs}
+\begin{itemize}
+\item Bei der Anwendung gab es Probleme mit der Kalendersynchronisation. Teilweise wurde der Kalender angelegt, ohne Vorlesungen im aktuellen Zeitraum, oder mit nur einer Vorlesung in der Woche.
+\item Das Onboarding ließ sich einwandfrei testen. Hier könnte noch eine Funktion zum Abbrechen einbauen, wenn in den Einstellungen versehentlich auf den Button Onbording neustarten geklickt wurde.
+\item Beim Anlegen von Aufgaben wird mehrzeiliger Aufgabentext von der Tastatur verdeckt. Bei der Anzeige von den Aufgaben wird der Text in der Headerzeile in der jeweiligen Sortierung nicht angezeigt.
+\item Das Widget wird nicht transparent angezeigt, und die Weiterleitung nach dem Anklicken zur App könnte noch ergänzt werden.
+\item Die sonstigen Tests konnten noch nicht durchgeführt werden, da die Version 4.0 noch nicht veröffentlicht wurde, und somit ein überinstallierten der vorherigen Version dieser App nicht testbar ist.
+\end{itemize}
