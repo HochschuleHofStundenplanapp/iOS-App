@@ -2,7 +2,7 @@
 Johannes Franz \& Normen Krug
 
 \section{Einleitung}
-Push Notifications sind ein fester Bestandteil moderner Apps. Nutzer erwarten es häufig bei Änderungen oder Neuigkeiten informiert zu werden. Deswegen soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server überprüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Chronjobs das Backend bereit.
+Push Notifications sind ein fester Bestandteil moderner Apps. Nutzer erwarten es häufig bei Änderungen oder Neuigkeiten informiert zu werden. Deswegen soll die Stundenplan App um solche erweitert werden. Ziel soll es sein den Benutzer über Stundenplanänderungen aktiv zu informieren, um speziell auf kurzfristige Änderungen reagieren zu können. Ein Server überprüft dabei eine Stundenplan Datenbank auf Änderungen und sendet eine Push Notification an alle iOS Geräte, die sich für die jeweilige Vorlesung registriert haben. Ein Apache Webserver stellt dabei mit einer MySQL Datenbank und entsprechenden Cronjobs das Backend bereit.
 
 GitHub repository: \url{https://github.com/HochschuleHofStundenplanapp/iOS-App/}
 
@@ -13,7 +13,7 @@ Die iOS Version stellt nur lokale Push Notifications bereit. Dabei wird bisher k
 \newpage
 
 \section{Projektablauf}
-Um den Projektfortschritt nachvollziehen zu können, wurde dieser tabellarisch in Verbindung mit dem aktuellen Datum aufgelistet.
+Um den Projektfortschritt nachvollziehen zu können, wurde dieser tabellarisch in Verbindung mit dem aktuellen Meilenstein aufgelistet.
 
 
 \noindent%
@@ -72,13 +72,13 @@ Die Testumgebung MAMP (Akronym steht für: Mac, Apache, MySQL, PHP) virtualisier
 
 \subsection{Hilfstools}
 Die MacOS App ``Easy APNs Provider`` ermöglichte ersten Gehversuche, um Push Nachrichten an ausgewählte Token zu senden.
-Zu beachten ist das der ``Easy APNs Provider`` das veraltete Push Interface benutzt. 
+Zu beachten is,t dass der ``Easy APNs Provider`` das veraltete Push Interface benutzt. 
 \\
-Quelle: Mac App Store: "easy apns provider push
- notification service testing tool"
+Quelle: Mac App Store: ''easy apns provider push
+ notification service testing tool''
 
 \section{Vorbereitung der Umsetzung}
-Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht. Nur dieser Dienst ist es erlaubt, die Push Notification direkt an das iOS Gerät zu senden.
+Apple bietet für die Umsetzung von Push Nachrichten den Apple Push Notification service (APNs) an. Dabei handelt es sich um einen bei Apple gehosteten Dienst, der Push Notifications per API ermöglicht. Nur diesem Dienst ist es erlaubt, die Push Notification direkt an das iOS Gerät zu senden.
 
 
 \subsection{Server Installation}
@@ -88,7 +88,7 @@ Zur Installation der Software sind ROOT Rechte notwendig. Der \textit{wget} Befe
 
 \subsection{MySQL Datenbank}
 
-Die Tabelle \textit{fcm\_nutzer} enthält eine Zuordnung von abonnierten Vorlesungsverlegungen mit dem jeweiligen Token des Gerätes. Dabei ist zusätzlich vermerkt, welches Betriebssystem verwendet wird. Die \textit{0} in der Spalte \textit{os} steht dabei für Android während \textit{1} iOS repräsentierts. \\
+Die Tabelle \textit{fcm\_nutzer} enthält eine Zuordnung von abonnierten Vorlesungsverlegungen mit dem jeweiligen Token des Gerätes. Dabei ist zusätzlich vermerkt, welches Betriebssystem verwendet wird. Die \textit{0} in der Spalte \textit{os} steht dabei für Android während \textit{1} iOS repräsentiert. \\
 Da die ausgewählte Sprache des Nutzers nicht bekannt ist, wird für die \textit{language} Spalte an dieser Stelle auch null akzeptiert. Um bei einer späteren Version der App zwischen Nutzern die noch keine Sprache ausgewählt haben und allen Anderen differenzieren zu können, wird hier trotz der aktuell nur in deutsch vorhandenen App der Wert nicht standardmäßig auf deutsch gesetzt.
 \lstinputlisting[language=SQL]{content/pushNotifications_create.sql}
 Da eine bestehende Infrastruktur die Grundlage dieses Projektes darstellt, musste diese Tabelle lediglich um \textit{os} und \textit{language} erweitert werden.\\
@@ -97,7 +97,7 @@ Auf Änderungen an anderen Tabellen konnte komplett verzichtet werden.
 \newpage
 
 \subsubsection{fcm\_nutzer Tabelle}
-Diese Tabelle beinhaltet vor allem die Verknüpfung zwischen dem eingetragenen Token (\textit{token}), der abonnierten Vorlesung (\textit{vorlesung id}) und dem mobilen Betriebsystem (\textit{os}). Diese Tabelle wurde beim Testsystem und beim Produktivsystem bereits um die neue Spalte \textit{os} und \textit{language} erweitert. Für letzere wurde die Schnittstelle, iOS und Android Version angepasst und getestet. Diese Funktion kann für zukünftige Implementierungen verwendet werden.
+Diese Tabelle beinhaltet vor allem die Verknüpfung zwischen dem eingetragenen Token (\textit{token}), der abonnierten Vorlesung (\textit{vorlesung\_id}) und dem mobilen Betriebsystem (\textit{os}). Diese Tabelle wurde beim Testsystem und beim Produktivsystem bereits um die neue Spalte \textit{os} und \textit{language} erweitert. Für letztere wurde die Schnittstelle, iOS und Android Version angepasst und getestet. Diese Funktion kann für zukünftige Implementierungen verwendet werden.
 \begin{figure}[H]
 	\centering
   \frame{ \includegraphics[width=1.0\textwidth]{datenbank_nutzer} }
@@ -114,7 +114,7 @@ Diese Tabelle beinhaltet vor allem die Verknüpfung zwischen dem eingetragenen T
 \subsection{Zertifikate}
 Um mit einer gesicherten Verbindung auf die Apple Push Notification Schnittstelle zuzugreifen, werden zwei Zertifikate benötigt. Dabei handelt es sich um ein öffentliches und privates Zertifikat. Diese Zertifikate müssen vor der Verwendung in das Zielformat \textit{.pem} umgewandelt werden, bevor sie benutzbar sind.
 
-Um die Zertifikate zu anzulegen und zu verwalten, stellt Apple eine Übersicht dem bei Apple angemeldeten Entwickler bereit. Bei dem verwendeten Zertifikat wird zwischen \textit{Development} und \textit{Production} unterschieden.\\
+Um die Zertifikate anzulegen und zu verwalten, stellt Apple eine Übersicht dem bei Apple angemeldeten Entwickler bereit. Bei dem verwendeten Zertifikat wird zwischen \textit{Development} und \textit{Production} unterschieden.\\
 \url{https://developer.apple.com/account/ios/certificate/}
 
 
@@ -182,7 +182,7 @@ Um an die Splusnamen der Vorlesungen zukommen, werden alle Vorlesungen aus den M
 \newpage
 
 \subsubsection{POST Anfrage}
-Die Daten werden per HTTP POST Request an den Hochschule Server übermittelt. Alle benötigten Metatdaten werden der URLRequest Klasse übergeben. Zusätzlich wird der JSONPayload in den Body der Anfrage geschrieben. 
+Die Daten werden per \textit{HTTP POST Request} an den Hochschule Server übermittelt. Alle benötigten Metatdaten werden der URLRequest Klasse übergeben. Zusätzlich wird der JSONPayload in den Body der Anfrage geschrieben. 
 \lstinputlisting[language=swift]{content/PostRequest.swift}
 
 \subsection{Server-Schnittstelle}
@@ -194,14 +194,14 @@ Eine wichtige Anforderung an diese Implementierung war die Abwärtskompatibilit�
 
 
 \subsection{Registerung für Push Notifications}
-Die App registriert sich, sobald eine Vorlesung ausgewählt und übernommen wird am Server. Dafür ist das Script \textit{fcm\_register\_user.php} zuständig. Es erkennt anhand eines PHP Parameters ( \textit{...php?os=1}), dass es sich um einen Aufruf durch eine iOS Anwendung handelt und stellt die passenden Abzweigungen und Funktionen bereit, die sich von der Android Variante unterscheiden.
+Die App registriert sich, sobald eine Vorlesung ausgewählt und übernommen wird am Server. Dafür ist das Script \textit{fcm\_register\_user.php} zuständig. Es erkennt anhand eines PHP Parameters ( \textit{...php?os=1 }), dass es sich um einen Aufruf durch eine iOS Anwendung handelt und stellt die passenden Abzweigungen und Funktionen bereit, die sich von der Android Variante unterscheiden.
 
 Die dafür notwendigen Änderungen an der Datenbank wurden bereits im gleichnamigen Kapitel beschrieben. Diese Änderungen sind bereits auf dem Test- und Produktivsystem umgesetzt worden.
 
 Durch die genannte Abwärtskompatibilität und Aufrufe des Scriptes durch interessierte Benutzer ist die Gefahr gegeben, dass \textit{Null} Werte in die Datenbank geschrieben werden. Das Script wurde dementsprechend erweitert, um möglichst an keiner Stelle diesen Fehlerfall zu ermöglichen.
 
 \subsection{Senden der Nachrichten durch den Server}
-Auf dem Server läuft ein Chronjob der in einer definierten Zeit die Verlegungen prüft. Wurde eine Stundenplanänderung neu hinzugefügt, die noch nicht in der Tabelle \textit{fcm\_verlegungen} aufgelistet war, so reagiert das Script \textit{fcm\_update\_and\_send.php} und schreibt die Vorlesung in die genannte Tabelle.\\
+Auf dem Server läuft ein Cronjob, der in einer definierten Zeit die Verlegungen prüft. Wurde eine Stundenplanänderung neu hinzugefügt, die noch nicht in der Tabelle \textit{fcm\_verlegungen} aufgelistet war, so reagiert das Script \textit{fcm\_update\_and\_send.php} und schreibt die Vorlesung in die genannte Tabelle.\\
 Die Methode \textit{sendNotification()} prüft nun vor dem Senden um welche Übertragungsart (Firebase / APNs) es sich handelt und ruft die passende Methode auf.
 Um der Übersichtlichkeit beizutragen, ist die APNs Funktionalität in der eingebundenen PHP Datei \textit{apnsPushIOS.php} abgebildet. Die darin enthaltene \textit{sendIosPush(...)} Methode die hier aufgerufen wird, benötigt lediglich \textit{title, body} und \textit{token} als Parameter. Der \textit{title} stellt dabei die Überschrift dar, während der \textit{body} den Nachrichteninhalt bereitstellt.
 
@@ -230,7 +230,7 @@ Als Herausforderung zu sehende Punkte haben häufig sehr viel Zeit in Anspruch g
 \item Ablaufende Zertifikate
 \item Serverseitig unterschiedliche Übertragungsverfahren zwischen Android und iOS
 \item Erschwertes Debugging der PHP Scripte
-\item Die auf den Server vorhanden Versionen von apache2 und CURL, hatten kein HTTP2 unterstützt  
+\item Die auf den Server vorhanden Versionen von Apache2 und CURL, hatten kein HTTP2 unterstützt  
 \item Struktur der Datenbank und der PHP Scripte war durch die Android App vorgegeben
 \item Veraltete APNs Variante war stark verbreitet, brachte allerdings viele Probleme mit sich und musste als Ansatz letztendlich verworfen werden
 \end{itemize}
@@ -251,8 +251,8 @@ In diesem Projektabschnitt konnten alle gesteckten Ziele erreicht werden. Da sol
 \begin{itemize}
 \item Die Auswertung des Kommentarfeldes welche, aktuell bei der Android und iOS App auf dem Client Gerät stattfinden, könnten auf dem Server zentral bearbeitet werden. Das würde die Komplexität der beiden Apps verringern und erleichtert die Wartung des Codes an zentraler Stelle.
 \item Erweiterung der Push Notification Information um eine Priorität, Ablaufdatum, etc.
-\item Aufkommende Issues und Ideen aus dem öffentlichen Git Projekt der iOS App und Schnittstelle
 \item Erweiterung der App und Schnittstelle um andere Sprachen wie z.B. Englisch was in der Android App bereits angeboten wird
+\item Aufkommende Issues und Ideen aus dem öffentlichen Git Projekt der iOS App und Schnittstelle
 
 \end{itemize}
 
