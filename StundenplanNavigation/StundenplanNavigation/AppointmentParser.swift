@@ -8,16 +8,18 @@
 
 import Foundation
 import SwiftSoup
+import StundenplanFramework
 
-
-public class AppointmentParser {
+class AppointmentParser {
+    
+    var delegate: AppointmentTableViewController?
     
     var html = ""
     
-    public init(){}
+    init(){}
     
     
-    public func downloadAndParseAppointmentContent(){
+    func downloadAndParseAppointmentContent(){
         let myURLString = "https://www.hof-university.de/studierende/studienbuero/termine"
         guard let myURL = URL(string: myURLString) else {
             print("Error: \(myURLString) doesn't seem to be a valid URL")
@@ -30,27 +32,68 @@ public class AppointmentParser {
             }
             
             if let data = data{
+                print("Download of Appointments ...")
                 let website=String(data: data, encoding: .utf8)
                 if let website = website{
                     let appointments = self.parseAppointments(html: website)
                     UserData.sharedInstance.appointments = appointments
                     UserData.sharedInstance.currentSemester = Date().checkSemester()
                     DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
+                    
+                    DispatchQueue.main.async {
+                        self.delegate?.reloadAppointments()
+                    }
                 }
+                
+                
             }
         }
         task.resume()
     }
     
     private func parseAppointments(html: String) -> [Tuple]{
-
+        
         let doc : Document = try! SwiftSoup.parse(html)
+        
+        //liefert 2 Tabellen (SS und WS)
         let table = try! doc.getElementsByClass("contenttable")
-        let td = try! table.first()!.getElementsByTag("td")
+        
+        //hier muss die richtige ausgewählt werden, anhand th-Text
+        //ausgewählter index in table (0 oder 1)
+        var table_index = 0
+        
+        //prüfen der table header
+        if(table.size() == 2) {
+            let th_first = try! table.first()!.getElementsByTag("th")
+            
+            let th_first_text = th_first.first()?.ownText()
+            
+            if(UserData.sharedInstance.currentSemester == "SS") {
+                print("appointments for SS...")
+                if(th_first_text?.contains("Sommersemester"))! {
+                    print("appointments table index = 0")
+                    table_index = 0
+                } else {
+                    print("appointments table index = 1")
+                    table_index = 1
+                }
+            } else {
+                print("appointments for WS...")
+                if(th_first_text?.contains("Wintersemester"))! {
+                    print("appointments table index = 0")
+                    table_index = 0
+                } else {
+                    print("appointments table index = 1")
+                    table_index = 1
+                }
+            }
+        }
+        
+        let td = try! table.get(table_index).getElementsByTag("td")
         var appointmentArray = [Tuple]()
         var isDate = false
         var name = ""
-        var heading : String? = try! table.first()!.getElementsByTag("th").first()!.ownText()
+        var heading : String? = try! table.get(table_index).getElementsByTag("th").first()!.ownText()
         var newHeading = heading
         var appointments = [Appointment]()
         var date = DateInterval()
@@ -58,6 +101,8 @@ public class AppointmentParser {
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = Locale(identifier: "de")
+        
+        //print("appointment td-list: \(td.array().description)")
         
         for i in td.array(){
             let text = i.ownText()
@@ -114,24 +159,5 @@ public class AppointmentParser {
     }
 }
 
-public class Tuple: NSObject,NSCoding {
-    public func encode(with aCoder: NSCoder) {
-        aCoder.encode(header, forKey: headerKey)
-        aCoder.encode(appointments, forKey: appointmentsKey)
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        header = aDecoder.decodeObject(forKey: headerKey) as! String
-        appointments = aDecoder.decodeObject(forKey: appointmentsKey) as! [Appointment]
-    }
-    let headerKey = "headerKey"
-    let appointmentsKey = "appointmentsKey"
-    public var header : String
-    public var appointments = [Appointment]()
-    
-    public init(name:String, appointments:[Appointment]){
-        self.header = name
-        self.appointments = appointments
-    }
-}
+
 

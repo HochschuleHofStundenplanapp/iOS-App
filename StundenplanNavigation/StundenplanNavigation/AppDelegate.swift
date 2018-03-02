@@ -46,9 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     }
     
     func checkForSemesterAppointments() {
-        print(UserData.sharedInstance.appointments.count)
+//        print(UserData.sharedInstance.appointments.count)
+//        print("checkSemester: \(Date().checkSemester()) und in UserData: \(UserData.sharedInstance.currentSemester)")
         if UserData.sharedInstance.appointments.count == 0 || Date().checkSemester() != UserData.sharedInstance.currentSemester {
-            print("Noch keine Termine vorhanden..Termine werden geparsed und gespeichert")
+//            print("Noch keine Termine vorhanden..Termine werden geparsed und gespeichert")
             let parser = AppointmentParser()
             parser.downloadAndParseAppointmentContent()
         }

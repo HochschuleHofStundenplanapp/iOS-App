@@ -12,6 +12,7 @@ import StundenplanFramework
 
 class SettingsTableViewController: UITableViewController, UITabBarControllerDelegate {
     @IBOutlet var saveChangesButton: UIButton!
+    @IBOutlet weak var discardChangesButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var syncSwitch: UISwitch!
     @IBOutlet weak var facultySegmentControl: UISegmentedControl!
@@ -44,6 +45,12 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         if #available(iOS 11.0, *) {
             setupNavBar()
         }
+        
+        facultySegmentControl?.subviews[0].tintColor = UIColor.hawGrey
+        facultySegmentControl?.subviews[1].tintColor = UIColor.hawBlue
+        facultySegmentControl?.subviews[2].tintColor = UIColor.hawYellow
+        facultySegmentControl?.subviews[3].tintColor = UIColor.hawRed
+
         setUpUI()
     }
     
@@ -57,8 +64,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     func setUpUI() {
         segmentControl.tintColor = appColor.tintColor
         saveChangesButton.tintColor = appColor.tintColor
+        discardChangesButton.tintColor = appColor.tintColor
         syncSwitch.onTintColor = appColor.tintColor
         facultySegmentControl.tintColor = appColor.tintColor
+        showAppointmentsSwitch.onTintColor = appColor.tintColor
         
         tabBarController?.tabBar.tintColor = appColor.tintColor
         navigationController?.navigationBar.barTintColor = appColor.tintColor
@@ -69,6 +78,24 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             if let taskVCtrl = navigationController.viewControllers[0] as? TaskViewController {
                 taskVCtrl.updateTaskBadge()
             }
+        }
+        
+        //TEST
+        disableCellsAndButton()
+        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
+        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
+        let countChanges = settingsController.countChanges()
+        if(countChanges > 0) {
+            saveChangesButton.setTitle("\(countChanges) Änderungen übernehmen", for: .normal)
+        } else {
+            saveChangesButton.setTitle("keine Änderungen vorgenommen", for: .normal)
+        }
+        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
+        
+        if(countChanges > 0) {
+            discardChangesButton.isEnabled = true
+        } else {
+            discardChangesButton.isEnabled = false
         }
     }
     
@@ -103,17 +130,28 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //Updates müssen in viewDidApper, weil erst hier die neue kopier erzeugt wurde (in viewWillApear ist noch die alten Instanz vorhanden)
-        updateSeasonSegments()
-        disableCellsAndButton()
-        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
-        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
-        let countChanges = settingsController.countChanges()
-        if(countChanges > 0) {
-            saveChangesButton.setTitle("\(countChanges) Änderungen übernehmen", for: .normal)
-        } else {
-            saveChangesButton.setTitle("keine Änderungen vorgenommen", for: .normal)
+        
+        //TODO schaltet immer! auf das berechnete Semester -> Auswahl eines anderen Semesters gewünscht/notwendig??? warum dann nicht gleich ohne SegmentedControl??
+        //updateSeasonSegments()
+        //besser gespeicherten Wert verwenden:
+        let currentSeason = settingsController.tmpSelectedSeason // UserData.sharedInstance.selectedSeason
+        if (currentSeason == "SS"){
+            segmentControl.selectedSegmentIndex = 0
+        }else{
+            segmentControl.selectedSegmentIndex = 1
         }
-        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
+        
+//        disableCellsAndButton()
+//        selectedCoursesLabel.text = settingsController.tmpSelectedCourses.allSelectedCourses()
+//        selectedSemesterLabel.text = settingsController.tmpSelectedSemesters.allSelectedSemesters()
+//        let countChanges = settingsController.countChanges()
+//        if(countChanges > 0) {
+//            saveChangesButton.setTitle("\(countChanges) Änderungen übernehmen", for: .normal)
+//        } else {
+//            saveChangesButton.setTitle("keine Änderungen vorgenommen", for: .normal)
+//        }
+//        self.syncSwitch.setOn(UserData.sharedInstance.calenderSync, animated: false)
+        setUpUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -141,6 +179,8 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         
         selectedCoursesLabel.text = "..."
         selectedSemesterLabel.text = "..."
+        
+        setUpUI()
     }
     
     private func updateSeasonSegments(){
@@ -234,6 +274,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
                 
             }
         }
+    }
+    @IBAction func discardChangesButton(_ sender: UIButton) {
+        settingsController.resetTMPVariables()
+        reloadCommitedSettings()
     }
     
     @objc func showHasNoAccessAlert() {

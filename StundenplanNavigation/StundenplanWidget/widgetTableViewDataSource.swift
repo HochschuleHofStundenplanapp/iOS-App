@@ -33,6 +33,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         }
         
         if DataObjectPersistency().loadDataObject().showAppointments{
+            print("show appointments in widget")
             if let appointment = checkForAppointment(on: wCell.nowOutlet.text!){
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentCell") as! AppointmentCell
                 cell.AppointmentName.text = appointment.name
@@ -40,6 +41,8 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
                cell.timeOutlet.text = wCell.nowOutlet.text
                return cell
             }
+        } else {
+            print("show no appointments in widget")
         }
         
         
@@ -66,21 +69,25 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         formatter.dateFormat = "dd.MM.YYYY"
         let date = formatter.date(from: aDate)
         if let date = date {
-        let appointments = userData.appointments
-        
-        for app in appointments[1].appointments {
-            print(Calendar.current.startOfDay(for: app.date.start))
+            let appointments = userData.appointments
             
-            if Calendar.current.startOfDay(for: app.date.start) == Calendar.current.startOfDay(for: date) { return app}
-            
-        }
-        return nil
-        }else{
+            for app in appointments[1].appointments {
+                print(Calendar.current.startOfDay(for: app.date.start))
+                
+                if Calendar.current.startOfDay(for: app.date.start) == Calendar.current.startOfDay(for: date) {
+                    return app
+                }
+                
+            }
+            return nil
+        } else {
             let date = getDateFrom(string: aDate)
             let appointments = userData.appointments
             for app in appointments[1].appointments {
                 //print("Else \(Calendar.current.startOfDay(for: app.date.start))")
-                if Calendar.current.startOfDay(for: app.date.start) == Calendar.current.startOfDay(for: date) { return app}
+                if Calendar.current.startOfDay(for: app.date.start) == Calendar.current.startOfDay(for: date) {
+                    return app
+                }
             }
             
         }
@@ -107,7 +114,11 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if expanded {
-            return 2
+            if(lectureCtrl.resultLectures.count > 3) {
+                return 4
+            } else {
+                return lectureCtrl.resultLectures.count
+            }
         }else{
             return 1
         }

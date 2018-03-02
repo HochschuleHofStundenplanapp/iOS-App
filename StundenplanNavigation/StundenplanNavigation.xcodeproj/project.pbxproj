@@ -25,6 +25,7 @@
 		0FC2FED31F953CDB00BDDB0D /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */; };
 		0FC2FED51F953D3300BDDB0D /* TaskOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */; };
 		2643C2E2200D00AB007C8744 /* Pods_StundenplanNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */; };
+		26538D5F2047FCF900C0ADD8 /* AppointmentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26538D5E2047FCF900C0ADD8 /* AppointmentParser.swift */; };
 		26905DB51FE959970007E979 /* OnboardingSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */; };
 		26905DB71FE959AA0007E979 /* OnboardingPermissionsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsCalendarViewController.swift */; };
 		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
@@ -198,6 +199,7 @@
 		0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDelegate.swift; sourceTree = "<group>"; };
 		0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewViewController.swift; sourceTree = "<group>"; };
 		2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_StundenplanNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26538D5E2047FCF900C0ADD8 /* AppointmentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentParser.swift; sourceTree = "<group>"; };
 		2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonChanges.swift; sourceTree = "<group>"; };
 		3848006B9AFF4FC80C560411 /* Pods-StundenplanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanWidget.debug.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		3BADF20A1196EA8EC9E1F97C /* Pods_StundenplanNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				40B51E712012466D00FB2865 /* AppointmentTableViewController.swift */,
+				26538D5E2047FCF900C0ADD8 /* AppointmentParser.swift */,
 			);
 			name = Appointment;
 			sourceTree = "<group>";
@@ -1272,6 +1275,7 @@
 				40B51E722012466D00FB2865 /* AppointmentTableViewController.swift in Sources */,
 				BE8B680E1ECA448600A858A3 /* NotificationNameExtension.swift in Sources */,
 				0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */,
+				26538D5F2047FCF900C0ADD8 /* AppointmentParser.swift in Sources */,
 				BED89EF31EE2EF3100CBEF27 /* SettingsController.swift in Sources */,
 				CE698D5E1DD1DA2A006D1384 /* CourseTableViewDataSource.swift in Sources */,
 				2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */,
