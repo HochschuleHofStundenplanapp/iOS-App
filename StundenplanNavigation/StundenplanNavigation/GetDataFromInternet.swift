@@ -15,7 +15,7 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
    
     func doItWithUrl(url: String, username: String?, password: String?, position: Int ) -> Void
     {
-        print("do it with url: \(url) position : \(position)")
+        //print("do it with url: \(url) position : \(position)")
         self.position = position
         let urlString = url
         let url = URL(string: urlString)
@@ -70,7 +70,7 @@ class GetDataFromInternet: NSObject, JobDataObservableProtocol {
     {
         if let i = myObservers.index(where: { $0 === o }) {
             myObservers.remove(at: i)
-            print("GetDataFromInternet Observer wurde entfernt")
+            //print("GetDataFromInternet Observer wurde entfernt")
         }
         
     }

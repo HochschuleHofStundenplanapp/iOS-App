@@ -36,6 +36,6 @@ class TaskTableViewDelegate: NSObject, UITableViewDelegate {
         header.textLabel?.textColor = UIColor.white
         header.textLabel?.textAlignment = .center
         header.backgroundView?.backgroundColor = appColor.headerText
-        header.textLabel?.textColor = appColor.headerText
+        //header.textLabel?.textColor = appColor.headerText
     }
 }

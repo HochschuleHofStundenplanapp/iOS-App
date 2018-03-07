@@ -46,7 +46,7 @@ class LecturesViewController: UIViewController {
             }
         }
         
-        print("save selected lectures")
+        //print("save selected lectures")
         
         navigationController!.popViewController(animated: true)
     }

@@ -127,7 +127,7 @@ class TaskOverviewViewController: UIViewController {
     }
     
     @objc func createTaskAction(_ sender: UIBarButtonItem) {
-        print("Create Task Aktion")
+        //print("Create Task Aktion")
         let userFilledAllTaskInformation = true
         saveTask(shouldAppend: true)
         if userFilledAllTaskInformation {
@@ -136,14 +136,14 @@ class TaskOverviewViewController: UIViewController {
     }
     
     @objc func editTaskAction(_ sender: UIBarButtonItem) {
-        print("Edit Task Aktion")
+        //print("Edit Task Aktion")
         receivedViewMode = ViewMode.edit
         saveTask()
         setUpUI()
     }
     
     @objc func displayTaskAction(_ sender: UIBarButtonItem) {
-        print("Display Task Aktion")
+        //print("Display Task Aktion")
         receivedViewMode = ViewMode.detail
         saveTask()
         setUpUI()
@@ -162,14 +162,17 @@ class TaskOverviewViewController: UIViewController {
         //Task wird angehängt
         if appendTask {
             UserData.sharedInstance.tasks.append(task)
-            
+            CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
+
         }
         //Task wird gelöscht
         else {
             CalendarInterface.sharedInstance.removeTaskFromCalendar(task: task)
         }
         
-        CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
+        //muss das hier sein? legt task immer wieder neu an, eher in if appendTask??
+        //CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
+        
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
     

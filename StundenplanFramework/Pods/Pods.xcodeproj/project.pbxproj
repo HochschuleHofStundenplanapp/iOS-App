@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -109,9 +109,9 @@
 		10E1935F957CFE671575C5BEB6E49CD6 /* Pods-StundenplanWidget-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanWidget-umbrella.h"; sourceTree = "<group>"; };
 		123BAC0D2E46BFFF8BF1E8817C65E1A3 /* Pods-StundenplanFramework-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanFramework-acknowledgements.markdown"; sourceTree = "<group>"; };
 		152AD7EB565A6175D92D951078FBA88B /* Pods-StundenplanWidget-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanWidget-resources.sh"; sourceTree = "<group>"; };
-		1552A5701144EF2FF6F345084CE400F4 /* Pods_StundenplanFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanFramework.framework; path = "Pods-StundenplanFramework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1552A5701144EF2FF6F345084CE400F4 /* Pods_StundenplanFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17A190C91BEF95B32CA0694F03A80F25 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CC078E6EDC329E8E0528395CF88B944 /* Pods_StundenplanNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanNavigationTests.framework; path = "Pods-StundenplanNavigationTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CC078E6EDC329E8E0528395CF88B944 /* Pods_StundenplanNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEDF1B4C93C6BF04A8B3A376D824DF8 /* CharacterReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = Sources/CharacterReader.swift; sourceTree = "<group>"; };
 		1F061E45166C4F6CA7950D7D4C21B927 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = String.swift; path = Sources/String.swift; sourceTree = "<group>"; };
 		1F9C8B211B0D820409975E0CED455873 /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Sources/Token.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		492980AC9D04AA0CE3075161B9FBE783 /* Pods-StundenplanFramework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanFramework-dummy.m"; sourceTree = "<group>"; };
 		499DF0FC87A39AF6060C91F8F1E98D60 /* Pods-StundenplanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		4A118F700581BBB3243C0D7FB77C29D4 /* Node.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Sources/Node.swift; sourceTree = "<group>"; };
-		4A640DD239DB915CA424AE2866A80435 /* Pods_StundenplanNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanNavigation.framework; path = "Pods-StundenplanNavigation.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A640DD239DB915CA424AE2866A80435 /* Pods_StundenplanNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5413201E8F84D86318A1A55C48D5E3 /* Pods-StundenplanNavigation-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StundenplanNavigation-acknowledgements.plist"; sourceTree = "<group>"; };
 		4CF9A1F374954F6826D3263175753C8D /* Pods-StundenplanWidget-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StundenplanWidget-acknowledgements.plist"; sourceTree = "<group>"; };
 		4D8DBAFB48F24C32F0F280BEEE6DF2D9 /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Sources/Connection.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		671FC09A9ACE92F7CE015556FFD11773 /* Pods-StundenplanNavigationTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigationTests-resources.sh"; sourceTree = "<group>"; };
 		6B60F94FFBAC47103B8D5C556F0DDE9C /* Pods-StundenplanNavigationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6CD94176C28C4EB644B3ECE9BA812590 /* Pods-StundenplanNavigationUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanNavigationUITests.modulemap"; sourceTree = "<group>"; };
+		6CD94176C28C4EB644B3ECE9BA812590 /* Pods-StundenplanNavigationUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StundenplanNavigationUITests.modulemap"; sourceTree = "<group>"; };
 		6D6A6677827DBA02A83EC3359D513333 /* Validate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validate.swift; path = Sources/Validate.swift; sourceTree = "<group>"; };
 		6D809D92E46704DF80DE886845B656E2 /* Pods-StundenplanFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		71C0F72E08235D6F7E7899B570146174 /* QueryParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryParser.swift; path = Sources/QueryParser.swift; sourceTree = "<group>"; };
@@ -158,27 +158,27 @@
 		780019B5CD115B08D6AC3337339FA659 /* Pods-StundenplanNavigation-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigation-resources.sh"; sourceTree = "<group>"; };
 		78B293D0C4916C8192771383306E4DBE /* Pods-StundenplanNavigationUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanNavigationUITests-dummy.m"; sourceTree = "<group>"; };
 		7AC3E56F2EE8DA918D59461695CA0A73 /* ParseError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseError.swift; path = Sources/ParseError.swift; sourceTree = "<group>"; };
-		7C89446B3A9A97B6C89B78049B1941FB /* Pods-StundenplanNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanNavigation.modulemap"; sourceTree = "<group>"; };
+		7C89446B3A9A97B6C89B78049B1941FB /* Pods-StundenplanNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StundenplanNavigation.modulemap"; sourceTree = "<group>"; };
 		7C9843B706902FD213595947CC6490D4 /* Pods-StundenplanNavigation-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigation-frameworks.sh"; sourceTree = "<group>"; };
 		7D11884996774307AC571FE915381DDA /* DocumentType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocumentType.swift; path = Sources/DocumentType.swift; sourceTree = "<group>"; };
 		7E06B99125D7235986F5D7B72C6375A2 /* HtmlTreeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HtmlTreeBuilder.swift; path = Sources/HtmlTreeBuilder.swift; sourceTree = "<group>"; };
 		7EDB43AA2FDB62DE2468619ADB70B503 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F7FD406C16D40044B9C6C9CA8766FBC /* SwiftSoup.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftSoup.modulemap; sourceTree = "<group>"; };
+		7F7FD406C16D40044B9C6C9CA8766FBC /* SwiftSoup.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftSoup.modulemap; sourceTree = "<group>"; };
 		7FDCF5CC7CF2C5D8A9614A7594208FA7 /* Attributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Attributes.swift; path = Sources/Attributes.swift; sourceTree = "<group>"; };
-		81F9628BFBBE1A891305BB0A42DB3DD5 /* Pods-StundenplanNavigationTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanNavigationTests.modulemap"; sourceTree = "<group>"; };
+		81F9628BFBBE1A891305BB0A42DB3DD5 /* Pods-StundenplanNavigationTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StundenplanNavigationTests.modulemap"; sourceTree = "<group>"; };
 		85BA06715F85D033EEFF5E596790DFC3 /* OrderedDictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OrderedDictionary.swift; path = Sources/OrderedDictionary.swift; sourceTree = "<group>"; };
 		86DC33BF4B47B4021DF6CA2F9FD66666 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8773C569D0FC2A9C8FA36A32FAB20A10 /* Pods_StundenplanWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanWidget.framework; path = "Pods-StundenplanWidget.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8773C569D0FC2A9C8FA36A32FAB20A10 /* Pods_StundenplanWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88AD2063C746E24C76A695124CB8F61C /* Cleaner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cleaner.swift; path = Sources/Cleaner.swift; sourceTree = "<group>"; };
 		891F553D19B720459C76E855199AE6A8 /* Collector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Collector.swift; path = Sources/Collector.swift; sourceTree = "<group>"; };
 		91F70944F55E23CA9F1AA9C3F5E543E6 /* Attribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Attribute.swift; path = Sources/Attribute.swift; sourceTree = "<group>"; };
 		92398983D7AFAC12B5F447D3D18E47AD /* Pods-StundenplanNavigationUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanNavigationUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97B9BE6A120CF124AC947FD213458C40 /* TextNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextNode.swift; path = Sources/TextNode.swift; sourceTree = "<group>"; };
 		9A1C5C6357B71AF5FED442F9E3F6C77C /* XmlDeclaration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XmlDeclaration.swift; path = Sources/XmlDeclaration.swift; sourceTree = "<group>"; };
 		9C4532EDDABFCF405690669587581F4A /* Pods-StundenplanFramework-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanFramework-resources.sh"; sourceTree = "<group>"; };
 		9CF8CDB58FEC3DF8E9E9C788D7986C1A /* Evaluator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Evaluator.swift; path = Sources/Evaluator.swift; sourceTree = "<group>"; };
-		9ED0F412129E2F60DDA5A091AB9C09DC /* Pods-StundenplanWidget.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanWidget.modulemap"; sourceTree = "<group>"; };
+		9ED0F412129E2F60DDA5A091AB9C09DC /* Pods-StundenplanWidget.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StundenplanWidget.modulemap"; sourceTree = "<group>"; };
 		A060C6BF3EB96502284C4EED48AE8473 /* Entities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entities.swift; path = Sources/Entities.swift; sourceTree = "<group>"; };
 		A5C699DC348D289409414BCFACDADC92 /* Selector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Selector.swift; path = Sources/Selector.swift; sourceTree = "<group>"; };
 		A76EAE6697CB33DB7E9A68DB366A54DF /* Pods-StundenplanNavigationUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StundenplanNavigationUITests-resources.sh"; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		C280FF2A782E9816A805ED3530B69198 /* Pods-StundenplanWidget-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StundenplanWidget-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C5A1FDBFD8A4C10159D5648D741FAABF /* TokenQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenQueue.swift; path = Sources/TokenQueue.swift; sourceTree = "<group>"; };
 		C760235AA79CDEC4EAA960E3AB8B3BF9 /* Pods-StundenplanNavigation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanNavigation-umbrella.h"; sourceTree = "<group>"; };
-		CBEE68CD0FECB208D4435D397E23F3A6 /* SwiftSoup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftSoup.framework; path = SwiftSoup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBEE68CD0FECB208D4435D397E23F3A6 /* SwiftSoup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSoup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0956AF381D1BCA58B1DB673ADE2D36F /* UnicodeScalar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnicodeScalar.swift; path = Sources/UnicodeScalar.swift; sourceTree = "<group>"; };
 		D61E30D96D9E0C51D7D98102AF5F400C /* Comment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Sources/Comment.swift; sourceTree = "<group>"; };
 		D82C0363736F54D355C889057930C8FA /* StringUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtil.swift; path = Sources/StringUtil.swift; sourceTree = "<group>"; };
@@ -211,12 +211,12 @@
 		E7E9CAE847A747B6035DD7897522E6B3 /* StructuralEvaluator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StructuralEvaluator.swift; path = Sources/StructuralEvaluator.swift; sourceTree = "<group>"; };
 		EB52349E8DBF3FCE89A138FFE5F1955F /* SwiftSoup-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSoup-umbrella.h"; sourceTree = "<group>"; };
 		EFD0F3E0DDC585E494A03813D91F9414 /* Pods-StundenplanNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StundenplanNavigation.debug.xcconfig"; sourceTree = "<group>"; };
-		F1AC635DCC99B8EC7EEF1E4FBEBE079E /* Pods-StundenplanFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StundenplanFramework.modulemap"; sourceTree = "<group>"; };
+		F1AC635DCC99B8EC7EEF1E4FBEBE079E /* Pods-StundenplanFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StundenplanFramework.modulemap"; sourceTree = "<group>"; };
 		F2005E18A17D8432D600D482946D4853 /* TreeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TreeBuilder.swift; path = Sources/TreeBuilder.swift; sourceTree = "<group>"; };
 		F2DF94B4A7E96608E4C28CA87594E86E /* HtmlTreeBuilderState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HtmlTreeBuilderState.swift; path = Sources/HtmlTreeBuilderState.swift; sourceTree = "<group>"; };
 		FA6624F64CD104A5B090FB1650EBBA42 /* OrderedSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OrderedSet.swift; path = Sources/OrderedSet.swift; sourceTree = "<group>"; };
 		FE13344FC6478698670191ADF5D23924 /* Pods-StundenplanFramework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StundenplanFramework-umbrella.h"; sourceTree = "<group>"; };
-		FE1839C6934027130FCD8FA5E87E6FBB /* Pods_StundenplanNavigationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StundenplanNavigationUITests.framework; path = "Pods-StundenplanNavigationUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE1839C6934027130FCD8FA5E87E6FBB /* Pods_StundenplanNavigationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7843E8F101923A2476B145E8CE4DEA /* Pods-StundenplanNavigation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanNavigation-dummy.m"; sourceTree = "<group>"; };
 		FEDAFD7833213E53F41C0A00CEC200AD /* Pods-StundenplanNavigationTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StundenplanNavigationTests-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -359,7 +359,6 @@
 				579FD986C85730D8DF75FB2A4152B0BD /* XmlTreeBuilder.swift */,
 				BDA46F0D81E0F1D9995A5ED7DB62D096 /* Support Files */,
 			);
-			name = SwiftSoup;
 			path = SwiftSoup;
 			sourceTree = "<group>";
 		};
@@ -665,7 +664,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1087,6 +1086,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;

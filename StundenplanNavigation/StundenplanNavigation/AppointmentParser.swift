@@ -32,7 +32,7 @@ class AppointmentParser {
             }
             
             if let data = data{
-                print("Download of Appointments ...")
+                //print("Download of Appointments ...")
                 let website=String(data: data, encoding: .utf8)
                 if let website = website{
                     let appointments = self.parseAppointments(html: website)
@@ -69,21 +69,15 @@ class AppointmentParser {
             let th_first_text = th_first.first()?.ownText()
             
             if(UserData.sharedInstance.currentSemester == "SS") {
-                print("appointments for SS...")
                 if(th_first_text?.contains("Sommersemester"))! {
-                    print("appointments table index = 0")
                     table_index = 0
                 } else {
-                    print("appointments table index = 1")
                     table_index = 1
                 }
             } else {
-                print("appointments for WS...")
                 if(th_first_text?.contains("Wintersemester"))! {
-                    print("appointments table index = 0")
                     table_index = 0
                 } else {
-                    print("appointments table index = 1")
                     table_index = 1
                 }
             }

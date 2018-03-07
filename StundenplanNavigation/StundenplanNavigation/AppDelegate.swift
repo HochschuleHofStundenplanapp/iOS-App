@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 //      registerForPushNotification()
         UIApplication.shared.registerForRemoteNotifications()
         
+        
         return true
     }
     
@@ -64,11 +65,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         case Faculty.engineeringSciences.faculty:
             appColor.faculty = Faculty.engineeringSciences
         default:
-            print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
+            //print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
             appColor.faculty = Faculty.default
         }
         
-        print("loaded Color", appColor.faculty)
+        //print("loaded Color", appColor.faculty)
         
         let barButton = UIBarButtonItem.appearance()
         barButton.tintColor = UIColor.white
@@ -78,13 +79,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        print("DeviceToken: \(token)")
+        //print("DeviceToken: \(token)")
         forwardTokenToServer(deviceToken: token)
     }
     func forwardTokenToServer(deviceToken: String){
         //now find all courses
         let lectures = UserData.sharedInstance.selectedSchedule.getOneDimensionalList()
-        print("lectures->count\(lectures.count)")
+        //print("lectures->count\(lectures.count)")
         var jsonLectures : [String: [Any]] = [:]
         var tmpArray: [String] = []
         for item in lectures{
@@ -145,17 +146,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
                 request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 
-                print(params)
+                //print(params)
                 
                 //http request
                 URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
                     if let safeData = data{
-                        print("response: \(String(describing: String(data:safeData, encoding:.utf8)))")
+                        //print("response: \(String(describing: String(data:safeData, encoding:.utf8)))")
                     }
                     }.resume()
 
             }
-        else{
+            else{
                     print("oops! Something went wrong")
         }
         
@@ -247,7 +248,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("recive Notification do something with it")
+        //print("recive Notification do something with it")
         UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
         switch application.applicationState{
             case .active:
@@ -282,7 +283,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     func registerForPushNotification(){
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
-            print("Permission granted: \(granted)")
+            //print("Permission granted: \(granted)")
         }
     }
 

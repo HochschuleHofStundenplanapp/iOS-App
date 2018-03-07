@@ -36,6 +36,7 @@ class ScheduleTableViewController: UITableViewController {
             // Fallback on earlier versions
         }
         
+        //TODO
         let taskItemIndex = 2
         let taskNavigationCtrl = tabBarController?.viewControllers?[taskItemIndex] as! UINavigationController
         let taskCtrl = taskNavigationCtrl.childViewControllers[0] as! TaskViewController
@@ -66,11 +67,11 @@ class ScheduleTableViewController: UITableViewController {
         case Faculty.engineeringSciences.faculty:
             appColor.faculty = Faculty.engineeringSciences
         default:
-            print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
+            //print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
             appColor.faculty = Faculty.default
         }
         
-        print("loaded Color", appColor.faculty)
+        //print("loaded Color", appColor.faculty)
 
         UINavigationBar.appearance().barTintColor = appColor.tintColor
         tabBarController?.tabBar.tintColor = appColor.tintColor

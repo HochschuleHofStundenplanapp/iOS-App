@@ -26,14 +26,14 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         wCell.setLecture(lecture: (lecture,day))
         
         // Kann man sicher besser machen
+        //TODO JA
         if indexPath.row == 0 && wCell.nowOutlet.text == "NÄCHSTE" {
             firstIsNext = true
         }else if indexPath.row == 1 && firstIsNext && wCell.nowOutlet.text == "NÄCHSTE"{
-            wCell.nowOutlet.text = "ÜBERNÄCHSTE"
+            wCell.nowOutlet.text = "NÄCHSTE"
         }
         
         if DataObjectPersistency().loadDataObject().showAppointments{
-            print("show appointments in widget")
             if let appointment = checkForAppointment(on: wCell.nowOutlet.text!){
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentCell") as! AppointmentCell
                 cell.AppointmentName.text = appointment.name
@@ -72,7 +72,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
             let appointments = userData.appointments
             
             for app in appointments[1].appointments {
-                print(Calendar.current.startOfDay(for: app.date.start))
+                //print(Calendar.current.startOfDay(for: app.date.start))
                 
                 if Calendar.current.startOfDay(for: app.date.start) == Calendar.current.startOfDay(for: date) {
                     return app

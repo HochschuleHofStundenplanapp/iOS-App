@@ -314,9 +314,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         }
     }
     
+    //TODO
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.selectedIndex
-        
+
         if(index == 3){
             let nc = viewController as! UINavigationController
             let vc = nc.childViewControllers[0] as! SettingsTableViewController
@@ -327,7 +328,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected Section: " + String(indexPath.section) + " row: " + String(indexPath.row))
+        //print("Selected Section: " + String(indexPath.section) + " row: " + String(indexPath.row))
         if (indexPath.section == 1 && indexPath.row == 1){
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -368,7 +369,6 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         UserData.sharedInstance.showAppointments = showAppointmentsSwitch.isOn
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
     }
-    
     
     
 }

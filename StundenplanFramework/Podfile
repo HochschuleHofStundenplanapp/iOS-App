@@ -14,8 +14,6 @@ target 'StundenplanNavigation' do
         # Pods for testing
     end
     
-    
-    
     target 'StundenplanNavigationUITests' do
         inherit! :search_paths
         # Pods for testing

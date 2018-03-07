@@ -46,5 +46,11 @@ class UITaskTableViewCell: UITableViewCell {
         }
         let nc = NotificationCenter.default
         nc.post(name: .completedTaskChanged, object: nil)
+        
+        if(task.checked) {
+            CalendarInterface.sharedInstance.removeTaskFromCalendar(task: task)
+        } else {
+            CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
+        }
     }
 }

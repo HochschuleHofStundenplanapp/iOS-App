@@ -36,7 +36,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         var myUrl = "\(Constants.baseURI)client.php?f=Changes&id[]="
         //print("selected lectures size \(selectedLectures.count)")
         for lecture in selectedLectures{
-            print("lecture splus\(lecture.splusname)")
+            //print("lecture splus\(lecture.splusname)")
             var splusname = lecture.splusname
             splusname = splusname.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
@@ -95,7 +95,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
         
         notifiyAllObservers(s: "fertig")
         
-        print("ScheduleChanges Controller All Jobs Done")
+        //print("ScheduleChanges Controller All Jobs Done")
     }
     /// Bricht im JobManager alle Netzwerkjobs ab
     func cancelAllNetworkJobs() -> Void  {
@@ -106,7 +106,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     {
         for observer in myObservers
         {
-            print("DataObserver wird benachrichtigt")
+            //print("DataObserver wird benachrichtigt")
             observer.update(s: "update")
         }
     }
@@ -120,7 +120,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
     {
         if let i = myObservers.index(where: { $0 === o }) {
             myObservers.remove(at: i)
-            print("DataObserver wurde entfernt")
+            //print("DataObserver wurde entfernt")
         }
     }
     

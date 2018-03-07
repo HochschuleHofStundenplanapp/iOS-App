@@ -26,6 +26,10 @@
 		0FC2FED51F953D3300BDDB0D /* TaskOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */; };
 		2643C2E2200D00AB007C8744 /* Pods_StundenplanNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */; };
 		26538D5F2047FCF900C0ADD8 /* AppointmentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26538D5E2047FCF900C0ADD8 /* AppointmentParser.swift */; };
+		2658E1C6204ECAC30048060D /* StundenplanWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 40E3D99A1FCC2163007B8722 /* StundenplanWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2658E1CE204ECB130048060D /* StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; };
+		2658E1CF204ECB130048060D /* StundenplanFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2658E1D3204ECB890048060D /* StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; };
 		26905DB51FE959970007E979 /* OnboardingSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */; };
 		26905DB71FE959AA0007E979 /* OnboardingPermissionsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsCalendarViewController.swift */; };
 		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
@@ -37,12 +41,9 @@
 		40B51E722012466D00FB2865 /* AppointmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B51E712012466D00FB2865 /* AppointmentTableViewController.swift */; };
 		40B51E752012545200FB2865 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B51E742012545200FB2865 /* AppointmentCell.swift */; };
 		40B51E772012551C00FB2865 /* AppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B51E762012551B00FB2865 /* AppointmentController.swift */; };
-		40E3D9921FCC20A0007B8722 /* StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; };
-		40E3D9931FCC20A0007B8722 /* StundenplanFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40E3D99C1FCC2163007B8722 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D99B1FCC2163007B8722 /* NotificationCenter.framework */; };
 		40E3D99F1FCC2163007B8722 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E3D99E1FCC2163007B8722 /* TodayViewController.swift */; };
 		40E3D9A21FCC2163007B8722 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40E3D9A01FCC2163007B8722 /* MainInterface.storyboard */; };
-		40E3D9A61FCC2163007B8722 /* StundenplanWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 40E3D99A1FCC2163007B8722 /* StundenplanWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		588D901DA68F5407B7D91A1E /* Pods_StundenplanNavigationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BADF20A1196EA8EC9E1F97C /* Pods_StundenplanNavigationTests.framework */; };
 		654BFEB81ED427D90023607D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB51ED427D90023607D /* CalendarController.swift */; };
 		654BFEBA1ED427D90023607D /* CalendarInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BFEB71ED427D90023607D /* CalendarInterface.swift */; };
@@ -56,7 +57,6 @@
 		8D623E60C23D5E8B71B10312 /* Pods_StundenplanNavigationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB13C8CFCD8116A8CD0FF52A /* Pods_StundenplanNavigationUITests.framework */; };
 		A3FEAFF01F9505820095D8F1 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEAFEF1F9505820095D8F1 /* TaskViewController.swift */; };
 		AA3AFCF62007A6B200CED69D /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AFCF52007A6B200CED69D /* AppColor.swift */; };
-		AEF6FA608106D0534DDBD6ED /* Pods_StundenplanWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F8C2D1D5FD9762E7E42587 /* Pods_StundenplanWidget.framework */; };
 		B00A7C211EC3012A00E1BAFE /* JobDataObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C201EC3012A00E1BAFE /* JobDataObserverProtocol.swift */; };
 		B00A7C231EC3015500E1BAFE /* JobDataObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A7C221EC3015500E1BAFE /* JobDataObservableProtocol.swift */; };
 		BE14C94F1EC1B45700925EAC /* JsonLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14C94E1EC1B45700925EAC /* JsonLectures.swift */; };
@@ -108,6 +108,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2658E1C7204ECAC30048060D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEAC96F81DB5FD350042FF3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40E3D9991FCC2163007B8722;
+			remoteInfo = StundenplanWidget;
+		};
+		2658E1D0204ECB130048060D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40E3D9881FCC2075007B8722 /* StundenplanFramework.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 17B938901FB9B94D002F8BD4;
+			remoteInfo = StundenplanFramework;
+		};
 		40E3D98D1FCC2075007B8722 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 40E3D9881FCC2075007B8722 /* StundenplanFramework.xcodeproj */;
@@ -121,20 +135,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 17B9389A1FB9B94D002F8BD4;
 			remoteInfo = StundenplanFrameworkTests;
-		};
-		40E3D9941FCC20A0007B8722 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 40E3D9881FCC2075007B8722 /* StundenplanFramework.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 17B938901FB9B94D002F8BD4;
-			remoteInfo = StundenplanFramework;
-		};
-		40E3D9A41FCC2163007B8722 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEAC96F81DB5FD350042FF3D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 40E3D9991FCC2163007B8722;
-			remoteInfo = StundenplanWidget;
 		};
 		CEAC97171DB5FD350042FF3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -153,26 +153,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		400590C21FC825770083F86C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				40E3D9931FCC20A0007B8722 /* StundenplanFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		40E3D9AA1FCC2163007B8722 /* Embed App Extensions */ = {
+		2658E1C9204ECAC30048060D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				40E3D9A61FCC2163007B8722 /* StundenplanWidget.appex in Embed App Extensions */,
+				2658E1C6204ECAC30048060D /* StundenplanWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2658E1D2204ECB130048060D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2658E1CF204ECB130048060D /* StundenplanFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -200,6 +200,7 @@
 		0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewViewController.swift; sourceTree = "<group>"; };
 		2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_StundenplanNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26538D5E2047FCF900C0ADD8 /* AppointmentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentParser.swift; sourceTree = "<group>"; };
+		2658E1CA204ECB050048060D /* Pods_StundenplanFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_StundenplanFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonChanges.swift; sourceTree = "<group>"; };
 		3848006B9AFF4FC80C560411 /* Pods-StundenplanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanWidget.debug.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		3BADF20A1196EA8EC9E1F97C /* Pods_StundenplanNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,8 +299,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2658E1D3204ECB890048060D /* StundenplanFramework.framework in Frameworks */,
 				40E3D99C1FCC2163007B8722 /* NotificationCenter.framework in Frameworks */,
-				AEF6FA608106D0534DDBD6ED /* Pods_StundenplanWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,8 +308,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2658E1CE204ECB130048060D /* StundenplanFramework.framework in Frameworks */,
 				2643C2E2200D00AB007C8744 /* Pods_StundenplanNavigation.framework in Frameworks */,
-				40E3D9921FCC20A0007B8722 /* StundenplanFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +662,7 @@
 		CEAC96F71DB5FD350042FF3D = {
 			isa = PBXGroup;
 			children = (
+				2658E1CA204ECB050048060D /* Pods_StundenplanFramework.framework */,
 				40E3D9881FCC2075007B8722 /* StundenplanFramework.xcodeproj */,
 				CEAC97021DB5FD350042FF3D /* StundenplanNavigation */,
 				CEAC97191DB5FD350042FF3D /* StundenplanNavigationTests */,
@@ -833,16 +835,16 @@
 				CEAC96FC1DB5FD350042FF3D /* Sources */,
 				CEAC96FD1DB5FD350042FF3D /* Frameworks */,
 				CEAC96FE1DB5FD350042FF3D /* Resources */,
-				400590C21FC825770083F86C /* Embed Frameworks */,
-				40E3D9AA1FCC2163007B8722 /* Embed App Extensions */,
 				5C853E75250857FC4887FAC7 /* [CP] Embed Pods Frameworks */,
 				41B4D922BAF79686F720297F /* [CP] Copy Pods Resources */,
+				2658E1C9204ECAC30048060D /* Embed App Extensions */,
+				2658E1D2204ECB130048060D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				40E3D9951FCC20A0007B8722 /* PBXTargetDependency */,
-				40E3D9A51FCC2163007B8722 /* PBXTargetDependency */,
+				2658E1C8204ECAC30048060D /* PBXTargetDependency */,
+				2658E1D1204ECB130048060D /* PBXTargetDependency */,
 			);
 			name = StundenplanNavigation;
 			productName = StundenplanNavigation;
@@ -1321,15 +1323,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		40E3D9951FCC20A0007B8722 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = StundenplanFramework;
-			targetProxy = 40E3D9941FCC20A0007B8722 /* PBXContainerItemProxy */;
-		};
-		40E3D9A51FCC2163007B8722 /* PBXTargetDependency */ = {
+		2658E1C8204ECAC30048060D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 40E3D9991FCC2163007B8722 /* StundenplanWidget */;
-			targetProxy = 40E3D9A41FCC2163007B8722 /* PBXContainerItemProxy */;
+			targetProxy = 2658E1C7204ECAC30048060D /* PBXContainerItemProxy */;
+		};
+		2658E1D1204ECB130048060D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = StundenplanFramework;
+			targetProxy = 2658E1D0204ECB130048060D /* PBXContainerItemProxy */;
 		};
 		CEAC97181DB5FD350042FF3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1380,6 +1382,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = StundenplanWidget/StundenplanWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1403,6 +1406,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = StundenplanWidget/StundenplanWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

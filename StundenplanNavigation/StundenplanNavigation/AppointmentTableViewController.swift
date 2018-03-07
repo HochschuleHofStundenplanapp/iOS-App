@@ -31,7 +31,7 @@ class AppointmentTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     @IBAction func butReload(_ sender: UIButton) {
-        print("parse appointments again...")
+        //print("parse appointments again...")
         let parser = AppointmentParser()
         parser.delegate = self
         parser.downloadAndParseAppointmentContent()
