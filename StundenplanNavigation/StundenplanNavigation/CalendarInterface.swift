@@ -41,16 +41,47 @@ class CalendarInterface: NSObject {
         
         newCalendar.title = Constants.calendarTitle
         
-        newCalendar.source = eventStore.defaultCalendarForNewEvents?.source
-        do {
-            try self.eventStore.saveCalendar(newCalendar, commit: true)
-            self.calendar = newCalendar
+        //NEU: in iCloud und alternativ local
+        let sourcesInEventStore = eventStore.sources
+        
+        // Filter the available sources and select the "icloud" source to assign to the new calendar's
+        // source property
+        print("create icloud calendar")
+        newCalendar.source = sourcesInEventStore.filter{
+            (source: EKSource) -> Bool in
+            source.sourceType.rawValue == EKSourceType.calDAV.rawValue
+            }.first
             
+        if newCalendar.source == nil {
+            print("create lokal calendar")
+            newCalendar.source = sourcesInEventStore.filter{
+                (source: EKSource) -> Bool in
+                source.sourceType.rawValue == EKSourceType.local.rawValue
+                }.first!
+        }
+        
+        // Save the calendar using the Event Store instance
+        do {
+            try eventStore.saveCalendar(newCalendar, commit: true)
+            
+            self.calendar = newCalendar
             UserData.sharedInstance.calendarIdentifier = calendar?.calendarIdentifier
         } catch {
             print(error)
             print("Fehler bei create Calendar")
         }
+        
+        //ALT
+//        newCalendar.source = eventStore.defaultCalendarForNewEvents?.source
+//        do {
+//            try self.eventStore.saveCalendar(newCalendar, commit: true)
+//            self.calendar = newCalendar
+//
+//            UserData.sharedInstance.calendarIdentifier = calendar?.calendarIdentifier
+//        } catch {
+//            print(error)
+//            print("Fehler bei create Calendar")
+//        }
     }
     
     /**
@@ -123,9 +154,6 @@ class CalendarInterface: NSObject {
             var identifierStoredInUserData = false
             var storedIdentifier = ""
             
-            let userdata = UserData.sharedInstance
-            print("\(userdata)")
-            print("\(userdata.calendarIdentifier)")
             //identifier bereits gespeichert
             if UserData.sharedInstance.calendarIdentifier != nil {
                 identifierStoredInUserData = true

@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 //      registerForPushNotification()
         UIApplication.shared.registerForRemoteNotifications()
         
-        
         return true
     }
     
@@ -150,7 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
                 
                 //http request
                 URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
-                    if let safeData = data{
+                    if let _ = data{
                         //print("response: \(String(describing: String(data:safeData, encoding:.utf8)))")
                     }
                     }.resume()
