@@ -27,9 +27,9 @@ class TaskTableViewDelegate: NSObject, UITableViewDelegate {
         viewCtrl?.performSegue(withIdentifier: "TasksToTaskDetail", sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66.0
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 66.0
+//    }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView

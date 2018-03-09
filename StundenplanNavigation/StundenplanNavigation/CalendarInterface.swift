@@ -434,6 +434,7 @@ class CalendarInterface: NSObject {
     
     public func addTaskToCalendar(task: Task) {
         var foundLectureToTask = false
+        print("addTask: \(task)")
 
         if let events = getCalendarEvents() {
             for event in events {

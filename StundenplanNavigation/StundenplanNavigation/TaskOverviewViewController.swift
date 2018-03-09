@@ -50,6 +50,10 @@ class TaskOverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        taskDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        taskDescriptionTextView.layer.borderWidth = 0.5
+        
         setUpUI()
         setUpSpecialKeyboards()
     }
@@ -80,6 +84,7 @@ class TaskOverviewViewController: UIViewController {
             taskTitleTextField.borderStyle = .none
             taskDueDateTextField.borderStyle = .none
             taskLectureTextField.borderStyle = .none
+            taskDescriptionTextView.layer.borderWidth = 0.0
             displayTask()
         case .edit:
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig", style: .done, target: self, action: #selector(displayTaskAction(_:)))
@@ -87,6 +92,8 @@ class TaskOverviewViewController: UIViewController {
             taskTitleTextField.borderStyle = .roundedRect
             taskDueDateTextField.borderStyle = .roundedRect
             taskLectureTextField.borderStyle = .roundedRect
+            taskDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+            taskDescriptionTextView.layer.borderWidth = 0.5
             
             taskTitleTextField.isUserInteractionEnabled = true
             taskDueDateTextField.isUserInteractionEnabled = true
@@ -136,17 +143,30 @@ class TaskOverviewViewController: UIViewController {
     }
     
     @objc func editTaskAction(_ sender: UIBarButtonItem) {
-        //print("Edit Task Aktion")
+        print("Edit Task Aktion")
         receivedViewMode = ViewMode.edit
-        saveTask()
+        removeTaskFromCal()
         setUpUI()
     }
     
     @objc func displayTaskAction(_ sender: UIBarButtonItem) {
-        //print("Display Task Aktion")
+        print("Display Task Aktion")
         receivedViewMode = ViewMode.detail
         saveTask()
         setUpUI()
+    }
+    
+    private func removeTaskFromCal() {
+        receivedTask.title = taskTitleTextField.text!
+        receivedTask.lecture = taskLectureTextField.text!
+        receivedTask.taskDescription = taskDescriptionTextView.text!
+        
+        guard let task = receivedTask else {
+            DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
+            return
+        }
+        
+        CalendarInterface.sharedInstance.removeTaskFromCalendar(task: task)
     }
     
     private func saveTask(shouldAppend appendTask: Bool = false) {
@@ -165,9 +185,9 @@ class TaskOverviewViewController: UIViewController {
             CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
 
         }
-        //Task wird gelöscht
+        //Task wird im Kalender hinzugefügt
         else {
-            CalendarInterface.sharedInstance.removeTaskFromCalendar(task: task)
+            CalendarInterface.sharedInstance.addTaskToCalendar(task: task)
         }
         
         //muss das hier sein? legt task immer wieder neu an, eher in if appendTask??

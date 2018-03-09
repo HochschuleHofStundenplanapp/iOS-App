@@ -111,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         let isValidJson = JSONSerialization.isValidJSONObject(payload)
         if isValidJson{
             sendToServer(jsonObject: payload)
+            print("register push by server")
         }else{
             print("JSON not valid")
         }
@@ -132,7 +133,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             if let dict = resourceFileDictinoary{
                 if !(dict["isPushTesting"] as! Bool){
                    let productive = dict["ProductiveURL"] as! String
-                    myUrl = productive + "fcm_update_and_send.php?os=1" // 0 = Android, 1 = iOS
+//                    myUrl = productive + "fcm_update_and_send.php?os=1" // 0 = Android, 1 = iOS
+                    myUrl = productive + "fcm_register_user.php?os=1" // 0 = Android, 1 = iOS
                 }
                 else{
                     myUrl = dict["TestURL"] as! String + "fcm_register_user.php?os=1"
@@ -145,7 +147,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
                 request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 
-                //print(params)
+//                print("URL: \(myUrl)")
+//                print(params)
                 
                 //http request
                 URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in

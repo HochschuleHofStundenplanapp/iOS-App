@@ -47,6 +47,10 @@ class CalendarController: NSObject {
             if(oldChanges.count > 0){
                 updateAllEvents(changes: oldChanges)
             }
+            
+            for curr in TaskDisplayController().flatTaskArray() {
+                CalendarInterface.sharedInstance.addTaskToCalendar(task: curr)
+            }
         }
     }
     

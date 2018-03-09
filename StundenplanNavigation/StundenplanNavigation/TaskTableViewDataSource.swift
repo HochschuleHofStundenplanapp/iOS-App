@@ -21,7 +21,11 @@ class TaskTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return taskDisplayCtrl.sectionHeaderTitle(at: section)
+        var title = taskDisplayCtrl.sectionHeaderTitle(at: section)
+        if title == "" {
+            title = "Allgmeine Aufgabe"
+        }
+        return title
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
