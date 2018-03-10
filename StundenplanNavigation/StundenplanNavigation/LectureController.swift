@@ -93,7 +93,7 @@ class LectureController: NSObject, DataObserverProtocol {
         
         if tmpSelectedLectures.contains(lecture: clickedLecture){
             let indexPath = tmpSelectedLectures.getIndexPath(for: clickedLecture)
-            print("toggleLecture(at indexPath: IndexPath) L: \(indexPath)")
+            //print("toggleLecture(at indexPath: IndexPath) L: \(indexPath)")
             tmpSelectedLectures.remove(at: indexPath)
             
         } else {

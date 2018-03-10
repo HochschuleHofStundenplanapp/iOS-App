@@ -35,7 +35,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
         let changes = userData.oldChanges
         let calendar = Calendar.current
         
-        let todayChanges = changes.filter({calendar.isDateInToday($0.combinedOldDate)})
+        //changes for today
+        //let todayChanges = changes.filter({calendar.isDateInToday($0.combinedOldDate)})
+        //Test all changes in future
+        let todayChanges = changes.filter({($0.combinedOldDate > Date()) || ($0.combinedNewDate > Date())})
         if todayChanges.count > 0 {
             changesHeightConstraint.constant = 18
         }else{

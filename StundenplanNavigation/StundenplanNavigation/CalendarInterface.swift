@@ -46,14 +46,14 @@ class CalendarInterface: NSObject {
         
         // Filter the available sources and select the "icloud" source to assign to the new calendar's
         // source property
-        print("create icloud calendar")
+        //print("create icloud calendar")
         newCalendar.source = sourcesInEventStore.filter{
             (source: EKSource) -> Bool in
             source.sourceType.rawValue == EKSourceType.calDAV.rawValue
             }.first
             
         if newCalendar.source == nil {
-            print("create lokal calendar")
+            //print("create lokal calendar")
             newCalendar.source = sourcesInEventStore.filter{
                 (source: EKSource) -> Bool in
                 source.sourceType.rawValue == EKSourceType.local.rawValue
@@ -434,15 +434,19 @@ class CalendarInterface: NSObject {
     
     public func addTaskToCalendar(task: Task) {
         var foundLectureToTask = false
-        print("addTask: \(task)")
+//        print("addTask: \(task)")
 
         if let events = getCalendarEvents() {
             for event in events {
                 //Termin für Lecture an diesem Tag
                 if event.title == task.lecture && event.startDate.formattedDate == task.dueDate.formattedDate {
                     foundLectureToTask = true
-                    let taskNote = "\n\(task.title)\n\(task.taskDescription)"
-                    event.notes?.append(taskNote)
+                    let taskNote = "offene Aufgabe: \(task.title)\n\(task.taskDescription)"
+                    if event.notes == nil {
+                        event.notes = taskNote
+                    } else {
+                        event.notes?.append("\n\(taskNote)")
+                    }
                     event.title.insert(contentsOf: Constants.hasTaskNote, at: event.title.startIndex)
                     do {
                         try eventStore.save(event, span: .thisEvent)
@@ -462,7 +466,7 @@ class CalendarInterface: NSObject {
                 if(task.lecture != "") {
                     event.title.append(" [\(task.lecture)]")
                 }
-                event.notes     = "\n\(task.title)\n\(task.taskDescription)"
+                event.notes     = "\(task.title)\n\(task.taskDescription)"
                 event.startDate = task.dueDate
                 event.endDate = task.dueDate
                 event.isAllDay  = true
@@ -486,12 +490,12 @@ class CalendarInterface: NSObject {
     }
     
     public func removeTaskFromCalendar(task: Task) {
+//        print("task: \(task.title) \(task.dueDate) \(task.taskDescription)")
         if let events = getCalendarEvents() {
             for event in events {
-                //print("stored event: \(event)")
-                //print("task: \(task.title) \(task.dueDate) \(task.taskDescription)")
+//                print("remove event: \(event)")
                 if event.title == "\(Constants.hasTaskNote)\(task.lecture)" && event.startDate.formattedDate == task.dueDate.formattedDate {
-                    let taskNote = "\n\(task.title)\n\(task.taskDescription)"
+                    let taskNote = "offene Aufgabe: \(task.title)\n\(task.taskDescription)"
                     event.notes = event.notes?.replacingOccurrences(of: taskNote, with: "")
                     event.title = event.title.replacingOccurrences(of: Constants.hasTaskNote, with: "")
                     do {

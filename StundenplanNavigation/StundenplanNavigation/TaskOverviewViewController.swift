@@ -143,14 +143,14 @@ class TaskOverviewViewController: UIViewController {
     }
     
     @objc func editTaskAction(_ sender: UIBarButtonItem) {
-        print("Edit Task Aktion")
+        //print("Edit Task Aktion")
         receivedViewMode = ViewMode.edit
         removeTaskFromCal()
         setUpUI()
     }
     
     @objc func displayTaskAction(_ sender: UIBarButtonItem) {
-        print("Display Task Aktion")
+        //print("Display Task Aktion")
         receivedViewMode = ViewMode.detail
         saveTask()
         setUpUI()

@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 
     var window: UIWindow?
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserData.sharedInstance = DataObjectPersistency().loadDataObject()
         
