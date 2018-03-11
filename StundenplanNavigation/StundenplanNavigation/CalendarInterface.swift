@@ -49,7 +49,9 @@ class CalendarInterface: NSObject {
         //print("create icloud calendar")
         newCalendar.source = sourcesInEventStore.filter{
             (source: EKSource) -> Bool in
-            source.sourceType.rawValue == EKSourceType.calDAV.rawValue
+            (source.sourceType.rawValue == EKSourceType.calDAV.rawValue)
+            &&
+            (source.title == "iCloud")
             }.first
             
         if newCalendar.source == nil {

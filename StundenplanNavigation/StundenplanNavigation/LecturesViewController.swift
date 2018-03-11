@@ -41,7 +41,7 @@ class LecturesViewController: UIViewController {
         DispatchQueue.global().async {
             self.settingsController.commitChanges()
             DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
+                //UIApplication.shared.registerForRemoteNotifications()
                 self.backgroundProgressIndicator.stopActivityIndicator()
             }
         }

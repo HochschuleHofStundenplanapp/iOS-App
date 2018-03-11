@@ -333,7 +333,7 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        if (indexPath.section == 1 && indexPath.row == 2){
+        if (indexPath.section == 2 && indexPath.row == 1){
             showOnboardingAgain()
         }
     }

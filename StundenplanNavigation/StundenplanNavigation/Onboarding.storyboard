@@ -166,227 +166,32 @@ Die aktuelle Version bietet folgende Funktionen:
                                         <attributes>
                                             <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="15" name="AppleMyungjo"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" Aufgabenplaner">
                                         <attributes>
                                             <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" ">
                                         <attributes>
                                             <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="◼︎">
                                         <attributes>
                                             <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="15" name="AppleMyungjo"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" neues modernes Layout">
                                         <attributes>
                                             <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -473,7 +278,7 @@ Die aktuelle Version bietet folgende Funktionen:
             </objects>
             <point key="canvasLocation" x="376.80000000000001" y="43.628185907046479"/>
         </scene>
-        <!--Schritt 1 von 6-->
+        <!--Schritt 1 von 5-->
         <scene sceneID="IkY-HJ-e0a">
             <objects>
                 <viewController storyboardIdentifier="onboardingFacultyID" id="x9J-Mn-pnM" customClass="OnboardingFacultyViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -552,7 +357,7 @@ Die aktuelle Version bietet folgende Funktionen:
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ja-GW-G3o"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 1 von 6" id="egV-KF-ztB">
+                    <navigationItem key="navigationItem" title="Schritt 1 von 5" id="egV-KF-ztB">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="SHQ-O1-mJs"/>
                         <barButtonItem key="leftBarButtonItem" title="Abbrechen" id="Dnd-cE-3Bt">
                             <connections>
@@ -575,7 +380,7 @@ Die aktuelle Version bietet folgende Funktionen:
             </objects>
             <point key="canvasLocation" x="2308" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 2 von 6-->
+        <!--Schritt 2 von 5-->
         <scene sceneID="sim-tb-Wio">
             <objects>
                 <viewController storyboardIdentifier="onboardingCourseID" id="xHZ-Kp-1gc" customClass="OnboardingCourseViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -653,7 +458,7 @@ Die aktuelle Version bietet folgende Funktionen:
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c95-x5-UZF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 2 von 6" id="FLG-YE-O83">
+                    <navigationItem key="navigationItem" title="Schritt 2 von 5" id="FLG-YE-O83">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="ljD-Ng-SRe"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="Jkw-cE-g1p">
                             <connections>
@@ -688,7 +493,7 @@ Die aktuelle Version bietet folgende Funktionen:
             </objects>
             <point key="canvasLocation" x="1361" y="44"/>
         </scene>
-        <!--Schritt 3 von 6-->
+        <!--Schritt 3 von 5-->
         <scene sceneID="cf4-MD-Dvg">
             <objects>
                 <viewController id="bUF-XS-zbM" customClass="OnboardingSemesterViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -768,7 +573,7 @@ Die aktuelle Version bietet folgende Funktionen:
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H4L-CX-Dy0"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 3 von 6" id="q9c-dp-rav">
+                    <navigationItem key="navigationItem" title="Schritt 3 von 5" id="q9c-dp-rav">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="cyp-Cq-VVM"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="eSf-Pa-eH6">
                             <connections>
@@ -785,7 +590,7 @@ Die aktuelle Version bietet folgende Funktionen:
             </objects>
             <point key="canvasLocation" x="4072.8000000000002" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 4 von 6-->
+        <!--Schritt 4 von 5-->
         <scene sceneID="2t1-qp-s3W">
             <objects>
                 <viewController id="wY3-TX-CE6" customClass="OnboardingLecturesViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -919,12 +724,12 @@ Die aktuelle Version bietet folgende Funktionen:
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rWJ-6R-RB1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 4 von 6" id="ARU-rk-bq3">
+                    <navigationItem key="navigationItem" title="Schritt 4 von 5" id="ARU-rk-bq3">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="EMm-1B-xT6"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="swL-Ze-ARE">
                             <connections>
                                 <action selector="nextOnboardingScreenBarButtonAction:" destination="wY3-TX-CE6" id="0rg-zl-RZF"/>
-                                <segue destination="PLy-6Y-xwj" kind="show" identifier="OnboardingToPermissionsPush" id="igW-1s-Uu2"/>
+                                <segue destination="Imd-kk-mYB" kind="show" identifier="OnboardingToPermissionsCalendar" id="mUy-pc-ZZN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -939,7 +744,7 @@ Die aktuelle Version bietet folgende Funktionen:
             </objects>
             <point key="canvasLocation" x="5013.6000000000004" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 6 von 6-->
+        <!--Schritt 5 von 5-->
         <scene sceneID="eaA-rK-Hbb">
             <objects>
                 <viewController id="Imd-kk-mYB" customClass="OnboardingPermissionsCalendarViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -1050,7 +855,7 @@ Die aktuelle Version bietet folgende Funktionen:
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D5R-lS-bqc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 6 von 6" id="4v1-4v-8Pj">
+                    <navigationItem key="navigationItem" title="Schritt 5 von 5" id="4v1-4v-8Pj">
                         <barButtonItem key="rightBarButtonItem" title="Fertig" id="28O-Wc-Pn9">
                             <connections>
                                 <action selector="endOnboardingAction:" destination="Imd-kk-mYB" id="Dib-3E-imM"/>
@@ -1079,7 +884,7 @@ Die aktuelle Version bietet folgende Funktionen:
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Nutzung erlauben" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="D1S-E6-ste">
-                                <rect key="frame" x="16" y="256" width="343" height="20"/>
+                                <rect key="frame" x="16" y="212" width="343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="aJh-KJ-lJ1"/>
                                 </constraints>
@@ -1088,13 +893,13 @@ Die aktuelle Version bietet folgende Funktionen:
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_allowPush" translatesAutoresizingMaskIntoConstraints="NO" id="b71-tc-kqM">
-                                <rect key="frame" x="16" y="292" width="343" height="128"/>
+                                <rect key="frame" x="16" y="248" width="343" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b71-tc-kqM" secondAttribute="height" multiplier="343:128" id="YMT-Xp-dwS"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aI-dn-xtg">
-                                <rect key="frame" x="0.0" y="88" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH-BENACHRICHTIGUNGEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyK-Bk-T5A">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -1127,15 +932,22 @@ Die aktuelle Version bietet folgende Funktionen:
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9s-q2-30Q">
-                                <rect key="frame" x="16" y="428" width="343" height="30"/>
+                                <rect key="frame" x="16" y="384" width="343" height="30"/>
                                 <state key="normal" title="Push erlauben"/>
                                 <connections>
                                     <action selector="requestPushNotificationPermissionAction:" destination="PLy-6Y-xwj" eventType="touchUpInside" id="JHd-ai-aE2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opS-uT-vcJ">
+                                <rect key="frame" x="0.0" y="422" width="375" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="opS-uT-vcJ" firstAttribute="top" secondItem="e9s-q2-30Q" secondAttribute="bottom" constant="8" id="6DR-a2-T3A"/>
                             <constraint firstItem="b71-tc-kqM" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="9R4-7t-Mqn"/>
                             <constraint firstItem="D1S-E6-ste" firstAttribute="top" secondItem="4aI-dn-xtg" secondAttribute="bottom" constant="48" id="FUq-3G-dKX"/>
                             <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="D1S-E6-ste" secondAttribute="trailing" constant="16" id="HVN-F6-ppY"/>
@@ -1144,24 +956,27 @@ Die aktuelle Version bietet folgende Funktionen:
                             <constraint firstItem="D1S-E6-ste" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="TpJ-C6-46w"/>
                             <constraint firstItem="e9s-q2-30Q" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="Y4R-Ei-oGe"/>
                             <constraint firstItem="4aI-dn-xtg" firstAttribute="top" secondItem="aR7-IO-dab" secondAttribute="top" id="ZCt-b8-vqF"/>
+                            <constraint firstItem="opS-uT-vcJ" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" id="eLw-mz-qDe"/>
                             <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="e9s-q2-30Q" secondAttribute="trailing" constant="16" id="fjQ-Y0-smu"/>
                             <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="4aI-dn-xtg" secondAttribute="trailing" id="fyO-OX-yKQ"/>
                             <constraint firstItem="e9s-q2-30Q" firstAttribute="top" secondItem="b71-tc-kqM" secondAttribute="bottom" constant="8" id="oEl-ig-Esf"/>
                             <constraint firstItem="b71-tc-kqM" firstAttribute="top" secondItem="D1S-E6-ste" secondAttribute="bottom" constant="16" id="rHK-tr-X0E"/>
+                            <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="opS-uT-vcJ" secondAttribute="trailing" id="yrM-de-1s9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aR7-IO-dab"/>
                     </view>
                     <navigationItem key="navigationItem" title="Schritt 5 von 6" id="Jeu-KK-imK">
-                        <barButtonItem key="rightBarButtonItem" title="Weiter" id="aHa-gt-p57">
-                            <connections>
-                                <segue destination="Imd-kk-mYB" kind="show" identifier="OnboardingToPermissionsCalendar" id="0fs-ps-xZQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="rZ7-Ib-Zcb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Weiter" id="aHa-gt-p57"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="butRequestPush" destination="e9s-q2-30Q" id="ZQI-y4-GyP"/>
+                        <outlet property="labInfo" destination="opS-uT-vcJ" id="i9C-Zc-QXJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opQ-mj-Zze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5896.8000000000002" y="43.596059113300491"/>
+            <point key="canvasLocation" x="5890" y="439"/>
         </scene>
     </scenes>
     <resources>

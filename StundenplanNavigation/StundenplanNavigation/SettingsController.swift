@@ -81,9 +81,10 @@ class SettingsController: NSObject {
         UserData.sharedInstance.removedLectures = []
         UserData.sharedInstance.savedSplusnames = []
         UserData.sharedInstance.oldChanges = []
-        DispatchQueue.main.async {
-            UIApplication.shared.registerForRemoteNotifications()
-        }
+        
+//        DispatchQueue.main.async {
+//            UIApplication.shared.registerForRemoteNotifications()
+//        }
 
 
     }

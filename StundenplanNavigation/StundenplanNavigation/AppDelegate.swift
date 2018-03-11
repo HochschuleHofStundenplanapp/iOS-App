@@ -37,8 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 //      ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
         checkForSemesterAppointments()
 //      print("Server: \(ServerData.sharedInstance.allChanges)")
-//      registerForPushNotification()
-        UIApplication.shared.registerForRemoteNotifications()
+        
+        //beim App Start für Notifications und Push registrieren
+        registerForPushNotification()
         
         return true
     }
@@ -79,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         //print("DeviceToken: \(token)")
         forwardTokenToServer(deviceToken: token)
     }
+    
     func forwardTokenToServer(deviceToken: String){
         //now find all courses
         let lectures = UserData.sharedInstance.selectedSchedule.getOneDimensionalList()
@@ -280,10 +282,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     func removeAllNotifications(){
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
-    func registerForPushNotification(){
+    func registerForPushNotification() {
+        
+        //notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
-            //print("Permission granted: \(granted)")
+            print("Permission granted: \(granted)")
+           
+            guard granted else {
+                return
+            }
+            self.getNotificationSettings()
+        }
+    }
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+//            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+//            print("register for remote notifications")
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
 
