@@ -329,12 +329,12 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("Selected Section: " + String(indexPath.section) + " row: " + String(indexPath.row))
-        if (indexPath.section == 1 && indexPath.row == 1){
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        
         if (indexPath.section == 2 && indexPath.row == 1){
             showOnboardingAgain()
+        }
+        
+        if (indexPath.section == 2 && indexPath.row == 0){
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
