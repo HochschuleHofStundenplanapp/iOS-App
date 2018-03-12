@@ -42,6 +42,10 @@ class LecturesViewController: UIViewController {
             self.settingsController.commitChanges()
             DispatchQueue.main.async {
                 //UIApplication.shared.registerForRemoteNotifications()
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate  else {
+                    return
+                }
+                appDelegate.registerForPushNotification()
                 self.backgroundProgressIndicator.stopActivityIndicator()
             }
         }

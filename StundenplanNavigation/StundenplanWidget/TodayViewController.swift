@@ -59,17 +59,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, TableViewUpdater
             dataSource.expanded = false
             tableView.reloadData()
         }else{
+            //let cell =  tableView.cellForRow(at: tableView.indexPathsForVisibleRows![0])
+
             dataSource.expanded = true
             tableView.reloadData()
-            
-            let cell =  tableView.cellForRow(at: tableView.indexPathsForVisibleRows![0])
 
-            if let cell = cell{
+            if let row = tableView.indexPathsForVisibleRows{
+                let cell = tableView.cellForRow(at: row[0])
                 var count = CGFloat(dataSource.lectureCtrl.resultLectures.count)
                 if(count > 4) {
                     count = 4
                 }
-                preferredContentSize = CGSize(width: 0, height: CGFloat(cell.frame.height * count)+10+changesHeightConstraint.constant)
+                preferredContentSize = CGSize(width: 0, height: CGFloat((cell?.frame.height)! * count)+10+changesHeightConstraint.constant)
             }
             
         }

@@ -69,19 +69,19 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tablet Computing 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zep-JV-bjQ">
-                                                    <rect key="frame" x="15" y="19" width="219" height="20"/>
+                                                    <rect key="frame" x="15" y="19" width="227" height="20"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="11:30 - 13:00 Uhr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx3-D1-hEK">
-                                                    <rect key="frame" x="15" y="41" width="219" height="20"/>
+                                                    <rect key="frame" x="15" y="41" width="227" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="FB004A" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z66-5y-knj">
-                                                    <rect key="frame" x="15" y="63" width="221" height="20"/>
+                                                    <rect key="frame" x="15" y="63" width="229" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -99,11 +99,11 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlw-es-Fio" customClass="TimerView" customModule="StundenplanWidget" customModuleProvider="target">
-                                                    <rect key="frame" x="242" y="13" width="50" height="50"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xlw-es-Fio" customClass="TimerView" customModule="StundenplanWidget" customModuleProvider="target">
+                                                    <rect key="frame" x="250" y="13" width="50" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="85:30" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ej-lU-0Ba">
-                                                            <rect key="frame" x="10.5" y="19" width="29" height="12"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="85:30" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ej-lU-0Ba">
+                                                            <rect key="frame" x="5.5" y="19" width="40" height="12"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
@@ -124,6 +124,7 @@
                                                 <constraint firstItem="Zvd-q1-MRK" firstAttribute="leading" secondItem="lbx-4s-E3L" secondAttribute="leading" id="Cia-MI-Ku4"/>
                                                 <constraint firstItem="z66-5y-knj" firstAttribute="leading" secondItem="lbx-4s-E3L" secondAttribute="leadingMargin" id="E7o-cY-0a5"/>
                                                 <constraint firstItem="Zvd-q1-MRK" firstAttribute="top" secondItem="lbx-4s-E3L" secondAttribute="top" constant="6" id="GXQ-r9-kC5"/>
+                                                <constraint firstItem="xlw-es-Fio" firstAttribute="top" secondItem="RMM-Ti-4mQ" secondAttribute="bottom" constant="10" id="MgV-X2-lwv"/>
                                                 <constraint firstItem="RMM-Ti-4mQ" firstAttribute="leading" secondItem="lbx-4s-E3L" secondAttribute="leading" constant="8" id="Mxl-Ex-SqI"/>
                                                 <constraint firstAttribute="trailing" secondItem="Zvd-q1-MRK" secondAttribute="trailing" id="Nji-1D-okh"/>
                                                 <constraint firstItem="xPm-f9-KnD" firstAttribute="leading" secondItem="lbx-4s-E3L" secondAttribute="leading" id="XTr-ms-HYf"/>
@@ -132,8 +133,7 @@
                                                 <constraint firstItem="xPm-f9-KnD" firstAttribute="top" secondItem="lbx-4s-E3L" secondAttribute="top" id="iet-2J-br6"/>
                                                 <constraint firstAttribute="bottom" secondItem="z66-5y-knj" secondAttribute="bottom" constant="2" id="k1m-y6-cLP"/>
                                                 <constraint firstItem="Qx3-D1-hEK" firstAttribute="leading" secondItem="lbx-4s-E3L" secondAttribute="leadingMargin" id="o5d-kW-OgV"/>
-                                                <constraint firstItem="xlw-es-Fio" firstAttribute="centerY" secondItem="lbx-4s-E3L" secondAttribute="centerY" id="p2N-qv-u5P"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xlw-es-Fio" secondAttribute="trailing" constant="13" id="rtb-ZB-6Ur"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xlw-es-Fio" secondAttribute="trailing" constant="5" id="rtb-ZB-6Ur"/>
                                                 <constraint firstItem="xlw-es-Fio" firstAttribute="leading" secondItem="z66-5y-knj" secondAttribute="trailing" constant="6" id="tR9-pg-Nsm"/>
                                                 <constraint firstItem="xlw-es-Fio" firstAttribute="leading" secondItem="Qx3-D1-hEK" secondAttribute="trailing" constant="8" id="wKT-gL-4Lv"/>
                                                 <constraint firstItem="zep-JV-bjQ" firstAttribute="leading" secondItem="lbx-4s-E3L" secondAttribute="leadingMargin" id="yft-rU-DwZ"/>
@@ -156,7 +156,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" ambiguous="YES" text="Feiertag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5z-tp-IGm">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" ambiguous="YES" text="Feiertag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5z-tp-IGm">
                                                     <rect key="frame" x="15" y="17" width="290" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>

@@ -84,6 +84,18 @@ class OnboardingPermissionsCalendarViewController: UIViewController {
         UserData.sharedInstance.finishedOnboarding = true
         nc.post(name: .finishedOnboarding, object: nil)
         dismiss(animated: false)
+
+        //TODO ScheduleChanges hier gleich laden?
+//        DispatchQueue.global().async {
+//            //load ScheduleChanges
+//            let scheduleChangesController = ScheduleChangesController()
+//            scheduleChangesController.handleAllChanges()
+//
+//            //Kalender Sync abschließend
+//            //            if (self.TurnOnCalenderSynchronisationSwitch.isOn) {
+//            //                self.settingsController.startCalendarSync()
+//            //            }
+//        }
     }
     
     @IBAction func askForCalendarPermissionsAction(_ sender: UIButton) {

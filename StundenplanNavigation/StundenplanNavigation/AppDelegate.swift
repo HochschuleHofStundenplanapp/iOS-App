@@ -300,7 +300,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 //            print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
 //            print("register for remote notifications")
-            UIApplication.shared.registerForRemoteNotifications()
+            DispatchQueue.main.async {
+                print("register for remote push...")
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
 

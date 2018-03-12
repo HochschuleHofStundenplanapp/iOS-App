@@ -81,7 +81,6 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
            }
     
     override func viewWillAppear(_ animated: Bool) {
-       // scheduleChangesController.handleChanges()
         scheduleChangesController.handleAllChanges()
         
         //Entfernen des Badges
