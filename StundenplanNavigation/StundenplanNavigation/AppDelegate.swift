@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         //Setup for Notifications and BackgroundFetch
             
             
-            //UIUserNotificationSettings(types: [.alert, .badge,.sound],categories: nil)
+        //UIUserNotificationSettings(types: [.alert, .badge,.sound],categories: nil)
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         UNUserNotificationCenter.current().delegate = self
@@ -111,9 +111,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         let isValidJson = JSONSerialization.isValidJSONObject(payload)
         if isValidJson{
             sendToServer(jsonObject: payload)
-            print("register push by server")
+            //print("register push by server")
         }else{
-            print("JSON not valid")
+            print("error forward token: JSON not valid")
         }
     }
     func sendToServer(jsonObject: [String: Any]){
@@ -158,8 +158,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
                     }.resume()
 
             }
-            else{
-                    print("oops! Something went wrong")
+            else {
+                print("oops! Something went wrong")
         }
         
         }
@@ -190,25 +190,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
-        
-        
     }
     
     // Background Fetch ###############################################################################
     
     var scheduleChangesController : ScheduleChangesController!
-    
     var tempOldChanges : [ChangedLecture] = []
-    
-    
     var handler: (UIBackgroundFetchResult) -> Void = {_ in}
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
         handler = completionHandler
-        
         //Setup for downloading new Changes
+        downloadChanges()
+    }
+    
+    func downloadChanges() {
         scheduleChangesController = ScheduleChangesController()
         scheduleChangesController.addNewObserver(o: self)
         tempOldChanges = UserData.sharedInstance.oldChanges
@@ -274,14 +270,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         }
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 
         completionHandler([.alert, .badge, .sound])
     }
+    
     func removeAllNotifications(){
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
+    
     func registerForPushNotification() {
         
         //notifications
@@ -295,11 +292,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             self.getNotificationSettings()
         }
     }
+    
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-//            print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
-//            print("register for remote notifications")
             DispatchQueue.main.async {
                 print("register for remote push...")
                 UIApplication.shared.registerForRemoteNotifications()

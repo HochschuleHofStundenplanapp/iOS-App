@@ -77,6 +77,13 @@ class OnboardingLecturesViewController: UIViewController {
         if segue.identifier == "OnboardingToPermissionsCalendar" {
             let destinationCtrl = segue.destination as! OnboardingPermissionsCalendarViewController
             destinationCtrl.settingsController = settingsController
+            
+            DispatchQueue.main.async {
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate  else {
+                    return
+                }
+                appDelegate.downloadChanges()
+            }
         }
     }
     
