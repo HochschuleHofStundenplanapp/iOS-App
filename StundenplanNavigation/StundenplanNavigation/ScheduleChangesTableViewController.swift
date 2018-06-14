@@ -35,7 +35,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
-        
+        setupObserver()
         
         if #available(iOS 11.0, *) {
             setUpNavbar()
@@ -51,6 +51,12 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
             NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 25),
             NSAttributedStringKey.foregroundColor: UIColor.white
         ]
+    }
+    
+    @inline(__always)
+    fileprivate func setupObserver(){
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(alertSererUnreachable), name: Notification.Name("ServerUnreachable"), object: nil)
     }
     
     func update(s: String?) {
@@ -97,5 +103,12 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc
+    func alertSererUnreachable(){
+        let alert = UIAlertController(title: "Netzwerkfehler", message: "Server zurzeit nicht erreichbar. Versuchen sie es zu einen späteren Zeitpunkt nochmal", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+        present(alert, animated: true) {() -> Void in }
     }
 }

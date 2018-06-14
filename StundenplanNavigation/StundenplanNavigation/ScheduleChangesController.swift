@@ -82,12 +82,19 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
                 return
             }
 //            print(String(data: dataObject.0!, encoding: String.Encoding.utf8)! as String)
-            
-            for change in (JsonChanges(data: dataObject.0!)?.changes)!
-            {
-//                ServerData.sharedInstance.allChanges.append(change)
+            guard let test = JsonChanges(data: dataObject.0!)?.changes else{
+                let nc  = NotificationCenter.default
+                nc.post(name: Notification.Name("ServerUnreachable"), object: nil)
+                return
+            }
+            for change in test{
                 UserData.sharedInstance.oldChanges.append(change)
             }
+//            for change in (JsonChanges(data: dataObject.0!)?.changes)!
+//            {
+////                ServerData.sharedInstance.allChanges.append(change)
+//                UserData.sharedInstance.oldChanges.append(change)
+//            }
         }
         
         //Speichern
@@ -123,5 +130,7 @@ class ScheduleChangesController: NSObject, DataObserverProtocol,myObservable{
             print("DataObserver wurde entfernt")
         }
     }
+    
+    
     
 }

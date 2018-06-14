@@ -88,13 +88,21 @@ class CourseController: NSObject, DataObserverProtocol {
             guard let data = dataObject.0 else {
                 return
             }
-            
-            AllCourses().setCourses(courses: (JsonCourses(data: data)?.courses!)!)
+            guard let test = JsonCourses(data: data)?.courses! else{
+                notifiyVCunreachable()
+                return
+            }
+            AllCourses().setCourses(courses: test)
         }
         notifyDownloadEnded()
     }
-    
+    //AllCourses().setCourses(courses: (JsonCourses(data: data)?.courses!)!)
     func cancelLoading(){
         myJobManager.cancelAllNetworkJobs()
+    }
+    
+    func notifiyVCunreachable(){
+        let nc = NotificationCenter.default
+        nc.post(name: Notification.Name("unreachable"), object: nil)
     }
 }

@@ -38,6 +38,9 @@ class OnboardingCourseViewController: UIViewController {
         tmpSelectedLectures = settingsController.tmpSelectedLectures
         tmpSelectedSeason = settingsController.tmpSelectedSeason
         
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(showAlert), name: Notification.Name("unreachable"), object: nil)
+        
         tutorialDescriptionView.applyShadow()
         
         courseController = CourseController(tmpSelectedCourses: self.tmpSelectedCourses, tmpSelectedSemesters: self.tmpSelectedSemesters, tmpSelectedLectures: self.tmpSelectedLectures, tmpSelectedSeason: tmpSelectedSeason)
@@ -98,6 +101,13 @@ class OnboardingCourseViewController: UIViewController {
         } else {
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
+    }
+    
+    @objc
+    func showAlert(){
+        let alert = UIAlertController(title: "Netzwerkfehler", message: "Server zurzeit nicht erreichbar. Versuchen sie es zu einen späteren Zeitpunkt nochmal", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+        present(alert, animated: true) {() -> Void in }
     }
 }
 
