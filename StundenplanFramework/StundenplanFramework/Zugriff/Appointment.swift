@@ -47,3 +47,23 @@ public class Appointment: NSObject, NSCoding {
     
 }
 
+public class Tuple: NSObject,NSCoding {
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(header, forKey: headerKey)
+        aCoder.encode(appointments, forKey: appointmentsKey)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        header = aDecoder.decodeObject(forKey: headerKey) as! String
+        appointments = aDecoder.decodeObject(forKey: appointmentsKey) as! [Appointment]
+    }
+    let headerKey = "headerKey"
+    let appointmentsKey = "appointmentsKey"
+    public var header : String
+    public var appointments = [Appointment]()
+    
+    public init(name:String, appointments:[Appointment]){
+        self.header = name
+        self.appointments = appointments
+    }
+}

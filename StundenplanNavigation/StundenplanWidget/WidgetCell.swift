@@ -64,7 +64,7 @@ class WidgetCell: UITableViewCell {
                 nowOutlet.text = "JETZT"
                 timerView.percentageOfHour = percentage
                 timerView.setNeedsDisplay()
-                restTime.text = "\(restMinutes) min."
+                restTime.text = "\(restMinutes) min"
             }else{
                 nowOutlet.text = "NÄCHSTE"
                 timerView.isHidden = true

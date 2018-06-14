@@ -16,7 +16,7 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     var delegate: ScheduleChangesTableViewDelegate!
     let usrdata : UserData! = UserData.sharedInstance
     
-            var scheduleChangesController : ScheduleChangesController!
+    var scheduleChangesController : ScheduleChangesController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +47,6 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     @available(iOS 11.0, *)
     func setUpNavbar(){
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 25),
-            NSAttributedStringKey.foregroundColor: UIColor.white
-        ]
     }
     
     @inline(__always)
@@ -60,11 +56,11 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
     }
     
     func update(s: String?) {
-        print ( "Lade Daten für Changes neu (tableview update)")
+        //print ( "Lade Daten für Changes neu (tableview update)")
         self.scheduleChangesTableView.reloadData()
         
         // Änderungen mit dem Kalender synchronisieren
-        dump(UserData.sharedInstance.calenderSync)
+        //dump(UserData.sharedInstance.calenderSync)
         if UserData.sharedInstance.calenderSync {
             CalendarController().updateAllEvents(changes: AllChanges().getChangedLectures())
         }
@@ -93,7 +89,6 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
            }
     
     override func viewWillAppear(_ animated: Bool) {
-       // scheduleChangesController.handleChanges()
         scheduleChangesController.handleAllChanges()
         
         //Entfernen des Badges

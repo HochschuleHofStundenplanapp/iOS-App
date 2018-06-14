@@ -19,10 +19,15 @@ struct OnboardingIDs {
 }
 
 class OnboardingViewController: UIViewController {
+    @IBOutlet weak var labVersion: UILabel!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            labVersion.text = "Version: \(version)"
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

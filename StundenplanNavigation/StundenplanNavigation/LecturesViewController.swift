@@ -41,12 +41,16 @@ class LecturesViewController: UIViewController {
         DispatchQueue.global().async {
             self.settingsController.commitChanges()
             DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
+                //UIApplication.shared.registerForRemoteNotifications()
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate  else {
+                    return
+                }
+                appDelegate.registerForPushNotification()
                 self.backgroundProgressIndicator.stopActivityIndicator()
             }
         }
         
-        print("save selected lectures")
+        //print("save selected lectures")
         
         navigationController!.popViewController(animated: true)
     }

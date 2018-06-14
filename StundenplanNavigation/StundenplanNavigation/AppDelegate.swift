@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 
     var window: UIWindow?
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserData.sharedInstance = DataObjectPersistency().loadDataObject()
         
@@ -32,23 +30,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         //Setup for Notifications and BackgroundFetch
             
             
-            //UIUserNotificationSettings(types: [.alert, .badge,.sound],categories: nil)
+        //UIUserNotificationSettings(types: [.alert, .badge,.sound],categories: nil)
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         UNUserNotificationCenter.current().delegate = self
 //      ServerData.sharedInstance.allChanges = UserData.sharedInstance.oldChanges
         checkForSemesterAppointments()
 //      print("Server: \(ServerData.sharedInstance.allChanges)")
-//      registerForPushNotification()
-        UIApplication.shared.registerForRemoteNotifications()
+        
+        //beim App Start für Notifications und Push registrieren
+        registerForPushNotification()
         
         return true
     }
     
     func checkForSemesterAppointments() {
-        print(UserData.sharedInstance.appointments.count)
+//        print(UserData.sharedInstance.appointments.count)
+//        print("checkSemester: \(Date().checkSemester()) und in UserData: \(UserData.sharedInstance.currentSemester)")
         if UserData.sharedInstance.appointments.count == 0 || Date().checkSemester() != UserData.sharedInstance.currentSemester {
-            print("Noch keine Termine vorhanden..Termine werden geparsed und gespeichert")
+//            print("Noch keine Termine vorhanden..Termine werden geparsed und gespeichert")
             let parser = AppointmentParser()
             parser.downloadAndParseAppointmentContent()
         }
@@ -63,11 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         case Faculty.engineeringSciences.faculty:
             appColor.faculty = Faculty.engineeringSciences
         default:
-            print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
+            //print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
             appColor.faculty = Faculty.default
         }
         
-        print("loaded Color", appColor.faculty)
+        //print("loaded Color", appColor.faculty)
         
         let barButton = UIBarButtonItem.appearance()
         barButton.tintColor = UIColor.white
@@ -77,13 +77,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        print("DeviceToken: \(token)")
+        //print("DeviceToken: \(token)")
         forwardTokenToServer(deviceToken: token)
     }
+    
     func forwardTokenToServer(deviceToken: String){
         //now find all courses
         let lectures = UserData.sharedInstance.selectedSchedule.getOneDimensionalList()
-        print("lectures->count\(lectures.count)")
+        //print("lectures->count\(lectures.count)")
         var jsonLectures : [String: [Any]] = [:]
         var tmpArray: [String] = []
         for item in lectures{
@@ -110,8 +111,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         let isValidJson = JSONSerialization.isValidJSONObject(payload)
         if isValidJson{
             sendToServer(jsonObject: payload)
+            //print("register push by server")
         }else{
-            print("JSON not valid")
+            print("error forward token: JSON not valid")
         }
     }
     func sendToServer(jsonObject: [String: Any]){
@@ -131,7 +133,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
             if let dict = resourceFileDictinoary{
                 if !(dict["isPushTesting"] as! Bool){
                    let productive = dict["ProductiveURL"] as! String
-                    myUrl = productive + "fcm_update_and_send.php?os=1" // 0 = Android, 1 = iOS
+//                    myUrl = productive + "fcm_update_and_send.php?os=1" // 0 = Android, 1 = iOS
+                    myUrl = productive + "fcm_register_user.php?os=1" // 0 = Android, 1 = iOS
                 }
                 else{
                     myUrl = dict["TestURL"] as! String + "fcm_register_user.php?os=1"
@@ -144,18 +147,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
                 request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 
-                print(params)
+//                print("URL: \(myUrl)")
+//                print(params)
                 
                 //http request
                 URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
-                    if let safeData = data{
-                        print("response: \(String(describing: String(data:safeData, encoding:.utf8)))")
+                    if let _ = data{
+                        //print("response: \(String(describing: String(data:safeData, encoding:.utf8)))")
                     }
                     }.resume()
 
             }
-        else{
-                    print("oops! Something went wrong")
+            else {
+                print("oops! Something went wrong")
         }
         
         }
@@ -186,25 +190,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
-        
-        
     }
     
     // Background Fetch ###############################################################################
     
     var scheduleChangesController : ScheduleChangesController!
-    
     var tempOldChanges : [ChangedLecture] = []
-    
-    
     var handler: (UIBackgroundFetchResult) -> Void = {_ in}
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
         handler = completionHandler
-        
         //Setup for downloading new Changes
+        downloadChanges()
+    }
+    
+    func downloadChanges() {
         scheduleChangesController = ScheduleChangesController()
         scheduleChangesController.addNewObserver(o: self)
         tempOldChanges = UserData.sharedInstance.oldChanges
@@ -246,7 +246,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("recive Notification do something with it")
+        //print("recive Notification do something with it")
         UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
         switch application.applicationState{
             case .active:
@@ -270,18 +270,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         }
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 
         completionHandler([.alert, .badge, .sound])
     }
+    
     func removeAllNotifications(){
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
-    func registerForPushNotification(){
+    
+    func registerForPushNotification() {
+        
+        //notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
             print("Permission granted: \(granted)")
+           
+            guard granted else {
+                return
+            }
+            self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                print("register for remote push...")
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
 

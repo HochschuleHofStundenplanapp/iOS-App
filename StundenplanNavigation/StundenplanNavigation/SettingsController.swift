@@ -81,8 +81,12 @@ class SettingsController: NSObject {
         UserData.sharedInstance.removedLectures = []
         UserData.sharedInstance.savedSplusnames = []
         UserData.sharedInstance.oldChanges = []
+        
         DispatchQueue.main.async {
-            UIApplication.shared.registerForRemoteNotifications()
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate  else {
+                return
+            }
+            appDelegate.registerForPushNotification()
         }
 
 

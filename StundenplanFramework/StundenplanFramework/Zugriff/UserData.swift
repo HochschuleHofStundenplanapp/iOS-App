@@ -18,6 +18,7 @@ public class UserData: NSObject, NSCoding{
 
     public static var sharedInstance = UserData()
     
+    public var useTaskPlaner: Bool = false
     public var calenderSync: Bool = false
     public var selectedSeason : String = Date().checkSemester()
     public var selectedCourses : [Course] = []
@@ -51,6 +52,7 @@ public class UserData: NSObject, NSCoding{
     let appointmentKey = "appointmentKey"
     let showAppointmentsKey = "showAppointmentsKey"
     let currentSemesterKey = "currentSemesterKey"
+    let calendarIdentifierKey = "calendarIdentifierKey"
 
     private override init(){}
     
@@ -69,13 +71,14 @@ public class UserData: NSObject, NSCoding{
         copy.appointments = appointments
         copy.showAppointments = showAppointments
         copy.currentSemester = currentSemester
+        copy.calendarIdentifier = calendarIdentifier
         return copy
     }
     
     public func setSelectedAppColor (newAppColor : String) {
         self.selectedAppColor = newAppColor
         DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
-        print("new set AppColor: " +  selectedAppColor)
+        //print("new set AppColor: " +  selectedAppColor)
         
     }
     
@@ -110,8 +113,8 @@ public class UserData: NSObject, NSCoding{
         currentSemester = aDecoder.decodeObject(forKey: currentSemesterKey) as? String ?? Date().checkSemester()
         appointments = aDecoder.decodeObject(forKey: appointmentKey) as? [Tuple] ?? []
         showAppointments = aDecoder.decodeBool(forKey: showAppointmentsKey)
-        
-        
+        calendarIdentifier = aDecoder.decodeObject(forKey: calendarIdentifierKey) as? String ?? ""
+
         super.init()
     }
     
@@ -131,5 +134,6 @@ public class UserData: NSObject, NSCoding{
         aCoder.encode(currentSemester, forKey: currentSemesterKey)
         aCoder.encode(appointments, forKey: appointmentKey)
         aCoder.encode(showAppointments, forKey : showAppointmentsKey)
-        }
+        aCoder.encode(calendarIdentifier, forKey : calendarIdentifierKey)
+    }
 }

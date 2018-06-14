@@ -66,10 +66,24 @@ class OnboardingLecturesViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "OnboardingToPermissionsPush" {
+//            let destinationCtrl = segue.destination as! OnboardingPermissionsPushViewController
+//            destinationCtrl.settingsController = settingsController
+//        }
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OnboardingToPermissionsPush" {
-            let destinationCtrl = segue.destination as! OnboardingPermissionsPushViewController
+        if segue.identifier == "OnboardingToPermissionsCalendar" {
+            let destinationCtrl = segue.destination as! OnboardingPermissionsCalendarViewController
             destinationCtrl.settingsController = settingsController
+            
+            DispatchQueue.main.async {
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate  else {
+                    return
+                }
+                appDelegate.downloadChanges()
+            }
         }
     }
     

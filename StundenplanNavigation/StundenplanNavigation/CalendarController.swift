@@ -47,6 +47,10 @@ class CalendarController: NSObject {
             if(oldChanges.count > 0){
                 updateAllEvents(changes: oldChanges)
             }
+            
+            for curr in TaskDisplayController().flatTaskArray() {
+                CalendarInterface.sharedInstance.addTaskToCalendar(task: curr)
+            }
         }
     }
     
@@ -172,7 +176,7 @@ class CalendarController: NSObject {
         var result : Lecture? = nil
         
         for lecture in SelectedLectures().getOneDimensionalList() {
-            if(lecture.isEqual(change)){
+            if(lecture.isEqual(to: change)){
                 result = lecture
             }
         }

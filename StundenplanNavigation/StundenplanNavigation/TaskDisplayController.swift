@@ -63,7 +63,7 @@ class TaskDisplayController {
         return result
     }
     
-    private func flatTaskArray() -> [Task] {
+    func flatTaskArray() -> [Task] {
         var result: [Task] = []
         for array in tasks {
             for task in array {

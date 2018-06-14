@@ -41,15 +41,49 @@ class CalendarInterface: NSObject {
         
         newCalendar.title = Constants.calendarTitle
         
-        newCalendar.source = eventStore.defaultCalendarForNewEvents?.source
+        //NEU: in iCloud und alternativ local
+        let sourcesInEventStore = eventStore.sources
+        
+        // Filter the available sources and select the "icloud" source to assign to the new calendar's
+        // source property
+        //print("create icloud calendar")
+        newCalendar.source = sourcesInEventStore.filter{
+            (source: EKSource) -> Bool in
+            (source.sourceType.rawValue == EKSourceType.calDAV.rawValue)
+            &&
+            (source.title == "iCloud")
+            }.first
+            
+        if newCalendar.source == nil {
+            //print("create lokal calendar")
+            newCalendar.source = sourcesInEventStore.filter{
+                (source: EKSource) -> Bool in
+                source.sourceType.rawValue == EKSourceType.local.rawValue
+                }.first!
+        }
+        
+        // Save the calendar using the Event Store instance
         do {
-            try self.eventStore.saveCalendar(newCalendar, commit: true)
+            try eventStore.saveCalendar(newCalendar, commit: true)
+            
             self.calendar = newCalendar
             UserData.sharedInstance.calendarIdentifier = calendar?.calendarIdentifier
         } catch {
             print(error)
             print("Fehler bei create Calendar")
         }
+        
+        //ALT
+//        newCalendar.source = eventStore.defaultCalendarForNewEvents?.source
+//        do {
+//            try self.eventStore.saveCalendar(newCalendar, commit: true)
+//            self.calendar = newCalendar
+//
+//            UserData.sharedInstance.calendarIdentifier = calendar?.calendarIdentifier
+//        } catch {
+//            print(error)
+//            print("Fehler bei create Calendar")
+//        }
     }
     
     /**
@@ -206,7 +240,7 @@ class CalendarInterface: NSObject {
             
             event.calendar  = calendar!
             
-            print("\t\t---> \(event.title) - \(event.startDate) - \(event.endDate)")
+            //print("\t\t---> \(event.title) - \(event.startDate) - \(event.endDate)")
             
             do {
                 try eventStore.save(event, span: .thisEvent, commit: true)
@@ -401,12 +435,20 @@ class CalendarInterface: NSObject {
     }
     
     public func addTaskToCalendar(task: Task) {
+        var foundLectureToTask = false
+//        print("addTask: \(task)")
+
         if let events = getCalendarEvents() {
             for event in events {
-                
+                //Termin für Lecture an diesem Tag
                 if event.title == task.lecture && event.startDate.formattedDate == task.dueDate.formattedDate {
-                    let taskNote = "\n\(task.title)\n\(task.taskDescription)"
-                    event.notes?.append(taskNote)
+                    foundLectureToTask = true
+                    let taskNote = "offene Aufgabe: \(task.title)\n\(task.taskDescription)"
+                    if event.notes == nil {
+                        event.notes = taskNote
+                    } else {
+                        event.notes?.append("\n\(taskNote)")
+                    }
                     event.title.insert(contentsOf: Constants.hasTaskNote, at: event.title.startIndex)
                     do {
                         try eventStore.save(event, span: .thisEvent)
@@ -416,17 +458,56 @@ class CalendarInterface: NSObject {
                 }
             }
         }
+        
+        //Termin ohne Lecture an diesem Tag
+        if !foundLectureToTask {
+            if UserData.sharedInstance.calenderSync {
+                let event = EKEvent(eventStore: eventStore)
+                
+                event.title     = "\(Constants.hasTaskNote) Offene Aufgabe: \(task.title)"
+                if(task.lecture != "") {
+                    event.title.append(" [\(task.lecture)]")
+                }
+                event.notes     = "\(task.title)\n\(task.taskDescription)"
+                event.startDate = task.dueDate
+                event.endDate = task.dueDate
+                event.isAllDay  = true
+                event.location  = "HS Hof"
+                
+                if Constants.calendarAlarmOffset > 0 {
+                    var ekAlarms = [EKAlarm]()
+                    ekAlarms.append(EKAlarm(relativeOffset:-Constants.calendarAlarmOffset))
+                    event.alarms    = ekAlarms
+                }
+                
+                event.calendar  = calendar!
+                
+                do {
+                    try eventStore.save(event, span: .thisEvent, commit: true)
+                } catch {
+                    print("CalendarInterface-Error: addTaskToCalendar2")
+                }
+            }
+        }
     }
     
     public func removeTaskFromCalendar(task: Task) {
+//        print("task: \(task.title) \(task.dueDate) \(task.taskDescription)")
         if let events = getCalendarEvents() {
             for event in events {
+//                print("remove event: \(event)")
                 if event.title == "\(Constants.hasTaskNote)\(task.lecture)" && event.startDate.formattedDate == task.dueDate.formattedDate {
-                    let taskNote = "\n\(task.title)\n\(task.taskDescription)"
+                    let taskNote = "offene Aufgabe: \(task.title)\n\(task.taskDescription)"
                     event.notes = event.notes?.replacingOccurrences(of: taskNote, with: "")
                     event.title = event.title.replacingOccurrences(of: Constants.hasTaskNote, with: "")
                     do {
                         try eventStore.save(event, span: .thisEvent)
+                    } catch {
+                        print("CalendarInterface-Error: removeTaskFromCalendar")
+                    }
+                } else if event.title.starts(with: "\(Constants.hasTaskNote) Offene Aufgabe: \(task.title)") && event.startDate.formattedDate == task.dueDate.formattedDate {
+                    do {
+                        try eventStore.remove(event, span: .thisEvent)
                     } catch {
                         print("CalendarInterface-Error: removeTaskFromCalendar")
                     }

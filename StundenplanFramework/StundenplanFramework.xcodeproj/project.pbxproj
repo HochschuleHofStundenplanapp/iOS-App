@@ -27,7 +27,6 @@
 		4097D6B31FC826C200E1FC28 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4097D6B21FC826C100E1FC28 /* CalendarData.swift */; };
 		40A0F6EC1FD0C2AF00F8F5E8 /* SelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0F6EB1FD0C2AF00F8F5E8 /* SelectedLectures.swift */; };
 		40B51E6C2012446E00FB2865 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B51E6B2012446E00FB2865 /* Appointment.swift */; };
-		40B51E6E201244B200FB2865 /* AppointmentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B51E6D201244B200FB2865 /* AppointmentParser.swift */; };
 		906172DC46BF6EAA9C9CDA4F /* Pods_StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECB6F8E4B8AE5E7043C5C90 /* Pods_StundenplanFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +65,6 @@
 		4097D6B21FC826C100E1FC28 /* CalendarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		40A0F6EB1FD0C2AF00F8F5E8 /* SelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLectures.swift; sourceTree = "<group>"; };
 		40B51E6B2012446E00FB2865 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
-		40B51E6D201244B200FB2865 /* AppointmentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentParser.swift; sourceTree = "<group>"; };
 		57D71F95DC36DD98D638C7C7 /* Pods_StundenplanFrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanFrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C162FA7AFC0B858B47461 /* Pods-StundenplanFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StundenplanFramework/Pods-StundenplanFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		FECB6F8E4B8AE5E7043C5C90 /* Pods_StundenplanFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +108,6 @@
 				17B938C11FB9BAB9002F8BD4 /* UserData.swift */,
 				400590B01FC823140083F86C /* DataObjectPersistency.swift */,
 				40B51E6B2012446E00FB2865 /* Appointment.swift */,
-				40B51E6D201244B200FB2865 /* AppointmentParser.swift */,
 			);
 			path = Zugriff;
 			sourceTree = "<group>";
@@ -361,7 +358,6 @@
 				17B938B41FB9BA04002F8BD4 /* AllLectures.swift in Sources */,
 				17B938C01FB9BA9F002F8BD4 /* Semester.swift in Sources */,
 				17B938C41FB9BB1D002F8BD4 /* Task.swift in Sources */,
-				40B51E6E201244B200FB2865 /* AppointmentParser.swift in Sources */,
 				17B938C61FB9BB3A002F8BD4 /* DateExtension.swift in Sources */,
 				17B938B21FB9BA04002F8BD4 /* AllCourses.swift in Sources */,
 				4097D6B31FC826C200E1FC28 /* CalendarData.swift in Sources */,

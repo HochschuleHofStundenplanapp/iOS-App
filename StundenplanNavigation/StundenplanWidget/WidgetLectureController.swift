@@ -55,9 +55,11 @@ class WidgetLectureController {
         resultLectures+=upcoming
 
         
-        if resultLectures.count < 2 {
-            //print("resultLectures < 2")
-            resultLectures+=getLecturesFor(nextWeekday(of: day), day:day+1)
+        var i = 1
+        while resultLectures.count < 4 {
+            resultLectures+=getLecturesFor(nextWeekday(of: day), day:day+i)
+//            print("resultLectures < 4; i: \(i); count: \(resultLectures.count)")
+            i = i+1
         }
         
         return resultLectures
@@ -94,7 +96,7 @@ class WidgetLectureController {
         
         let lecturesOnWeekday = DataObjectPersistency().loadDataObject().selectedSchedule.lectures[weekday]
         
-        if resultLectures.count < 2{
+        if resultLectures.count < 4{
             return lecturesOnWeekday.map({ (lecture) -> (Lecture,Int) in
                 resultLectures.append((lecture,aDay))
                 return (lecture,aDay)

@@ -35,7 +35,7 @@ class JsonChanges {
     
     fileprivate func extractChanges(_ json : AnyObject)
     {
-        print("Extract Changes")
+        //print("Extract Changes")
         
         guard let jsonData = JSONData.fromObject(json) else
         {

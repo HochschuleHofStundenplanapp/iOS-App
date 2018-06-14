@@ -60,6 +60,7 @@ public class DataObjectPersistency {
         archiver.encode(items, forKey: dataKey)
         archiver.finishEncoding()
         data.write(toFile: file, atomically: true)
+        print("user data saved")
     }
     
     public func loadCalendarData() -> CalendarData {

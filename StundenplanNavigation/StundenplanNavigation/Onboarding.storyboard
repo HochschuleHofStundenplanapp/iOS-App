@@ -32,27 +32,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunes" translatesAutoresizingMaskIntoConstraints="NO" id="GvJ-Gh-47Y">
-                                <rect key="frame" x="87.666666666666686" y="118" width="200" height="200"/>
+                                <rect key="frame" x="127.66666666666669" y="99" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="7cB-c4-2Jk"/>
-                                    <constraint firstAttribute="height" constant="200" id="F94-wB-ck9"/>
+                                    <constraint firstAttribute="width" constant="120" id="7cB-c4-2Jk"/>
+                                    <constraint firstAttribute="height" constant="120" id="F94-wB-ck9"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stundenplanapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1O-UB-pz5">
-                                <rect key="frame" x="16" y="353" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stundenplan-App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1O-UB-pz5">
+                                <rect key="frame" x="16" y="224" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: 4.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8Z-9S-7xH">
-                                <rect key="frame" x="16" y="382" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8Z-9S-7xH">
+                                <rect key="frame" x="16" y="253" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSs-df-jyt">
                                 <rect key="frame" x="16" y="644" width="343" height="55"/>
-                                <color key="backgroundColor" white="0.37" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.2666666667" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="5qz-KU-Zo5"/>
                                 </constraints>
@@ -67,25 +67,153 @@
                                     <constraint firstAttribute="height" constant="55" id="4be-zE-RuL"/>
                                 </constraints>
                                 <state key="normal" title="Abbrechen">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.76078431369999999" green="0.090196078430000007" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="AbortOnboarding:" destination="JRr-0h-6Rc" eventType="touchUpInside" id="KfS-aE-hUf"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEn-yg-ks5">
+                                <rect key="frame" x="10" y="282" width="355" height="352"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Der Einrichtungsassistent unterstützt dich bei der Auswahl deiner Vorlesungen sowie Einstellungen.
+
+Die aktuelle Version bietet folgende Funktionen:
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="◼︎">
+                                        <attributes>
+                                            <color key="NSColor" red="0.76078431369999999" green="0.090196078430000007" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="AppleMyungjo"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Vorlesungen und Stundenplanänderungen
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="◼︎">
+                                        <attributes>
+                                            <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="AppleMyungjo"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Synchronisation mit deinem Kalender
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="◼︎">
+                                        <attributes>
+                                            <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="AppleMyungjo"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Widget deiner anstehenden Vorlesungen
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="◼︎">
+                                        <attributes>
+                                            <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="AppleMyungjo"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Push-Meldungen zu Änderungen
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="◼︎">
+                                        <attributes>
+                                            <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="AppleMyungjo"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Termine im Semester (unter Einstellungen)
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="◼︎">
+                                        <attributes>
+                                            <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="AppleMyungjo"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Aufgabenplaner">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="◼︎">
+                                        <attributes>
+                                            <color key="NSColor" red="0.76078000000000001" green="0.090200000000000002" blue="0.10979999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="AppleMyungjo"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" neues modernes Layout">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GvJ-Gh-47Y" firstAttribute="top" secondItem="svM-SS-ztg" secondAttribute="bottom" id="0jN-xD-yLa"/>
+                            <constraint firstItem="tEn-yg-ks5" firstAttribute="top" secondItem="x8Z-9S-7xH" secondAttribute="bottom" constant="8" id="3Jw-3Y-BDf"/>
+                            <constraint firstItem="tEn-yg-ks5" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="10" id="9Mm-FS-pcu"/>
                             <constraint firstItem="x8Z-9S-7xH" firstAttribute="top" secondItem="f1O-UB-pz5" secondAttribute="bottom" constant="8" id="Fcs-b8-x1c"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="bottom" secondItem="taC-Zm-RL3" secondAttribute="bottom" constant="16" id="Jnh-Bm-IMZ"/>
+                            <constraint firstItem="gSs-df-jyt" firstAttribute="top" secondItem="tEn-yg-ks5" secondAttribute="bottom" constant="10" id="Kjf-k1-BT6"/>
                             <constraint firstItem="taC-Zm-RL3" firstAttribute="top" secondItem="gSs-df-jyt" secondAttribute="bottom" constant="8" id="NmN-2x-N7X"/>
                             <constraint firstItem="x8Z-9S-7xH" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="OJ6-N0-agx"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="gSs-df-jyt" secondAttribute="trailing" constant="16" id="TRk-9J-jGJ"/>
                             <constraint firstItem="f1O-UB-pz5" firstAttribute="top" secondItem="GvJ-Gh-47Y" secondAttribute="bottom" id="Wha-uk-b3N"/>
-                            <constraint firstItem="GvJ-Gh-47Y" firstAttribute="top" secondItem="svM-SS-ztg" secondAttribute="bottom" constant="24" id="Z0s-ZY-4Td"/>
+                            <constraint firstItem="GvJ-Gh-47Y" firstAttribute="top" secondItem="svM-SS-ztg" secondAttribute="bottom" constant="5" id="Z0s-ZY-4Td"/>
                             <constraint firstItem="x8Z-9S-7xH" firstAttribute="top" secondItem="f1O-UB-pz5" secondAttribute="bottom" id="ZGe-OQ-Nxh"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="f1O-UB-pz5" secondAttribute="trailing" constant="16" id="b26-rq-PH6"/>
+                            <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="tEn-yg-ks5" secondAttribute="trailing" constant="10" id="cgy-AF-zw4"/>
                             <constraint firstItem="f1O-UB-pz5" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="fON-qi-b41"/>
                             <constraint firstItem="taC-Zm-RL3" firstAttribute="leading" secondItem="brj-Ib-GgY" secondAttribute="leading" constant="16" id="gaW-b2-hkc"/>
                             <constraint firstItem="GvJ-Gh-47Y" firstAttribute="centerX" secondItem="brj-Ib-GgY" secondAttribute="centerX" id="iHd-n2-Mkx"/>
@@ -95,7 +223,7 @@
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="svM-SS-ztg" secondAttribute="trailing" constant="16" id="oKD-A8-6GJ"/>
                             <constraint firstItem="svM-SS-ztg" firstAttribute="top" secondItem="brj-Ib-GgY" secondAttribute="top" constant="20" id="ovD-AP-Mio"/>
                             <constraint firstItem="brj-Ib-GgY" firstAttribute="trailing" secondItem="x8Z-9S-7xH" secondAttribute="trailing" constant="16" id="pRn-UK-VKl"/>
-                            <constraint firstItem="f1O-UB-pz5" firstAttribute="top" secondItem="GvJ-Gh-47Y" secondAttribute="bottom" constant="35" id="tWW-VE-tBH"/>
+                            <constraint firstItem="f1O-UB-pz5" firstAttribute="top" secondItem="GvJ-Gh-47Y" secondAttribute="bottom" constant="5" id="tWW-VE-tBH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="brj-Ib-GgY"/>
                         <variation key="default">
@@ -104,19 +232,19 @@
                                 <exclude reference="x8Z-9S-7xH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0jN-xD-yLa"/>
-                                <exclude reference="Z0s-ZY-4Td"/>
                                 <exclude reference="Wha-uk-b3N"/>
                                 <exclude reference="tWW-VE-tBH"/>
                                 <exclude reference="Fcs-b8-x1c"/>
                                 <exclude reference="ZGe-OQ-Nxh"/>
+                                <exclude reference="0jN-xD-yLa"/>
+                                <exclude reference="Z0s-ZY-4Td"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="0jN-xD-yLa"/>
                                 <include reference="Wha-uk-b3N"/>
                                 <include reference="ZGe-OQ-Nxh"/>
+                                <include reference="0jN-xD-yLa"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -125,9 +253,9 @@
                                 <include reference="x8Z-9S-7xH"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Z0s-ZY-4Td"/>
                                 <include reference="tWW-VE-tBH"/>
                                 <include reference="Fcs-b8-x1c"/>
+                                <include reference="Z0s-ZY-4Td"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -142,12 +270,15 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="eN4-0V-B3U"/>
+                    <connections>
+                        <outlet property="labVersion" destination="x8Z-9S-7xH" id="f9Q-ou-zWo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVM-3D-hE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="376.80000000000001" y="43.628185907046479"/>
         </scene>
-        <!--Schritt 1 von 6-->
+        <!--Schritt 1 von 5-->
         <scene sceneID="IkY-HJ-e0a">
             <objects>
                 <viewController storyboardIdentifier="onboardingFacultyID" id="x9J-Mn-pnM" customClass="OnboardingFacultyViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,7 +289,7 @@
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-AD-4eU">
                                 <rect key="frame" x="0.0" y="88" width="375" height="120"/>
                                 <subviews>
-                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deine Fakultät aus, für ein individuelles Apperlebnis." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQB-5L-PwV">
+                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Wähle deine Fakultät aus, für ein individuelles App-Erlebnis." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQB-5L-PwV">
                                         <rect key="frame" x="8" y="54" width="359" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -226,7 +357,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ja-GW-G3o"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 1 von 6" id="egV-KF-ztB">
+                    <navigationItem key="navigationItem" title="Schritt 1 von 5" id="egV-KF-ztB">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="SHQ-O1-mJs"/>
                         <barButtonItem key="leftBarButtonItem" title="Abbrechen" id="Dnd-cE-3Bt">
                             <connections>
@@ -249,7 +380,7 @@
             </objects>
             <point key="canvasLocation" x="2308" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 2 von 6-->
+        <!--Schritt 2 von 5-->
         <scene sceneID="sim-tb-Wio">
             <objects>
                 <viewController storyboardIdentifier="onboardingCourseID" id="xHZ-Kp-1gc" customClass="OnboardingCourseViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -327,7 +458,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c95-x5-UZF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 2 von 6" id="FLG-YE-O83">
+                    <navigationItem key="navigationItem" title="Schritt 2 von 5" id="FLG-YE-O83">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="ljD-Ng-SRe"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="Jkw-cE-g1p">
                             <connections>
@@ -362,7 +493,7 @@
             </objects>
             <point key="canvasLocation" x="1361" y="44"/>
         </scene>
-        <!--Schritt 3 von 6-->
+        <!--Schritt 3 von 5-->
         <scene sceneID="cf4-MD-Dvg">
             <objects>
                 <viewController id="bUF-XS-zbM" customClass="OnboardingSemesterViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -442,7 +573,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H4L-CX-Dy0"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 3 von 6" id="q9c-dp-rav">
+                    <navigationItem key="navigationItem" title="Schritt 3 von 5" id="q9c-dp-rav">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="cyp-Cq-VVM"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="eSf-Pa-eH6">
                             <connections>
@@ -459,7 +590,7 @@
             </objects>
             <point key="canvasLocation" x="4072.8000000000002" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 4 von 6-->
+        <!--Schritt 4 von 5-->
         <scene sceneID="2t1-qp-s3W">
             <objects>
                 <viewController id="wY3-TX-CE6" customClass="OnboardingLecturesViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -593,12 +724,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rWJ-6R-RB1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 4 von 6" id="ARU-rk-bq3">
+                    <navigationItem key="navigationItem" title="Schritt 4 von 5" id="ARU-rk-bq3">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="EMm-1B-xT6"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Weiter" id="swL-Ze-ARE">
                             <connections>
                                 <action selector="nextOnboardingScreenBarButtonAction:" destination="wY3-TX-CE6" id="0rg-zl-RZF"/>
-                                <segue destination="PLy-6Y-xwj" kind="show" identifier="OnboardingToPermissionsPush" id="igW-1s-Uu2"/>
+                                <segue destination="Imd-kk-mYB" kind="show" identifier="OnboardingToPermissionsCalendar" id="mUy-pc-ZZN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -613,7 +744,7 @@
             </objects>
             <point key="canvasLocation" x="5013.6000000000004" y="43.596059113300491"/>
         </scene>
-        <!--Schritt 6 von 6-->
+        <!--Schritt 5 von 5-->
         <scene sceneID="eaA-rK-Hbb">
             <objects>
                 <viewController id="Imd-kk-mYB" customClass="OnboardingPermissionsCalendarViewController" customModule="StundenplanNavigation" customModuleProvider="target" sceneMemberID="viewController">
@@ -724,7 +855,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D5R-lS-bqc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Schritt 6 von 6" id="4v1-4v-8Pj">
+                    <navigationItem key="navigationItem" title="Schritt 5 von 5" id="4v1-4v-8Pj">
                         <barButtonItem key="rightBarButtonItem" title="Fertig" id="28O-Wc-Pn9">
                             <connections>
                                 <action selector="endOnboardingAction:" destination="Imd-kk-mYB" id="Dib-3E-imM"/>
@@ -753,7 +884,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Nutzung erlauben" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="D1S-E6-ste">
-                                <rect key="frame" x="16" y="256" width="343" height="20"/>
+                                <rect key="frame" x="16" y="212" width="343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="aJh-KJ-lJ1"/>
                                 </constraints>
@@ -762,13 +893,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding_allowPush" translatesAutoresizingMaskIntoConstraints="NO" id="b71-tc-kqM">
-                                <rect key="frame" x="16" y="292" width="343" height="128"/>
+                                <rect key="frame" x="16" y="248" width="343" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b71-tc-kqM" secondAttribute="height" multiplier="343:128" id="YMT-Xp-dwS"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aI-dn-xtg">
-                                <rect key="frame" x="0.0" y="88" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH-BENACHRICHTIGUNGEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyK-Bk-T5A">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -801,15 +932,22 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9s-q2-30Q">
-                                <rect key="frame" x="16" y="428" width="343" height="30"/>
+                                <rect key="frame" x="16" y="384" width="343" height="30"/>
                                 <state key="normal" title="Push erlauben"/>
                                 <connections>
                                     <action selector="requestPushNotificationPermissionAction:" destination="PLy-6Y-xwj" eventType="touchUpInside" id="JHd-ai-aE2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opS-uT-vcJ">
+                                <rect key="frame" x="0.0" y="422" width="375" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="opS-uT-vcJ" firstAttribute="top" secondItem="e9s-q2-30Q" secondAttribute="bottom" constant="8" id="6DR-a2-T3A"/>
                             <constraint firstItem="b71-tc-kqM" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="9R4-7t-Mqn"/>
                             <constraint firstItem="D1S-E6-ste" firstAttribute="top" secondItem="4aI-dn-xtg" secondAttribute="bottom" constant="48" id="FUq-3G-dKX"/>
                             <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="D1S-E6-ste" secondAttribute="trailing" constant="16" id="HVN-F6-ppY"/>
@@ -818,24 +956,27 @@
                             <constraint firstItem="D1S-E6-ste" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="TpJ-C6-46w"/>
                             <constraint firstItem="e9s-q2-30Q" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" constant="16" id="Y4R-Ei-oGe"/>
                             <constraint firstItem="4aI-dn-xtg" firstAttribute="top" secondItem="aR7-IO-dab" secondAttribute="top" id="ZCt-b8-vqF"/>
+                            <constraint firstItem="opS-uT-vcJ" firstAttribute="leading" secondItem="aR7-IO-dab" secondAttribute="leading" id="eLw-mz-qDe"/>
                             <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="e9s-q2-30Q" secondAttribute="trailing" constant="16" id="fjQ-Y0-smu"/>
                             <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="4aI-dn-xtg" secondAttribute="trailing" id="fyO-OX-yKQ"/>
                             <constraint firstItem="e9s-q2-30Q" firstAttribute="top" secondItem="b71-tc-kqM" secondAttribute="bottom" constant="8" id="oEl-ig-Esf"/>
                             <constraint firstItem="b71-tc-kqM" firstAttribute="top" secondItem="D1S-E6-ste" secondAttribute="bottom" constant="16" id="rHK-tr-X0E"/>
+                            <constraint firstItem="aR7-IO-dab" firstAttribute="trailing" secondItem="opS-uT-vcJ" secondAttribute="trailing" id="yrM-de-1s9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aR7-IO-dab"/>
                     </view>
                     <navigationItem key="navigationItem" title="Schritt 5 von 6" id="Jeu-KK-imK">
-                        <barButtonItem key="rightBarButtonItem" title="Weiter" id="aHa-gt-p57">
-                            <connections>
-                                <segue destination="Imd-kk-mYB" kind="show" identifier="OnboardingToPermissionsCalendar" id="0fs-ps-xZQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="rZ7-Ib-Zcb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Weiter" id="aHa-gt-p57"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="butRequestPush" destination="e9s-q2-30Q" id="ZQI-y4-GyP"/>
+                        <outlet property="labInfo" destination="opS-uT-vcJ" id="i9C-Zc-QXJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opQ-mj-Zze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5896.8000000000002" y="43.596059113300491"/>
+            <point key="canvasLocation" x="5890" y="439"/>
         </scene>
     </scenes>
     <resources>
