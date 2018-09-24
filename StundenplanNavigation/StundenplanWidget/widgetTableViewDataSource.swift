@@ -27,10 +27,10 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         
         // Kann man sicher besser machen
         //TODO JA
-        if indexPath.row == 0 && wCell.nowOutlet.text == "NÄCHSTE" {
+        if indexPath.row == 0 && wCell.nowOutlet.text == "HEUTE" {
             firstIsNext = true
-        }else if indexPath.row == 1 && firstIsNext && wCell.nowOutlet.text == "NÄCHSTE"{
-            wCell.nowOutlet.text = "NÄCHSTE"
+        }else if indexPath.row == 1 && firstIsNext && wCell.nowOutlet.text == "HEUTE"{
+            wCell.nowOutlet.text = "HEUTE"
         }
         
         if DataObjectPersistency().loadDataObject().showAppointments{
@@ -101,7 +101,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         switch string {
         case "JETZT":
             return midnight!
-        case "NÄCHSTE":
+        case "HEUTE":
             return midnight!
         case "MORGEN":
             return Calendar.current.date(byAdding: .day, value: 1, to: midnight!)!

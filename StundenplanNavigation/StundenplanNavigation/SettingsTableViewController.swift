@@ -46,10 +46,10 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
             setupNavBar()
         }
         
-        facultySegmentControl?.subviews[0].tintColor = UIColor.hawGrey
-        facultySegmentControl?.subviews[1].tintColor = UIColor.hawBlue
-        facultySegmentControl?.subviews[2].tintColor = UIColor.hawYellow
-        facultySegmentControl?.subviews[3].tintColor = UIColor.hawRed
+        facultySegmentControl?.subviews[0].tintColor = UIColor.hawRed
+        facultySegmentControl?.subviews[1].tintColor = UIColor.hawYellow
+        facultySegmentControl?.subviews[2].tintColor = UIColor.hawBlue
+        facultySegmentControl?.subviews[3].tintColor = UIColor.hawGrey
 
         setUpUI()
     }

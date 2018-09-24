@@ -199,6 +199,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
     var handler: (UIBackgroundFetchResult) -> Void = {_ in}
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("background fetch")
+        
         handler = completionHandler
         //Setup for downloading new Changes
         downloadChanges()
@@ -236,6 +238,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         
             self.updateCalendar()
             
+            //Speichern
+            DataObjectPersistency().saveDataObject(items: UserData.sharedInstance)
         }
     }
     

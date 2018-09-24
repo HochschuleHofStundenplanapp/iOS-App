@@ -52,16 +52,19 @@ class AppointmentParser {
     }
     
     private func parseAppointments(html: String) -> [Tuple]{
-        
+
         let doc : Document = try! SwiftSoup.parse(html)
         
         //liefert 2 Tabellen (SS und WS)
-        let table = try! doc.getElementsByClass("contenttable")
+        let table = try! doc.getElementsByClass("table-responsive")
         
         //hier muss die richtige ausgewählt werden, anhand th-Text
         //ausgewählter index in table (0 oder 1)
         var table_index = 0
         
+        if(table.size() != 2) {
+            return [Tuple]()
+        }
         //prüfen der table header
         if(table.size() == 2) {
             let th_first = try! table.first()!.getElementsByTag("th")

@@ -60,13 +60,15 @@ class WidgetCell: UITableViewCell {
 
         // Sets the label accordingly.
         if restMinutes >= 0 && bIsToday{
+            //TODO hier checken
             if WidgetLectureController().isUpcomingLectureToday() && restMinutes <= lectureDuration{
                 nowOutlet.text = "JETZT"
                 timerView.percentageOfHour = percentage
-                timerView.setNeedsDisplay()
                 restTime.text = "\(restMinutes) min"
+                timerView.isHidden = false
+                timerView.setNeedsDisplay()
             }else{
-                nowOutlet.text = "NÄCHSTE"
+                nowOutlet.text = "HEUTE"
                 timerView.isHidden = true
                 restTime.text = ""
             }
