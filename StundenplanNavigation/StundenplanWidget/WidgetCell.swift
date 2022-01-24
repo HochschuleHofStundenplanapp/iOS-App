@@ -31,7 +31,7 @@ class WidgetCell: UITableViewCell {
         room.text = lecture.0.room
         //Formatting the time
         let timeFormatter = DateFormatter()
-        timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+        timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale
         timeFormatter.dateFormat = "HH:mm"
         let startTimeString = timeFormatter.string(from: lecture.0.startTime)
         let endTimeString = timeFormatter.string(from: lecture.0.endTime)
@@ -142,7 +142,7 @@ class WidgetCell: UITableViewCell {
             let timeInterval = Double(dif*3600*24)
             let date = Date().addingTimeInterval(timeInterval)
             let formatter = DateFormatter()
-            formatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+            formatter.locale = NSLocale(localeIdentifier: "de") as Locale
             formatter.dateFormat = "dd.MM.YYYY"
             return formatter.string(from: date)
         }

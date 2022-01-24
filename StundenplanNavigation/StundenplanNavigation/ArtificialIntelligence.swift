@@ -354,10 +354,10 @@ class ArtificialIntelligence: NSObject {
                                 index = potentialDate.index(potentialDate.startIndex, offsetBy: 3)
                                 newIndex = potentialDate.index(index, offsetBy: 2)
                                 range = index ..< newIndex
-                                let month = Int(potentialDate[range])
-                                
-                                if month! < 9 {
-                                    currentYear += 1
+                                if let month = Int(potentialDate[range]) {
+                                    if month < 9 {
+                                        currentYear += 1
+                                    }
                                 }
                             }
                             

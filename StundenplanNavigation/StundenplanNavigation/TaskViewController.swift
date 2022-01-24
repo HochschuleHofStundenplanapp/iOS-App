@@ -24,6 +24,7 @@ class TaskViewController: UIViewController, TaskViewProtocol {
         taskTableView.dataSource = dataSource
         taskTableView.delegate = delegate
 
+        setUpUI()
         if #available(iOS 11.0, *) {
             setupNavBar()
         } else {
@@ -36,8 +37,8 @@ class TaskViewController: UIViewController, TaskViewProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUpUI()
         taskTableView.reloadData()
+        setUpUI()
     }
     
     deinit {
@@ -46,11 +47,34 @@ class TaskViewController: UIViewController, TaskViewProtocol {
     }
     
     func setUpUI() {
+        switch UserData.sharedInstance.getSelectedAppColor() {
+        case Faculty.economics.faculty:
+            appColor.faculty = Faculty.economics
+        case Faculty.computerScience.faculty:
+            appColor.faculty = Faculty.computerScience
+        case Faculty.engineeringSciences.faculty:
+            appColor.faculty = Faculty.engineeringSciences
+        default:
+            //print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
+            appColor.faculty = Faculty.default
+        }
+        
         filterSegmentedControll.tintColor = appColor.tintColor
         
-        tabBarController?.tabBar.tintColor = appColor.tintColor
-        navigationController?.navigationBar.tintColor = appColor.tintColor
-        navigationItem.rightBarButtonItem?.tintColor = appColor.navigationBarTintColor
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = appColor.tintColor
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            tabBarController?.tabBar.tintColor = appColor.tintColor
+            navigationController?.navigationBar.tintColor = appColor.tintColor
+            navigationItem.rightBarButtonItem?.tintColor = appColor.navigationBarTintColor
+        }
     }
     
     @available(iOS 11.0, *)

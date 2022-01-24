@@ -52,7 +52,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     
     func formatDate(interval : DateInterval) -> String {
         let formatter = DateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+        formatter.locale = Locale(identifier: "de")
         formatter.dateFormat = "dd.MM.YYYY"
         let start = formatter.string(from: interval.start)
         //print(interval.start)
@@ -65,7 +65,7 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     func checkForAppointment(on aDate: String) -> Appointment? {
         let userData = DataObjectPersistency().loadDataObject()
         let formatter = DateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+        formatter.locale = Locale(identifier: "de")
         formatter.dateFormat = "dd.MM.YYYY"
         let date = formatter.date(from: aDate)
         if let date = date {
@@ -129,7 +129,8 @@ class WidgetTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let url = URL(string: "StundenplanNavigation://")
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        //TODO fix
+        //UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         
     }
 }

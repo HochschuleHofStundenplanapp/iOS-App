@@ -30,7 +30,7 @@ public class Appointment: NSObject, NSCoding {
     override public var description: String
     {
         let formatter = DateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+        formatter.locale = NSLocale(localeIdentifier: "de") as Locale
         formatter.dateFormat = "dd.MM.YYYY"
         return "Name: \(name), Date: \(formatter.string(from:date.start)) - \(formatter.string(from:date.end))"
     }

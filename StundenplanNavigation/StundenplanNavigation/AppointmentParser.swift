@@ -124,8 +124,9 @@ class AppointmentParser {
                         let firstDateString = String(text[..<index])
                         let firstDate = dateFormatter.date(from: "\(firstDateString) 00:00:00")!
                         let endDateString = String(text[text.index(index, offsetBy: 2) ..< text.endIndex])
-                        let endDate = dateFormatter.date(from: "\(endDateString) 23:59:00")!
-                        date = DateInterval(start: firstDate, end: endDate)
+                        if let endDate = dateFormatter.date(from: "\(endDateString) 23:59:00") {
+                            date = DateInterval(start: firstDate, end: endDate)
+                        }
                     }
                     let appointment = Appointment(name: name, date: date)
                     

@@ -44,6 +44,40 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         }
     }
     
+    func setUpUI() {
+        switch UserData.sharedInstance.getSelectedAppColor() {
+        case Faculty.economics.faculty:
+            appColor.faculty = Faculty.economics
+        case Faculty.computerScience.faculty:
+            appColor.faculty = Faculty.computerScience
+        case Faculty.engineeringSciences.faculty:
+            appColor.faculty = Faculty.engineeringSciences
+        default:
+            //print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
+            appColor.faculty = Faculty.default
+        }
+        
+        //print("loaded Color", appColor.faculty)
+
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = appColor.tintColor
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+            UINavigationBar.appearance().barTintColor = appColor.tintColor
+            tabBarController?.tabBar.tintColor = appColor.tintColor
+            navigationController?.navigationBar.tintColor = appColor.tintColor
+        }
+
+    }
+    
     @available(iOS 11.0, *)
     func setUpNavbar(){
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -93,6 +127,8 @@ class ScheduleChangesTableViewController: UITableViewController, myObserverProto
         
         //Entfernen des Badges
         UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        setUpUI()
     }
 
     override func didReceiveMemoryWarning() {

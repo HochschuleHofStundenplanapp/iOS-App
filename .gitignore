@@ -22,3 +22,14 @@ Dokumentation/CalendarInterface.log
 
 ## ignoriert push settings und den bundle identifier
 ##StundenplanNavigation/StundenplanNavigation.xcodeproj/project.pbxproj
+StundenplanFramework/Pods/Pods.xcodeproj/xcuserdata
+StundenplanFramework/Podfile.lock
+StundenplanFramework/StundenplanFramework.xcodeproj/xcuserdata
+StundenplanNavigation/StundenplanNavigation.xcodeproj/project.xcworkspace/xcuserdata
+StundenplanNavigation/StundenplanNavigation.xcodeproj/xcuserdata
+StundenplanNavigation 2022-01-24 10-45-12
+StundenplanNavigation.xcworkspace/xcuserdata
+StundenplanFramework/Pods/SwiftSoup
+
+StundenplanFramework/Pods/Target Support Files
+StundenplanFramework/Pods/Manifest.lock

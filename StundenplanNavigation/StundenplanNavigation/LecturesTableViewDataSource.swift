@@ -49,7 +49,7 @@ class LecturesTableViewDataSource: NSObject, UITableViewDataSource {
         var endTimeString = ""
         
         let timeFormatter = DateFormatter()
-        timeFormatter.locale = NSLocale(localeIdentifier: "de") as Locale!
+        timeFormatter.locale = Locale(identifier: "de")
         timeFormatter.dateFormat = "HH:mm"
         startTimeString = timeFormatter.string(from: lecture.startTime)
         endTimeString = timeFormatter.string(from: lecture.endTime)

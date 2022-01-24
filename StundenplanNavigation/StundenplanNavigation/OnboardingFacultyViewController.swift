@@ -41,9 +41,21 @@ class OnboardingFacultyViewController: UIViewController {
 
     @objc func setUpUI() {
         self.facultySegmentedControl.tintColor = appColor.tintColor
-        self.navigationController?.navigationBar.tintColor = appColor.navigationBarTintColor
-        self.navigationController?.navigationBar.barTintColor = appColor.tintColor
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:appColor.navigationBarTintColor]
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = appColor.tintColor
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.compactAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            self.navigationController?.navigationBar.tintColor = appColor.navigationBarTintColor
+            self.navigationController?.navigationBar.barTintColor = appColor.tintColor
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:appColor.navigationBarTintColor]
+        }
     }
     
     @IBAction func selectedFacultySegmentedControllAction(_ sender: UISegmentedControl) {

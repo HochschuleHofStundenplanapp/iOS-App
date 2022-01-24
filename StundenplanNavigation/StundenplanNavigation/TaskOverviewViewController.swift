@@ -51,7 +51,7 @@ class TaskOverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        taskDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+//        taskDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         taskDescriptionTextView.layer.borderWidth = 0.5
         
         setUpUI()
@@ -92,7 +92,7 @@ class TaskOverviewViewController: UIViewController {
             taskTitleTextField.borderStyle = .roundedRect
             taskDueDateTextField.borderStyle = .roundedRect
             taskLectureTextField.borderStyle = .roundedRect
-            taskDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+            //taskDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
             taskDescriptionTextView.layer.borderWidth = 0.5
             
             taskTitleTextField.isUserInteractionEnabled = true
@@ -101,6 +101,38 @@ class TaskOverviewViewController: UIViewController {
             taskDescriptionTextView.isUserInteractionEnabled = true
             displayTask()
         }
+        
+        switch UserData.sharedInstance.getSelectedAppColor() {
+        case Faculty.economics.faculty:
+            appColor.faculty = Faculty.economics
+        case Faculty.computerScience.faculty:
+            appColor.faculty = Faculty.computerScience
+        case Faculty.engineeringSciences.faculty:
+            appColor.faculty = Faculty.engineeringSciences
+        default:
+            //print("selected appcolor was: " + UserData.sharedInstance.getSelectedAppColor())
+            appColor.faculty = Faculty.default
+        }
+        
+        //print("loaded Color", appColor.faculty)
+
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = appColor.tintColor
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+            UINavigationBar.appearance().barTintColor = appColor.tintColor
+            tabBarController?.tabBar.tintColor = appColor.tintColor
+            navigationController?.navigationBar.tintColor = appColor.tintColor
+        }
+        
     }
     
     func setUpSpecialKeyboards() {

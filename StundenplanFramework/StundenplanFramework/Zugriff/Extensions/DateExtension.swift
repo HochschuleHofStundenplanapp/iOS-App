@@ -10,7 +10,7 @@ import Foundation
 
 public extension Date {
     
-    public var formattedDate: String {
+    var formattedDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, dd.MM.yyyy"
         let dateString = dateFormatter.string(from: self)
@@ -18,7 +18,7 @@ public extension Date {
     }
     
     //gibt SS oder WS zurück
-    public func checkSemester() -> String{
+    func checkSemester() -> String{
         let currentDate = Date()
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: currentDate)
@@ -162,7 +162,7 @@ public extension Date {
     }
     
     //gibt Vorlesungsende zurück
-    public func endSemester(semester : String) -> Date{
+    func endSemester(semester : String) -> Date{
         let currentDate = Date()
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: currentDate)
@@ -252,7 +252,7 @@ public extension Date {
     }
     
     //gibt start einer einzelnen Vorlesung zurück
-    public func startLecture(startDate: Date, weekdayString : String, semester : String) -> Date{
+    func startLecture(startDate: Date, weekdayString : String, semester : String) -> Date{
         let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
         let startSemesterDate = startSemester(semester: semester)
         let calendar = Calendar.current
@@ -295,7 +295,7 @@ public extension Date {
     }
     
     //gibt ende einer einzelnen Vorlesung zurück
-    public func endLecture (endDate: Date, weekdayString : String, semester : String) -> Date{
+    func endLecture (endDate: Date, weekdayString : String, semester : String) -> Date{
         let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
         let endSemesterDate = endSemester(semester: semester)
         let calendar = Calendar.current
@@ -337,13 +337,13 @@ public extension Date {
         return finalEndDate
     }
     
-    public func changeTimeDate(date : Date) -> Date {
+    func changeTimeDate(date : Date) -> Date {
         let calendar = Calendar.current
         let newDate = calendar.date(byAdding: .year, value: 1, to: date)
         return newDate!
     }
     
-    public func calendarweekToDate(day: String, cw: Int, date: Date) -> Date{
+    func calendarweekToDate(day: String, cw: Int, date: Date) -> Date{
         let weekDays = [("Montag", 2), ("Dienstag", 3), ("Mittwoch", 4), ("Donnerstag", 5), ("Freitag", 6), ("Samstag", 7)]
         let calendar = Calendar.current
         let currentDate = Date()
@@ -364,7 +364,7 @@ public extension Date {
         return newDate
     }
     
-    public func combineDateAndTime(date: Date, time: Date) -> Date{
+    func combineDateAndTime(date: Date, time: Date) -> Date{
     
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
@@ -379,7 +379,7 @@ public extension Date {
         return combinedDate
     }
     
-    public func changeStartFromTwoWeekLecture(startDate: Date, semester: String) -> Date{
+    func changeStartFromTwoWeekLecture(startDate: Date, semester: String) -> Date{
         
         let semesterBeginn = startSemester(semester: semester)
         let calendar = Calendar.current

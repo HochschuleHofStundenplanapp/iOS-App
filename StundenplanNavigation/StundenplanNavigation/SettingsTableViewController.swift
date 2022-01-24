@@ -68,11 +68,23 @@ class SettingsTableViewController: UITableViewController, UITabBarControllerDele
         syncSwitch.onTintColor = appColor.tintColor
         facultySegmentControl.tintColor = appColor.tintColor
         showAppointmentsSwitch.onTintColor = appColor.tintColor
-        
-        tabBarController?.tabBar.tintColor = appColor.tintColor
-        navigationController?.navigationBar.barTintColor = appColor.tintColor
-        navBar.barTintColor = appColor.tintColor
-        
+                
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = appColor.tintColor
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+            tabBarController?.tabBar.tintColor = appColor.tintColor
+            navigationController?.navigationBar.barTintColor = appColor.tintColor
+            navBar.barTintColor = appColor.tintColor
+        }
+
     
         if let navigationController =  tabBarController?.viewControllers?[2] as? UINavigationController {
             if let taskVCtrl = navigationController.viewControllers[0] as? TaskViewController {

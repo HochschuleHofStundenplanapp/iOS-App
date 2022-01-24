@@ -41,6 +41,7 @@ class ScheduleTableViewController: UITableViewController {
         let taskNavigationCtrl = tabBarController?.viewControllers?[taskItemIndex] as! UINavigationController
         let taskCtrl = taskNavigationCtrl.childViewControllers[0] as! TaskViewController
         taskCtrl.updateTaskBadge()
+        
     }
 
     
@@ -73,9 +74,23 @@ class ScheduleTableViewController: UITableViewController {
         
         //print("loaded Color", appColor.faculty)
 
-        UINavigationBar.appearance().barTintColor = appColor.tintColor
-        tabBarController?.tabBar.tintColor = appColor.tintColor
-        navigationController?.navigationBar.tintColor = appColor.tintColor
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = appColor.tintColor
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            
+        } else {
+            // Fallback on earlier versions
+            UINavigationBar.appearance().barTintColor = appColor.tintColor
+            navigationController?.navigationBar.tintColor = appColor.tintColor
+            tabBarController?.tabBar.tintColor = appColor.tintColor
+        }
+
     }
     
     func showOnboardingIfNeeded() {

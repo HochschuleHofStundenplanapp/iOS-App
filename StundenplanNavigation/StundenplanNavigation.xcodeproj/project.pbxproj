@@ -24,14 +24,14 @@
 		0FC2FED11F953CCC00BDDB0D /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED01F953CCC00BDDB0D /* TaskTableViewDataSource.swift */; };
 		0FC2FED31F953CDB00BDDB0D /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED21F953CDB00BDDB0D /* TaskTableViewDelegate.swift */; };
 		0FC2FED51F953D3300BDDB0D /* TaskOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */; };
-		2643C2E2200D00AB007C8744 /* Pods_StundenplanNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */; };
 		26538D5F2047FCF900C0ADD8 /* AppointmentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26538D5E2047FCF900C0ADD8 /* AppointmentParser.swift */; };
 		2658E1C6204ECAC30048060D /* StundenplanWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 40E3D99A1FCC2163007B8722 /* StundenplanWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2658E1CE204ECB130048060D /* StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; };
-		2658E1CF204ECB130048060D /* StundenplanFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2658E1D3204ECB890048060D /* StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; };
 		26905DB51FE959970007E979 /* OnboardingSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D381FC426CD00710CD4 /* OnboardingSemesterViewController.swift */; };
 		26905DB71FE959AA0007E979 /* OnboardingPermissionsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F605D3C1FC42E1700710CD4 /* OnboardingPermissionsCalendarViewController.swift */; };
+		26FE8C6B279EA75900C73A6C /* Pods_StundenplanNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */; };
+		26FE8C6D279EB31400C73A6C /* StundenplanFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; };
+		26FE8C6E279EB31400C73A6C /* StundenplanFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F1E85B71ECDBD2500B193D3 /* JsonChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */; };
 		402DD3451FD1A34600E5B5A0 /* WidgetLectureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402DD3441FD1A34600E5B5A0 /* WidgetLectureController.swift */; };
 		406205C71FD476BD00B6F4F6 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406205C51FD476BC00B6F4F6 /* TimerView.swift */; };
@@ -164,13 +164,13 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2658E1D2204ECB130048060D /* Embed Frameworks */ = {
+		26FE8C6F279EB31400C73A6C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2658E1CF204ECB130048060D /* StundenplanFramework.framework in Embed Frameworks */,
+				26FE8C6E279EB31400C73A6C /* StundenplanFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +200,6 @@
 		0FC2FED41F953D3300BDDB0D /* TaskOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewViewController.swift; sourceTree = "<group>"; };
 		2643C2E3200D00AB007C8744 /* Pods_StundenplanNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_StundenplanNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26538D5E2047FCF900C0ADD8 /* AppointmentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentParser.swift; sourceTree = "<group>"; };
-		2658E1CA204ECB050048060D /* Pods_StundenplanFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_StundenplanFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1E85B61ECDBD2500B193D3 /* JsonChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonChanges.swift; sourceTree = "<group>"; };
 		3848006B9AFF4FC80C560411 /* Pods-StundenplanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StundenplanWidget.debug.xcconfig"; path = "../StundenplanFramework/Pods/Target Support Files/Pods-StundenplanWidget/Pods-StundenplanWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		3BADF20A1196EA8EC9E1F97C /* Pods_StundenplanNavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StundenplanNavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,8 +307,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2658E1CE204ECB130048060D /* StundenplanFramework.framework in Frameworks */,
-				2643C2E2200D00AB007C8744 /* Pods_StundenplanNavigation.framework in Frameworks */,
+				26FE8C6D279EB31400C73A6C /* StundenplanFramework.framework in Frameworks */,
+				26FE8C6B279EA75900C73A6C /* Pods_StundenplanNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				40E3D98E1FCC2075007B8722 /* StundenplanFramework.framework */,
-				40E3D9901FCC2075007B8722 /* StundenplanFrameworkTests.swift */,
+				40E3D9901FCC2075007B8722 /* StundenplanFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -662,7 +661,6 @@
 		CEAC96F71DB5FD350042FF3D = {
 			isa = PBXGroup;
 			children = (
-				2658E1CA204ECB050048060D /* Pods_StundenplanFramework.framework */,
 				40E3D9881FCC2075007B8722 /* StundenplanFramework.xcodeproj */,
 				CEAC97021DB5FD350042FF3D /* StundenplanNavigation */,
 				CEAC97191DB5FD350042FF3D /* StundenplanNavigationTests */,
@@ -838,7 +836,7 @@
 				5C853E75250857FC4887FAC7 /* [CP] Embed Pods Frameworks */,
 				41B4D922BAF79686F720297F /* [CP] Copy Pods Resources */,
 				2658E1C9204ECAC30048060D /* Embed App Extensions */,
-				2658E1D2204ECB130048060D /* Embed Frameworks */,
+				26FE8C6F279EB31400C73A6C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -900,7 +898,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Hof University";
 				TargetAttributes = {
 					40E3D9991FCC2163007B8722 = {
@@ -944,7 +942,7 @@
 			};
 			buildConfigurationList = CEAC96FB1DB5FD350042FF3D /* Build configuration list for PBXProject "StundenplanNavigation" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -977,10 +975,9 @@
 			remoteRef = 40E3D98D1FCC2075007B8722 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		40E3D9901FCC2075007B8722 /* StundenplanFrameworkTests.swift */ = {
+		40E3D9901FCC2075007B8722 /* StundenplanFrameworkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			name = StundenplanFrameworkTests.swift;
 			path = StundenplanFrameworkTests.xctest;
 			remoteRef = 40E3D98F1FCC2075007B8722 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1377,6 +1374,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3848006B9AFF4FC80C560411 /* Pods-StundenplanWidget.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -1384,11 +1382,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = StundenplanWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 4.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan.StundenplanWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1401,6 +1401,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 922A32D34C9B4916F79D5CF8 /* Pods-StundenplanWidget.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -1408,11 +1409,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = StundenplanWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 4.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan.StundenplanWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1426,6 +1429,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1435,6 +1439,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1442,8 +1447,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1469,7 +1476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1484,6 +1491,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1493,6 +1501,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1500,8 +1509,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1521,7 +1532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1537,11 +1548,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StundenplanNavigation/StundenplanNavigation.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 4.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1557,11 +1572,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StundenplanNavigation/StundenplanNavigation.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = StundenplanNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 4.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "iosapps.hof-university.stundenplan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

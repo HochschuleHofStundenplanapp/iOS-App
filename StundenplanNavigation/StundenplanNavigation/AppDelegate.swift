@@ -27,6 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, myObserverProtocol,UNUser
         setupAppColor()
         navbar.barTintColor = appColor.tintColor
         
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.backgroundColor = .systemBackground
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+        else if #available(iOS 13.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.backgroundColor = .systemBackground
+            UITabBar.appearance().standardAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+        
         //Setup for Notifications and BackgroundFetch
             
             

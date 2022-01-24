@@ -88,11 +88,17 @@ class CourseController: NSObject, DataObserverProtocol {
             guard let data = dataObject.0 else {
                 return
             }
-            guard let test = JsonCourses(data: data)?.courses! else{
+            
+            //fix for crash WS2019
+            guard let test = JsonCourses(data: data) else{
                 notifiyVCunreachable()
                 return
             }
-            AllCourses().setCourses(courses: test)
+            guard let test_courses = test.courses else{
+                notifiyVCunreachable()
+                return
+            }
+            AllCourses().setCourses(courses: test_courses)
         }
         notifyDownloadEnded()
     }
